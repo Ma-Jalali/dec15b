@@ -1,6 +1,8 @@
 /* DEC15 learning app — renders lesson data (lessons/*.js) into pages.
-   Presentation only. Saved work lives in localStorage under one key per lesson;
-   a later Supabase layer can replace load()/save() without touching rendering. */
+   Saving: work is written to this device (localStorage) on every change and,
+   when the student is signed in, copied to Supabase (js/cloud.js).
+   IMPORTANT for updates: keep KEY and field ids stable so saved work survives
+   new versions of the app. Never rename an existing id in lessons/*.js. */
 (() => {
 'use strict';
 const lesson = window.DEC15_LESSON, sources = window.DEC15_SOURCES, cfg = window.DEC15_CONFIG;
@@ -12,9 +14,23 @@ const allActivities = [...coreActivities, ...lesson.extras];
 let state = { values: {}, done: {}, revealed: {}, checked: {}, rows: {}, active: {}, teacher: cfg.teacherView === true, marks: {}, markDocuments: {} };
 let storageOK = true;
 try { const old = JSON.parse(localStorage.getItem(KEY)); if (old && old.values) state = { ...state, ...old }; } catch (e) { storageOK = false; }
-function save() {
-  try { localStorage.setItem(KEY, JSON.stringify(state)); storageOK = true; $('#save-status').textContent = 'Saved on this device'; }
-  catch (e) { storageOK = false; $('#save-status').textContent = 'Not saved — download your notes'; }
+function save(touch = true) {
+  if (touch) state.updatedAt = Date.now();
+  try { localStorage.setItem(KEY, JSON.stringify(state)); storageOK = true; } catch (e) { storageOK = false; }
+  paintStatus();
+  if (touch && cloud) cloud.queue();
+}
+let cloud = null, cloudInfo = { status: 'local' };
+function paintStatus() {
+  const el = $('#save-status'); if (!el) return;
+  const map = { local: ['ok', 'Saved on this device'], 'signed-out': ['warn', 'Saved on this device only'], pending: ['busy', 'Saving online…'], syncing: ['busy', 'Saving online…'], saved: ['ok', 'Saved online'], offline: ['warn', 'Offline — saved on this device'], error: ['bad', 'Online save failed — retrying'] };
+  const [tone, label] = !storageOK && cloudInfo.status !== 'saved' ? ['bad', 'Not saved — download your notebook'] : map[cloudInfo.status] || map.local;
+  el.dataset.tone = tone; el.textContent = label;
+  const btn = $('#account-btn'); if (!btn) return;
+  btn.hidden = !cloud?.enabled;
+  const name = cloudInfo.profile?.full_name || cloudInfo.user?.email || '';
+  btn.innerHTML = cloudInfo.user ? `<span class="avatar">${esc((name || '?').trim().slice(0, 1).toUpperCase())}</span><span class="acct-name">${esc(name.split(' ')[0] || 'Account')}</span>` : 'Sign in to save online';
+  btn.classList.toggle('signed-in', !!cloudInfo.user);
 }
 
 /* ───────── helpers ───────── */
@@ -43,7 +59,8 @@ const ICON = {
   alert: '<path d="M12 3 2 20h20z"/><path d="M12 10v4m0 3h.01"/>',
   play: '<path d="M7 4v16l13-8z"/>',
   download: '<path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>',
-  open: '<path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/>'
+  open: '<path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/>',
+  pen: '<path d="m15 4 5 5L9 20H4v-5z"/><path d="m13 6 5 5"/>'
 };
 const icon = (n, c = '') => `<svg class="icon ${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[n] || ICON.book}</svg>`;
 
@@ -230,6 +247,7 @@ function stagePage(s) {
           <span class="chip">${icon('clock')}${s.minutes} min</span>
           <span class="chip">${icon('list')}${s.activities.length} activities</span>
           <span class="chip chip-quiet">Teacher’s Book ${s.code}</span>
+          ${doneCount === s.activities.length ? `<span class="chip chip-done">${icon('check')}Stage complete</span>` : ''}
         </div>
       </div>
       <img class="stage-art" src="assets/chapter-${s.id}.svg" alt="" width="220" height="170">
@@ -245,17 +263,23 @@ function overview() {
       <p class="hero-lead">${esc(lesson.journey)}</p>
       <a class="btn btn-big" href="#${lesson.sections[0].id}">Start Stage 1 ${icon('arrow')}</a>
     </div>
-    <figure class="hero-img"><img src="assets/food-editorial.png" alt="An imperfect tomato, a carrot, a cut orange and grains on a plate — edible food that is often thrown away."></figure>
+    <figure class="hero-img"><img src="assets/food-editorial.webp" width="1400" height="933" alt="An imperfect tomato, a carrot, a cut orange and grains on a plate — edible food that is often thrown away."></figure>
   </section>
   <section class="essay-q essay-q-hero">
     <span class="essay-q-label">This week’s essay question · you write it on Monday</span>
     <blockquote>${esc(lesson.question)}</blockquote>
   </section>
-  <h2 class="section-title">Today’s four stages</h2>
-  <ol class="journey">${lesson.sections.map(s => `<li><a class="journey-card stage-${s.id}" href="#${s.id}">
+  <h2 class="section-title">Your day at a glance</h2>
+  <p class="section-sub">Four stages, about four hours. Each one prepares you for Monday’s essay.</p>
+  <div class="dayline" role="img" aria-label="${lesson.sections.map(s => `Stage ${Number(s.number)}, ${s.title}, ${s.minutes} minutes`).join('; ')}; then Monday: write the essay.">
+    ${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<a class="dayline-seg stage-${s.id}${d === s.activities.length ? ' complete' : ''}" href="#${s.id}" style="flex:${s.minutes}"><span class="dayline-bar"><i style="width:${Math.round(100 * d / s.activities.length)}%"></i></span><span class="dayline-num">${s.number}</span><span class="dayline-title">${esc(s.title)}</span><span class="dayline-min">${s.minutes} min</span></a>`; }).join('')}
+    <div class="dayline-flag"><span class="dayline-bar"></span><span class="dayline-num">${icon('pen')}</span><span class="dayline-title">Monday</span><span class="dayline-min">Write the essay</span></div>
+  </div>
+  <ol class="journey">${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<li><a class="journey-card stage-${s.id}" href="#${s.id}">
       <span class="journey-num">${s.number}</span>
       <span class="journey-text"><b>${esc(s.title)}</b><span>${esc(s.outcome)}</span></span>
-      <span class="journey-time">${s.minutes} min ${icon('arrow')}</span></a></li>`).join('')}</ol>
+      <span class="journey-time">${d === s.activities.length ? `<span class="journey-done">${icon('check')}Complete</span>` : `${s.minutes} min · ${s.activities.length} activities`} ${icon('arrow')}</span>
+      <img class="journey-art" src="assets/chapter-${s.id}.svg" alt="" width="120" height="93" loading="lazy"></a></li>`; }).join('')}</ol>
   <h2 class="section-title">How to read each page</h2>
   <p class="section-sub">Each kind of information always looks the same. The <b>dark box</b> is the most important.</p>
   <div class="legend">
@@ -278,16 +302,8 @@ function extrasPage() {
 function registerTables() {
   allActivities.forEach(a => (a._tables || []).forEach(b => { for (let r = 0; r < tableRows(b); r++) b.columns.forEach((c, ci) => { const k = `${b.id}-${r}-${ci}`; labels[k] = tableLabel(b, r, ci); owner[k] = a.id; }); }));
 }
-function entries() {
-  registerTables();
-  return allActivities.map(a => ({ a, entries: Object.entries(state.values).filter(([k, v]) => v && owner[k] === a.id).map(([k, v]) => [labels[k] || k, v === true ? '✓' : v]) })).filter(x => x.entries.length);
-}
 function notebook() {
-  const es = entries();
-  return `<header class="page-head"><span class="eyebrow">Your work</span><h1>My notebook</h1><p>Everything you wrote today, in one place. Download it and bring your plan on Monday.</p></header>
-  <div class="nb-actions"><button class="btn" data-export>${icon('download')}Download notes (.txt)</button><button class="btn-quiet" data-export-marked>Download with highlights (.html)</button><button class="btn-quiet" data-print>Print</button><button class="btn-quiet danger" data-clear>Clear this device</button></div>
-  ${es.length ? es.map(({ a, entries: e }) => `<section class="nb-entry"><h2>${esc(a.title)}</h2><dl>${e.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl></section>`).join('') : '<p class="empty">Your answers will appear here as you work.</p>'}
-  ${reader.notebookMarks()}`;
+  return `${nb.pageHTML()}<div class="nb-foot"><button class="btn-quiet danger" data-clear>Clear my work on this device</button></div>`;
 }
 
 /* ───────── render ───────── */
@@ -309,7 +325,7 @@ function render() {
   $('#crumb').innerHTML = `<span>DEC15</span><i>/</i><span>Week ${lesson.week} · Day ${lesson.day}</span><i>/</i><b>${esc(pageName)}</b>`;
   $('#teacher-toggle').setAttribute('aria-pressed', String(state.teacher));
   $('#teacher-toggle').textContent = state.teacher ? 'Teacher view: on' : 'Teacher view: off';
-  if (!storageOK) $('#save-status').textContent = 'Not saved — download your notes';
+  paintStatus();
   const tabs = $('.act-tabs'), cur = $('.act-tabs .current'); if (tabs && cur) tabs.scrollLeft = cur.offsetLeft - tabs.offsetLeft - 12;
   reader.mount();
 }
@@ -339,15 +355,68 @@ function glossary() {
   $('#resource-dialog').showModal();
 }
 
-/* ───────── export ───────── */
-function exportNotes() {
-  const lines = [`DEC15 — Week ${lesson.week}, Day ${lesson.day}: ${lesson.title}`, 'Essay question: ' + lesson.question + ' (' + lesson.wordTarget + ')', ''];
-  for (const { a, entries: es } of entries()) { lines.push('■ ' + a.title.toUpperCase()); for (const [k, v] of es) lines.push(k + ':\n' + v + '\n'); lines.push(''); }
-  lines.push('HIGHLIGHTS', ...reader.exportLines());
-  const url = URL.createObjectURL(new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' })), link = document.createElement('a');
-  link.href = url; link.download = `DEC15-${lesson.id.toUpperCase()}-my-notes.txt`; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
-  toast('Your notes have been downloaded.');
+/* ───────── notebook exports ───────── */
+const nb = window.createDEC15Notebook({ lesson, getState: () => state, planParts, tableRows, reader, esc, strip, toast, person: () => cloudInfo.profile?.full_name || '' });
+async function runExport(kind, btn) {
+  if (kind === 'gdocs') {
+    const copied = await nb.gdocs();
+    const win = copied ? window.open('https://docs.new', '_blank') : null;
+    if (copied) showGdocsHelp(!!win);
+    else { await nb.docx(); toast('Upload the downloaded Word file to Google Drive, then open it with Google Docs.'); }
+    return;
+  }
+  if (kind === 'print') { nb.print(); return; }
+  btn?.classList.add('busy'); btn?.setAttribute('aria-busy', 'true');
+  try { kind === 'pdf' ? await nb.pdf() : (await nb.docx(), toast('Your Word file has been downloaded.')); }
+  catch (e) { toast('Sorry — the file could not be created. Try Print instead.'); console.error(e); }
+  finally { btn?.classList.remove('busy'); btn?.removeAttribute('aria-busy'); }
 }
+function showGdocsHelp(opened) {
+  $('#resource-title').textContent = 'Open in Google Docs';
+  $('#resource-body').innerHTML = `<div class="gdocs-help">
+    <div class="gdocs-steps">
+      <div><span>1</span><p><b>Your notebook is copied.</b> Tables and headings are included.</p></div>
+      <div><span>2</span><p>${opened ? 'A new Google Doc has opened in another tab.' : `<a href="https://docs.new" target="_blank" rel="noopener">Open a new Google Doc</a> (sign in with your Google account).`}</p></div>
+      <div><span>3</span><p>Click inside the document and press <kbd>Ctrl</kbd> + <kbd>V</kbd> &nbsp;(Mac: <kbd>⌘</kbd> + <kbd>V</kbd>).</p></div>
+    </div>
+    <p class="gdocs-alt">Paste not working? <button class="text-link" data-export="docx">Download a Word file</button> and upload it to Google Drive — it opens in Google Docs.</p></div>`;
+  if (!$('#resource-dialog').open) $('#resource-dialog').showModal();
+}
+
+/* ───────── account (Supabase) ───────── */
+function accountDialog(mode = cloudInfo.user ? 'account' : 'signin', msg = '') {
+  $('#resource-title').textContent = mode === 'account' ? 'Your account' : 'Save your work online';
+  const p = cloudInfo.profile || {};
+  $('#resource-body').innerHTML = mode === 'account' ? `<div class="acct">
+      <div class="acct-card"><span class="avatar avatar-lg">${esc((p.full_name || cloudInfo.user?.email || '?').slice(0, 1).toUpperCase())}</span><div><b>${esc(p.full_name || 'Student')}</b><span>${esc(cloudInfo.user?.email || '')}${p.student_id ? ' · ' + esc(p.student_id) : ''}</span></div></div>
+      <p class="acct-note">${icon('check')} Your answers, tables, plan and highlights are saved online. Sign in on any computer to continue where you stopped.</p>
+      <button class="btn-quiet" data-signout>Sign out</button></div>`
+    : `<form class="acct-form" data-auth="${mode}" novalidate>
+      <p class="acct-intro">${mode === 'signup' ? 'Create an account once. Then your work is saved online and appears on any device where you sign in.' : mode === 'reset' ? 'Enter your email. We will send you a link to choose a new password.' : 'Sign in so your work is saved online — not only on this device.'}</p>
+      ${mode === 'signup' ? `<label>Full name<input name="name" autocomplete="name" required></label><label>Student ID <small>(optional)</small><input name="sid" inputmode="numeric" autocomplete="off"></label>` : ''}
+      <label>Email<input name="email" type="email" autocomplete="email" required></label>
+      ${mode !== 'reset' ? `<label>Password<input name="password" type="password" autocomplete="${mode === 'signup' ? 'new-password' : 'current-password'}" minlength="6" required></label>` : ''}
+      ${msg ? `<p class="acct-msg" role="alert">${msg}</p>` : ''}
+      <button class="btn" type="submit">${mode === 'signup' ? 'Create account' : mode === 'reset' ? 'Send reset link' : 'Sign in'}</button>
+      <p class="acct-switch">${mode === 'signin' ? `New here? <button type="button" class="text-link" data-auth-mode="signup">Create an account</button> · <button type="button" class="text-link" data-auth-mode="reset">Forgot password?</button>` : `Already have an account? <button type="button" class="text-link" data-auth-mode="signin">Sign in</button>`}</p>
+    </form>`;
+  if (!$('#resource-dialog').open) $('#resource-dialog').showModal();
+  $('#resource-body input')?.focus();
+}
+document.addEventListener('submit', async e => {
+  const f = e.target.closest('[data-auth]'); if (!f) return;
+  e.preventDefault();
+  const fd = new FormData(f), mode = f.dataset.auth, btn = f.querySelector('[type=submit]');
+  btn.disabled = true; btn.textContent = 'Please wait…';
+  let err;
+  if (mode === 'signin') err = await cloud.signIn(fd.get('email').trim(), fd.get('password'));
+  if (mode === 'signup') err = !String(fd.get('name')).trim() ? 'Please write your full name.' : await cloud.signUp(fd.get('email').trim(), fd.get('password'), String(fd.get('name')).trim(), String(fd.get('sid') || '').trim());
+  if (mode === 'reset') err = (await cloud.resetPassword(fd.get('email').trim())) || 'SENT';
+  if (err === 'CHECK_EMAIL') return accountDialog('signin', 'Account created. Open the email we sent you to confirm it, then sign in here.');
+  if (err === 'SENT') return accountDialog('signin', 'If that email has an account, a reset link is on its way.');
+  if (err) return accountDialog(mode, esc(err));
+  $('#resource-dialog').close(); toast('You are signed in. Your work is now saved online.');
+});
 
 /* ───────── timer ───────── */
 let timer = null, remaining = 0, deadline = 0, paused = false;
@@ -366,7 +435,15 @@ document.addEventListener('input', e => {
 });
 document.addEventListener('change', e => {
   const t = e.target;
-  if (t.dataset.done) { state.done[t.dataset.done] = t.checked; save(); rerender(); if (t.checked) toast('Activity marked as finished.'); }
+  if (t.dataset.done) {
+    state.done[t.dataset.done] = t.checked; save(); rerender();
+    if (t.checked) {
+      const s = lesson.sections.find(x => x.activities.some(a => a.id === t.dataset.done));
+      const all = s && s.activities.every(a => state.done[a.id]);
+      document.querySelector(`[data-done="${t.dataset.done}"]`)?.closest('.done-toggle')?.classList.add('pop');
+      toast(all ? `Stage ${Number(s.number)} complete — well done!` : 'Activity finished. Nice work.');
+    }
+  }
 });
 document.addEventListener('click', e => {
   const t = e.target.closest('button,a'); if (!t) return;
@@ -398,18 +475,25 @@ document.addEventListener('click', e => {
   if (d.timer) { startTimer(Number(d.timer)); return; }
   if (t.hasAttribute('data-pause')) { paused = !paused; if (!paused) deadline = Date.now() + remaining * 1000; t.textContent = paused ? 'Resume' : 'Pause'; return; }
   if (t.hasAttribute('data-close-timer')) { clearInterval(timer); $('#active-timer')?.remove(); return; }
-  if (t.hasAttribute('data-export') || t.id === 'export-side') { exportNotes(); return; }
-  if (t.hasAttribute('data-export-marked')) { reader.exportHtml(entries()); return; }
-  if (t.hasAttribute('data-print')) { window.print(); return; }
+  if (d.export) { runExport(d.export, t); return; }
+  if (d.authMode) { accountDialog(d.authMode); return; }
+  if (t.hasAttribute('data-signout')) { cloud.signOut().then(() => { $('#resource-dialog').close(); toast('Signed out. Work on this device is still saved here.'); }); return; }
   if (t.hasAttribute('data-clear') && confirm('Clear all your answers on this device? Download your notes first if you need them.')) {
     state = { ...state, values: {}, done: {}, revealed: {}, checked: {}, rows: {}, marks: {}, markDocuments: {} }; save(); render(); toast('Cleared.');
   }
 });
+$('#account-btn').onclick = () => accountDialog();
 $('#teacher-toggle').onclick = () => { state.teacher = !state.teacher; save(); rerender(); toast(state.teacher ? 'Teacher view: answers and teacher notes are shown.' : 'Student view: answers open after students try.'); };
 $('#glossary-open').onclick = glossary;
 $('#source-open').onclick = () => openSource();
 $('#dialog-close').onclick = () => { reader.closeWord(); $('#resource-dialog').close(); };
 $('#text-toggle').onclick = e => { const on = document.body.classList.toggle('large-text'); e.currentTarget.setAttribute('aria-pressed', String(on)); };
 window.addEventListener('hashchange', () => { render(); window.scrollTo(0, 0); $('#main').focus({ preventScroll: true }); });
-render(); save();
+render(); save(false);
+cloud = window.createDEC15Cloud({
+  cfg, lessonId: lesson.id, getState: () => state,
+  applyState: next => { state = { ...state, ...next, teacher: state.teacher }; save(false); rerender(); },
+  onChange: info => { cloudInfo = info; paintStatus(); if (location.hash === '#notebook' && info.status === 'saved' && info.profile && !paintStatus.named) { paintStatus.named = true; rerender(); } }
+});
+cloud.init().catch(e => { console.error(e); cloudInfo = { status: 'error' }; paintStatus(); });
 })();
