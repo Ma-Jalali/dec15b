@@ -137,7 +137,8 @@ B.quiz = b => {
   ${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}
   <ol class="quiz-items">${b.items.map((q, i) => {
     const opts = q.options || b.shared, chosen = val(b.id + '-' + i), ok = chosen === q.answer, long = opts.some(o => o.length > 60);
-    return `<li class="quiz-item${checked ? (ok ? ' is-right' : ' is-wrong') : ''}">
+    const compact = !long && opts.every(o => o.length <= 14) && opts.length <= 3;
+    return `<li class="quiz-item${compact ? ' compact' : ''}${checked ? (ok ? ' is-right' : ' is-wrong') : ''}">
       <p class="quiz-q" data-help>${q.q}</p>
       <div class="options${long ? ' options-long' : ''}" role="radiogroup" aria-label="${esc(strip(q.q))}">${opts.map(o => `<button type="button" role="radio" class="option${chosen === o ? ' selected' : ''}${checked && o === q.answer ? ' correct' : ''}" aria-checked="${chosen === o}" data-quiz="${b.id}" data-i="${i}" data-opt="${esc(o)}">${esc(o)}</button>`).join('')}</div>
       ${checked ? `<p class="quiz-why">${ok ? icon('check') + '<b>Correct.</b> ' : `<b>Answer: ${esc(q.answer)}.</b> `}${esc(q.why || '')}</p>` : ''}
@@ -188,11 +189,17 @@ function answersPanel(a) {
     ${open ? `<dl data-help>${a.answers.items.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl><p class="answers-hint">Other answers can be correct. Compare the reasons, then improve your own work.</p>` : '<p class="answers-hint">Try the activity first. Then compare your work with the suggested answers.</p>'}
   </section>`;
 }
+function groupIcon(g) {
+  const t = String(g).toLowerCase(), last = t.split('→').pop();
+  const w = /class/.test(last) ? 'class' : /group|research|discussion/.test(last) ? 'group' : /pair/.test(last) ? 'pair' : 'alone';
+  const n = { alone: 1, pair: 2, group: 3, class: 3 }[w];
+  return `<svg class="ppl" viewBox="0 0 ${n * 6 + 6} 19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">${Array.from({ length: n }, (_, k) => `<circle cx="${6 + k * 6}" cy="7" r="2.4"/><path d="M${2 + k * 6} 17c0-3 2-5 4-5s4 2 4 5"/>`).join('')}</svg>`;
+}
 function activity(a, i, list, section) {
   return `<article class="activity" id="${a.id}" tabindex="-1" aria-labelledby="h-${a.id}">
     <header class="act-head">
-      <div class="act-meta"><span>Activity ${i + 1} of ${list.length}</span><span class="dot">·</span><span>${a.grouping}</span>${a.category ? `<span class="dot">·</span><span>${a.category}</span>` : ''}</div>
-      <div class="act-title-row"><h2 id="h-${a.id}">${esc(a.title)}</h2><button class="timer-btn" data-timer="${a.minutes}" aria-label="Start a ${a.minutes}-minute timer">${icon('clock')}${a.minutes} min</button></div>
+      <div class="act-meta"><span class="act-count">Activity ${i + 1}<span> / ${list.length}</span></span><span class="chip chip-soft">${groupIcon(a.grouping)}${esc(a.grouping)}</span>${a.category ? `<span class="chip chip-soft">${esc(a.category)}</span>` : ''}<button class="timer-btn" data-timer="${a.minutes}" aria-label="Start a ${a.minutes}-minute timer">${icon('clock')}<span>${a.minutes} min</span><small>Start timer</small></button></div>
+      <h2 id="h-${a.id}">${esc(a.title)}</h2>
       <p class="act-goal">${icon('target')}<span><b>Goal:</b> ${esc(a.goal)}</span></p>
     </header>
     <div class="act-body">${a.blocks.map(b => (B[b.type] || (() => ''))(b, a)).join('')}</div>
@@ -212,16 +219,22 @@ function nextStageLink(section) {
 function stagePage(s) {
   const activeId = state.active[s.id] && s.activities.some(a => a.id === state.active[s.id]) ? state.active[s.id] : s.activities[0].id;
   const idx = s.activities.findIndex(a => a.id === activeId);
+  const doneCount = s.activities.filter(a => state.done[a.id]).length;
   return `<header class="stage-head stage-${s.id}">
+      <span class="stage-numeral" aria-hidden="true">${s.number}</span>
       <div class="stage-copy">
-        <span class="eyebrow">Stage ${s.number} of 04 · ${s.code} · ${esc(s.subtitle)}</span>
+        <span class="eyebrow">Stage ${Number(s.number)} of ${lesson.sections.length}<span class="sep"></span>${esc(s.subtitle)}</span>
         <h1>${esc(s.title)}</h1>
-        <p class="stage-outcome" data-help><b>By the end:</b> ${esc(s.outcome)}</p>
-        <span class="stage-time">${icon('clock')}${s.minutes} minutes · ${s.activities.length} activities</span>
+        <p class="stage-outcome" data-help>${esc(s.outcome)}</p>
+        <div class="stage-meta">
+          <span class="chip">${icon('clock')}${s.minutes} min</span>
+          <span class="chip">${icon('list')}${s.activities.length} activities</span>
+          <span class="chip chip-quiet">Teacher’s Book ${s.code}</span>
+        </div>
       </div>
       <img class="stage-art" src="assets/chapter-${s.id}.svg" alt="" width="220" height="170">
     </header>
-    <nav class="act-tabs" aria-label="Activities in this stage">${s.activities.map((a, i) => `<button data-jump="${a.id}" class="${a.id === activeId ? 'current' : ''}${state.done[a.id] ? ' is-done' : ''}" aria-current="${a.id === activeId ? 'step' : 'false'}"><span class="tab-num">${state.done[a.id] ? icon('check') : i + 1}</span><span class="tab-text">${esc(a.short)}<small>${a.minutes} min</small></span></button>`).join('')}</nav>
+    <nav class="act-tabs" aria-label="Activities in this stage" style="--done:${doneCount / s.activities.length};--n:${s.activities.length}">${s.activities.map((a, i) => `<button data-jump="${a.id}" class="${a.id === activeId ? 'current' : ''}${state.done[a.id] ? ' is-done' : ''}" aria-current="${a.id === activeId ? 'step' : 'false'}"><span class="tab-num">${state.done[a.id] ? icon('check') : i + 1}</span><span class="tab-text">${esc(a.short)}<small>${a.minutes} min</small></span></button>`).join('')}</nav>
     ${activity(s.activities[idx], idx, s.activities, s)}`;
 }
 function overview() {
@@ -284,7 +297,7 @@ function render() {
   const done = coreActivities.filter(a => state.done[a.id]).length;
   $('#nav').innerHTML = `<a href="#overview" class="${route === 'overview' ? 'active' : ''}"><span class="nav-num">${icon('book')}</span><span>Overview</span></a>
     <span class="nav-label">Core lesson · 4 hours</span>
-    ${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<a href="#${s.id}" class="stage-${s.id}${route === s.id ? ' active' : ''}"${route === s.id ? ' aria-current="page"' : ''}><span class="nav-num">${s.number}</span><span>${esc(s.title)}<small>${s.minutes} min · ${d}/${s.activities.length} done</small></span></a>`; }).join('')}
+    ${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<a href="#${s.id}" class="stage-${s.id}${route === s.id ? ' active' : ''}"${route === s.id ? ' aria-current="page"' : ''}><span class="nav-num">${s.number}</span><span class="nav-text">${esc(s.title)}<small>${s.minutes} min<i class="nav-bar" style="--p:${d / s.activities.length}" aria-label="${d} of ${s.activities.length} done"></i></small></span></a>`; }).join('')}
     <span class="nav-label">More</span>
     ${[['sources', 'book', 'Source library'], ['extra', 'list', 'Extra activities'], ['notebook', 'model', 'My notebook']].map(([id, ic, t]) => `<a href="#${id}" class="${route === id ? 'active' : ''}"><span class="nav-num">${icon(ic)}</span><span>${t}</span></a>`).join('')}`;
   $('#progress').value = done; $('#progress').max = coreActivities.length;
@@ -292,6 +305,8 @@ function render() {
   const s = lesson.sections.find(x => x.id === route);
   $('#main').innerHTML = s ? stagePage(s) : route === 'sources' ? sourcesPage() : route === 'extra' ? extrasPage() : route === 'notebook' ? notebook() : overview();
   document.body.dataset.stage = s ? s.id : route;
+  const pageName = s ? s.title : { overview: 'Overview', sources: 'Source library', extra: 'Extra activities', notebook: 'My notebook' }[route];
+  $('#crumb').innerHTML = `<span>DEC15</span><i>/</i><span>Week ${lesson.week} · Day ${lesson.day}</span><i>/</i><b>${esc(pageName)}</b>`;
   $('#teacher-toggle').setAttribute('aria-pressed', String(state.teacher));
   $('#teacher-toggle').textContent = state.teacher ? 'Teacher view: on' : 'Teacher view: off';
   if (!storageOK) $('#save-status').textContent = 'Not saved — download your notes';
