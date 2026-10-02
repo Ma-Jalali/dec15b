@@ -1,10 +1,10 @@
-// Add a direct, publicly playable course-audio URL here when available.
-// Keep this blank to use a local audio file or the verbatim read-aloud route.
+// Course-wide settings. Media URLs live here so they can be replaced without editing lessons.
 window.DEC15_CONFIG = {
-  // Default for a new browser. The Answers button saves a local override.
-  showAnswers: true,
-  coreAudioUrl: '',
-  supplementalVideoId: '1MpfEeSem_4',
+  // true = new browsers open in Teacher view (suggested answers + teacher notes always visible).
+  // false = Student view: suggested answers open only after the student has tried the activity.
+  teacherView: false,
+  coreAudioUrl: '',                 // direct link to the adapted course audio, if available
+  supplementalVideoId: '1MpfEeSem_4', // Our Changing Climate (2020) on YouTube
   policyUrl: 'https://www.sydney.edu.au/students/responsible-ai-use.html',
-  lessonId: 'w2d5', version: '1.0'
+  lessonId: 'w2d5', version: '2.0'
 };

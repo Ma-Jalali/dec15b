@@ -1,41 +1,36 @@
-DEC15 — WEEK 2, DAY 5
+DEC15 — WEEK 2, DAY 5 (redesign v2)
 
-Open index.html in a current browser. Keep this folder and its subfolders together.
+OPEN
+Open index.html in a current browser (or publish the folder with GitHub Pages).
+Internet is needed only for the YouTube video and the university policy link.
 
-The four-hour core lesson works locally. Internet is needed only for the optional YouTube video and external policy link.
+FILES
+index.html            the single entry page
+css/fonts.css         local Fraunces + Manrope fonts
+css/dec15.css         the whole design system (colours are tokens at the top)
+js/config.js          course settings: Teacher view default, audio/video links, policy link
+js/app.js             renders lesson data into pages; saves work in the browser
+js/reader.js          readings, highlighting, word meanings, word game
+lessons/w2d5.js       ALL lesson content — edit text, activities, answers and timings here
+lessons/sources.js    protected course texts (do not edit)
+lessons/video-script.js  supplied YouTube script
 
-Notes save in the current browser. Download notes before leaving or clearing browser data. There is no class submission service.
+HOW A PAGE IS BUILT
+Each activity is a list of blocks. Each block type always looks the same:
+  KEY POINT (dark navy box, gold edge)  the one idea to learn — the most prominent element
+  What to do                            numbered steps with an Alone / Pair / Group / Whole class badge
+  Speak (purple)                        discussion prompts
+  Language bank (blue)                  phrases grouped by function
+  Model (green, dashed)                 a worked example
+  Teacher note (amber, dashed)          visible only in Teacher view
+  Suggested answers (green)             open after the student has tried; always open in Teacher view
+Headings: H1 = stage, H2 = activity, H3 = block.
+The block types are listed at the top of lessons/w2d5.js.
 
-The original video is embedded, with the supplied timestamped script available inside the app. The adapted course audio is not included; use a recording from your device or the unchanged adapted script read aloud.
+TEACHER VIEW
+The "Teacher view" button in the top bar shows all teacher notes and suggested answers.
+Set the default for new browsers with teacherView in js/config.js.
 
-The separate teacher guide is not part of this student package.
-
-Edit lesson content in lessons/w2d5.js. Set a core audio URL in js/config.js if available.
-
-VISUAL REFRESH — 2 OCTOBER 2026
-Each core stage has numbered tabs. Choose a tab or use Next activity. Notes and completed activities remain saved when moving between tabs.
-Custom artwork, local Fraunces and Manrope fonts, font licenses and generation notes are bundled in assets/.
-
-CLASSROOM INTERACTIONS
-Choose a personal practice focus in A1. Use the changing speaking jobs in B2, strategy menu in B3, evidence ranking in C2, source-collection indicators in D3, and evidence speaking turns in D4. In D6, compare your own earlier and later work in a Before / now / next panel. These fit inside the existing activity times. All choices save with your notes on this device.
-
-Evidence indicators show whether notes are present, not whether they are accurate. With Answers off, ranking comparison feedback requires all three cards and a written reason. Use Download notes to keep your responses.
-
-WORD HELP, READING AND MARKING
-Click a dotted word to see its meaning. Readings opens the full course texts inside the lesson. Select words within one paragraph or note, then choose Highlight, Blue or Underline. Remove marks removes formatting from the selected words. In notes, Write lets you edit; See my marks shows the formatted text. Marks on words you rewrite are removed, while unchanged text keeps its marks.
-
-My notebook contains Download marked notebook (.html), which preserves colours and underlining. Download notes (.txt) includes marked excerpts as text. Save a download before clearing browser data.
-
-The Word game button opens optional word-matching practice.
-The original YouTube video is embedded in the listening activity and Extra practice. Internet and YouTube access are required; browser or network restrictions may block playback. Use the course audio/read-aloud alternative when necessary. The original video differs from the adapted course transcript.
-
-SUPPLIED VIDEO SCRIPT AND ANSWERS
-Read the video script in D2 opens all 30 timestamped paragraphs from the supplied food_waste_script.md. Readings also has Video script and Adapted transcript tabs. Use 00:00:09–00:09:05 for the food-waste content; sponsor/channel messages are retained in the full script. The original Markdown is in assets/food_waste_script.md.
-
-Answers are ON in this version. Every activity includes answers or clearly labelled possible responses. View answers & examples jumps to the activity’s panel. Answers do not fill in your own notes or count as completed work.
-
-Click Answers: on to hide the panels throughout the app. Your choice saves in this browser. With Answers off, comparison guidance requires an attempt. Change showAnswers in js/config.js to set the default for new browser copies. The saved browser choice overrides the default. Edit examples in lessons/answers.js.
-
-FIELD JOURNAL VISUAL EDITION
-The cover, chapter illustrations, reading library, activity headings and writing areas have been redesigned. Fonts and artwork are bundled locally. Existing answers, word help, highlighting and saved notes use the same controls and storage.
-For GitHub Pages, replace the existing site files with the contents of this folder, including css/polish.css and the four assets/chapter-*.svg files. Keep index.html in the same publishing location.
+SAVING
+Answers save in this browser only. Use "Download my notes" before leaving.
+This version uses a new storage key, so notes from the previous version are not carried over.
