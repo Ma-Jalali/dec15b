@@ -8,7 +8,7 @@ window.DEC15_CONFIG = {
   policyUrl: 'https://www.sydney.edu.au/students/responsible-ai-use.html',
   // Supabase (online saving). Leave blank to save on the device only.
   // Use the project URL and the PUBLISHABLE / anon key — never the service_role key.
-  supabaseUrl: '',
-  supabaseKey: '',
-  lessonId: 'w2d5', version: '2.3'
+  supabaseUrl: 'https://bogagtbkiavnhuohzqzb.supabase.co',
+  supabaseKey: 'sb_publishable_SThek4oq-ojxSq-CqIbTCg_mDvMkAYR',
+  lessonId: 'w2d5', version: '2.4'
 };

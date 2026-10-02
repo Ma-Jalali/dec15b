@@ -27,7 +27,11 @@ window.createDEC15Cloud = function ({ cfg, lessonId, getState, applyState, onCha
 
   async function loadProfile() {
     const { data } = await client.from('profiles').select('full_name, student_id, role').eq('id', user.id).maybeSingle();
-    profile = data || { full_name: user.user_metadata?.full_name || '', role: 'student' };
+    if (data) { profile = data; return; }
+    // First sign-in: create the student's profile from the details given at sign-up.
+    const fresh = { id: user.id, full_name: user.user_metadata?.full_name || '', student_id: user.user_metadata?.student_id || '' };
+    await client.from('profiles').insert(fresh);
+    profile = { ...fresh, role: 'student' };
   }
   async function pull() {
     set('syncing');
