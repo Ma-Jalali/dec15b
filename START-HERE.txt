@@ -31,6 +31,24 @@ TEACHER VIEW
 The "Teacher view" button in the top bar shows all teacher notes and suggested answers.
 Set the default for new browsers with teacherView in js/config.js.
 
-SAVING
-Answers save in this browser only. Use "Download my notes" before leaving.
-This version uses a new storage key, so notes from the previous version are not carried over.
+SAVING — DEVICE + ONLINE (SUPABASE)
+Every change is saved on the device first. When a student signs in (top bar: "Sign in to save
+online"), the same work is also saved to Supabase about one second later and appears on any
+device where they sign in. Device and online copies are merged, so no answer is dropped.
+To switch online saving on:
+  1. Run supabase/migrations/20261002000000_dec15_progress.sql in your Supabase project.
+  2. Put the project URL and the publishable (anon) key in js/config.js. Never use service_role.
+  3. Recommended: Authentication > Providers > Email > turn OFF "Confirm email", so students can
+     sign in straight away (Supabase's built-in email service only sends a few emails per hour).
+  4. Make yourself a teacher with the UPDATE statement at the end of the migration.
+
+UPDATES KEEP STUDENT WORK
+Saved work is stored under the key "dec15-w2d5-v2" and by field id (e.g. "d3t-0-1", "plan-thesis").
+When you update the app, keep that key and never rename an existing id in lessons/w2d5.js —
+then everything students already wrote stays. New activities simply start empty.
+Bump ?v= in index.html (and version in js/config.js) on each release so browsers fetch new files.
+
+NOTEBOOK & EXPORTS
+My notebook shows all work by stage, with tables and the essay plan kept as tables.
+Exports: PDF, Open in Google Docs (copies the notebook, opens a new Doc, student presses Ctrl+V),
+Word (.docx, also opens in Google Docs) and Print. Libraries are bundled in js/vendor/ (MIT).
