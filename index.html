@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#14293a">
-<title>DEC15 · Week 2, Day 5</title>
-<link rel="stylesheet" href="css/fonts.css?v=2.4">
+<title>DEC15</title>
+<link rel="stylesheet" href="css/fonts.css?v=2.5">
 <script>
 /* If any script fails, show a message instead of an empty page. */
 window.addEventListener('error', function (e) {
@@ -14,18 +14,20 @@ window.addEventListener('error', function (e) {
   if (m && !m.children.length) m.innerHTML = '<div style="max-width:640px;margin:60px auto;padding:24px;border:2px solid #e64626;border-radius:14px;background:#fff;font:16px/1.6 system-ui"><h1 style="font-size:22px;margin:0 0 8px">The lesson could not load</h1><p>Please reload the page without the cache: <b>Ctrl + Shift + R</b> (Windows) or <b>Cmd + Shift + R</b> (Mac). On a phone, close the tab and open the link again.</p><p style="color:#666;font-size:13px">Error: ' + String(msg).replace(/</g, '&lt;') + '</p></div>';
 }, true);
 </script>
-<link rel="stylesheet" href="css/dec15.css?v=2.4">
+<link rel="stylesheet" href="css/dec15.css?v=2.5">
 </head>
 <body>
 <a class="skip" href="#main">Skip to lesson</a>
 <aside class="sidebar">
   <a class="uni" href="https://www.sydney.edu.au/" target="_blank" rel="noopener"><img src="assets/usyd-logo-white.svg" alt="The University of Sydney" width="150" height="57"></a>
-  <div class="course"><b>DEC15</b><span>Week 2 · Day 5</span></div>
+  <a class="side-home" id="side-home" href="#/"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14m6-12v14"/></svg><span>Course map</span><small>All weeks</small></a>
+  <a class="course" id="course-card" href="#/"><span class="course-week">DEC15</span><b>Loading…</b></a>
   <nav id="nav" aria-label="Lesson"></nav>
   <div class="side-progress">
     <span id="progress-label">0 activities finished</span>
     <progress id="progress" max="18" value="0"></progress>
-    <a class="btn-side" href="#notebook">Open my notebook</a>
+    <a class="btn-side" id="side-notebook" href="#/"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h10l4 4v14H5z"/><path d="M14 3v5h5M8 13h8M8 17h5"/></svg>Open my notebook</a>
+    <button id="teacher-toggle" class="teacher-toggle" aria-pressed="false"><span class="tt-switch" aria-hidden="true"><i></i></span>Teacher view <span class="tt-state">Off</span></button>
   </div>
 </aside>
 <div class="workspace">
@@ -34,11 +36,10 @@ window.addEventListener('error', function (e) {
     <span id="save-status" role="status">Saved on this device</span>
     <button id="account-btn" class="account-btn" hidden>Sign in to save online</button>
     <div class="tools">
-      <button id="glossary-open">Word meanings</button>
-      <button id="source-open">Readings</button>
-      <button data-word-game>Word game</button>
-      <button id="text-toggle" aria-pressed="false">Large text</button>
-      <button id="teacher-toggle" class="teacher-toggle" aria-pressed="false">Teacher view: off</button>
+      <button id="glossary-open" title="Word meanings"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h13"/><path d="M9 8h6m-6 4h4"/></svg><span>Word meanings</span></button>
+      <button id="source-open" title="Readings"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4c4-1 7 0 9 2 2-2 5-3 9-2v15c-4-1-7 0-9 2-2-2-5-3-9-2zM12 6v15"/></svg><span>Readings</span></button>
+      <button data-word-game title="Word game"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/><path d="M15 3h4a2 2 0 0 1 2 2v4M9 21H5a2 2 0 0 1-2-2v-4"/></svg><span>Word game</span></button>
+      <button id="text-toggle" class="tool-icon" aria-pressed="false" aria-label="Large text" title="Large text"><span class="aa" aria-hidden="true">A<small>A</small></span></button>
     </div>
   </header>
   <main id="main" tabindex="-1"></main>
@@ -48,13 +49,11 @@ window.addEventListener('error', function (e) {
   <div id="resource-body"></div>
 </dialog>
 <div id="toast" role="status" aria-live="polite"></div>
-<script src="js/config.js?v=2.4"></script>
-<script src="lessons/sources.js?v=2.4"></script>
-<script src="lessons/video-script.js?v=2.4"></script>
-<script src="lessons/w2d5.js?v=2.4"></script>
-<script src="js/reader.js?v=2.4"></script>
-<script src="js/cloud.js?v=2.4"></script>
-<script src="js/notebook.js?v=2.4"></script>
-<script src="js/app.js?v=2.4"></script>
+<script src="js/config.js?v=2.5"></script>
+<script src="lessons/course.js?v=2.5"></script>
+<script src="js/reader.js?v=2.5"></script>
+<script src="js/cloud.js?v=2.5"></script>
+<script src="js/notebook.js?v=2.5"></script>
+<script src="js/boot.js?v=2.5"></script>
 </body>
 </html>

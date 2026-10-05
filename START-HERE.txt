@@ -1,19 +1,37 @@
-DEC15 — WEEK 2, DAY 5 (redesign v2)
+DEC15 — COURSE APP (v2.5)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
 Internet is needed only for the YouTube video and the university policy link.
 
 FILES
-index.html            the single entry page
-css/fonts.css         local Fraunces + Manrope fonts
-css/dec15.css         the whole design system (colours are tokens at the top)
-js/config.js          course settings: Teacher view default, audio/video links, policy link
-js/app.js             renders lesson data into pages; saves work in the browser
-js/reader.js          readings, highlighting, word meanings, word game
-lessons/w2d5.js       ALL lesson content — edit text, activities, answers and timings here
-lessons/sources.js    protected course texts (do not edit)
-lessons/video-script.js  supplied YouTube script
+index.html                 the single entry page
+css/fonts.css              local Fraunces + Manrope fonts
+css/dec15.css              the whole design system (colours are tokens at the top)
+js/config.js               course settings: Teacher view default, audio/video links, policy link, version
+js/boot.js                 picks the lesson from the address and loads its files
+js/app.js                  renders lesson data into pages; saves work in the browser
+js/reader.js               readings, highlighting, word meanings, word game
+lessons/course.js          THE COURSE MAP — weeks, days, which lessons are ready
+lessons/_template.js       copy this to start a new lesson (all block types documented)
+lessons/week2/w2d5.js      Week 2 Day 5 content — edit text, activities, answers and timings here
+lessons/week2/sources.js   protected Week 2 course texts (do not edit)
+lessons/week2/video-script.js  supplied YouTube script
+assets/art/                illustrations: stage-*.svg (one per kind of stage), course pictures
+
+ADDRESSES
+  .../dec15b/              course map (all weeks, "continue where you left off")
+  .../dec15b/#/w2d5        a lesson's overview
+  .../dec15b/#/w2d5/ai     a stage (also: /sources, /extra, /notebook)
+Old links (#ai, #notebook ...) still open Week 2 Day 5.
+
+ADDING A WEEK 3 LESSON
+  1. Copy lessons/_template.js to lessons/week3/w3d1.js and write the content.
+  2. New readings/listening go in lessons/week3/sources.js.
+  3. In lessons/course.js set the day to status: 'ready' and list its scripts.
+  4. Raise the version (?v= in index.html and version in js/config.js).
+Each stage chooses a colour (tone) and an illustration (art); the options are listed in the template.
+Every lesson saves separately (key "dec15-<id>-v2"), on the device and online.
 
 HOW A PAGE IS BUILT
 Each activity is a list of blocks. Each block type always looks the same:
@@ -25,10 +43,10 @@ Each activity is a list of blocks. Each block type always looks the same:
   Teacher note (amber, dashed)          visible only in Teacher view
   Suggested answers (green)             open after the student has tried; always open in Teacher view
 Headings: H1 = stage, H2 = activity, H3 = block.
-The block types are listed at the top of lessons/w2d5.js.
+The block types are listed in lessons/_template.js.
 
 TEACHER VIEW
-The "Teacher view" button in the top bar shows all teacher notes and suggested answers.
+The "Teacher view" switch at the bottom of the sidebar shows all teacher notes and suggested answers.
 Set the default for new browsers with teacherView in js/config.js.
 
 SAVING — DEVICE + ONLINE (SUPABASE)
@@ -43,8 +61,8 @@ To switch online saving on:
   4. Make yourself a teacher with the UPDATE statement at the end of the migration.
 
 UPDATES KEEP STUDENT WORK
-Saved work is stored under the key "dec15-w2d5-v2" and by field id (e.g. "d3t-0-1", "plan-thesis").
-When you update the app, keep that key and never rename an existing id in lessons/w2d5.js —
+Saved work is stored per lesson under the key "dec15-<lesson id>-v2" (e.g. "dec15-w2d5-v2") and by
+field id (e.g. "d3t-0-1", "plan-thesis"). Never change a lesson id or rename an existing id —
 then everything students already wrote stays. New activities simply start empty.
 Bump ?v= in index.html (and version in js/config.js) on each release so browsers fetch new files.
 

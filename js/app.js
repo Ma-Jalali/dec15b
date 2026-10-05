@@ -5,8 +5,23 @@
    new versions of the app. Never rename an existing id in lessons/*.js. */
 (() => {
 'use strict';
-const lesson = window.DEC15_LESSON, sources = window.DEC15_SOURCES, cfg = window.DEC15_CONFIG;
+const lesson = window.DEC15_LESSON, sources = window.DEC15_SOURCES || [], cfg = window.DEC15_CONFIG;
+const course = window.DEC15_COURSE, days = window.DEC15_DAYS || [];
 const KEY = 'dec15-' + lesson.id + '-v2';
+lesson.extras = lesson.extras || []; lesson.glossary = lesson.glossary || [];
+/* Colour + illustration for each stage. A lesson can set tone: 'amber' | 'teal' | 'blue' | 'clay' | 'plum' | 'green'
+   and art: 'ai' | 'feedback' | 'critical' | 'writing' | 'reading' | 'listening' | 'discussion' | 'research' | 'assessment' | 'group'. */
+const TONES = { amber: ['#ad6a12', '#fbf3e4'], teal: ['#2b776e', '#e9f4f2'], blue: ['#3a58a0', '#edf1fa'], clay: ['#b0512a', '#fbefe8'], plum: ['#7a4a8c', '#f6eff8'], green: ['#3f7a3a', '#eef6ea'] };
+const LEGACY = { ai: 'amber', feedback: 'teal', critical: 'blue', writing: 'clay' };
+lesson.sections.forEach((s, i) => {
+  if (!TONES[s.tone]) s.tone = LEGACY[s.id] || Object.keys(TONES)[i % 6];
+  s.color = TONES[s.tone][0];
+  s.art = s.art || (LEGACY[s.id] ? s.id : 'reading');
+});
+const tone = s => `--accent:${TONES[s.tone][0]};--accent-bg:${TONES[s.tone][1]}`;
+const artSrc = name => `assets/art/stage-${name}.svg`;
+/* Addresses inside this lesson: L('ai') → #/w2d5/ai */
+const L = p => '#/' + lesson.id + (p && p !== 'overview' ? '/' + p : '');
 const coreActivities = lesson.sections.flatMap(s => s.activities);
 const allActivities = [...coreActivities, ...lesson.extras];
 
@@ -17,6 +32,7 @@ try { const old = JSON.parse(localStorage.getItem(KEY)); if (old && old.values) 
 function save(touch = true) {
   if (touch) state.updatedAt = Date.now();
   try { localStorage.setItem(KEY, JSON.stringify(state)); storageOK = true; } catch (e) { storageOK = false; }
+  remember();
   paintStatus();
   if (touch && cloud) cloud.queue();
 }
@@ -31,6 +47,16 @@ function paintStatus() {
   const name = cloudInfo.profile?.full_name || cloudInfo.user?.email || '';
   btn.innerHTML = cloudInfo.user ? `<span class="avatar">${esc((name || '?').trim().slice(0, 1).toUpperCase())}</span><span class="acct-name">${esc(name.split(' ')[0] || 'Account')}</span>` : 'Sign in to save online';
   btn.classList.toggle('signed-in', !!cloudInfo.user);
+}
+
+/* A small summary of every lesson's progress, used on the course home page. */
+function summaries() { try { return JSON.parse(localStorage.getItem('dec15-summary')) || {}; } catch (e) { return {}; } }
+function remember() {
+  try {
+    const all = summaries();
+    all[lesson.id] = { done: coreActivities.filter(a => state.done[a.id]).length, total: coreActivities.length, updatedAt: state.updatedAt || 0 };
+    localStorage.setItem('dec15-summary', JSON.stringify(all));
+  } catch (e) { /* storage blocked: the home page simply shows no progress */ }
 }
 
 /* ───────── helpers ───────── */
@@ -60,7 +86,12 @@ const ICON = {
   play: '<path d="M7 4v16l13-8z"/>',
   download: '<path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>',
   open: '<path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/>',
-  pen: '<path d="m15 4 5 5L9 20H4v-5z"/><path d="m13 6 5 5"/>'
+  pen: '<path d="m15 4 5 5L9 20H4v-5z"/><path d="m13 6 5 5"/>',
+  home: '<path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10M10 20v-5h4v5"/>',
+  map: '<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14m6-12v14"/>',
+  flag: '<path d="M5 21V4m0 1h11l-2 4 2 4H5"/>',
+  lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+  sprout: '<path d="M12 20v-8m0 0c0-4-3-6-7-6 0 4 3 6 7 6zm0-2c0-4 3-6 7-6 0 4-3 6-7 6z"/>'
 };
 const icon = (n, c = '') => `<svg class="icon ${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[n] || ICON.book}</svg>`;
 
@@ -187,13 +218,20 @@ B.plan = () => `<section class="block plan">
   ${planParts.map(([p, fs], i) => `<div class="plan-part plan-${i}"><h4><span>${pad(i + 1)}</span>${p}</h4>${fs.map(([k, l]) => `<div class="field"><label for="f-plan-${k}">${l}</label><textarea id="f-plan-${k}" data-save="plan-${k}" rows="2" placeholder="Notes, not full sentences">${esc(val('plan-' + k))}</textarea></div>`).join('')}</div>`).join('')}
 </section>`;
 B.checklist = b => `<section class="block checklist"><h3 class="block-heading">${b.title}</h3>${b.items.map((c, i) => `<label class="check"><input type="checkbox" data-save="${b.id}-${i}"${val(b.id + '-' + i) ? ' checked' : ''}><span>${esc(c)}</span></label>`).join('')}</section>`;
-B.listening = b => `<section class="block media">
-  <div class="block-label">${icon('play')}Listening · Our Changing Climate (2020)</div>
-  <div class="video-wrap"><button class="video-cover" data-video aria-label="Play the video">${icon('play', 'play-big')}<span><b>Food waste causes climate change</b><small>YouTube · play 0:09–9:05 · internet needed</small></span></button></div>
-  <div class="media-links"><button class="btn-quiet" data-source="listening">${icon('book')}Course transcript (adapted)</button><button class="btn-quiet" data-source="video-script">${icon('book')}Original video script</button>${b.mode === 'video' ? '' : `<a class="btn-quiet" href="https://www.youtube.com/watch?v=${esc(cfg.supplementalVideoId)}" target="_blank" rel="noopener">${icon('open')}Open on YouTube</a>`}</div>
-  ${cfg.coreAudioUrl ? `<audio controls preload="none" src="${esc(cfg.coreAudioUrl)}"></audio>` : ''}
+/* listening: by default the Week 2 video. A new lesson can set
+   { type: 'listening', source, title, videoId, start, clip, transcripts: [[sourceId, label], ...], audio } */
+B.listening = b => {
+  const vid = b.videoId || cfg.supplementalVideoId, title = b.title || 'Food waste causes climate change';
+  const tr = b.transcripts || [['listening', 'Course transcript (adapted)'], ['video-script', 'Original video script']];
+  const audio = b.audio ?? cfg.coreAudioUrl;
+  return `<section class="block media">
+  <div class="block-label">${icon('play')}Listening · ${esc(b.source || 'Our Changing Climate (2020)')}</div>
+  ${vid ? `<div class="video-wrap"><button class="video-cover" data-video="${esc(vid)}" data-start="${b.start ?? 9}" data-title="${esc(title)}" aria-label="Play the video">${icon('play', 'play-big')}<span><b>${esc(title)}</b><small>YouTube · ${esc(b.clip || 'play 0:09–9:05')} · internet needed</small></span></button></div>` : ''}
+  <div class="media-links">${tr.filter(([id]) => sources.some(x => x.id === id)).map(([id, l]) => `<button class="btn-quiet" data-source="${id}">${icon('book')}${esc(l)}</button>`).join('')}${b.mode === 'video' || !vid ? '' : `<a class="btn-quiet" href="https://www.youtube.com/watch?v=${esc(vid)}" target="_blank" rel="noopener">${icon('open')}Open on YouTube</a>`}</div>
+  ${audio ? `<audio controls preload="none" src="${esc(audio)}"></audio>` : ''}
   <p class="media-note">Listen first, take notes, <b>then</b> read the transcript to check.</p>
 </section>`;
+};
 
 /* ───────── activity ───────── */
 function hasAttempt(a) { registerTables(); return Object.keys(state.values).some(k => owner[k] === a.id && state.values[k]); }
@@ -229,7 +267,7 @@ function activity(a, i, list, section) {
 }
 function nextStageLink(section) {
   const n = lesson.sections.indexOf(section), next = lesson.sections[n + 1];
-  return next ? `<a class="btn" href="#${next.id}">Next stage: ${esc(next.title)} ${icon('arrow')}</a>` : `<a class="btn" href="#notebook">Review my notebook ${icon('arrow')}</a>`;
+  return next ? `<a class="btn" href="${L(next.id)}">Next stage: ${esc(next.title)} ${icon('arrow')}</a>` : `<a class="btn" href="${L('notebook')}">Review my notebook ${icon('arrow')}</a>`;
 }
 
 /* ───────── pages ───────── */
@@ -237,7 +275,8 @@ function stagePage(s) {
   const activeId = state.active[s.id] && s.activities.some(a => a.id === state.active[s.id]) ? state.active[s.id] : s.activities[0].id;
   const idx = s.activities.findIndex(a => a.id === activeId);
   const doneCount = s.activities.filter(a => state.done[a.id]).length;
-  return `<header class="stage-head stage-${s.id}">
+  const complete = doneCount === s.activities.length;
+  return `<header class="stage-head${complete ? ' is-complete' : ''}">
       <span class="stage-numeral" aria-hidden="true">${s.number}</span>
       <div class="stage-copy">
         <span class="eyebrow">Stage ${Number(s.number)} of ${lesson.sections.length}<span class="sep"></span>${esc(s.subtitle)}</span>
@@ -247,49 +286,136 @@ function stagePage(s) {
           <span class="chip">${icon('clock')}${s.minutes} min</span>
           <span class="chip">${icon('list')}${s.activities.length} activities</span>
           <span class="chip chip-quiet">Teacher’s Book ${s.code}</span>
-          ${doneCount === s.activities.length ? `<span class="chip chip-done">${icon('check')}Stage complete</span>` : ''}
+          ${complete ? `<span class="chip chip-done">${icon('check')}Stage complete</span>` : ''}
         </div>
       </div>
-      <img class="stage-art" src="assets/chapter-${s.id}.svg" alt="" width="220" height="170">
+      <div class="stage-art-wrap"><img class="stage-art" src="${artSrc(s.art)}" alt="" width="220" height="170">${complete ? '<img class="stage-medal" src="assets/art/complete.svg" alt="" width="60" height="70">' : ''}</div>
     </header>
     <nav class="act-tabs" aria-label="Activities in this stage" style="--done:${doneCount / s.activities.length};--n:${s.activities.length}">${s.activities.map((a, i) => `<button data-jump="${a.id}" class="${a.id === activeId ? 'current' : ''}${state.done[a.id] ? ' is-done' : ''}" aria-current="${a.id === activeId ? 'step' : 'false'}"><span class="tab-num">${state.done[a.id] ? icon('check') : i + 1}</span><span class="tab-text">${esc(a.short)}<small>${a.minutes} min</small></span></button>`).join('')}</nav>
     ${activity(s.activities[idx], idx, s.activities, s)}`;
 }
+/* The first activity not yet finished (for "Continue" buttons). */
+function nextUp() {
+  for (const s of lesson.sections) for (const a of s.activities) if (!state.done[a.id]) return { s, a };
+  return null;
+}
+function continueButton(big) {
+  const n = nextUp(), started = coreActivities.some(a => state.done[a.id]) || Object.keys(state.values).length;
+  if (!n) return `<a class="btn${big ? ' btn-big' : ''}" href="${L('notebook')}">${icon('check')}Review my notebook</a>`;
+  const label = started ? `Continue: ${esc(n.a.short)}` : `Start Stage ${Number(n.s.number)}`;
+  return `<a class="btn${big ? ' btn-big' : ''}" href="${L(n.s.id)}" data-go="${n.a.id}">${label} ${icon('arrow')}</a>`;
+}
 function overview() {
+  const n = nextUp(), done = coreActivities.filter(a => state.done[a.id]).length;
   return `<section class="hero">
     <div class="hero-copy">
-      <span class="eyebrow">Week 2 · Day 5 · About 4 hours</span>
+      <span class="eyebrow">Week ${lesson.week} · Day ${lesson.day} · ${esc(lesson.duration || 'About 4 hours')}</span>
       <h1>${esc(lesson.title)}</h1>
       <p class="hero-lead">${esc(lesson.journey)}</p>
-      <a class="btn btn-big" href="#${lesson.sections[0].id}">Start Stage 1 ${icon('arrow')}</a>
+      <div class="hero-actions">${continueButton(true)}${done && n ? `<span class="hero-progress"><b>${done} of ${coreActivities.length}</b> activities finished · next in Stage ${Number(n.s.number)}</span>` : ''}</div>
     </div>
-    <figure class="hero-img"><img src="assets/food-editorial.webp" width="1400" height="933" alt="An imperfect tomato, a carrot, a cut orange and grains on a plate — edible food that is often thrown away."></figure>
+    <figure class="hero-img"><img src="${esc(lesson.image || 'assets/food-editorial.webp')}" width="1400" height="933" alt="${esc(lesson.imageAlt || 'An imperfect tomato, a carrot, a cut orange and grains on a plate — edible food that is often thrown away.')}"></figure>
   </section>
   <section class="essay-q essay-q-hero">
-    <span class="essay-q-label">This week’s essay question · you write it on Monday</span>
+    <span class="essay-q-label">${esc(lesson.questionLabel || 'This week’s essay question · you write it on Monday')}</span>
     <blockquote>${esc(lesson.question)}</blockquote>
   </section>
   <h2 class="section-title">Your day at a glance</h2>
-  <p class="section-sub">Four stages, about four hours. Each one prepares you for Monday’s essay.</p>
-  <div class="dayline" role="img" aria-label="${lesson.sections.map(s => `Stage ${Number(s.number)}, ${s.title}, ${s.minutes} minutes`).join('; ')}; then Monday: write the essay.">
-    ${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<a class="dayline-seg stage-${s.id}${d === s.activities.length ? ' complete' : ''}" href="#${s.id}" style="flex:${s.minutes}"><span class="dayline-bar"><i style="width:${Math.round(100 * d / s.activities.length)}%"></i></span><span class="dayline-num">${s.number}</span><span class="dayline-title">${esc(s.title)}</span><span class="dayline-min">${s.minutes} min</span></a>`; }).join('')}
-    <div class="dayline-flag"><span class="dayline-bar"></span><span class="dayline-num">${icon('pen')}</span><span class="dayline-title">Monday</span><span class="dayline-min">Write the essay</span></div>
+  <p class="section-sub">${['Two', 'Three', 'Four', 'Five', 'Six'][lesson.sections.length - 2] || lesson.sections.length} stages${lesson.duration ? '' : ', about four hours'}. Each one prepares you for ${esc(lesson.goalShort || 'Monday’s essay')}.</p>
+  <div class="dayline" role="img" aria-label="${lesson.sections.map(s => `Stage ${Number(s.number)}, ${s.title}, ${s.minutes} minutes`).join('; ')}; then: ${esc(lesson.finish?.title || 'Monday')}.">
+    ${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<a class="dayline-seg${d === s.activities.length ? ' complete' : ''}" style="${tone(s)};flex:${s.minutes}" href="${L(s.id)}"><span class="dayline-bar"><i style="width:${Math.round(100 * d / s.activities.length)}%"></i></span><span class="dayline-num">${s.number}</span><span class="dayline-title">${esc(s.title)}</span><span class="dayline-min">${s.minutes} min</span></a>`; }).join('')}
+    <div class="dayline-flag"><span class="dayline-bar"></span><span class="dayline-num">${icon('pen')}</span><span class="dayline-title">${esc(lesson.finish?.title || 'Monday')}</span><span class="dayline-min">${esc(lesson.finish?.text || 'Write the essay')}</span></div>
   </div>
-  <ol class="journey">${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<li><a class="journey-card stage-${s.id}" href="#${s.id}">
-      <span class="journey-num">${s.number}</span>
-      <span class="journey-text"><b>${esc(s.title)}</b><span>${esc(s.outcome)}</span></span>
-      <span class="journey-time">${d === s.activities.length ? `<span class="journey-done">${icon('check')}Complete</span>` : `${s.minutes} min · ${s.activities.length} activities`} ${icon('arrow')}</span>
-      <img class="journey-art" src="assets/chapter-${s.id}.svg" alt="" width="120" height="93" loading="lazy"></a></li>`; }).join('')}</ol>
-  <h2 class="section-title">How to read each page</h2>
-  <p class="section-sub">Each kind of information always looks the same. The <b>dark box</b> is the most important.</p>
-  <div class="legend">
-    <div class="legend-item"><span class="sw sw-key">${icon('key')}</span><b>Key point</b><span>The idea to learn and remember.</span></div>
-    <div class="legend-item"><span class="sw sw-steps">${icon('list')}</span><b>What to do</b><span>Steps. The badge shows alone / pair / group.</span></div>
-    <div class="legend-item"><span class="sw sw-talk">${icon('chat')}</span><b>Speak</b><span>Questions to discuss out loud.</span></div>
-    <div class="legend-item"><span class="sw sw-lang">${icon('phrase')}</span><b>Language bank</b><span>Phrases to use when you speak or write.</span></div>
-    <div class="legend-item"><span class="sw sw-model">${icon('model')}</span><b>Model</b><span>An example to study and copy the structure of.</span></div>
-    <div class="legend-item"><span class="sw sw-ans">${icon('check')}</span><b>Suggested answers</b><span>Open them after you try.</span></div>
-  </div>`;
+  <ol class="journey">${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<li><a class="journey-card${d === s.activities.length ? ' complete' : ''}" style="${tone(s)}" href="${L(s.id)}">
+      <span class="journey-art-wrap"><img class="journey-art" src="${artSrc(s.art)}" alt="" width="220" height="170" loading="lazy"></span>
+      <span class="journey-body">
+        <span class="journey-top"><span class="journey-num">${s.number}</span><span class="journey-sub">${esc(s.subtitle || '')}</span></span>
+        <b class="journey-title">${esc(s.title)}</b>
+        <span class="journey-text">${esc(s.outcome)}</span>
+        <span class="journey-foot"><span class="journey-time">${icon('clock')}${s.minutes} min · ${s.activities.length} activities</span>${d === s.activities.length ? `<span class="journey-done">${icon('check')}Complete</span>` : d ? `<span class="journey-part">${d}/${s.activities.length} done</span>` : ''}<span class="journey-go">${icon('arrow')}</span></span>
+        <span class="journey-meter" aria-hidden="true"><i style="width:${Math.round(100 * d / s.activities.length)}%"></i></span>
+      </span></a></li>`; }).join('')}</ol>
+  <details class="legend-wrap"${done ? '' : ' open'}>
+    <summary><span><b>How to read each page</b><small>Each kind of information always looks the same. The dark box is the most important.</small></span>${icon('arrow')}</summary>
+    <div class="legend">
+      <div class="legend-item"><span class="sw sw-key">${icon('key')}</span><b>Key point</b><span>The idea to learn and remember.</span></div>
+      <div class="legend-item"><span class="sw sw-steps">${icon('list')}</span><b>What to do</b><span>Steps. The badge shows alone / pair / group.</span></div>
+      <div class="legend-item"><span class="sw sw-talk">${icon('chat')}</span><b>Speak</b><span>Questions to discuss out loud.</span></div>
+      <div class="legend-item"><span class="sw sw-lang">${icon('phrase')}</span><b>Language bank</b><span>Phrases to use when you speak or write.</span></div>
+      <div class="legend-item"><span class="sw sw-model">${icon('model')}</span><b>Model</b><span>An example to study and copy the structure of.</span></div>
+      <div class="legend-item"><span class="sw sw-ans">${icon('check')}</span><b>Suggested answers</b><span>Open them after you try.</span></div>
+    </div>
+  </details>`;
+}
+
+/* ───────── course home: all weeks ───────── */
+function courseMap(current) {
+  const pts = [[120, 168], [320, 116], [530, 136], [740, 96], [900, 76]];
+  const road = 'M-10 190C60 186 80 168 120 168S250 116 320 116 470 138 530 136 670 96 740 96 850 78 900 76';
+  const tree = (x, y, k = 1) => `<g transform="translate(${x} ${y}) scale(${k})"><rect x="-1.6" y="-4" width="3.2" height="12" rx="1" fill="#8a6f4e"/><circle cy="-12" r="10" fill="#8fb47a"/><circle cx="5" cy="-8" r="7" fill="#6f9d5c"/></g>`;
+  return `<svg class="course-map-svg" viewBox="0 0 1000 262" role="img" aria-label="Course map: ${course.map.map(w => `Week ${w.n}, ${w.label}`).join('; ')}. You are in Week ${current}.">
+    <defs><linearGradient id="cm-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbf6ea"/><stop offset="1" stop-color="#f3ecdc"/></linearGradient></defs>
+    <rect width="1000" height="290" fill="url(#cm-sky)"/>
+    <circle cx="620" cy="52" r="26" fill="#f6dfae"/><circle cx="620" cy="52" r="40" fill="#f6dfae" opacity=".35"/>
+    <path d="M120 52q6-6 12 0q6-6 12 0M168 74q4-4 8 0q4-4 8 0M560 40q5-5 10 0q5-5 10 0" stroke="#7d8b95" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    <path d="M0 150C120 108 230 130 340 116S560 72 700 92 880 52 1000 66V290H0Z" fill="#ece3cf"/>
+    <path d="M0 200C150 176 300 208 470 188S760 158 1000 172V290H0Z" fill="#e2ebd8"/>
+    <path d="M40 262c90-10 190-6 300-14m140 22c120-12 260-18 420-30M600 252c90-6 180-14 300-18" stroke="#cfdcc2" stroke-width="2" fill="none" stroke-linecap="round"/>
+    ${tree(200, 132)}${tree(220, 138, .8)}${tree(420, 120, .9)}${tree(640, 100)}${tree(662, 106, .75)}${tree(964, 214, .9)}${tree(40, 160, .8)}${tree(984, 220, .7)}
+    <path d="${road}" stroke="#fffdf5" stroke-width="16" fill="none" stroke-linecap="round"/>
+    <path d="${road}" stroke="#14293a" stroke-opacity=".35" stroke-width="2.4" stroke-dasharray="2 9" fill="none" stroke-linecap="round"/>
+    ${course.map.map((w, i) => { const [x, y] = pts[i] || pts[pts.length - 1], st = w.n < current ? 'past' : w.n === current ? 'now' : 'next', last = i === course.map.length - 1;
+      return `<g class="cm-stop cm-${st}" transform="translate(${x} ${y})">
+        ${st === 'now' ? `<circle r="30" fill="#e3a843" opacity=".22"/><g transform="translate(0 -52)"><rect x="-50" y="-15" width="100" height="26" rx="13" fill="#14293a"/><path d="M-6 11h12l-6 8z" fill="#14293a"/><text y="3" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="Manrope, sans-serif">You are here</text></g>` : ''}
+        ${last ? '<path d="M0 -20V-62" stroke="#14293a" stroke-width="3" stroke-linecap="round"/><path d="M0 -62h30l-7 9 7 9H0z" fill="#e64626"/>' : ''}
+        <circle r="19" fill="${st === 'past' ? '#14293a' : st === 'now' ? '#e3a843' : '#fffdf5'}" stroke="${st === 'next' ? '#c9bfae' : '#fffdf5'}" stroke-width="3"/>
+        ${st === 'past' ? '<path d="m-7 0 5 5 9-10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>' : `<text y="5" text-anchor="middle" font-size="15" font-weight="700" font-family="Manrope, sans-serif" fill="${st === 'now' ? '#14293a' : '#8b969e'}">${w.n}</text>`}
+        <text y="42" text-anchor="middle" font-size="13" font-weight="700" font-family="Manrope, sans-serif" fill="#14293a">Week ${w.n} · ${esc(w.label)}</text>
+        <text y="60" text-anchor="middle" font-size="12" font-family="Manrope, sans-serif" fill="#6b7882">${esc(w.sub)}</text>
+      </g>`; }).join('')}
+  </svg>`;
+}
+function dayCard(d) {
+  const sum = summaries()[d.id] || {}, here = d.id === lesson.id;
+  const done = here ? coreActivities.filter(a => state.done[a.id]).length : sum.done || 0, total = here ? coreActivities.length : sum.total || 0;
+  if (d.status !== 'ready') return `<li class="day-card is-soon">
+      <span class="day-art day-art-soon"><img src="assets/art/soon.svg" alt="" width="120" height="100" loading="lazy"></span>
+      <span class="day-label">Day ${d.day}<span class="day-soon">${icon('sprout')}Coming soon</span></span>
+      <b class="day-title">${esc(d.title)}</b>
+      ${d.parts ? `<ul class="day-parts">${d.parts.map(p => `<li>${esc(p)}</li>`).join('')}</ul>` : ''}
+    </li>`;
+  const pct = total ? Math.round(100 * done / total) : 0;
+  return `<li class="day-card is-ready${pct === 100 ? ' complete' : ''}"><a href="#/${d.id}">
+      <span class="day-art"><img src="${artSrc(d.art || 'writing')}" alt="" width="220" height="170" loading="lazy"></span>
+      <span class="day-label">Day ${d.day}${pct === 100 ? `<span class="day-done">${icon('check')}Complete</span>` : done ? `<span class="day-now">In progress</span>` : '<span class="day-open">Open</span>'}</span>
+      <b class="day-title">${esc(d.title)}</b>
+      ${d.parts ? `<ul class="day-parts">${d.parts.map(p => `<li>${esc(p)}</li>`).join('')}</ul>` : ''}
+      <span class="day-meter" aria-label="${done} of ${total} activities finished"><i style="width:${pct}%"></i></span>
+      <span class="day-foot"><span>${total ? `${done} / ${total} activities` : 'Not started'}</span><span class="day-go">${done && pct < 100 ? 'Continue' : pct === 100 ? 'Review' : 'Start'} ${icon('arrow')}</span></span>
+    </a></li>`;
+}
+function courseHome() {
+  const n = nextUp(), done = coreActivities.filter(a => state.done[a.id]).length, pct = Math.round(100 * done / coreActivities.length);
+  return `<header class="home-head">
+      <span class="eyebrow">${esc(course.code)} · ${esc(course.topic)}</span>
+      <h1>Your course map</h1>
+      <p>Five weeks, one big question: how can the world feed everyone? Pick up where you left off, or open any lesson below.</p>
+    </header>
+    <section class="course-map" aria-label="Course map">${courseMap(lesson.week)}</section>
+    <section class="resume" style="${tone(n ? n.s : lesson.sections[lesson.sections.length - 1])}">
+      <img class="resume-art" src="${artSrc(n ? n.s.art : 'writing')}" alt="" width="220" height="170">
+      <div class="resume-copy">
+        <span class="eyebrow">${done ? 'Continue where you left off' : 'Start here'} · Week ${lesson.week}, Day ${lesson.day}</span>
+        <h2>${esc(lesson.title)}</h2>
+        <p>${n ? `Next: <b>Stage ${Number(n.s.number)} · ${esc(n.s.title)}</b> — ${esc(n.a.title)}` : 'You finished every activity. Review your notebook before you write.'}</p>
+        <div class="resume-bar"><span class="resume-meter"><i style="width:${pct}%"></i></span><span>${done} of ${coreActivities.length} activities</span></div>
+      </div>
+      <div class="resume-actions">${continueButton(true)}<a class="btn-quiet" href="${L('overview')}">Lesson overview</a></div>
+    </section>
+    ${course.weeks.map(w => `<section class="week" id="week-${w.n}">
+      <header class="week-head"><span class="week-num"><small>Week</small>${w.n}</span><div><h2>${esc(w.theme)}</h2><p>${esc(w.summary || '')}</p></div></header>
+      <ol class="day-grid${w.days.length > 3 ? ' many' : ''}">${w.days.map(dayCard).join('')}</ol>
+    </section>`).join('')}`;
 }
 function sourcesPage() {
   return `<header class="page-head"><span class="eyebrow">Course texts</span><h1>Source library</h1><p>The protected course texts for this week. Open a text to read, highlight and underline.</p></header>
@@ -308,23 +434,50 @@ function notebook() {
 
 /* ───────── render ───────── */
 const routes = ['overview', 'sources', 'extra', 'notebook', ...lesson.sections.map(s => s.id)];
+const pageNames = { overview: 'Overview', sources: 'Source library', extra: 'Extra activities', notebook: 'My notebook' };
+function parseRoute() {
+  const h = location.hash.slice(1);
+  if (!h || h === '/' || h === '/home') return { home: true };
+  if (routes.includes(h)) { history.replaceState(null, '', L(h)); return { page: h }; } // old links such as #ai
+  const m = h.match(/^\/([\w-]+)(?:\/([\w-]+))?/);
+  if (!m) return { page: 'overview' };
+  if (m[1] !== lesson.id) return { other: m[1] };
+  return { page: routes.includes(m[2]) ? m[2] : 'overview' };
+}
 function render() {
-  let route = location.hash.slice(1) || 'overview'; if (!routes.includes(route)) route = 'overview';
+  const r = parseRoute();
+  if (r.other) {
+    const d = days.find(x => x.id === r.other);
+    if (d && d.status === 'ready') { location.reload(); return; }
+    if (d) toast(`Week ${d.week}, Day ${d.day} is coming soon.`);
+    history.replaceState(null, '', '#/'); return render();
+  }
+  const route = r.home ? 'home' : r.page;
+  if (!r.home) try { localStorage.setItem('dec15-last-lesson', lesson.id); } catch (e) { /* ignore */ }
   const done = coreActivities.filter(a => state.done[a.id]).length;
-  $('#nav').innerHTML = `<a href="#overview" class="${route === 'overview' ? 'active' : ''}"><span class="nav-num">${icon('book')}</span><span>Overview</span></a>
-    <span class="nav-label">Core lesson · 4 hours</span>
-    ${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<a href="#${s.id}" class="stage-${s.id}${route === s.id ? ' active' : ''}"${route === s.id ? ' aria-current="page"' : ''}><span class="nav-num">${s.number}</span><span class="nav-text">${esc(s.title)}<small>${s.minutes} min<i class="nav-bar" style="--p:${d / s.activities.length}" aria-label="${d} of ${s.activities.length} done"></i></small></span></a>`; }).join('')}
+  $('#side-home').classList.toggle('active', route === 'home');
+  if (route === 'home') $('#side-home').setAttribute('aria-current', 'page'); else $('#side-home').removeAttribute('aria-current');
+  $('#course-card').innerHTML = `<span class="course-week">Week ${lesson.week} · Day ${lesson.day}</span><b>${esc(lesson.title)}</b>`;
+  $('#course-card').href = L('overview');
+  $('#nav').innerHTML = `<a href="${L('overview')}" class="${route === 'overview' ? 'active' : ''}"${route === 'overview' ? ' aria-current="page"' : ''}><span class="nav-num">${icon('map')}</span><span>Overview</span></a>
+    <span class="nav-label">Core lesson · ${esc(lesson.duration || '4 hours')}</span>
+    ${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<a href="${L(s.id)}" class="is-stage${route === s.id ? ' active' : ''}${d === s.activities.length ? ' complete' : ''}" style="${tone(s)}"${route === s.id ? ' aria-current="page"' : ''}><span class="nav-num">${d === s.activities.length ? icon('check') : s.number}</span><span class="nav-text">${esc(s.title)}<small>${s.minutes} min<i class="nav-bar" style="--p:${d / s.activities.length}" aria-label="${d} of ${s.activities.length} done"></i></small></span></a>`; }).join('')}
     <span class="nav-label">More</span>
-    ${[['sources', 'book', 'Source library'], ['extra', 'list', 'Extra activities'], ['notebook', 'model', 'My notebook']].map(([id, ic, t]) => `<a href="#${id}" class="${route === id ? 'active' : ''}"><span class="nav-num">${icon(ic)}</span><span>${t}</span></a>`).join('')}`;
+    ${[['sources', 'book', 'Source library'], ['extra', 'list', 'Extra activities'], ['notebook', 'model', 'My notebook']].map(([id, ic, t]) => `<a href="${L(id)}" class="${route === id ? 'active' : ''}"${route === id ? ' aria-current="page"' : ''}><span class="nav-num">${icon(ic)}</span><span>${t}</span></a>`).join('')}`;
   $('#progress').value = done; $('#progress').max = coreActivities.length;
-  $('#progress-label').textContent = `${done} of ${coreActivities.length} activities finished`;
+  $('#progress-label').innerHTML = `<b>${done}</b> of ${coreActivities.length} activities finished`;
+  $('#side-notebook').href = L('notebook');
   const s = lesson.sections.find(x => x.id === route);
-  $('#main').innerHTML = s ? stagePage(s) : route === 'sources' ? sourcesPage() : route === 'extra' ? extrasPage() : route === 'notebook' ? notebook() : overview();
-  document.body.dataset.stage = s ? s.id : route;
-  const pageName = s ? s.title : { overview: 'Overview', sources: 'Source library', extra: 'Extra activities', notebook: 'My notebook' }[route];
-  $('#crumb').innerHTML = `<span>DEC15</span><i>/</i><span>Week ${lesson.week} · Day ${lesson.day}</span><i>/</i><b>${esc(pageName)}</b>`;
+  $('#main').innerHTML = route === 'home' ? courseHome() : s ? stagePage(s) : route === 'sources' ? sourcesPage() : route === 'extra' ? extrasPage() : route === 'notebook' ? notebook() : overview();
+  document.body.dataset.page = s ? 'stage' : route;
+  if (s) { document.body.style.setProperty('--accent', TONES[s.tone][0]); document.body.style.setProperty('--accent-bg', TONES[s.tone][1]); }
+  else { document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg'); }
+  const pageName = route === 'home' ? '' : s ? s.title : pageNames[route];
+  $('#crumb').innerHTML = route === 'home' ? `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>Course map</b>`
+    : `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i>${route === 'overview' ? `<b>Week ${lesson.week} · Day ${lesson.day}</b>` : `<a href="${L('overview')}">Week ${lesson.week} · Day ${lesson.day}</a><i>/</i><b>${esc(pageName)}</b>`}`;
+  document.title = `${course.code} · ${route === 'home' ? 'Course map' : `Week ${lesson.week}, Day ${lesson.day}${route === 'overview' ? '' : ' · ' + pageName}`}`;
   $('#teacher-toggle').setAttribute('aria-pressed', String(state.teacher));
-  $('#teacher-toggle').textContent = state.teacher ? 'Teacher view: on' : 'Teacher view: off';
+  $('#teacher-toggle .tt-state').textContent = state.teacher ? 'On' : 'Off';
   paintStatus();
   const tabs = $('.act-tabs'), cur = $('.act-tabs .current'); if (tabs && cur) tabs.scrollLeft = cur.offsetLeft - tabs.offsetLeft - 12;
   reader.mount();
@@ -332,9 +485,10 @@ function render() {
 function rerender() { const y = window.scrollY; render(); window.scrollTo(0, y); }
 
 /* ───────── sources dialog / glossary ───────── */
-const srcName = id => ({ reading1: 'Reading 1', reading2: 'Reading 2', listening: 'Listening transcript', 'video-script': 'Video script' }[id] || id);
+const srcName = id => sources.find(x => x.id === id)?.short || ({ reading1: 'Reading 1', reading2: 'Reading 2', reading3: 'Reading 3', listening: 'Listening transcript', 'video-script': 'Video script' }[id] || id);
 function openSource(id = 'reading1') {
   reader.closeWord();
+  if (!sources.length) { toast('This lesson has no course texts.'); return; }
   const s = sources.find(x => x.id === id) || sources[0];
   $('#resource-title').textContent = 'Read and highlight';
   $('#resource-body').innerHTML = `<div class="source-tabs">${sources.map(x => `<button class="${x.id === s.id ? 'active' : ''}" data-source="${x.id}">${srcName(x.id)}</button>`).join('')}</div>
@@ -342,7 +496,7 @@ function openSource(id = 'reading1') {
     <article class="source-text" data-help><span class="eyebrow">${esc(s.cite)} · ${esc(s.kind)}</span><h3>${esc(s.title)}</h3>${s.note ? `<p class="script-note">${esc(s.note)}</p>` : ''}
     <p class="source-ref">${esc(s.reference)}</p>
     ${s.paragraphs.map((p, i) => `<p>${reader.text('s-' + s.id + '-' + i, p, s.cite + ' · ' + (s.id === 'video-script' ? p.slice(0, 10) : 'paragraph ' + p.slice(0, 1)))}</p>`).join('')}
-    ${s.figure ? `<figure><img src="${s.figure}" alt="Bar chart. Estimated household food waste, million tonnes per year: Eastern Asia 106.36; North America 22.3; North Africa 22.11; Eastern Europe 15.16; Western Europe 14.24; Southern Europe 11.97; Northern Europe 7.56; Central Asia 6.35."><figcaption>Figure 1. ${esc(s.figureCaption || '')} ${esc(s.figureCredit || '')}</figcaption></figure>` : ''}</article>`;
+    ${s.figure ? `<figure><img src="${s.figure}" alt="${esc(s.figureAlt || '')}"><figcaption>Figure 1. ${esc(s.figureCaption || '')} ${esc(s.figureCredit || '')}</figcaption></figure>` : ''}</article>`;
   if (!$('#resource-dialog').open) $('#resource-dialog').showModal();
   $('#resource-body').scrollTop = 0;
   reader.mount();
@@ -392,6 +546,7 @@ function accountDialog(mode = cloudInfo.user ? 'account' : 'signin', msg = '') {
       <p class="acct-note">${icon('check')} Your answers, tables, plan and highlights are saved online. Sign in on any computer to continue where you stopped.</p>
       <button class="btn-quiet" data-signout>Sign out</button></div>`
     : `<form class="acct-form" data-auth="${mode}" novalidate>
+      ${mode !== 'reset' ? '<img class="acct-art" src="assets/art/sync.svg" alt="" width="360" height="200">' : ''}
       <p class="acct-intro">${mode === 'signup' ? 'Create an account once. Then your work is saved online and appears on any device where you sign in.' : mode === 'reset' ? 'Enter your email. We will send you a link to choose a new password.' : 'Sign in so your work is saved online — not only on this device.'}</p>
       ${mode === 'signup' ? `<label>Full name<input name="name" autocomplete="name" required></label><label>Student ID <small>(optional)</small><input name="sid" inputmode="numeric" autocomplete="off"></label>` : ''}
       <label>Email<input name="email" type="email" autocomplete="email" required></label>
@@ -464,6 +619,8 @@ document.addEventListener('click', e => {
   }
   if (d.hideAnswers) { delete state.revealed[d.hideAnswers]; save(); rerender(); return; }
   if (d.addRow) { state.rows[d.addRow] = (state.rows[d.addRow] || 0) + 1; save(); rerender(); return; }
+  if (d.go) { const sec = lesson.sections.find(x => x.activities.some(a => a.id === d.go)); if (sec) { state.active[sec.id] = d.go; save(false); } return; }
+  if (t.classList.contains('skip')) { e.preventDefault(); $('#main').focus(); return; }
   if (d.jump) {
     const s = lesson.sections.find(x => x.activities.some(a => a.id === d.jump));
     state.active[s.id] = d.jump; save(); render();
@@ -471,7 +628,7 @@ document.addEventListener('click', e => {
     $('#' + d.jump)?.focus({ preventScroll: true }); return;
   }
   if (d.source) { openSource(d.source); return; }
-  if (t.hasAttribute('data-video')) { t.closest('.video-wrap').innerHTML = `<iframe title="Our Changing Climate: Food waste causes climate change" src="https://www.youtube-nocookie.com/embed/${esc(cfg.supplementalVideoId)}?start=9" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`; return; }
+  if (t.hasAttribute('data-video')) { t.closest('.video-wrap').innerHTML = `<iframe title="${esc(d.title)}" src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(d.video)}?start=${Number(d.start) || 0}" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`; return; }
   if (d.timer) { startTimer(Number(d.timer)); return; }
   if (t.hasAttribute('data-pause')) { paused = !paused; if (!paused) deadline = Date.now() + remaining * 1000; t.textContent = paused ? 'Resume' : 'Pause'; return; }
   if (t.hasAttribute('data-close-timer')) { clearInterval(timer); $('#active-timer')?.remove(); return; }
@@ -493,7 +650,7 @@ render(); save(false);
 cloud = window.createDEC15Cloud({
   cfg, lessonId: lesson.id, getState: () => state,
   applyState: next => { state = { ...state, ...next, teacher: state.teacher }; save(false); rerender(); },
-  onChange: info => { cloudInfo = info; paintStatus(); if (location.hash === '#notebook' && info.status === 'saved' && info.profile && !paintStatus.named) { paintStatus.named = true; rerender(); } }
+  onChange: info => { cloudInfo = info; paintStatus(); if (parseRoute().page === 'notebook' && info.status === 'saved' && info.profile && !paintStatus.named) { paintStatus.named = true; rerender(); } }
 });
 cloud.init().catch(e => { console.error(e); cloudInfo = { status: 'error' }; paintStatus(); });
 })();

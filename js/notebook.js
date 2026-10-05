@@ -43,7 +43,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
   }
   function model() {
     const st = getState(), core = lesson.sections.flatMap(s => s.activities);
-    const sections = [...lesson.sections.map(s => ({ id: s.id, number: s.number, title: s.title, color: STAGE_COLORS[s.id], activities: s.activities })),
+    const sections = [...lesson.sections.map(s => ({ id: s.id, number: s.number, title: s.title, color: s.color || STAGE_COLORS[s.id], activities: s.activities })),
       { id: 'extra', number: '+', title: 'Extra activities', color: '#5d6b75', activities: lesson.extras }]
       .map(s => ({ ...s, activities: s.activities.map(a => ({ id: a.id, title: a.title, done: !!st.done[a.id], items: activityItems(a) })).filter(a => a.items.length) }))
       .filter(s => s.activities.length);
@@ -100,7 +100,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
         <header class="nb-stage-head"><span class="nb-stage-num">${esc(s.number)}</span><h2>${esc(s.title)}</h2></header>
         ${s.activities.map(a => `<article class="nb-act"><h3>${esc(a.title)}${a.done ? '<span class="nb-done">Finished</span>' : ''}</h3>${a.items.map(itemHTML).join('')}</article>`).join('')}
       </section>`).join('') + marksHTML(m)
-      : `<div class="nb-empty"><svg viewBox="0 0 120 90" aria-hidden="true"><rect x="22" y="10" width="76" height="70" rx="8" fill="#fff" stroke="#d9d2c3"/><path d="M36 30h48M36 42h48M36 54h30" stroke="#e3a843" stroke-width="3" stroke-linecap="round"/><circle cx="92" cy="70" r="14" fill="#14293a"/><path d="m86 70 4 4 8-8" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg><h2>Your notebook is empty — for now</h2><p>Everything you write, choose and highlight in the lesson will appear here, organised by stage.</p></div>`}`;
+      : `<div class="nb-empty"><img src="assets/art/notebook.svg" alt="" width="240" height="170"><h2>Your notebook is empty — for now</h2><p>Everything you write, choose and highlight in the lesson will appear here, organised by stage.</p></div>`}`;
   }
 
   /* ───────── standalone HTML (Google Docs paste + print) ───────── */

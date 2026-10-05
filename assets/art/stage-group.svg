@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none"><defs><filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#182f3f" flood-opacity=".13"/></filter><filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#182f3f" flood-opacity=".12"/></filter><pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#182f3f" opacity=".16"/></pattern></defs><ellipse cx="222" cy="298" rx="150" ry="13" fill="#182f3f" opacity=".07"/><circle cx="220" cy="165" r="138" fill="#f6ead0"/><circle cx="220" cy="165" r="152" stroke="#93600f" stroke-opacity=".22" stroke-dasharray="2 6" stroke-linecap="round"/><rect x="322" y="34" width="72" height="60" fill="url(#d)"/><rect x="38" y="236" width="60" height="48" fill="url(#d)"/><path d="M44 112h24m-12-12v24M372 238h22m-11-11v22" stroke="#93600f" stroke-width="2" stroke-linecap="round"/>
+<g filter="url(#s)" stroke="#fffdf5" stroke-width="4" stroke-linejoin="round">
+<path d="M120 90H220V125a15 15 0 1 1 0 30V190H120z" fill="#c2552d"/>
+<path d="M220 90H320V190H285a15 15 0 1 0-30 0H220V155a15 15 0 1 0 0-30z" fill="#2b776e"/>
+<path d="M120 190H220V225a15 15 0 1 1 0 30V290H120z" fill="#3a58a0"/>
+<path d="M220 190H255a15 15 0 1 1 30 0H320V290H220V255a15 15 0 1 0 0-30z" fill="#e3a843" transform="translate(26 14) rotate(8 270 240)"/>
+</g><path d="M300 300c14-2 26-8 34-20m-6 2 6-2 1 6" stroke="#93600f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".6"/>
+<circle cx="380" cy="120" r="4" fill="#182f3f"/><path d="M70 62l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#e3a843"/>
+</svg>
