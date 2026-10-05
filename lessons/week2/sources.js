@@ -34,6 +34,7 @@ window.DEC15_SOURCES = [
       "H. Resolving the issues of hunger and food waste are critical for achieving global food security and sustainability. Reducing food waste not only reduces hunger but also conserves valuable resources and reduces environmental impact. By focusing on both preventing food loss and ensuring efficient food usage, we can take significant steps towards the United Nations Sustainable Development Goals, particularly the goal of zero hunger."
     ],
     "figure": "assets/reading1-figure.png",
+    "figureAlt": "Bar chart. Estimated household food waste, million tonnes per year: Eastern Asia 106.36; North America 22.3; North Africa 22.11; Eastern Europe 15.16; Western Europe 14.24; Southern Europe 11.97; Northern Europe 7.56; Central Asia 6.35.",
     "figureCaption": "Estimated household food waste (in million tonnes per year) in selected regions. ",
     "figureCredit": "Note: Data obtained from the database of the UNEP Food Waste Index Report 2021"
   },
