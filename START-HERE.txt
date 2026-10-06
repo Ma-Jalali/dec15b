@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.6)
+DEC15 — COURSE APP (v2.7)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -79,3 +79,14 @@ NOTEBOOK & EXPORTS
 My notebook shows all work by stage, with tables and the essay plan kept as tables.
 Exports: PDF, Open in Google Docs (copies the notebook, opens a new Doc, student presses Ctrl+V),
 Word (.docx, also opens in Google Docs) and Print. Libraries are bundled in js/vendor/ (MIT).
+
+CLASS WALL (v2.7)
+Under every activity there is a Class wall. Signed-in students can post a comment or notes, reply,
+and react with emojis (👍 ❤️ 👏 💡 🤔 😂). Writing boxes have a "Share with class" button that posts
+the student's text to the wall of that activity; their own saved copy does not change.
+- Everyone signed in to DEC15 can read the walls; names come from the student's profile.
+- Students can delete their own posts. A teacher (profiles.role = 'teacher') can delete any post.
+- New posts appear for everyone automatically (Supabase Realtime).
+- Turn the wall off for one activity with  wall: false  (or a whole lesson with  wall: false  at the top),
+  and the Share button off for a writing box with  share: false.
+Database: supabase/migrations/20261006000000_dec15_class_wall.sql (already applied to the project).

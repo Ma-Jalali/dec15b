@@ -584,6 +584,68 @@ a.dayline-flag:hover .dayline-title { text-decoration: underline; text-underline
 .dayline-title { font-weight: 700; font-size: .88rem; line-height: 1.25; color: var(--ink); }
 .dayline-min { font-size: .76rem; color: var(--muted); }
 
+/* Class wall (under each activity) */
+.wall { margin: 0 44px 30px; padding: 24px 0 0; border-top: 1px solid var(--line); }
+.wall-head { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; }
+.wall-icon { width: 40px; height: 40px; flex: none; border-radius: 12px; display: grid; place-items: center; background: var(--talk-bg); color: var(--talk); border: 1px solid var(--talk-line); }
+.wall-icon .icon { width: 19px; height: 19px; }
+.wall-head h3 { display: flex; align-items: center; gap: 8px; font: 600 1.2rem/1.3 var(--serif); margin: 0 0 2px; }
+.wall-head p { margin: 0; font-size: .9rem; color: var(--muted); }
+.wall-count:not(:empty) { font: 800 .72rem/1 var(--sans); background: var(--talk); color: #fff; border-radius: 999px; padding: 4px 8px; }
+.wall-form { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 18px; }
+.wall-form-main { flex: 1; min-width: 0; }
+.wall-form textarea { width: 100%; min-height: 64px; resize: vertical; border: 1px solid var(--line-2); border-radius: var(--r); padding: 12px 14px; font: inherit; font-size: .96rem; background: #fff; transition: border-color .15s, box-shadow .15s; }
+.wall-form textarea:focus { outline: none; border-color: var(--talk); box-shadow: 0 0 0 3px color-mix(in srgb, var(--talk) 15%, transparent); }
+.wall-form-bar { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 8px; }
+.wall-form-bar small { margin-right: auto; color: var(--faint); font-size: .76rem; }
+.wall-form-bar .btn, .wall-form-bar .btn-quiet { height: 38px; padding: 0 16px; font-size: .84rem; }
+.wall-avatar { width: 36px; height: 36px; flex: none; border-radius: 50%; display: grid; place-items: center; font: 600 .95rem/1 var(--serif); color: #fff; background: hsl(var(--h) 38% 42%); }
+.wall-signin { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 16px; border: 1px dashed var(--line-2); border-radius: var(--r); background: var(--surface-2); margin-bottom: 14px; }
+.wall-signin p { display: flex; gap: 10px; align-items: flex-start; margin: 0; font-size: .92rem; color: var(--ink-2); }
+.wall-signin .icon { color: var(--talk); margin-top: 3px; flex: none; }
+.wall-list { display: grid; gap: 12px; }
+.wall-empty { margin: 0; padding: 14px 16px; font-size: .9rem; color: var(--muted); background: var(--surface-2); border-radius: var(--r); }
+.wall-post { display: flex; gap: 12px; padding: 14px 16px; background: #fff; border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow-sm); animation: rise .3s var(--ease) both; }
+.wall-post.is-work { border-left: 4px solid var(--talk); }
+.wall-post { position: relative; }
+.wall-post:has(.wall-picker) { z-index: 10; }
+.wall-main { flex: 1; min-width: 0; }
+.wall-meta { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; font-size: .88rem; }
+.wall-meta b { color: var(--ink); }
+.wall-you { font: 800 .62rem/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--talk); background: var(--talk-bg); padding: 3px 6px; border-radius: 999px; }
+.wall-time { color: var(--faint); font-size: .78rem; }
+.wall-badge { display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; font: 800 .66rem/1.2 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--talk); }
+.wall-badge .icon { width: 13px; height: 13px; }
+.wall-body { margin-top: 6px; font-size: .98rem; line-height: 1.6; color: var(--ink-2); overflow-wrap: anywhere; }
+.is-work .wall-body { font-family: var(--serif); font-size: 1.04rem; color: var(--ink); }
+.wall-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; margin-top: 10px; }
+.wall-reacts { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.wall-chip { display: inline-flex; align-items: center; gap: 5px; height: 28px; padding: 0 9px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--surface-2); font-size: .9rem; transition: all .15s var(--ease); }
+.wall-chip b { font-size: .76rem; color: var(--ink-2); }
+.wall-chip.mine { border-color: var(--talk); background: var(--talk-bg); }
+.wall-chip:hover { transform: translateY(-1px); }
+.wall-add-wrap { position: relative; display: inline-flex; }
+.wall-add { width: 30px; height: 28px; border-radius: 999px; border: 1px dashed var(--line-3); background: #fff; display: grid; place-items: center; color: var(--muted); }
+.wall-add:hover, .wall-add[aria-expanded="true"] { color: var(--talk); border-color: var(--talk); }
+.wall-add .icon { width: 16px; height: 16px; }
+.wall-picker { position: absolute; left: 0; top: calc(100% + 6px); z-index: 5; display: flex; gap: 2px; padding: 5px; background: #fff; border: 1px solid var(--line-2); border-radius: 999px; box-shadow: var(--shadow-lift); }
+.wall-picker button { width: 34px; height: 34px; border: 0; background: none; border-radius: 50%; font-size: 1.15rem; transition: transform .12s var(--ease), background .12s; }
+.wall-picker button:hover { background: var(--surface-2); transform: scale(1.18); }
+.wall-link { display: inline-flex; align-items: center; gap: 5px; border: 0; background: none; padding: 4px 2px; font-size: .82rem; font-weight: 700; color: var(--muted); }
+.wall-link .icon { width: 14px; height: 14px; }
+.wall-link:hover { color: var(--ink); }
+.wall-del:hover { color: #a3301a; }
+.wall-replies { display: grid; gap: 8px; margin-top: 12px; padding-left: 14px; border-left: 2px solid var(--talk-line); }
+.wall-post.is-reply { padding: 10px 12px; box-shadow: none; background: var(--surface-2); }
+.wall-post.is-reply .wall-avatar { width: 28px; height: 28px; font-size: .8rem; }
+.wall-reply-form { display: block; margin-top: 12px; }
+.share-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; height: 32px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--talk-line); background: var(--talk-bg); color: var(--talk); font-size: .8rem; font-weight: 700; transition: all .15s var(--ease); }
+.share-btn:hover { background: var(--talk); color: #fff; border-color: var(--talk); }
+.share-btn .icon { width: 15px; height: 15px; }
+@media (max-width: 1080px) { .wall { margin-left: 32px; margin-right: 32px; } }
+@media (max-width: 640px) { .wall { margin-left: 18px; margin-right: 18px; } .wall-form > .wall-avatar { display: none; } .wall-signin { flex-direction: column; align-items: flex-start; } .wall-form-bar small { display: none; } }
+@media print { .wall, .share-btn { display: none !important; } }
+
 /* Course home */
 .home-head { margin-bottom: 22px; }
 .home-head .eyebrow { color: var(--brand); }

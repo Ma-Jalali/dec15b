@@ -97,5 +97,5 @@ window.createDEC15Cloud = function ({ cfg, lessonId, getState, applyState, onCha
   }
 
   return { enabled, init, queue, push, signIn, signUp, signOut, resetPassword, merge,
-    get status() { return status; }, get user() { return user; }, get profile() { return profile; } };
+    get status() { return status; }, get user() { return user; }, get profile() { return profile; }, get client() { return client; } };
 };

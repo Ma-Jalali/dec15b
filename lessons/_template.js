@@ -44,7 +44,9 @@
      figure     { type: 'figure', src, alt, caption?, credit?, size?: 'small' | 'wide' }   a picture or diagram
      tip        { type: 'tip', text }
      teacher    { type: 'teacher', text }                    only shown in Teacher view
-   answers: { title?, items: [[label, answer], ...] } — opens after the student tries. */
+   answers: { title?, items: [[label, answer], ...] } — opens after the student tries.
+   Class wall: every activity has one. Add wall: false to an activity (or the lesson) to hide it;
+   add share: false to a field (or a fields block) to hide its “Share with class” button. */
 
 window.DEC15_LESSON = {
   id: 'w3d1',
