@@ -6,7 +6,7 @@
    - a clean print layout.
    Tables stay tables in every format. */
 window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows, reader, esc, strip, toast, person }) {
-  const STAGE_COLORS = { ai: '#ad6a12', feedback: '#2b776e', critical: '#3a58a0', writing: '#b0512a' };
+  const STAGE_COLORS = { ai: '#ad6a12', feedback: '#2b776e', critical: '#3a58a0', writing: '#b0512a' }; // Week 2 Day 5; other lessons use section.color
   const val = k => getState().values[k] ?? '';
   const filled = v => v !== undefined && v !== null && String(v).trim() !== '';
   const words = s => (String(s).trim().match(/\S+/g) || []).length;
@@ -34,6 +34,15 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
         const parts = planParts.map(([p, fs]) => ({ title: p, rows: fs.map(([k, l]) => [l, String(val('plan-' + k))]).filter(r => filled(r[1])) })).filter(p => p.rows.length);
         if (parts.length) items.push({ t: 'plan', parts });
       }
+      if (b.type === 'order' && filled(val(b.id))) {
+        const o = String(val(b.id)).split(',').map(Number), ok = st.checked[b.id];
+        const rows = o.map((x, i) => ok ? [String(i + 1), strip(b.items[x]), x === i ? 'Correct' : 'Answer: ' + strip(b.items[i])] : [String(i + 1), strip(b.items[x])]);
+        items.push({ t: 'table', title: b.title || 'My order', head: ok ? ['#', 'My order', 'Check'] : ['#', 'My order'], rows, widths: ok ? [8, 52, 40] : [10, 90] });
+      }
+      if (b.type === 'grid') {
+        const rows = b.rows.map((r, ri) => [strip(r), ...b.columns.map((_, ci) => { const g = b.given?.[`${ri}-${ci}`]; if (g) return g; const v = String(val(`${b.id}-${ri}-${ci}`)); const ans = b.answers?.[ri]?.[ci]; return v && st.checked[b.id] && ans !== undefined && v !== ans ? `${v} (answer: ${ans})` : v; })]);
+        if (rows.some((r, ri) => r.slice(1).some((c, ci) => !b.given?.[`${ri}-${ci}`] && filled(c)))) items.push({ t: 'table', title: b.title || 'Table', head: ['', ...b.columns.map(strip)], rows, rowHead: true });
+      }
       if (b.type === 'checklist') {
         const list = b.items.map((c, i) => [c, !!val(b.id + '-' + i)]);
         if (list.some(x => x[1])) items.push({ t: 'check', title: b.title, items: list });
@@ -51,7 +60,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
     const wordCount = Object.values(st.values).filter(v => typeof v === 'string').reduce((n, v) => n + words(v), 0);
     return {
       title: 'My notebook', lesson: `DEC15 · Week ${lesson.week}, Day ${lesson.day} · ${lesson.title}`,
-      question: lesson.question, wordTarget: lesson.wordTarget, student: person(),
+      question: lesson.question, wordTarget: lesson.wordTarget || '', qLabel: lesson.questionKind || 'Essay question', student: person(),
       date: new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' }),
       stats: { finished: core.filter(a => st.done[a.id]).length, total: core.length, words: wordCount, marks: marks.reduce((n, r) => n + r.ranges.length, 0) },
       sections, marks
@@ -79,7 +88,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
         <span class="eyebrow">${esc(m.lesson)}</span>
         <h1>My notebook</h1>
         <p class="nb-who">${m.student ? `<b>${esc(m.student)}</b> · ` : ''}${esc(m.date)}</p>
-        <p class="nb-q"><span>Essay question</span>${esc(m.question)}</p>
+        <p class="nb-q"><span>${esc(m.qLabel)}</span>${esc(m.question)}</p>
       </div>
       <div class="nb-stats">
         <div class="nb-stat nb-stat-ring">${ring}<b>${m.stats.finished}<small>/${m.stats.total}</small></b><span>activities finished</span></div>
@@ -118,7 +127,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
     const body = `<h1 style="font-family:${S};font-size:26pt;margin:0 0 4pt;color:#14293a">My notebook</h1>
       <p style="font-family:${F};font-size:10pt;color:#5d6b75;margin:0 0 2pt">${esc(m.lesson)}</p>
       <p style="font-family:${F};font-size:10pt;color:#5d6b75;margin:0 0 12pt">${m.student ? esc(m.student) + ' · ' : ''}${esc(m.date)} · ${m.stats.finished}/${m.stats.total} activities finished</p>
-      <table style="border-collapse:collapse;width:100%;margin:0 0 16pt"><tr><td style="border:1px solid #e6d7b6;background:#fffaf0;padding:10pt 12pt;font-family:${S};font-size:13pt"><span style="font-family:${F};font-size:8.5pt;font-weight:bold;color:#93600f;text-transform:uppercase;letter-spacing:1pt">Essay question · ${esc(m.wordTarget)}</span><br>${esc(m.question)}</td></tr></table>
+      <table style="border-collapse:collapse;width:100%;margin:0 0 16pt"><tr><td style="border:1px solid #e6d7b6;background:#fffaf0;padding:10pt 12pt;font-family:${S};font-size:13pt"><span style="font-family:${F};font-size:8.5pt;font-weight:bold;color:#93600f;text-transform:uppercase;letter-spacing:1pt">${esc(m.qLabel)}${m.wordTarget ? ' · ' + esc(m.wordTarget) : ''}</span><br>${esc(m.question)}</td></tr></table>
       ${m.sections.map(s => `<h2 style="font-family:${S};font-size:18pt;color:${s.color};margin:22pt 0 6pt;padding-bottom:4pt;border-bottom:2px solid ${s.color}">${s.number !== '+' ? 'Stage ' + Number(s.number) + ' · ' : ''}${esc(s.title)}</h2>${s.activities.map(a => `<h3 style="font-family:${F};font-size:12.5pt;color:#14293a;margin:14pt 0 2pt">${esc(a.title)}${a.done ? ' <span style="color:#2f7a52;font-size:9pt">✓ Finished</span>' : ''}</h3>${a.items.map(item).join('')}`).join('')}`).join('')}
       ${m.marks.length ? `<h2 style="font-family:${S};font-size:18pt;color:#8a6a1f;margin:22pt 0 6pt;padding-bottom:4pt;border-bottom:2px solid #8a6a1f">My highlights</h2>${m.marks.map(r => `<p style="margin:10pt 0 2pt;font-family:${F};font-size:9pt;font-weight:bold;color:#5d6b75">${esc(r.title)}</p><p style="margin:0 0 6pt;font-family:${S};font-size:11pt;line-height:1.6">${r.html.replace(/class="annotation mark-yellow( mark-underline)?"/g, (x, u) => `style="background:#ffe08a${u ? ';text-decoration:underline' : ''}"`).replace(/class="annotation mark-blue( mark-underline)?"/g, (x, u) => `style="background:#c7e6f8${u ? ';text-decoration:underline' : ''}"`).replace(/class="annotation  ?mark-underline"/g, 'style="text-decoration:underline"')}</p>`).join('')}` : ''}`;
     if (!forPrint) return `<meta charset="utf-8"><div>${body}</div>`;
@@ -161,7 +170,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
     doc.setFont('Fraunces', 'normal'); doc.setFontSize(12.5);
     const qLines = doc.splitTextToSize(m.question, CW - 12), qh = 10 + qLines.length * 5.6;
     doc.setFillColor(255, 250, 240); doc.setDrawColor(230, 215, 182); doc.roundedRect(M, y, CW, qh, 2.5, 2.5, 'FD');
-    doc.setFont('Manrope', 'bold'); doc.setFontSize(7.5); doc.setTextColor(147, 96, 15); doc.text('ESSAY QUESTION  ·  ' + m.wordTarget.replace('–', '-').toUpperCase(), M + 6, y + 6.5);
+    doc.setFont('Manrope', 'bold'); doc.setFontSize(7.5); doc.setTextColor(147, 96, 15); doc.text((m.qLabel + (m.wordTarget ? '  ·  ' + m.wordTarget.replace('–', '-') : '')).toUpperCase(), M + 6, y + 6.5);
     doc.setFont('Fraunces', 'normal'); doc.setFontSize(12.5); doc.setTextColor(...ink); qLines.forEach((l, i) => doc.text(l, M + 6, y + 12.5 + i * 5.6));
     y += qh + 6;
 
@@ -232,7 +241,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
       para('My notebook', { serif: true, size: 52, after: 60 }),
       para(m.lesson, { size: 19, color: '5D6B75', after: 20 }),
       para(`${m.student ? m.student + ' · ' : ''}${m.date} · ${m.stats.finished}/${m.stats.total} activities finished`, { size: 19, color: '5D6B75', after: 240 }),
-      new D.Table({ width: { size: 100, type: D.WidthType.PERCENTAGE }, rows: [new D.TableRow({ children: [new D.TableCell({ borders: { top: { style: D.BorderStyle.SINGLE, size: 6, color: 'E6D7B6' }, bottom: { style: D.BorderStyle.SINGLE, size: 6, color: 'E6D7B6' }, left: { style: D.BorderStyle.SINGLE, size: 6, color: 'E6D7B6' }, right: { style: D.BorderStyle.SINGLE, size: 6, color: 'E6D7B6' } }, shading: { type: D.ShadingType.CLEAR, fill: 'FFFAF0', color: 'auto' }, margins: { top: 140, bottom: 140, left: 180, right: 180 }, children: [para('Essay question · ' + m.wordTarget, { size: 16, bold: true, color: '93600F', caps: true, after: 60 }), para(m.question, { serif: true, size: 26, after: 0 })] })] })] }),
+      new D.Table({ width: { size: 100, type: D.WidthType.PERCENTAGE }, rows: [new D.TableRow({ children: [new D.TableCell({ borders: { top: { style: D.BorderStyle.SINGLE, size: 6, color: 'E6D7B6' }, bottom: { style: D.BorderStyle.SINGLE, size: 6, color: 'E6D7B6' }, left: { style: D.BorderStyle.SINGLE, size: 6, color: 'E6D7B6' }, right: { style: D.BorderStyle.SINGLE, size: 6, color: 'E6D7B6' } }, shading: { type: D.ShadingType.CLEAR, fill: 'FFFAF0', color: 'auto' }, margins: { top: 140, bottom: 140, left: 180, right: 180 }, children: [para(m.qLabel + (m.wordTarget ? ' · ' + m.wordTarget : ''), { size: 16, bold: true, color: '93600F', caps: true, after: 60 }), para(m.question, { serif: true, size: 26, after: 0 })] })] })] }),
     ];
     for (const s of m.sections) {
       const c = s.color.slice(1).toUpperCase();

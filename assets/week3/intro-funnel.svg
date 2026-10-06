@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" font-family="Manrope, 'Segoe UI', Arial, sans-serif">
+<rect width="720" height="430" fill="#fffdf8"/>
+<polygon points="40,20 600,20 547.6,120 92.4,120" fill="#14293a"/>
+<polygon points="92.4,120 547.6,120 495.2,220 144.8,220" fill="#2f5574"/>
+<polygon points="144.8,220 495.2,220 448,310 192,310" fill="#e3a843"/>
+<polygon points="192,310 448,310 400,402 240,402" fill="#f6e3bd"/>
+<g text-anchor="middle">
+<text x="320" y="62" fill="#fff" font-size="21" font-weight="700" font-family="Fraunces, Georgia, 'Times New Roman', serif">General statement</text>
+<text x="320" y="90" fill="#cfdbe4" font-size="14">Broad topic or problem · historical context</text>
+<text x="320" y="162" fill="#fff" font-size="20" font-weight="700" font-family="Fraunces, Georgia, 'Times New Roman', serif">Narrow the focus</text>
+<text x="320" y="189" fill="#d6e3ee" font-size="14">State the issue · causes / consequences</text>
+<text x="320" y="258" fill="#14293a" font-size="19" font-weight="700" font-family="Fraunces, Georgia, 'Times New Roman', serif">Thesis statement</text>
+<text x="320" y="284" fill="#3d3010" font-size="13.5">Your position on the question</text>
+<text x="320" y="347" fill="#14293a" font-size="18" font-weight="700" font-family="Fraunces, Georgia, 'Times New Roman', serif">Preview</text>
+<text x="320" y="372" fill="#5a4a24" font-size="13">Outline of your main reasons</text>
+</g>
+<g font-family="Manrope, 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="800" letter-spacing="1.6" fill="#6b7882">
+<text x="652" y="36" text-anchor="middle">BROAD</text>
+<path d="M652 50v330" stroke="#c9bfae" stroke-width="2"/><path d="m644 372 8 12 8-12" fill="none" stroke="#c9bfae" stroke-width="2" stroke-linejoin="round"/>
+<text x="652" y="408" text-anchor="middle">SPECIFIC</text>
+</g>
+</svg>

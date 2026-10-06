@@ -37,6 +37,11 @@
      plan       { type: 'plan' }                             the essay outline
      checklist  { type: 'checklist', id, title, items: [..] }
      sources    { type: 'sources', ids: ['reading1', ...] }  buttons that open course texts
+     order      { type: 'order', id, title, items: [..in the CORRECT order..], ends?: ['Most effective', 'Least effective'], why? }
+                students see the items mixed and move them up/down, then check (ranking, sequencing)
+     grid       { type: 'grid', id, title, rows: [..], columns: [..], options: ['Agree', 'Doesn’t mention'],
+                  answers?: [[row 1 answers…], …], given?: { '0-0': 'Agree' } }   a table of drop-down choices
+     figure     { type: 'figure', src, alt, caption?, credit?, size?: 'small' | 'wide' }   a picture or diagram
      tip        { type: 'tip', text }
      teacher    { type: 'teacher', text }                    only shown in Teacher view
    answers: { title?, items: [[label, answer], ...] } — opens after the student tries. */
@@ -47,7 +52,8 @@ window.DEC15_LESSON = {
   title: 'Lesson title',
   duration: 'About 4 hours',                 // optional, shown on the overview
   question: 'The protected essay question — copy it exactly from the course materials.',
-  questionLabel: 'This week’s essay question',
+  questionKind: 'Essay question',            // or e.g. 'Focus question' when the day has no essay question
+  questionLabel: 'This week’s essay question',  // the label above the question on the overview
   wordTarget: '450–600 words',
   journey: 'One or two sentences: what students will be able to do by the end of the day.',
   image: 'assets/food-editorial.webp',       // optional hero picture

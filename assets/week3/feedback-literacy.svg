@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="Manrope, 'Segoe UI', Arial, sans-serif">
+<rect width="720" height="400" fill="#fffdf8"/>
+<text x="360" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#14293a" font-family="Fraunces, Georgia, 'Times New Roman', serif">Feedback literacy</text>
+<g>
+<path d="M30 56h150v76l-75 22-75-22z" fill="#2b776e"/><path d="M30 166h150v76l-75 22-75-22z" fill="#3a58a0"/><path d="M30 276h150v76l-75 22-75-22z" fill="#7a4a8c"/>
+<g text-anchor="middle" fill="#fff" font-size="15" font-weight="800"><text x="105" y="94">Appreciating</text><text x="105" y="114">feedback</text><text x="105" y="204">Making</text><text x="105" y="224">judgements</text><text x="105" y="322">Taking action</text></g>
+<g fill="#fff" stroke-width="1.5"><rect x="196" y="56" width="494" height="96" rx="14" stroke="#9fd0c7"/><rect x="196" y="166" width="494" height="80" rx="14" stroke="#b6c5e8"/><rect x="196" y="276" width="494" height="80" rx="14" stroke="#d6bfe0"/></g>
+<g font-size="14" fill="#3d505e">
+<text x="216" y="84">• Defining performance criteria for a task (rubric)</text>
+<text x="216" y="108">• Understanding feedback from teachers and peers</text>
+<text x="216" y="132">• Saying how feedback will be used in future performance</text>
+<text x="216" y="196">• Evaluating the quality of your own work and others’</text>
+<text x="216" y="222">• Comparing your work with others and with exemplars</text>
+<text x="216" y="306">• Explaining how feedback has been applied / used</text>
+<text x="216" y="332">• Documenting actions taken in response to feedback</text>
+</g>
+</g>
+</svg>

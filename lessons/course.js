@@ -31,16 +31,21 @@ window.DEC15_COURSE = {
       n: 3, theme: 'Solutions to food loss',
       summary: 'From problems to solutions: strategies that prevent food loss, plus your first practice assessment.',
       days: [
-        { id: 'w3d1', day: 1, status: 'soon', title: 'Academic writing workshop',
-          parts: ['Writing skills workshop', 'Academic writing skills 1', 'Reporting verbs and referencing'] },
-        { id: 'w3d2', day: 2, status: 'soon', title: 'Reading and listening to write',
-          parts: ['Solutions to food insecurity', 'Reading to write', 'Listening to write'] },
-        { id: 'w3d3', day: 3, status: 'soon', title: 'Bringing sources together',
-          parts: ['Mediation', 'Academic writing skills 2', 'Research skills applied'] },
-        { id: 'w3d4', day: 4, status: 'soon', title: 'Practice assessment day',
-          parts: ['Engaging with sources', 'Integrated Writing Practice Assessment', 'Building rapport'] },
-        { id: 'w3d5', day: 5, status: 'soon', title: 'Discussion and group work',
-          parts: ['Discussion skills', 'Group work skills', 'AI prompts'] }
+        { id: 'w3d1', day: 1, status: 'ready', title: 'Write your first argument essay', art: 'writing',
+          parts: ['Write your introduction', 'Build your body paragraphs', 'Conclude, check and polish', 'Your voice and source voices'],
+          scripts: ['lessons/week3/sources.js', 'lessons/week3/w3d1.js'] },
+        { id: 'w3d2', day: 2, status: 'ready', title: 'Reading and listening for solutions', art: 'reading',
+          parts: ['Solve some problems', 'Read: preventing food loss and waste', 'Listen: the future of food banks?'],
+          scripts: ['lessons/week3/sources.js', 'lessons/week3/w3d2.js'] },
+        { id: 'w3d3', day: 3, status: 'ready', title: 'Bringing sources together', art: 'research',
+          parts: ['Connect three sources', 'Write with nouns', 'Research solutions'],
+          scripts: ['lessons/week3/sources.js', 'lessons/week3/w3d3.js'] },
+        { id: 'w3d4', day: 4, status: 'ready', title: 'Practice assessment day', art: 'assessment',
+          parts: ['Choose what helps your answer', 'Integrated Writing Practice Assessment', 'Building rapport'],
+          scripts: ['lessons/week3/sources.js', 'lessons/week3/w3d4.js'] },
+        { id: 'w3d5', day: 5, status: 'ready', title: 'Negotiate, work as a team, write better prompts', art: 'discussion',
+          parts: ['Negotiate in a discussion', 'Work well as a team', 'Write better AI prompts', 'Building rapport'],
+          scripts: ['lessons/week3/sources.js', 'lessons/week3/w3d5.js'] }
       ]
     }
   ]

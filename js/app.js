@@ -123,6 +123,8 @@ function register(a) {
     if (b.type === 'checklist') b.items.forEach((c, i) => reg(b.id + '-' + i, c));
     if (b.type === 'plan') planParts.forEach(([p, fs]) => fs.forEach(([k, l]) => reg('plan-' + k, p + ' · ' + l)));
     if (b.type === 'table') { a._tables = a._tables || []; a._tables.push(b); }
+    if (b.type === 'order') reg(b.id, b.title || 'Put in order');
+    if (b.type === 'grid') b.rows.forEach((r, ri) => b.columns.forEach((c, ci) => reg(`${b.id}-${ri}-${ci}`, `${strip(r)} · ${strip(c)}`)));
   }
 }
 allActivities.forEach(register);
@@ -169,8 +171,8 @@ B.tip = b => `<p class="block tip" data-help>${icon('bulb')}<span>${b.text}</spa
 B.teacher = b => state.teacher ? `<aside class="block teacher"><div class="block-label">${icon('teacher')}Teacher note</div><p>${b.text}</p></aside>` : '';
 B.sources = b => `<div class="block source-buttons">${b.ids.map(id => { const s = sources.find(x => x.id === id); return `<button class="source-btn" data-source="${id}">${icon('book')}<span><b>${esc(s.cite)}</b><small>${esc(s.title)}</small></span></button>`; }).join('')}</div>`;
 B.question = (b, a) => `<section class="block essay-q">
-  <span class="essay-q-label">The essay question · ${esc(lesson.wordTarget)}</span>
-  <blockquote>${reader.text('q-' + a.id, lesson.question, 'Essay question')}</blockquote>
+  <span class="essay-q-label">${esc(b.label || (lesson.questionKind ? lesson.questionKind : 'The essay question'))}${lesson.wordTarget ? ' · ' + esc(lesson.wordTarget) : ''}</span>
+  <blockquote>${reader.text('q-' + a.id, b.text || lesson.question, 'Essay question')}</blockquote>
   ${reader.toolbar('activity')}
 </section>`;
 B.passage = b => `<section class="block passage">
@@ -218,10 +220,51 @@ B.plan = () => `<section class="block plan">
   ${planParts.map(([p, fs], i) => `<div class="plan-part plan-${i}"><h4><span>${pad(i + 1)}</span>${p}</h4>${fs.map(([k, l]) => `<div class="field"><label for="f-plan-${k}">${l}</label><textarea id="f-plan-${k}" data-save="plan-${k}" rows="2" placeholder="Notes, not full sentences">${esc(val('plan-' + k))}</textarea></div>`).join('')}</div>`).join('')}
 </section>`;
 B.checklist = b => `<section class="block checklist"><h3 class="block-heading">${b.title}</h3>${b.items.map((c, i) => `<label class="check"><input type="checkbox" data-save="${b.id}-${i}"${val(b.id + '-' + i) ? ' checked' : ''}><span>${esc(c)}</span></label>`).join('')}</section>`;
+/* order: put items in the right order (ranking, sequencing). items are listed in the CORRECT order;
+   students see them mixed. { type: 'order', id, title, items: [..], ends?: ['Best', 'Worst'], why? } */
+const gcd = (a, b) => b ? gcd(b, a % b) : a;
+function orderOf(b) {
+  const n = b.items.length, v = val(b.id);
+  if (v) { const o = v.split(',').map(Number); if (o.length === n && new Set(o).size === n && o.every(x => x >= 0 && x < n)) return o; }
+  if (b.start) return b.start.slice();
+  let k = 2; while (n > 2 && gcd(k, n) !== 1) k++;
+  return Array.from({ length: n }, (_, i) => n < 3 ? n - 1 - i : (i * k + 1) % n);   // a fixed mix, never the answer
+}
+B.order = b => {
+  const o = orderOf(b), checked = state.checked[b.id], right = o.filter((x, i) => x === i).length;
+  return `<section class="block order" id="order-${b.id}">
+  ${b.title ? `<h3 class="block-heading">${icon('list')}${b.title}</h3>` : ''}
+  ${b.ends ? `<p class="order-end order-top">${icon('arrow')}${esc(b.ends[0])}</p>` : ''}
+  <ol class="order-list">${o.map((x, i) => `<li class="order-item${checked ? (x === i ? ' is-right' : ' is-wrong') : ''}"><span class="order-pos">${i + 1}</span><span class="order-text">${b.items[x]}</span>
+    <span class="order-move"><button type="button" data-order="${b.id}" data-from="${i}" data-dir="-1" aria-label="Move up"${i ? '' : ' disabled'}>${icon('arrow')}</button><button type="button" data-order="${b.id}" data-from="${i}" data-dir="1" aria-label="Move down"${i < o.length - 1 ? '' : ' disabled'}>${icon('arrow')}</button></span>
+    ${checked && x !== i ? `<span class="order-should">Should be ${x + 1}</span>` : ''}</li>`).join('')}</ol>
+  ${b.ends ? `<p class="order-end order-bottom">${icon('arrow')}${esc(b.ends[1])}</p>` : ''}
+  <div class="quiz-bar">${checked ? `<span class="quiz-score">${right} / ${o.length} in the right place</span><button class="btn-quiet" data-order-reset="${b.id}">Try again</button>` : `<button class="btn" data-order-check="${b.id}">Check my order ${icon('arrow')}</button>`}</div>
+  ${checked && b.why ? `<p class="quiz-why">${b.why}</p>` : ''}
+</section>`;
+};
+/* grid: a table of choices, e.g. Does the text agree? { type: 'grid', id, title, rows: [..], columns: [..], options: [..], answers?: [[row1 answers], ...], given?: { 'r-c': value } } */
+B.grid = b => {
+  const checked = state.checked[b.id];
+  const cell = (r, c) => { const k = `${b.id}-${r}-${c}`, given = b.given?.[`${r}-${c}`], ans = b.answers?.[r]?.[c], v = given ?? val(k);
+    if (given) return `<td class="grid-given">${esc(given)}</td>`;
+    const ok = checked && ans !== undefined ? (v === ans ? ' is-right' : ' is-wrong') : '';
+    return `<td class="grid-cell${ok}"><select data-save="${k}" aria-label="${esc(strip(b.rows[r]) + ' — ' + strip(b.columns[c]))}"><option value="">Choose…</option>${b.options.map(o => `<option${v === o ? ' selected' : ''}>${esc(o)}</option>`).join('')}</select>${ok === ' is-wrong' ? `<small>${esc(ans)}</small>` : ''}</td>`; };
+  const score = checked && b.answers ? b.rows.reduce((n, _, r) => n + b.columns.filter((_, c) => !b.given?.[`${r}-${c}`] && val(`${b.id}-${r}-${c}`) === b.answers[r][c]).length, 0) : 0;
+  const total = b.rows.length * b.columns.length - Object.keys(b.given || {}).length;
+  return `<section class="block grid-block">${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}
+  <div class="table-scroll" tabindex="0" role="region" aria-label="${esc(b.title || 'Table')}"><table class="work-table grid-table"><thead><tr><th scope="col"></th>${b.columns.map(c => `<th scope="col">${c}</th>`).join('')}</tr></thead>
+  <tbody>${b.rows.map((r, ri) => `<tr><th scope="row">${r}</th>${b.columns.map((_, ci) => cell(ri, ci)).join('')}</tr>`).join('')}</tbody></table></div>
+  ${b.answers ? `<div class="quiz-bar">${checked ? `<span class="quiz-score">${score} / ${total} correct</span><button class="btn-quiet" data-grid-reset="${b.id}">Try again</button>` : `<button class="btn" data-grid-check="${b.id}">Check my answers ${icon('arrow')}</button>`}</div>` : ''}
+</section>`;
+};
+/* figure: a picture or diagram. { type: 'figure', src, alt, caption?, credit?, size?: 'small' | 'wide' } */
+B.figure = b => `<figure class="block figure${b.size ? ' figure-' + b.size : ''}"><img src="${esc(b.src)}" alt="${esc(b.alt || '')}" loading="lazy">${b.caption || b.credit ? `<figcaption>${b.caption ? `<b>${b.caption}</b>` : ''}${b.credit ? ` <span>${esc(b.credit)}</span>` : ''}</figcaption>` : ''}</figure>`;
+
 /* listening: by default the Week 2 video. A new lesson can set
    { type: 'listening', source, title, videoId, start, clip, transcripts: [[sourceId, label], ...], audio } */
 B.listening = b => {
-  const vid = b.videoId || cfg.supplementalVideoId, title = b.title || 'Food waste causes climate change';
+  const vid = b.videoId ?? cfg.supplementalVideoId, title = b.title || 'Food waste causes climate change';
   const tr = b.transcripts || [['listening', 'Course transcript (adapted)'], ['video-script', 'Original video script']];
   const audio = b.audio ?? cfg.coreAudioUrl;
   return `<section class="block media">
@@ -250,6 +293,19 @@ function groupIcon(g) {
   const n = { alone: 1, pair: 2, group: 3, class: 3 }[w];
   return `<svg class="ppl" viewBox="0 0 ${n * 6 + 6} 19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">${Array.from({ length: n }, (_, k) => `<circle cx="${6 + k * 6}" cy="7" r="2.4"/><path d="M${2 + k * 6} 17c0-3 2-5 4-5s4 2 4 5"/>`).join('')}</svg>`;
 }
+/* A block with gate: 'text' (e.g. a sample essay) stays hidden — with everything after it in the
+   activity — until the student confirms they have done their own attempt. Teacher view shows all. */
+function blocksHTML(a) {
+  let out = '';
+  for (const b of a.blocks) {
+    if (b.gate && !state.teacher && !state.revealed['gate-' + b.id]) {
+      out += `<section class="block gate"><span class="gate-icon">${icon('lock')}</span><div><h3>${esc(b.title || 'Sample')}</h3><p>${b.gate}</p></div><button class="btn" data-unlock="${b.id}">I have written mine — show it ${icon('arrow')}</button></section>`;
+      break;
+    }
+    out += (B[b.type] || (() => ''))(b, a);
+  }
+  return out;
+}
 function activity(a, i, list, section) {
   return `<article class="activity" id="${a.id}" tabindex="-1" aria-labelledby="h-${a.id}">
     <header class="act-head">
@@ -257,7 +313,7 @@ function activity(a, i, list, section) {
       <h2 id="h-${a.id}">${esc(a.title)}</h2>
       <p class="act-goal">${icon('target')}<span><b>Goal:</b> ${esc(a.goal)}</span></p>
     </header>
-    <div class="act-body">${a.blocks.map(b => (B[b.type] || (() => ''))(b, a)).join('')}</div>
+    <div class="act-body">${blocksHTML(a)}</div>
     ${answersPanel(a)}
     <footer class="act-foot">
       <label class="done-toggle"><input type="checkbox" data-done="${a.id}"${state.done[a.id] ? ' checked' : ''}><span>I have finished this activity</span></label>
@@ -265,9 +321,13 @@ function activity(a, i, list, section) {
     </footer>
   </article>`;
 }
+/* The next lesson in the course, if it is ready. */
+function nextLesson() { const i = days.findIndex(d => d.id === lesson.id), nx = days[i + 1]; return nx && nx.status === 'ready' ? nx : null; }
 function nextStageLink(section) {
   const n = lesson.sections.indexOf(section), next = lesson.sections[n + 1];
-  return next ? `<a class="btn" href="${L(next.id)}">Next stage: ${esc(next.title)} ${icon('arrow')}</a>` : `<a class="btn" href="${L('notebook')}">Review my notebook ${icon('arrow')}</a>`;
+  if (next) return `<a class="btn" href="${L(next.id)}">Next stage: ${esc(next.title)} ${icon('arrow')}</a>`;
+  const nx = nextLesson();
+  return nx ? `<a class="btn-quiet" href="${L('notebook')}">Review my notebook</a><a class="btn" href="#/${nx.id}">Next lesson: Week ${nx.week}, Day ${nx.day} ${icon('arrow')}</a>` : `<a class="btn" href="${L('notebook')}">Review my notebook ${icon('arrow')}</a>`;
 }
 
 /* ───────── pages ───────── */
@@ -321,10 +381,11 @@ function overview() {
     <blockquote>${esc(lesson.question)}</blockquote>
   </section>
   <h2 class="section-title">Your day at a glance</h2>
-  <p class="section-sub">${['Two', 'Three', 'Four', 'Five', 'Six'][lesson.sections.length - 2] || lesson.sections.length} stages${lesson.duration ? '' : ', about four hours'}. Each one prepares you for ${esc(lesson.goalShort || 'Monday’s essay')}.</p>
+  <p class="section-sub">${['Two', 'Three', 'Four', 'Five', 'Six'][lesson.sections.length - 2] || lesson.sections.length} stages${lesson.duration ? '' : ', about four hours'}. ${lesson.goalShort ? `Each one prepares you for ${esc(lesson.goalShort)}.` : lesson.id === 'w2d5' ? 'Each one prepares you for Monday’s essay.' : 'Each stage builds on the one before.'}</p>
   <div class="dayline" role="img" aria-label="${lesson.sections.map(s => `Stage ${Number(s.number)}, ${s.title}, ${s.minutes} minutes`).join('; ')}; then: ${esc(lesson.finish?.title || 'Monday')}.">
     ${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<a class="dayline-seg${d === s.activities.length ? ' complete' : ''}" style="${tone(s)};flex:${s.minutes}" href="${L(s.id)}"><span class="dayline-bar"><i style="width:${Math.round(100 * d / s.activities.length)}%"></i></span><span class="dayline-num">${s.number}</span><span class="dayline-title">${esc(s.title)}</span><span class="dayline-min">${s.minutes} min</span></a>`; }).join('')}
-    <div class="dayline-flag"><span class="dayline-bar"></span><span class="dayline-num">${icon('pen')}</span><span class="dayline-title">${esc(lesson.finish?.title || 'Monday')}</span><span class="dayline-min">${esc(lesson.finish?.text || 'Write the essay')}</span></div>
+    ${(() => { const nx = nextLesson(), inner = `<span class="dayline-bar"></span><span class="dayline-num">${icon(nx ? 'arrow' : 'pen')}</span><span class="dayline-title">${esc(lesson.finish?.title || 'Monday')}</span><span class="dayline-min">${esc(lesson.finish?.text || 'Write the essay')}</span>`;
+      return nx ? `<a class="dayline-flag" href="#/${nx.id}" title="Open Week ${nx.week}, Day ${nx.day}">${inner}</a>` : `<div class="dayline-flag">${inner}</div>`; })()}
   </div>
   <ol class="journey">${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<li><a class="journey-card${d === s.activities.length ? ' complete' : ''}" style="${tone(s)}" href="${L(s.id)}">
       <span class="journey-art-wrap"><img class="journey-art" src="${artSrc(s.art)}" alt="" width="220" height="170" loading="lazy"></span>
@@ -479,6 +540,8 @@ function render() {
   $('#teacher-toggle').setAttribute('aria-pressed', String(state.teacher));
   $('#teacher-toggle .tt-state').textContent = state.teacher ? 'On' : 'Off';
   paintStatus();
+  const cm = $('.course-map'), here = $('.cm-now');
+  if (cm && here && cm.scrollWidth > cm.clientWidth) { const r = here.getBoundingClientRect(), c = cm.getBoundingClientRect(); cm.scrollLeft += r.left - c.left - c.width / 2 + r.width / 2; }
   const tabs = $('.act-tabs'), cur = $('.act-tabs .current'); if (tabs && cur) tabs.scrollLeft = cur.offsetLeft - tabs.offsetLeft - 12;
   reader.mount();
 }
@@ -495,7 +558,8 @@ function openSource(id = 'reading1') {
     ${reader.toolbar('reading')}
     <article class="source-text" data-help><span class="eyebrow">${esc(s.cite)} · ${esc(s.kind)}</span><h3>${esc(s.title)}</h3>${s.note ? `<p class="script-note">${esc(s.note)}</p>` : ''}
     <p class="source-ref">${esc(s.reference)}</p>
-    ${s.paragraphs.map((p, i) => `<p>${reader.text('s-' + s.id + '-' + i, p, s.cite + ' · ' + (s.id === 'video-script' ? p.slice(0, 10) : 'paragraph ' + p.slice(0, 1)))}</p>`).join('')}
+    ${s.citeAs ? `<p class="source-cite">${esc(s.citeAs)}</p>` : ''}
+    ${s.paragraphs.map((p, i) => p.startsWith('## ') ? `<h4 class="source-h">${esc(p.slice(3))}</h4>` : `<p>${reader.text('s-' + s.id + '-' + i, p, s.cite + ' · ' + (s.id === 'video-script' ? p.slice(0, 10) : /^[A-Z]\. /.test(p) ? 'paragraph ' + p.slice(0, 1) : p.split(':')[0].slice(0, 20)))}</p>`).join('')}
     ${s.figure ? `<figure><img src="${s.figure}" alt="${esc(s.figureAlt || '')}"><figcaption>Figure 1. ${esc(s.figureCaption || '')} ${esc(s.figureCredit || '')}</figcaption></figure>` : ''}</article>`;
   if (!$('#resource-dialog').open) $('#resource-dialog').showModal();
   $('#resource-body').scrollTop = 0;
@@ -610,6 +674,21 @@ document.addEventListener('click', e => {
     if (missing && !state.teacher) { toast(`Answer all the questions first (${missing} left).`); return; }
     state.checked[b.id] = true; save(); rerender(); return;
   }
+  if (d.order) {
+    const b = allActivities.flatMap(a => a.blocks).find(x => x.id === d.order), o = orderOf(b), i = Number(d.from), j = i + Number(d.dir);
+    if (j < 0 || j >= o.length) return;
+    [o[i], o[j]] = [o[j], o[i]]; state.values[b.id] = o.join(','); delete state.checked[b.id]; save(); rerender();
+    document.querySelector(`[data-order="${b.id}"][data-from="${j}"][data-dir="${d.dir}"]`)?.focus(); return;
+  }
+  if (d.orderCheck) { const b = allActivities.flatMap(a => a.blocks).find(x => x.id === d.orderCheck); state.values[b.id] = orderOf(b).join(','); state.checked[b.id] = true; save(); rerender(); return; }
+  if (d.orderReset) { delete state.checked[d.orderReset]; save(); rerender(); return; }
+  if (d.gridCheck) {
+    const b = allActivities.flatMap(a => a.blocks).find(x => x.id === d.gridCheck);
+    const missing = b.rows.reduce((n, _, r) => n + b.columns.filter((_, c) => !b.given?.[`${r}-${c}`] && !val(`${b.id}-${r}-${c}`)).length, 0);
+    if (missing && !state.teacher) { toast(`Complete every box first (${missing} left).`); return; }
+    state.checked[b.id] = true; save(); rerender(); return;
+  }
+  if (d.gridReset) { delete state.checked[d.gridReset]; save(); rerender(); return; }
   if (d.quizReset) { delete state.checked[d.quizReset]; save(); rerender(); return; }
   if (d.choose) { state.values[d.choose] = d.opt; save(); rerender(); return; }
   if (d.reveal) {
@@ -617,6 +696,7 @@ document.addEventListener('click', e => {
     if (!hasAttempt(a) && !state.teacher) { toast('Write or choose something first. Then compare with the suggested answers.'); return; }
     state.revealed[a.id] = true; save(); rerender(); return;
   }
+  if (d.unlock) { state.revealed['gate-' + d.unlock] = true; save(); rerender(); return; }
   if (d.hideAnswers) { delete state.revealed[d.hideAnswers]; save(); rerender(); return; }
   if (d.addRow) { state.rows[d.addRow] = (state.rows[d.addRow] || 0) + 1; save(); rerender(); return; }
   if (d.go) { const sec = lesson.sections.find(x => x.activities.some(a => a.id === d.go)); if (sec) { state.active[sec.id] = d.go; save(false); } return; }
