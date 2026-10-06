@@ -264,7 +264,7 @@ B.figure = b => `<figure class="block figure${b.size ? ' figure-' + b.size : ''}
 /* listening: by default the Week 2 video. A new lesson can set
    { type: 'listening', source, title, videoId, start, clip, transcripts: [[sourceId, label], ...], audio } */
 B.listening = b => {
-  const vid = b.videoId || cfg.supplementalVideoId, title = b.title || 'Food waste causes climate change';
+  const vid = b.videoId ?? cfg.supplementalVideoId, title = b.title || 'Food waste causes climate change';
   const tr = b.transcripts || [['listening', 'Course transcript (adapted)'], ['video-script', 'Original video script']];
   const audio = b.audio ?? cfg.coreAudioUrl;
   return `<section class="block media">
