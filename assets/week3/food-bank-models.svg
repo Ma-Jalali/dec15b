@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 380" font-family="Manrope, 'Segoe UI', Arial, sans-serif">
+<rect width="780" height="380" fill="#fffdf8"/>
+<rect x="16" y="16" width="366" height="348" rx="18" fill="#f4f1ea" stroke="#e7dfcf"/>
+<rect x="398" y="16" width="366" height="348" rx="18" fill="#eef6f3" stroke="#cfe5de"/>
+<text x="199" y="50" text-anchor="middle" font-size="19" font-weight="700" fill="#14293a" font-family="Fraunces, Georgia, 'Times New Roman', serif">Conventional “hamper” model</text>
+<text x="581" y="50" text-anchor="middle" font-size="19" font-weight="700" fill="#14293a" font-family="Fraunces, Georgia, 'Times New Roman', serif">Client-choice “grocery” model</text>
+<!-- conventional: queue + identical boxes -->
+<g fill="#8a96a0"><circle cx="48" cy="104" r="9"/><path d="M34 140c0-15 6-24 14-24s14 9 14 24z"/><circle cx="80" cy="104" r="9"/><path d="M66 140c0-15 6-24 14-24s14 9 14 24z"/><circle cx="112" cy="104" r="9"/><path d="M98 140c0-15 6-24 14-24s14 9 14 24z"/></g>
+<path d="M134 122h26m-7-6 7 6-7 6" stroke="#b9ad98" stroke-width="2" fill="none"/>
+<g><rect x="172" y="96" width="56" height="44" rx="4" fill="#c9a26b"/><path d="M172 108h56M200 96v12" stroke="#a9834c" stroke-width="2"/>
+<rect x="236" y="96" width="56" height="44" rx="4" fill="#c9a26b"/><path d="M236 108h56M264 96v12" stroke="#a9834c" stroke-width="2"/>
+<rect x="300" y="96" width="56" height="44" rx="4" fill="#c9a26b"/><path d="M300 108h56M328 96v12" stroke="#a9834c" stroke-width="2"/>
+<text x="264" y="158" text-anchor="middle" font-size="11.5" fill="#6b7882">the same box for every family</text></g>
+<!-- choice: shelves + cart -->
+<g><rect x="420" y="88" width="150" height="64" rx="6" fill="#fff" stroke="#cfe5de"/><path d="M420 120h150" stroke="#cfe5de" stroke-width="2"/>
+<circle cx="440" cy="108" r="7" fill="#e2725b"/><circle cx="458" cy="108" r="7" fill="#e2725b"/><rect x="476" y="99" width="12" height="16" rx="2" fill="#e3a843"/><rect x="494" y="99" width="12" height="16" rx="2" fill="#e3a843"/><path d="M516 112c4-10 14-10 18 0z" fill="#7fae8a"/><path d="M540 112c4-10 14-10 18 0z" fill="#7fae8a"/>
+<rect x="436" y="128" width="20" height="16" rx="3" fill="#c9a26b"/><rect x="462" y="128" width="20" height="16" rx="3" fill="#c9a26b"/><ellipse cx="502" cy="138" rx="10" ry="7" fill="#f1c675"/><ellipse cx="526" cy="138" rx="10" ry="7" fill="#f1c675"/><rect x="544" y="130" width="14" height="14" rx="2" fill="#5d8fb6"/>
+<circle cx="610" cy="102" r="9" fill="#2b776e"/><path d="M596 140c0-15 6-24 14-24s14 9 14 24z" fill="#2b776e"/>
+<path d="M630 118h40l-6 18h-30z" fill="none" stroke="#14293a" stroke-width="2.4" stroke-linejoin="round"/><circle cx="640" cy="142" r="3.5" fill="#14293a"/><circle cx="660" cy="142" r="3.5" fill="#14293a"/><circle cx="645" cy="124" r="4" fill="#e2725b"/><rect x="653" y="120" width="8" height="10" rx="1.5" fill="#e3a843"/>
+<text x="545" y="168" text-anchor="middle" font-size="11.5" fill="#6b7882">families choose from the shelves</text></g>
+<g font-size="13.5" fill="#3d505e">
+<g fill="#2f7a52" font-weight="800"><text x="36" y="204">+</text><text x="36" y="230">+</text><text x="418" y="204">+</text><text x="418" y="230">+</text><text x="418" y="256">+</text></g>
+<g fill="#b0512a" font-weight="800"><text x="36" y="256">–</text><text x="36" y="282">–</text><text x="36" y="308">–</text><text x="418" y="282">–</text><text x="418" y="308">–</text></g>
+<text x="54" y="204">Fast and efficient</text><text x="54" y="230">Serves many people, needs less space</text>
+<text x="54" y="256">No choice — people may feel helpless</text><text x="54" y="282">Unwanted food may be wasted</text><text x="54" y="308">Volunteer work is repetitive</text>
+<text x="436" y="204">Choice, dignity and autonomy</text><text x="436" y="230">Less waste: people take what they use</text><text x="436" y="256">Volunteers help clients face to face</text>
+<text x="436" y="282">Needs a lot of space and money</text><text x="436" y="308">Harder to serve many people quickly</text>
+</g>
+<text x="199" y="346" text-anchor="middle" font-size="11" fill="#8a949b">Based on About That (2024)</text><text x="581" y="346" text-anchor="middle" font-size="11" fill="#8a949b">Based on About That (2024)</text>
+</svg>

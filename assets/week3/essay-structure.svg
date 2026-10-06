@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 452" font-family="Manrope, 'Segoe UI', Arial, sans-serif">
+<defs><filter id="s" x="-10%" y="-10%" width="120%" height="140%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#14293a" flood-opacity=".1"/></filter></defs>
+<rect width="760" height="452" fill="#fffdf8"/>
+<g filter="url(#s)">
+<rect x="30" y="18" width="700" height="104" rx="14" fill="#fff" stroke="#e7dfcf"/>
+<rect x="30" y="160" width="340" height="150" rx="14" fill="#fff" stroke="#e7dfcf"/>
+<rect x="390" y="160" width="340" height="150" rx="14" fill="#fff" stroke="#e7dfcf"/>
+<rect x="30" y="348" width="700" height="88" rx="14" fill="#fff" stroke="#e7dfcf"/>
+</g>
+<rect x="30" y="18" width="6" height="104" rx="3" fill="#b0512a"/><rect x="30" y="160" width="6" height="150" rx="3" fill="#3a58a0"/><rect x="390" y="160" width="6" height="150" rx="3" fill="#2b776e"/><rect x="30" y="348" width="6" height="88" rx="3" fill="#7a4a8c"/>
+<text x="54" y="48" font-size="19" font-weight="700" fill="#14293a" font-family="Fraunces, Georgia, 'Times New Roman', serif">Introduction</text>
+<g font-size="13.5" fill="#3d505e">
+<text x="54" y="76">Problem / context</text><text x="186" y="76" fill="#b0512a">→</text>
+<text x="206" y="76">causes or consequences</text><text x="374" y="76" fill="#b0512a">→</text>
+<rect x="394" y="61" width="44" height="21" rx="10.5" fill="#14293a"/><text x="416" y="76" fill="#e3a843" font-size="11" font-weight="800" text-anchor="middle">BUT</text>
+<text x="446" y="76">your position (thesis)</text>
+<text x="54" y="104">Preview:</text>
+<rect x="116" y="89" width="74" height="21" rx="10.5" fill="#14293a"/><text x="153" y="104" fill="#e3a843" font-size="11" font-weight="800" text-anchor="middle">BECAUSE</text>
+<text x="198" y="104">reason 1 + reason 2</text>
+</g>
+<text x="54" y="190" font-size="17" font-weight="700" fill="#14293a" font-family="Fraunces, Georgia, 'Times New Roman', serif">Body paragraph 1 · Reason 1</text>
+<text x="414" y="190" font-size="17" font-weight="700" fill="#14293a" font-family="Fraunces, Georgia, 'Times New Roman', serif">Body paragraph 2 · Reason 2</text>
+<g font-size="13.5" fill="#3d505e">
+<text x="54" y="220">① Topic sentence: reason 1</text><text x="54" y="246">② Evidence from the sources (cited)</text><text x="54" y="272">③ Explain: causes, consequences</text>
+<text x="414" y="220">① Topic sentence: reason 2</text><text x="414" y="246">② Evidence from the sources (cited)</text><text x="414" y="272">③ Explain: causes, consequences</text>
+</g>
+<g font-size="13.5" fill="#3d505e">
+<rect x="54" y="283" width="34" height="19" rx="9.5" fill="#e3a843"/><text x="71" y="297" font-size="10.5" font-weight="800" fill="#14293a" text-anchor="middle">SO</text><text x="96" y="297">concluding sentence → thesis</text>
+<rect x="414" y="283" width="34" height="19" rx="9.5" fill="#e3a843"/><text x="431" y="297" font-size="10.5" font-weight="800" fill="#14293a" text-anchor="middle">SO</text><text x="456" y="297">concluding sentence → thesis</text>
+</g>
+<text x="54" y="378" font-size="19" font-weight="700" fill="#14293a" font-family="Fraunces, Georgia, 'Times New Roman', serif">Conclusion</text>
+<g font-size="13.5" fill="#3d505e"><text x="54" y="410">Restate your position (new words)</text><text x="290" y="410" fill="#7a4a8c">→</text><text x="310" y="410">summary of reasons</text><text x="448" y="410" fill="#7a4a8c">→</text><text x="468" y="410">final comment (implication)</text></g>
+<g stroke="#c9bfae" stroke-width="2" fill="none" stroke-linecap="round"><path d="M200 124v30m-6-7 6 7 6-7"/><path d="M560 124v30m-6-7 6 7 6-7"/><path d="M200 312v30m-6-7 6 7 6-7"/><path d="M560 312v30m-6-7 6 7 6-7"/></g>
+</svg>
