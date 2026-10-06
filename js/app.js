@@ -67,6 +67,10 @@ const val = k => state.values[k] ?? '';
 const pad = n => String(n).padStart(2, '0');
 function toast(t) { const el = $('#toast'); el.textContent = t; el.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('show'), 3800); }
 const reader = window.createDEC15Reader({ getState: () => state, save, esc, lesson, sources, toast });
+/* Class wall under each activity (needs online saving). Turn it off for a lesson with wall: false,
+   or for one activity with wall: false. */
+const wall = window.createDEC15Wall ? window.createDEC15Wall({ getCloud: () => cloud, lessonId: lesson.id, esc, toast, icon: (n, c) => icon(n, c), signIn: () => accountDialog('signin') }) : null;
+const wallOn = a => !!(wall && wall.enabled && lesson.wall !== false && a && a.wall !== false);
 
 const ICON = {
   book: '<path d="M3 4c4-1 7 0 9 2 2-2 5-3 9-2v15c-4-1-7 0-9 2-2-2-5-3-9-2zM12 6v15"/>',
@@ -91,7 +95,9 @@ const ICON = {
   map: '<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14m6-12v14"/>',
   flag: '<path d="M5 21V4m0 1h11l-2 4 2 4H5"/>',
   lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
-  sprout: '<path d="M12 20v-8m0 0c0-4-3-6-7-6 0 4 3 6 7 6zm0-2c0-4 3-6 7-6 0 4-3 6-7 6z"/>'
+  sprout: '<path d="M12 20v-8m0 0c0-4-3-6-7-6 0 4 3 6 7 6zm0-2c0-4 3-6 7-6 0 4-3 6-7 6z"/>',
+  smile: '<circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1.3 2.2 2 3.5 2s2.5-.7 3.5-2M9 9.5h.01M15 9.5h.01"/>',
+  share: '<path d="M12 15V4m-4 4 4-4 4 4M5 13v6h14v-6"/>'
 };
 const icon = (n, c = '') => `<svg class="icon ${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[n] || ICON.book}</svg>`;
 
@@ -180,7 +186,7 @@ B.passage = b => `<section class="block passage">
   ${reader.toolbar('activity')}
   <blockquote class="passage-text" data-help>${reader.text('c-' + b.id, b.text, b.title)}</blockquote>
 </section>`;
-B.fields = b => `<section class="block fields">${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}${b.fields.map(f => `<div class="field"><label for="f-${f.id}">${esc(f.label)}</label><textarea id="f-${f.id}" data-save="${f.id}" rows="${f.rows || 3}" placeholder="${esc(f.placeholder || '')}">${esc(val(f.id))}</textarea></div>`).join('')}</section>`;
+B.fields = (b, a) => `<section class="block fields">${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}${b.fields.map(f => `<div class="field"><label for="f-${f.id}">${esc(f.label)}</label><textarea id="f-${f.id}" data-save="${f.id}" rows="${f.rows || 3}" placeholder="${esc(f.placeholder || '')}">${esc(val(f.id))}</textarea>${wallOn(a) && f.share !== false && b.share !== false ? `<button type="button" class="share-btn" data-wall-share="${f.id}" data-thread="${a.id}" data-label="${esc(f.label)}">${icon('share')}Share with class</button>` : ''}</div>`).join('')}</section>`;
 B.quiz = b => {
   const checked = state.checked[b.id];
   return `<section class="block quiz" id="quiz-${b.id}">
@@ -315,6 +321,7 @@ function activity(a, i, list, section) {
     </header>
     <div class="act-body">${blocksHTML(a)}</div>
     ${answersPanel(a)}
+    ${wallOn(a) ? wall.sectionHTML(a) : ''}
     <footer class="act-foot">
       <label class="done-toggle"><input type="checkbox" data-done="${a.id}"${state.done[a.id] ? ' checked' : ''}><span>I have finished this activity</span></label>
       ${section ? `<div class="pager">${i ? `<button class="btn-quiet" data-jump="${list[i - 1].id}">${icon('left')}Previous</button>` : ''}${i < list.length - 1 ? `<button class="btn" data-jump="${list[i + 1].id}">Next: ${esc(list[i + 1].short)} ${icon('arrow')}</button>` : nextStageLink(section)}</div>` : ''}
@@ -730,7 +737,9 @@ render(); save(false);
 cloud = window.createDEC15Cloud({
   cfg, lessonId: lesson.id, getState: () => state,
   applyState: next => { state = { ...state, ...next, teacher: state.teacher }; save(false); rerender(); },
-  onChange: info => { cloudInfo = info; paintStatus(); if (parseRoute().page === 'notebook' && info.status === 'saved' && info.profile && !paintStatus.named) { paintStatus.named = true; rerender(); } }
+  onChange: info => { const was = cloudInfo.user?.id; cloudInfo = info; paintStatus();
+    if (wall && info.user?.id !== was) { wall.connect(); rerender(); } if (parseRoute().page === 'notebook' && info.status === 'saved' && info.profile && !paintStatus.named) { paintStatus.named = true; rerender(); } }
 });
+if (wall && cloud.enabled) rerender();   // show the class walls
 cloud.init().catch(e => { console.error(e); cloudInfo = { status: 'error' }; paintStatus(); });
 })();
