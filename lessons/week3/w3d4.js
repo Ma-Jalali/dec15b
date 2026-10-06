@@ -14,7 +14,7 @@ window.DEC15_LESSON = {
   wordTarget: '450–600 words',
 
   journey: 'Today is practice assessment day. First you practise choosing useful ideas from sources and planning an answer step by step. Then you write the Integrated Writing Practice Assessment on Canvas, on your own, under exam conditions.',
-  finish: { title: 'Next: Day 5 · Discussion and group work', text: 'Tonight, complete the feedback literacy homework: reflect on your practice essay and make an action plan. Your teacher will check it tomorrow. Keep the form — you need it in Week 4 Day 5, when you get teacher feedback on the practice assessment.' },
+  finish: { title: 'Friday', text: 'Discussion & group work' },
 
   sections: [
     /* ───────────────────────── STAGE 1 · 11A ───────────────────────── */

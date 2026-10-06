@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.5)
+DEC15 — COURSE APP (v2.6)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -31,6 +31,15 @@ ADDING A WEEK 3 LESSON
   3. In lessons/course.js set the day to status: 'ready' and list its scripts.
   4. Raise the version (?v= in index.html and version in js/config.js).
 Each stage chooses a colour (tone) and an illustration (art); the options are listed in the template.
+New activity types (see the template): order (ranking / sequencing), grid (agree / doesn't mention
+tables), figure (pictures and diagrams), and gate: '…' on a passage to hide a sample text until the
+student has written their own version.
+
+WEEK 3 (lessons/week3/)
+w3d1 essay writing workshop · w3d2 reading & listening for solutions · w3d3 mediation, nominalisation,
+research · w3d4 criticality + Integrated Writing Practice Assessment (task itself on Canvas) ·
+w3d5 negotiation, teamwork, AI prompts. Protected texts: lessons/week3/sources.js. Pictures: assets/week3/.
+Teacher notes in each file list places where the Teacher's Book answer key looked inconsistent.
 Every lesson saves separately (key "dec15-<id>-v2"), on the device and online.
 
 HOW A PAGE IS BUILT

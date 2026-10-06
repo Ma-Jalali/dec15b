@@ -15,10 +15,7 @@ window.DEC15_LESSON = {
 
   journey: 'Today you connect this week’s three sources and write about them together — the “Use of Sources” skill in the Integrated Writing assessment. Then you learn to pack ideas into academic noun phrases, and you plan your research on solutions for the Week 4 discussion.',
 
-  finish: {
-    title: 'Next: Day 4 · Practice assessment day',
-    text: 'Homework: do the <b>Listening and Reading Practice Assessment</b> on Canvas (see Extra practice). After class, find one reliable academic article on solutions to food insecurity in your group’s region and check it with the CRAAP test. Tomorrow you practise engaging with sources and write the Integrated Writing Practice Assessment — use today’s synthesis language.'
-  },
+  finish: { title: 'Thursday', text: 'Practice assessment day' },
 
   sections: [
     /* ───────────────────────── STAGE 1 · 7A ───────────────────────── */

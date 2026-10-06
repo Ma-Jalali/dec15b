@@ -14,7 +14,7 @@ window.DEC15_LESSON = {
   wordTarget: '',
 
   journey: 'Today you get ready for the Week 4 Research Summary Discussion. You will learn the language to clarify, give opinions and build on other people’s ideas, make a teamwork contract with your research group, and practise writing clear prompts for AI tools.',
-  finish: { title: 'Next: Week 4', text: 'Prepare your 2-minute summary of your solutions article. On Monday you have another discussion skills lesson, and on Thursday you take part in the Research Summary Discussion.' },
+  finish: { title: 'Week 4', text: 'Research Summary Discussion 2' },
 
   sections: [
     /* ───────────────────────── STAGE 1 · 15A ───────────────────────── */

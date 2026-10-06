@@ -293,6 +293,19 @@ function groupIcon(g) {
   const n = { alone: 1, pair: 2, group: 3, class: 3 }[w];
   return `<svg class="ppl" viewBox="0 0 ${n * 6 + 6} 19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">${Array.from({ length: n }, (_, k) => `<circle cx="${6 + k * 6}" cy="7" r="2.4"/><path d="M${2 + k * 6} 17c0-3 2-5 4-5s4 2 4 5"/>`).join('')}</svg>`;
 }
+/* A block with gate: 'text' (e.g. a sample essay) stays hidden — with everything after it in the
+   activity — until the student confirms they have done their own attempt. Teacher view shows all. */
+function blocksHTML(a) {
+  let out = '';
+  for (const b of a.blocks) {
+    if (b.gate && !state.teacher && !state.revealed['gate-' + b.id]) {
+      out += `<section class="block gate"><span class="gate-icon">${icon('lock')}</span><div><h3>${esc(b.title || 'Sample')}</h3><p>${b.gate}</p></div><button class="btn" data-unlock="${b.id}">I have written mine — show it ${icon('arrow')}</button></section>`;
+      break;
+    }
+    out += (B[b.type] || (() => ''))(b, a);
+  }
+  return out;
+}
 function activity(a, i, list, section) {
   return `<article class="activity" id="${a.id}" tabindex="-1" aria-labelledby="h-${a.id}">
     <header class="act-head">
@@ -300,7 +313,7 @@ function activity(a, i, list, section) {
       <h2 id="h-${a.id}">${esc(a.title)}</h2>
       <p class="act-goal">${icon('target')}<span><b>Goal:</b> ${esc(a.goal)}</span></p>
     </header>
-    <div class="act-body">${a.blocks.map(b => (B[b.type] || (() => ''))(b, a)).join('')}</div>
+    <div class="act-body">${blocksHTML(a)}</div>
     ${answersPanel(a)}
     <footer class="act-foot">
       <label class="done-toggle"><input type="checkbox" data-done="${a.id}"${state.done[a.id] ? ' checked' : ''}><span>I have finished this activity</span></label>
@@ -368,7 +381,7 @@ function overview() {
     <blockquote>${esc(lesson.question)}</blockquote>
   </section>
   <h2 class="section-title">Your day at a glance</h2>
-  <p class="section-sub">${['Two', 'Three', 'Four', 'Five', 'Six'][lesson.sections.length - 2] || lesson.sections.length} stages${lesson.duration ? '' : ', about four hours'}. Each one prepares you for ${esc(lesson.goalShort || 'Monday’s essay')}.</p>
+  <p class="section-sub">${['Two', 'Three', 'Four', 'Five', 'Six'][lesson.sections.length - 2] || lesson.sections.length} stages${lesson.duration ? '' : ', about four hours'}. ${lesson.goalShort ? `Each one prepares you for ${esc(lesson.goalShort)}.` : lesson.id === 'w2d5' ? 'Each one prepares you for Monday’s essay.' : 'Each stage builds on the one before.'}</p>
   <div class="dayline" role="img" aria-label="${lesson.sections.map(s => `Stage ${Number(s.number)}, ${s.title}, ${s.minutes} minutes`).join('; ')}; then: ${esc(lesson.finish?.title || 'Monday')}.">
     ${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<a class="dayline-seg${d === s.activities.length ? ' complete' : ''}" style="${tone(s)};flex:${s.minutes}" href="${L(s.id)}"><span class="dayline-bar"><i style="width:${Math.round(100 * d / s.activities.length)}%"></i></span><span class="dayline-num">${s.number}</span><span class="dayline-title">${esc(s.title)}</span><span class="dayline-min">${s.minutes} min</span></a>`; }).join('')}
     ${(() => { const nx = nextLesson(), inner = `<span class="dayline-bar"></span><span class="dayline-num">${icon(nx ? 'arrow' : 'pen')}</span><span class="dayline-title">${esc(lesson.finish?.title || 'Monday')}</span><span class="dayline-min">${esc(lesson.finish?.text || 'Write the essay')}</span>`;
@@ -527,6 +540,8 @@ function render() {
   $('#teacher-toggle').setAttribute('aria-pressed', String(state.teacher));
   $('#teacher-toggle .tt-state').textContent = state.teacher ? 'On' : 'Off';
   paintStatus();
+  const cm = $('.course-map'), here = $('.cm-now');
+  if (cm && here && cm.scrollWidth > cm.clientWidth) { const r = here.getBoundingClientRect(), c = cm.getBoundingClientRect(); cm.scrollLeft += r.left - c.left - c.width / 2 + r.width / 2; }
   const tabs = $('.act-tabs'), cur = $('.act-tabs .current'); if (tabs && cur) tabs.scrollLeft = cur.offsetLeft - tabs.offsetLeft - 12;
   reader.mount();
 }
@@ -681,6 +696,7 @@ document.addEventListener('click', e => {
     if (!hasAttempt(a) && !state.teacher) { toast('Write or choose something first. Then compare with the suggested answers.'); return; }
     state.revealed[a.id] = true; save(); rerender(); return;
   }
+  if (d.unlock) { state.revealed['gate-' + d.unlock] = true; save(); rerender(); return; }
   if (d.hideAnswers) { delete state.revealed[d.hideAnswers]; save(); rerender(); return; }
   if (d.addRow) { state.rows[d.addRow] = (state.rows[d.addRow] || 0) + 1; save(); rerender(); return; }
   if (d.go) { const sec = lesson.sections.find(x => x.activities.some(a => a.id === d.go)); if (sec) { state.active[sec.id] = d.go; save(false); } return; }
