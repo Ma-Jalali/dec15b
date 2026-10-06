@@ -39,13 +39,13 @@ function save(touch = true) {
 let cloud = null, cloudInfo = { status: 'local' };
 function paintStatus() {
   const el = $('#save-status'); if (!el) return;
-  const map = { local: ['ok', 'Saved on this device'], 'signed-out': ['warn', 'Saved on this device only'], pending: ['busy', 'Saving online…'], syncing: ['busy', 'Saving online…'], saved: ['ok', 'Saved online'], offline: ['warn', 'Offline — saved on this device'], error: ['bad', 'Online save failed — retrying'] };
+  const map = { local: ['ok', 'Saved on this device'], 'signed-out': ['warn', 'Saved on this device<span class="hide-sm"> only</span>'], pending: ['busy', 'Saving online…'], syncing: ['busy', 'Saving online…'], saved: ['ok', 'Saved online'], offline: ['warn', 'Offline — saved on this device'], error: ['bad', 'Online save failed — retrying'] };
   const [tone, label] = !storageOK && cloudInfo.status !== 'saved' ? ['bad', 'Not saved — download your notebook'] : map[cloudInfo.status] || map.local;
-  el.dataset.tone = tone; el.textContent = label;
+  el.dataset.tone = tone; el.innerHTML = `<span>${label}</span>`;
   const btn = $('#account-btn'); if (!btn) return;
   btn.hidden = !cloud?.enabled;
   const name = cloudInfo.profile?.full_name || cloudInfo.user?.email || '';
-  btn.innerHTML = cloudInfo.user ? `<span class="avatar">${esc((name || '?').trim().slice(0, 1).toUpperCase())}</span><span class="acct-name">${esc(name.split(' ')[0] || 'Account')}</span>` : 'Sign in to save online';
+  btn.innerHTML = cloudInfo.user ? `<span class="avatar">${esc((name || '?').trim().slice(0, 1).toUpperCase())}</span><span class="acct-name">${esc(name.split(' ')[0] || 'Account')}</span>` : '<span>Sign in<span class="hide-sm"> to save online</span></span>';
   btn.classList.toggle('signed-in', !!cloudInfo.user);
 }
 
@@ -381,7 +381,7 @@ function overview() {
       <p class="hero-lead">${esc(lesson.journey)}</p>
       <div class="hero-actions">${continueButton(true)}${done && n ? `<span class="hero-progress"><b>${done} of ${coreActivities.length}</b> activities finished · next in Stage ${Number(n.s.number)}</span>` : ''}</div>
     </div>
-    <figure class="hero-img"><img src="${esc(lesson.image || 'assets/food-editorial.webp')}" width="1400" height="933" alt="${esc(lesson.imageAlt || 'An imperfect tomato, a carrot, a cut orange and grains on a plate — edible food that is often thrown away.')}"></figure>
+    ${(() => { const wk = course.weeks.find(w => w.n === lesson.week) || {}; return `<figure class="hero-img"><img src="${esc(lesson.image || wk.image || 'assets/food-editorial.webp')}" width="1400" height="933" alt="${esc(lesson.imageAlt || wk.imageAlt || 'An imperfect tomato, a carrot, a cut orange and grains on a plate — edible food that is often thrown away.')}"></figure>`; })()}
   </section>
   <section class="essay-q essay-q-hero">
     <span class="essay-q-label">${esc(lesson.questionLabel || 'This week’s essay question · you write it on Monday')}</span>
@@ -433,7 +433,8 @@ function courseMap(current) {
     <path d="${road}" stroke="#fffdf5" stroke-width="16" fill="none" stroke-linecap="round"/>
     <path d="${road}" stroke="#14293a" stroke-opacity=".35" stroke-width="2.4" stroke-dasharray="2 9" fill="none" stroke-linecap="round"/>
     ${course.map.map((w, i) => { const [x, y] = pts[i] || pts[pts.length - 1], st = w.n < current ? 'past' : w.n === current ? 'now' : 'next', last = i === course.map.length - 1;
-      return `<g class="cm-stop cm-${st}" transform="translate(${x} ${y})">
+      const has = course.weeks.some(cw => cw.n === w.n);
+      return `<g class="cm-stop cm-${st}${has ? ' cm-link' : ''}" transform="translate(${x} ${y})"${has ? ` data-week-tab="${w.n}" role="button" tabindex="0" aria-label="Show Week ${w.n} lessons"` : ''}>
         ${st === 'now' ? `<circle r="30" fill="#e3a843" opacity=".22"/><g transform="translate(0 -52)"><rect x="-50" y="-15" width="100" height="26" rx="13" fill="#14293a"/><path d="M-6 11h12l-6 8z" fill="#14293a"/><text y="3" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="Manrope, sans-serif">You are here</text></g>` : ''}
         ${last ? '<path d="M0 -20V-62" stroke="#14293a" stroke-width="3" stroke-linecap="round"/><path d="M0 -62h30l-7 9 7 9H0z" fill="#e64626"/>' : ''}
         <circle r="19" fill="${st === 'past' ? '#14293a' : st === 'now' ? '#e3a843' : '#fffdf5'}" stroke="${st === 'next' ? '#c9bfae' : '#fffdf5'}" stroke-width="3"/>
@@ -462,6 +463,21 @@ function dayCard(d) {
       <span class="day-foot"><span>${total ? `${done} / ${total} activities` : 'Not started'}</span><span class="day-go">${done && pct < 100 ? 'Continue' : pct === 100 ? 'Review' : 'Start'} ${icon('arrow')}</span></span>
     </a></li>`;
 }
+/* One week at a time on the course map: with 5 weeks × 5 days the page would be very long.
+   The open week is remembered for this visit; the "You are here" week opens first. */
+let homeWeek = null;
+function weekTabs() {
+  const ws = course.weeks;
+  if (!ws.some(w => w.n === homeWeek)) homeWeek = (ws.find(w => w.n === lesson.week) || ws[ws.length - 1]).n;
+  const w = ws.find(x => x.n === homeWeek);
+  const tabs = ws.length > 1 ? `<div class="week-tabs" role="tablist" aria-label="Weeks">${ws.map(x => { const st = x.days.filter(d => d.status === 'ready').length, done = x.days.filter(d => { const [a, b] = dayProgress(d); return b && a === b; }).length;
+    return `<button type="button" role="tab" id="tab-week-${x.n}" aria-controls="panel-week" aria-selected="${x.n === homeWeek}" tabindex="${x.n === homeWeek ? 0 : -1}" class="week-tab" data-week-tab="${x.n}"><span class="week-tab-num">${x.n}</span><span class="week-tab-text"><b>Week ${x.n}</b><small>${esc(x.theme)}</small></span><span class="week-tab-meta">${done ? `${done}/${st} done` : `${st} lesson${st === 1 ? '' : 's'}`}</span></button>`; }).join('')}</div>` : '';
+  return `<section class="week" aria-label="Lessons by week">${tabs}
+    <div class="week-panel" id="panel-week" role="tabpanel" aria-labelledby="tab-week-${w.n}">
+      <header class="week-head"><span class="week-num"><small>Week</small>${w.n}</span><div><h2>${esc(w.theme)}</h2><p>${esc(w.summary || '')}</p></div></header>
+      <ol class="day-grid${w.days.length > 3 ? ' many' : ''}">${w.days.map(dayCard).join('')}</ol>
+    </div></section>`;
+}
 function courseHome() {
   const n = nextUp(), done = coreActivities.filter(a => state.done[a.id]).length, pct = Math.round(100 * done / coreActivities.length);
   return `<header class="home-head">
@@ -480,10 +496,7 @@ function courseHome() {
       </div>
       <div class="resume-actions">${continueButton(true)}<a class="btn-quiet" href="${L('overview')}">Lesson overview</a></div>
     </section>
-    ${course.weeks.map(w => `<section class="week" id="week-${w.n}">
-      <header class="week-head"><span class="week-num"><small>Week</small>${w.n}</span><div><h2>${esc(w.theme)}</h2><p>${esc(w.summary || '')}</p></div></header>
-      <ol class="day-grid${w.days.length > 3 ? ' many' : ''}">${w.days.map(dayCard).join('')}</ol>
-    </section>`).join('')}`;
+    ${weekTabs()}`;
 }
 function sourcesPage() {
   return `<header class="page-head"><span class="eyebrow">Course texts</span><h1>Source library</h1><p>The protected course texts for this week. Open a text to read, highlight and underline.</p></header>
@@ -498,6 +511,79 @@ function registerTables() {
 }
 function notebook() {
   return `${nb.pageHTML()}<div class="nb-foot"><button class="btn-quiet danger" data-clear>Clear my work on this device</button></div>`;
+}
+
+/* ───────── side panel: the whole course; the open lesson is expanded ─────────
+   Weeks fold open and closed (remembered on this device). The search box finds lessons, parts
+   of lessons, and the stages and activities of the open lesson. */
+const navOpen = (() => { try { return JSON.parse(localStorage.getItem('dec15-nav-weeks')) || {}; } catch (e) { return {}; } })();
+let navRoute = 'home';
+function ring(p, label) {
+  const c = 2 * Math.PI * 13;
+  return `<span class="nav-ring" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="13"/><circle cx="16" cy="16" r="13" style="stroke-dasharray:${c.toFixed(1)};stroke-dashoffset:${(c * (1 - p)).toFixed(1)}"/></svg><b>${label}</b></span>`;
+}
+function dayProgress(d) {
+  if (d.id === lesson.id) return [coreActivities.filter(a => state.done[a.id]).length, coreActivities.length];
+  const x = summaries()[d.id] || {}; return [x.done || 0, x.total || 0];
+}
+function lessonLinks(route) {
+  const cur = r => route === r ? ' active" aria-current="page' : '';
+  return `<div class="nav-lesson">
+    <a href="${L('overview')}" class="nav-sub${cur('overview')}"><span class="nav-num">${icon('map')}</span><span>Overview</span></a>
+    ${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<a href="${L(s.id)}" class="is-stage${d === s.activities.length ? ' complete' : ''}${cur(s.id)}" style="${tone(s)}"><span class="nav-num">${d === s.activities.length ? icon('check') : s.number}</span><span class="nav-text">${esc(s.title)}<small>${s.minutes} min<i class="nav-bar" style="--p:${d / s.activities.length}" aria-label="${d} of ${s.activities.length} done"></i></small></span></a>`; }).join('')}
+    <div class="nav-tools">${[['sources', 'book', 'Readings'], ['extra', 'list', 'Extra'], ['notebook', 'model', 'Notebook']].map(([id, ic, t]) => `<a href="${L(id)}" class="nav-tool${cur(id)}">${icon(ic)}<span>${t}</span></a>`).join('')}</div>
+  </div>`;
+}
+function paintNav(route = navRoute) {
+  navRoute = route;
+  $('#side-home').classList.toggle('active', route === 'home');
+  if (route === 'home') $('#side-home').setAttribute('aria-current', 'page'); else $('#side-home').removeAttribute('aria-current');
+  $('#nav').innerHTML = course.weeks.map(w => {
+    const open = navOpen[w.n] ?? (w.n === lesson.week), started = w.days.filter(d => dayProgress(d)[0]).length;
+    return `<section class="nav-week${open ? ' open' : ''}">
+      <button type="button" class="nav-week-head" data-nav-week="${w.n}" aria-expanded="${open}"><span class="nav-week-num"><small>Wk</small>${w.n}</span><span class="nav-week-text">Week ${w.n}<small>${esc(w.theme)}</small></span>${started ? `<span class="nav-week-count" title="Lessons started">${started}/${w.days.length}</span>` : ''}${icon('arrow', 'nav-chev')}</button>
+      <ol class="nav-days"${open ? '' : ' hidden'}>${w.days.map(d => {
+        if (d.status !== 'ready') return `<li><span class="nav-day is-soon">${ring(0, 'D' + d.day)}<span class="nav-day-text">${esc(d.title)}<small>Coming soon</small></span></span></li>`;
+        const here = d.id === lesson.id, [dn, tot] = dayProgress(d), p = tot ? dn / tot : 0;
+        return `<li${here ? ' class="is-open"' : ''}><a class="nav-day${here ? ' current' : ''}${p === 1 ? ' complete' : ''}" href="#/${d.id}">${ring(p, p === 1 ? icon('check') : 'D' + d.day)}<span class="nav-day-text">${esc(d.title)}<small>${tot ? `${dn} of ${tot} done` : 'Not started'}</small></span></a>${here ? lessonLinks(route) : ''}</li>`;
+      }).join('')}</ol></section>`;
+  }).join('');
+}
+/* search */
+function searchIndex() {
+  const items = [];
+  for (const w of course.weeks) for (const d of w.days) {
+    const where = `Week ${w.n} · Day ${d.day}`, href = d.status === 'ready' ? '#/' + d.id : '';
+    items.push({ kind: 'Lesson', ic: 'map', title: d.title, sub: where + (href ? '' : ' · coming soon'), href, text: d.title });
+    if (d.id !== lesson.id) (d.parts || []).forEach(pt => items.push({ kind: 'Part', ic: 'list', title: pt, sub: where + ' · ' + d.title, href, text: pt }));
+  }
+  lesson.sections.forEach(s => {
+    items.push({ kind: 'Stage', ic: 'flag', title: s.title, sub: `This lesson · Stage ${Number(s.number)}`, href: L(s.id), text: s.title + ' ' + (s.subtitle || '') });
+    s.activities.forEach(a => items.push({ kind: 'Activity', ic: 'pen', title: a.title, sub: `This lesson · ${s.title}`, href: L(s.id), go: a.id, text: a.title + ' ' + a.short }));
+  });
+  [['sources', 'book', 'Readings and source library'], ['extra', 'list', 'Extra activities'], ['notebook', 'model', 'My notebook']].forEach(([id, ic, t]) => items.push({ kind: 'Page', ic, title: t, sub: 'This lesson', href: L(id), text: t }));
+  items.push({ kind: 'Page', ic: 'home', title: 'Course map', sub: 'All weeks', href: '#/', text: 'course map home all weeks' });
+  return items;
+}
+const reEsc = w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+function searchResults(q) {
+  const words = q.toLowerCase().split(/\s+/).filter(Boolean);
+  const inTitle = it => words.every(w => it.text.toLowerCase().includes(w));
+  const hits = searchIndex().filter(it => words.every(w => (it.text + ' ' + it.sub).toLowerCase().includes(w)))
+    .sort((x, y) => inTitle(y) - inTitle(x)).slice(0, 14);
+  const mark = t => { let h = esc(t); words.forEach(w => { h = h.replace(new RegExp('(' + reEsc(esc(w)) + ')', 'gi'), '<mark>$1</mark>'); }); return h; };
+  if (!hits.length) return `<p class="search-none">Nothing matches “${esc(q)}”. Try one word, for example <i>essay</i>, <i>listening</i> or <i>food banks</i>.</p>`;
+  return `<ul class="search-list" aria-label="Search results">${hits.map((it, i) => `<li>${it.href ? `<a class="search-hit${i ? '' : ' first'}" href="${it.href}"${it.go ? ` data-go="${it.go}"` : ''}>` : '<span class="search-hit is-soon">'}<span class="search-ic">${icon(it.ic)}</span><span class="search-text"><b>${mark(it.title)}</b><small>${esc(it.kind)} · ${esc(it.sub)}</small></span>${it.href ? '</a>' : '</span>'}</li>`).join('')}</ul>`;
+}
+function runSearch() {
+  const q = $('#side-search').value.trim(), box = $('#side-results');
+  box.hidden = !q; $('#nav').hidden = !!q; $('#side-home').hidden = !!q;
+  box.innerHTML = q ? searchResults(q) : '';
+}
+function setSide(open) {
+  document.body.classList.toggle('side-open', open);
+  $('#menu-btn')?.setAttribute('aria-expanded', String(open));
+  if (open) setTimeout(() => $('#side-search')?.focus({ preventScroll: true }), 220);
 }
 
 /* ───────── render ───────── */
@@ -523,15 +609,7 @@ function render() {
   const route = r.home ? 'home' : r.page;
   if (!r.home) try { localStorage.setItem('dec15-last-lesson', lesson.id); } catch (e) { /* ignore */ }
   const done = coreActivities.filter(a => state.done[a.id]).length;
-  $('#side-home').classList.toggle('active', route === 'home');
-  if (route === 'home') $('#side-home').setAttribute('aria-current', 'page'); else $('#side-home').removeAttribute('aria-current');
-  $('#course-card').innerHTML = `<span class="course-week">Week ${lesson.week} · Day ${lesson.day}</span><b>${esc(lesson.title)}</b>`;
-  $('#course-card').href = L('overview');
-  $('#nav').innerHTML = `<a href="${L('overview')}" class="${route === 'overview' ? 'active' : ''}"${route === 'overview' ? ' aria-current="page"' : ''}><span class="nav-num">${icon('map')}</span><span>Overview</span></a>
-    <span class="nav-label">Core lesson · ${esc(lesson.duration || '4 hours')}</span>
-    ${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<a href="${L(s.id)}" class="is-stage${route === s.id ? ' active' : ''}${d === s.activities.length ? ' complete' : ''}" style="${tone(s)}"${route === s.id ? ' aria-current="page"' : ''}><span class="nav-num">${d === s.activities.length ? icon('check') : s.number}</span><span class="nav-text">${esc(s.title)}<small>${s.minutes} min<i class="nav-bar" style="--p:${d / s.activities.length}" aria-label="${d} of ${s.activities.length} done"></i></small></span></a>`; }).join('')}
-    <span class="nav-label">More</span>
-    ${[['sources', 'book', 'Source library'], ['extra', 'list', 'Extra activities'], ['notebook', 'model', 'My notebook']].map(([id, ic, t]) => `<a href="${L(id)}" class="${route === id ? 'active' : ''}"${route === id ? ' aria-current="page"' : ''}><span class="nav-num">${icon(ic)}</span><span>${t}</span></a>`).join('')}`;
+  paintNav(route);
   $('#progress').value = done; $('#progress').max = coreActivities.length;
   $('#progress-label').innerHTML = `<b>${done}</b> of ${coreActivities.length} activities finished`;
   $('#side-notebook').href = L('notebook');
@@ -672,7 +750,7 @@ document.addEventListener('change', e => {
   }
 });
 document.addEventListener('click', e => {
-  const t = e.target.closest('button,a'); if (!t) return;
+  const t = e.target.closest('button,a,[data-week-tab]'); if (!t) return;
   const d = t.dataset;
   if (d.quiz) { const k = d.quiz + '-' + d.i; state.values[k] = d.opt; delete state.checked[d.quiz]; save(); rerender(); return; }
   if (d.quizCheck) {
@@ -706,6 +784,12 @@ document.addEventListener('click', e => {
   if (d.unlock) { state.revealed['gate-' + d.unlock] = true; save(); rerender(); return; }
   if (d.hideAnswers) { delete state.revealed[d.hideAnswers]; save(); rerender(); return; }
   if (d.addRow) { state.rows[d.addRow] = (state.rows[d.addRow] || 0) + 1; save(); rerender(); return; }
+  if (d.weekTab) { homeWeek = Number(d.weekTab); rerender(); $(`#tab-week-${homeWeek}`)?.focus({ preventScroll: !t.classList.contains('week-tab') }); if (!t.classList.contains('week-tab')) $('.week')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+  if (d.navWeek) { const w = Number(d.navWeek), wk = t.closest('.nav-week'), open = !wk.classList.contains('open'); navOpen[w] = open;
+    try { localStorage.setItem('dec15-nav-weeks', JSON.stringify(navOpen)); } catch (e) { /* ignore */ }
+    wk.classList.toggle('open', open); t.setAttribute('aria-expanded', String(open)); wk.querySelector('.nav-days').hidden = !open; return; }
+  if (t.id === 'menu-btn') { setSide(!document.body.classList.contains('side-open')); return; }
+  if (t.tagName === 'A' && t.closest('.sidebar')) { setSide(false); if ($('#side-search').value) { $('#side-search').value = ''; setTimeout(runSearch); } }
   if (d.go) { const sec = lesson.sections.find(x => x.activities.some(a => a.id === d.go)); if (sec) { state.active[sec.id] = d.go; save(false); } return; }
   if (t.classList.contains('skip')) { e.preventDefault(); $('#main').focus(); return; }
   if (d.jump) {
@@ -727,6 +811,27 @@ document.addEventListener('click', e => {
   }
 });
 $('#account-btn').onclick = () => accountDialog();
+$('#side-search').addEventListener('input', runSearch);
+document.addEventListener('keydown', e => {   // arrow keys move between week tabs; Enter on a map stop opens its week
+  const t = e.target;
+  if (t.classList?.contains('week-tab') && /^Arrow(Left|Right)$/.test(e.key)) {
+    const all = [...document.querySelectorAll('.week-tab')], i = all.indexOf(t), n = all[(i + (e.key === 'ArrowRight' ? 1 : -1) + all.length) % all.length];
+    n.click(); e.preventDefault();
+  }
+  if (t.classList?.contains('cm-link') && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); t.dispatchEvent(new MouseEvent('click', { bubbles: true })); }
+});
+$('#side-search').addEventListener('keydown', e => {
+  if (e.key === 'Enter') { e.preventDefault(); $('#side-results .search-hit.first')?.click(); }
+  if (e.key === 'Escape') { e.target.value = ''; runSearch(); }
+});
+$('#scrim').onclick = () => setSide(false);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && document.body.classList.contains('side-open')) setSide(false);
+  const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName || '') || document.activeElement?.isContentEditable;
+  if (e.key === '/' && !e.ctrlKey && !e.metaKey && !typing && !$('#resource-dialog').open) {
+    e.preventDefault(); if (matchMedia('(max-width: 900px)').matches) setSide(true); else $('#side-search').focus();
+  }
+});
 $('#teacher-toggle').onclick = () => { state.teacher = !state.teacher; save(); rerender(); toast(state.teacher ? 'Teacher view: answers and teacher notes are shown.' : 'Student view: answers open after students try.'); };
 $('#glossary-open').onclick = glossary;
 $('#source-open').onclick = () => openSource();

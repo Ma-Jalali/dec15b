@@ -26,4 +26,11 @@ Requested colour: #E64626 = RGB(230, 70, 38). Darker variants support small-text
 
 FIELD JOURNAL EDITION — 2 October 2026
 Original decorative SVG illustrations in assets/art/: stage-ai, stage-feedback, stage-critical, stage-writing, stage-reading, stage-listening, stage-discussion, stage-research, stage-assessment, stage-group, plus sync, soon, notebook and complete. The course map on the home page is drawn in code (js/app.js). All created for this course as scalable code-native artwork; no external stock assets. Used decoratively on stage headers, overview and course-map cards, dialogs and empty states.
-Additional visual system: css/polish.css. All existing font licenses and photo-artwork credits above remain applicable.
+All existing font licenses and photo-artwork credits above remain applicable.
+
+WEEK 3 AND NAVIGATION — 6 October 2026
+assets/week3/hero-week3.svg: original code-native vector illustration (food rescue: produce crate, paper bag,
+lentil jar, seedling) drawn in the same cut-paper editorial direction as the Week 2 image. A raster version was
+also generated in the teacher's Canva account (media MAHXP771JXw) but is not used in the site.
+assets/week3/*.svg diagrams: original redraws of Teacher's Book figures (credits inside each figure).
+assets/favicon.svg: original sprout emblem in the course colours.

@@ -7,6 +7,8 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
   const EMOJI_NAME = { '👍': 'thumbs up', '❤️': 'love', '👏': 'well done', '💡': 'good idea', '🤔': 'thinking', '😂': 'funny' };
   let posts = [], reactions = [], status = 'idle', channel = null, poll = null, timer = null;
   const drafts = {}; let replyTo = null, picker = null;
+  /* Busy walls show the newest posts first and fold the rest away, so the activity stays in focus. */
+  const SHOW_POSTS = 3, SHOW_REPLIES = 2, expanded = new Set();
 
   const cloud = () => getCloud();
   const db = () => (cloud()?.user && cloud().client) || null;
@@ -84,6 +86,7 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
   }
   function postHTML(p, isReply) {
     const replies = isReply ? [] : posts.filter(x => x.parent_id === p.id);
+    const hiddenReplies = expanded.has('r:' + p.id) ? 0 : Math.max(0, replies.length - SHOW_REPLIES);
     const canDelete = p.user_id === me() || isTeacher();
     return `<article class="wall-post${p.kind === 'work' ? ' is-work' : ''}${isReply ? ' is-reply' : ''}" id="post-${p.id}">
       ${avatar(p)}
@@ -94,7 +97,7 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
         <div class="wall-actions">${reactionBar(p)}
           ${isReply ? '' : `<button type="button" class="wall-link" data-wall-reply="${p.id}">${icon('chat')}Reply${replies.length ? ` · ${replies.length}` : ''}</button>`}
           ${canDelete ? `<button type="button" class="wall-link wall-del" data-wall-del="${p.id}">Delete</button>` : ''}</div>
-        ${replies.length ? `<div class="wall-replies">${replies.map(r => postHTML(r, true)).join('')}</div>` : ''}
+        ${replies.length ? `<div class="wall-replies">${hiddenReplies ? `<button type="button" class="wall-more" data-wall-more="r:${p.id}">Show ${hiddenReplies} earlier repl${hiddenReplies === 1 ? 'y' : 'ies'}</button>` : ''}${replies.slice(hiddenReplies).map(r => postHTML(r, true)).join('')}</div>` : ''}
         ${!isReply && replyTo === p.id ? `<form class="wall-form wall-reply-form" data-wall-reply-form="${p.id}" data-thread="${esc(p.thread)}">
           <textarea data-wall-draft="r:${p.id}" rows="2" maxlength="2000" placeholder="Reply to ${esc(p.author_name.split(' ')[0])}…" aria-label="Your reply">${esc(drafts['r:' + p.id] || '')}</textarea>
           <div class="wall-form-bar"><button type="button" class="btn-quiet" data-wall-cancel>Cancel</button><button class="btn" type="submit">Reply</button></div></form>` : ''}
@@ -105,7 +108,10 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
     if (status === 'idle') return '<p class="wall-empty">Loading the class wall…</p>';
     if (status === 'error') return '<p class="wall-empty">The class wall could not load. Check your internet connection.</p>';
     const top = posts.filter(p => p.thread === thread && !p.parent_id).reverse();   // newest first
-    return top.length ? top.map(p => postHTML(p, false)).join('') : '<p class="wall-empty">No posts yet. Be the first to share an idea with the class!</p>';
+    if (!top.length) return '<p class="wall-empty">No posts yet. Be the first to share an idea with the class!</p>';
+    const more = expanded.has(thread) ? 0 : Math.max(0, top.length - SHOW_POSTS);
+    return top.slice(0, top.length - more).map(p => postHTML(p, false)).join('')
+      + (more ? `<button type="button" class="wall-more" data-wall-more="${esc(thread)}">${icon('chat')}Show ${more} earlier post${more === 1 ? '' : 's'}</button>` : '');
   }
   /* The whole wall for one activity (rendered by the app inside each activity). */
   function sectionHTML(a) {
@@ -145,6 +151,7 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
   document.addEventListener('click', e => {
     const t = e.target.closest('button'); if (!t) { if (picker && !e.target.closest('.wall-picker')) { picker = null; paint(); } return; }
     const d = t.dataset;
+    if (d.wallMore) { expanded.add(d.wallMore); paint(); return; }
     if (d.wallReact) { react(d.wallReact, d.emoji); return; }
     if (d.wallPicker) { picker = picker === d.wallPicker ? null : d.wallPicker; paint(); return; }
     if (d.wallReply) { replyTo = replyTo === d.wallReply ? null : d.wallReply; paint(); document.querySelector(`[data-wall-draft="r:${d.wallReply}"]`)?.focus(); return; }

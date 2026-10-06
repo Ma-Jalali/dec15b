@@ -80,6 +80,24 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
     if (!m.marks.length) return '';
     return `<section class="nb-stage" style="--stage:#8a6a1f"><header class="nb-stage-head"><span class="nb-stage-num">✎</span><h2>My highlights</h2></header>${m.marks.map(r => `<article class="nb-act"><h3>${esc(r.title)}</h3><p class="nb-marked">${r.html}</p></article>`).join('')}</section>`;
   }
+  /* Stages fold open and closed: after a full day the notebook is very long. The newest stage with
+     work starts open; the student's choices are kept while they stay on the page. */
+  const nbOpen = {};
+  document.addEventListener('toggle', e => { if (e.target.matches?.('details.nb-stage')) nbOpen[e.target.dataset.stage] = e.target.open; }, true);
+  function stageWords(s) { return s.activities.reduce((n, a) => n + a.items.filter(it => it.t === 'qa').reduce((k, it) => k + words(it.value), 0), 0); }
+  function stagesHTML(m) {
+    const last = m.sections[m.sections.length - 1]?.id;
+    const many = m.sections.length > 1;
+    return `${many ? `<div class="nb-fold-bar"><span>${m.sections.length} stages with work</span><button type="button" class="btn-quiet" data-nb-fold="open">Open all</button><button type="button" class="btn-quiet" data-nb-fold="close">Close all</button></div>` : ''}
+      ${m.sections.map(s => { const open = nbOpen[s.id] ?? (!many || s.id === last), fin = s.activities.filter(a => a.done).length, w = stageWords(s);
+      return `<details class="nb-stage" data-stage="${esc(s.id)}" style="--stage:${s.color}"${open ? ' open' : ''}>
+        <summary class="nb-stage-head"><span class="nb-stage-num">${esc(s.number)}</span><h2>${esc(s.title)}</h2>
+          <span class="nb-stage-sum">${s.activities.length} activit${s.activities.length === 1 ? 'y' : 'ies'}${fin ? ` · ${fin} finished` : ''}${w ? ` · ${w} words` : ''}</span><span class="nb-chev" aria-hidden="true"></span></summary>
+        ${s.activities.map(a => `<article class="nb-act"><h3>${esc(a.title)}${a.done ? '<span class="nb-done">Finished</span>' : ''}</h3>${a.items.map(itemHTML).join('')}</article>`).join('')}
+      </details>`; }).join('')}`;
+  }
+  document.addEventListener('click', e => { const b = e.target.closest('[data-nb-fold]'); if (!b) return;
+    document.querySelectorAll('details.nb-stage').forEach(d => { d.open = b.dataset.nbFold === 'open'; nbOpen[d.dataset.stage] = d.open; }); });
   function pageHTML() {
     const m = model(), pct = m.stats.total ? m.stats.finished / m.stats.total : 0;
     const ring = `<svg class="nb-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" /><circle cx="32" cy="32" r="27" style="stroke-dasharray:${(2 * Math.PI * 27).toFixed(1)};stroke-dashoffset:${(2 * Math.PI * 27 * (1 - pct)).toFixed(1)}" /></svg>`;
@@ -105,10 +123,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
         <button class="nb-export-btn" data-export="print"><span class="nb-ext nb-ext-print"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M7 8V3h10v5M7 17H4v-7h16v7h-3M7 14h10v7H7z"/></svg></span><b>Print</b><small>Clean, paper-friendly layout</small></button>
       </div>
     </section>
-    ${m.sections.length || m.marks.length ? m.sections.map(s => `<section class="nb-stage" style="--stage:${s.color}">
-        <header class="nb-stage-head"><span class="nb-stage-num">${esc(s.number)}</span><h2>${esc(s.title)}</h2></header>
-        ${s.activities.map(a => `<article class="nb-act"><h3>${esc(a.title)}${a.done ? '<span class="nb-done">Finished</span>' : ''}</h3>${a.items.map(itemHTML).join('')}</article>`).join('')}
-      </section>`).join('') + marksHTML(m)
+    ${m.sections.length || m.marks.length ? stagesHTML(m) + marksHTML(m)
       : `<div class="nb-empty"><img src="assets/art/notebook.svg" alt="" width="240" height="170"><h2>Your notebook is empty — for now</h2><p>Everything you write, choose and highlight in the lesson will appear here, organised by stage.</p></div>`}`;
   }
 
