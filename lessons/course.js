@@ -29,6 +29,8 @@ window.DEC15_COURSE = {
     },
     {
       n: 3, theme: 'Solutions to food loss',
+      image: 'assets/week3/hero-week3.svg',
+      imageAlt: 'Illustration: a crate of imperfect fresh produce, a paper grocery bag with bread, a jar of lentils and a seedling in a pot — food that is saved and shared instead of wasted.',
       summary: 'From problems to solutions: strategies that prevent food loss, plus your first practice assessment.',
       days: [
         { id: 'w3d1', day: 1, status: 'ready', title: 'Write your first argument essay', art: 'writing',

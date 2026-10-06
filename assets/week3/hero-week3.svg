@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 933" role="img" aria-labelledby="t">
+<title id="t">Food rescue: a crate of imperfect fresh produce, a paper grocery bag with bread, a jar of lentils and a seedling growing in a pot — food that is saved and shared instead of wasted.</title>
+<defs>
+  <filter id="paper" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="7"/><feColorMatrix values="0 0 0 0 .55  0 0 0 0 .47  0 0 0 0 .36  0 0 0 .07 0"/><feComposite in2="SourceGraphic" operator="in"/><feBlend in="SourceGraphic" mode="multiply"/></filter>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#2a1d10" flood-opacity=".22"/></filter>
+  <filter id="cut" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#14293a" flood-opacity=".25"/></filter>
+  <radialGradient id="light" cx="22%" cy="20%" r="85%"><stop offset="0" stop-color="#fffaf0"/><stop offset=".6" stop-color="#f3ebdd"/><stop offset="1" stop-color="#e8dcc8"/></radialGradient>
+  <linearGradient id="wood" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#d4a46c"/><stop offset="1" stop-color="#b98551"/></linearGradient>
+  <linearGradient id="wood2" x1="0" x2="1"><stop offset="0" stop-color="#a87443"/><stop offset="1" stop-color="#c08a55"/></linearGradient>
+  <linearGradient id="kraft" x1="0" x2="1"><stop offset="0" stop-color="#b98d5c"/><stop offset=".45" stop-color="#d0a978"/><stop offset="1" stop-color="#b08253"/></linearGradient>
+  <radialGradient id="apple" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#f06a4f"/><stop offset=".55" stop-color="#c8341f"/><stop offset="1" stop-color="#8e2213"/></radialGradient>
+  <radialGradient id="apple2" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#f3b24a"/><stop offset=".6" stop-color="#d8782a"/><stop offset="1" stop-color="#a5521b"/></radialGradient>
+  <linearGradient id="carrot" x1="0" x2="1"><stop offset="0" stop-color="#f08a2c"/><stop offset=".5" stop-color="#f6a447"/><stop offset="1" stop-color="#d9691c"/></linearGradient>
+  <radialGradient id="bread" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#e7b06b"/><stop offset=".6" stop-color="#c47f3b"/><stop offset="1" stop-color="#8e5524"/></radialGradient>
+  <linearGradient id="glass" x1="0" x2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".5"/><stop offset=".2" stop-color="#ffffff" stop-opacity=".08"/><stop offset=".8" stop-color="#ffffff" stop-opacity=".04"/><stop offset="1" stop-color="#ffffff" stop-opacity=".35"/></linearGradient>
+  <linearGradient id="pot" x1="0" x2="1"><stop offset="0" stop-color="#b85c37"/><stop offset=".45" stop-color="#d97c52"/><stop offset="1" stop-color="#a24e2c"/></linearGradient>
+  <pattern id="lentils" width="22" height="16" patternUnits="userSpaceOnUse"><ellipse cx="6" cy="5" rx="5.5" ry="3.6" fill="#b7712f"/><ellipse cx="17" cy="12" rx="5.5" ry="3.6" fill="#c98540"/><ellipse cx="16" cy="3" rx="4.5" ry="3" fill="#a35f25"/><ellipse cx="5" cy="13" rx="4.5" ry="3" fill="#d39552"/></pattern>
+</defs>
+
+<!-- paper ground -->
+<rect width="1400" height="933" fill="url(#light)"/>
+<rect width="1400" height="933" fill="#f3ebdd" filter="url(#paper)" opacity=".9"/>
+
+<!-- cut-paper geometry -->
+<g filter="url(#cut)">
+  <circle cx="455" cy="430" r="318" fill="#1c3146"/>
+  <path d="M1046 842a160 160 0 0 1 320 0z" fill="#e64626"/>
+  <circle cx="1046" cy="196" r="62" fill="none" stroke="#1c3146" stroke-width="2"/>
+</g>
+<circle cx="455" cy="430" r="318" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-width="2" stroke-dasharray="3 9"/>
+
+<!-- fine-line botanical drawings -->
+<g fill="none" stroke="#2c2620" stroke-width="1.6" stroke-linecap="round" opacity=".78">
+  <path d="M152 120c40 70 70 150 82 250"/>
+  <path d="M168 150c-22-6-40-2-54 12 20 8 40 6 54-12zm12 30c26-10 46-6 60 8-22 10-44 8-60-8zm-4 36c-24-4-44 2-56 18 22 4 42-2 56-18zm16 32c26-8 46-2 58 14-24 8-44 4-58-14zm-6 38c-24-2-42 6-52 22 22 2 40-6 52-22zm16 30c24-6 42 2 52 18-22 6-40 0-52-18z"/>
+  <g transform="translate(20 -330)"><path d="M1290 520c-30 60-44 150-40 260"/>
+  <path d="M1282 546c-14-16-32-20-50-12 12 16 30 20 50 12zm-10 40c18-14 36-14 52-2-16 14-34 14-52 2zm-6 44c-16-14-34-16-50-6 14 14 32 16 50 6zm-4 44c18-12 36-10 50 2-18 12-36 10-50-2zm-2 44c-16-12-34-12-48 0 16 12 34 12 48 0z"/></g>
+  <path d="M930 120c30 22 70 30 116 22" stroke-dasharray="2 7"/>
+  <circle cx="930" cy="120" r="3" fill="#2c2620"/>
+  <path d="M90 760c60-30 120-34 180-14" stroke-dasharray="2 7"/>
+</g>
+
+<!-- table shadow -->
+<ellipse cx="760" cy="842" rx="560" ry="34" fill="#3b2a18" opacity=".12"/>
+
+<!-- crate of produce -->
+<g filter="url(#soft)">
+  <!-- greens behind -->
+  <g fill="#3f7a3a">
+    <path d="M330 560c-30-90-10-170 30-210 10 60 4 140-30 210z"/>
+    <path d="M360 562c0-100 40-160 90-190-6 70-30 140-90 190z" fill="#4f8d45"/>
+    <path d="M300 566c-70-60-90-130-70-190 40 40 70 110 70 190z" fill="#5b9a4f"/>
+    <path d="M400 566c30-80 80-120 140-130-30 60-70 110-140 130z" fill="#2f6a33"/>
+  </g>
+  <g fill="none" stroke="#24502a" stroke-width="2" opacity=".6"><path d="M330 556c-10-70 0-130 26-176M362 556c10-70 34-120 76-160M300 560c-30-50-46-100-50-150"/></g>
+  <!-- carrots -->
+  <g>
+    <path d="M700 388c8-6 22-4 28 6l-118 186c-4 4-10 2-9-4z" fill="url(#carrot)"/>
+    <path d="M752 424c8-5 20-2 24 8l-148 160c-4 3-9 0-8-5z" fill="url(#carrot)"/>
+    <path d="M708 392c8-40 30-62 54-70-6 28-24 52-54 70zm10 10c30-24 60-28 84-18-20 20-50 26-84 18zm40 36c12-38 36-56 62-60-10 26-30 46-62 60z" fill="#5b9a4f"/>
+    <g stroke="#c45f16" stroke-width="2" stroke-linecap="round" opacity=".55"><path d="M640 500l12 6M664 468l10 8M682 440l9 7M672 530l12 7M700 496l10 8M724 466l10 8"/></g>
+  </g>
+  <!-- apples -->
+  <circle cx="420" cy="560" r="62" fill="url(#apple)"/>
+  <circle cx="530" cy="566" r="58" fill="url(#apple2)"/>
+  <circle cx="345" cy="580" r="50" fill="url(#apple)"/>
+  <g fill="#fff" opacity=".35"><ellipse cx="400" cy="532" rx="16" ry="10" transform="rotate(-30 400 532)"/><ellipse cx="512" cy="540" rx="14" ry="9" transform="rotate(-30 512 540)"/><ellipse cx="330" cy="560" rx="12" ry="8" transform="rotate(-30 330 560)"/></g>
+  <g stroke="#4a2c14" stroke-width="5" stroke-linecap="round"><path d="M422 500c2-14 8-24 18-30"/><path d="M532 510c0-12 4-22 12-28"/></g>
+  <path d="M440 476c18-14 40-14 56-2-18 12-38 12-56 2z" fill="#4f8d45"/>
+  <!-- crate -->
+  <path d="M232 600h560l-24 220H256z" fill="url(#wood)"/>
+  <path d="M232 600h560v26H232z" fill="#c8955b"/>
+  <path d="M244 682h536M250 752h524" stroke="#9c6a3c" stroke-width="3" opacity=".6"/>
+  <rect x="232" y="600" width="26" height="220" fill="url(#wood2)"/><rect x="766" y="600" width="26" height="220" fill="url(#wood2)"/>
+  <g fill="none" stroke="#8e5f34" stroke-width="1.5" opacity=".45"><path d="M300 640c60 6 120 2 180 8s130 4 200-2M290 712c80 6 160 0 240 6s150 2 210-4M300 788c70 4 140 0 210 4s140 2 200-2"/></g>
+  <g fill="#7a4d25"><circle cx="245" cy="612" r="4"/><circle cx="779" cy="612" r="4"/><circle cx="245" cy="806" r="4"/><circle cx="779" cy="806" r="4"/></g>
+  <rect x="420" y="676" width="190" height="62" rx="6" fill="#efe4cf"/>
+  <path d="M440 698h96M440 716h140" stroke="#b59a74" stroke-width="5" stroke-linecap="round"/>
+</g>
+
+<!-- paper bag with bread -->
+<g filter="url(#soft)">
+  <path d="M884 360c40-120 96-196 140-214 22-8 34 6 26 28-26 70-82 140-120 190z" fill="url(#bread)"/>
+  <g stroke="#7a4517" stroke-width="4" stroke-linecap="round" fill="none" opacity=".5"><path d="M938 250c10 8 16 18 18 30M968 210c10 8 16 18 18 30M996 178c8 8 12 16 14 26"/></g>
+  <path d="M846 352l10-40 14 34 14-34 14 34 14-34 14 34 14-34 14 34 14-34 14 34 14-34 10 40z" fill="#c49a69"/>
+  <path d="M836 352h220l20 470H816z" fill="url(#kraft)"/>
+  <path d="M836 352h220l6 120-120 18-118-18z" fill="#000" opacity=".05"/>
+  <path d="M946 352v470" stroke="#9c754a" stroke-width="2" opacity=".35"/>
+  <path d="M850 380c60 10 130 10 196 0" stroke="#9c754a" stroke-width="2" fill="none" opacity=".5"/>
+  <circle cx="946" cy="560" r="44" fill="none" stroke="#7d5a35" stroke-width="2.4" opacity=".55"/>
+  <path d="M928 562c8-18 28-26 40-18-4 18-22 28-40 18z" fill="#7d5a35" opacity=".55"/>
+</g>
+
+<!-- jar of lentils -->
+<g filter="url(#soft)">
+  <rect x="1060" y="560" width="150" height="250" rx="26" fill="url(#lentils)"/>
+  <rect x="1060" y="560" width="150" height="250" rx="26" fill="#6b3d14" opacity=".08"/>
+  <rect x="1060" y="560" width="150" height="250" rx="26" fill="url(#glass)"/>
+  <rect x="1060" y="560" width="150" height="250" rx="26" fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="3"/>
+  <rect x="1074" y="528" width="122" height="40" rx="8" fill="#1c3146"/>
+  <path d="M1080 540h110" stroke="#ffffff" stroke-opacity=".15" stroke-width="4"/>
+  <path d="M1080 600v170" stroke="#fff" stroke-opacity=".6" stroke-width="7" stroke-linecap="round"/>
+</g>
+
+<!-- loaf wrapped in recycled paper -->
+<g filter="url(#soft)">
+  <path d="M620 820c0-60 70-98 190-98s200 36 200 98z" fill="url(#bread)"/>
+  <g stroke="#7a4517" stroke-width="5" stroke-linecap="round" fill="none" opacity=".5"><path d="M700 752c16 10 30 26 36 44M770 742c16 12 30 28 36 46M842 744c16 12 28 28 32 46M910 756c12 12 22 26 26 40"/></g>
+  <path d="M600 822h420l-28 30H628z" fill="#efe4cf"/>
+</g>
+
+<!-- seedling in a terracotta pot -->
+<g filter="url(#soft)" transform="translate(214 300) scale(.88)">
+  <path d="M1222 440v-96" stroke="#3f7a3a" stroke-width="7" stroke-linecap="round"/>
+  <path d="M1222 380c-12-46-50-68-94-60 8 44 46 66 94 60z" fill="#5b9a4f"/>
+  <path d="M1222 360c10-52 52-80 104-72-8 52-52 80-104 72z" fill="#3f7a3a"/>
+  <path d="M1222 380c-22-24-46-38-74-44M1222 360c22-30 50-48 82-58" stroke="#24502a" stroke-width="2" fill="none" opacity=".5"/>
+  <path d="M1156 448h132l-18 120h-96z" fill="url(#pot)"/>
+  <rect x="1146" y="434" width="152" height="28" rx="6" fill="#c76a42"/>
+  <ellipse cx="1222" cy="438" rx="66" ry="9" fill="#4a3426"/>
+</g>
+
+<!-- small accents -->
+<g fill="#e64626"><circle cx="160" cy="470" r="4"/></g>
+<g fill="#1c3146"><circle cx="1320" cy="420" r="4"/><circle cx="780" cy="160" r="3"/></g>
+<path d="M760 120l6 16 16 6-16 6-6 16-6-16-16-6 16-6z" fill="#e3a843"/>
+</svg>

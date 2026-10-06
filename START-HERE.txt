@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.7)
+DEC15 — COURSE APP (v2.8)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -90,3 +90,10 @@ the student's text to the wall of that activity; their own saved copy does not c
 - Turn the wall off for one activity with  wall: false  (or a whole lesson with  wall: false  at the top),
   and the Share button off for a writing box with  share: false.
 Database: supabase/migrations/20261006000000_dec15_class_wall.sql (already applied to the project).
+
+NAVIGATION (v2.8)
+The side panel lists the whole course: weeks fold open and closed, each lesson shows its progress ring,
+and the open lesson shows its stages plus Readings / Extra / Notebook. The search box (press / ) finds
+lessons, parts of lessons, stages and activities. On phones the side panel opens with the Menu button.
+The course map shows one week at a time (week tabs); click a week on the map to open its lessons.
+Notebook stages fold open and closed; busy class walls show the newest 3 posts (and 2 replies) first.
