@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.14)
+DEC15 — COURSE APP (v2.15)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -148,3 +148,8 @@ and the action plan are one. The written detective questions became quick multip
 brainstorm tables were removed (ideas are shared aloud). The notetaking template, the 5 summary steps
 and the summarising phrases moved to Extra (homework). 17A has 4 tabs ("What are prompts?" joined
 "What makes a good prompt?"). A perfect quiz, sort, order or memory game now ends with confetti.
+
+LESSON CODES IN COLOUR EVERYWHERE (v2.15)
+Every day in the side panel and on the course map now shows its Teacher's Book lesson codes (1A, 4A,
+15A …) in the stage colours, even before the day is opened. In lessons/course.js each day has
+`parts` (code + Teacher's Book name) and `tones` (the colour of each stage, same as `tone` in the lesson file).

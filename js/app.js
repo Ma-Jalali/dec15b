@@ -22,6 +22,8 @@ const tone = s => `--accent:${TONES[s.tone][0]};--accent-bg:${TONES[s.tone][1]}`
 /* The Teacher’s Book code of a stage (e.g. 15A) — shown everywhere so students can find the same lesson in the book. */
 const code = s => s.code || pad(Number(s.number));
 const stageName = s => `${s.code ? s.code + ' ' : ''}${s.title}`;
+/* A day's part from course.js, e.g. '15A Discussion skills' → { code: '15A', name: 'Discussion skills', tone } */
+const dayPart = (d, k) => { const m = String(d.parts[k]).match(/^(\d+[A-Z])\s+(.*)$/); return { code: m ? m[1] : String(k + 1), name: m ? m[2] : d.parts[k], tone: TONES[d.tones?.[k]] ? d.tones[k] : null }; };
 const artSrc = name => `assets/art/stage-${name}.svg`;
 /* Addresses inside this lesson: L('ai') → #/w2d5/ai */
 const L = p => '#/' + lesson.id + (p && p !== 'overview' ? '/' + p : '');
@@ -544,14 +546,14 @@ function dayCard(d) {
       <span class="day-art day-art-soon"><img src="assets/art/soon.svg" alt="" width="120" height="100" loading="lazy"></span>
       <span class="day-label">Day ${d.day}<span class="day-soon">${icon('sprout')}Coming soon</span></span>
       <b class="day-title">${esc(d.title)}</b>
-      ${d.parts ? `<ul class="day-parts">${d.parts.map(p => `<li>${esc(p)}</li>`).join('')}</ul>` : ''}
+      ${d.parts ? `<ul class="day-parts">${d.parts.map((_, k) => { const p = dayPart(d, k); return `<li${p.tone ? ` class="has-code" style="${tone(p)}"` : ''}>${p.tone ? `<span class="part-code">${esc(p.code)}</span>` : ''}${esc(p.tone ? p.name : d.parts[k])}</li>`; }).join('')}</ul>` : ''}
     </li>`;
   const pct = total ? Math.round(100 * done / total) : 0;
   return `<li class="day-card is-ready${pct === 100 ? ' complete' : ''}"><a href="#/${d.id}">
       <span class="day-art"><img src="${artSrc(d.art || 'writing')}" alt="" width="220" height="170" loading="lazy"></span>
       <span class="day-label">Day ${d.day}${pct === 100 ? `<span class="day-done">${icon('check')}Complete</span>` : done ? `<span class="day-now">In progress</span>` : '<span class="day-open">Open</span>'}</span>
       <b class="day-title">${esc(d.title)}</b>
-      ${d.parts ? `<ul class="day-parts">${d.parts.map(p => `<li>${esc(p)}</li>`).join('')}</ul>` : ''}
+      ${d.parts ? `<ul class="day-parts">${d.parts.map((_, k) => { const p = dayPart(d, k); return `<li${p.tone ? ` class="has-code" style="${tone(p)}"` : ''}>${p.tone ? `<span class="part-code">${esc(p.code)}</span>` : ''}${esc(p.tone ? p.name : d.parts[k])}</li>`; }).join('')}</ul>` : ''}
       <span class="day-meter" aria-label="${done} of ${total} activities finished"><i style="width:${pct}%"></i></span>
       <span class="day-foot"><span>${total ? `${done} / ${total} activities` : 'Not started'}</span><span class="day-go">${done && pct < 100 ? 'Continue' : pct === 100 ? 'Review' : 'Start'} ${icon('arrow')}</span></span>
     </a></li>`;
@@ -629,7 +631,7 @@ function dayContents(d, route) {
   const stages = here
     ? lesson.sections.map(s => { const dn = s.activities.filter(a => state.done[a.id]).length, all = dn === s.activities.length;
         return `<li${stagger()}><a href="${L(s.id)}" class="nav-part is-stage${all ? ' complete' : ''}${cur(s.id)}" style="${tone(s)}"><span class="nav-pnum">${all ? icon('check') : esc(code(s))}</span><span class="nav-ptext">${esc(s.title)}<small>${s.minutes} min<i class="nav-bar" style="--p:${dn / s.activities.length}" aria-label="${dn} of ${s.activities.length} done"></i></small></span></a></li>`; }).join('')
-    : (d.parts || []).map((pt, k) => `<li${stagger()}><a href="#/${d.id}${d.stages?.[k] ? '/' + d.stages[k] : ''}" class="nav-part"><span class="nav-pnum">${k + 1}</span><span class="nav-ptext">${esc(pt)}</span></a></li>`).join('');
+    : (d.parts || []).map((pt, k) => { const p = dayPart(d, k); return `<li${stagger()}><a href="#/${d.id}${d.stages?.[k] ? '/' + d.stages[k] : ''}" class="nav-part${p.tone ? ' is-stage' : ''}"${p.tone ? ` style="${tone(p)}"` : ''}><span class="nav-pnum">${esc(p.code)}</span><span class="nav-ptext">${esc(p.name)}</span></a></li>`; }).join('');
   const tools = here ? `<li class="nav-tools"${stagger()}>${[['sources', 'book', 'Readings'], ['extra', 'list', 'Extra'], ['notebook', 'model', 'Notebook']].map(([id, ic, t]) => `<a href="${L(id)}" class="nav-tool${cur(id)}">${icon(ic)}<span>${t}</span></a>`).join('')}</li>` : '';
   return `<ol class="nav-parts">${start}${stages}${tools}</ol>`;
 }
