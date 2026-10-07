@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="A wobbegong: a flat, spotted shark with a frilly beard, lying on the sea floor."><defs><linearGradient id="sea" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#d9efee"/><stop offset="1" stop-color="#a9d7d2"/></linearGradient><pattern id="sp" width="14" height="12" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="2.6" fill="#f3e3c3"/><circle cx="11" cy="9" r="1.8" fill="#e9d2a6"/></pattern></defs>
+<rect width="240" height="160" rx="20" fill="url(#sea)"/>
+<path d="M0 132c30-8 60 4 90-2s70-12 110-2 40 6 40 6v26H0z" fill="#e8d3a6"/>
+<g fill="#7fc2b9" opacity=".7"><circle cx="40" cy="36" r="4"/><circle cx="52" cy="22" r="2.6"/><circle cx="200" cy="30" r="3.4"/></g>
+<path d="M30 122c18-12 34-10 46-16 12-6 40-18 78-16 30 2 52 10 62 16l-10 8c-14-4-20 0-26 6-30 12-90 16-150 2z" fill="#9b7a4c"/>
+<path d="M30 122c18-12 34-10 46-16 12-6 40-18 78-16 30 2 52 10 62 16l-10 8c-14-4-20 0-26 6-30 12-90 16-150 2z" fill="url(#sp)" opacity=".85"/>
+<path d="M206 106l26-20-6 30 8 18-30-14z" fill="#8a6a3f"/>
+<path d="M110 96l14-18 10 18z" fill="#8a6a3f"/>
+<g stroke="#6d5130" stroke-width="2.4" stroke-linecap="round"><path d="M36 124l-6 8M44 126l-2 9M52 127l1 9M60 127l4 8M68 126l6 7"/></g>
+<circle cx="58" cy="112" r="3.2" fill="#14293a"/><circle cx="59" cy="111" r="1" fill="#fff"/>
+<path d="M40 120c8 3 16 3 24 0" stroke="#14293a" stroke-width="2" fill="none" stroke-linecap="round"/>
+</svg>

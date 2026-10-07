@@ -19,6 +19,9 @@ lesson.sections.forEach((s, i) => {
   s.art = s.art || (LEGACY[s.id] ? s.id : 'reading');
 });
 const tone = s => `--accent:${TONES[s.tone][0]};--accent-bg:${TONES[s.tone][1]}`;
+/* The Teacher’s Book code of a stage (e.g. 15A) — shown everywhere so students can find the same lesson in the book. */
+const code = s => s.code || pad(Number(s.number));
+const stageName = s => `${s.code ? s.code + ' ' : ''}${s.title}`;
 const artSrc = name => `assets/art/stage-${name}.svg`;
 /* Addresses inside this lesson: L('ai') → #/w2d5/ai */
 const L = p => '#/' + lesson.id + (p && p !== 'overview' ? '/' + p : '');
@@ -99,7 +102,11 @@ const ICON = {
   smile: '<circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1.3 2.2 2 3.5 2s2.5-.7 3.5-2M9 9.5h.01M15 9.5h.01"/>',
   share: '<path d="M12 15V4m-4 4 4-4 4 4M5 13v6h14v-6"/>',
   grip: '<circle cx="9" cy="6" r="1.3"/><circle cx="15" cy="6" r="1.3"/><circle cx="9" cy="12" r="1.3"/><circle cx="15" cy="12" r="1.3"/><circle cx="9" cy="18" r="1.3"/><circle cx="15" cy="18" r="1.3"/>',
-  undo: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>'
+  undo: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>',
+  users: '<circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M16 14.2c2.8.3 5 2.6 5 5.8"/>',
+  briefcase: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2M3 13h18"/>',
+  layers: '<path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/>',
+  link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'
 };
 const icon = (n, c = '') => `<svg class="icon ${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[n] || ICON.book}</svg>`;
 
@@ -114,6 +121,9 @@ function whoBadge(w) {
   return `<span class="who who-${w}"><svg viewBox="0 0 ${Math.min(d.dots, 3) * 6 + 6} 19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6">${people}</svg>${d.label}</span>`;
 }
 
+const findBlock = id => allActivities.flatMap(a => a.blocks).find(x => x.id === id);
+const play = window.createDEC15Play ? window.createDEC15Play({ getState: () => state, save, rerender: () => rerender(), esc, strip, icon, toast, findBlock }) : null;
+
 /* ───────── label registry (for notebook + export) ───────── */
 const labels = {}, owner = {};
 const planParts = [
@@ -125,9 +135,11 @@ const planParts = [
 function register(a) {
   const reg = (k, l) => { labels[k] = l; owner[k] = a.id; };
   for (const b of a.blocks) {
+    play?.register(b, reg);
     if (b.type === 'fields') b.fields.forEach(f => reg(f.id, f.label));
     if (b.type === 'quiz') b.items.forEach((q, i) => reg(b.id + '-' + i, strip(q.q)));
     if (b.type === 'choose') reg(b.id, b.title);
+    if (b.type === 'cards' && b.pick) reg(b.pick, strip(b.title || 'My choice'));
     if (b.type === 'checklist') b.items.forEach((c, i) => reg(b.id + '-' + i, c));
     if (b.type === 'plan') planParts.forEach(([p, fs]) => fs.forEach(([k, l]) => reg('plan-' + k, p + ' · ' + l)));
     if (b.type === 'table') { a._tables = a._tables || []; a._tables.push(b); }
@@ -171,10 +183,16 @@ B.model = b => `<section class="block model" data-help>
   ${b.list ? `<ol class="model-list">${b.list.map(x => `<li>${x}</li>`).join('')}</ol>` : ''}
   ${b.note ? `<p class="model-note">${b.note}</p>` : ''}
 </section>`;
-B.cards = b => `<section class="block cards-block" data-help>
+/* cards: { items: [{ label?, text, icon? }], pick?: 'id' } — with pick, students choose one card (saved) */
+B.cards = b => `<section class="block cards-block${b.pick ? ' cards-pick' : ''}" data-help>
   ${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}
-  <div class="cards${b.items.length === 4 ? ' cards-4' : ''}">${b.items.map((c, i) => `<div class="card">${b.numbered ? `<span class="card-num">${i + 1}</span>` : ''}${c.label ? `<span class="card-label">${c.label}</span>` : ''}<p>${c.text}</p></div>`).join('')}</div>
+  <div class="cards${b.items.length === 4 ? ' cards-4' : ''}"${b.pick ? ` role="radiogroup" aria-label="${esc(strip(b.title || 'Choose one'))}"` : ''}>${b.items.map((c, i) => { const inner = `${c.icon ? `<span class="card-ico">${icon(c.icon)}</span>` : ''}${b.numbered ? `<span class="card-num">${i + 1}</span>` : ''}${c.label ? `<span class="card-label">${c.label}</span>` : ''}<p>${c.text}</p>`;
+    if (!b.pick) return `<div class="card">${inner}</div>`;
+    const opt = strip(c.label || c.text), on = val(b.pick) === opt;
+    return `<button type="button" role="radio" aria-checked="${on}" class="card${on ? ' selected' : ''}" data-choose="${b.pick}" data-opt="${esc(opt)}"><span class="card-pick-mark">${icon('check')}</span>${inner}</button>`; }).join('')}</div>
 </section>`;
+/* games and interactive blocks (js/play.js): flash, sort, flip, spinner, chat, promptbuilder, contract */
+if (play) Object.assign(B, play.B);
 B.tip = b => `<p class="block tip" data-help>${icon('bulb')}<span>${b.text}</span></p>`;
 B.teacher = b => state.teacher ? `<aside class="block teacher"><div class="block-label">${icon('teacher')}Teacher note</div><p>${b.text}</p></aside>` : '';
 B.sources = b => `<div class="block source-buttons">${b.ids.map(id => { const s = sources.find(x => x.id === id); return `<button class="source-btn" data-source="${id}">${icon('book')}<span><b>${esc(s.cite)}</b><small>${esc(s.title)}</small></span></button>`; }).join('')}</div>`;
@@ -227,7 +245,7 @@ B.plan = () => `<section class="block plan">
   <div class="plan-question"><b>Question:</b> ${esc(lesson.question)}</div>
   ${planParts.map(([p, fs], i) => `<div class="plan-part plan-${i}"><h4><span>${pad(i + 1)}</span>${p}</h4>${fs.map(([k, l]) => `<div class="field"><label for="f-plan-${k}">${l}</label><textarea id="f-plan-${k}" data-save="plan-${k}" rows="2" placeholder="Notes, not full sentences">${esc(val('plan-' + k))}</textarea></div>`).join('')}</div>`).join('')}
 </section>`;
-B.checklist = b => `<section class="block checklist"><h3 class="block-heading">${b.title}</h3>${b.items.map((c, i) => `<label class="check"><input type="checkbox" data-save="${b.id}-${i}"${val(b.id + '-' + i) ? ' checked' : ''}><span>${esc(c)}</span></label>`).join('')}</section>`;
+B.checklist = b => `<section class="block checklist"><h3 class="block-heading">${b.title}</h3>${b.meter ? (() => { const n = b.items.filter((_, i) => val(b.id + '-' + i)).length; return `<div class="check-meter" style="--p:${n / b.items.length}"><span><i></i></span>${n === b.items.length ? esc(b.meter[1] || 'Ready!') : `${n} of ${b.items.length} ${esc(b.meter[0] || 'ticked')}`}</div>`; })() : ''}${b.items.map((c, i) => `<label class="check"><input type="checkbox" data-save="${b.id}-${i}"${val(b.id + '-' + i) ? ' checked' : ''}><span>${esc(c)}</span></label>`).join('')}</section>`;
 /* order: put items in the right order (ranking, sequencing). items are listed in the CORRECT order;
    students see them mixed. { type: 'order', id, title, items: [..], ends?: ['Best', 'Worst'], why? } */
 const gcd = (a, b) => b ? gcd(b, a % b) : a;
@@ -420,16 +438,15 @@ function stagePage(s) {
   const doneCount = s.activities.filter(a => state.done[a.id]).length;
   const complete = doneCount === s.activities.length;
   return `<header class="stage-head${complete ? ' is-complete' : ''}">
-      <span class="stage-numeral" aria-hidden="true">${s.number}</span>
+      <span class="stage-numeral${code(s).length > 2 ? ' is-code' : ''}" aria-hidden="true">${esc(code(s))}</span>
       <div class="stage-copy">
-        <span class="eyebrow">Stage ${Number(s.number)} of ${lesson.sections.length}<span class="sep"></span>${esc(s.subtitle)}</span>
+        <span class="eyebrow">${s.code ? `Teacher’s Book ${esc(s.code)}<span class="sep"></span>` : ''}Stage ${Number(s.number)} of ${lesson.sections.length}<span class="sep"></span>${esc(s.subtitle)}</span>
         <h1>${esc(s.title)}</h1>
         <p class="stage-outcome" data-help>${esc(s.outcome)}</p>
         <div class="stage-meta">
           <span class="chip">${icon('clock')}${s.minutes} min</span>
-          <span class="chip">${icon('list')}${s.activities.length} activities</span>
-          <span class="chip chip-quiet">Teacher’s Book ${s.code}</span>
-          ${complete ? `<span class="chip chip-done">${icon('check')}Stage complete</span>` : ''}
+          <span class="chip">${icon('list')}${s.activities.length} ${s.activities.length === 1 ? 'activity' : 'activities'}</span>
+                    ${complete ? `<span class="chip chip-done">${icon('check')}Stage complete</span>` : ''}
         </div>
       </div>
       <div class="stage-art-wrap"><img class="stage-art" src="${artSrc(s.art)}" alt="" width="220" height="170">${complete ? '<img class="stage-medal" src="assets/art/complete.svg" alt="" width="60" height="70">' : ''}</div>
@@ -445,7 +462,7 @@ function nextUp() {
 function continueButton(big) {
   const n = nextUp(), started = coreActivities.some(a => state.done[a.id]) || Object.keys(state.values).length;
   if (!n) return `<a class="btn${big ? ' btn-big' : ''}" href="${L('notebook')}">${icon('check')}Review my notebook</a>`;
-  const label = started ? `Continue: ${esc(n.a.short)}` : `Start Stage ${Number(n.s.number)}`;
+  const label = started ? `Continue: ${esc(n.a.short)}` : `Start ${esc(stageName(n.s))}`;
   return `<a class="btn${big ? ' btn-big' : ''}" href="${L(n.s.id)}" data-go="${n.a.id}">${label} ${icon('arrow')}</a>`;
 }
 function overview() {
@@ -455,7 +472,7 @@ function overview() {
       <span class="eyebrow">Week ${lesson.week} · Day ${lesson.day} · ${esc(lesson.duration || 'About 4 hours')}</span>
       <h1>${esc(lesson.title)}</h1>
       <p class="hero-lead">${esc(lesson.journey)}</p>
-      <div class="hero-actions">${continueButton(true)}${done && n ? `<span class="hero-progress"><b>${done} of ${coreActivities.length}</b> activities finished · next in Stage ${Number(n.s.number)}</span>` : ''}</div>
+      <div class="hero-actions">${continueButton(true)}${done && n ? `<span class="hero-progress"><b>${done} of ${coreActivities.length}</b> activities finished · next: ${esc(stageName(n.s))}</span>` : ''}</div>
     </div>
     ${(() => { const wk = course.weeks.find(w => w.n === lesson.week) || {}; return `<figure class="hero-img"><img src="${esc(lesson.image || wk.image || 'assets/food-editorial.webp')}" width="1400" height="933" alt="${esc(lesson.imageAlt || wk.imageAlt || 'An imperfect tomato, a carrot, a cut orange and grains on a plate — edible food that is often thrown away.')}"></figure>`; })()}
   </section>
@@ -465,18 +482,18 @@ function overview() {
   </section>
   <h2 class="section-title">Your day at a glance</h2>
   <p class="section-sub">${['Two', 'Three', 'Four', 'Five', 'Six'][lesson.sections.length - 2] || lesson.sections.length} stages${lesson.duration ? '' : ', about four hours'}. ${lesson.goalShort ? `Each one prepares you for ${esc(lesson.goalShort)}.` : lesson.id === 'w2d5' ? 'Each one prepares you for Monday’s essay.' : 'Each stage builds on the one before.'}</p>
-  <div class="dayline" role="img" aria-label="${lesson.sections.map(s => `Stage ${Number(s.number)}, ${s.title}, ${s.minutes} minutes`).join('; ')}; then: ${esc(lesson.finish?.title || 'Monday')}.">
-    ${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<a class="dayline-seg${d === s.activities.length ? ' complete' : ''}" style="${tone(s)};flex:${s.minutes}" href="${L(s.id)}"><span class="dayline-bar"><i style="width:${Math.round(100 * d / s.activities.length)}%"></i></span><span class="dayline-num">${s.number}</span><span class="dayline-title">${esc(s.title)}</span><span class="dayline-min">${s.minutes} min</span></a>`; }).join('')}
+  <div class="dayline" role="img" aria-label="${lesson.sections.map(s => `${stageName(s)}, ${s.minutes} minutes`).join('; ')}; then: ${esc(lesson.finish?.title || 'Monday')}.">
+    ${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<a class="dayline-seg${d === s.activities.length ? ' complete' : ''}" style="${tone(s)};flex:${s.minutes}" href="${L(s.id)}"><span class="dayline-bar"><i style="width:${Math.round(100 * d / s.activities.length)}%"></i></span><span class="dayline-num">${esc(code(s))}</span><span class="dayline-title">${esc(s.title)}</span><span class="dayline-min">${s.minutes} min</span></a>`; }).join('')}
     ${(() => { const nx = nextLesson(), inner = `<span class="dayline-bar"></span><span class="dayline-num">${icon(nx ? 'arrow' : 'pen')}</span><span class="dayline-title">${esc(lesson.finish?.title || 'Monday')}</span><span class="dayline-min">${esc(lesson.finish?.text || 'Write the essay')}</span>`;
       return nx ? `<a class="dayline-flag" href="#/${nx.id}" title="Open Week ${nx.week}, Day ${nx.day}">${inner}</a>` : `<div class="dayline-flag">${inner}</div>`; })()}
   </div>
   <ol class="journey">${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<li><a class="journey-card${d === s.activities.length ? ' complete' : ''}" style="${tone(s)}" href="${L(s.id)}">
       <span class="journey-art-wrap"><img class="journey-art" src="${artSrc(s.art)}" alt="" width="220" height="170" loading="lazy"></span>
       <span class="journey-body">
-        <span class="journey-top"><span class="journey-num">${s.number}</span><span class="journey-sub">${esc(s.subtitle || '')}</span></span>
+        <span class="journey-top"><span class="journey-num">${esc(code(s))}</span><span class="journey-sub">${esc(s.subtitle || '')}</span></span>
         <b class="journey-title">${esc(s.title)}</b>
         <span class="journey-text">${esc(s.outcome)}</span>
-        <span class="journey-foot"><span class="journey-time">${icon('clock')}${s.minutes} min · ${s.activities.length} activities</span>${d === s.activities.length ? `<span class="journey-done">${icon('check')}Complete</span>` : d ? `<span class="journey-part">${d}/${s.activities.length} done</span>` : ''}<span class="journey-go">${icon('arrow')}</span></span>
+        <span class="journey-foot"><span class="journey-time">${icon('clock')}${s.minutes} min · ${s.activities.length} ${s.activities.length === 1 ? 'activity' : 'activities'}</span>${d === s.activities.length ? `<span class="journey-done">${icon('check')}Complete</span>` : d ? `<span class="journey-part">${d}/${s.activities.length} done</span>` : ''}<span class="journey-go">${icon('arrow')}</span></span>
         <span class="journey-meter" aria-hidden="true"><i style="width:${Math.round(100 * d / s.activities.length)}%"></i></span>
       </span></a></li>`; }).join('')}</ol>
   <details class="legend-wrap"${done ? '' : ' open'}>
@@ -567,7 +584,7 @@ function courseHome() {
       <div class="resume-copy">
         <span class="eyebrow">${done ? 'Continue where you left off' : 'Start here'} · Week ${lesson.week}, Day ${lesson.day}</span>
         <h2>${esc(lesson.title)}</h2>
-        <p>${n ? `Next: <b>Stage ${Number(n.s.number)} · ${esc(n.s.title)}</b> — ${esc(n.a.title)}` : 'You finished every activity. Review your notebook before you write.'}</p>
+        <p>${n ? `Next: <b>${esc(stageName(n.s))}</b> — ${esc(n.a.title)}` : 'You finished every activity. Review your notebook before you write.'}</p>
         <div class="resume-bar"><span class="resume-meter"><i style="width:${pct}%"></i></span><span>${done} of ${coreActivities.length} activities</span></div>
       </div>
       <div class="resume-actions">${continueButton(true)}<a class="btn-quiet" href="${L('overview')}">Lesson overview</a></div>
@@ -611,7 +628,7 @@ function dayContents(d, route) {
   const start = `<li${stagger()}><a href="${here ? L('overview') : '#/' + d.id}" class="nav-part nav-start${cur('overview')}"><span class="nav-pnum">${icon('map')}</span><span class="nav-ptext">${here ? 'Overview' : 'Open Day ' + d.day}<small>${here ? 'Start of the day' : 'Start of the day'}</small></span></a></li>`;
   const stages = here
     ? lesson.sections.map(s => { const dn = s.activities.filter(a => state.done[a.id]).length, all = dn === s.activities.length;
-        return `<li${stagger()}><a href="${L(s.id)}" class="nav-part is-stage${all ? ' complete' : ''}${cur(s.id)}" style="${tone(s)}"><span class="nav-pnum">${all ? icon('check') : Number(s.number)}</span><span class="nav-ptext">${esc(s.title)}<small>${s.minutes} min<i class="nav-bar" style="--p:${dn / s.activities.length}" aria-label="${dn} of ${s.activities.length} done"></i></small></span></a></li>`; }).join('')
+        return `<li${stagger()}><a href="${L(s.id)}" class="nav-part is-stage${all ? ' complete' : ''}${cur(s.id)}" style="${tone(s)}"><span class="nav-pnum">${all ? icon('check') : esc(code(s))}</span><span class="nav-ptext">${esc(s.title)}<small>${s.minutes} min<i class="nav-bar" style="--p:${dn / s.activities.length}" aria-label="${dn} of ${s.activities.length} done"></i></small></span></a></li>`; }).join('')
     : (d.parts || []).map((pt, k) => `<li${stagger()}><a href="#/${d.id}${d.stages?.[k] ? '/' + d.stages[k] : ''}" class="nav-part"><span class="nav-pnum">${k + 1}</span><span class="nav-ptext">${esc(pt)}</span></a></li>`).join('');
   const tools = here ? `<li class="nav-tools"${stagger()}>${[['sources', 'book', 'Readings'], ['extra', 'list', 'Extra'], ['notebook', 'model', 'Notebook']].map(([id, ic, t]) => `<a href="${L(id)}" class="nav-tool${cur(id)}">${icon(ic)}<span>${t}</span></a>`).join('')}</li>` : '';
   return `<ol class="nav-parts">${start}${stages}${tools}</ol>`;
@@ -658,7 +675,7 @@ function searchIndex() {
     if (d.id !== lesson.id) (d.parts || []).forEach(pt => items.push({ kind: 'Part', ic: 'list', title: pt, sub: where + ' · ' + d.title, href, text: pt }));
   }
   lesson.sections.forEach(s => {
-    items.push({ kind: 'Stage', ic: 'flag', title: s.title, sub: `This lesson · Stage ${Number(s.number)}`, href: L(s.id), text: s.title + ' ' + (s.subtitle || '') });
+    items.push({ kind: 'Stage', ic: 'flag', title: stageName(s), sub: `This lesson · Teacher’s Book ${code(s)}`, href: L(s.id), text: stageName(s) + ' ' + (s.subtitle || '') });
     s.activities.forEach(a => items.push({ kind: 'Activity', ic: 'pen', title: a.title, sub: `This lesson · ${s.title}`, href: L(s.id), go: a.id, text: a.title + ' ' + a.short }));
   });
   [['sources', 'book', 'Readings and source library'], ['extra', 'list', 'Extra activities'], ['notebook', 'model', 'My notebook']].forEach(([id, ic, t]) => items.push({ kind: 'Page', ic, title: t, sub: 'This lesson', href: L(id), text: t }));
@@ -759,7 +776,7 @@ function glossary() {
 }
 
 /* ───────── notebook exports ───────── */
-const nb = window.createDEC15Notebook({ lesson, getState: () => state, planParts, tableRows, reader, esc, strip, toast, person: () => cloudInfo.profile?.full_name || '' });
+const nb = window.createDEC15Notebook({ lesson, getState: () => state, planParts, tableRows, reader, esc, strip, toast, person: () => cloudInfo.profile?.full_name || '', extraItems: b => play ? play.notebookItems(b) : [] });
 async function runExport(kind, btn) {
   if (kind === 'gdocs') {
     const copied = await nb.gdocs();
@@ -856,6 +873,8 @@ function startTimer(min) {
 document.addEventListener('input', e => {
   const t = e.target; if (!t.dataset.save) return;
   state.values[t.dataset.save] = t.type === 'checkbox' ? t.checked : t.value; save();
+  play?.onInput(t);
+  if (t.type === 'checkbox' && t.closest('.checklist')?.querySelector('.check-meter')) rerender();
 });
 document.addEventListener('change', e => {
   const t = e.target;
@@ -865,13 +884,14 @@ document.addEventListener('change', e => {
       const s = lesson.sections.find(x => x.activities.some(a => a.id === t.dataset.done));
       const all = s && s.activities.every(a => state.done[a.id]);
       document.querySelector(`[data-done="${t.dataset.done}"]`)?.closest('.done-toggle')?.classList.add('pop');
-      toast(all ? `Stage ${Number(s.number)} complete — well done!` : 'Activity finished. Nice work.');
+      toast(all ? `${stageName(s)} complete — well done!` : 'Activity finished. Nice work.');
     }
   }
 });
 document.addEventListener('click', e => {
   const t = e.target.closest('button,a,[data-week-tab]'); if (!t) return;
   const d = t.dataset;
+  if (play && play.onClick(t, d)) return;
   if (d.quiz) { const k = d.quiz + '-' + d.i; state.values[k] = d.opt; delete state.checked[d.quiz]; save(); rerender(); return; }
   if (d.quizCheck) {
     const b = allActivities.flatMap(a => a.blocks).find(x => x.id === d.quizCheck);

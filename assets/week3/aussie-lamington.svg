@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="Lamingtons: square sponge cakes covered in chocolate icing and coconut, on a plate."><defs><radialGradient id="bg" cx="50%" cy="40%" r="70%"><stop offset="0" stop-color="#fff6e6"/><stop offset="1" stop-color="#f3dcc0"/></radialGradient><pattern id="coco" width="9" height="9" patternUnits="userSpaceOnUse"><path d="M2 2l2 .6M6 6l1.4-1.4M1 7l1.6.6" stroke="#fffaf0" stroke-width="1.2" stroke-linecap="round" opacity=".75"/></pattern></defs>
+<rect width="240" height="160" rx="20" fill="url(#bg)"/>
+<ellipse cx="120" cy="128" rx="92" ry="16" fill="#fff" stroke="#e7dccb" stroke-width="2"/>
+<ellipse cx="120" cy="126" rx="70" ry="10" fill="#f5efe4"/>
+<g>
+<path d="M58 78l40-14 40 14v40l-40 14-40-14z" fill="#5a3320"/><path d="M58 78l40-14 40 14-40 14z" fill="#6e4129"/><path d="M98 92v40l40-14V78z" fill="#4a2918"/>
+<path d="M58 78l40-14 40 14v40l-40 14-40-14z" fill="url(#coco)"/>
+</g>
+<g transform="translate(46 -18)">
+<path d="M58 78l40-14 40 14v40l-40 14-40-14z" fill="#5a3320"/><path d="M58 78l40-14 40 14-40 14z" fill="#6e4129"/><path d="M98 92v40l40-14V78z" fill="#4a2918"/>
+<path d="M58 78l40-14 40 14v40l-40 14-40-14z" fill="url(#coco)"/>
+<path d="M66 100c10 4 20 6 32 6" stroke="#f6e3c4" stroke-width="3" stroke-linecap="round" opacity=".4"/>
+</g>
+</svg>

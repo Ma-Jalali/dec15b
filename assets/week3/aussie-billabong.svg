@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="A billabong: a still pool of water beside a gum tree, left when a river changed its course."><defs><linearGradient id="sky2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e5f1ea"/><stop offset="1" stop-color="#f6eedb"/></linearGradient><linearGradient id="water" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#6aa8a0"/><stop offset="1" stop-color="#3f7f77"/></linearGradient></defs>
+<rect width="240" height="160" rx="20" fill="url(#sky2)"/>
+<path d="M0 100c40-6 90-4 130 0s80 2 110-4v64H0z" fill="#c9b27a"/>
+<path d="M30 124c10-14 50-20 90-18s76 6 84 16-26 22-90 22-94-6-84-20z" fill="url(#water)"/>
+<path d="M60 124c20-4 44-4 64 0M110 132c18-3 40-3 56 0" stroke="#d9efee" stroke-width="2.4" stroke-linecap="round" opacity=".7"/>
+<path d="M186 108c-2-22 0-40 6-56M192 70c8-8 16-10 24-10M188 84c-10-6-20-6-28-2" stroke="#efe6d6" stroke-width="7" stroke-linecap="round" fill="none"/>
+<path d="M186 108c-2-22 0-40 6-56" stroke="#b7aa95" stroke-width="2" fill="none"/>
+<g fill="#6f9a5a"><ellipse cx="196" cy="44" rx="28" ry="16"/><ellipse cx="220" cy="58" rx="16" ry="10"/><ellipse cx="164" cy="74" rx="16" ry="9"/></g>
+<g fill="#557f45" opacity=".8"><ellipse cx="206" cy="38" rx="12" ry="7"/><ellipse cx="170" cy="70" rx="8" ry="5"/></g>
+<path d="M40 112l-3-14M46 112l1-16M52 112l4-12" stroke="#6f9a5a" stroke-width="2.4" stroke-linecap="round"/>
+</svg>

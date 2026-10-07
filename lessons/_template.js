@@ -64,15 +64,15 @@ window.DEC15_LESSON = {
 
   sections: [
     {
-      id: 'reading', number: '01', code: '5A', minutes: 60,
+      id: 'reading', number: '01', code: '5A', minutes: 60,   // code = the Teacher’s Book lesson code
       tone: 'plum', art: 'reading',
-      title: 'Stage title',
-      subtitle: 'Skill or Teacher’s Book focus',
+      title: 'Reading to write',          // the Teacher’s Book lesson name, exactly as in the book
+      subtitle: 'A friendly one-line description',
       outcome: 'What students can do after this stage.',
       activities: [
         {
           id: 'r1', short: 'Warm-up', minutes: 10, grouping: 'Pair',
-          title: 'Activity title',
+          title: 'Activity title',        // use the Teacher’s Book heading (e.g. 'Warmer: Food waste hierarchy')
           goal: 'One clear goal.',
           blocks: [
             { type: 'steps', items: [

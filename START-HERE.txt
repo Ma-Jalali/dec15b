@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.12)
+DEC15 — COURSE APP (v2.13)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -122,3 +122,21 @@ so no email is sent and the email limit can no longer block a class; the student
 The admin (service-role) key stays inside Supabase — it is never in the website code.
 If the function cannot be reached, the app falls back to the normal sign-up (which still needs the
 "Confirm email" setting above). Turning "Confirm email" off is still recommended as a backup.
+
+TEACHER'S BOOK NAMES (v2.13)
+Every stage now has the Teacher's Book code and lesson name (e.g. "15A Discussion skills",
+"16A AST: Group work skills"), and activities use the Teacher's Book headings (e.g. "Warmer: Food
+waste hierarchy"). The code shows in the side panel, the day overview, the stage header, search
+(type "15A") and the notebook exports. When you add a lesson: section.code = the TB code,
+section.title = the TB lesson name, activity titles = the TB headings; subtitle = a friendly line.
+
+NEW INTERACTIVE ACTIVITIES (v2.13, js/play.js + css/play.css) — first used in Week 3 Day 5
+  flash          memory game: a sentence shows for a few seconds, students type it, word-by-word check
+  sort           drag (or tap) cards into boxes, then check; single: true = one-to-one matching
+  flip           cards that turn over (e.g. a word on the front, its meaning on the back)
+  spinner        speaking game: spin reels to get a statement + a task, then speak
+  chat           a dialogue as chat bubbles (also for AI conversations)
+  promptbuilder  build an AI prompt: Role · Task · Requirements · Instructions, live preview, copy
+  contract       a group agreement that looks like a real document, with signatures and a stamp
+  cards pick: '<id>'   students tap their favourite card;  checklist meter: [...]   progress bar
+All answers save like other activities and appear in My notebook and the exports.

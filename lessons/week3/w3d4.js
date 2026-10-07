@@ -21,13 +21,13 @@ window.DEC15_LESSON = {
     {
       id: 'critical', number: '01', code: '11A', minutes: 120,
       tone: 'teal', art: 'critical',
-      title: 'Choose what helps your answer',
-      subtitle: 'AST Criticality: engaging with sources',
+      title: 'AST Criticality: Engaging with sources',
+      subtitle: 'Choose what helps your answer',
       outcome: 'Synthesise ideas from several sources, decide which information is useful for a question, and turn it into a draft essay plan — ready for this afternoon’s practice assessment.',
       activities: [
         {
-          id: 'c1', short: 'Warm-up', minutes: 10, grouping: 'Groups of 3',
-          title: 'Warm-up: what do we know about food waste?',
+          id: 'c1', short: 'Warmer', minutes: 10, grouping: 'Groups of 3',
+          title: 'Warmer',
           goal: 'Remember causes and solutions from this week’s texts.',
           blocks: [
             { type: 'steps', items: [
@@ -54,8 +54,8 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'c2', short: 'Synthesise', minutes: 20, grouping: 'Alone → pair',
-          title: 'Bring the practice texts together',
+          id: 'c2', short: 'Synthesising', minutes: 20, grouping: 'Alone → pair',
+          title: 'Synthesising information',
           goal: 'Make short notes on the main ideas of each source and find links between them.',
           blocks: [
             { type: 'figure', src: 'assets/week3/criticality.svg', alt: 'Criticality: engagement with sources. Four skills: identifying positions and perspectives; selecting relevant ideas or information; evaluating ideas and connecting them to your own voice; showing flexibility.', caption: 'Criticality: four ways to engage with sources', size: 'wide' },
@@ -78,8 +78,8 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'c3', short: 'Questions', minutes: 10, grouping: 'Pairs',
-          title: 'Write a possible essay question',
+          id: 'c3', short: 'Essay questions', minutes: 10, grouping: 'Pairs',
+          title: 'Synthesising information: propose essay questions',
           goal: 'Predict the kind of question the texts could answer.',
           blocks: [
             { type: 'key', title: 'A good assessment-style question…', points: [
@@ -111,7 +111,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'c4', short: 'The question', minutes: 8, grouping: 'Alone → pair',
-          title: 'Analyse the practice question',
+          title: 'Identifying useful information: analyse the question',
           goal: 'Find the topic words, limiting words and the rhetorical functions you need.',
           blocks: [
             { type: 'question' },
@@ -140,7 +140,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'c5', short: 'Useful?', minutes: 12, grouping: 'Alone → pair',
-          title: 'Is this information useful for the question?',
+          title: 'Identifying useful information',
           goal: 'Select only the ideas that help answer this question.',
           blocks: [
             { type: 'key', title: 'True is not the same as useful', points: [
@@ -170,7 +170,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'c6', short: 'Checklist', minutes: 15, grouping: 'Pairs',
-          title: 'Seven steps from sources to essay',
+          title: 'Checklist',
           goal: 'Match each step with a tip, so you have a checklist for this afternoon.',
           blocks: [
             { type: 'steps', items: [
@@ -240,8 +240,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'c8', short: 'Reflect', minutes: 15, grouping: 'Pairs → alone',
-          title: 'Reflection: compare with the sample plan',
+          id: 'c8', short: 'Reflection', minutes: 15, grouping: 'Pairs → alone',
+          title: 'Reflection',
           goal: 'Improve your plan and choose one strategy for this afternoon.',
           blocks: [
             { type: 'steps', items: [
@@ -324,7 +324,7 @@ window.DEC15_LESSON = {
       outcome: 'Relax after the practice assessment and build connections with your classmates.',
       activities: [
         {
-          id: 'r1', short: 'Rapport', minutes: 30, grouping: 'Whole class',
+          id: 'r1', short: 'Building rapport', minutes: 30, grouping: 'Whole class',
           title: 'Welcome to building rapport!',
           goal: 'Get to know your classmates better and help build a supportive class.',
           blocks: [
@@ -356,7 +356,7 @@ window.DEC15_LESSON = {
   extras: [
     {
       id: 'x1', short: 'Feedback literacy', minutes: 30, grouping: 'Alone', category: 'Homework',
-      title: '14A Homework: reflect on your practice essay and make an action plan',
+      title: '14A Homework: Feedback literacy',
       goal: 'Reflect on your response to the practice Integrated Writing Assessment, and make an action plan for the final Integrated Writing Assessment.',
       blocks: [
         { type: 'figure', src: 'assets/week3/feedback-literacy.svg', alt: 'Feedback literacy in three steps: appreciating feedback, making judgements, taking action.', caption: 'The three components of feedback literacy' },

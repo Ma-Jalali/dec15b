@@ -5,11 +5,13 @@
    - rich HTML for pasting into a new Google Doc, and
    - a clean print layout.
    Tables stay tables in every format. */
-window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows, reader, esc, strip, toast, person }) {
+window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows, reader, esc, strip, toast, person, extraItems }) {
   const STAGE_COLORS = { ai: '#ad6a12', feedback: '#2b776e', critical: '#3a58a0', writing: '#b0512a' }; // Week 2 Day 5; other lessons use section.color
   const val = k => getState().values[k] ?? '';
   const filled = v => v !== undefined && v !== null && String(v).trim() !== '';
   const words = s => (String(s).trim().match(/\S+/g) || []).length;
+  // ‘15A ’ (Teacher’s Book code) or ‘Stage 1 · ’ for lessons without codes
+  const stagePrefix = s => s.number === '+' ? '' : isNaN(Number(s.number)) ? s.number + ' ' : 'Stage ' + Number(s.number) + ' · ';
 
   /* ───────── model ───────── */
   function activityItems(a) {
@@ -17,6 +19,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
     for (const b of a.blocks) {
       if (b.type === 'fields') b.fields.forEach(f => filled(val(f.id)) && items.push({ t: 'qa', label: f.label, value: val(f.id) }));
       if (b.type === 'choose' && filled(val(b.id))) items.push({ t: 'qa', label: b.title, value: val(b.id) });
+      if (b.type === 'cards' && b.pick && filled(val(b.pick))) items.push({ t: 'qa', label: strip(b.title || 'My choice'), value: val(b.pick) });
       if (b.type === 'quiz') {
         const rows = b.items.map((q, i) => [strip(q.q), val(b.id + '-' + i) || '—', st.checked[b.id] ? (val(b.id + '-' + i) === q.answer ? 'Correct' : 'Answer: ' + q.answer) : '']).filter(r => r[1] !== '—');
         if (rows.length) items.push({ t: 'table', title: b.title || 'Quiz', head: st.checked[b.id] ? ['Question', 'My answer', 'Check'] : ['Question', 'My answer'], rows: st.checked[b.id] ? rows : rows.map(r => r.slice(0, 2)), widths: st.checked[b.id] ? [55, 30, 15] : [62, 38] });
@@ -47,12 +50,13 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
         const list = b.items.map((c, i) => [c, !!val(b.id + '-' + i)]);
         if (list.some(x => x[1])) items.push({ t: 'check', title: b.title, items: list });
       }
+      if (extraItems) items.push(...extraItems(b));
     }
     return items;
   }
   function model() {
     const st = getState(), core = lesson.sections.flatMap(s => s.activities);
-    const sections = [...lesson.sections.map(s => ({ id: s.id, number: s.number, title: s.title, color: s.color || STAGE_COLORS[s.id], activities: s.activities })),
+    const sections = [...lesson.sections.map(s => ({ id: s.id, number: s.code || s.number, title: s.title, color: s.color || STAGE_COLORS[s.id], activities: s.activities })),
       { id: 'extra', number: '+', title: 'Extra activities', color: '#5d6b75', activities: lesson.extras }]
       .map(s => ({ ...s, activities: s.activities.map(a => ({ id: a.id, title: a.title, done: !!st.done[a.id], items: activityItems(a) })).filter(a => a.items.length) }))
       .filter(s => s.activities.length);
@@ -143,7 +147,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
       <p style="font-family:${F};font-size:10pt;color:#5d6b75;margin:0 0 2pt">${esc(m.lesson)}</p>
       <p style="font-family:${F};font-size:10pt;color:#5d6b75;margin:0 0 12pt">${m.student ? esc(m.student) + ' · ' : ''}${esc(m.date)} · ${m.stats.finished}/${m.stats.total} activities finished</p>
       <table style="border-collapse:collapse;width:100%;margin:0 0 16pt"><tr><td style="border:1px solid #e6d7b6;background:#fffaf0;padding:10pt 12pt;font-family:${S};font-size:13pt"><span style="font-family:${F};font-size:8.5pt;font-weight:bold;color:#93600f;text-transform:uppercase;letter-spacing:1pt">${esc(m.qLabel)}${m.wordTarget ? ' · ' + esc(m.wordTarget) : ''}</span><br>${esc(m.question)}</td></tr></table>
-      ${m.sections.map(s => `<h2 style="font-family:${S};font-size:18pt;color:${s.color};margin:22pt 0 6pt;padding-bottom:4pt;border-bottom:2px solid ${s.color}">${s.number !== '+' ? 'Stage ' + Number(s.number) + ' · ' : ''}${esc(s.title)}</h2>${s.activities.map(a => `<h3 style="font-family:${F};font-size:12.5pt;color:#14293a;margin:14pt 0 2pt">${esc(a.title)}${a.done ? ' <span style="color:#2f7a52;font-size:9pt">✓ Finished</span>' : ''}</h3>${a.items.map(item).join('')}`).join('')}`).join('')}
+      ${m.sections.map(s => `<h2 style="font-family:${S};font-size:18pt;color:${s.color};margin:22pt 0 6pt;padding-bottom:4pt;border-bottom:2px solid ${s.color}">${stagePrefix(s)}${esc(s.title)}</h2>${s.activities.map(a => `<h3 style="font-family:${F};font-size:12.5pt;color:#14293a;margin:14pt 0 2pt">${esc(a.title)}${a.done ? ' <span style="color:#2f7a52;font-size:9pt">✓ Finished</span>' : ''}</h3>${a.items.map(item).join('')}`).join('')}`).join('')}
       ${m.marks.length ? `<h2 style="font-family:${S};font-size:18pt;color:#8a6a1f;margin:22pt 0 6pt;padding-bottom:4pt;border-bottom:2px solid #8a6a1f">My highlights</h2>${m.marks.map(r => `<p style="margin:10pt 0 2pt;font-family:${F};font-size:9pt;font-weight:bold;color:#5d6b75">${esc(r.title)}</p><p style="margin:0 0 6pt;font-family:${S};font-size:11pt;line-height:1.6">${r.html.replace(/class="annotation mark-yellow( mark-underline)?"/g, (x, u) => `style="background:#ffe08a${u ? ';text-decoration:underline' : ''}"`).replace(/class="annotation mark-blue( mark-underline)?"/g, (x, u) => `style="background:#c7e6f8${u ? ';text-decoration:underline' : ''}"`).replace(/class="annotation  ?mark-underline"/g, 'style="text-decoration:underline"')}</p>`).join('')}` : ''}`;
     if (!forPrint) return `<meta charset="utf-8"><div>${body}</div>`;
     return `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>My notebook — DEC15</title><link rel="stylesheet" href="${new URL('css/fonts.css', location.href)}"><style>@page{size:A4;margin:16mm 16mm 18mm}body{margin:0;color:#14293a;-webkit-print-color-adjust:exact;print-color-adjust:exact}table{page-break-inside:auto}tr,h3{page-break-inside:avoid}h2,h3{page-break-after:avoid}</style></head><body>${body}</body></html>`;
@@ -199,7 +203,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
       need(18); y += 4;
       const c = hex(s.color);
       doc.setFillColor(...c); doc.roundedRect(M, y, 9, 9, 1.6, 1.6, 'F');
-      doc.setFont('Fraunces', 'normal'); doc.setFontSize(s.number === '+' ? 12 : 9.5); doc.setTextColor(255, 255, 255); doc.text(String(s.number), M + 4.5, y + 6.3, { align: 'center' });
+      doc.setFont('Fraunces', 'normal'); doc.setFontSize(s.number === '+' ? 12 : String(s.number).length > 2 ? 7 : 9.5); doc.setTextColor(255, 255, 255); doc.text(String(s.number), M + 4.5, y + 6.3, { align: 'center' });
       doc.setFontSize(16); doc.setTextColor(...c); doc.text(pdfSafe(s.title), M + 13, y + 7); y += 11;
       doc.setDrawColor(...c); doc.setLineWidth(0.5); doc.line(M, y, W - M, y); y += 5;
       for (const a of s.activities) {
@@ -260,7 +264,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
     ];
     for (const s of m.sections) {
       const c = s.color.slice(1).toUpperCase();
-      children.push(new D.Paragraph({ spacing: { before: 420, after: 120 }, border: { bottom: { style: D.BorderStyle.SINGLE, size: 12, color: c, space: 4 } }, children: [run((s.number !== '+' ? 'Stage ' + Number(s.number) + ' · ' : '') + s.title, { serif: true, size: 34, color: c })] }));
+      children.push(new D.Paragraph({ spacing: { before: 420, after: 120 }, border: { bottom: { style: D.BorderStyle.SINGLE, size: 12, color: c, space: 4 } }, children: [run(stagePrefix(s) + s.title, { serif: true, size: 34, color: c })] }));
       for (const a of s.activities) {
         children.push(new D.Paragraph({ keepNext: true, spacing: { before: 260, after: 60 }, children: [run(a.title, { bold: true, size: 25 }), ...(a.done ? [run('   · Finished', { size: 17, color: '2F7A52', bold: true })] : [])] }));
         for (const it of a.items) {
