@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.11)
+DEC15 — COURSE APP (v2.12)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -114,3 +114,11 @@ Also check Authentication → URL Configuration: Site URL = https://ma-jalali.gi
 (If you want to keep email confirmation, add your own SMTP server under Authentication → Emails → SMTP.)
 The sign-up form now checks the email and password before sending, keeps what students typed after an error,
 has a Show password button, and explains clearly when the email service is busy.
+
+NO-EMAIL SIGN-UP (v2.12)
+New accounts are now created by the Supabase Edge Function "dec15-signup"
+(supabase/functions/dec15-signup/index.ts, already deployed). It creates the account already confirmed,
+so no email is sent and the email limit can no longer block a class; the student is signed in at once.
+The admin (service-role) key stays inside Supabase — it is never in the website code.
+If the function cannot be reached, the app falls back to the normal sign-up (which still needs the
+"Confirm email" setting above). Turning "Confirm email" off is still recommended as a backup.
