@@ -1145,3 +1145,9 @@ body.large-text .key h3 { font-size: 1.95rem; }
 
 .order-touch { display: none; }
 @media (hover: none) and (pointer: coarse) { .order-touch { display: inline; } .order-kbd { display: none; } }
+
+/* account form: show-password toggle */
+.pw-wrap { position: relative; display: block; }
+.pw-wrap input { width: 100%; padding-right: 64px; }
+.pw-show { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); border: 0; background: none; color: var(--accent, #2a6f97); font: 700 .8rem/1 var(--sans); padding: 8px; border-radius: 8px; cursor: pointer; }
+.pw-show:hover { background: #0000000a; }

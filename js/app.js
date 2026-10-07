@@ -787,7 +787,8 @@ function showGdocsHelp(opened) {
 }
 
 /* ───────── account (Supabase) ───────── */
-function accountDialog(mode = cloudInfo.user ? 'account' : 'signin', msg = '') {
+function accountDialog(mode = cloudInfo.user ? 'account' : 'signin', msg = '', keep = {}) {
+  const val = k => keep[k] ? ` value="${esc(keep[k])}"` : '';
   $('#resource-title').textContent = mode === 'account' ? 'Your account' : 'Save your work online';
   const p = cloudInfo.profile || {};
   $('#resource-body').innerHTML = mode === 'account' ? `<div class="acct">
@@ -797,28 +798,47 @@ function accountDialog(mode = cloudInfo.user ? 'account' : 'signin', msg = '') {
     : `<form class="acct-form" data-auth="${mode}" novalidate>
       ${mode !== 'reset' ? '<img class="acct-art" src="assets/art/sync.svg" alt="" width="360" height="200">' : ''}
       <p class="acct-intro">${mode === 'signup' ? 'Create an account once. Then your work is saved online and appears on any device where you sign in.' : mode === 'reset' ? 'Enter your email. We will send you a link to choose a new password.' : 'Sign in so your work is saved online — not only on this device.'}</p>
-      ${mode === 'signup' ? `<label>Full name<input name="name" autocomplete="name" required></label><label>Student ID <small>(optional)</small><input name="sid" inputmode="numeric" autocomplete="off"></label>` : ''}
-      <label>Email<input name="email" type="email" autocomplete="email" required></label>
-      ${mode !== 'reset' ? `<label>Password<input name="password" type="password" autocomplete="${mode === 'signup' ? 'new-password' : 'current-password'}" minlength="6" required></label>` : ''}
+      ${mode === 'signup' ? `<label>Full name<input name="name" autocomplete="name" required${val('name')}></label><label>Student ID <small>(optional)</small><input name="sid" inputmode="numeric" autocomplete="off"${val('sid')}></label>` : ''}
+      <label>Email<input name="email" type="email" autocomplete="email" autocapitalize="off" spellcheck="false" required${val('email')}></label>
+      ${mode !== 'reset' ? `<label>Password${mode === 'signup' ? ' <small>(at least 6 characters)</small>' : ''}<span class="pw-wrap"><input name="password" type="password" autocomplete="${mode === 'signup' ? 'new-password' : 'current-password'}" minlength="6" required${val('password')}><button type="button" class="pw-show" data-pw-show aria-pressed="false">Show</button></span></label>` : ''}
       ${msg ? `<p class="acct-msg" role="alert">${msg}</p>` : ''}
       <button class="btn" type="submit">${mode === 'signup' ? 'Create account' : mode === 'reset' ? 'Send reset link' : 'Sign in'}</button>
       <p class="acct-switch">${mode === 'signin' ? `New here? <button type="button" class="text-link" data-auth-mode="signup">Create an account</button> · <button type="button" class="text-link" data-auth-mode="reset">Forgot password?</button>` : `Already have an account? <button type="button" class="text-link" data-auth-mode="signin">Sign in</button>`}</p>
     </form>`;
   if (!$('#resource-dialog').open) $('#resource-dialog').showModal();
-  $('#resource-body input')?.focus();
+  const first = keep.email ? $('#resource-body input[name=password]') : $('#resource-body input'); first?.focus();
 }
+const EMAIL_LIMIT_MSG = 'Your account was <b>not</b> created yet: the sign-up email service is busy because many students joined at the same time. This is not your mistake. Please tell your teacher, or try again later. You can keep working — your answers are saved on this device.';
+/* Check the form before asking the server, so a typing mistake never uses up an attempt. */
+function checkAuthForm(mode, v) {
+  if (mode === 'signup' && !v.name) return 'Please write your full name.';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.email)) return 'Please check your email address — it should look like name@example.com.';
+  if (mode !== 'reset' && v.password.length < 6) return mode === 'signup' ? 'Choose a password with at least 6 characters.' : 'Please type your password.';
+  return '';
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-pw-show]'); if (!b) return;
+  const inp = b.previousElementSibling, show = inp.type === 'password';
+  inp.type = show ? 'text' : 'password'; b.textContent = show ? 'Hide' : 'Show'; b.setAttribute('aria-pressed', String(show)); inp.focus();
+});
 document.addEventListener('submit', async e => {
   const f = e.target.closest('[data-auth]'); if (!f) return;
   e.preventDefault();
   const fd = new FormData(f), mode = f.dataset.auth, btn = f.querySelector('[type=submit]');
+  if (btn.disabled) return;   // one request at a time — double clicks used to send two
+  const v = { email: String(fd.get('email') || '').trim().toLowerCase(), password: String(fd.get('password') || ''), name: String(fd.get('name') || '').trim(), sid: String(fd.get('sid') || '').trim() };
+  const keep = { ...v, password: mode === 'signin' ? '' : v.password };
+  const bad = checkAuthForm(mode, v); if (bad) return accountDialog(mode, esc(bad), keep);
   btn.disabled = true; btn.textContent = 'Please wait…';
   let err;
-  if (mode === 'signin') err = await cloud.signIn(fd.get('email').trim(), fd.get('password'));
-  if (mode === 'signup') err = !String(fd.get('name')).trim() ? 'Please write your full name.' : await cloud.signUp(fd.get('email').trim(), fd.get('password'), String(fd.get('name')).trim(), String(fd.get('sid') || '').trim());
-  if (mode === 'reset') err = (await cloud.resetPassword(fd.get('email').trim())) || 'SENT';
-  if (err === 'CHECK_EMAIL') return accountDialog('signin', 'Account created. Open the email we sent you to confirm it, then sign in here.');
-  if (err === 'SENT') return accountDialog('signin', 'If that email has an account, a reset link is on its way.');
-  if (err) return accountDialog(mode, esc(err));
+  if (mode === 'signin') err = await cloud.signIn(v.email, v.password);
+  if (mode === 'signup') err = await cloud.signUp(v.email, v.password, v.name, v.sid);
+  if (mode === 'reset') err = (await cloud.resetPassword(v.email)) || 'SENT';
+  if (err === 'CHECK_EMAIL') return accountDialog('signin', 'Account created. Open the email we sent you (check Junk/Spam too) to confirm it, then sign in here.', { email: v.email });
+  if (err === 'SENT') return accountDialog('signin', 'If that email has an account, a reset link is on its way.', { email: v.email });
+  if (err === 'EMAIL_LIMIT') return accountDialog(mode, EMAIL_LIMIT_MSG, keep);
+  if (err && /already has an account/.test(err)) return accountDialog('signin', esc(err), { email: v.email });
+  if (err) return accountDialog(mode, esc(err), keep);
   $('#resource-dialog').close(); toast('You are signed in. Your work is now saved online.');
 });
 
