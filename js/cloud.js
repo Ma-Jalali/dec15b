@@ -78,6 +78,7 @@ window.createDEC15Cloud = function ({ cfg, lessonId, getState, applyState, onCha
   async function signUp(email, password, fullName, studentId) {
     const { data, error } = await client.auth.signUp({ email, password, options: { data: { full_name: fullName, student_id: studentId }, emailRedirectTo: location.href.split('#')[0] } });
     if (error) return friendly(error);
+    if (data.user && Array.isArray(data.user.identities) && !data.user.identities.length) return friendly('already registered');
     if (!data.session) return 'CHECK_EMAIL';
     return null;
   }
@@ -87,12 +88,17 @@ window.createDEC15Cloud = function ({ cfg, lessonId, getState, applyState, onCha
   }
   async function signOut() { if (pending) await push(true); await client.auth.signOut(); }
   function friendly(e) {
-    const m = String(e.message || e);
-    if (/invalid login/i.test(m)) return 'The email or password is not correct.';
+    const m = String(e.message || e), code = e.code || '';
+    // Supabase's built-in email service only sends a few emails an hour for the whole project.
+    if (code === 'over_email_send_rate_limit' || /email rate limit/i.test(m)) return 'EMAIL_LIMIT';
+    if (/after \d+ seconds/i.test(m)) return 'Please wait half a minute, then press the button once more.';
+    if (/invalid login/i.test(m)) return 'The email or password is not correct. Check for typing mistakes (use “Show” to see your password). No account yet? Choose “Create an account”.';
     if (/already registered/i.test(m)) return 'This email already has an account. Choose “Sign in” instead.';
     if (/password/i.test(m) && /6|short|weak/i.test(m)) return 'Choose a password with at least 6 characters.';
     if (/email not confirmed/i.test(m)) return 'Please open the confirmation email first, then sign in.';
-    if (/rate limit/i.test(m)) return 'Too many attempts. Please wait a minute and try again.';
+    if (/rate limit/i.test(m)) return 'Too many attempts from this network. Please wait a few minutes, then try once more.';
+    if (/valid password/i.test(m)) return 'Choose a password with at least 6 characters.';
+    if (/fetch|network/i.test(m)) return 'No internet connection. Check your Wi-Fi and try again.';
     return m;
   }
 
