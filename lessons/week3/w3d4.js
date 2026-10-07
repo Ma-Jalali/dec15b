@@ -13,6 +13,8 @@ window.DEC15_LESSON = {
   questionLabel: 'Today’s practice planning question (sample)',
   wordTarget: '450–600 words',
 
+  image: 'assets/week3/hero-w3d4.svg',
+  imageAlt: 'A practice assessment paper with a ticked checklist and a short plan, a 90-minute timer, a pencil and a sticky note that says “Plan first!”.',
   journey: 'Today is practice assessment day. First you practise choosing useful ideas from sources and planning an answer step by step. Then you write the Integrated Writing Practice Assessment on Canvas, on your own, under exam conditions.',
   finish: { title: 'Friday', text: 'Discussion & group work' },
 

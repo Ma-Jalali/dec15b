@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 933" role="img" aria-labelledby="t">
+<title id="t">Bringing sources together: three source cards — an article, a video and a second article — with their ideas flowing along curved lines into one synthesised summary paragraph, beside a magnifying glass.</title>
+<defs>
+  <filter id="paper" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="9"/><feColorMatrix values="0 0 0 0 .55  0 0 0 0 .47  0 0 0 0 .36  0 0 0 .07 0"/><feComposite in2="SourceGraphic" operator="in"/><feBlend in="SourceGraphic" mode="multiply"/></filter>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#2a1d10" flood-opacity=".22"/></filter>
+  <filter id="lift" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#14293a" flood-opacity=".2"/></filter>
+  <radialGradient id="light" cx="24%" cy="18%" r="90%"><stop offset="0" stop-color="#fffaf0"/><stop offset=".6" stop-color="#f3ebdd"/><stop offset="1" stop-color="#e6d9c3"/></radialGradient>
+  <linearGradient id="screen" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#1c3448"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+  <radialGradient id="glass" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#ffffff" stop-opacity=".6"/><stop offset="1" stop-color="#cfe9e4" stop-opacity=".25"/></radialGradient>
+  <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#93600f" opacity=".22"/></pattern>
+</defs>
+<rect width="1400" height="933" fill="url(#light)"/>
+<rect width="1400" height="933" fill="#f3ebdd" filter="url(#paper)" opacity=".9"/>
+<circle cx="700" cy="470" r="400" fill="#f6e7c9" opacity=".75"/>
+<circle cx="700" cy="470" r="436" fill="none" stroke="#93600f" stroke-opacity=".2" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+<rect x="100" y="700" width="176" height="128" fill="url(#dots)"/>
+<rect x="1130" y="110" width="176" height="128" fill="url(#dots)"/>
+<path d="M120 440l7 18 18 7-18 7-7 18-7-18-18-7 18-7z" fill="#e3a843"/>
+<path d="M1220 760l5 13 13 5-13 5-5 13-5-13-13-5 13-5z" fill="#2b776e" opacity=".8"/>
+<ellipse cx="700" cy="842" rx="460" ry="24" fill="#2a1d10" opacity=".08"/>
+
+<!-- flowing connectors -->
+<g fill="none" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 14">
+  <path d="M370 330C470 400 560 470 610 540" stroke="#2b776e"/>
+  <path d="M700 300C700 380 700 450 700 520" stroke="#b0512a"/>
+  <path d="M1030 330C930 400 840 470 790 540" stroke="#3a58a0"/>
+</g>
+<g><circle cx="610" cy="540" r="8" fill="#2b776e"/><circle cx="700" cy="520" r="8" fill="#b0512a"/><circle cx="790" cy="540" r="8" fill="#3a58a0"/></g>
+
+<!-- source 1: article -->
+<g transform="rotate(-6 300 230)" filter="url(#lift)">
+  <rect x="190" y="130" width="230" height="200" rx="14" fill="#fff"/>
+  <rect x="190" y="130" width="230" height="10" rx="5" fill="#2b776e"/>
+  <text x="212" y="174" font-family="Manrope, 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="800" letter-spacing="2" fill="#2b776e">ARTICLE</text>
+  <g stroke="#14293a" stroke-opacity=".28" stroke-width="7" stroke-linecap="round"><path d="M212 202h180M212 224h150M212 246h176M212 268h120M212 290h160"/></g>
+  <path d="M212 246h110" stroke="#7fc2b9" stroke-opacity=".7" stroke-width="14" stroke-linecap="round"/>
+</g>
+<!-- source 2: video -->
+<g filter="url(#lift)">
+  <rect x="585" y="110" width="230" height="190" rx="14" fill="url(#screen)"/>
+  <text x="607" y="148" font-family="Manrope, 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="800" letter-spacing="2" fill="#f2b59a">VIDEO</text>
+  <circle cx="700" cy="208" r="36" fill="#b0512a"/>
+  <path d="M690 190v36l30-18z" fill="#fff"/>
+  <rect x="607" y="266" width="186" height="6" rx="3" fill="#ffffff" opacity=".2"/>
+  <rect x="607" y="266" width="96" height="6" rx="3" fill="#e3a843"/>
+</g>
+<!-- source 3: article -->
+<g transform="rotate(6 1100 230)" filter="url(#lift)">
+  <rect x="980" y="130" width="230" height="200" rx="14" fill="#fff"/>
+  <rect x="980" y="130" width="230" height="10" rx="5" fill="#3a58a0"/>
+  <text x="1002" y="174" font-family="Manrope, 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="800" letter-spacing="2" fill="#3a58a0">ARTICLE</text>
+  <g stroke="#14293a" stroke-opacity=".28" stroke-width="7" stroke-linecap="round"><path d="M1002 202h170M1002 224h180M1002 246h140M1002 268h176M1002 290h110"/></g>
+  <path d="M1002 268h140" stroke="#a9b8e0" stroke-opacity=".8" stroke-width="14" stroke-linecap="round"/>
+</g>
+
+<!-- synthesis card -->
+<g filter="url(#soft)">
+  <rect x="470" y="540" width="460" height="240" rx="20" fill="#fffdf7"/>
+  <rect x="486" y="556" width="428" height="208" rx="12" fill="none" stroke="#93600f" stroke-opacity=".2" stroke-width="2"/>
+  <text x="514" y="598" font-family="Manrope, 'Segoe UI', Arial, sans-serif" font-size="13" font-weight="800" letter-spacing="2.6" fill="#7a4a8c">SYNTHESISED SUMMARY</text>
+  <g stroke-width="8" stroke-linecap="round">
+    <path d="M514 632h150" stroke="#2b776e" stroke-opacity=".75"/><path d="M676 632h110" stroke="#14293a" stroke-opacity=".25"/><path d="M798 632h90" stroke="#b0512a" stroke-opacity=".75"/>
+    <path d="M514 660h120" stroke="#14293a" stroke-opacity=".25"/><path d="M646 660h140" stroke="#3a58a0" stroke-opacity=".75"/><path d="M798 660h90" stroke="#14293a" stroke-opacity=".25"/>
+    <path d="M514 688h220" stroke="#14293a" stroke-opacity=".25"/><path d="M746 688h142" stroke="#2b776e" stroke-opacity=".75"/>
+    <path d="M514 716h100" stroke="#b0512a" stroke-opacity=".75"/><path d="M626 716h180" stroke="#14293a" stroke-opacity=".25"/>
+  </g>
+  <g transform="translate(870 600)"><circle r="22" fill="#7a4a8c"/><path d="M-9 0l6 6 12-13" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+</g>
+
+<!-- magnifier -->
+<g transform="rotate(-30 1130 610)" filter="url(#lift)">
+  <circle cx="1100" cy="600" r="70" fill="url(#glass)" stroke="#14293a" stroke-width="14"/>
+  <path d="M1072 568a40 40 0 0 1 36-14" stroke="#fff" stroke-width="7" stroke-linecap="round" fill="none" opacity=".8"/>
+  <rect x="1166" y="590" width="120" height="22" rx="11" fill="#14293a"/>
+  <rect x="1178" y="594" width="20" height="14" rx="4" fill="#e3a843"/>
+</g>
+</svg>
