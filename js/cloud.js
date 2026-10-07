@@ -76,6 +76,18 @@ window.createDEC15Cloud = function ({ cfg, lessonId, getState, applyState, onCha
     return error ? friendly(error) : null;
   }
   async function signUp(email, password, fullName, studentId) {
+    // 1. Preferred: the dec15-signup function creates an account that is already confirmed (no email is sent,
+    //    so the email limit cannot block a class). Then sign in straight away.
+    try {
+      const r = await fetch(cfg.supabaseUrl.replace(/\/$/, '') + '/functions/v1/dec15-signup', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', apikey: cfg.supabaseKey },
+        body: JSON.stringify({ email, password, full_name: fullName, student_id: studentId }) });
+      const out = await r.json().catch(() => ({}));
+      if (r.ok && out.ok) return signIn(email, password);
+      if (r.status === 409) return friendly('already registered');
+      if (r.status === 400) return out.error === 'invalid_email' ? 'Please check your email address.' : out.error === 'missing_name' ? 'Please write your full name.' : 'Choose a password with at least 6 characters.';
+    } catch (e) { /* function not reachable: use the standard sign-up below */ }
+    // 2. Fallback: Supabase's standard sign-up (sends a confirmation email if "Confirm email" is on).
     const { data, error } = await client.auth.signUp({ email, password, options: { data: { full_name: fullName, student_id: studentId }, emailRedirectTo: location.href.split('#')[0] } });
     if (error) return friendly(error);
     if (data.user && Array.isArray(data.user.identities) && !data.user.identities.length) return friendly('already registered');
