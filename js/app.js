@@ -518,22 +518,30 @@ function notebook() {
    of lessons, and the stages and activities of the open lesson. */
 const navOpen = (() => { try { return JSON.parse(localStorage.getItem('dec15-nav-weeks')) || {}; } catch (e) { return {}; } })();
 let navRoute = 'home';
-function ring(p, label) {
-  const c = 2 * Math.PI * 13;
-  return `<span class="nav-ring" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="13"/><circle cx="16" cy="16" r="13" style="stroke-dasharray:${c.toFixed(1)};stroke-dashoffset:${(c * (1 - p)).toFixed(1)}"/></svg><b>${label}</b></span>`;
+/* Progress ring around a day number. */
+function ring(p, n, done) {
+  const c = 2 * Math.PI * 16;
+  return `<span class="nav-ring${done ? ' is-done' : ''}" aria-hidden="true"><svg viewBox="0 0 38 38"><circle cx="19" cy="19" r="16"/><circle cx="19" cy="19" r="16" style="stroke-dasharray:${c.toFixed(1)};stroke-dashoffset:${(c * (1 - p)).toFixed(1)}"/></svg>${done ? icon('check') : `<b>${n}</b>`}</span>`;
 }
 function dayProgress(d) {
   if (d.id === lesson.id) return [coreActivities.filter(a => state.done[a.id]).length, coreActivities.length];
   const x = summaries()[d.id] || {}; return [x.done || 0, x.total || 0];
 }
-function lessonLinks(route) {
-  const cur = r => route === r ? ' active" aria-current="page' : '';
-  return `<div class="nav-lesson">
-    <a href="${L('overview')}" class="nav-sub${cur('overview')}"><span class="nav-num">${icon('map')}</span><span>Overview</span></a>
-    ${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<a href="${L(s.id)}" class="is-stage${d === s.activities.length ? ' complete' : ''}${cur(s.id)}" style="${tone(s)}"><span class="nav-num">${d === s.activities.length ? icon('check') : s.number}</span><span class="nav-text">${esc(s.title)}<small>${s.minutes} min<i class="nav-bar" style="--p:${d / s.activities.length}" aria-label="${d} of ${s.activities.length} done"></i></small></span></a>`; }).join('')}
-    <div class="nav-tools">${[['sources', 'book', 'Readings'], ['extra', 'list', 'Extra'], ['notebook', 'model', 'Notebook']].map(([id, ic, t]) => `<a href="${L(id)}" class="nav-tool${cur(id)}">${icon(ic)}<span>${t}</span></a>`).join('')}</div>
-  </div>`;
+/* What slides open under a day: its start page, its stages (with progress for the open lesson),
+   and — for the open lesson — Readings, Extra and Notebook. */
+function dayContents(d, route) {
+  const here = d.id === lesson.id, cur = r => here && route === r ? ' active" aria-current="page' : '';
+  let i = 0; const stagger = () => ` style="--i:${i++}"`;
+  const start = `<li${stagger()}><a href="${here ? L('overview') : '#/' + d.id}" class="nav-part nav-start${cur('overview')}"><span class="nav-pnum">${icon('map')}</span><span class="nav-ptext">${here ? 'Overview' : 'Open Day ' + d.day}<small>${here ? 'Start of the day' : 'Start of the day'}</small></span></a></li>`;
+  const stages = here
+    ? lesson.sections.map(s => { const dn = s.activities.filter(a => state.done[a.id]).length, all = dn === s.activities.length;
+        return `<li${stagger()}><a href="${L(s.id)}" class="nav-part is-stage${all ? ' complete' : ''}${cur(s.id)}" style="${tone(s)}"><span class="nav-pnum">${all ? icon('check') : Number(s.number)}</span><span class="nav-ptext">${esc(s.title)}<small>${s.minutes} min<i class="nav-bar" style="--p:${dn / s.activities.length}" aria-label="${dn} of ${s.activities.length} done"></i></small></span></a></li>`; }).join('')
+    : (d.parts || []).map((pt, k) => `<li${stagger()}><a href="#/${d.id}${d.stages?.[k] ? '/' + d.stages[k] : ''}" class="nav-part"><span class="nav-pnum">${k + 1}</span><span class="nav-ptext">${esc(pt)}</span></a></li>`).join('');
+  const tools = here ? `<li class="nav-tools"${stagger()}>${[['sources', 'book', 'Readings'], ['extra', 'list', 'Extra'], ['notebook', 'model', 'Notebook']].map(([id, ic, t]) => `<a href="${L(id)}" class="nav-tool${cur(id)}">${icon(ic)}<span>${t}</span></a>`).join('')}</li>` : '';
+  return `<ol class="nav-parts">${start}${stages}${tools}</ol>`;
 }
+const navDayOpen = {};   // which days are slid open in this visit (the open lesson starts open)
+const foldAttrs = open => open ? '' : ' inert';
 function paintNav(route = navRoute) {
   navRoute = route;
   $('#side-home').classList.toggle('active', route === 'home');
@@ -541,13 +549,29 @@ function paintNav(route = navRoute) {
   $('#nav').innerHTML = course.weeks.map(w => {
     const open = navOpen[w.n] ?? (w.n === lesson.week), started = w.days.filter(d => dayProgress(d)[0]).length;
     return `<section class="nav-week${open ? ' open' : ''}">
-      <button type="button" class="nav-week-head" data-nav-week="${w.n}" aria-expanded="${open}"><span class="nav-week-num"><small>Wk</small>${w.n}</span><span class="nav-week-text">Week ${w.n}<small>${esc(w.theme)}</small></span>${started ? `<span class="nav-week-count" title="Lessons started">${started}/${w.days.length}</span>` : ''}${icon('arrow', 'nav-chev')}</button>
-      <ol class="nav-days"${open ? '' : ' hidden'}>${w.days.map(d => {
-        if (d.status !== 'ready') return `<li><span class="nav-day is-soon">${ring(0, 'D' + d.day)}<span class="nav-day-text">${esc(d.title)}<small>Coming soon</small></span></span></li>`;
-        const here = d.id === lesson.id, [dn, tot] = dayProgress(d), p = tot ? dn / tot : 0;
-        return `<li${here ? ' class="is-open"' : ''}><a class="nav-day${here ? ' current' : ''}${p === 1 ? ' complete' : ''}" href="#/${d.id}">${ring(p, p === 1 ? icon('check') : 'D' + d.day)}<span class="nav-day-text">${esc(d.title)}<small>${tot ? `${dn} of ${tot} done` : 'Not started'}</small></span></a>${here ? lessonLinks(route) : ''}</li>`;
-      }).join('')}</ol></section>`;
+      <button type="button" class="nav-week-head" data-nav-week="${w.n}" aria-expanded="${open}" aria-controls="nav-w${w.n}">
+        <span class="nav-week-num"><small>Week</small>${w.n}</span>
+        <span class="nav-week-text">Week ${w.n}<small>${esc(w.theme)}</small></span>
+        ${started ? `<span class="nav-week-count" title="${started} of ${w.days.length} lessons started">${started}/${w.days.length}</span>` : ''}
+        <span class="nav-chev" aria-hidden="true"></span></button>
+      <div class="fold" id="nav-w${w.n}"><div class="fold-inner"${foldAttrs(open)}>
+      <ol class="nav-days">${w.days.map(d => {
+        if (d.status !== 'ready') return `<li class="nav-dayitem is-soon"><div class="nav-day">${ring(0, d.day)}<span class="nav-day-text"><span class="nav-day-eyebrow">Day ${d.day} · Coming soon</span><b>${esc(d.title)}</b></span></div></li>`;
+        const here = d.id === lesson.id, [dn, tot] = dayProgress(d), p = tot ? dn / tot : 0, dopen = navDayOpen[d.id] ?? here;
+        return `<li class="nav-dayitem${here ? ' here' : ''}${dopen ? ' open' : ''}">
+          <button type="button" class="nav-day" data-nav-day="${d.id}" aria-expanded="${dopen}" aria-controls="nav-${d.id}">
+            ${ring(p, d.day, tot && p === 1)}
+            <span class="nav-day-text"><span class="nav-day-eyebrow">Day ${d.day}${here ? '<em>You are here</em>' : ''}</span><b>${esc(d.title)}</b><small>${tot ? `${dn} of ${tot} activities done` : 'Not started yet'}</small></span>
+            <span class="nav-chev" aria-hidden="true"></span></button>
+          <div class="fold" id="nav-${d.id}"><div class="fold-inner"${foldAttrs(dopen)}>${dayContents(d, route)}</div></div>
+        </li>`;
+      }).join('')}</ol></div></div></section>`;
   }).join('');
+}
+/* Slide a fold open or closed (CSS animates the height). */
+function setFold(item, btn, open) {
+  item.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open));
+  const inner = item.querySelector(':scope > .fold > .fold-inner'); if (open) inner.removeAttribute('inert'); else inner.setAttribute('inert', '');
 }
 /* search */
 function searchIndex() {
@@ -787,7 +811,13 @@ document.addEventListener('click', e => {
   if (d.weekTab) { homeWeek = Number(d.weekTab); rerender(); $(`#tab-week-${homeWeek}`)?.focus({ preventScroll: !t.classList.contains('week-tab') }); if (!t.classList.contains('week-tab')) $('.week')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
   if (d.navWeek) { const w = Number(d.navWeek), wk = t.closest('.nav-week'), open = !wk.classList.contains('open'); navOpen[w] = open;
     try { localStorage.setItem('dec15-nav-weeks', JSON.stringify(navOpen)); } catch (e) { /* ignore */ }
-    wk.classList.toggle('open', open); t.setAttribute('aria-expanded', String(open)); wk.querySelector('.nav-days').hidden = !open; return; }
+    setFold(wk, t, open); return; }
+  if (d.navDay) {   // one day open at a time: opening a day slides the others closed
+    const item = t.closest('.nav-dayitem'), open = !item.classList.contains('open');
+    if (open) document.querySelectorAll('.nav-dayitem.open').forEach(o => { if (o !== item) { navDayOpen[o.querySelector('[data-nav-day]').dataset.navDay] = false; setFold(o, o.querySelector('[data-nav-day]'), false); } });
+    navDayOpen[d.navDay] = open; setFold(item, t, open);
+    if (open) setTimeout(() => item.scrollIntoView({ block: 'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }), 340);
+    return; }
   if (t.id === 'menu-btn') { setSide(!document.body.classList.contains('side-open')); return; }
   if (t.tagName === 'A' && t.closest('.sidebar')) { setSide(false); if ($('#side-search').value) { $('#side-search').value = ''; setTimeout(runSearch); } }
   if (d.go) { const sec = lesson.sections.find(x => x.activities.some(a => a.id === d.go)); if (sec) { state.active[sec.id] = d.go; save(false); } return; }

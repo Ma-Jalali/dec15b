@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.8)
+DEC15 — COURSE APP (v2.9)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
