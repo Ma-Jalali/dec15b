@@ -36,13 +36,13 @@ window.DEC15_LESSON = {
     /* ───────────────────────── STAGE 1 · 16A ───────────────────────── */
     {
       id: 'ai', number: '01', code: '16A', minutes: 45,
-      title: 'Use AI wisely',
-      subtitle: 'AI and academic integrity',
+      title: 'Homework follow-up: AST: AI',
+      subtitle: 'Use AI wisely',
       outcome: 'Decide when AI can support your learning and when it replaces the thinking you need to do yourself.',
       activities: [
         {
-          id: 'a1', short: 'Rules', minutes: 15, grouping: 'Alone → group',
-          title: 'What are the university’s rules on AI?',
+          id: 'a1', short: 'Warmer', minutes: 15, grouping: 'Alone → group',
+          title: 'Warmer/Revision: Review university policies',
           goal: 'Remember the University of Sydney rules from your homework.',
           blocks: [
             { type: 'steps', items: [
@@ -76,8 +76,8 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'a2', short: 'AI or not?', minutes: 12, grouping: 'Pairs',
-          title: 'AI or not? Sort 12 study tasks',
+          id: 'a2', short: 'AI or Not', minutes: 12, grouping: 'Pairs',
+          title: 'AI or Not',
           goal: 'Make a first decision about when AI could be useful.',
           blocks: [
             { type: 'steps', items: [
@@ -103,7 +103,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'a3', short: 'Framework', minutes: 13, grouping: 'Groups of 3',
-          title: 'Use the 3-question framework',
+          title: 'AI or Not: Framework',
           goal: 'Use three questions to make a better decision about AI.',
           blocks: [
             { type: 'key', title: 'Before you use AI, ask three questions', numbered: true, points: [
@@ -132,7 +132,7 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'a4', short: 'My rule', minutes: 5, grouping: 'Alone',
+          id: 'a4', short: 'Exit ticket', minutes: 5, grouping: 'Alone',
           title: 'Exit ticket: my AI rule for this essay',
           goal: 'Decide how you will (and will not) use AI for Monday’s essay.',
           blocks: [
@@ -153,13 +153,13 @@ window.DEC15_LESSON = {
     /* ───────────────────────── STAGE 2 · 17A ───────────────────────── */
     {
       id: 'feedback', number: '02', code: '17A', minutes: 45,
-      title: 'Turn feedback into action',
-      subtitle: 'Feedback literacy',
+      title: 'AST: Feedback literacy: Taking action',
+      subtitle: 'Turn feedback into action',
       outcome: 'Understand your teacher’s feedback on the Research Summary Discussion and turn it into clear goals for Weeks 3–4.',
       activities: [
         {
-          id: 'b1', short: 'Read feedback', minutes: 5, grouping: 'Alone',
-          title: 'Read your teacher’s feedback',
+          id: 'b1', short: 'Teacher feedback', minutes: 5, grouping: 'Alone',
+          title: 'Check Teacher Feedback',
           goal: 'Find one strength, one thing to improve, and one question.',
           blocks: [
             { type: 'key', title: 'Feedback only helps if you act on it', points: [
@@ -181,8 +181,8 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'b2', short: 'Self-regulation', minutes: 5, grouping: 'Discussion group',
-          title: 'Homework check-in: managing your own learning',
+          id: 'b2', short: 'Check-in', minutes: 5, grouping: 'Discussion group',
+          title: 'Self-regulation and monitoring: Homework Check-in',
           goal: 'Remember the self-regulation tools from your homework.',
           blocks: [
             { type: 'key', title: 'Self-regulation = plan → monitor → evaluate', points: [
@@ -203,8 +203,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'b3', short: 'Poster', minutes: 20, grouping: 'Discussion group',
-          title: 'Make a strategy poster, then do a gallery walk',
+          id: 'b3', short: 'Group activity', minutes: 20, grouping: 'Discussion group',
+          title: 'Group activity',
           goal: 'Share practical strategies for one self-regulation skill.',
           blocks: [
             { type: 'cards', title: 'Your teacher gives your group ONE learning outcome', numbered: true, items: [
@@ -237,8 +237,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'b4', short: 'New goals', minutes: 15, grouping: 'Research group',
-          title: 'Set your goals for Weeks 3–4',
+          id: 'b4', short: 'Strategy meeting', minutes: 15, grouping: 'Research group',
+          title: 'Original group strategy meeting',
           goal: 'Use peer and teacher feedback to write 3–5 clear goals.',
           blocks: [
             { type: 'steps', items: [
@@ -268,13 +268,13 @@ window.DEC15_LESSON = {
     /* ───────────────────────── STAGE 3 · 18A ───────────────────────── */
     {
       id: 'critical', number: '03', code: '18A', minutes: 60,
-      title: 'Question the evidence',
-      subtitle: 'Criticality: engaging with sources',
+      title: 'AST: Criticality: Engaging with sources',
+      subtitle: 'Question the evidence',
       outcome: 'Tell facts from opinions, judge evidence, find hidden assumptions, and recognise bias and tone.',
       activities: [
         {
-          id: 'c1', short: 'CRAAP', minutes: 8, grouping: 'Group',
-          title: 'Warm-up: is this source reliable?',
+          id: 'c1', short: 'Warmer', minutes: 8, grouping: 'Group',
+          title: 'Warmer',
           goal: 'Remember the CRAAP test from Week 1.',
           blocks: [
             { type: 'quiz', id: 'c1q', title: 'What does CRAAP stand for?', shared: ['Currency', 'Relevance', 'Authority', 'Accuracy', 'Purpose'], items: [
@@ -294,8 +294,8 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'c2', short: 'Fact / opinion', minutes: 10, grouping: 'Alone → pair',
-          title: 'Fact or opinion?',
+          id: 'c2', short: 'Fact or opinion?', minutes: 10, grouping: 'Alone → pair',
+          title: 'Fact or Opinion?',
           goal: 'Recognise when a statement is a belief, not checked evidence.',
           blocks: [
             { type: 'key', title: 'Fact or opinion?', compare: [
@@ -317,7 +317,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'c3', short: 'Evidence', minutes: 10, grouping: 'Pairs',
-          title: 'Which statement is stronger?',
+          title: 'Evaluating Evidence and Sources',
           goal: 'Recognise strong evidence and improve a weak statement.',
           blocks: [
             { type: 'key', title: 'Strong evidence is specific and sourced', points: [
@@ -346,7 +346,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'c4', short: 'Assumptions', minutes: 12, grouping: 'Groups of 3',
-          title: 'Find the hidden assumption',
+          title: 'Identifying Assumptions – What’s Missing?',
           goal: 'Find what an argument takes for granted, and its limitation.',
           blocks: [
             { type: 'key', title: 'An assumption is an idea the writer does not say — but needs to be true', points: [
@@ -384,8 +384,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'c5', short: 'Tone & bias', minutes: 20, grouping: 'Pairs → group',
-          title: 'Recognise tone and bias',
+          id: 'c5', short: 'Bias', minutes: 20, grouping: 'Pairs → group',
+          title: 'Recognising Bias',
           goal: 'See how word choice shows a writer’s attitude, and whose view is missing.',
           blocks: [
             { type: 'key', title: 'Bias = favouring one side', points: [
@@ -426,13 +426,13 @@ window.DEC15_LESSON = {
     /* ───────────────────────── STAGE 4 · 19A ───────────────────────── */
     {
       id: 'writing', number: '04', code: '19A', minutes: 90,
-      title: 'Plan your argument essay',
-      subtitle: 'Writing workshop set-up',
+      title: 'Academic writing skills workshop setup',
+      subtitle: 'Plan your argument essay',
       outcome: 'Understand the essay question, take organised notes from three sources, choose a position and make a plan.',
       activities: [
         {
           id: 'd1', short: 'The question', minutes: 10, grouping: 'Alone → pair',
-          title: 'What is the question asking you to do?',
+          title: 'Analyse the question',
           goal: 'Find the content words and limiting words, and the job the question gives you.',
           blocks: [
             { type: 'question' },
@@ -460,8 +460,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'd2', short: 'Listen', minutes: 20, grouping: 'Alone → group',
-          title: 'Listen again and take notes',
+          id: 'd2', short: 'Note-taking 1', minutes: 20, grouping: 'Alone → group',
+          title: 'Note-taking: listen again',
           goal: 'Take handwritten notes on the listening that help answer the question.',
           blocks: [
             { type: 'key', title: 'Take notes for the question — not everything', points: [
@@ -495,8 +495,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'd3', short: 'Evidence table', minutes: 30, grouping: 'Groups of 2–3',
-          title: 'Build an evidence table from three sources',
+          id: 'd3', short: 'Note-taking 2', minutes: 30, grouping: 'Groups of 2–3',
+          title: 'Note-taking: build your table',
           goal: 'Organise relevant, paraphrased notes by theme and find links across sources.',
           blocks: [
             { type: 'key', title: 'Synthesis = connecting ideas across sources', points: [
@@ -534,7 +534,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'd4', short: 'Position', minutes: 10, grouping: 'Group → alone',
-          title: 'Take a position',
+          title: 'Making a plan: take a position',
           goal: 'Decide your answer to the question and two reasons.',
           blocks: [
             { type: 'key', title: 'An argument essay must have a position', points: [
@@ -569,7 +569,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'd5', short: 'Plan', minutes: 20, grouping: 'Group → alone',
-          title: 'Make your essay plan',
+          title: 'Making a plan',
           goal: 'Organise your position, reasons and evidence into an essay outline.',
           blocks: [
             { type: 'key', title: 'One body paragraph = one reason', points: [

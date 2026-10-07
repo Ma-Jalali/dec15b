@@ -1151,3 +1151,9 @@ body.large-text .key h3 { font-size: 1.95rem; }
 .pw-wrap input { width: 100%; padding-right: 64px; }
 .pw-show { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); border: 0; background: none; color: var(--accent, #2a6f97); font: 700 .8rem/1 var(--sans); padding: 8px; border-radius: 8px; cursor: pointer; }
 .pw-show:hover { background: #0000000a; }
+
+/* Teacher’s Book codes (15A, 16A…) in the number badges */
+.nav-pnum { width: auto; min-width: 24px; padding: 0 5px; letter-spacing: -.01em; }
+.dayline-num, .journey-num { width: auto; min-width: 30px; padding: 0 6px; }
+.nb-stage-num { width: auto; min-width: 38px; padding: 0 7px; }
+.stage-numeral.is-code { font-size: clamp(3.2rem, 5.4vw, 5rem); letter-spacing: -.04em; }

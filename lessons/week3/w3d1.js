@@ -21,13 +21,13 @@ window.DEC15_LESSON = {
     {
       id: 'intro', number: '01', code: '1A', minutes: 60,
       tone: 'amber', art: 'writing',
-      title: 'Write your introduction',
-      subtitle: 'Introductions and rhetorical functions',
+      title: 'Writing an introduction',
+      subtitle: 'Academic writing skills workshop',
       outcome: 'Identify the features of an introduction, write your own, and see how BECAUSE, BUT and SO build an argument.',
       activities: [
         {
-          id: 'i1', short: 'Sample 1.1', minutes: 12, grouping: 'Alone → pair',
-          title: 'How does an introduction work?',
+          id: 'i1', short: 'Structure', minutes: 12, grouping: 'Alone → pair',
+          title: 'Introduction structure',
           goal: 'Find the purpose of each sentence in the Week 1 sample introduction.',
           blocks: [
             { type: 'steps', items: [
@@ -65,7 +65,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'i2', short: 'Position', minutes: 5, grouping: 'Pairs',
-          title: 'Remember your position',
+          title: 'Joint construction: remember your position',
           goal: 'Get your plan from Friday and agree on a position with your partner.',
           blocks: [
             { type: 'question' },
@@ -87,8 +87,8 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'i3', short: 'Write intro', minutes: 20, grouping: 'Pairs or groups of 3',
-          title: 'Write your introduction together',
+          id: 'i3', short: 'Joint construction', minutes: 20, grouping: 'Pairs or groups of 3',
+          title: 'Joint construction',
           goal: 'Write a 4–6 sentence introduction that ends with your position and two reasons.',
           blocks: [
             { type: 'steps', items: [
@@ -120,8 +120,8 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'i4', short: 'Sample 3.1', minutes: 13, grouping: 'Pairs',
-          title: 'Analyse the sample introduction',
+          id: 'i4', short: 'Rhetorical function', minutes: 13, grouping: 'Pairs',
+          title: 'Analysing rhetorical function',
           goal: 'Find the rhetorical function of each sentence and the language that signals it.',
           blocks: [
             { type: 'key', tone: 'warn', title: 'Only start when your introduction is written', points: [
@@ -190,13 +190,13 @@ window.DEC15_LESSON = {
     {
       id: 'body', number: '02', code: '1A', minutes: 90,
       tone: 'teal', art: 'group',
-      title: 'Build your body paragraphs',
-      subtitle: 'Developing an argument',
+      title: 'Writing body paragraphs',
+      subtitle: 'Academic writing skills workshop',
       outcome: 'Write two body paragraphs that develop your reasons, and analyse how a sample connects ideas with causal language and cohesion.',
       activities: [
         {
-          id: 'b1', short: 'Write bodies', minutes: 30, grouping: 'Pairs or groups of 3',
-          title: 'Write your two body paragraphs',
+          id: 'b1', short: 'Joint construction', minutes: 30, grouping: 'Pairs or groups of 3',
+          title: 'Joint construction',
           goal: 'Develop each preview point into one body paragraph with evidence.',
           blocks: [
             { type: 'figure', src: 'assets/week3/essay-structure.svg', alt: 'Essay map: introduction with context, thesis and preview, then body 1 with reason 1 and evidence, body 2 with reason 2 and evidence, then a conclusion with restatement, summary and final comment. Labels BECAUSE, BUT and SO show the links.', caption: 'One reason = one body paragraph.' },
@@ -227,7 +227,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'b2', short: 'Body 1', minutes: 25, grouping: 'Pairs → class',
-          title: 'Deconstruct Sample 3.1 body paragraph 1',
+          title: 'Analysing rhetorical function: body paragraph 1',
           goal: 'See how each sentence builds a logical chain of causes and consequences.',
           blocks: [
             { type: 'key', tone: 'warn', title: 'Only start when your body paragraphs are written', points: [
@@ -281,7 +281,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'b3', short: 'Body 2', minutes: 20, grouping: 'Pairs',
-          title: 'Deconstruct body paragraph 2 — your turn',
+          title: 'Analysing rhetorical function: body paragraph 2',
           goal: 'Find the purpose of each sentence and the words that hold the paragraph together.',
           blocks: [
             { type: 'steps', items: [
@@ -358,13 +358,13 @@ window.DEC15_LESSON = {
     {
       id: 'close', number: '03', code: '1A', minutes: 60,
       tone: 'plum', art: 'feedback',
-      title: 'Conclude, check and polish',
-      subtitle: 'Conclusions, coherence and academic style',
+      title: 'Writing a conclusion',
+      subtitle: 'Academic writing skills workshop · coherence · academic style',
       outcome: 'Write a conclusion, check that your position is clear and consistent, and edit informal language into academic style.',
       activities: [
         {
-          id: 'c1', short: 'Sample 1.1', minutes: 10, grouping: 'Alone → pair',
-          title: 'How does a conclusion link back?',
+          id: 'c1', short: 'Structure', minutes: 10, grouping: 'Alone → pair',
+          title: 'Conclusion structure',
           goal: 'See how the Week 1 sample restates its thesis and reasons.',
           blocks: [
             { type: 'steps', items: [
@@ -385,8 +385,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'c2', short: 'Write conclusion', minutes: 12, grouping: 'Pairs or groups of 3',
-          title: 'Write your conclusion together',
+          id: 'c2', short: 'Joint construction', minutes: 12, grouping: 'Pairs or groups of 3',
+          title: 'Joint construction',
           goal: 'Write a 3–4 sentence conclusion with no new information.',
           blocks: [
             { type: 'key', title: 'A conclusion has three parts', numbered: true, points: [
@@ -408,8 +408,8 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'c3', short: 'Sample 3.1', minutes: 8, grouping: 'Pairs',
-          title: 'Analyse the sample conclusion',
+          id: 'c3', short: 'Rhetorical function', minutes: 8, grouping: 'Pairs',
+          title: 'Analysing rhetorical function',
           goal: 'Find the three key features and the BUT and SO functions.',
           blocks: [
             { type: 'key', tone: 'warn', title: 'Only start when your conclusion is written', points: [
@@ -442,7 +442,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'c4', short: 'Coherence', minutes: 10, grouping: 'Pairs',
-          title: 'Check the whole essay: is your position clear?',
+          title: 'Overall rhetorical purpose – Checking for coherence',
           goal: 'Identify the purpose of each paragraph and check your position all the way through.',
           blocks: [
             { type: 'grid', id: 'c4g', title: 'Sample 3.1: the purpose of each paragraph', rows: ['Introduction', 'Body 1', 'Body 2', 'Conclusion'], columns: ['Rhetorical purpose'], options: [
@@ -476,7 +476,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'c5', short: 'Academic style', minutes: 20, grouping: 'Alone → pair',
-          title: 'From everyday to academic style',
+          title: 'Language focus – Academic style',
           goal: 'Notice how a teacher’s feedback made a student paragraph more academic.',
           blocks: [
             { type: 'steps', items: [
@@ -554,13 +554,13 @@ window.DEC15_LESSON = {
     {
       id: 'voices', number: '04', code: '2A', minutes: 30,
       tone: 'green', art: 'research',
-      title: 'Your voice and source voices',
-      subtitle: 'Academic writing skills 1',
+      title: 'Academic writing skills 1',
+      subtitle: 'Your voice and source voices',
       outcome: 'Understand how different voices are used in academic writing, and how your own voice drives the argument.',
       activities: [
         {
-          id: 'v1', short: 'Many voices', minutes: 8, grouping: 'Groups of 3',
-          title: 'Academic writing is a dialogue',
+          id: 'v1', short: 'Activity 1', minutes: 8, grouping: 'Groups of 3',
+          title: 'Activity 1: academic writing is a dialogue',
           goal: 'Understand why we must show whose ideas are whose.',
           blocks: [
             { type: 'model', title: 'Brick (2011, p.107)', text: '“Academic debate involves a dialogue between many voices. If these voices are not identified, the dialogue disappears, and the essay writer appears to be presenting a personal opinion.” (Brick, 2011, p.107)', note: 'Source: Brick, J. (2011). Academic culture: A student’s guide to studying at university. Macmillan.' },
@@ -583,8 +583,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'v2', short: 'Three voices', minutes: 10, grouping: 'Alone → pair',
-          title: 'Identify the voices',
+          id: 'v2', short: 'Different voices', minutes: 10, grouping: 'Alone → pair',
+          title: 'Identifying different voices',
           goal: 'Tell the writer’s voice from direct and indirect source voices.',
           blocks: [
             { type: 'steps', items: [
@@ -626,13 +626,13 @@ window.DEC15_LESSON = {
         },
         {
           id: 'v3', short: 'Your voice', minutes: 12, grouping: 'Pairs → class',
-          title: 'Your voice drives the argument',
+          title: 'Using your voice',
           goal: 'See how the writer’s voice controls the argument and how sources support it.',
           blocks: [
             { type: 'steps', items: [
               { who: 'pair', text: 'Look at Sample 3.1 body paragraph 2 again. Highlight the <b>writer’s voice</b>.' },
               { who: 'pair', text: 'Complete the grid. Then discuss the questions.' },
-              { who: 'alone', text: 'Go back to your Body 2 (Stage 2). Is <b>your</b> voice in the topic sentence and the last sentence?' }
+              { who: 'alone', text: 'Go back to your Body 2 (1A Writing body paragraphs). Is <b>your</b> voice in the topic sentence and the last sentence?' }
             ]},
             { type: 'passage', id: 'v3p', title: 'Sample 3.1 · Body paragraph 2', text: '¹Addressing the problem of food waste through better management and distribution of resources is also important because it has the potential to directly alleviate hunger. ²Estimates from the FAO reveal that approximately 30% of all food produced worldwide is not consumed (Our Changing Climate, 2020). ³While this food wastage occurs at various points in the supply chain, a large amount of perfectly edible food is thrown away by consumers. ⁴Consumer preference for attractive produce and the tendency to over purchase and let food spoil are some of the behavioural patterns that have led to the unnecessary discarding of food (Tchonkouang et al., 2023; Our Changing Climate, 2020). ⁵However, with the adoption of more sustainable consumption habits and redistribution programs, a significant amount of food could be redirected from waste streams to improve overall food availability in underserved populations (Royer, 2024). ⁶This redistribution could be particularly impactful in developed countries where surplus food from restaurants, retail, and households could be channelled to food banks to provide immediate relief. ⁷In fact, if the food waste generated in Australia were cut by one third, the amount saved could adequately feed 921,000 people for a year (Tchonkouang et al., 2023), demonstrating the importance of food conservation as a means of combating hunger.' },
             { type: 'grid', id: 'v3g', title: 'Whose voice is in each sentence?', rows: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7'], columns: ['Voice'], options: ['Writer’s voice', 'Source voice (citation)', 'Source evidence + writer’s comment'], answers: [
@@ -664,7 +664,7 @@ window.DEC15_LESSON = {
   extras: [
     {
       id: 'x1', short: 'Reporting verbs', minutes: 20, grouping: 'Alone', category: 'Homework',
-      title: 'Homework: choose the right reporting verb',
+      title: '3A Homework: Using reporting verbs',
       goal: 'Use reporting verbs to introduce the ideas of others accurately.',
       blocks: [
         { type: 'key', title: 'Reporting verbs show what the source is doing', points: [
@@ -725,7 +725,7 @@ window.DEC15_LESSON = {
     },
     {
       id: 'x2', short: 'APA referencing', minutes: 25, grouping: 'Alone', category: 'Homework',
-      title: 'Homework: APA in-text citations and reference lists',
+      title: '3A Homework: Referencing conventions',
       goal: 'Write accurate APA 7th in-text citations and reference list entries.',
       blocks: [
         { type: 'key', title: 'APA 7th: four key elements in a reference', points: [

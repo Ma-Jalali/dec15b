@@ -21,13 +21,13 @@ window.DEC15_LESSON = {
     {
       id: 'solve', number: '01', code: '4A', minutes: 30,
       tone: 'amber', art: 'discussion',
-      title: 'Let’s solve some problems',
-      subtitle: 'Discussion: potential solutions to food insecurity',
+      title: 'Discussion: Potential solutions to food insecurity',
+      subtitle: 'Let’s solve some problems',
       outcome: 'Use and evaluate your problem-solving skills, identify problems with food waste, and suggest and evaluate solutions.',
       activities: [
         {
-          id: 's1', short: 'Puzzle', minutes: 7, grouping: 'Pairs',
-          title: 'Warm-up: the fox, the chicken and the grain',
+          id: 's1', short: 'Warmer', minutes: 7, grouping: 'Pairs',
+          title: 'Warmer: Problem-solving',
           goal: 'Solve a logic problem together, step by step.',
           blocks: [
             { type: 'cards', title: 'The problem', items: [
@@ -63,8 +63,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 's2', short: 'Food problems', minutes: 10, grouping: 'Pairs → new pair',
-          title: 'Food problems → possible solutions',
+          id: 's2', short: 'Problems & solutions', minutes: 10, grouping: 'Pairs → new pair',
+          title: 'Problems and solutions: Food issues',
           goal: 'Remember the food problems from Weeks 1–2 and think of solutions.',
           blocks: [
             { type: 'question' },
@@ -92,7 +92,7 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 's3', short: 'Community', minutes: 13, grouping: 'Groups of 3',
+          id: 's3', short: 'Be the solution', minutes: 13, grouping: 'Groups of 3',
           title: 'Let’s be part of the solution!',
           goal: 'Talk about your own food waste, then find community solutions in a short video.',
           blocks: [
@@ -144,13 +144,13 @@ window.DEC15_LESSON = {
     {
       id: 'read', number: '02', code: '5A', minutes: 110,
       tone: 'plum', art: 'reading',
-      title: 'Read about solutions',
-      subtitle: 'Reading to write · Nicastro & Carillo (2021)',
+      title: 'Reading to write',
+      subtitle: 'Read about solutions · Nicastro & Carillo (2021)',
       outcome: 'Read and take paraphrased notes, and use modal verbs and evaluative language to evaluate solutions to a problem.',
       activities: [
         {
-          id: 'r1', short: 'Hierarchy', minutes: 10, grouping: 'Groups of 3',
-          title: 'Warm-up: what is the best way to deal with extra food?',
+          id: 'r1', short: 'Warmer', minutes: 10, grouping: 'Groups of 3',
+          title: 'Warmer: Food waste hierarchy',
           goal: 'Rank six ways to prevent or reduce food waste, from most to least effective.',
           blocks: [
             { type: 'steps', items: [
@@ -181,7 +181,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'r2', short: 'Vocabulary', minutes: 10, grouping: 'Alone → pair',
-          title: 'Key words before you read',
+          title: 'Vocabulary',
           goal: 'Understand eight words and phrases from the reading, then use them.',
           blocks: [
             { type: 'steps', items: [
@@ -225,8 +225,8 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'r3', short: 'Abstract', minutes: 10, grouping: 'Alone → pair',
-          title: 'Read the abstract first',
+          id: 'r3', short: 'Annotated reading', minutes: 10, grouping: 'Alone → pair',
+          title: 'Annotated reading',
           goal: 'Get the main ideas of the article from its abstract.',
           blocks: [
             { type: 'key', title: 'Read the abstract before the article', points: [
@@ -255,8 +255,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'r4', short: 'Notes', minutes: 20, grouping: 'Alone → pair',
-          title: 'Read and take notes',
+          id: 'r4', short: 'Note taking', minutes: 20, grouping: 'Alone → pair',
+          title: 'Reading for note taking',
           goal: 'Take short notes with symbols and abbreviations under each heading.',
           blocks: [
             { type: 'sources', ids: ['nicastro'] },
@@ -295,7 +295,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'r5', short: 'Summarise', minutes: 10, grouping: 'Alone',
-          title: 'Summarise from your notes',
+          title: 'Summarise/ paraphrase',
           goal: 'Write the main ideas in your own words — from your notes, not the text.',
           blocks: [
             { type: 'key', title: 'Paraphrase from your notes, not from the text', points: [
@@ -327,7 +327,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'r6', short: 'Understanding', minutes: 20, grouping: 'Alone → pair',
-          title: 'Check your understanding',
+          title: 'Building Understanding',
           goal: 'Check details in the text and match examples to solutions.',
           blocks: [
             { type: 'steps', items: [
@@ -373,8 +373,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'r7', short: 'Language', minutes: 15, grouping: 'Pairs',
-          title: 'Language focus: talking about solutions',
+          id: 'r7', short: 'Language focus', minutes: 15, grouping: 'Pairs',
+          title: 'Language focus: Solutions',
           goal: 'Use modal verbs, the present perfect and evaluative language to write about solutions.',
           blocks: [
             { type: 'model', title: 'Six sentences from the reading', list: [
@@ -418,8 +418,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'r8', short: 'Evaluate', minutes: 15, grouping: 'Pairs → alone',
-          title: 'Criticality: which household solutions will work?',
+          id: 'r8', short: 'Criticality', minutes: 15, grouping: 'Pairs → alone',
+          title: 'Criticality',
           goal: 'Evaluate solutions to household food waste and justify your choice with modals.',
           blocks: [
             { type: 'figure', src: 'assets/week3/nicastro-household.jpg', alt: 'Circle diagram of household consumption measures: charity, recipes to use up leftovers, making a shopping list, planning meals, overcoming the aesthetic barriers, understanding expiry dates, portions of food, storage.', caption: 'Measures to prevent and reduce household food waste', credit: 'Nicastro & Carillo (2021), Figure 1(a)' },
@@ -457,13 +457,13 @@ window.DEC15_LESSON = {
     {
       id: 'listen', number: '03', code: '6A', minutes: 100,
       tone: 'teal', art: 'listening',
-      title: 'Listen: the future of food banks?',
-      subtitle: 'Listening to write · About That (2024)',
+      title: 'Listening to write',
+      subtitle: 'The future of food banks? · About That (2024)',
       outcome: 'Listen and take notes, and use modal verbs and evaluative language to evaluate two kinds of food bank.',
       activities: [
         {
-          id: 'l1', short: 'Food banks', minutes: 10, grouping: 'Pairs → class',
-          title: 'Warm-up: what is a food bank?',
+          id: 'l1', short: 'Warmer', minutes: 10, grouping: 'Pairs → class',
+          title: 'Warmer: Food Banks',
           goal: 'Share what you know about food banks and the food they give.',
           blocks: [
             { type: 'talk', title: 'Talk with your partner', prompts: [
@@ -489,7 +489,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'l2', short: 'Vocabulary', minutes: 10, grouping: 'Alone → pair',
-          title: 'Key words before you listen',
+          title: 'Vocabulary',
           goal: 'Understand 12 words and expressions from the video.',
           blocks: [
             { type: 'steps', items: [
@@ -525,7 +525,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'l3', short: 'Gist', minutes: 5, grouping: 'Alone → pair',
-          title: 'Listen for gist: what is the problem?',
+          title: 'Listening for gist',
           goal: 'Understand the main problem with food banks in two short clips.',
           blocks: [
             { type: 'steps', items: [
@@ -545,8 +545,8 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'l4', short: 'Notes', minutes: 20, grouping: 'Alone → pair',
-          title: 'Listen for detail: take notes',
+          id: 'l4', short: 'Note-taking', minutes: 20, grouping: 'Alone → pair',
+          title: 'Listening for detail: Note-taking',
           goal: 'Take notes on the whole video, using the times and quotes to follow.',
           blocks: [
             { type: 'key', title: 'Use signposts to follow a long listening', points: [
@@ -594,8 +594,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'l5', short: 'Compare', minutes: 10, grouping: 'Alone → pair',
-          title: 'Summarise: compare the two models',
+          id: 'l5', short: 'Summarise', minutes: 10, grouping: 'Alone → pair',
+          title: 'Summarise/paraphrase',
           goal: 'Reorganise your notes to compare conventional and new food banks.',
           blocks: [
             { type: 'steps', items: [
@@ -622,7 +622,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'l6', short: 'Understanding', minutes: 20, grouping: 'Alone → pair',
-          title: 'Check your understanding',
+          title: 'Building understanding',
           goal: 'Answer detailed questions about the video and the speaker’s opinion.',
           blocks: [
             { type: 'steps', items: [
@@ -652,8 +652,8 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'l7', short: 'Language', minutes: 10, grouping: 'Pairs',
-          title: 'Language focus: can food banks solve these problems?',
+          id: 'l7', short: 'Language focus', minutes: 10, grouping: 'Pairs',
+          title: 'Language focus',
           goal: 'Use modal verbs and evaluative language to evaluate food banks.',
           blocks: [
             { type: 'steps', items: [
@@ -687,8 +687,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'l8', short: 'Decide', minutes: 15, grouping: 'Alone → pairs',
-          title: 'Criticality: you have money for one food bank',
+          id: 'l8', short: 'Criticality', minutes: 15, grouping: 'Alone → pairs',
+          title: 'Criticality',
           goal: 'Evaluate two models and justify your decision.',
           blocks: [
             { type: 'cards', title: 'The situation', items: [

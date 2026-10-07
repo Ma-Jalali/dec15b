@@ -22,13 +22,13 @@ window.DEC15_LESSON = {
     {
       id: 'mediate', number: '01', code: '7A', minutes: 120,
       tone: 'teal', art: 'reading',
-      title: 'Connect three sources',
-      subtitle: 'Mediation: Berti et al. (2021) + synthesising across texts',
+      title: 'Mediation',
+      subtitle: 'Connect three sources · Berti et al. (2021)',
       outcome: 'Read and take paraphrased notes, identify similarities and differences across texts, and complete a synthesised summary paragraph.',
       activities: [
         {
-          id: 'm1', short: 'Pop quiz', minutes: 10, grouping: 'Alone → pair',
-          title: 'Pop quiz: what do you remember?',
+          id: 'm1', short: 'Recap', minutes: 10, grouping: 'Alone → pair',
+          title: 'Recap',
           goal: 'Remember the main ideas from the first reading and the listening this week.',
           blocks: [
             { type: 'steps', items: [
@@ -51,8 +51,8 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'm2', short: 'Compare / contrast', minutes: 10, grouping: 'Pairs → class',
-          title: 'Words to compare and contrast texts',
+          id: 'm2', short: 'Academic skills', minutes: 10, grouping: 'Pairs → class',
+          title: 'Academic Skills: compare and contrast',
           goal: 'Collect language to show where sources agree and where they are different.',
           blocks: [
             { type: 'steps', items: [
@@ -82,7 +82,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'm3', short: 'Vocabulary', minutes: 10, grouping: 'Alone → pair',
-          title: 'Six key words before you read',
+          title: 'Vocabulary',
           goal: 'Understand and use six words from today’s reading.',
           blocks: [
             { type: 'steps', items: [
@@ -110,7 +110,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'm4', short: 'Gist', minutes: 10, grouping: 'Alone → pair',
-          title: 'Read the abstract: what is the “food paradox”?',
+          title: 'Reading for gist',
           goal: 'Understand the main idea of Berti et al. (2021) before you read in detail.',
           blocks: [
             { type: 'steps', items: [
@@ -131,8 +131,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'm5', short: 'Notes', minutes: 20, grouping: 'Alone → pair',
-          title: 'Read for detail and take paraphrased notes',
+          id: 'm5', short: 'Note-taking', minutes: 20, grouping: 'Alone → pair',
+          title: 'Reading for detail: Note-taking',
           goal: 'Take short notes in your own words under clear headings.',
           blocks: [
             { type: 'key', title: 'Paraphrased notes protect you from copying', points: [
@@ -178,8 +178,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'm6', short: 'Synthesis table', minutes: 30, grouping: 'Groups of 3',
-          title: 'Where do the three texts agree?',
+          id: 'm6', short: 'Synthesising table', minutes: 30, grouping: 'Groups of 3',
+          title: 'Building understanding across texts',
           goal: 'Identify similarities and differences across the three sources.',
           blocks: [
             { type: 'key', title: 'Same topic, different focus', points: [
@@ -224,8 +224,8 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'm7', short: 'Summary', minutes: 20, grouping: 'Pairs',
-          title: 'Complete a synthesised summary paragraph',
+          id: 'm7', short: 'Synthesising', minutes: 20, grouping: 'Pairs',
+          title: 'Synthesising',
           goal: 'Put the right references into a paragraph that connects all three texts.',
           blocks: [
             { type: 'steps', items: [
@@ -256,7 +256,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'm8', short: 'Contrast', minutes: 10, grouping: 'Pairs → alone',
-          title: 'What is being contrasted?',
+          title: 'Synthesising: what is being contrasted?',
           goal: 'Choose the right contrast word for the kind of difference you want to show.',
           blocks: [
             { type: 'steps', items: [
@@ -290,13 +290,13 @@ window.DEC15_LESSON = {
     {
       id: 'nouns', number: '02', code: '8A', minutes: 90,
       tone: 'plum', art: 'writing',
-      title: 'Write with nouns',
-      subtitle: 'Academic writing skills 2: nominalisation and complex noun phrases',
+      title: 'Academic writing skills 2',
+      subtitle: 'Write with nouns: nominalisation',
       outcome: 'Understand why nominalisation matters in academic writing, change verbs, adjectives or clauses into noun phrases, and unpack complex noun phrases to understand difficult texts.',
       activities: [
         {
-          id: 'n1', short: 'Noun game', minutes: 20, grouping: 'Pairs (mingle)',
-          title: 'Warm-up: guess the noun',
+          id: 'n1', short: 'Warmer', minutes: 20, grouping: 'Pairs (mingle)',
+          title: 'Warmer',
           goal: 'Find one academic noun that can replace a long explanation.',
           blocks: [
             { type: 'steps', items: [
@@ -343,7 +343,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'n2', short: 'What & why', minutes: 15, grouping: 'Pairs',
-          title: 'What is nominalisation, and why use it?',
+          title: 'What is nominalisation? Why use nominalisation?',
           goal: 'Notice how academic writers turn verbs and adjectives into nouns.',
           blocks: [
             { type: 'steps', items: [
@@ -370,7 +370,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'n3', short: 'How to', minutes: 25, grouping: 'Alone → pair',
-          title: 'How to nominalise',
+          title: 'How to nominalise?',
           goal: 'Change verbs and adjectives into nouns and rewrite sentences.',
           blocks: [
             { type: 'model', title: 'Compare: the new information is in bold', rows: [
@@ -414,7 +414,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'n4', short: 'Cause & effect', minutes: 15, grouping: 'Pairs',
-          title: 'Nominalisation in cause–effect chains',
+          title: 'Nominalisation with cause and effect chains',
           goal: 'Combine a cause and an effect into one academic sentence.',
           blocks: [
             { type: 'steps', items: [
@@ -446,7 +446,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'n5', short: 'Noun phrases', minutes: 15, grouping: 'Pairs',
-          title: 'Unpack complex noun phrases',
+          title: 'Complex noun phrases',
           goal: 'Find the head noun and the words before and after it.',
           blocks: [
             { type: 'figure', src: 'assets/week3/noun-phrase.svg', alt: 'Diagram of a noun phrase: pre-modifier, then HEAD NOUN, then post-modifier. Example: the significant contribution of food waste to food insecurity — “the significant” comes before, “contribution” is the head noun, “of food waste to food insecurity” comes after.', caption: 'A noun phrase has ONE head noun. Everything else describes it.' },
@@ -504,13 +504,13 @@ window.DEC15_LESSON = {
     {
       id: 'research', number: '03', code: '9A', minutes: 30,
       tone: 'amber', art: 'research',
-      title: 'Research solutions',
-      subtitle: 'Research skills applied: CRAAP, keywords and your action plan',
+      title: 'Research skills applied',
+      subtitle: 'Research solutions for Week 4',
       outcome: 'Revise research skills, review your action plan for conducting research, recall the CRAAP test, and brainstorm keyword searches for solutions in your region.',
       activities: [
         {
-          id: 'r1', short: 'Review', minutes: 8, grouping: 'Alone → pair',
-          title: 'Research skills review',
+          id: 'r1', short: 'Revision', minutes: 8, grouping: 'Alone → pair',
+          title: 'Research skills: Revision',
           goal: 'Remember the key research ideas from Weeks 1–2.',
           blocks: [
             { type: 'steps', items: [
@@ -535,8 +535,8 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'r2', short: 'CRAAP', minutes: 4, grouping: 'Pairs',
-          title: 'CRAAP questions for a solutions article',
+          id: 'r2', short: 'CRAAP Test', minutes: 4, grouping: 'Pairs',
+          title: 'CRAAP Test',
           goal: 'Remember the questions you ask to check a source.',
           blocks: [
             { type: 'steps', items: [
@@ -557,8 +557,8 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'r3', short: 'Action plan', minutes: 8, grouping: 'Alone',
-          title: 'Week 4 discussion: from causes to solutions',
+          id: 'r3', short: 'Task reminder', minutes: 8, grouping: 'Alone',
+          title: 'Task reminder · Self-regulation and monitoring: Action plan',
           goal: 'Understand the next task and improve how you research.',
           blocks: [
             { type: 'cards', title: 'The Research Summary Discussion', items: [
@@ -590,7 +590,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'r4', short: 'Keywords', minutes: 10, grouping: 'Research group',
-          title: 'Brainstorm keywords for solutions research',
+          title: 'Keywords for conducting research',
           goal: 'Make a list of keywords and synonyms to find a solutions article for your region.',
           blocks: [
             { type: 'steps', items: [
@@ -620,7 +620,7 @@ window.DEC15_LESSON = {
   extras: [
     {
       id: 'x1', short: 'Practice test', minutes: 60, grouping: 'Homework', category: 'Homework',
-      title: 'Listening and Reading Practice Assessment',
+      title: '10A Homework: Listening and Reading Practice Assessment',
       goal: 'Practise the Listening and Reading assessment before the real one.',
       blocks: [
         { type: 'steps', items: [
