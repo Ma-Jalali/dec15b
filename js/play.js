@@ -30,6 +30,15 @@ window.createDEC15Play = function ({ getState, save, rerender, esc, strip, icon,
   const seen = new Set();   // entrance animations play once per visit, not after every re-render
   const fresh = key => { const f = !seen.has(key); seen.add(key); return f ? ' anim' : ''; };
   const B = {};
+  /* a short burst of confetti for a perfect answer */
+  function confetti(from) {
+    if (reduce()) return;
+    const r = (from?.querySelector?.('.quiz-bar') || from)?.getBoundingClientRect?.() || { left: innerWidth / 2, top: innerHeight / 3, width: 0 }, box = document.createElement('div');
+    box.className = 'confetti'; box.setAttribute('aria-hidden', 'true');
+    const colors = ['#e3a843', '#2b776e', '#b0512a', '#3a58a0', '#7a4a8c', '#6fbf8b'];
+    for (let k = 0; k < 46; k++) { const i = document.createElement('i'); i.style.cssText = `left:${r.left + r.width / 2}px;top:${Math.max(40, r.top)}px;background:${colors[k % 6]};--dx:${(Math.random() - .5) * 520}px;--dy:${-140 - Math.random() * 260}px;--r:${Math.random() * 720 - 360}deg;animation-delay:${Math.random() * 90}ms`; box.appendChild(i); }
+    document.body.appendChild(box); setTimeout(() => box.remove(), 1700);
+  }
 
   /* ───────── flash: remember it, then write it ───────── */
   const words = s => strip(String(s)).toLowerCase().replace(/[“”"‘’'.,!?;:()…–—-]/g, ' ').split(/\s+/).filter(Boolean);
@@ -221,7 +230,7 @@ window.createDEC15Play = function ({ getState, save, rerender, esc, strip, icon,
   function onClick(t, d) {
     if (d.flashShow) { flashShow(d.flashShow); return true; }
     if (d.flashCheck) { if (!String(val(d.flashCheck)).trim()) { toast('Write the sentence first.'); return true; } st().checked[d.flashCheck] = true; save(); rerender();
-      const b = findBlock(d.flashCheck), hit = lcsHits(words(b.text), words(val(b.id))); if (hit.every(Boolean)) toast('Perfect memory — well done!'); return true; }
+      const b = findBlock(d.flashCheck), hit = lcsHits(words(b.text), words(val(b.id))); if (hit.every(Boolean)) { toast('Perfect memory — well done!'); confetti(document.getElementById('flash-' + b.id)); } return true; }
     if (d.flashReset) { delete st().checked[d.flashReset]; save(); rerender(); return true; }
     if (d.sortCard) { const i = Number(d.i), id = d.sortCard, zone = Number(t.closest('[data-sort-zone]')?.dataset.z ?? -1);
       // a card is selected and the student taps a card in another box: move the selected card to that box
@@ -230,7 +239,7 @@ window.createDEC15Play = function ({ getState, save, rerender, esc, strip, icon,
       rerender(); document.querySelector(`[data-sort-card="${CSS.escape(id)}"][data-i="${i}"]`)?.focus({ preventScroll: true }); return true; }
     if (d.sortCheck) { const b = findBlock(d.sortCheck), left = placeOf(b).filter(z => z < 0).length;
       if (left && !st().teacher) { toast(`Place every card first (${left} left).`); return true; }
-      st().checked[b.id] = true; save(); rerender(); if (placeOf(b).every((z, i) => isRight(b.items[i], z))) toast('All correct — brilliant!'); return true; }
+      st().checked[b.id] = true; save(); rerender(); if (placeOf(b).every((z, i) => isRight(b.items[i], z))) { toast('All correct — brilliant!'); confetti(document.getElementById('sort-' + b.id)); } return true; }
     if (d.sortReset) { delete st().checked[d.sortReset]; set(d.sortReset, ''); rerender(); return true; }
     if (d.sortSolve) { const b = findBlock(d.sortSolve); set(b.id, b.items.map(it => Array.isArray(it.answer) ? it.answer[0] : it.answer).join(',')); st().checked[b.id] = true; save(); rerender(); return true; }
     if (t.hasAttribute('data-flip')) { const on = !t.classList.contains('is-flipped'); t.classList.toggle('is-flipped', on); t.setAttribute('aria-pressed', String(on)); return true; }
@@ -259,5 +268,5 @@ window.createDEC15Play = function ({ getState, save, rerender, esc, strip, icon,
   document.addEventListener('dragover', e => { const z = e.target.closest?.('[data-sort-zone]'); if (!z || !dragCard || z.dataset.sortZone !== dragCard.id) return; e.preventDefault(); document.querySelectorAll('.drop-hover').forEach(x => x !== z && x.classList.remove('drop-hover')); z.classList.add('drop-hover'); });
   document.addEventListener('drop', e => { const z = e.target.closest?.('[data-sort-zone]'); if (!z || !dragCard || z.dataset.sortZone !== dragCard.id) return; e.preventDefault(); const c = dragCard; dragCard = null; sortMove(c.id, c.i, Number(z.dataset.z)); });
 
-  return { B, register, notebookItems, onClick, onInput };
+  return { B, register, notebookItems, onClick, onInput, confetti };
 };
