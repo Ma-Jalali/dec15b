@@ -5,7 +5,9 @@
    3. Below, change the day's status to 'ready' and list its files in `scripts`.
       `parts` are the Teacher’s Book lessons shown in the side panel — use the SAME code and name as the
       Teacher’s Book (e.g. '15A Discussion skills') so students can find them; `stages` are the matching
-      section ids (so a part can open its stage directly).
+      section ids (so a part can open its stage directly); `tones` are the stages’ colours
+      (the same `tone` as each section in the lesson file), so the side panel and the course map
+      show each lesson code in its colour before the day is opened.
    The id (e.g. 'w3d1') is used to save students' work: never change it after students start. */
 window.DEC15_COURSE = {
   code: 'DEC15',
@@ -27,7 +29,7 @@ window.DEC15_COURSE = {
       days: [
         { id: 'w2d5', day: 5, status: 'ready', title: 'From evidence to argument', art: 'writing',
           parts: ['16A Homework follow-up: AST: AI', '17A AST: Feedback literacy: Taking action', '18A AST: Criticality: Engaging with sources', '19A Academic writing skills workshop setup'],
-          stages: ['ai', 'feedback', 'critical', 'writing'],
+          stages: ['ai', 'feedback', 'critical', 'writing'], tones: ['amber', 'teal', 'blue', 'clay'],
           scripts: ['lessons/week2/sources.js', 'lessons/week2/video-script.js', 'lessons/week2/w2d5.js'] }
       ]
     },
@@ -39,23 +41,23 @@ window.DEC15_COURSE = {
       days: [
         { id: 'w3d1', day: 1, status: 'ready', title: 'Write your first argument essay', art: 'writing',
           parts: ['1A Writing an introduction', '1A Writing body paragraphs', '1A Writing a conclusion', '2A Academic writing skills 1'],
-          stages: ['intro', 'body', 'close', 'voices'],
+          stages: ['intro', 'body', 'close', 'voices'], tones: ['amber', 'teal', 'plum', 'green'],
           scripts: ['lessons/week3/sources.js', 'lessons/week3/w3d1.js'] },
         { id: 'w3d2', day: 2, status: 'ready', title: 'Reading and listening for solutions', art: 'reading',
           parts: ['4A Discussion: Potential solutions to food insecurity', '5A Reading to write', '6A Listening to write'],
-          stages: ['solve', 'read', 'listen'],
+          stages: ['solve', 'read', 'listen'], tones: ['amber', 'plum', 'teal'],
           scripts: ['lessons/week3/sources.js', 'lessons/week3/w3d2.js'] },
         { id: 'w3d3', day: 3, status: 'ready', title: 'Bringing sources together', art: 'research',
           parts: ['7A Mediation', '8A Academic writing skills 2', '9A Research skills applied'],
-          stages: ['mediate', 'nouns', 'research'],
+          stages: ['mediate', 'nouns', 'research'], tones: ['teal', 'plum', 'amber'],
           scripts: ['lessons/week3/sources.js', 'lessons/week3/w3d3.js'] },
         { id: 'w3d4', day: 4, status: 'ready', title: 'Practice assessment day', art: 'assessment',
           parts: ['11A AST Criticality: Engaging with sources', '12A Integrated Writing Practice Assessment', '13A Building rapport'],
-          stages: ['critical', 'iwa', 'rapport'],
+          stages: ['critical', 'iwa', 'rapport'], tones: ['teal', 'clay', 'amber'],
           scripts: ['lessons/week3/sources.js', 'lessons/week3/w3d4.js'] },
         { id: 'w3d5', day: 5, status: 'ready', title: 'Negotiate, work as a team, write better prompts', art: 'discussion',
           parts: ['15A Discussion skills', '16A AST: Group work skills', '17A AST: Digital Literacy and AI: Prompts', '18A Building rapport'],
-          stages: ['negotiate', 'teamwork', 'prompts', 'rapport'],
+          stages: ['negotiate', 'teamwork', 'prompts', 'rapport'], tones: ['teal', 'clay', 'blue', 'amber'],
           scripts: ['lessons/week3/sources.js', 'lessons/week3/w3d5.js'] }
       ]
     }
