@@ -225,3 +225,9 @@
   .play.anim, .chat.anim .msg, .sort-card.just-placed, .is-gone .flash-gone { animation: none !important; }
   .flip-inner, .flash-card, .flash-cover, .flash-gone { transition: none !important; }
 }
+
+/* confetti for a perfect answer */
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 90; overflow: hidden; }
+.confetti i { position: absolute; width: 8px; height: 12px; border-radius: 2px; animation: confetti 1.5s cubic-bezier(.2,.6,.3,1) forwards; }
+.confetti i:nth-child(3n) { width: 10px; height: 6px; border-radius: 50%; }
+@keyframes confetti { 0% { transform: translate(0, 0) rotate(0); opacity: 1; } 45% { transform: translate(calc(var(--dx) * .7), var(--dy)) rotate(calc(var(--r) * .5)); opacity: 1; } 100% { transform: translate(var(--dx), 360px) rotate(var(--r)); opacity: 0; } }

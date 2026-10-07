@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.13)
+DEC15 — COURSE APP (v2.14)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -140,3 +140,11 @@ NEW INTERACTIVE ACTIVITIES (v2.13, js/play.js + css/play.css) — first used in 
   contract       a group agreement that looks like a real document, with signatures and a stamp
   cards pick: '<id>'   students tap their favourite card;  checklist meter: [...]   progress bar
 All answers save like other activities and appear in My notebook and the exports.
+
+WEEK 3 DAY 5 — SHORTER AND LIGHTER (v2.14)
+15A now has 7 tabs instead of 10 (same 90 minutes): the Discussion sample and "Discussion skills:
+Negotiation" are one activity; the Week 4 task reminder and group check-in are one; self-regulation
+and the action plan are one. The written detective questions became quick multiple choice, and the
+brainstorm tables were removed (ideas are shared aloud). The notetaking template, the 5 summary steps
+and the summarising phrases moved to Extra (homework). 17A has 4 tabs ("What are prompts?" joined
+"What makes a good prompt?"). A perfect quiz, sort, order or memory game now ends with confetti.

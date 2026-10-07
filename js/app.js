@@ -897,11 +897,13 @@ document.addEventListener('click', e => {
     const b = allActivities.flatMap(a => a.blocks).find(x => x.id === d.quizCheck);
     const missing = b.items.filter((_, i) => !val(b.id + '-' + i)).length;
     if (missing && !state.teacher) { toast(`Answer all the questions first (${missing} left).`); return; }
-    state.checked[b.id] = true; save(); rerender(); return;
+    state.checked[b.id] = true; save(); rerender();
+    if (b.items.every((q, i) => val(b.id + '-' + i) === q.answer)) { toast('All correct — well done!'); play?.confetti(document.getElementById('quiz-' + b.id)); }
+    return;
   }
   if (d.order) { const i = Number(d.from); commitOrder(d.order, i, i + Number(d.dir)); return; }
   if (d.orderCheck) { const b = orderBlock(d.orderCheck), o = orderOf(b); state.values[b.id] = o.join(','); state.checked[b.id] = true; save(); rerender();
-    if (o.every((x, i) => x === i)) toast('Perfect order — well done!'); return; }
+    if (o.every((x, i) => x === i)) { toast('Perfect order — well done!'); play?.confetti(document.getElementById('order-' + b.id)); } return; }
   if (d.orderSolve) { const b = orderBlock(d.orderSolve), before = new Map(orderCards(b.id).map(el => [el.dataset.x, el.getBoundingClientRect().top]));
     state.values[b.id] = b.items.map((_, i) => i).join(','); state.checked[b.id] = true; save(); rerender();
     if (!reduceMotion()) orderCards(b.id).forEach(el => { const dy = before.get(el.dataset.x) - el.getBoundingClientRect().top; if (dy) el.animate([{ transform: `translateY(${dy}px)` }, { transform: 'none' }], { duration: 520, easing: 'cubic-bezier(.2,.7,.2,1)', delay: Number(el.dataset.x) * 40, fill: 'backwards' }); });

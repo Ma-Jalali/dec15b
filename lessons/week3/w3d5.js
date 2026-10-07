@@ -51,9 +51,9 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'n2', short: 'Discussion sample', minutes: 15, grouping: 'Alone → pair',
-          title: 'Discussion sample',
-          goal: 'Follow the negotiation stage of a Research Summary Discussion.',
+          id: 'n2', short: 'Sample + negotiation', minutes: 20, grouping: 'Alone → pair',
+          title: 'Discussion sample · Discussion skills: Negotiation',
+          goal: 'Listen to students negotiate — then name the four skills they use.',
           blocks: [
             { type: 'key', title: 'Step 5 of the Research Summary Discussion (15 minutes)', points: [
               '<b>Part 1:</b> discuss your response to a <b>quote</b> from one of the readings, with examples from your research.',
@@ -76,25 +76,17 @@ window.DEC15_LESSON = {
               { q: 'What do the speakers say about the three options (problems) from the question?', options: ['they are all interlinked (connected)', 'they all have the same solution', 'they should be addressed in isolation'], answer: 'they are all interlinked (connected)', why: '“Environmental damage, animal welfare, and health issues are all critical and interlinked aspects of modern agriculture.”' },
               { q: 'Which consequence do they finally choose as the most serious?', options: ['health problems', 'environmental damage', 'animal rights violations'], answer: 'environmental damage', why: '“Environmental damage is the most serious consequence of the modern agricultural production system.”' }
             ]},
-            { type: 'teacher', text: 'The recording is on Canvas only — play it from there. Remind Ss of the Step 5 instructions; today we hear only the ‘Negotiation’ part. This sample (modern agricultural production) is NOT their research topic. Give Ss time to read the questions and predict (the prediction poll) before you play. Let them compare before playing again. Answers: 1 animal rights violations · 2 eat less meat · 3 because it’s the focus of next week’s discussion · 4 The Netherlands and the UK · 5 air pollution from factories · 6 they are all interlinked · 7 environmental damage. (Q3 option text in the TB reads “the focus next week’s discussion”; “of” added.)' }
-          ]
-        },
-        {
-          id: 'n3', short: 'Negotiation', minutes: 5, grouping: 'Pairs',
-          title: 'Discussion skills: Negotiation',
-          goal: 'Understand what negotiation means in an academic discussion.',
-          blocks: [
-            { type: 'talk', title: 'Talk with your partner (2 min)', prompts: [
-              'What does the word <b>negotiation</b> mean? (You can look it up.)',
-              'What do students <b>do</b> when they negotiate in an academic discussion?'
+            { type: 'teacher', text: 'The recording is on Canvas only — play it from there. Remind Ss of the Step 5 instructions; today we hear only the ‘Negotiation’ part. This sample (modern agricultural production) is NOT their research topic. Give Ss time to read the questions and predict (the prediction poll) before you play. Let them compare before playing again. Answers: 1 animal rights violations · 2 eat less meat · 3 because it’s the focus of next week’s discussion · 4 The Netherlands and the UK · 5 air pollution from factories · 6 they are all interlinked · 7 environmental damage. (Q3 option text in the TB reads “the focus next week’s discussion”; “of” added.)' },
+            { type: 'talk', title: 'Discussion skills: Negotiation — talk with your partner (2 min)', prompts: [
+              'What does the word <b>negotiation</b> mean?',
+              'What did the students in the recording <b>do</b> to negotiate?'
             ]},
-            { type: 'fields', fields: [{ id: 'n3-1', label: 'Negotiation means… In a discussion, students…', placeholder: 'Negotiation is … Students ask … they give … they …', rows: 2 }] },
-            { type: 'figure', src: 'assets/week3/negotiation-skills.svg', alt: 'Four negotiation skills: 1 ask for clarification (“So, you’re saying that…?”), 2 ask for opinions and justification (“Why are you so firm with that choice?”), 3 give and justify opinions (“For me, … because…”), 4 build on others’ contributions (“Like you said before about…”). Together they build shared understanding.', caption: 'Today’s four skills for negotiation' },
-            { type: 'teacher', text: 'Ss can look up ‘negotiation’, but they need to think about how it applies to an academic discussion. Tell Ss they will look at techniques and language for negotiation today and next week.' }
+            { type: 'figure', src: 'assets/week3/negotiation-skills.svg', alt: 'Four negotiation skills: 1 ask for clarification (“So, you’re saying that…?”), 2 ask for opinions and justification (“Why are you so firm with that choice?”), 3 give and justify opinions (“For me, … because…”), 4 build on others’ contributions (“Like you said before about…”). Together they build shared understanding.', caption: 'Today’s four skills for negotiation — you practise each one next' },
+            { type: 'teacher', text: 'Discussion skills: Negotiation (5 min, TB): Ss can look up ‘negotiation’, but they need to think about how it applies to an academic discussion. Tell Ss they will look at techniques and language for negotiation today and next week.' }
           ],
-          answers: { items: [
+          answers: { title: 'Negotiation', items: [
             ['Meaning', 'The process of discussing something with someone and trying to reach an agreement.'],
-            ['What students do', 'Clarify and understand different perspectives (ask open questions, summarise the other person’s view, confirm understanding) · establish common ground (shared values, objectives or interests) · respectfully address differences (use evidence, stay open to counterarguments) · propose and explore solutions (suggest and evaluate alternatives, hypothesise outcomes) · make concessions and compromise · reflective discussion.']
+            ['What students do', 'Clarify and understand different perspectives · establish common ground · respectfully address differences (use evidence, stay open to counterarguments) · propose and explore solutions · make concessions and compromise · reflective discussion.']
           ]}
         },
         {
@@ -115,12 +107,12 @@ window.DEC15_LESSON = {
               ['Student 5', 'Yeah, that’s a good example, Mark.'],
               ['Student 4', 'Well, in addition to those types of diseases, another issue that affects human health is the use of antibiotics in livestock, which can lead to antibiotic resistance']
             ]},
-            { type: 'fields', title: 'Be the detective (read the extracts aloud with a partner)', fields: [
-              { id: 'n4-1', label: '1. How does Student 5 clarify what Student 1 means in Extract 1?', placeholder: 'Student 5 says … and then …', rows: 1 },
-              { id: 'n4-2', label: '2. Extract 2: which difficult word don’t 2 students know? What does it mean?', placeholder: 'The word is … It means …', rows: 1 },
-              { id: 'n4-3', label: '3. How do the students check the meaning of unusual, technical terms?', placeholder: 'They ask … and then …', rows: 1 },
-              { id: 'n4-4', label: '4. How does Student 4 avoid using the difficult expression without stopping the discussion?', placeholder: 'He replaces … with …', rows: 1 },
-              { id: 'n4-5', label: '5. Why do you think Student 4 does this?', placeholder: 'Maybe …', rows: 1 }
+            { type: 'quiz', id: 'n4q', title: 'Be the detective: read the extracts aloud with a partner, then choose', items: [
+              { q: '1. How does Student 5 clarify what Student 1 means in Extract 1?', options: ['Says “So, you’re saying that…?” and paraphrases', 'Asks Student 1 to repeat everything', 'Changes the topic'], answer: 'Says “So, you’re saying that…?” and paraphrases', why: 'The student says “So, you’re saying that…” and then paraphrases the other speaker.' },
+              { q: '2. In Extract 2, which difficult word don’t 2 students know?', options: ['zoonotic', 'livestock', 'antibiotic'], answer: 'zoonotic', why: '<b>Zoonotic</b> (diseases) = infectious diseases that can be transmitted from animals to humans.' },
+              { q: '3. How do the students check the meaning of unusual, technical terms?', options: ['Ask “What are…?”, then try an example', 'Look it up on their phones', 'Ignore the word'], answer: 'Ask “What are…?”, then try an example', why: '“What are zoonotic diseases?” … “Do you mean like bird flu?”' },
+              { q: '4. How does Student 4 avoid using the difficult expression without stopping the discussion?', options: ['Says “those types of diseases”', 'Spells the word slowly', 'Asks the teacher'], answer: 'Says “those types of diseases”', why: 'He replaces (paraphrases) “zoonotic diseases” with “those types of diseases”.' },
+              { q: '5. Why do you think Student 4 does this?', options: ['Maybe he can’t remember or pronounce the word', 'He wants to end the discussion', 'He disagrees with Student 5'], answer: 'Maybe he can’t remember or pronounce the word', why: 'Paraphrasing keeps the discussion moving.' }
             ]},
             { type: 'language', title: 'Clarification language', groups: [
               { label: 'Asking for a definition', phrases: ['What is/are…? (recording)', 'What does (X) mean?', 'How would you define (X)?'] },
@@ -140,13 +132,6 @@ window.DEC15_LESSON = {
             ]},
             { type: 'teacher', text: 'You might choose Ss to read the extracts aloud. Check Q1 together before moving on; Ss can do Qs 2–5 with a partner. Activity 2: in the TB, Student A looks up the definition (in English); here the definitions are on the back of each card — make sure each student turns over only their own two cards. To extend, add more difficult words or ask Ss to think of their own. Definitions: wobbegong — a flat-looking type of shark found in shallow, temperate and tropical waters around Australia · billabong — a stagnant pool that’s formed after a river changes its course · the outback — the vast, remote, dry interior of Australia · lamingtons — square-shaped sponge cakes coated in a layer of chocolate icing and desiccated coconut.' }
           ],
-          answers: { items: [
-            ['1', 'The student says “So, you’re saying that…” and then paraphrases the other speaker.'],
-            ['2', '<b>Zoonotic</b> (diseases) = infectious diseases that can be transmitted from animals to humans.'],
-            ['3', 'Asks “What are…?” and then tries to think of an example to check (“Do you mean like bird flu?”).'],
-            ['4', 'He replaces (paraphrases) the phrase “zoonotic diseases” with “those types of diseases”.'],
-            ['5', 'Maybe he can’t remember the word or can’t pronounce it.']
-          ]}
         },
         {
           id: 'n5', short: 'Opinions', minutes: 10, grouping: 'Pairs → group',
@@ -171,14 +156,9 @@ window.DEC15_LESSON = {
               { text: 'D. That’s why I still feel that…', answer: 2 },
               { text: 'A. I think it’s fair because…', answer: 1 }
             ]},
-            { type: 'talk', title: 'Discuss', prompts: [
+            { type: 'talk', title: 'Quick talk', prompts: [
               'Which phrase does <b>not</b> make a strong argument? How could you improve it?',
-              '<b>Brainstorm</b> other phrases to ask for and give opinions. Your teacher adds them to the class list — add your favourites below.'
-            ]},
-            { type: 'table', id: 'n5t', title: 'My phrases: giving opinions', columns: ['Function', 'My phrases'], fixed: [
-              'Giving and justifying opinions',
-              'Asking for opinions',
-              'Asking for justification'
+              'Can you think of one more phrase to ask for an opinion? Tell the class — your teacher adds it to the class list.'
             ]},
             { type: 'spinner', id: 'n5sp', title: 'Spin and speak: “Australia has some of the best and most interesting animals in the world.”', text: 'Spin. Use the animal and the move in your answer. Express yourself fully — <b>opinion + reason + example</b>. Then pass the turn.', reels: [
               { label: 'Animal', start: 'Spin!', items: ['platypus', 'wombat', 'frilled-neck lizard', 'blue-tongue lizard', 'cassowary', 'echidna', 'dugong', 'quokka', 'wobbegong', 'an animal from your country'] },
@@ -212,12 +192,6 @@ window.DEC15_LESSON = {
               { text: '5) Well, all these points show that while the specifics might vary, the underlying issues are quite similar across different regions.', answer: 4, why: '“Well, all these points show that…”' },
               { text: '6) Yeah, you’re right. It’s clear that all these consequences are serious.', answer: [3, 4], why: '“Yeah, you’re right” agrees; “It’s clear that…” summarises (D/E).' }
             ]},
-            { type: 'table', id: 'n6t', title: 'Brainstorm: my phrases for building on others’ contributions', columns: ['Function', 'My phrases'], fixed: [
-              'Refer back + add an explanation or a similar example',
-              'Agree or give an opposing point',
-              'Comment on the significance of an idea',
-              'Summarise the previous contributions'
-            ]},
             { type: 'spinner', id: 'n6sp', title: 'Respond in four ways', text: '<b>Student A</b> gives an opinion on the statement for about 1 minute. <b>Student B</b> spins “Respond by…” and answers — do all four ways, one by one. Then swap.', reels: [
               { label: 'Statement', start: 'Spin!', items: ['Sydney is the best city in the world.', 'It’s easy and cheap to eat healthy food.'] },
               { label: 'Respond by…', start: '…', items: ['adding an explanation or a similar example', 'giving an opposing point', 'agreeing + commenting on the significance', 'summarising'] }
@@ -239,39 +213,18 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'n7', short: 'Task reminder', minutes: 5, grouping: 'Whole class',
-          title: 'Week 4 Research Summary Discussion: Task reminder',
-          goal: 'Know what to prepare for next week — and how to take notes.',
+          id: 'n7', short: 'Week 4 check-in', minutes: 15, grouping: 'Research group',
+          title: 'Week 4 Research Summary Discussion: Task reminder · Group check-in',
+          goal: 'Know what to prepare for next week, and make sure your group has three different, reliable articles.',
           blocks: [
             { type: 'key', title: 'Next week: a new article, a new focus', compare: [
               { label: 'WEEK 2', text: '<b>Causes and effects</b> of food insecurity in a certain region.' },
               { label: 'WEEK 4', text: '<b>Solutions</b> to food insecurity in a certain region — already implemented or suggested.' }
             ], points: ['<b>Step 2:</b> each student prepares a <b>2-minute verbal summary</b> of their source (main ideas and highlights) to share with the other two members of the group in class.'] },
-            { type: 'fields', title: 'Notetaking template (optional — use it at home, or use your own technique)', fields: [
-              { id: 'n7-1', label: 'Article title · Authors · Year of publication · Link', placeholder: 'Title: … Authors: … Year: … Link: …', rows: 2 },
-              { id: 'n7-2', label: 'Overview · Reason for choosing', placeholder: 'This article is about … I chose it because …', rows: 2 },
-              { id: 'n7-3', label: 'Method for research', placeholder: 'The authors surveyed / interviewed / analysed …', rows: 1 },
-              { id: 'n7-4', label: 'Main topics → sub-topics → supporting ideas', placeholder: '- (Main topic)\n   (Sub-topic)\n   (supporting idea, if relevant)\n- …', rows: 4 }
-            ]},
-            { type: 'teacher', text: 'Task reminder (2–3 min): direct Ss to the full task instructions on the assessment overview page if they have questions. Notetaking template (1–2 min): no need to do anything with it in class — they can use it or their own technique; it is a good idea to try different note-taking techniques.' }
-          ]
-        },
-        {
-          id: 'n9', short: 'Group check-in', minutes: 10, grouping: 'Research group',
-          title: 'Group check-in',
-          goal: 'Make sure your group has three different, reliable articles.',
-          blocks: [
             { type: 'steps', items: [
               { who: 'group', text: 'Sit with your <b>research group</b>. Say the names of your articles. Same article? Someone must find a <b>new source</b>.' },
-              { who: 'group', text: 'Each person explains in 30 seconds why their source passes the <b>CRAAP test</b>.' },
-              { who: 'group', text: 'Tick the checklist together. Green bar = your group is ready.' }
-            ]},
-            { type: 'talk', title: 'Does my source pass the CRAAP test?', prompts: [
-              '<b>Currency:</b> When was it published?',
-              '<b>Relevance:</b> Is it about solutions in our region?',
-              '<b>Authority:</b> Who wrote it? Are they qualified?',
-              '<b>Accuracy:</b> Is it supported by evidence?',
-              '<b>Purpose:</b> Why was it written — to inform, persuade or sell?'
+              { who: 'group', text: 'Each person says in 30 seconds why their source passes the <b>CRAAP test</b> (Currency · Relevance · Authority · Accuracy · Purpose).' },
+              { who: 'group', text: 'Tick the checklist together. Can you get the bar to green?' }
             ]},
             { type: 'checklist', id: 'n9c', title: 'Our group check-in', meter: ['ready', 'Your group is ready for Week 4!'], items: [
               'We have three different articles (no overlap).',
@@ -279,13 +232,14 @@ window.DEC15_LESSON = {
               'Everyone has done a CRAAP test.',
               'Everyone knows when the summary must be ready.'
             ]},
-            { type: 'teacher', text: 'If articles overlap, decide who finds a new one (a volunteer, a back-up, or toss a coin). The CRAAP test is about the habit of evaluating sources. If a student has NOT found an article and/or done the CRAAP test, remind them they must find and summarise it for next week.' }
+            { type: 'tip', text: 'A notetaking template for your summary is in <b>Extra</b> (homework).' },
+            { type: 'teacher', text: 'Group check-in (10 min): if articles overlap, decide who finds a new one (a volunteer, a back-up, or toss a coin). If a student has NOT found an article and/or done the CRAAP test, remind them they must find and summarise it for next week. Task reminder (2–3 min): direct Ss to the full task instructions on the assessment overview page if they have questions. Notetaking template (1–2 min): now in Extra — show it; Ss can use it or their own technique.' }
           ]
         },
         {
-          id: 'n8', short: 'Self-regulation', minutes: 5, grouping: 'Alone',
-          title: 'Self-regulation and monitoring',
-          goal: 'Check how confident you were with the research step this time.',
+          id: 'n8', short: 'Reflect & plan', minutes: 15, grouping: 'Alone → group',
+          title: 'Self-regulation and monitoring · Action plan for further improvement',
+          goal: 'Check your research skills, then plan a better summary than last time.',
           blocks: [
             { type: 'steps', items: [
               { who: 'alone', text: 'Open your <b>DEC 15 Research Summary Discussion self-reflection form</b>. Scroll to <b>Week 3–4</b>.' },
@@ -297,46 +251,22 @@ window.DEC15_LESSON = {
               'Did you feel more confident using the CRAAP test?',
               'Do you feel prepared to independently evaluate sources for future assignments?'
             ]},
-            { type: 'fields', fields: [{ id: 'n8-3', label: 'Comments · Action plan for further improvement', placeholder: 'Comments: … Action plan: always …', rows: 2 }] },
+            { type: 'steps', title: 'Action plan for further improvement', items: [
+              { who: 'alone', text: 'In the form, scroll up to <b>Week 1–2</b>. Look at your plan for <b>‘Summarising research’</b>. Answer a) and b).' },
+              { who: 'group', text: 'Share one problem and one strategy with your group. <b>Steal a good idea!</b>' }
+            ]},
+            { type: 'fields', fields: [
+              { id: 'n8-1', label: 'a) What issues did I encounter last time?', placeholder: 'Last time I …', rows: 1 },
+              { id: 'n8-2', label: 'b) How can I improve the notetaking and summarising process?', placeholder: 'This time I will …', rows: 1 }
+            ]},
             { type: 'teacher', text: 'Before the lesson, check Ss completed yesterday’s homework (self-reflection on the practice Interactive Writing Assessment) — they need it again in W4 D5. Check Ss understand the questions and give examples. Q1 Comments = ‘much easier than last time’; Action plan = ‘always brainstorm keywords before beginning research’. Q2 Comments = ‘There were a lot more search results this time, so it was difficult to choose’; Action plan = ‘pay close attention to article/text titles and skim read journal abstracts where possible’. Ss can finish at home. Make sure Ss download and save the document. Alternative: a Google Doc in your class group page.' }
           ],
           answers: { title: 'Examples', items: [
             ['Q1 (example)', 'Comments: much easier than last time. · Action plan: always brainstorm keywords before beginning research.'],
-            ['Q2 (example)', 'Comments: there were a lot more search results this time, so it was difficult to choose. · Action plan: pay close attention to article/text titles and skim read journal abstracts where possible.']
-          ]}
-        },
-        {
-          id: 'n10', short: 'Action plan', minutes: 10, grouping: 'Alone → group',
-          title: 'Action plan for further improvement',
-          goal: 'Plan how to make your Week 4 summary better than your Week 2 one.',
-          blocks: [
-            { type: 'steps', items: [
-              { who: 'alone', text: 'In the form, scroll up to <b>Week 1–2</b>. Look at your action plan for <b>‘Summarising research’</b>.' },
-              { who: 'alone', text: 'Answer the two questions below.' },
-              { who: 'group', text: 'Share one problem and one strategy with your group. <b>Steal a good idea!</b> Ask your teacher if you have questions.' }
-            ]},
-            { type: 'fields', fields: [
-              { id: 'n8-1', label: 'a) What issues did I encounter last time?', placeholder: 'Last time I …', rows: 2 },
-              { id: 'n8-2', label: 'b) How can I improve the notetaking and summarising process?', placeholder: 'This time I will …', rows: 2 }
-            ]},
-            { type: 'order', id: 'n8o', title: 'After class: put the 5 steps of your summary in order', items: ['Introduce the source', 'Say why you chose the source', 'Introduce research methods', 'Introduce the main points of the source', 'Final comment on the source'] },
-            { type: 'language', title: 'Phrases for summarising a source (W2 D1. 1A Discussion Skills 1)', groups: [
-              { label: '1) Introducing the source', phrases: ['I found this great article called…', 'In my research I found an interesting source called…', 'The article is about…', 'It was written by… in…', 'The article I came across in my research was about….'] },
-              { label: '2) Saying why you chose the source', phrases: ['I chose this article because it provides a comprehensive look at…', 'This article is relevant for our research because….', 'I thought this article looked like the most interesting one to read', 'I selected this article because I wanted to learn more about…'] },
-              { label: '3) Introducing research methods', phrases: ['The authors surveyed 500 residents of…', 'The article included data collected in experiments…', 'In the study they conducted…', 'To gather data, they conducted a questionnaire…'] },
-              { label: '4) Introducing the main points of the source', phrases: ['The article begins by explaining that…', 'And according to Garnett and Simmons…', 'Another interesting point from the article was that…', 'They also state that…', 'Interestingly, my article points out that…', 'So basically, (authors’ names) assert that…', 'The authors suggest that…'] },
-              { label: '5) Final comment on the source', phrases: ['So, that’s the gist of what the article covered.', 'Ultimately, this article contributes significantly to our understanding of the topic', 'For me, it really sheds light on the complexity of the issues.', 'Overall, it was a really interesting and comprehensive study.'] }
-            ]},
-            { type: 'steps', title: 'After class', items: [
-              { who: 'alone', text: 'Prepare your <b>2-minute verbal summary</b> of your source to share with your research group next week.' },
-              { who: 'alone', text: 'Revise the 5 steps and the phrases above (Language reference, W2 D1. 1A Discussion Skills 1).' }
-            ]},
-            { type: 'teacher', text: 'Ss look at this individually, then discuss with a partner or their group, sharing strategies. If they have not saved their previous self-reflection document, ask them to download a new one and think back about their experience.' }
-          ],
-          answers: { title: 'Example', items: [
+            ['Q2 (example)', 'Comments: there were a lot more search results this time, so it was difficult to choose. · Action plan: pay close attention to article/text titles and skim read journal abstracts where possible.'],
             ['Summarising (example)', 'Issue: I read from my notes too much. · Strategy: write key words only, and practise my 2-minute summary aloud with a timer twice.']
           ]}
-        }
+        },
       ]
     },
 
@@ -516,26 +446,18 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'p2', short: 'What are prompts?', minutes: 5, grouping: 'Whole class',
-          title: 'What are prompts?',
-          goal: 'Understand what a prompt is and why a clear one matters.',
+          id: 'p3', short: 'Good prompt?', minutes: 20, grouping: 'Pairs',
+          title: 'What are prompts? · What makes a good prompt?',
+          goal: 'See what a prompt is, judge five prompts, then learn the 4 parts of a good prompt.',
           blocks: [
             { type: 'key', title: 'A prompt = your instructions to an AI tool', points: [
-              '<b>Prompts are instructions:</b> they tell the AI what to do or what to talk about. They can be a question, a statement or a creative idea.',
-              'Prompts are usually <b>open-ended</b>: you can ask the AI to explain a concept, solve a problem, or generate ideas. <b>The better your prompt, the better the AI’s response will be.</b>'
+              'A question, a statement or a creative idea that tells the AI what to do. <b>The better your prompt, the better the AI’s response.</b>'
             ]},
             { type: 'key', title: 'Weak or strong?', compare: [
               { label: 'WEAK', text: 'Too vague — the AI might not know what kind of information you need.', eg: '“Tell me about food waste.”' },
               { label: 'STRONG', text: 'Clear and specific — the AI can give a focused, useful response.', eg: '“Explain three ways to reduce food waste at home, with examples for each.”' }
             ]},
-            { type: 'teacher', text: 'Keep this short (TB note): avoid spending too much time on ‘What are prompts’ and ‘What makes a good prompt’ — give students more time to practise writing their own.' }
-          ]
-        },
-        {
-          id: 'p3', short: 'Good prompt?', minutes: 15, grouping: 'Pairs',
-          title: 'What makes a good prompt?',
-          goal: 'Judge five prompts, then learn the 4 parts of a good prompt.',
-          blocks: [
+
             { type: 'key', title: 'Tips for good prompting', points: [
               '<b>Be clear:</b> instructions that are easy to understand. Instead of “Tell me about recycling,” say “Explain how recycling helps the environment, with three examples.”',
               '<b>Be specific:</b> the AI makes assumptions if you don’t explain (vegetarian? quick? budget-friendly?). <b>Use the AI’s conversation feature:</b> refine your prompt or ask follow-up questions.'
@@ -659,7 +581,7 @@ window.DEC15_LESSON = {
       goal: 'Practise your Week 4 summary aloud and time it.',
       blocks: [
         { type: 'steps', items: [
-          { who: 'alone', text: 'Make <b>key-word notes</b> for the 5 steps (use the notetaking template in 15A).' },
+          { who: 'alone', text: 'Make <b>key-word notes</b> for the 5 steps — use the notetaking template at the bottom.' },
           { who: 'alone', text: 'Say your summary aloud with a timer. Record yourself on your phone if you can.' },
           { who: 'alone', text: 'Listen back. Tick the checklist. Then try once more.' }
         ]},
@@ -671,7 +593,21 @@ window.DEC15_LESSON = {
           'I finished with a final comment.',
           'I spoke from key words, not from full sentences.'
         ]},
-        { type: 'fields', fields: [{ id: 'x1-1', label: 'My time and one thing to improve', placeholder: 'Time: … Next time I will …', rows: 2 }] }
+        { type: 'fields', fields: [{ id: 'x1-1', label: 'My time and one thing to improve', placeholder: 'Time: … Next time I will …', rows: 2 }] },
+            { type: 'order', id: 'n8o', title: 'Put the 5 steps of your summary in order', items: ['Introduce the source', 'Say why you chose the source', 'Introduce research methods', 'Introduce the main points of the source', 'Final comment on the source'] },
+            { type: 'language', title: 'Phrases for summarising a source (W2 D1. 1A Discussion Skills 1)', groups: [
+              { label: '1) Introducing the source', phrases: ['I found this great article called…', 'In my research I found an interesting source called…', 'The article is about…', 'It was written by… in…', 'The article I came across in my research was about….'] },
+              { label: '2) Saying why you chose the source', phrases: ['I chose this article because it provides a comprehensive look at…', 'This article is relevant for our research because….', 'I thought this article looked like the most interesting one to read', 'I selected this article because I wanted to learn more about…'] },
+              { label: '3) Introducing research methods', phrases: ['The authors surveyed 500 residents of…', 'The article included data collected in experiments…', 'In the study they conducted…', 'To gather data, they conducted a questionnaire…'] },
+              { label: '4) Introducing the main points of the source', phrases: ['The article begins by explaining that…', 'And according to Garnett and Simmons…', 'Another interesting point from the article was that…', 'They also state that…', 'Interestingly, my article points out that…', 'So basically, (authors’ names) assert that…', 'The authors suggest that…'] },
+              { label: '5) Final comment on the source', phrases: ['So, that’s the gist of what the article covered.', 'Ultimately, this article contributes significantly to our understanding of the topic', 'For me, it really sheds light on the complexity of the issues.', 'Overall, it was a really interesting and comprehensive study.'] }
+            ]},
+        { type: 'fields', title: 'Notetaking template (optional — or use your own technique)', fields: [
+          { id: 'n7-1', label: 'Article title · Authors · Year of publication · Link', placeholder: 'Title: … Authors: … Year: … Link: …', rows: 2 },
+          { id: 'n7-2', label: 'Overview · Reason for choosing', placeholder: 'This article is about … I chose it because …', rows: 2 },
+          { id: 'n7-3', label: 'Method for research', placeholder: 'The authors surveyed / interviewed / analysed …', rows: 1 },
+          { id: 'n7-4', label: 'Main topics → sub-topics → supporting ideas', placeholder: '- (Main topic)\n   (Sub-topic)\n   (supporting idea, if relevant)\n- …', rows: 4 }
+        ]}
       ]
     },
     {
