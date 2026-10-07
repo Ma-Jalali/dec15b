@@ -97,7 +97,9 @@ const ICON = {
   lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
   sprout: '<path d="M12 20v-8m0 0c0-4-3-6-7-6 0 4 3 6 7 6zm0-2c0-4 3-6 7-6 0 4-3 6-7 6z"/>',
   smile: '<circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1.3 2.2 2 3.5 2s2.5-.7 3.5-2M9 9.5h.01M15 9.5h.01"/>',
-  share: '<path d="M12 15V4m-4 4 4-4 4 4M5 13v6h14v-6"/>'
+  share: '<path d="M12 15V4m-4 4 4-4 4 4M5 13v6h14v-6"/>',
+  grip: '<circle cx="9" cy="6" r="1.3"/><circle cx="15" cy="6" r="1.3"/><circle cx="9" cy="12" r="1.3"/><circle cx="15" cy="12" r="1.3"/><circle cx="9" cy="18" r="1.3"/><circle cx="15" cy="18" r="1.3"/>',
+  undo: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>'
 };
 const icon = (n, c = '') => `<svg class="icon ${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[n] || ICON.book}</svg>`;
 
@@ -237,18 +239,92 @@ function orderOf(b) {
   return Array.from({ length: n }, (_, i) => n < 3 ? n - 1 - i : (i * k + 1) % n);   // a fixed mix, never the answer
 }
 B.order = b => {
-  const o = orderOf(b), checked = state.checked[b.id], right = o.filter((x, i) => x === i).length;
-  return `<section class="block order" id="order-${b.id}">
+  const o = orderOf(b), n = o.length, checked = state.checked[b.id], right = o.filter((x, i) => x === i).length, perfect = checked && right === n;
+  const label = strip(b.title || 'Put in order');
+  return `<section class="block order${checked ? ' is-checked' : ''}${perfect ? ' is-perfect' : ''}" id="order-${b.id}">
   ${b.title ? `<h3 class="block-heading">${icon('list')}${b.title}</h3>` : ''}
+  <p class="order-hint">${icon('grip')}<span><b>Drag</b> a card up or down<span class="order-touch"> by its dotted grip</span> to change the order. You can also use the arrows<span class="order-kbd">, or select a card and press <kbd>Space</kbd> then <kbd>↑</kbd> <kbd>↓</kbd></span>.</span></p>
   ${b.ends ? `<p class="order-end order-top">${icon('arrow')}${esc(b.ends[0])}</p>` : ''}
-  <ol class="order-list">${o.map((x, i) => `<li class="order-item${checked ? (x === i ? ' is-right' : ' is-wrong') : ''}"><span class="order-pos">${i + 1}</span><span class="order-text">${b.items[x]}</span>
-    <span class="order-move"><button type="button" data-order="${b.id}" data-from="${i}" data-dir="-1" aria-label="Move up"${i ? '' : ' disabled'}>${icon('arrow')}</button><button type="button" data-order="${b.id}" data-from="${i}" data-dir="1" aria-label="Move down"${i < o.length - 1 ? '' : ' disabled'}>${icon('arrow')}</button></span>
-    ${checked && x !== i ? `<span class="order-should">Should be ${x + 1}</span>` : ''}</li>`).join('')}</ol>
+  <ol class="order-list" data-order-list="${b.id}" aria-label="${esc(label)}">${o.map((x, i) => `<li class="order-item${checked ? (x === i ? ' is-right' : ' is-wrong') : ''}" data-x="${x}" style="--i:${i}" tabindex="0" aria-roledescription="movable card" aria-label="Position ${i + 1} of ${n}: ${esc(strip(b.items[x]))}${checked ? (x === i ? '. Correct.' : `. Should be position ${x + 1}.`) : ''}">
+    <span class="order-grip" aria-hidden="true">${icon('grip')}</span>
+    <span class="order-pos">${checked && x === i ? icon('check') : i + 1}</span>
+    <span class="order-text">${b.items[x]}${checked && x !== i ? `<small class="order-should">Belongs in position ${x + 1}</small>` : ''}</span>
+    <span class="order-move"><button type="button" data-order="${b.id}" data-from="${i}" data-dir="-1" aria-label="Move up" tabindex="-1"${i ? '' : ' disabled'}>${icon('arrow')}</button><button type="button" data-order="${b.id}" data-from="${i}" data-dir="1" aria-label="Move down" tabindex="-1"${i < n - 1 ? '' : ' disabled'}>${icon('arrow')}</button></span>
+  </li>`).join('')}</ol>
   ${b.ends ? `<p class="order-end order-bottom">${icon('arrow')}${esc(b.ends[1])}</p>` : ''}
-  <div class="quiz-bar">${checked ? `<span class="quiz-score">${right} / ${o.length} in the right place</span><button class="btn-quiet" data-order-reset="${b.id}">Try again</button>` : `<button class="btn" data-order-check="${b.id}">Check my order ${icon('arrow')}</button>`}</div>
+  <div class="quiz-bar">${checked
+    ? `<span class="quiz-score${perfect ? ' is-perfect' : ''}">${perfect ? `${icon('check')}Perfect order!` : `${right} of ${n} in the right place`}</span>${perfect ? '' : `<button class="btn-quiet" data-order-reset="${b.id}">${icon('undo')}Try again</button><button class="btn-quiet" data-order-solve="${b.id}">Show the correct order</button>`}`
+    : `<button class="btn" data-order-check="${b.id}">Check my order ${icon('arrow')}</button>`}</div>
+  <p class="sr-only" aria-live="polite" data-order-live="${b.id}"></p>
   ${checked && b.why ? `<p class="quiz-why">${b.why}</p>` : ''}
 </section>`;
 };
+/* Moving cards: drag (mouse, pen, or the grip on touch screens), arrow buttons, or the keyboard.
+   Every move animates: the other cards slide out of the way, and button/keyboard moves glide (FLIP). */
+const orderBlock = id => allActivities.flatMap(a => a.blocks).find(x => x.id === id);
+const reduceMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+function orderCards(id) { return [...document.querySelectorAll(`[data-order-list="${CSS.escape(id)}"] > .order-item`)]; }
+function commitOrder(id, from, to, opts = {}) {
+  const b = orderBlock(id), o = orderOf(b); if (from === to || to < 0 || to >= o.length) return;
+  const before = new Map(orderCards(id).map(el => [el.dataset.x, el.getBoundingClientRect().top]));
+  const [x] = o.splice(from, 1); o.splice(to, 0, x);
+  state.values[id] = o.join(','); delete state.checked[id]; save(); rerender();
+  if (!opts.noFlip && !reduceMotion()) orderCards(id).forEach(el => { const t = before.get(el.dataset.x); const dy = t - el.getBoundingClientRect().top;
+    if (dy) el.animate([{ transform: `translateY(${dy}px)` }, { transform: 'none' }], { duration: 280, easing: 'cubic-bezier(.2,.7,.2,1)' }); });
+  const moved = orderCards(id).find(el => el.dataset.x === String(x));
+  if (opts.focus) { moved?.focus({ preventScroll: true }); if (opts.grabbed) moved?.classList.add('is-grabbed'); }
+  moved?.classList.add('just-moved'); setTimeout(() => moved?.classList.remove('just-moved'), 700);
+  const live = document.querySelector(`[data-order-live="${CSS.escape(id)}"]`); if (live) live.textContent = `${strip(b.items[x])} — now in position ${to + 1} of ${o.length}.`;
+}
+let drag = null;
+document.addEventListener('pointerdown', e => {
+  const item = e.target.closest('.order-item'); if (!item || e.button > 0 || e.target.closest('button')) return;
+  if (e.pointerType === 'touch' && !e.target.closest('.order-grip')) return;   // on phones, drag by the grip so the page still scrolls
+  const list = item.parentElement, cards = [...list.children], rects = cards.map(el => el.getBoundingClientRect());
+  drag = { id: list.dataset.orderList, list, item, cards, rects, from: cards.indexOf(item), to: cards.indexOf(item), y0: e.clientY, s0: window.scrollY, moved: false, pid: e.pointerId };
+  item.setPointerCapture?.(e.pointerId);
+});
+function dragMove(clientY) {
+  const g = drag, dy = clientY - g.y0 + (window.scrollY - g.s0);
+  if (!g.moved) { if (Math.abs(dy) < 5) return; g.moved = true; g.list.classList.add('is-sorting'); g.item.classList.add('is-dragging'); document.body.classList.add('is-dragging-card'); }
+  const top = g.rects[0].top, bottom = g.rects[g.rects.length - 1].bottom, r = g.rects[g.from];
+  const clamped = Math.max(top - r.top - 12, Math.min(bottom - r.bottom + 12, dy));
+  g.item.style.transform = `translateY(${clamped}px) scale(1.02)`;
+  const mid = r.top + r.height / 2 + clamped;
+  let to = g.from;
+  g.rects.forEach((q, k) => { if (k < g.from && mid < q.top + q.height / 2) to = Math.min(to, k); if (k > g.from && mid > q.top + q.height / 2) to = Math.max(to, k); });
+  g.to = to;
+  const gap = g.rects.length > 1 ? g.rects[1].top - g.rects[0].bottom : 8, h = r.height + gap;
+  g.cards.forEach((el, k) => { if (k === g.from) return; const shift = g.from < to && k > g.from && k <= to ? -h : g.from > to && k < g.from && k >= to ? h : 0; el.style.transform = shift ? `translateY(${shift}px)` : ''; });
+}
+document.addEventListener('pointermove', e => {
+  if (!drag || e.pointerId !== drag.pid) return;
+  dragMove(e.clientY);
+  if (drag.moved) { e.preventDefault(); const edge = 70; if (e.clientY < edge) window.scrollBy(0, -12); else if (e.clientY > innerHeight - edge) window.scrollBy(0, 12); }
+});
+function endDrag(cancel) {
+  const g = drag; drag = null; if (!g) return;
+  document.body.classList.remove('is-dragging-card');
+  if (!g.moved) return;
+  const finish = () => { g.cards.forEach(el => { el.style.transform = ''; }); g.list.classList.remove('is-sorting'); g.item.classList.remove('is-dragging'); };
+  if (cancel || g.to === g.from) { g.item.classList.add('settling'); finish(); setTimeout(() => g.item.classList.remove('settling'), 260); return; }
+  const r = g.rects, slot = g.to > g.from ? r[g.to].bottom - r[g.from].bottom : r[g.to].top - r[g.from].top;
+  g.item.classList.add('settling'); g.item.style.transform = `translateY(${slot}px)`;
+  setTimeout(() => { finish(); commitOrder(g.id, g.from, g.to, { noFlip: true }); }, reduceMotion() ? 0 : 200);
+}
+document.addEventListener('pointerup', e => { if (drag && e.pointerId === drag.pid) endDrag(false); });
+document.addEventListener('pointercancel', () => endDrag(true));
+document.addEventListener('keydown', e => {
+  const item = e.target.closest?.('.order-item'); if (!item || e.target !== item) return;
+  const id = item.parentElement.dataset.orderList, from = orderCards(id).indexOf(item);
+  if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); const on = !item.classList.contains('is-grabbed'); item.classList.toggle('is-grabbed', on);
+    const live = document.querySelector(`[data-order-live="${CSS.escape(id)}"]`); if (live) live.textContent = on ? 'Card picked up. Use the up and down arrows to move it, then press Space to drop it.' : 'Card dropped.'; return; }
+  if (e.key === 'Escape') { item.classList.remove('is-grabbed'); return; }
+  if ((e.key === 'ArrowUp' || e.key === 'ArrowDown') && (item.classList.contains('is-grabbed') || e.altKey)) {
+    e.preventDefault(); commitOrder(id, from, from + (e.key === 'ArrowUp' ? -1 : 1), { focus: true, grabbed: item.classList.contains('is-grabbed') }); }
+});
+document.addEventListener('focusout', e => { if (e.target.classList?.contains('order-item')) e.target.classList.remove('is-grabbed'); });
+
 /* grid: a table of choices, e.g. Does the text agree? { type: 'grid', id, title, rows: [..], columns: [..], options: [..], answers?: [[row1 answers], ...], given?: { 'r-c': value } } */
 B.grid = b => {
   const checked = state.checked[b.id];
@@ -783,13 +859,13 @@ document.addEventListener('click', e => {
     if (missing && !state.teacher) { toast(`Answer all the questions first (${missing} left).`); return; }
     state.checked[b.id] = true; save(); rerender(); return;
   }
-  if (d.order) {
-    const b = allActivities.flatMap(a => a.blocks).find(x => x.id === d.order), o = orderOf(b), i = Number(d.from), j = i + Number(d.dir);
-    if (j < 0 || j >= o.length) return;
-    [o[i], o[j]] = [o[j], o[i]]; state.values[b.id] = o.join(','); delete state.checked[b.id]; save(); rerender();
-    document.querySelector(`[data-order="${b.id}"][data-from="${j}"][data-dir="${d.dir}"]`)?.focus(); return;
-  }
-  if (d.orderCheck) { const b = allActivities.flatMap(a => a.blocks).find(x => x.id === d.orderCheck); state.values[b.id] = orderOf(b).join(','); state.checked[b.id] = true; save(); rerender(); return; }
+  if (d.order) { const i = Number(d.from); commitOrder(d.order, i, i + Number(d.dir)); return; }
+  if (d.orderCheck) { const b = orderBlock(d.orderCheck), o = orderOf(b); state.values[b.id] = o.join(','); state.checked[b.id] = true; save(); rerender();
+    if (o.every((x, i) => x === i)) toast('Perfect order — well done!'); return; }
+  if (d.orderSolve) { const b = orderBlock(d.orderSolve), before = new Map(orderCards(b.id).map(el => [el.dataset.x, el.getBoundingClientRect().top]));
+    state.values[b.id] = b.items.map((_, i) => i).join(','); state.checked[b.id] = true; save(); rerender();
+    if (!reduceMotion()) orderCards(b.id).forEach(el => { const dy = before.get(el.dataset.x) - el.getBoundingClientRect().top; if (dy) el.animate([{ transform: `translateY(${dy}px)` }, { transform: 'none' }], { duration: 520, easing: 'cubic-bezier(.2,.7,.2,1)', delay: Number(el.dataset.x) * 40, fill: 'backwards' }); });
+    return; }
   if (d.orderReset) { delete state.checked[d.orderReset]; save(); rerender(); return; }
   if (d.gridCheck) {
     const b = allActivities.flatMap(a => a.blocks).find(x => x.id === d.gridCheck);

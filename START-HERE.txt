@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.9)
+DEC15 — COURSE APP (v2.10)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -97,3 +97,10 @@ and the open lesson shows its stages plus Readings / Extra / Notebook. The searc
 lessons, parts of lessons, stages and activities. On phones the side panel opens with the Menu button.
 The course map shows one week at a time (week tabs); click a week on the map to open its lessons.
 Notebook stages fold open and closed; busy class walls show the newest 3 posts (and 2 replies) first.
+
+ORDERING ACTIVITIES (v2.10)
+"Put in order" activities (block type  order ) now work by drag and drop: hold the mouse button on a card
+and drag it up or down; the other cards slide out of the way. On phones, drag by the dotted grip on the left.
+The arrow buttons still work, and keyboard users can select a card, press Space, move it with the up/down
+arrows and press Space again. After "Check my order", correct cards show a tick and wrong cards say which
+position they belong in; students can try again or show the correct order.
