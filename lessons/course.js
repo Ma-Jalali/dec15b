@@ -3,6 +3,8 @@
    1. Copy lessons/_template.js to lessons/weekN/wNdM.js and write the content.
    2. Put any new protected texts in lessons/weekN/sources.js (window.DEC15_SOURCES).
    3. Below, change the day's status to 'ready' and list its files in `scripts`.
+      `parts` are the stage titles shown in the side panel; `stages` are the matching section ids
+      (so a part can open its stage directly).
    The id (e.g. 'w3d1') is used to save students' work: never change it after students start. */
 window.DEC15_COURSE = {
   code: 'DEC15',
@@ -24,6 +26,7 @@ window.DEC15_COURSE = {
       days: [
         { id: 'w2d5', day: 5, status: 'ready', title: 'From evidence to argument', art: 'writing',
           parts: ['Use AI wisely', 'Turn feedback into action', 'Question the evidence', 'Plan your argument essay'],
+          stages: ['ai', 'feedback', 'critical', 'writing'],
           scripts: ['lessons/week2/sources.js', 'lessons/week2/video-script.js', 'lessons/week2/w2d5.js'] }
       ]
     },
@@ -35,18 +38,23 @@ window.DEC15_COURSE = {
       days: [
         { id: 'w3d1', day: 1, status: 'ready', title: 'Write your first argument essay', art: 'writing',
           parts: ['Write your introduction', 'Build your body paragraphs', 'Conclude, check and polish', 'Your voice and source voices'],
+          stages: ['intro', 'body', 'close', 'voices'],
           scripts: ['lessons/week3/sources.js', 'lessons/week3/w3d1.js'] },
         { id: 'w3d2', day: 2, status: 'ready', title: 'Reading and listening for solutions', art: 'reading',
           parts: ['Solve some problems', 'Read: preventing food loss and waste', 'Listen: the future of food banks?'],
+          stages: ['solve', 'read', 'listen'],
           scripts: ['lessons/week3/sources.js', 'lessons/week3/w3d2.js'] },
         { id: 'w3d3', day: 3, status: 'ready', title: 'Bringing sources together', art: 'research',
           parts: ['Connect three sources', 'Write with nouns', 'Research solutions'],
+          stages: ['mediate', 'nouns', 'research'],
           scripts: ['lessons/week3/sources.js', 'lessons/week3/w3d3.js'] },
         { id: 'w3d4', day: 4, status: 'ready', title: 'Practice assessment day', art: 'assessment',
           parts: ['Choose what helps your answer', 'Integrated Writing Practice Assessment', 'Building rapport'],
+          stages: ['critical', 'iwa', 'rapport'],
           scripts: ['lessons/week3/sources.js', 'lessons/week3/w3d4.js'] },
         { id: 'w3d5', day: 5, status: 'ready', title: 'Negotiate, work as a team, write better prompts', art: 'discussion',
           parts: ['Negotiate in a discussion', 'Work well as a team', 'Write better AI prompts', 'Building rapport'],
+          stages: ['negotiate', 'teamwork', 'prompts', 'rapport'],
           scripts: ['lessons/week3/sources.js', 'lessons/week3/w3d5.js'] }
       ]
     }
