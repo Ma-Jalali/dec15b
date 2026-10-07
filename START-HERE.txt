@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.15)
+DEC15 — COURSE APP (v2.16)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -153,3 +153,12 @@ LESSON CODES IN COLOUR EVERYWHERE (v2.15)
 Every day in the side panel and on the course map now shows its Teacher's Book lesson codes (1A, 4A,
 15A …) in the stage colours, even before the day is opened. In lessons/course.js each day has
 `parts` (code + Teacher's Book name) and `tones` (the colour of each stage, same as `tone` in the lesson file).
+
+VISUAL POLISH (v2.16, css/polish.css)
+- Each Week 3 day has its own header picture (assets/week3/hero-w3d1…5.svg).
+- Gentle motion: lesson blocks fade up once as they scroll into view, header pictures float slowly,
+  suggested answers slide open. All motion stops if the device asks for reduced motion.
+- Drop-down answers have a soft custom style; given answers show as coloured tags (Agree / Doesn’t mention).
+- Note-taking tables: the row title is bold and “Given:” / “Add:” are small labels.
+- Language banks with 4 or more groups become tabs (one group at a time). Add tabs: false to a
+  language block to keep it as one list.

@@ -13,6 +13,8 @@ window.DEC15_LESSON = {
   questionLabel: 'This week’s focus question',
   wordTarget: '',
 
+  image: 'assets/week3/hero-w3d3.svg',
+  imageAlt: 'Three source cards — an article, a video and another article — with their ideas flowing along dotted lines into one synthesised summary, beside a magnifying glass.',
   journey: 'Today you connect this week’s three sources and write about them together — the “Use of Sources” skill in the Integrated Writing assessment. Then you learn to pack ideas into academic noun phrases, and you plan your research on solutions for the Week 4 discussion.',
 
   finish: { title: 'Thursday', text: 'Practice assessment day' },

@@ -13,6 +13,8 @@ window.DEC15_LESSON = {
   questionKind: 'Essay question',
   questionLabel: 'This week’s essay question · you write it today',
   wordTarget: '450–600 words',
+  image: 'assets/week3/hero-w3d1.svg',
+  imageAlt: 'An essay page built in four coloured parts — introduction, body paragraph 1, body paragraph 2 and conclusion — with a fountain pen, a sticky note reading “because · but · so” and a speech bubble saying “In my view…”.',
   journey: 'Today you write Friday’s essay with a partner: introduction, body paragraphs and conclusion. After each part you compare your writing with a sample essay and improve it. Then you polish your academic style and learn to control the voices in your writing.',
   finish: { title: 'Tuesday', text: 'Reading & listening for solutions' },
 

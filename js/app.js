@@ -171,11 +171,15 @@ B.talk = b => `<section class="block talk" data-help>
   <h3>${b.title || 'Talk together'}</h3>
   <ul class="talk-prompts">${b.prompts.map(p => `<li>${p}</li>`).join('')}</ul>
 </section>`;
-B.language = b => `<section class="block language">
+/* Long banks (4+ groups) become tabs: one group at a time, so the page stays calm. */
+let langSeq = 0;
+B.language = b => { const tabs = b.groups.length >= 4 && b.tabs !== false, uid = 'lg' + (++langSeq);
+  return `<section class="block language${tabs ? ' lang-tabbed' : ''}">
   <div class="block-label">${icon('phrase')}Language bank</div>
   ${b.title ? `<h3>${b.title}</h3>` : ''}
-  <div class="lang-grid">${b.groups.map(g => `<div class="lang-group"><h4>${g.label}</h4><ul>${g.phrases.map(p => `<li>${esc(p)}</li>`).join('')}</ul></div>`).join('')}</div>
-</section>`;
+  ${tabs ? `<div class="lang-tabs" role="tablist" aria-label="${esc(strip(b.title || 'Language bank'))}">${b.groups.map((g, i) => `<button type="button" role="tab" id="${uid}-t${i}" aria-controls="${uid}-p${i}" aria-selected="${!i}" tabindex="${i ? -1 : 0}" data-lang-tab="${uid}" data-i="${i}">${strip(g.label)}</button>`).join('')}</div>` : ''}
+  <div class="lang-grid">${b.groups.map((g, i) => `<div class="lang-group"${tabs ? ` role="tabpanel" id="${uid}-p${i}" aria-labelledby="${uid}-t${i}"${i ? ' hidden' : ''}` : ''}>${tabs ? '' : `<h4>${g.label}</h4>`}<ul>${g.phrases.map(p => `<li>${esc(p)}</li>`).join('')}</ul></div>`).join('')}</div>
+</section>`; };
 B.model = b => `<section class="block model" data-help>
   <div class="block-label">${icon('model')}Model</div>
   <h3>${b.title || 'Example'}</h3>
@@ -233,7 +237,7 @@ B.table = b => {
   let rows = '';
   for (let r = 0; r < n; r++) {
     rows += '<tr>' + b.columns.map((c, ci) => {
-      if (ci === 0 && b.fixed?.[r]) return `<th scope="row">${b.fixed[r]}</th>`;
+      if (ci === 0 && b.fixed?.[r]) { const [head, ...rest] = String(b.fixed[r]).split(/<br\s*\/?>/); return `<th scope="row"><span class="th-title">${head}</span>${rest.length ? '<br>' + rest.join('<br>') : ''}</th>`; }
       const k = `${b.id}-${r}-${ci}`; labels[k] = tableLabel(b, r, ci);
       return `<td><textarea data-save="${k}" aria-label="${esc(labels[k])}" rows="3">${esc(val(k))}</textarea></td>`;
     }).join('') + '</tr>';
@@ -349,7 +353,7 @@ document.addEventListener('focusout', e => { if (e.target.classList?.contains('o
 B.grid = b => {
   const checked = state.checked[b.id];
   const cell = (r, c) => { const k = `${b.id}-${r}-${c}`, given = b.given?.[`${r}-${c}`], ans = b.answers?.[r]?.[c], v = given ?? val(k);
-    if (given) return `<td class="grid-given">${esc(given)}</td>`;
+    if (given) return `<td class="grid-given"><span class="tag tag-${esc(String(given).toLowerCase().replace(/[^a-z]+/g, '-'))}">${esc(given)}</span></td>`;
     const ok = checked && ans !== undefined ? (v === ans ? ' is-right' : ' is-wrong') : '';
     return `<td class="grid-cell${ok}"><select data-save="${k}" aria-label="${esc(strip(b.rows[r]) + ' — ' + strip(b.columns[c]))}"><option value="">Choose…</option>${b.options.map(o => `<option${v === o ? ' selected' : ''}>${esc(o)}</option>`).join('')}</select>${ok === ' is-wrong' ? `<small>${esc(ans)}</small>` : ''}</td>`; };
   const score = checked && b.answers ? b.rows.reduce((n, _, r) => n + b.columns.filter((_, c) => !b.given?.[`${r}-${c}`] && val(`${b.id}-${r}-${c}`) === b.answers[r][c]).length, 0) : 0;
@@ -748,8 +752,23 @@ function render() {
   if (cm && here && cm.scrollWidth > cm.clientWidth) { const r = here.getBoundingClientRect(), c = cm.getBoundingClientRect(); cm.scrollLeft += r.left - c.left - c.width / 2 + r.width / 2; }
   const tabs = $('.act-tabs'), cur = $('.act-tabs .current'); if (tabs && cur) tabs.scrollLeft = cur.offsetLeft - tabs.offsetLeft - 12;
   reader.mount();
+  requestAnimationFrame(revealBlocks);
 }
 function rerender() { const y = window.scrollY; render(); window.scrollTo(0, y); }
+/* Blocks fade up gently the first time they scroll into view (once per visit; never on re-render). */
+const seenBlocks = new Set();
+const revealIO = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); seenBlocks.add(e.target.dataset.rk); revealIO.unobserve(e.target); } }), { rootMargin: '0px 0px -40px 0px' }) : null;
+// safety net: a fast jump (End key, a link) can skip blocks without the observer seeing them
+let revealTick = 0;
+addEventListener('scroll', () => { if (revealTick) return; revealTick = requestAnimationFrame(() => { revealTick = 0;
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => { if (el.getBoundingClientRect().top < innerHeight) { el.classList.add('in'); seenBlocks.add(el.dataset.rk); revealIO?.unobserve(el); } }); }); }, { passive: true });
+function revealBlocks() {
+  if (!revealIO || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.activity').forEach(act => [...act.querySelectorAll(':scope > .act-body > *, :scope > .answers, :scope > .wall')].forEach((el, i) => {
+    const k = act.id + ':' + i; el.dataset.rk = k; if (seenBlocks.has(k)) return;
+    const r = el.getBoundingClientRect(); if (r.top < innerHeight - 40) { seenBlocks.add(k); return; }
+    el.classList.add('reveal'); revealIO.observe(el); }));
+}
 
 /* ───────── sources dialog / glossary ───────── */
 const srcName = id => sources.find(x => x.id === id)?.short || ({ reading1: 'Reading 1', reading2: 'Reading 2', reading3: 'Reading 3', listening: 'Listening transcript', 'video-script': 'Video script' }[id] || id);
@@ -894,6 +913,7 @@ document.addEventListener('click', e => {
   const t = e.target.closest('button,a,[data-week-tab]'); if (!t) return;
   const d = t.dataset;
   if (play && play.onClick(t, d)) return;
+  if (d.langTab) { const box = t.closest('.language'); box.querySelectorAll('[role=tab]').forEach((x, i) => { const on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; box.querySelectorAll('[role=tabpanel]')[i].hidden = !on; }); return; }
   if (d.quiz) { const k = d.quiz + '-' + d.i; state.values[k] = d.opt; delete state.checked[d.quiz]; save(); rerender(); return; }
   if (d.quizCheck) {
     const b = allActivities.flatMap(a => a.blocks).find(x => x.id === d.quizCheck);
@@ -923,7 +943,7 @@ document.addEventListener('click', e => {
   if (d.reveal) {
     const a = allActivities.find(x => x.id === d.reveal);
     if (!hasAttempt(a) && !state.teacher) { toast('Write or choose something first. Then compare with the suggested answers.'); return; }
-    state.revealed[a.id] = true; save(); rerender(); return;
+    state.revealed[a.id] = true; save(); rerender(); document.getElementById('ans-' + a.id)?.classList.add('just-opened'); return;
   }
   if (d.unlock) { state.revealed['gate-' + d.unlock] = true; save(); rerender(); return; }
   if (d.hideAnswers) { delete state.revealed[d.hideAnswers]; save(); rerender(); return; }

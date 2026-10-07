@@ -13,6 +13,8 @@ window.DEC15_LESSON = {
   questionLabel: 'This week’s focus question',
   wordTarget: '',
 
+  image: 'assets/week3/hero-w3d2.svg',
+  imageAlt: 'An open book with highlighted lines, a pair of headphones with sound waves, and a food-bank crate of fresh fruit marked with a heart.',
   journey: 'This week we move from the causes of food insecurity to the solutions. Today you solve problems together, read about ways to prevent food loss and waste, and listen to a report on a new kind of food bank — and you learn the language to say which solutions are best.',
   finish: { title: 'Wednesday', text: 'Bring three sources together' },
 
