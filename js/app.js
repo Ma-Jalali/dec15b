@@ -21,6 +21,8 @@ lesson.sections.forEach((s, i) => {
 const tone = s => `--accent:${TONES[s.tone][0]};--accent-bg:${TONES[s.tone][1]}`;
 /* The Teacher’s Book code of a stage (e.g. 15A) — shown everywhere so students can find the same lesson in the book. */
 const code = s => s.code || pad(Number(s.number));
+/* In the side panel the badge shows the lesson number only (7A → 7). */
+const navCode = c => String(c).replace(/^(\d+)A$/, '$1');
 const stageName = s => `${s.code ? s.code + ' ' : ''}${s.title}`;
 /* A day's part from course.js, e.g. '15A Discussion skills' → { code: '15A', name: 'Discussion skills', tone } */
 const dayPart = (d, k) => { const m = String(d.parts[k]).match(/^(\d+[A-Z])\s+(.*)$/); return { code: m ? m[1] : String(k + 1), name: m ? m[2] : d.parts[k], tone: TONES[d.tones?.[k]] ? d.tones[k] : null }; };
@@ -634,8 +636,8 @@ function dayContents(d, route) {
   const start = `<li${stagger()}><a href="${here ? L('overview') : '#/' + d.id}" class="nav-part nav-start${cur('overview')}"><span class="nav-pnum">${icon('map')}</span><span class="nav-ptext">${here ? 'Overview' : 'Open Day ' + d.day}<small>${here ? 'Start of the day' : 'Start of the day'}</small></span></a></li>`;
   const stages = here
     ? lesson.sections.map(s => { const dn = s.activities.filter(a => state.done[a.id]).length, all = dn === s.activities.length;
-        return `<li${stagger()}><a href="${L(s.id)}" class="nav-part is-stage${all ? ' complete' : ''}${cur(s.id)}" style="${tone(s)}"><span class="nav-pnum">${all ? icon('check') : esc(code(s))}</span><span class="nav-ptext">${esc(s.title)}<small>${s.minutes} min<i class="nav-bar" style="--p:${dn / s.activities.length}" aria-label="${dn} of ${s.activities.length} done"></i></small></span></a></li>`; }).join('')
-    : (d.parts || []).map((pt, k) => { const p = dayPart(d, k); return `<li${stagger()}><a href="#/${d.id}${d.stages?.[k] ? '/' + d.stages[k] : ''}" class="nav-part${p.tone ? ' is-stage' : ''}"${p.tone ? ` style="${tone(p)}"` : ''}><span class="nav-pnum">${esc(p.code)}</span><span class="nav-ptext">${esc(p.name)}</span></a></li>`; }).join('');
+        return `<li${stagger()}><a href="${L(s.id)}" class="nav-part is-stage${all ? ' complete' : ''}${cur(s.id)}" style="${tone(s)}"><span class="nav-pnum">${all ? icon('check') : esc(navCode(code(s)))}</span><span class="nav-ptext"><span class="nav-pname" title="${esc(s.title)}">${esc(s.title)}</span><small>${s.minutes} min<i class="nav-bar" style="--p:${dn / s.activities.length}" aria-label="${dn} of ${s.activities.length} done"></i></small></span></a></li>`; }).join('')
+    : (d.parts || []).map((pt, k) => { const p = dayPart(d, k); return `<li${stagger()}><a href="#/${d.id}${d.stages?.[k] ? '/' + d.stages[k] : ''}" class="nav-part${p.tone ? ' is-stage' : ''}"${p.tone ? ` style="${tone(p)}"` : ''}><span class="nav-pnum">${esc(navCode(p.code))}</span><span class="nav-ptext"><span class="nav-pname" title="${esc(p.name)}">${esc(p.name)}</span></span></a></li>`; }).join('');
   const tools = here ? `<li class="nav-tools"${stagger()}>${[['sources', 'book', 'Readings'], ['extra', 'list', 'Extra'], ['notebook', 'model', 'Notebook']].map(([id, ic, t]) => `<a href="${L(id)}" class="nav-tool${cur(id)}">${icon(ic)}<span>${t}</span></a>`).join('')}</li>` : '';
   return `<ol class="nav-parts">${start}${stages}${tools}</ol>`;
 }

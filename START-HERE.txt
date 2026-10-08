@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.16)
+DEC15 — COURSE APP (v2.17)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -162,3 +162,11 @@ VISUAL POLISH (v2.16, css/polish.css)
 - Note-taking tables: the row title is bold and “Given:” / “Add:” are small labels.
 - Language banks with 4 or more groups become tabs (one group at a time). Add tabs: false to a
   language block to keep it as one list.
+
+SIDE PANEL + GAP-FILL (v2.17)
+- Side panel badges show the lesson number only (7, 8, 9 …); the course map and stage pages keep 7A.
+- Lesson names in the side panel stay on one line; the panel is a little wider (grows with the screen,
+  up to 432px). On very small laptop screens the longest name ends with “…” (hover shows it all).
+- New block  cloze  (js/play.js): a paragraph with a drop-down in each gap —
+  { type: 'cloze', id, title, text: '… {{1}} … {{2}} …', options: [..], answers: [..], why: [..] }.
+  Used for the W3 D3 7A synthesised summary paragraph.

@@ -231,3 +231,25 @@
 .confetti i { position: absolute; width: 8px; height: 12px; border-radius: 2px; animation: confetti 1.5s cubic-bezier(.2,.6,.3,1) forwards; }
 .confetti i:nth-child(3n) { width: 10px; height: 6px; border-radius: 50%; }
 @keyframes confetti { 0% { transform: translate(0, 0) rotate(0); opacity: 1; } 45% { transform: translate(calc(var(--dx) * .7), var(--dy)) rotate(calc(var(--r) * .5)); opacity: 1; } 100% { transform: translate(var(--dx), 360px) rotate(var(--r)); opacity: 0; } }
+
+/* ───────── cloze: drop-downs inside a paragraph ───────── */
+.cloze-text { font: 1.12rem/2.35 var(--serif); color: var(--ink); max-width: 78ch; padding: 22px 26px; background: #fffdf7; border: 1px solid #e7dfcf; border-radius: var(--r); box-shadow: var(--shadow-sm); }
+.gap { display: inline-flex; align-items: center; gap: 4px; vertical-align: baseline; white-space: nowrap; max-width: 100%; }
+.gap-num { width: 20px; height: 20px; border-radius: 50%; display: inline-grid; place-items: center; background: var(--accent); color: #fff; font: 800 .66rem/1 var(--sans); flex: none; }
+.gap select { appearance: none; -webkit-appearance: none; cursor: pointer; max-width: min(100%, 440px); text-overflow: ellipsis;
+  height: 32px; padding: 0 28px 0 10px; border-radius: 8px; border: 1.5px dashed color-mix(in srgb, var(--accent) 45%, #fff);
+  background: color-mix(in srgb, var(--accent) 5%, #fff) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%236b7882' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 9px center / 10px 7px;
+  font: 700 .86rem/1 var(--sans); color: var(--muted); transition: border-color .18s, background-color .18s, color .18s; }
+.gap.is-filled select { border-style: solid; color: color-mix(in srgb, var(--accent) 85%, #000); background-color: color-mix(in srgb, var(--accent) 9%, #fff); }
+.gap select:focus { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
+.gap.is-right select { border: 1.5px solid #9fcbb0; background-color: #f1f8f3; color: #1f5c3a; }
+.gap.is-right .gap-num { background: var(--ok); }
+.gap.is-wrong select { border: 1.5px solid #ecb7a6; background-color: #fdf3ef; color: #8e2c17; text-decoration: line-through; text-decoration-color: rgba(142,44,23,.4); }
+.gap.is-wrong .gap-num { background: #b0312a; }
+.gap-fix { font: 700 .82rem/1.2 var(--sans); color: #1f5c3a; background: #e3f1e7; border-radius: 6px; padding: 4px 8px; white-space: normal; }
+.cloze-why { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 6px; max-width: 78ch; }
+.cloze-why li { display: flex; gap: 10px; align-items: baseline; font-size: .9rem; color: var(--ink-2); }
+.cloze-why b { flex: none; width: 22px; height: 22px; border-radius: 50%; display: inline-grid; place-items: center; font: 800 .7rem/1 var(--sans); color: #fff; background: var(--ok); }
+.cloze-why li.no b { background: #b0312a; }
+.cloze.is-perfect .cloze-text { animation: perfectGlow 1.2s var(--ease); }
+@media (max-width: 640px) { .cloze-text { padding: 16px; font-size: 1.02rem; line-height: 2.2; } .gap { white-space: normal; max-width: 100%; } .gap select { max-width: calc(100vw - 96px); } }
