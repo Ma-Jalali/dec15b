@@ -107,7 +107,7 @@ window.DEC15Planner = (() => {
   }
 
   /* ───────── the editor (TipTap) ───────── */
-  const ui = { tab: 'notes', openNoteId: null, month: null, calView: 'month', openFolders: {}, search: '', showTree: false };
+  const ui = { tab: 'notes', openNoteId: null, month: null, calView: 'month', openFolders: {}, renaming: null, renameDraft: null, fresh: null, search: '', showTree: false };
   let saveTimer = 0, reconcileTimer = 0;
   function makeExtensions() {
     const T = window.Tiptap;
@@ -325,7 +325,7 @@ window.DEC15Planner = (() => {
       </header>
       <div id="pl-panel" class="pl-panel" role="tabpanel"></div></div>`;
     root.addEventListener('click', onClick); root.addEventListener('input', onInput); root.addEventListener('change', onChange);
-    root.addEventListener('dragstart', onDragStart); root.addEventListener('dragover', onDragOver); root.addEventListener('drop', onDrop); root.addEventListener('dragend', () => root.querySelectorAll('.pl-over').forEach(x => x.classList.remove('pl-over')));
+    root.addEventListener('dragstart', onDragStart); root.addEventListener('dragover', onDragOver); root.addEventListener('drop', onDrop); root.addEventListener('dragend', () => { dragging = null; root.querySelectorAll('.pl-over,.pl-dragging').forEach(x => x.classList.remove('pl-over', 'pl-dragging')); });
     offStore = subscribe(onStore);
     setUser(ctx.getCloud?.()?.user?.id || null).then(() => { if (!ui.openNoteId || !get(ui.openNoteId)) ui.openNoteId = firstNote(); paint(); });
     paint();
@@ -335,7 +335,7 @@ window.DEC15Planner = (() => {
   function onStore(id) {
     if (!mounted) return;
     const it = id !== '*' && items[id];
-    if (ui.tab === 'notes') { if (!it || it.kind !== 'note' || id !== editor?.__noteId) { paintTree(); paintRail(); } if (id === '*' && editor && !get(editor.__noteId)) paint(); }
+    if (ui.tab === 'notes') { if (!it || it.kind !== 'note' || id !== editor?.__noteId) { paintTree(); paintRail(); } if (!it || it.kind === 'folder') paintNoteMeta(); if (id === '*' && editor && !get(editor.__noteId)) paint(); }
     else paintPanel();
   }
   const firstNote = () => list('note').sort((a, b) => (b.updatedAt || '').localeCompare(a.updatedAt || ''))[0]?.id || null;
@@ -365,25 +365,66 @@ window.DEC15Planner = (() => {
   }
   function paintNoteMeta() {
     const m = root?.querySelector('.pl-note-meta'), n = get(ui.openNoteId); if (!m || !n) return;
-    const folders = list('folder').sort((a, b) => a.data.name.localeCompare(b.data.name));
+    const folders = list('folder').map(f => [folderPath(f.id), f]).sort((a, b) => a[0].localeCompare(b[0]));
     const t = new Date(n.updatedAt || Date.now());
-    m.innerHTML = `<label class="pl-mini-sel"><span class="sr-only">Folder</span><select data-move-note aria-label="Folder"><option value="">No folder</option>${folders.map(f => `<option value="${f.id}"${f.id === n.data.folderId ? ' selected' : ''}>${esc(f.data.name)}</option>`).join('')}</select></label>
+    m.innerHTML = `<label class="pl-mini-sel"><span class="sr-only">Folder</span><select data-move-note aria-label="Folder"><option value="">No folder</option>${folders.map(([path, f]) => `<option value="${f.id}"${f.id === n.data.folderId ? ' selected' : ''}>${esc(path)}</option>`).join('')}</select></label>
       <span>Edited ${t.toLocaleString('en-AU', { day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' })}</span>
       <button type="button" class="pl-link danger" data-del-note>Delete note</button>`;
   }
+  /* the notes tree: folders inside folders, like a file explorer */
+  const ICON = {
+    car: '<svg class="pl-car" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4l4 4-4 4"/></svg>',
+    folder: '<svg class="pl-ico pl-ico-f" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.8 4.3c0-.8.6-1.4 1.4-1.4h3l1.6 1.6h5c.8 0 1.4.6 1.4 1.4v5.8c0 .8-.6 1.4-1.4 1.4H3.2c-.8 0-1.4-.6-1.4-1.4z"/></svg>',
+    folderOpen: '<svg class="pl-ico pl-ico-f" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.8 11.6V4.3c0-.8.6-1.4 1.4-1.4h3l1.6 1.6h4.4c.8 0 1.4.6 1.4 1.4v.9"/><path class="pl-ico-lid" d="M1.9 12.4l1.7-4.6c.2-.5.6-.8 1.1-.8h9c.6 0 1 .6.8 1.1l-1.5 4.1c-.2.5-.6.8-1.1.8H2.4c-.4 0-.6-.3-.5-.6z"/></svg>',
+    note: '<svg class="pl-ico pl-ico-n" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.2 1.8h5l3.3 3.3v8.3c0 .5-.4.8-.8.8H4.2c-.5 0-.8-.3-.8-.8V2.6c0-.5.3-.8.8-.8z"/><path d="M9 1.9v3.4h3.4M5.7 8.2h4.6M5.7 10.7h3.2"/></svg>',
+    newNote: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8.5 14.2H4.2c-.5 0-.8-.3-.8-.8V2.6c0-.5.3-.8.8-.8h5l3.3 3.3v3"/><path d="M9 1.9v3.4h3.4M12 10.5v4M10 12.5h4"/></svg>',
+    newFolder: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8.6 13.1H3.2c-.8 0-1.4-.6-1.4-1.4V4.3c0-.8.6-1.4 1.4-1.4h3l1.6 1.6h5c.8 0 1.4.6 1.4 1.4v2.2"/><path d="M12 9.5v4.5M9.8 11.8h4.4"/></svg>',
+    collapse: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.8 8h10.4M5.4 2.4 8 5l2.6-2.6M5.4 13.6 8 11l2.6 2.6"/></svg>',
+  };
+  /* a folder's parent, ignoring missing parents and loops (two devices can make one) */
+  function parentOf(fid) {
+    const p = get(fid)?.data.parentId; if (!p || get(p)?.kind !== 'folder') return null;
+    for (let x = p, n = 0; x && n < 64; x = get(x)?.data.parentId, n++) if (x === fid) return null;
+    return p;
+  }
+  const noteFolder = n => (get(n.data.folderId)?.kind === 'folder' ? n.data.folderId : null);
+  function isInside(fid, ancestor) { for (let x = fid, n = 0; x && n < 64; x = parentOf(x), n++) if (x === ancestor) return true; return false; }
+  function folderPath(fid) { const out = []; for (let x = fid, n = 0; x && n < 64; x = parentOf(x), n++) out.unshift(get(x).data.name); return out.join(' / '); }
   function paintTree() {
     const tree = root?.querySelector('.pl-tree'); if (!tree) return;
-    const q = ui.search.trim().toLowerCase(), notes = list('note').filter(n => !q || (n.data.title + ' ' + (n.data.text || '')).toLowerCase().includes(q))
-      .sort((a, b) => (a.data.title || 'Untitled').localeCompare(b.data.title || 'Untitled'));
-    const folders = list('folder').sort((a, b) => a.data.name.localeCompare(b.data.name));
-    const row = n => `<button type="button" class="pl-nrow${n.id === ui.openNoteId ? ' on' : ''}" data-open-note="${n.id}" draggable="true" data-drag-note="${n.id}"${n.id === ui.openNoteId ? ' aria-current="true"' : ''}><span>${esc(n.data.title || 'Untitled')}</span>${countOpen(n.id) ? `<small title="Open to-dos">${countOpen(n.id)}</small>` : ''}</button>`;
-    tree.innerHTML = `<div class="pl-tree-top"><input type="search" id="pl-search" placeholder="Search notes" aria-label="Search notes" value="${esc(ui.search)}">
-      <div class="pl-tree-btns"><button type="button" class="pl-btn" data-new-note>＋ Note</button><button type="button" class="pl-btn ghost" data-new-folder>＋ Folder</button></div></div>
-      <div class="pl-tree-list">${folders.map(f => { const fn = notes.filter(n => n.data.folderId === f.id), open = q || ui.openFolders[f.id] !== false;
-        return `<div class="pl-folder" data-drop-folder="${f.id}"><div class="pl-frow"><button type="button" class="pl-fbtn" data-toggle-folder="${f.id}" aria-expanded="${open}"><span class="pl-car">${open ? '▾' : '▸'}</span><span class="pl-fname">${esc(f.data.name)}</span><small>${fn.length}</small></button><button type="button" class="pl-more" data-folder-menu="${f.id}" aria-label="Folder options for ${esc(f.data.name)}">⋯</button></div>
-          ${open ? `<div class="pl-fnotes">${fn.map(row).join('') || '<p class="pl-hint">Drag a note here</p>'}</div>` : ''}</div>`; }).join('')}
-        <div class="pl-loose" data-drop-folder="">${notes.filter(n => !n.data.folderId || !get(n.data.folderId)).map(row).join('')}</div>
+    const q = ui.search.trim().toLowerCase(), byName = (a, b) => a.localeCompare(b, 'en', { sensitivity: 'base', numeric: true });
+    const notes = list('note').filter(n => !q || (n.data.title + ' ' + (n.data.text || '')).toLowerCase().includes(q)), folders = list('folder');
+    const kids = pid => folders.filter(f => parentOf(f.id) === pid).sort((a, b) => byName(a.data.name, b.data.name));
+    const notesIn = pid => notes.filter(n => noteFolder(n) === pid).sort((a, b) => byName(a.data.title || 'Untitled', b.data.title || 'Untitled'));
+    const count = fid => notesIn(fid).length + kids(fid).reduce((s, f) => s + count(f.id), 0);
+    const noteRow = (n, d) => `<button type="button" class="pl-nrow${n.id === ui.openNoteId ? ' on' : ''}${n.id === ui.fresh ? ' fresh' : ''}" style="--d:${d}" data-open-note="${n.id}" draggable="true" data-drag-note="${n.id}"${n.id === ui.openNoteId ? ' aria-current="true"' : ''}>${ICON.note}<span>${esc(n.data.title || 'Untitled')}</span>${countOpen(n.id) ? `<small title="Open to-dos">${countOpen(n.id)}</small>` : ''}</button>`;
+    const folderRow = (f, d) => {
+      const c = count(f.id); if (q && !c) return '';
+      const open = !!q || ui.openFolders[f.id] !== false, name = esc(f.data.name);
+      const head = ui.renaming === f.id
+        ? `<div class="pl-fbtn editing">${ICON.car}${open ? ICON.folderOpen : ICON.folder}<input class="pl-rename" id="pl-rename" maxlength="60" value="${esc(ui.renameDraft ?? f.data.name)}" aria-label="Folder name"></div>`
+        : `<button type="button" class="pl-fbtn" data-toggle-folder="${f.id}" aria-expanded="${open}" draggable="true" data-drag-folder="${f.id}">${ICON.car}${open ? ICON.folderOpen : ICON.folder}<span class="pl-fname">${name}</span>${c ? `<small>${c}</small>` : ''}</button><button type="button" class="pl-more" data-folder-menu="${f.id}" aria-label="Folder options for ${name}">⋯</button>`;
+      return `<div class="pl-folder${open ? ' open' : ''}" data-drop-folder="${f.id}" style="--d:${d}"><div class="pl-frow" style="--d:${d}">${head}</div>
+        ${open ? `<div class="pl-fkids">${branch(f.id, d + 1) || `<p class="pl-hint" style="--d:${d + 1}">Empty. Drag notes or folders here.</p>`}</div>` : ''}</div>`;
+    };
+    const branch = (pid, d) => kids(pid).map(f => folderRow(f, d)).join('') + notesIn(pid).map(n => noteRow(n, d)).join('');
+    tree.innerHTML = `<div class="pl-tree-top"><div class="pl-tree-head"><b>Notes</b><span class="pl-tree-btns">
+        <button type="button" class="pl-ibtn" data-new-note title="New note" aria-label="New note">${ICON.newNote}</button>
+        <button type="button" class="pl-ibtn" data-new-folder title="New folder" aria-label="New folder">${ICON.newFolder}</button>
+        <button type="button" class="pl-ibtn" data-collapse-all title="Collapse all folders" aria-label="Collapse all folders">${ICON.collapse}</button></span></div>
+      <input type="search" id="pl-search" placeholder="Search notes" aria-label="Search notes" value="${esc(ui.search)}"></div>
+      <div class="pl-tree-list" data-drop-folder="">${branch(null, 0)}
         ${q && !notes.length ? `<p class="pl-hint">No note matches “${esc(ui.search)}”.</p>` : ''}</div>`;
+    const inp = tree.querySelector('#pl-rename');
+    if (inp) {
+      const id = ui.renaming, f = get(id); inp.focus(); ui.renameDraft == null ? inp.select() : inp.setSelectionRange(inp.value.length, inp.value.length);
+      let gone = false;
+      const done = keep => { if (gone) return; gone = true; const v = inp.value.trim().slice(0, 60); ui.renaming = null; ui.renameDraft = null; if (f && get(id)) put(id, 'folder', { name: keep && v ? v : f.data.name }); paintTree(); };
+      inp.addEventListener('input', () => { ui.renameDraft = inp.value; });
+      inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); done(true); } if (e.key === 'Escape') { e.preventDefault(); done(false); } });
+      inp.addEventListener('blur', () => setTimeout(() => { if (ui.renaming === id && document.activeElement !== tree.querySelector('#pl-rename')) done(true); }, 0));
+    }
+    if (ui.fresh) setTimeout(() => { ui.fresh = null; }, 900);
   }
   const countOpen = noteId => list('task').filter(t => t.data.noteId === noteId && !t.data.done).length;
   function paintRail() {
@@ -473,13 +514,21 @@ window.DEC15Planner = (() => {
     if (d.cmd) { runCmd(d.cmd, t); return; }
     if (d.treeToggle !== undefined) { ui.showTree = !ui.showTree; root.querySelector('.pl-notes')?.classList.toggle('tree-open', ui.showTree); return; }
     if (d.openNote) { openNote(d.openNote, d.focusTask); return; }
-    if (d.newNote !== undefined) { saveNote(); const id = uuid(), folder = get(ui.openNoteId)?.data.folderId || null; put(id, 'note', { title: '', folderId: folder, content: { type: 'doc', content: [{ type: 'paragraph' }] }, text: '' }); ui.openNoteId = id; ui.search = ''; ui.showTree = false; paint(); root.querySelector('#pl-note-title')?.focus(); return; }
-    if (d.newFolder !== undefined) { const id = uuid(); put(id, 'folder', { name: 'New folder' }); ui.openFolders[id] = true; paintTree(); renameFolder(id); return; }
+    if (d.newNote !== undefined) { saveNote(); const id = uuid(), cur = get(ui.openNoteId), folder = d.newNote || (cur ? noteFolder(cur) : null); if (folder) ui.openFolders[folder] = true; ui.fresh = id; put(id, 'note', { title: '', folderId: folder, content: { type: 'doc', content: [{ type: 'paragraph' }] }, text: '' }); ui.openNoteId = id; ui.search = ''; ui.showTree = false; paint(); root.querySelector('#pl-note-title')?.focus(); return; }
+    if (d.newFolder !== undefined) { newFolder(d.newFolder || null); return; }
+    if (d.collapseAll !== undefined) { list('folder').forEach(f => { ui.openFolders[f.id] = false; }); paintTree(); return; }
     if (d.toggleFolder) { ui.openFolders[d.toggleFolder] = ui.openFolders[d.toggleFolder] === false; paintTree(); return; }
-    if (d.folderMenu) { const f = get(d.folderMenu); popover(t, `<div class="pl-menu" role="menu"><button type="button" role="menuitem" data-m="rename">Rename</button><button type="button" role="menuitem" class="danger" data-m="delete">Delete folder</button><small>Notes in it are kept.</small></div>`, p => p.addEventListener('click', ev => {
+    if (d.folderMenu) { const f = get(d.folderMenu); if (!f) return;
+      popover(t, `<div class="pl-menu" role="menu"><button type="button" role="menuitem" data-m="note">New note here</button><button type="button" role="menuitem" data-m="sub">New folder inside</button><button type="button" role="menuitem" data-m="rename">Rename</button>${parentOf(f.id) ? '<button type="button" role="menuitem" data-m="top">Move to top level</button>' : ''}<button type="button" role="menuitem" class="danger" data-m="delete">Delete folder</button><small>Deleting keeps what is inside.</small></div>`, p => p.addEventListener('click', ev => {
       const m = ev.target.closest('[data-m]')?.dataset.m; if (!m) return; closePop();
-      if (m === 'rename') renameFolder(f.id);
-      if (m === 'delete') { list('note').filter(n => n.data.folderId === f.id).forEach(n => put(n.id, 'note', { folderId: null }, { quiet: true })); remove(f.id); ctx.toast(`Folder “${f.data.name}” deleted. Its notes are in your notes list.`); } })); return; }
+      if (m === 'note') { const b = document.createElement('button'); b.type = 'button'; b.hidden = true; b.dataset.newNote = f.id; root.append(b); b.click(); b.remove(); }
+      if (m === 'sub') newFolder(f.id);
+      if (m === 'rename') { ui.renaming = f.id; ui.renameDraft = null; paintTree(); }
+      if (m === 'top') put(f.id, 'folder', { parentId: null });
+      if (m === 'delete') { const up = parentOf(f.id);
+        list('note').filter(n => noteFolder(n) === f.id).forEach(n => put(n.id, 'note', { folderId: up }, { quiet: true }));
+        list('folder').filter(x => parentOf(x.id) === f.id).forEach(x => put(x.id, 'folder', { parentId: up }, { quiet: true }));
+        remove(f.id); paintNoteMeta(); ctx.toast(`Folder “${f.data.name}” deleted. What was inside moved up one level.`); } })); return; }
     if (d.delNote !== undefined) { const id = ui.openNoteId, n = get(id); if (!n) return;
       popover(t, `<div class="pl-menu"><p>Delete “${esc(n.data.title || 'Untitled')}”? Its to-dos leave the calendar too.</p><button type="button" class="pl-btn danger" data-m="yes">Delete note</button></div>`, p => p.querySelector('[data-m]').addEventListener('click', () => {
         closePop(); destroyEditor(); const tasks = list('task').filter(x => x.data.noteId === id); tasks.forEach(x => remove(x.id)); remove(id); ui.openNoteId = firstNote(); paint();
@@ -524,26 +573,35 @@ window.DEC15Planner = (() => {
     put(uuid(), 'task', { title, noteId: null, date: fd.get('date') || null, time: null, calendarId: fd.get('cal') || null, done: false, pos: 0 });
     setTimeout(() => root.querySelector('#pl-add-title')?.focus(), 0);
   });
-  function renameFolder(id) {
-    const btn = root.querySelector(`[data-toggle-folder="${id}"] .pl-fname`), f = get(id); if (!btn || !f) return;
-    const inp = document.createElement('input'); inp.className = 'pl-rename'; inp.value = f.data.name; inp.maxLength = 60; inp.setAttribute('aria-label', 'Folder name');
-    btn.closest('.pl-frow').replaceChildren(inp); inp.select();
-    const done = () => { const v = inp.value.trim(); put(id, 'folder', { name: v || f.data.name }); paintTree(); };
-    inp.addEventListener('keydown', e => { if (e.key === 'Enter') inp.blur(); if (e.key === 'Escape') { inp.value = f.data.name; inp.blur(); } });
-    inp.addEventListener('blur', done, { once: true });
+  function newFolder(parentId) {
+    const id = uuid(); if (parentId) ui.openFolders[parentId] = true; ui.openFolders[id] = true; ui.renaming = id; ui.renameDraft = null; ui.search = '';
+    put(id, 'folder', { name: 'Untitled folder', parentId }); paintTree();
   }
   function undoToast(msg, undo) {
     const el = document.createElement('div'); el.className = 'pl-undo'; el.setAttribute('role', 'status');
     el.innerHTML = `<span>${esc(msg)}</span><button type="button">Undo</button>`; document.body.append(el);
     const kill = setTimeout(() => el.remove(), 7000); el.querySelector('button').onclick = () => { clearTimeout(kill); el.remove(); undo(); };
   }
-  /* drag a note onto a folder, or a to-do onto another day */
-  let dragging = null;
-  function onDragStart(e) { const n = e.target.closest('[data-drag-note],[data-drag-task]'); if (!n) return; dragging = n.dataset.dragNote ? ['note', n.dataset.dragNote] : ['task', n.dataset.dragTask]; e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', dragging[1]); }
-  function onDragOver(e) { if (!dragging) return; const z = e.target.closest(dragging[0] === 'note' ? '[data-drop-folder]' : '[data-drop-day]'); if (!z) return; e.preventDefault(); root.querySelectorAll('.pl-over').forEach(x => x !== z && x.classList.remove('pl-over')); z.classList.add('pl-over'); }
-  function onDrop(e) { if (!dragging) return; const [kind, id] = dragging; dragging = null; root.querySelectorAll('.pl-over').forEach(x => x.classList.remove('pl-over'));
-    if (kind === 'note') { const z = e.target.closest('[data-drop-folder]'); if (z) { e.preventDefault(); put(id, 'note', { folderId: z.dataset.dropFolder || null }); paintNoteMeta(); } }
-    else { const z = e.target.closest('[data-drop-day]'); if (z) { e.preventDefault(); put(id, 'task', { date: z.dataset.dropDay }); } } }
+  /* drag notes and folders into folders (or back to the top), or a to-do onto another day */
+  let dragging = null, hoverOpen = null;
+  function onDragStart(e) { const n = e.target.closest('[data-drag-note],[data-drag-folder],[data-drag-task]'); if (!n) return;
+    dragging = n.dataset.dragNote ? ['note', n.dataset.dragNote] : n.dataset.dragFolder ? ['folder', n.dataset.dragFolder] : ['task', n.dataset.dragTask];
+    e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', dragging[1]); setTimeout(() => n.classList.add('pl-dragging'), 0); }
+  function dropZone(e) {
+    if (dragging[0] === 'task') return e.target.closest('[data-drop-day]');
+    const z = e.target.closest('[data-drop-folder]'); if (!z) return null;
+    if (dragging[0] === 'folder' && z.dataset.dropFolder && isInside(z.dataset.dropFolder, dragging[1])) return null;
+    return z;
+  }
+  function onDragOver(e) { if (!dragging) return; const z = dropZone(e); root.querySelectorAll('.pl-over').forEach(x => x !== z && x.classList.remove('pl-over')); if (!z) return; e.preventDefault(); z.classList.add('pl-over');
+    const fid = z.dataset.dropFolder; /* hovering a closed folder opens it, like a file explorer */
+    if (fid && ui.openFolders[fid] === false && hoverOpen?.[0] !== fid) { clearTimeout(hoverOpen?.[1]); hoverOpen = [fid, setTimeout(() => { if (dragging) { ui.openFolders[fid] = true; paintTree(); } }, 650)]; } }
+  function onDrop(e) { if (!dragging) return; const [kind, id] = dragging, z = dropZone(e); dragging = null; clearTimeout(hoverOpen?.[1]); hoverOpen = null; root.querySelectorAll('.pl-over').forEach(x => x.classList.remove('pl-over'));
+    if (!z) return; e.preventDefault();
+    if (kind === 'task') { put(id, 'task', { date: z.dataset.dropDay }); return; }
+    const to = z.dataset.dropFolder || null; if (to) ui.openFolders[to] = true;
+    if (kind === 'note') { if (get(id) && noteFolder(get(id)) !== to) put(id, 'note', { folderId: to }); paintTree(); paintNoteMeta(); }
+    else if (to !== id && parentOf(id) !== to) { put(id, 'folder', { parentId: to }); paintNoteMeta(); } else paintTree(); }
 
   document.addEventListener('visibilitychange', () => { if (!mounted) return; if (document.visibilityState === 'hidden') { saveNote(); persistNow(); push(); } else if (uid) pull(); });
   addEventListener('online', () => mounted && uid && push());
