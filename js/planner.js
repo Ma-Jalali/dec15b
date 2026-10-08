@@ -22,6 +22,27 @@ window.DEC15Planner = (() => {
     return d.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short', ...(d.getFullYear() !== new Date().getFullYear() ? { year: 'numeric' } : {}) }); };
   const COLORS = { teal: '#2b776e', clay: '#b0512a', plum: '#7a4a8c', blue: '#3a58a0', gold: '#985c0e', green: '#3f7a3a' };
   const MAX_CAL = 3;
+  const mondayOf = s => addDays(s, -((parseYmd(s).getDay() + 6) % 7));
+  const isoWeek = s => { const d = parseYmd(s); d.setDate(d.getDate() + 3 - ((d.getDay() + 6) % 7)); const w1 = new Date(d.getFullYear(), 0, 4); return 1 + Math.round(((d - w1) / 864e5 - 3 + ((w1.getDay() + 6) % 7)) / 7); };
+  const longDay = s => parseYmd(s).toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long' });
+  const hourLabel = h => (h === 0 ? '12 am' : h < 12 ? `${h} am` : h === 12 ? '12 pm' : `${h - 12} pm`);
+  /* small line icons (16px) for group headings, stats and empty states */
+  const G = p => `<svg class="pl-g" viewBox="0 0 16 16" aria-hidden="true">${p}</svg>`;
+  const GI = {
+    late: G('<path d="M4 14.2V2.4M4 2.8h7.6l-1.7 2.9 1.7 2.9H4"/>'),
+    today: G('<circle cx="8" cy="8" r="2.9"/><path d="M8 1.6v1.6M8 12.8v1.6M1.6 8h1.6M12.8 8h1.6M3.5 3.5l1.1 1.1M11.4 11.4l1.1 1.1M3.5 12.5l1.1-1.1M11.4 4.6l1.1-1.1"/>'),
+    week: G('<rect x="2" y="3" width="12" height="11" rx="2"/><path d="M2 6.5h12M5.2 1.8v2.4M10.8 1.8v2.4M5 9.3h1.4M7.3 9.3h1.4M9.6 9.3h1.4M5 11.6h1.4"/>'),
+    get soon() { return this.week; },
+    later: G('<circle cx="8" cy="8" r="6.2"/><path d="M8 4.6V8l2.4 1.6"/>'),
+    nodate: G('<path d="M2 9.2 3.8 3.4c.2-.5.6-.8 1.1-.8h6.2c.5 0 .9.3 1.1.8L14 9.2v3.4c0 .5-.4.9-.9.9H2.9c-.5 0-.9-.4-.9-.9z"/><path d="M2 9.2h3.3l.9 1.7h3.6l.9-1.7H14"/>'),
+    done: G('<circle cx="8" cy="8" r="6.2"/><path d="m5.3 8.2 1.8 1.8 3.6-3.8"/>'),
+    words: G('<path d="M2.5 4h11M2.5 7.3h11M2.5 10.6h7"/>'),
+    folder: G('<path d="M1.8 4.3c0-.8.6-1.4 1.4-1.4h3l1.6 1.6h5c.8 0 1.4.6 1.4 1.4v5.8c0 .8-.6 1.4-1.4 1.4H3.2c-.8 0-1.4-.6-1.4-1.4z"/>'),
+    sep: '<svg class="pl-sep" viewBox="0 0 8 8" aria-hidden="true"><path d="M3 1.5 5.5 4 3 6.5"/></svg>',
+  };
+  /* a small progress ring: done / total */
+  const ring = (done, total, size = 18) => { const r = (size - 4) / 2, c = 2 * Math.PI * r, f = total ? done / total : 0;
+    return `<svg class="pl-ring" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" aria-hidden="true"><circle cx="${size / 2}" cy="${size / 2}" r="${r}"/><circle class="v" cx="${size / 2}" cy="${size / 2}" r="${r}" stroke-dasharray="${(c * f).toFixed(2)} ${c.toFixed(2)}" transform="rotate(-90 ${size / 2} ${size / 2})"/></svg>`; };
 
   /* ───────── store: notes, folders, calendars and tasks, all as items ───────── */
   let uid = null, items = {}, dirty = new Set(), subs = new Set(), status = 'local', persistTimer = 0;
@@ -107,7 +128,7 @@ window.DEC15Planner = (() => {
   }
 
   /* ───────── the editor (TipTap) ───────── */
-  const ui = { tab: 'notes', openNoteId: null, month: null, calView: 'month', openFolders: {}, renaming: null, renameDraft: null, fresh: null, search: '', showTree: false };
+  const ui = { tab: 'notes', openNoteId: null, month: null, calView: 'month', week: null, wkScroll: null, openFolders: {}, renaming: null, renameDraft: null, fresh: null, search: '', showTree: false };
   let saveTimer = 0, reconcileTimer = 0;
   function makeExtensions() {
     const T = window.Tiptap;
@@ -308,7 +329,7 @@ window.DEC15Planner = (() => {
       if (fresh) pop.dataset.fresh = id;
     });
   }
-  function newTask(date, anchor) { const id = uuid(); put(id, 'task', { title: '', noteId: null, date: date || null, time: null, calendarId: list('calendar')[0]?.id || null, done: false, pos: 0 }, { quiet: true }); taskPopover(id, anchor, true); }
+  function newTask(date, anchor, time = null) { const id = uuid(); put(id, 'task', { title: '', noteId: null, date: date || null, time: time || null, calendarId: list('calendar')[0]?.id || null, done: false, pos: 0 }, { quiet: true }); taskPopover(id, anchor, true); }
   // a new to-do closed without words is not kept
   new MutationObserver(() => { document.querySelectorAll('.pl-pop').length || Object.values(items).forEach(it => { if (it.kind === 'task' && !it.deleted && !it.data.noteId && !(it.data.title || '').trim()) remove(it.id); }); }).observe(document.body, { childList: true });
 
@@ -346,7 +367,11 @@ window.DEC15Planner = (() => {
     root.querySelector('#pl-panel').setAttribute('aria-labelledby', 'pl-tab-' + ui.tab);
     if (ui.tab === 'notes') paintNotes(); else { destroyEditor(); paintPanel(); }
   }
-  function paintPanel() { const p = root?.querySelector('#pl-panel'); if (!p) return; if (ui.tab === 'calendar') p.innerHTML = calendarHTML(); else if (ui.tab === 'todos') p.innerHTML = todosHTML(); }
+  function paintPanel() { const p = root?.querySelector('#pl-panel'); if (!p) return; if (ui.tab === 'calendar') p.innerHTML = calendarHTML(); else if (ui.tab === 'todos') p.innerHTML = todosHTML();
+    const sc = p.querySelector('.pl-wk-scroll'); if (!sc) return;
+    if (ui.wkScroll == null) { const hr = sc.querySelector('.pl-wk-slot')?.offsetHeight || 46, first = Math.min(...[...sc.querySelectorAll('.pl-wev')].map(e => e.offsetTop), 8 * hr); ui.wkScroll = Math.max(0, Math.min(first, new Date().getHours() * hr) - hr / 2); }
+    sc.scrollTop = ui.wkScroll; sc.addEventListener('scroll', () => { ui.wkScroll = sc.scrollTop; }, { passive: true }); }
+  setInterval(() => { const n = root?.querySelector('.pl-now'); if (n) { const d = new Date(); n.style.setProperty('--t', d.getHours() * 60 + d.getMinutes()); } }, 60000);
 
   /* ───────── notes view ───────── */
   function paintNotes() {
@@ -355,10 +380,10 @@ window.DEC15Planner = (() => {
     p.innerHTML = `<div class="pl-notes${ui.showTree ? ' tree-open' : ''}">
       <aside class="pl-tree" aria-label="Your notes"></aside>
       <section class="pl-main">${ui.openNoteId ? `<div class="pl-note-head"><button type="button" class="pl-tree-toggle" data-tree-toggle aria-label="Show my notes">☰ Notes</button>
-          <input class="pl-note-title" id="pl-note-title" aria-label="Note title" maxlength="120" value="${esc(get(ui.openNoteId).data.title || '')}" placeholder="Untitled">
+          <div class="pl-crumbs"></div><input class="pl-note-title" id="pl-note-title" aria-label="Note title" maxlength="120" value="${esc(get(ui.openNoteId).data.title || '')}" placeholder="Untitled">
           <div class="pl-note-meta"></div></div>
         ${toolbarHTML()}<div class="pl-page"><div id="pl-editor"></div></div>`
-        : `<div class="pl-empty"><button type="button" class="pl-tree-toggle" data-tree-toggle>☰ Notes</button><p>No notes yet.</p><button type="button" class="pl-btn" data-new-note>＋ New note</button></div>`}</section>
+        : `<div class="pl-empty"><button type="button" class="pl-tree-toggle" data-tree-toggle>☰ Notes</button>${ART.notes}<p><b>A blank page.</b> Notes you write here are only for you.</p><button type="button" class="pl-btn" data-new-note>＋ New note</button></div>`}</section>
       <aside class="pl-rail" aria-label="Coming up"></aside></div>`;
     paintTree(); paintRail(); paintNoteMeta();
     if (ui.openNoteId) openEditor(ui.openNoteId);
@@ -366,10 +391,16 @@ window.DEC15Planner = (() => {
   function paintNoteMeta() {
     const m = root?.querySelector('.pl-note-meta'), n = get(ui.openNoteId); if (!m || !n) return;
     const folders = list('folder').map(f => [folderPath(f.id), f]).sort((a, b) => a[0].localeCompare(b[0]));
-    const t = new Date(n.updatedAt || Date.now());
+    const t = new Date(n.updatedAt || Date.now()), words = ((n.data.text || '').match(/[\p{L}\p{N}'’-]+/gu) || []).length;
+    const tasks = list('task').filter(x => x.data.noteId === n.id && (x.data.title || '').trim()), doneN = tasks.filter(x => x.data.done).length;
     m.innerHTML = `<label class="pl-mini-sel"><span class="sr-only">Folder</span><select data-move-note aria-label="Folder"><option value="">No folder</option>${folders.map(([path, f]) => `<option value="${f.id}"${f.id === n.data.folderId ? ' selected' : ''}>${esc(path)}</option>`).join('')}</select></label>
-      <span>Edited ${t.toLocaleString('en-AU', { day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' })}</span>
+      <span class="pl-stat" title="Words">${GI.words}${words.toLocaleString('en-AU')} word${words === 1 ? '' : 's'}</span>
+      ${tasks.length ? `<span class="pl-stat" title="To-dos in this note">${ring(doneN, tasks.length, 16)}${doneN} of ${tasks.length} done</span>` : ''}
+      <span class="pl-stat">Edited ${t.toLocaleString('en-AU', { day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' })}</span>
       <button type="button" class="pl-link danger" data-del-note>Delete note</button>`;
+    const cr = root.querySelector('.pl-crumbs'), fid = noteFolder(n);
+    if (cr) { const trail = []; for (let x = fid, k = 0; x && k < 64; x = parentOf(x), k++) trail.unshift(get(x));
+      cr.innerHTML = `${GI.folder}<span>My notes</span>${trail.map(f => `${GI.sep}<span>${esc(f.data.name)}</span>`).join('')}`; }
   }
   /* the notes tree: folders inside folders, like a file explorer */
   const ICON = {
@@ -414,7 +445,8 @@ window.DEC15Planner = (() => {
         <button type="button" class="pl-ibtn" data-collapse-all title="Collapse all folders" aria-label="Collapse all folders">${ICON.collapse}</button></span></div>
       <input type="search" id="pl-search" placeholder="Search notes" aria-label="Search notes" value="${esc(ui.search)}"></div>
       <div class="pl-tree-list" data-drop-folder="">${branch(null, 0)}
-        ${q && !notes.length ? `<p class="pl-hint">No note matches “${esc(ui.search)}”.</p>` : ''}</div>`;
+        ${q && !notes.length ? `<p class="pl-hint">No note matches “${esc(ui.search)}”.</p>` : ''}</div>
+      <p class="pl-tree-foot">${list('note').length} note${list('note').length === 1 ? '' : 's'} · ${folders.length} folder${folders.length === 1 ? '' : 's'}</p>`;
     const inp = tree.querySelector('#pl-rename');
     if (inp) {
       const id = ui.renaming, f = get(id); inp.focus(); ui.renameDraft == null ? inp.select() : inp.setSelectionRange(inp.value.length, inp.value.length);
@@ -429,13 +461,19 @@ window.DEC15Planner = (() => {
   const countOpen = noteId => list('task').filter(t => t.data.noteId === noteId && !t.data.done).length;
   function paintRail() {
     const rail = root?.querySelector('.pl-rail'); if (!rail) return;
-    const t = todayStr(), open = list('task').filter(x => !x.data.done && (x.data.title || '').trim());
+    const t = todayStr(), now = new Date(), open = list('task').filter(x => !x.data.done && (x.data.title || '').trim());
     const dated = open.filter(x => x.data.date).sort((a, b) => (a.data.date + (a.data.time || '')).localeCompare(b.data.date + (b.data.time || ''))).slice(0, 7);
-    const m = ui.month || t.slice(0, 7);
-    rail.innerHTML = `<h2 class="pl-h">${MONTHS[+m.slice(5) - 1]} ${m.slice(0, 4)}</h2>${miniMonth(m, true)}
+    const todayAll = list('task').filter(x => x.data.date === t && (x.data.title || '').trim()), todayDone = todayAll.filter(x => x.data.done).length;
+    const m = ui.month || t.slice(0, 7); let last = '';
+    rail.innerHTML = `<div class="pl-today"><span class="pl-today-tile" aria-hidden="true"><small>${now.toLocaleDateString('en-AU', { weekday: 'short' })}</small><b>${now.getDate()}</b></span>
+        <div><b>${now.toLocaleDateString('en-AU', { weekday: 'long' })}</b><span>${now.getDate()} ${MONTHS[now.getMonth()]} · Week ${isoWeek(t)}</span>
+        <em>${todayAll.length ? `${ring(todayDone, todayAll.length, 14)} ${todayDone} of ${todayAll.length} done today` : 'Nothing due today'}</em></div></div>
+      <h2 class="pl-h">${MONTHS[+m.slice(5) - 1]} ${m.slice(0, 4)}</h2>${miniMonth(m, true)}
       <h2 class="pl-h">Coming up</h2>
-      <div class="pl-up">${dated.map(x => `<div class="pl-uprow${x.data.date < t ? ' late' : ''}">${checkbox(x)}<button type="button" class="pl-uptitle" data-task-open="${x.id}" title="${esc(x.data.title)}">${esc(x.data.title)}</button><small>${esc(niceDate(x.data.date))}</small></div>`).join('') || '<p class="pl-hint">No dated to-dos. Add a date to a to-do and it appears here and on the calendar.</p>'}</div>
-      ${open.filter(x => !x.data.date).length ? `<button type="button" class="pl-link" data-tab="todos">${open.filter(x => !x.data.date).length} to-dos without a date ›</button>` : ''}`;
+      <div class="pl-up">${dated.map(x => { const day = x.data.date < t ? 'Late' : niceDate(x.data.date), head = day !== last ? `<p class="pl-upday${x.data.date < t ? ' late' : ''}">${esc(day)}</p>` : ''; last = day;
+        return `${head}<div class="pl-uprow${x.data.date < t ? ' late' : ''}" style="--c:${calColor(x)}">${checkbox(x)}<button type="button" class="pl-uptitle" data-task-open="${x.id}" title="${esc(x.data.title)}">${esc(x.data.title)}</button>${x.data.time ? `<small>${esc(x.data.time)}</small>` : ''}</div>`; }).join('')
+        || `<div class="pl-upempty">${ART.calm}<p class="pl-hint">No dated to-dos. Give a to-do a date and it shows here and on the calendar.</p></div>`}</div>
+      ${open.filter(x => !x.data.date).length ? `<button type="button" class="pl-link" data-tab="todos">${open.filter(x => !x.data.date).length} to-do${open.filter(x => !x.data.date).length > 1 ? 's' : ''} without a date ›</button>` : ''}`;
   }
   const checkbox = t => `<input type="checkbox" class="pl-cb" data-toggle-task="${t.id}"${t.data.done ? ' checked' : ''} aria-label="Done: ${esc(t.data.title || 'to-do')}" style="--c:${calColor(t)}">`;
   const calColor = t => { const c = t.data.calendarId && get(t.data.calendarId); return c ? COLORS[c.data.color] : 'var(--pl-muted)'; };
@@ -450,40 +488,76 @@ window.DEC15Planner = (() => {
     .sort((a, b) => (a.data.done - b.data.done) || (a.data.time || '99').localeCompare(b.data.time || '99'));
   const hidden = (() => { try { return JSON.parse(localStorage.getItem('dec15-planner-hidden') || '{}'); } catch (e) { return {}; } })();
   const hiddenCal = t => hidden[t.data.calendarId || 'none'];
+  const evHTML = (x, cls = 'pl-ev', style = '') => `<div class="${cls}${x.data.done ? ' done' : ''}" draggable="true" data-drag-task="${x.id}" style="--c:${calColor(x)};${style}">${checkbox(x)}<button type="button" data-task-open="${x.id}" title="${esc(x.data.title)}${x.data.time ? ' · ' + esc(x.data.time) : ''}">${x.data.time ? `<b>${esc(x.data.time)}</b> ` : ''}<span>${esc(x.data.title)}</span></button></div>`;
+  function weekStart() { if (!ui.week) ui.week = mondayOf(todayStr()); return ui.week; }
   function calendarHTML() {
-    const t = todayStr(), m = ui.month || t.slice(0, 7), y = +m.slice(0, 4), mo = +m.slice(5) - 1;
+    const t = todayStr(), m = ui.month || t.slice(0, 7), y = +m.slice(0, 4), mo = +m.slice(5) - 1, view = ui.calView;
     const cals = list('calendar').sort((a, b) => (a.data.sort || 0) - (b.data.sort || 0));
-    const side = `<aside class="pl-calside" aria-label="Calendars">${miniMonth(m, false)}
+    const openOn = cid => list('task').filter(x => !x.data.done && (x.data.title || '').trim() && (x.data.calendarId || 'none') === cid).length;
+    const side = `<aside class="pl-calside" aria-label="Calendars"><h2 class="pl-h pl-sidemonth">${MONTHS[mo]} <span>${y}</span></h2>${miniMonth(m, true)}
       <h2 class="pl-h">My calendars</h2>
       <div class="pl-cals">${cals.map(c => `<div class="pl-calrow"><label><input type="checkbox" data-cal-show="${c.id}"${hidden[c.id] ? '' : ' checked'} style="--c:${COLORS[c.data.color]}"><span class="sr-only">Show </span></label>
           <input class="pl-calname" data-cal-name="${c.id}" value="${esc(c.data.name)}" maxlength="40" aria-label="Calendar name">
+          ${openOn(c.id) ? `<small class="pl-calcount" title="Open to-dos">${openOn(c.id)}</small>` : ''}
           <button type="button" class="pl-swatch" data-cal-color="${c.id}" style="--c:${COLORS[c.data.color]}" aria-label="Change colour of ${esc(c.data.name)}"></button>
           <button type="button" class="pl-more" data-cal-del="${c.id}" aria-label="Delete calendar ${esc(c.data.name)}">×</button></div>`).join('')}
-        <div class="pl-calrow none"><label><input type="checkbox" data-cal-show="none"${hidden.none ? '' : ' checked'} style="--c:var(--pl-muted)"><span class="sr-only">Show </span></label><span>No calendar</span></div></div>
+        <div class="pl-calrow none"><label><input type="checkbox" data-cal-show="none"${hidden.none ? '' : ' checked'} style="--c:var(--pl-muted)"><span class="sr-only">Show </span></label><span>No calendar</span>${openOn('none') ? `<small class="pl-calcount">${openOn('none')}</small>` : ''}</div></div>
       ${cals.length < MAX_CAL ? `<button type="button" class="pl-btn ghost" data-new-cal>＋ New calendar <small>${cals.length} of ${MAX_CAL}</small></button>` : `<p class="pl-limit">${MAX_CAL} of ${MAX_CAL} calendars. Rename or delete one to make a different one.</p>`}</aside>`;
-    let body;
-    if (ui.calView === 'year') body = `<div class="pl-year">${MONTHS.map((n, i) => `<button type="button" class="pl-ym" data-goto-month="${y}-${pad(i + 1)}"><b>${n}</b>${miniMonth(`${y}-${pad(i + 1)}`, false, true)}</button>`).join('')}</div>`;
-    else {
+    let body, title;
+    if (view === 'year') {
+      title = `${y}`;
+      body = `<div class="pl-year">${MONTHS.map((n, i) => { const mm = `${y}-${pad(i + 1)}`, cnt = list('task').filter(x => !x.data.done && (x.data.date || '').startsWith(mm) && !hiddenCal(x)).length;
+        return `<button type="button" class="pl-ym${mm === t.slice(0, 7) ? ' now' : ''}" data-goto-month="${mm}"><b>${n}${cnt ? `<small>${cnt}</small>` : ''}</b>${miniMonth(mm, false, true)}</button>`; }).join('')}</div>`;
+    } else if (view === 'week') {
+      const ws = weekStart(), days = [0, 1, 2, 3, 4, 5, 6].map(i => addDays(ws, i)), we = days[6], d0 = parseYmd(ws), d6 = parseYmd(we);
+      title = d0.getMonth() === d6.getMonth() ? `${d0.getDate()} – ${d6.getDate()} ${MONTHS[d6.getMonth()]} <span>${d6.getFullYear()}</span>`
+        : `${d0.getDate()} ${MONTHS[d0.getMonth()].slice(0, 3)} – ${d6.getDate()} ${MONTHS[d6.getMonth()].slice(0, 3)} <span>${d6.getFullYear()}</span>`;
+      const mins = x => { const [h, mi] = (x.data.time || '0:0').split(':').map(Number); return h * 60 + (mi || 0); };
+      const now = new Date(), nowMin = now.getHours() * 60 + now.getMinutes();
+      const cols = days.map(s => { const all = tasksOn(s), untimed = all.filter(x => !x.data.time), timed = all.filter(x => x.data.time).sort((a, b) => mins(a) - mins(b));
+        /* side-by-side lanes when to-dos overlap (each to-do is shown as one hour) */
+        const lanes = [], placed = []; let group = [], groupEnd = -1;
+        const flush = () => { const n = Math.max(...group.map(g => g.lane)) + 1; group.forEach(g => { g.n = n; }); group = []; };
+        timed.forEach(x => { const st = mins(x); if (group.length && st >= groupEnd) { flush(); lanes.length = 0; }
+          let lane = lanes.findIndex(end => end <= st); if (lane < 0) { lane = lanes.length; lanes.push(0); } lanes[lane] = st + 60; groupEnd = Math.max(groupEnd, st + 60);
+          const g = { x, st, lane }; placed.push(g); group.push(g); });
+        if (group.length) flush();
+        return { s, untimed, placed, wk: [5, 6].includes(days.indexOf(s)) }; });
+      body = `<div class="pl-week" style="--hr:46px">
+        <div class="pl-wk-head"><span class="pl-wk-gut" title="Week of the year">W${isoWeek(ws)}</span>${cols.map(c => { const d = parseYmd(c.s);
+          return `<div class="pl-wk-day${c.s === t ? ' today' : ''}${c.wk ? ' wk' : ''}"><small>${DOW[(d.getDay() + 6) % 7]}</small><button type="button" class="pl-wk-num" data-add-on="${c.s}" aria-label="Add a to-do on ${longDay(c.s)}">${d.getDate()}</button></div>`; }).join('')}</div>
+        <div class="pl-wk-all"><span class="pl-wk-gut">all-day</span>${cols.map(c => `<div class="pl-wk-allcell${c.wk ? ' wk' : ''}${c.s === t ? ' today' : ''}" role="group" aria-label="${longDay(c.s)}, no time" data-drop-day="${c.s}" data-drop-time="">${c.untimed.map(x => evHTML(x)).join('')}</div>`).join('')}</div>
+        <div class="pl-wk-scroll" tabindex="0" aria-label="Hours"><div class="pl-wk-grid">
+          <div class="pl-wk-hours" aria-hidden="true">${Array.from({ length: 24 }, (_, h) => `<span>${h ? hourLabel(h) : ''}</span>`).join('')}</div>
+          ${cols.map(c => `<div class="pl-wk-col${c.wk ? ' wk' : ''}${c.s === t ? ' today' : ''}" role="group" aria-label="${longDay(c.s)}${c.placed.length ? `, ${c.placed.length} timed to-do${c.placed.length > 1 ? 's' : ''}` : ''}" data-drop-day="${c.s}">
+            ${Array.from({ length: 24 }, (_, h) => `<div class="pl-wk-slot" data-add-at="${c.s}" data-time="${pad(h)}:00" data-drop-day="${c.s}" data-drop-time="${pad(h)}:00"></div>`).join('')}
+            ${c.placed.map(g => evHTML(g.x, 'pl-wev', `top:calc(var(--hr) * ${(g.st / 60).toFixed(3)});left:${g.lane * 16}px;width:calc(100% - ${g.lane * 16 + 4}px);z-index:${1 + g.lane}`)).join('')}
+            ${c.s === t ? `<div class="pl-now" style="--t:${nowMin}" aria-hidden="true"></div>` : ''}</div>`).join('')}
+        </div></div></div>`;
+    } else {
+      title = `${MONTHS[mo]} <span>${y}</span>`;
       const first = new Date(y, mo, 1), start = new Date(first); start.setDate(1 - ((first.getDay() + 6) % 7));
       const cells = []; for (let i = 0; i < 42; i++) { const d = new Date(start); d.setDate(start.getDate() + i); cells.push(d); }
-      body = `<div class="pl-dows" aria-hidden="true">${DOW.map(d => `<span>${d}</span>`).join('')}</div>
-        <div class="pl-grid">${cells.map(d => { const s = ymd(d), ts = tasksOn(s), out = d.getMonth() !== mo, wk = d.getDay() === 0 || d.getDay() === 6;
+      const todayDow = cells.some(d => ymd(d) === t) ? (new Date().getDay() + 6) % 7 : -1;
+      body = `<div class="pl-dows" aria-hidden="true">${DOW.map((d, i) => `<span${i === todayDow ? ' class="now"' : ''}>${d}</span>`).join('')}</div>
+        <div class="pl-grid">${cells.map((d, i) => { const s = ymd(d), ts = tasksOn(s), out = d.getMonth() !== mo, wk = d.getDay() === 0 || d.getDay() === 6;
           return `<div class="pl-cell${out ? ' out' : ''}${wk ? ' wk' : ''}${s === t ? ' today' : ''}" role="group" data-day="${s}" data-drop-day="${s}" aria-label="${d.toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long' })}${ts.length ? `, ${ts.length} to-do${ts.length > 1 ? 's' : ''}` : ''}">
-            <button type="button" class="pl-daynum" data-add-on="${s}" aria-label="Add a to-do on ${d.toLocaleDateString('en-AU', { day: 'numeric', month: 'long' })}">${d.getDate()}</button>
-            ${ts.slice(0, 3).map(x => `<div class="pl-ev${x.data.done ? ' done' : ''}" draggable="true" data-drag-task="${x.id}" style="--c:${calColor(x)}">${checkbox(x)}<button type="button" data-task-open="${x.id}" title="${esc(x.data.title)}">${x.data.time ? `<b>${esc(x.data.time)}</b> ` : ''}${esc(x.data.title)}</button></div>`).join('')}
+            <div class="pl-cellhead">${i % 7 === 0 ? `<button type="button" class="pl-wkno" data-goto-week="${s}" aria-label="Open week ${isoWeek(s)}" title="Open this week">W${isoWeek(s)}</button>` : ''}<button type="button" class="pl-daynum" data-add-on="${s}" aria-label="Add a to-do on ${d.toLocaleDateString('en-AU', { day: 'numeric', month: 'long' })}">${d.getDate() === 1 ? `<i>${MONTHS[d.getMonth()].slice(0, 3)}</i> ` : ''}${d.getDate()}</button></div>
+            ${ts.slice(0, 3).map(x => evHTML(x)).join('')}
             ${ts.length > 3 ? `<button type="button" class="pl-more-ev" data-day-list="${s}">+${ts.length - 3} more</button>` : ''}</div>`; }).join('')}</div>`;
     }
-    return `<div class="pl-cal">${side}<section class="pl-calmain">
-      <div class="pl-calhead"><h2>${ui.calView === 'year' ? y : `${MONTHS[mo]} <span>${y}</span>`}</h2>
-        <div class="pl-calnav"><button type="button" class="pl-btn ghost" data-cal-step="-1" aria-label="Previous ${ui.calView}">‹</button><button type="button" class="pl-btn ghost" data-cal-today>Today</button><button type="button" class="pl-btn ghost" data-cal-step="1" aria-label="Next ${ui.calView}">›</button>
-          <div class="pl-seg" role="group" aria-label="View"><button type="button" data-cal-view="month" aria-pressed="${ui.calView === 'month'}">Month</button><button type="button" data-cal-view="year" aria-pressed="${ui.calView === 'year'}">Year</button></div>
+    return `<div class="pl-cal" data-view="${view}">${side}<section class="pl-calmain">
+      <div class="pl-calhead"><h2>${title}</h2>
+        <div class="pl-calnav"><button type="button" class="pl-btn ghost pl-arrow" data-cal-step="-1" aria-label="Previous ${view}">‹</button><button type="button" class="pl-btn ghost" data-cal-today>Today</button><button type="button" class="pl-btn ghost pl-arrow" data-cal-step="1" aria-label="Next ${view}">›</button>
+          <div class="pl-seg" role="group" aria-label="View"><button type="button" data-cal-view="week" aria-pressed="${view === 'week'}">Week</button><button type="button" data-cal-view="month" aria-pressed="${view === 'month'}">Month</button><button type="button" data-cal-view="year" aria-pressed="${view === 'year'}">Year</button></div>
           <button type="button" class="pl-btn" data-new-task>＋ To-do</button></div></div>${body}</section></div>`;
   }
   function miniMonth(m, linked, tiny) {
     const y = +m.slice(0, 4), mo = +m.slice(5) - 1, first = new Date(y, mo, 1), off = (first.getDay() + 6) % 7, days = new Date(y, mo + 1, 0).getDate(), t = todayStr();
     const has = new Set(list('task').filter(x => x.data.date && !x.data.done && x.data.date.startsWith(m)).map(x => x.data.date));
     let h = `<div class="pl-minim${tiny ? ' tiny' : ''}">${tiny ? '' : DOW.map(d => `<b aria-hidden="true">${d[0]}</b>`).join('')}${'<span></span>'.repeat(off)}`;
-    for (let d = 1; d <= days; d++) { const s = `${m}-${pad(d)}`, cls = `${s === t ? 'today' : ''}${has.has(s) ? ' has' : ''}`;
+    const wk = ui.tab === 'calendar' && ui.calView === 'week' && !tiny ? weekStart() : null;
+    for (let d = 1; d <= days; d++) { const s = `${m}-${pad(d)}`, cls = `${s === t ? 'today' : ''}${has.has(s) ? ' has' : ''}${wk && s >= wk && s <= addDays(wk, 6) ? ' inweek' : ''}${(off + d - 1) % 7 > 4 ? ' we' : ''}`;
       h += linked ? `<button type="button" class="${cls}" data-goto-day="${s}" aria-label="${d} ${MONTHS[mo]}">${d}</button>` : `<span class="${cls}">${d}</span>`; }
     return h + '</div>';
   }
@@ -492,23 +566,36 @@ window.DEC15Planner = (() => {
   function todosHTML() {
     const t = todayStr(), all = list('task').filter(x => (x.data.title || '').trim());
     const open = all.filter(x => !x.data.done), by = (a, b) => ((a.data.date || '') + (a.data.time || '')).localeCompare((b.data.date || '') + (b.data.time || ''));
-    const groups = [['Late', open.filter(x => x.data.date && x.data.date < t).sort(by), 'late'], ['Today', open.filter(x => x.data.date === t).sort(by)], ['Next 7 days', open.filter(x => x.data.date > t && x.data.date <= addDays(t, 7)).sort(by)],
-      ['Later', open.filter(x => x.data.date > addDays(t, 7)).sort(by)], ['No date', open.filter(x => !x.data.date)], ['Done', all.filter(x => x.data.done).sort((a, b) => (b.data.doneAt || '').localeCompare(a.data.doneAt || '')).slice(0, 30), 'done']];
-    const cals = list('calendar');
-    return `<div class="pl-todos"><form class="pl-add" data-add-form><label class="sr-only" for="pl-add-title">New to-do</label><input id="pl-add-title" name="title" maxlength="300" placeholder="Add a to-do…" autocomplete="off">
+    const groups = [['Late', open.filter(x => x.data.date && x.data.date < t).sort(by), 'late'], ['Today', open.filter(x => x.data.date === t).sort(by), 'today'], ['Next 7 days', open.filter(x => x.data.date > t && x.data.date <= addDays(t, 7)).sort(by), 'soon'],
+      ['Later', open.filter(x => x.data.date > addDays(t, 7)).sort(by), 'later'], ['No date', open.filter(x => !x.data.date), 'nodate'], ['Done', all.filter(x => x.data.done).sort((a, b) => (b.data.doneAt || '').localeCompare(a.data.doneAt || '')).slice(0, 30), 'done']];
+    const cals = list('calendar'), ws = mondayOf(t), wkAll = all.filter(x => x.data.date >= ws && x.data.date <= addDays(ws, 6)), wkDone = wkAll.filter(x => x.data.done).length;
+    const stat = (n, label, cls) => `<div class="pl-tstat ${cls}"><b>${n}</b><span>${label}</span></div>`;
+    return `<div class="pl-todos">
+      ${all.length ? `<div class="pl-tsum"><div class="pl-tsum-ring">${ring(wkDone, wkAll.length, 54)}<b>${wkAll.length ? Math.round(wkDone / wkAll.length * 100) : 0}<small>%</small></b></div>
+        <div class="pl-tsum-txt"><b>This week</b><span>${wkDone} of ${wkAll.length} dated to-do${wkAll.length === 1 ? '' : 's'} done · Week ${isoWeek(t)}</span></div>
+        <div class="pl-tstats">${stat(groups[0][1].length, 'late', 'late')}${stat(groups[1][1].length, 'today', 'today')}${stat(groups[2][1].length, 'next 7 days', 'soon')}${stat(groups[4][1].length, 'no date', 'nodate')}</div></div>` : ''}
+      <form class="pl-add" data-add-form><span class="pl-add-ico" aria-hidden="true">＋</span><label class="sr-only" for="pl-add-title">New to-do</label><input id="pl-add-title" name="title" maxlength="300" placeholder="Add a to-do…" autocomplete="off">
         <label class="sr-only" for="pl-add-date">Date</label><input type="date" id="pl-add-date" name="date">
         <label class="sr-only" for="pl-add-cal">Calendar</label><select id="pl-add-cal" name="cal"><option value="">No calendar</option>${cals.map(c => `<option value="${c.id}">${esc(c.data.name)}</option>`).join('')}</select>
         <button class="pl-btn" type="submit">Add</button></form>
-      ${groups.filter(g => g[1].length).map(([name, ts, cls]) => `<section class="pl-tgroup ${cls || ''}"><h2 class="pl-h">${name} <small>${ts.length}</small></h2>
-        ${ts.map(x => { const note = x.data.noteId && get(x.data.noteId); return `<div class="pl-trow${x.data.done ? ' done' : ''}">${checkbox(x)}
+      ${groups.filter(g => g[1].length).map(([name, ts, cls]) => `<section class="pl-tgroup ${cls}"><h2 class="pl-h">${GI[cls]}${name} <small>${ts.length}</small></h2>
+        <div class="pl-tlist">${ts.map(x => { const note = x.data.noteId && get(x.data.noteId); return `<div class="pl-trow${x.data.done ? ' done' : ''}" style="--c:${calColor(x)}">${checkbox(x)}
           <button type="button" class="pl-ttitle" data-task-open="${x.id}">${esc(x.data.title)}</button>
-          ${note ? `<button type="button" class="pl-tnote" data-open-note="${note.id}" data-focus-task="${x.id}">${esc(note.data.title || 'Untitled')}</button>` : ''}
-          <button type="button" class="pl-tdate${x.data.date && x.data.date < t && !x.data.done ? ' late' : ''}" data-task-open="${x.id}" style="--c:${calColor(x)}">${x.data.date ? esc(niceDate(x.data.date)) + (x.data.time ? ' · ' + esc(x.data.time) : '') : '＋ Date'}</button></div>`; }).join('')}</section>`).join('')
-      || '<div class="pl-empty"><p>No to-dos yet. Add one above, or make a to-do list in a note.</p></div>'}</div>`;
+          ${note ? `<button type="button" class="pl-tnote" data-open-note="${note.id}" data-focus-task="${x.id}">${ICON.note}${esc(note.data.title || 'Untitled')}</button>` : ''}
+          <button type="button" class="pl-tdate${x.data.date && x.data.date < t && !x.data.done ? ' late' : ''}${x.data.date ? '' : ' nodate'}" data-task-open="${x.id}" style="--c:${calColor(x)}">${x.data.date ? esc(niceDate(x.data.date)) + (x.data.time ? ' · ' + esc(x.data.time) : '') : '＋ Date'}</button></div>`; }).join('')}</div></section>`).join('')
+      || `<div class="pl-empty">${ART.todos}<p><b>All clear.</b> Add a to-do above, or make a to-do list in a note.</p></div>`}</div>`;
   }
+
+  /* small flat illustrations for empty states */
+  const ART = {
+    notes: `<svg class="pl-art" viewBox="0 0 160 110" aria-hidden="true"><rect x="38" y="14" width="74" height="88" rx="8" fill="#fff" stroke="#c9d3da" stroke-width="1.5"/><rect x="48" y="8" width="74" height="88" rx="8" fill="#fff" stroke="#14293a" stroke-width="1.6"/><path d="M60 30h40M60 42h50M60 54h34" stroke="#c9d3da" stroke-width="3" stroke-linecap="round"/><rect x="58" y="64" width="9" height="9" rx="2.5" fill="none" stroke="#2b776e" stroke-width="1.6"/><path d="M73 68.5h28" stroke="#c9d3da" stroke-width="3" stroke-linecap="round"/><path d="m118 70 14-14 6 6-14 14-8 2z" fill="#e3a843" stroke="#14293a" stroke-width="1.5" stroke-linejoin="round"/><circle cx="30" cy="30" r="3" fill="#e3a843"/><circle cx="138" cy="24" r="2" fill="#2b776e"/></svg>`,
+    todos: `<svg class="pl-art" viewBox="0 0 160 110" aria-hidden="true"><rect x="34" y="16" width="92" height="82" rx="10" fill="#fff" stroke="#14293a" stroke-width="1.6"/><rect x="48" y="32" width="11" height="11" rx="3" fill="#2b776e"/><path d="m50.5 37.6 2.2 2.2 4-4.3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M66 37.5h44" stroke="#c9d3da" stroke-width="3" stroke-linecap="round"/><rect x="48" y="52" width="11" height="11" rx="3" fill="#2b776e"/><path d="m50.5 57.6 2.2 2.2 4-4.3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M66 57.5h34" stroke="#c9d3da" stroke-width="3" stroke-linecap="round"/><rect x="48" y="72" width="11" height="11" rx="3" fill="none" stroke="#c9d3da" stroke-width="1.6"/><path d="M66 77.5h38" stroke="#e8edf0" stroke-width="3" stroke-linecap="round"/><circle cx="128" cy="20" r="11" fill="#e3a843"/><path d="M128 14.5v11M122.5 20h11" stroke="#14293a" stroke-width="1.6" stroke-linecap="round"/><circle cx="24" cy="70" r="3" fill="#e3a843"/></svg>`,
+    calm: `<svg class="pl-art sm" viewBox="0 0 120 64" aria-hidden="true"><rect x="34" y="10" width="52" height="46" rx="8" fill="#fff" stroke="#14293a" stroke-width="1.5"/><path d="M34 22h52" stroke="#14293a" stroke-width="1.5"/><path d="M46 6v8M74 6v8" stroke="#14293a" stroke-width="1.5" stroke-linecap="round"/><circle cx="60" cy="39" r="7" fill="#e3a843"/><circle cx="20" cy="40" r="2.5" fill="#2b776e"/><circle cx="100" cy="22" r="2" fill="#e3a843"/></svg>`,
+  };
 
   /* ───────── events ───────── */
   function onClick(e) {
+    const slot = e.target.closest('[data-add-at]'); if (slot && !e.target.closest('button, input')) { newTask(slot.dataset.addAt, slot, slot.dataset.time); return; }
     const t = e.target.closest('button, [data-tab]'); if (!t || t.disabled) return; const d = t.dataset;
     if (d.tab && t.getAttribute('role') === 'tab' || (d.tab && t.classList.contains('pl-link'))) { ui.tab = d.tab; closePop(); paint(); return; }
     if (d.cmd) { runCmd(d.cmd, t); return; }
@@ -534,13 +621,16 @@ window.DEC15Planner = (() => {
         closePop(); destroyEditor(); const tasks = list('task').filter(x => x.data.noteId === id); tasks.forEach(x => remove(x.id)); remove(id); ui.openNoteId = firstNote(); paint();
         undoToast('Note deleted.', () => { restore(id); tasks.forEach(x => restore(x.id)); ui.openNoteId = id; paint(); }); })); return; }
     if (d.taskOpen) { taskPopover(d.taskOpen, t); return; }
-    if (d.gotoDay) { ui.month = d.gotoDay.slice(0, 7); ui.calView = 'month'; ui.tab = 'calendar'; paint(); return; }
+    if (d.gotoDay) { ui.month = d.gotoDay.slice(0, 7); if (ui.tab === 'calendar' && ui.calView === 'week') { ui.week = mondayOf(d.gotoDay); } else ui.calView = 'month'; ui.tab = 'calendar'; paint(); return; }
+    if (d.gotoWeek) { ui.week = mondayOf(d.gotoWeek); ui.calView = 'week'; ui.month = addDays(ui.week, 3).slice(0, 7); ui.wkScroll = null; paintPanel(); return; }
     if (d.gotoMonth) { ui.month = d.gotoMonth; ui.calView = 'month'; paintPanel(); return; }
+    if (d.calStep && ui.calView === 'week') { ui.week = addDays(weekStart(), 7 * +d.calStep); ui.month = addDays(ui.week, 3).slice(0, 7); paintPanel(); return; }
     if (d.calStep) { const m = ui.month || todayStr().slice(0, 7), dt = new Date(+m.slice(0, 4), +m.slice(5) - 1, 1);
       if (ui.calView === 'year') dt.setFullYear(dt.getFullYear() + +d.calStep); else dt.setMonth(dt.getMonth() + +d.calStep);
       ui.month = `${dt.getFullYear()}-${pad(dt.getMonth() + 1)}`; paintPanel(); return; }
-    if (d.calToday !== undefined) { ui.month = todayStr().slice(0, 7); paintPanel(); return; }
-    if (d.calView) { ui.calView = d.calView; paintPanel(); return; }
+    if (d.calToday !== undefined) { ui.month = todayStr().slice(0, 7); ui.week = mondayOf(todayStr()); ui.wkScroll = null; paintPanel(); return; }
+    if (d.calView) { if (d.calView === 'week' && ui.calView !== 'week') { const t = todayStr(), m = ui.month || t.slice(0, 7); ui.week = t.startsWith(m) ? mondayOf(t) : mondayOf(`${m}-01`); ui.wkScroll = null; }
+      ui.calView = d.calView; paintPanel(); return; }
     if (d.newTask !== undefined) { newTask(todayStr(), t); return; }
     if (d.addOn) { newTask(d.addOn, t); return; }
     if (d.dayList) { const ts = tasksOn(d.dayList); popover(t, `<div class="pl-menu daylist"><b>${esc(niceDate(d.dayList))}</b>${ts.map(x => `<div class="pl-ev${x.data.done ? ' done' : ''}" style="--c:${calColor(x)}">${checkbox(x)}<button type="button" data-task-open="${x.id}">${x.data.time ? `<b>${esc(x.data.time)}</b> ` : ''}${esc(x.data.title)}</button></div>`).join('')}</div>`, p => {
@@ -598,7 +688,7 @@ window.DEC15Planner = (() => {
     if (fid && ui.openFolders[fid] === false && hoverOpen?.[0] !== fid) { clearTimeout(hoverOpen?.[1]); hoverOpen = [fid, setTimeout(() => { if (dragging) { ui.openFolders[fid] = true; paintTree(); } }, 650)]; } }
   function onDrop(e) { if (!dragging) return; const [kind, id] = dragging, z = dropZone(e); dragging = null; clearTimeout(hoverOpen?.[1]); hoverOpen = null; root.querySelectorAll('.pl-over').forEach(x => x.classList.remove('pl-over'));
     if (!z) return; e.preventDefault();
-    if (kind === 'task') { put(id, 'task', { date: z.dataset.dropDay }); return; }
+    if (kind === 'task') { const patch = { date: z.dataset.dropDay }; if ('dropTime' in z.dataset) patch.time = z.dataset.dropTime || null; put(id, 'task', patch); return; }
     const to = z.dataset.dropFolder || null; if (to) ui.openFolders[to] = true;
     if (kind === 'note') { if (get(id) && noteFolder(get(id)) !== to) put(id, 'note', { folderId: to }); paintTree(); paintNoteMeta(); }
     else if (to !== id && parentOf(id) !== to) { put(id, 'folder', { parentId: to }); paintNoteMeta(); } else paintTree(); }
