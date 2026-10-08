@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.20)
+DEC15 — COURSE APP (v2.21)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -206,3 +206,16 @@ POLISH + UX (v2.20)
 - Phones: the "Start here" card on the course map no longer runs off the screen.
 - One-column choice tables give the sentence more room; short stages in "Your day at a glance"
   keep a readable width; the class wall no longer shows "Loading…" when you are signed out.
+
+TEACHING DIAGRAMS + SMALL DETAILS (v2.21)
+- Nine new vector diagrams for visual learners (placed where the concept is taught, never
+  giving away quiz or gap-fill answers):
+  W2D5 a3 ai-decision.svg (AI or not: three-question flow) · W2D5 c3 evidence-strength.svg
+  W3D1 c2 conclusion-structure.svg · W3D1 v1 academic-voices.svg
+  W3D2 r5 paraphrase-notes.svg · W3D3 m6 synthesis-table.svg (placeholder authors)
+  W3D3 n4 cause-effect-chain.svg · W3D3 r2 craap.svg (letters only; questions stay in answers)
+  W3D4 c4 question-layers.svg (worked example = Day 1 question, from the W2D5 answer key)
+  New folder: assets/week2/.
+- Small artistic details: gold swash under page titles, a sparkle on key-point boxes, a sprig
+  before section titles, a leaf before figure captions, a wheat sprig at the end of each page.
+- Phones: diagrams show a "Tap to enlarge" hint.

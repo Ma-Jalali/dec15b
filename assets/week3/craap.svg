@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 340" font-family="Manrope, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="crt">
+<title id="crt">The CRAAP test: five checks for a source. C, Currency. R, Relevance. A, Authority. A, Accuracy. P, Purpose. For each letter, ask one question about the article.</title>
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".13"/></filter>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".14"/></pattern>
+</defs>
+<rect width="1040" height="340" rx="24" fill="#fffdf8"/>
+<rect x="910" y="22" width="100" height="56" fill="url(#dots)"/>
+<text x="40" y="54" font-family="Fraunces, Georgia, serif" font-size="26" font-weight="600" fill="#14293a">The CRAAP test</text>
+<path d="M40 64c60-5 130-5 196-1" stroke="#e3a843" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<text x="40" y="90" font-size="14" fill="#6b7882">Five checks before you trust a source. For each letter, ask one question.</text>
+<g filter="url(#sh)">
+  <rect x="40" y="114" width="176" height="190" rx="18" fill="#fff"/><rect x="236" y="114" width="176" height="190" rx="18" fill="#fff"/><rect x="432" y="114" width="176" height="190" rx="18" fill="#fff"/><rect x="628" y="114" width="176" height="190" rx="18" fill="#fff"/><rect x="824" y="114" width="176" height="190" rx="18" fill="#fff"/>
+</g>
+<g font-family="Fraunces, Georgia, serif" font-size="58" font-weight="600" text-anchor="middle">
+  <text x="128" y="186" fill="#ad6a12">C</text><text x="324" y="186" fill="#2b776e">R</text><text x="520" y="186" fill="#3a58a0">A</text><text x="716" y="186" fill="#7a4a8c">A</text><text x="912" y="186" fill="#b0512a">P</text>
+</g>
+<g font-size="16" font-weight="800" fill="#14293a" text-anchor="middle"><text x="128" y="216">Currency</text><text x="324" y="216">Relevance</text><text x="520" y="216">Authority</text><text x="716" y="216">Accuracy</text><text x="912" y="216">Purpose</text></g>
+<!-- icons -->
+<g fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <g transform="translate(128 260)"><circle r="22" fill="#fbf3e4" stroke="none"/><circle r="11" stroke="#ad6a12"/><path d="M0-6v6l4 3" stroke="#ad6a12"/></g>
+  <g transform="translate(324 260)"><circle r="22" fill="#e9f4f2" stroke="none"/><circle r="11" stroke="#2b776e"/><circle r="5" stroke="#2b776e"/><circle r="1.2" fill="#2b776e" stroke="none"/></g>
+  <g transform="translate(520 260)"><circle r="22" fill="#edf1fa" stroke="none"/><circle cy="-4" r="5" stroke="#3a58a0"/><path d="M-9 10c1-6 5-9 9-9s8 3 9 9" stroke="#3a58a0"/><path d="M8-12l3 2 4-5" stroke="#3a58a0"/></g>
+  <g transform="translate(716 260)"><circle r="22" fill="#f6eff8" stroke="none"/><circle cx="-2" cy="-2" r="8" stroke="#7a4a8c"/><path d="M4 4l7 7" stroke="#7a4a8c"/></g>
+  <g transform="translate(912 260)"><circle r="22" fill="#fbefe8" stroke="none"/><path d="M-11 0s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="#b0512a"/><circle r="3" stroke="#b0512a"/></g>
+</g>
+<g fill="#c9bfae"><circle cx="226" cy="209" r="2.5"/><circle cx="422" cy="209" r="2.5"/><circle cx="618" cy="209" r="2.5"/><circle cx="814" cy="209" r="2.5"/></g>
+<text x="40" y="326" font-size="12.5" fill="#8b969e">Use it to choose your next article for the Research Summary Discussion.</text>
+<path d="M992 44l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#e3a843"/>
+</svg>

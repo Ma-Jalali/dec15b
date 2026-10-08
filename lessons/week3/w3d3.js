@@ -188,6 +188,7 @@ window.DEC15_LESSON = {
               'This week’s texts <b>agree</b> that food redistribution is a useful way to reduce food waste and improve food security.',
               'But they <b>focus</b> on different methods, and may disagree on whether other ways to reduce food insecurity should also be considered.'
             ]},
+            { type: 'figure', src: 'assets/week3/synthesis-table.svg', alt: 'From three texts to one synthesis: three texts on the same topic; a synthesising table where each idea is marked agree, partially agree or doesn’t mention for each text; then write — where texts agree, one point with both sources in one reference; where they differ, contrast with however, in contrast or whereas.', caption: 'How a synthesising table becomes a paragraph', size: 'wide' },
             { type: 'sources', ids: ['nicastro', 'aboutthat', 'berti'] },
             { type: 'steps', items: [
               { who: 'group', text: '<b>Become an expert (10 min).</b> Each person takes one text: Nicastro & Carillo, About That, or Berti et al. Use your notes from this week.' },
@@ -396,6 +397,7 @@ window.DEC15_LESSON = {
           goal: 'Combine a cause and an effect into one academic sentence.',
           blocks: [
             { type: 'model', title: 'Example', before: 'Cause: Food waste <b>decomposes</b> in landfills. → Effect: Methane, a potent greenhouse gas, is <b>produced</b>.', text: 'The <b>decomposition</b> of food waste in landfills <b>results in</b> the <b>production</b> of methane, a potent greenhouse gas.' },
+            { type: 'figure', src: 'assets/week3/cause-effect-chain.svg', alt: 'Cause and effect in one sentence: Food waste decomposes in landfills (cause) and methane is produced (effect) become the decomposition of food waste in landfills results in the production of methane. Cause to effect: leads to, results in, contributes to, increases. Effect from cause: is due to, is a result of, because of, as a result of.', caption: 'Nominalise both clauses, then join them', size: 'wide' },
             { type: 'language', title: 'Causal language', groups: [
               { label: 'Cause → effect', phrases: ['The decomposition of … leads to / results in / contributes to the production of …', 'The decomposition of … increases the production of …'] },
               { label: 'Effect ← cause', phrases: ['Methane … is produced because of / as a result of the decomposition of …', 'The production of methane … is a result of / is due to the decomposition of …'] }
@@ -519,6 +521,7 @@ window.DEC15_LESSON = {
               { who: 'pair', text: 'For each letter of CRAAP, say <b>one question</b> you would ask about an article. Don’t look at the answers yet.' },
               { who: 'pair', text: 'Open the answers and compare. Which questions did you forget?' }
             ]},
+            { type: 'figure', src: 'assets/week3/craap.svg', alt: 'The CRAAP test: Currency, Relevance, Authority, Accuracy, Purpose. Ask one question for each letter.', caption: 'Five checks before you trust a source', size: 'wide' },
             { type: 'fields', fields: [
               { id: 'r2-1', label: 'Our CRAAP questions', placeholder: 'C: How recent …? R: … A: … A: … P: …', rows: 3 }
             ]},
