@@ -856,6 +856,35 @@ function checkAuthForm(mode, v) {
   if (mode !== 'reset' && v.password.length < 6) return mode === 'signup' ? 'Choose a password with at least 6 characters.' : 'Please type your password.';
   return '';
 }
+/* Toggles slide open and closed instead of jumping: the box grows from its old height to its new one. */
+const calm = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+function slideHeight(el, from, to, done) {
+  if (calm() || !el.animate || Math.abs(to - from) < 2) { done?.(); return; }
+  el.style.overflow = 'hidden';
+  const an = el.animate([{ height: from + 'px' }, { height: to + 'px' }], { duration: Math.min(520, 240 + Math.abs(to - from) * .35), easing: 'cubic-bezier(.22, .8, .24, 1)' });
+  an.onfinish = an.oncancel = () => { el.style.overflow = ''; done?.(); };
+}
+function morph(id, change) {   // re-draw the page, then let the box with this id slide to its new size
+  const before = document.getElementById(id)?.offsetHeight; change();
+  const el = document.getElementById(id); if (el && before) slideHeight(el, before, el.offsetHeight);
+}
+document.addEventListener('click', e => {   // every <details> (page guide, notebook sections) slides
+  const sum = e.target.closest('summary'); const det = sum?.parentElement;
+  if (!det || det.tagName !== 'DETAILS' || calm() || det.dataset.sliding) return;
+  e.preventDefault(); det.dataset.sliding = '1';
+  const from = det.offsetHeight;
+  if (!det.open) { det.open = true; det.classList.add('is-opening'); slideHeight(det, from, det.offsetHeight, () => { det.classList.remove('is-opening'); delete det.dataset.sliding; }); }
+  else { det.open = false; const to = det.offsetHeight; det.open = true; det.classList.add('is-closing'); slideHeight(det, from, to, () => { det.open = false; det.classList.remove('is-closing'); delete det.dataset.sliding; }); }
+});
+/* side panel: a long lesson name glides sideways on hover or focus, so it can be read in full */
+function glide(e, on) {
+  const n = e.target.closest?.('#nav .nav-part')?.querySelector('.nav-pname'); if (!n) return;
+  const over = n.scrollWidth - n.clientWidth;
+  if (on && over > 2) { n.style.setProperty('--shift', -(over + 6) + 'px'); n.style.setProperty('--dur', Math.min(2.6, .5 + over / 60) + 's'); n.classList.add('gliding'); }
+  else if (!on) n.classList.remove('gliding');
+}
+['mouseover', 'focusin'].forEach(t => document.addEventListener(t, e => glide(e, true)));
+['mouseout', 'focusout'].forEach(t => document.addEventListener(t, e => { if (!e.relatedTarget || !e.target.closest?.('.nav-part')?.contains(e.relatedTarget)) glide(e, false); }));
 /* tap a diagram to see it full size — useful on phones, where wide diagrams are small */
 function closeZoom() { const z = document.querySelector('.zoom'); if (z) z.remove(); }
 document.addEventListener('click', e => {
@@ -957,10 +986,10 @@ document.addEventListener('click', e => {
   if (d.reveal) {
     const a = allActivities.find(x => x.id === d.reveal);
     if (!hasAttempt(a) && !state.teacher) { toast('Write or choose something first. Then compare with the suggested answers.'); return; }
-    state.revealed[a.id] = true; save(); rerender(); document.getElementById('ans-' + a.id)?.classList.add('just-opened'); return;
+    state.revealed[a.id] = true; save(); morph('ans-' + a.id, rerender); document.getElementById('ans-' + a.id)?.classList.add('just-opened'); return;
   }
   if (d.unlock) { state.revealed['gate-' + d.unlock] = true; save(); rerender(); return; }
-  if (d.hideAnswers) { delete state.revealed[d.hideAnswers]; save(); rerender(); return; }
+  if (d.hideAnswers) { delete state.revealed[d.hideAnswers]; save(); morph('ans-' + d.hideAnswers, rerender); return; }
   if (d.addRow) { state.rows[d.addRow] = (state.rows[d.addRow] || 0) + 1; save(); rerender(); return; }
   if (d.weekTab) { homeWeek = Number(d.weekTab); rerender(); $(`#tab-week-${homeWeek}`)?.focus({ preventScroll: !t.classList.contains('week-tab') }); if (!t.classList.contains('week-tab')) $('.week')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
   if (d.navWeek) { const w = Number(d.navWeek), wk = t.closest('.nav-week'), open = !wk.classList.contains('open'); navOpen[w] = open;
