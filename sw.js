@@ -1,7 +1,7 @@
 /* DEC15 offline support. Keeps a copy of the app on the device so lessons open without internet.
    Your answers are always saved on the device (and online when signed in) — this file only caches the app itself.
    After a release, run: node tools/build-sw.js  (updates VERSION and the file list below). */
-const VERSION = '2.23';
+const VERSION = '2.24';
 const CACHE = 'dec15-' + VERSION;
 const PRECACHE = [
   "./",
@@ -69,31 +69,31 @@ const PRECACHE = [
   "assets/week3/prompt-parts.svg",
   "assets/week3/question-layers.svg",
   "assets/week3/synthesis-table.svg",
-  "css/dec15.css?v=2.23",
-  "css/fonts.css?v=2.23",
-  "css/glass.css?v=2.23",
-  "css/play.css?v=2.23",
-  "css/polish.css?v=2.23",
+  "css/dec15.css?v=2.24",
+  "css/fonts.css?v=2.24",
+  "css/glass.css?v=2.24",
+  "css/play.css?v=2.24",
+  "css/polish.css?v=2.24",
   "index.html",
-  "js/app.js?v=2.23",
-  "js/boot.js?v=2.23",
-  "js/cloud.js?v=2.23",
-  "js/config.js?v=2.23",
-  "js/notebook.js?v=2.23",
-  "js/play.js?v=2.23",
-  "js/reader.js?v=2.23",
+  "js/app.js?v=2.24",
+  "js/boot.js?v=2.24",
+  "js/cloud.js?v=2.24",
+  "js/config.js?v=2.24",
+  "js/notebook.js?v=2.24",
+  "js/play.js?v=2.24",
+  "js/reader.js?v=2.24",
   "js/vendor/supabase.min.js",
-  "js/wall.js?v=2.23",
-  "lessons/course.js?v=2.23",
-  "lessons/week2/sources.js?v=2.23",
-  "lessons/week2/video-script.js?v=2.23",
-  "lessons/week2/w2d5.js?v=2.23",
-  "lessons/week3/sources.js?v=2.23",
-  "lessons/week3/w3d1.js?v=2.23",
-  "lessons/week3/w3d2.js?v=2.23",
-  "lessons/week3/w3d3.js?v=2.23",
-  "lessons/week3/w3d4.js?v=2.23",
-  "lessons/week3/w3d5.js?v=2.23",
+  "js/wall.js?v=2.24",
+  "lessons/course.js?v=2.24",
+  "lessons/week2/sources.js?v=2.24",
+  "lessons/week2/video-script.js?v=2.24",
+  "lessons/week2/w2d5.js?v=2.24",
+  "lessons/week3/sources.js?v=2.24",
+  "lessons/week3/w3d1.js?v=2.24",
+  "lessons/week3/w3d2.js?v=2.24",
+  "lessons/week3/w3d3.js?v=2.24",
+  "lessons/week3/w3d4.js?v=2.24",
+  "lessons/week3/w3d5.js?v=2.24",
   "manifest.webmanifest"
 ];
 

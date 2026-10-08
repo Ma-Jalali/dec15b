@@ -22,7 +22,7 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
     if (!c) { posts = []; reactions = []; status = 'signed-out'; paint(); return; }
     let p, r, e1, e2;
     try { [{ data: p, error: e1 }, { data: r, error: e2 }] = await Promise.all([
-      c.from('wall_posts').select('id, thread, parent_id, user_id, author_name, kind, label, body, created_at').eq('lesson_id', lessonId).order('created_at', { ascending: true }),
+      c.from('wall_posts').select('id, thread, parent_id, user_id, author_name, author_avatar, kind, label, body, created_at').eq('lesson_id', lessonId).order('created_at', { ascending: true }),
       c.from('wall_reactions').select('post_id, user_id, emoji').eq('lesson_id', lessonId)
     ]); } catch (e) { e1 = e; }
     if (e1 || e2) { console.warn('wall', e1 || e2); status = 'error'; paint(); return; }
@@ -72,7 +72,8 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
     return new Date(t).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }); };
   const initial = n => esc((String(n || '?').trim()[0] || '?').toUpperCase());
   const hue = id => [...String(id)].reduce((h, c) => (h * 31 + c.charCodeAt(0)) % 360, 7);
-  const avatar = p => `<span class="wall-avatar" style="--h:${hue(p.user_id)}" aria-hidden="true">${initial(p.author_name)}</span>`;
+  const photo = url => /^https:\/\/[^"'<>\s]+\/storage\/v1\/object\/public\/avatars\//.test(url || '') ? `<img src="${esc(url)}" alt="" width="72" height="72" loading="lazy" referrerpolicy="no-referrer">` : '';
+  const avatar = p => `<span class="wall-avatar${photo(p.author_avatar) ? ' has-photo' : ''}" style="--h:${hue(p.user_id)}" aria-hidden="true">${photo(p.author_avatar) || initial(p.author_name)}</span>`;
   const count = thread => posts.filter(p => p.thread === thread).length;
 
   function reactionBar(p) {
@@ -121,7 +122,7 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
       <header class="wall-head"><span class="wall-icon">${icon('chat')}</span><div><h3>Class wall <span class="wall-count" data-wall-count="${esc(a.id)}">${signedIn && count(a.id) ? count(a.id) : ''}</span></h3>
         <p>Share a comment, a question or your notes. Your class can read it, reply and react.</p></div></header>
       ${signedIn ? `<form class="wall-form" data-wall-form="${esc(a.id)}">
-        <span class="wall-avatar" style="--h:${hue(me())}" aria-hidden="true">${initial(name || cloud().user.email)}</span>
+        <span class="wall-avatar${photo(cloud()?.profile?.avatar_url) ? ' has-photo' : ''}" style="--h:${hue(me())}" aria-hidden="true">${photo(cloud()?.profile?.avatar_url) || initial(name || cloud().user.email)}</span>
         <div class="wall-form-main"><textarea data-wall-draft="${esc(a.id)}" rows="2" maxlength="2000" placeholder="Write a comment for the class…" aria-label="Write a comment for the class">${esc(drafts[a.id] || '')}</textarea>
         <div class="wall-form-bar"><small>Be kind and helpful. Everyone in DEC15 can see your name and post.</small><button class="btn" type="submit">Post ${icon('arrow')}</button></div></div></form>`
         : `<div class="wall-signin"><p>${icon('lock')}<span><b>Sign in to join the class wall.</b> See what your classmates posted, reply and react.</span></p><button type="button" class="btn" data-wall-signin>Sign in</button></div>`}

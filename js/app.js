@@ -53,7 +53,7 @@ function paintStatus() {
   const btn = $('#account-btn'); if (!btn) return;
   btn.hidden = !cloud?.enabled;
   const name = cloudInfo.profile?.full_name || cloudInfo.user?.email || '';
-  btn.innerHTML = cloudInfo.user ? `<span class="avatar">${esc((name || '?').trim().slice(0, 1).toUpperCase())}</span><span class="acct-name">${esc(name.split(' ')[0] || 'Account')}</span>` : '<span>Sign in<span class="hide-sm"> to save online</span></span>';
+  btn.innerHTML = cloudInfo.user ? `${avatarHTML(cloudInfo.profile || {}, cloudInfo.user?.email)}<span class="acct-name">${esc(name.split(' ')[0] || 'Account')}</span>` : '<span>Sign in<span class="hide-sm"> to save online</span></span>';
   btn.classList.toggle('signed-in', !!cloudInfo.user);
 }
 
@@ -867,14 +867,39 @@ function showGdocsHelp(opened) {
 }
 
 /* ───────── account (Supabase) ───────── */
+/* A round profile picture, or the first letter of the name when there is no picture. */
+function avatarHTML(p = {}, email = '', cls = 'avatar') {
+  const letter = esc(((p.full_name || email || '?').trim()[0] || '?').toUpperCase());
+  return p.avatar_url ? `<span class="${cls} has-photo"><img src="${esc(p.avatar_url)}" alt="" width="96" height="96" loading="lazy" referrerpolicy="no-referrer"></span>` : `<span class="${cls}">${letter}</span>`;
+}
 function accountDialog(mode = cloudInfo.user ? 'account' : 'signin', msg = '', keep = {}) {
   const val = k => keep[k] ? ` value="${esc(keep[k])}"` : '';
   $('#resource-title').textContent = mode === 'account' ? 'Your account' : 'Save your work online';
   const p = cloudInfo.profile || {};
-  $('#resource-body').innerHTML = mode === 'account' ? `<div class="acct">
-      <div class="acct-card"><span class="avatar avatar-lg">${esc((p.full_name || cloudInfo.user?.email || '?').slice(0, 1).toUpperCase())}</span><div><b>${esc(p.full_name || 'Student')}</b><span>${esc(cloudInfo.user?.email || '')}${p.student_id ? ' · ' + esc(p.student_id) : ''}</span></div></div>
+  const pw = (name, label, auto, hint = '') => `<label>${label}${hint ? ` <small>${hint}</small>` : ''}<span class="pw-wrap"><input name="${name}" type="password" autocomplete="${auto}" minlength="6" required><button type="button" class="pw-show" data-pw-show aria-pressed="false">Show</button></span></label>`;
+  const note = (k) => keep.note?.[0] === k ? `<p class="acct-msg${keep.note[2] ? ' is-ok' : ''}" role="${keep.note[2] ? 'status' : 'alert'}">${keep.note[1]}</p>` : '';
+  if (mode === 'newpw') {
+    $('#resource-title').textContent = 'Choose a new password';
+    $('#resource-body').innerHTML = `<form class="acct-form" data-acct="password" novalidate><p class="acct-intro">You opened a password reset link. Choose a new password for <b>${esc(cloudInfo.user?.email || 'your account')}</b>.</p>
+      ${pw('next', 'New password', 'new-password', '(at least 6 characters)')}${pw('again', 'Type it again', 'new-password')}${note('password')}<button class="btn" type="submit">Save new password</button></form>`;
+    if (!$('#resource-dialog').open) $('#resource-dialog').showModal(); $('#resource-body input')?.focus(); return;
+  }
+  $('#resource-body').innerHTML = mode === 'account' ? `<div class="acct acct-settings">
+      <section class="acct-card acct-hero">
+        <span class="acct-photo">${avatarHTML(p, cloudInfo.user?.email, 'avatar avatar-xl')}</span>
+        <div><b>${esc(p.full_name || 'Student')}</b><span>${esc(cloudInfo.user?.email || '')}${p.student_id ? ' · ' + esc(p.student_id) : ''}</span>
+          <div class="acct-photo-btns"><label class="btn-quiet btn-sm" tabindex="0">${icon('pen')}${p.avatar_url ? 'Change picture' : 'Add a picture'}<input type="file" accept="image/*" data-avatar-file hidden></label>${p.avatar_url ? '<button type="button" class="text-link" data-avatar-remove>Remove</button>' : ''}</div>
+          ${note('photo')}</div>
+      </section>
+      <form class="acct-box" data-acct="profile" novalidate><h3>Your details</h3>
+        <label>Name <small>(shown at the top of the page and on the class wall)</small><input name="name" autocomplete="name" maxlength="80" required value="${esc(p.full_name || '')}"></label>
+        <label>Student ID <small>(optional)</small><input name="sid" inputmode="numeric" autocomplete="off" maxlength="30" value="${esc(p.student_id || '')}"></label>
+        ${note('profile')}<button class="btn" type="submit">Save details</button></form>
+      <form class="acct-box" data-acct="password" novalidate><h3>Change password</h3>
+        ${pw('current', 'Current password', 'current-password')}${pw('next', 'New password', 'new-password', '(at least 6 characters)')}${pw('again', 'Type the new password again', 'new-password')}
+        ${note('password')}<button class="btn" type="submit">Change password</button></form>
       <p class="acct-note">${icon('check')} Your answers, tables, plan and highlights are saved online. Sign in on any computer to continue where you stopped.</p>
-      <button class="btn-quiet" data-signout>Sign out</button></div>`
+      <div class="acct-actions"><button class="btn-quiet" data-signout>Sign out</button><button class="btn-quiet" data-signout-all title="Use this if you signed in on a shared or lost computer">Sign out on all devices</button></div></div>`
     : `<form class="acct-form" data-auth="${mode}" novalidate>
       ${mode !== 'reset' ? '<img class="acct-art" src="assets/art/sync.svg" alt="" width="360" height="200">' : ''}
       <p class="acct-intro">${mode === 'signup' ? 'Create an account once. Then your work is saved online and appears on any device where you sign in.' : mode === 'reset' ? 'Enter your email. We will send you a link to choose a new password.' : 'Sign in so your work is saved online — not only on this device.'}</p>
@@ -934,6 +959,50 @@ function glide(e, on) {
 }
 ['mouseover', 'focusin'].forEach(t => document.addEventListener(t, e => glide(e, true)));
 ['mouseout', 'focusout'].forEach(t => document.addEventListener(t, e => { if (!e.relatedTarget || !e.target.closest?.('.nav-part')?.contains(e.relatedTarget)) glide(e, false); }));
+/* ───────── account settings: details, picture, password ───────── */
+// Make a square 256 × 256 picture (centre crop) on the device. WebP where the browser supports it, else JPEG.
+async function squarePicture(file) {
+  if (!/^image\//.test(file.type)) throw new Error('Please choose a picture file (JPG, PNG or similar).');
+  if (file.size > 15 * 1024 * 1024) throw new Error('This picture is too big. Please choose one under 15 MB.');
+  const img = await new Promise((ok, bad) => { const i = new Image(); i.onload = () => ok(i); i.onerror = () => bad(new Error('This picture could not be opened. Try a JPG or PNG.')); i.src = URL.createObjectURL(file); });
+  const n = Math.min(img.naturalWidth, img.naturalHeight), c = document.createElement('canvas'); c.width = c.height = 256;
+  c.getContext('2d').drawImage(img, (img.naturalWidth - n) / 2, (img.naturalHeight - n) / 2, n, n, 0, 0, 256, 256); URL.revokeObjectURL(img.src);
+  const blob = await new Promise(ok => c.toBlob(ok, 'image/webp', .86));
+  return blob && blob.type === 'image/webp' ? blob : new Promise(ok => c.toBlob(ok, 'image/jpeg', .88));
+}
+const acctBusy = (form, on) => { const b = form?.querySelector('[type=submit]'); if (b) { b.disabled = on; b.classList.toggle('is-busy', on); } };
+document.addEventListener('submit', async e => {
+  const f = e.target.closest('[data-acct]'); if (!f) return;
+  e.preventDefault(); if (f.querySelector('[type=submit]')?.disabled) return;
+  const fd = new FormData(f), kind = f.dataset.acct, recovering = !!cloud?.recovery;
+  const again = (msg, ok) => accountDialog(recovering && kind === 'password' && !ok ? 'newpw' : 'account', '', { note: [kind, msg, ok] });
+  if (!navigator.onLine) return again('You are offline. Connect to the internet, then try again.');
+  acctBusy(f, true);
+  if (kind === 'profile') {
+    const err = await cloud.updateProfile({ full_name: fd.get('name'), student_id: fd.get('sid') });
+    acctBusy(f, false); if (err) return again(esc(err));
+    paintStatus(); wall?.load?.(); toast('Your details are saved.'); return again('Saved. Your new name appears at the top of the page and on your class wall posts.', true);
+  }
+  if (kind === 'password') {
+    const next = String(fd.get('next') || ''), cur = String(fd.get('current') || '');
+    const bad = next.length < 6 ? 'Choose a new password with at least 6 characters.' : next !== String(fd.get('again') || '') ? 'The two new passwords are not the same. Please type them again.' : !recovering && !cur ? 'Please type your current password.' : '';
+    if (bad) { acctBusy(f, false); return again(bad); }
+    const err = await cloud.changePassword(cur, next); acctBusy(f, false);
+    if (err) return again(esc(err));
+    toast('Your password is changed.'); return accountDialog('account', '', { note: ['password', 'Password changed. Use the new password next time you sign in.', true] });
+  }
+});
+document.addEventListener('change', async e => {
+  const inp = e.target.closest('[data-avatar-file]'); if (!inp || !inp.files?.[0]) return;
+  const photo = inp.closest('.acct-hero'); photo?.classList.add('is-busy');
+  try {
+    if (!navigator.onLine) throw new Error('You are offline. Connect to the internet, then try again.');
+    const err = await cloud.setAvatar(await squarePicture(inp.files[0]));
+    if (err) throw new Error(err);
+    paintStatus(); wall?.load?.(); toast('Your picture is saved.'); accountDialog('account', '', { note: ['photo', 'Picture saved.', true] });
+  } catch (err) { accountDialog('account', '', { note: ['photo', esc(err.message || String(err))] }); }
+});
+document.addEventListener('keydown', e => { const l = e.target.closest?.('.acct-photo-btns label'); if (l && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); l.querySelector('input')?.click(); } });
 /* works offline: the app keeps a copy of itself on the device (sw.js); answers are always saved on the device */
 if ('serviceWorker' in navigator && (location.protocol === 'https:' || /[?&]sw=1\b/.test(location.search))) addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => null));
 addEventListener('offline', () => { paintStatus(); toast('You are offline. You can keep working — your answers are saved on this device.'); });
@@ -1104,6 +1173,8 @@ document.addEventListener('click', e => {
   if (t.hasAttribute('data-close-timer')) { clearInterval(timer); $('#active-timer')?.remove(); return; }
   if (d.export) { runExport(d.export, t); return; }
   if (d.authMode) { accountDialog(d.authMode); return; }
+  if (t.hasAttribute('data-avatar-remove')) { cloud.removeAvatar().then(err => { paintStatus(); wall?.load?.(); accountDialog('account', '', { note: ['photo', err ? esc(err) : 'Picture removed.', !err] }); }); return; }
+  if (t.hasAttribute('data-signout-all')) { if (!confirm('Sign out on every device where you are signed in?')) return; cloud.signOutEverywhere().then(() => { $('#resource-dialog').close(); toast('Signed out on all devices. Work on this device is still saved here.'); }); return; }
   if (t.hasAttribute('data-signout')) { cloud.signOut().then(() => { $('#resource-dialog').close(); toast('Signed out. Work on this device is still saved here.'); }); return; }
   if (t.hasAttribute('data-clear') && confirm('Clear all your answers on this device? Download your notes first if you need them.')) {
     state = { ...state, values: {}, done: {}, revealed: {}, checked: {}, rows: {}, marks: {}, markDocuments: {} }; save(); render(); toast('Cleared.');
@@ -1142,6 +1213,7 @@ cloud = window.createDEC15Cloud({
   cfg, lessonId: lesson.id, getState: () => state,
   applyState: next => { state = { ...state, ...next, teacher: state.teacher }; save(false); rerender(); },
   onChange: info => { const was = cloudInfo.user?.id; cloudInfo = info; paintStatus();
+    if (info.recovery && info.user && !accountDialog.recoveryShown) { accountDialog.recoveryShown = true; setTimeout(() => accountDialog('newpw'), 300); }
     if (wall && info.user?.id !== was) { wall.connect(); rerender(); } if (parseRoute().page === 'notebook' && info.status === 'saved' && info.profile && !paintStatus.named) { paintStatus.named = true; rerender(); } }
 });
 if (wall && cloud.enabled) rerender();   // show the class walls
