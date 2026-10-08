@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.27)
+DEC15 — COURSE APP (v2.28)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -309,3 +309,24 @@ MY PLANNER DETAILS + WEEK VIEW (v2.27)
   with calendar colour bars.
 - To-dos: a "This week" progress ring with Late / Today / Next 7 days / No date counts, icons on each
   group, calendar colour bars on every to-do, and small drawings for empty states.
+
+MY PLANNER: BLOCKS + DAY VIEW (v2.28)
+- Blocks, like Notion or Craft. In a note, type "/" to insert a block (or press the "+" button at
+  the left of the toolbar): Text, Heading 1–3, To-do list, Bulleted list, Numbered list, Toggle,
+  Quote, Callout (Note / Tip / Warning / Important — click its icon to change the type), Divider,
+  Code, Table, today's or tomorrow's date. Keep typing to filter; ↑ ↓ and Enter choose; Esc closes.
+- Hover any block: "+" adds a block below; "⋮⋮" drags the block to a new place, and a click on it
+  opens block options (Turn into…, Duplicate, Move up / down, Delete). Keys: Alt+Shift+↑/↓ move a
+  block, Ctrl+D duplicates it, Ctrl+K adds a link. Enter on an empty last line leaves a callout or
+  toggle. Inside a table, the toolbar shows row / column buttons. A note always ends with an empty
+  line to type on.
+- Page details: a page icon (emoji) and a cover (8 colours, 4 patterns), Pin (pinned notes sit at
+  the top of the tree) and Print / save as PDF.
+- Calendar Day view (Day · Week · Month · Year): a large timeline with a time label on the "now"
+  line, and a side panel with the day's progress, planned hours, late to-dos and to-dos with no date.
+  Time blocking: drag any to-do onto the hours to block out time for it; drag a block's bottom edge
+  to make it longer (15-minute steps). To-dos now have an optional end time ("Ends"), shown as
+  09:00–10:30 everywhere. Clicking an hour adds a to-do at that quarter hour. In Week view, click a
+  weekday name to open that day. Keys in the calendar: D W M Y switch view, T today, ← → move.
+- Editor bundle now also includes TipTap table and link extensions (tools/tiptap, same 2.27.2).
+  New file: js/planner-blocks.js (loaded with the planner).

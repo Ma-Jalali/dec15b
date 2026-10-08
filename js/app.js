@@ -807,7 +807,8 @@ function loadPlanner() {   // the editor is large, so it loads only when the pla
   return plannerLoad || (plannerLoad = Promise.all([
     add('link', { rel: 'stylesheet', href: 'css/planner.css?v=' + cfg.version }),
     window.Tiptap ? null : add('script', { src: 'js/vendor/tiptap.bundle.js?v=' + cfg.version }),
-  ]).then(() => window.DEC15Planner || add('script', { src: 'js/planner.js?v=' + cfg.version })).catch(e => { plannerLoad = null; throw e; }));
+  ]).then(() => window.DEC15Blocks || add('script', { src: 'js/planner-blocks.js?v=' + cfg.version }))
+    .then(() => window.DEC15Planner || add('script', { src: 'js/planner.js?v=' + cfg.version })).catch(e => { plannerLoad = null; throw e; }));
 }
 function rerender() { const y = window.scrollY; render(); window.scrollTo(0, y); }
 /* Blocks fade up gently the first time they scroll into view (once per visit; never on re-render). */
