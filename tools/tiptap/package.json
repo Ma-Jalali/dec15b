@@ -1,0 +1,12 @@
+{
+  "name": "dec15-tiptap-bundle",
+  "private": true,
+  "type": "module",
+  "description": "Builds js/vendor/tiptap.bundle.js for the My planner editor (TipTap 2.27.2, MIT licence).",
+  "dependencies": {
+    "@tiptap/core": "2.27.2", "@tiptap/pm": "2.27.2", "@tiptap/starter-kit": "2.27.2",
+    "@tiptap/extension-underline": "2.27.2", "@tiptap/extension-text-style": "2.27.2", "@tiptap/extension-color": "2.27.2",
+    "@tiptap/extension-highlight": "2.27.2", "@tiptap/extension-text-align": "2.27.2", "@tiptap/extension-task-list": "2.27.2",
+    "@tiptap/extension-task-item": "2.27.2", "@tiptap/extension-placeholder": "2.27.2", "esbuild": "0.25.12"
+  }
+}
