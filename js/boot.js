@@ -19,13 +19,11 @@
   window.DEC15_DAYS = days;
   window.DEC15_LESSON_META = ready(id);
 
-  const files = [...ready(id).scripts, 'js/app.js'];
-  (function next() {
-    const src = files.shift(); if (!src) return;
+  // all files download at the same time; async = false keeps them running in order
+  [...ready(id).scripts, 'js/app.js'].forEach(src => {
     const s = document.createElement('script');
-    s.src = src + '?v=' + cfg.version;
-    s.onload = next;
+    s.src = src + '?v=' + cfg.version; s.async = false;
     s.onerror = () => window.dispatchEvent(new ErrorEvent('error', { message: 'Could not load ' + src }));
     document.body.appendChild(s);
-  })();
+  });
 })();

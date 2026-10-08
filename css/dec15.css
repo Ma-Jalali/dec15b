@@ -10,7 +10,7 @@
 :root {
   --ink: #14293a;
   --ink-2: #3d505e;
-  --muted: #6b7882;
+  --muted: #5d6a74;
   --faint: #98a2a9;
   --paper: #f5f1e9;
   --paper-2: #efe9dd;
@@ -32,7 +32,7 @@
   --teach: #93600f; --teach-bg: #fff8e8; --teach-line: #ecd3a0;
   --ans: #2c6a4d;   --ans-bg: #f1f8f2;
 
-  --ai: #ad6a12;       --ai-bg: #fbf3e4;
+  --ai: #985c0e;       --ai-bg: #fbf3e4;
   --feedback: #2b776e; --feedback-bg: #e9f4f2;
   --critical: #3a58a0; --critical-bg: #edf1fa;
   --writing: #b0512a;  --writing-bg: #fbefe8;

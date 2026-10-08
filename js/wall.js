@@ -117,7 +117,7 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
   function sectionHTML(a) {
     if (!enabled()) return '';
     const signedIn = !!cloud()?.user, name = cloud()?.profile?.full_name || '';
-    return `<section class="wall" data-wall="${esc(a.id)}" aria-label="Class wall">
+    return `<section class="wall" data-wall="${esc(a.id)}" aria-label="Class wall: ${esc(a.short || a.title || a.id)}">
       <header class="wall-head"><span class="wall-icon">${icon('chat')}</span><div><h3>Class wall <span class="wall-count" data-wall-count="${esc(a.id)}">${signedIn && count(a.id) ? count(a.id) : ''}</span></h3>
         <p>Share a comment, a question or your notes. Your class can read it, reply and react.</p></div></header>
       ${signedIn ? `<form class="wall-form" data-wall-form="${esc(a.id)}">

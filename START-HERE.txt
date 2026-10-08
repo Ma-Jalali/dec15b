@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.22)
+DEC15 — COURSE APP (v2.23)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -228,3 +228,20 @@ FLAT + GLASS DESIGN (v2.22)
   frosted top bar, dialogs, toast and back-to-top. A few quiet flat shapes sit behind the page
   so the glass reads; the side panel stays flat ink.
 - Fixed: on phones the side width setting from v2.17 overrode the phone layout.
+
+ACCESSIBILITY, OFFLINE, PROJECTOR, SPEED (v2.23)
+- Accessibility: automated audit (axe-core) of every page now passes. Amber darkened to #985c0e and
+  the grey text colour to #5d6a74 (both meet WCAG AA 4.5:1); key points and teacher notes are
+  role="note" (no nested landmarks); each class wall has its own label; table headers have text.
+- Works offline / installable: sw.js keeps a copy of the app (all lessons, styles, pictures) on the
+  device after the first visit; manifest.webmanifest + app icons let students add DEC15 to their
+  home screen. The save status shows "Offline · saved on this device" when there is no internet.
+  RELEASE STEP: after changing the version in js/config.js (and ?v= in index.html), run
+      node tools/build-sw.js
+  so sw.js gets the new version and file list.
+- Share preview image (assets/og-image.png) for links pasted into chats and email.
+- Projector mode for teachers: the screen button in the top bar, or press P. Big text, no side
+  panel, ← → move between activities, Esc leaves. (Hidden on phones.)
+- Speed: fonts are now WOFF2 (513 KB → 190 KB; the TTF files stay for the PDF export), the two
+  largest figures are WebP (233 KB → 53 KB), lesson files download in parallel, and the main fonts
+  are preloaded. On a slow 4G connection a lesson appears in about 5.0 s instead of 6.4 s.

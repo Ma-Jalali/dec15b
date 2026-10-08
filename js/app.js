@@ -11,7 +11,7 @@ const KEY = 'dec15-' + lesson.id + '-v2';
 lesson.extras = lesson.extras || []; lesson.glossary = lesson.glossary || [];
 /* Colour + illustration for each stage. A lesson can set tone: 'amber' | 'teal' | 'blue' | 'clay' | 'plum' | 'green'
    and art: 'ai' | 'feedback' | 'critical' | 'writing' | 'reading' | 'listening' | 'discussion' | 'research' | 'assessment' | 'group'. */
-const TONES = { amber: ['#ad6a12', '#fbf3e4'], teal: ['#2b776e', '#e9f4f2'], blue: ['#3a58a0', '#edf1fa'], clay: ['#b0512a', '#fbefe8'], plum: ['#7a4a8c', '#f6eff8'], green: ['#3f7a3a', '#eef6ea'] };
+const TONES = { amber: ['#985c0e', '#fbf3e4'], teal: ['#2b776e', '#e9f4f2'], blue: ['#3a58a0', '#edf1fa'], clay: ['#b0512a', '#fbefe8'], plum: ['#7a4a8c', '#f6eff8'], green: ['#3f7a3a', '#eef6ea'] };
 const LEGACY = { ai: 'amber', feedback: 'teal', critical: 'blue', writing: 'clay' };
 lesson.sections.forEach((s, i) => {
   if (!TONES[s.tone]) s.tone = LEGACY[s.id] || Object.keys(TONES)[i % 6];
@@ -48,7 +48,8 @@ function paintStatus() {
   const el = $('#save-status'); if (!el) return;
   const map = { local: ['ok', 'Saved on this device'], 'signed-out': ['warn', 'Saved on this device<span class="hide-sm"> only</span>'], pending: ['busy', 'Saving online…'], syncing: ['busy', 'Saving online…'], saved: ['ok', 'Saved online'], offline: ['warn', 'Offline — saved on this device'], error: ['bad', 'Online save failed — retrying'] };
   const [tone, label] = !storageOK && cloudInfo.status !== 'saved' ? ['bad', 'Not saved — download your notebook'] : map[cloudInfo.status] || map.local;
-  el.dataset.tone = tone; el.innerHTML = `<span>${label}</span>`;
+  const off = navigator.onLine === false;
+  el.dataset.tone = off ? 'warn' : tone; el.innerHTML = off ? '<span>Offline · saved on this device</span>' : `<span>${label}</span>`;
   const btn = $('#account-btn'); if (!btn) return;
   btn.hidden = !cloud?.enabled;
   const name = cloudInfo.profile?.full_name || cloudInfo.user?.email || '';
@@ -159,13 +160,13 @@ function tableLabel(b, r, c) { return `${b.title || 'Table'} · ${b.fixed?.[r] ?
 
 /* ───────── blocks ───────── */
 const B = {};
-B.key = b => `<aside class="block key${b.tone === 'warn' ? ' key-warn' : ''}" data-help>
+B.key = b => `<div role="note" class="block key${b.tone === 'warn' ? ' key-warn' : ''}" data-help>
   <div class="block-label">${icon(b.tone === 'warn' ? 'alert' : 'key')}${b.tone === 'warn' ? 'Remember' : 'Key point'}</div>
   <h3>${b.title}</h3>
   ${b.compare ? `<div class="compare">${b.compare.map(c => `<div><span class="compare-label">${c.label}</span><p>${c.text}</p>${c.eg ? `<p class="compare-eg">e.g. ${c.eg}</p>` : ''}</div>`).join('')}</div>` : ''}
   ${b.points ? `<${b.numbered ? 'ol' : 'ul'} class="key-points">${b.points.map(p => `<li>${p}</li>`).join('')}</${b.numbered ? 'ol' : 'ul'}>` : ''}
   ${b.policy ? `<p class="key-source">Source: <a href="${esc(cfg.policyUrl)}" target="_blank" rel="noopener">University of Sydney — responsible AI use ${icon('open')}</a></p>` : ''}
-</aside>`;
+</div>`;
 B.steps = b => `<section class="block steps-block" data-help>
   <h3 class="block-heading">${icon('list')}${b.title || 'What to do'}</h3>
   <ol class="steps">${b.items.map(s => `<li><span class="step-who">${whoBadge(s.who)}</span><p>${s.text}</p></li>`).join('')}</ol>
@@ -204,7 +205,7 @@ B.cards = b => `<section class="block cards-block${b.pick ? ' cards-pick' : ''}"
 /* games and interactive blocks (js/play.js): flash, sort, flip, spinner, chat, promptbuilder, contract */
 if (play) Object.assign(B, play.B);
 B.tip = b => `<p class="block tip" data-help>${icon('bulb')}<span>${b.text}</span></p>`;
-B.teacher = b => state.teacher ? `<aside class="block teacher"><div class="block-label">${icon('teacher')}Teacher note</div><p>${b.text}</p></aside>` : '';
+B.teacher = b => state.teacher ? `<div role="note" aria-label="Teacher note" class="block teacher"><div class="block-label">${icon('teacher')}Teacher note</div><p>${b.text}</p></div>` : '';
 B.sources = b => `<div class="block source-buttons">${b.ids.map(id => { const s = sources.find(x => x.id === id); return `<button class="source-btn" data-source="${id}">${icon('book')}<span><b>${esc(s.cite)}</b><small>${esc(s.title)}</small></span></button>`; }).join('')}</div>`;
 B.question = (b, a) => `<section class="block essay-q">
   <span class="essay-q-label">${esc(b.label || (lesson.questionKind ? lesson.questionKind : 'The essay question'))}${lesson.wordTarget ? ' · ' + esc(lesson.wordTarget) : ''}</span>
@@ -363,7 +364,7 @@ B.grid = b => {
   const score = checked && b.answers ? b.rows.reduce((n, _, r) => n + b.columns.filter((_, c) => !b.given?.[`${r}-${c}`] && val(`${b.id}-${r}-${c}`) === b.answers[r][c]).length, 0) : 0;
   const total = b.rows.length * b.columns.length - Object.keys(b.given || {}).length;
   return `<section class="block grid-block">${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}
-  <div class="table-scroll" tabindex="0" role="region" aria-label="${esc(b.title || 'Table')}"><table class="work-table grid-table grid-cols-${b.columns.length}"><thead><tr><th scope="col"></th>${b.columns.map(c => `<th scope="col">${c}</th>`).join('')}</tr></thead>
+  <div class="table-scroll" tabindex="0" role="region" aria-label="${esc(b.title || 'Table')}"><table class="work-table grid-table grid-cols-${b.columns.length}"><thead><tr><th scope="col"><span class="sr-only">Statement</span></th>${b.columns.map(c => `<th scope="col">${c}</th>`).join('')}</tr></thead>
   <tbody>${b.rows.map((r, ri) => `<tr><th scope="row">${r}</th>${b.columns.map((_, ci) => cell(ri, ci)).join('')}</tr>`).join('')}</tbody></table></div>
   ${b.answers ? `<div class="quiz-bar">${checked ? `<span class="quiz-score">${score} / ${total} correct</span><button class="btn-quiet" data-grid-reset="${b.id}">Try again</button>` : `<button class="btn" data-grid-check="${b.id}">Check my answers ${icon('arrow')}</button>`}</div>` : ''}
 </section>`;
@@ -493,7 +494,7 @@ function overview() {
   </section>
   <h2 class="section-title">Your day at a glance</h2>
   <p class="section-sub">${['Two', 'Three', 'Four', 'Five', 'Six'][lesson.sections.length - 2] || lesson.sections.length} stages${lesson.duration ? '' : ', about four hours'}. ${lesson.goalShort ? `Each one prepares you for ${esc(lesson.goalShort)}.` : lesson.id === 'w2d5' ? 'Each one prepares you for Monday’s essay.' : 'Each stage builds on the one before.'}</p>
-  <div class="dayline" role="img" aria-label="${lesson.sections.map(s => `${stageName(s)}, ${s.minutes} minutes`).join('; ')}; then: ${esc(lesson.finish?.title || 'Monday')}.">
+  <div class="dayline" role="group" aria-label="${lesson.sections.map(s => `${stageName(s)}, ${s.minutes} minutes`).join('; ')}; then: ${esc(lesson.finish?.title || 'Monday')}.">
     ${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<a class="dayline-seg${d === s.activities.length ? ' complete' : ''}" style="${tone(s)};flex:${s.minutes}" href="${L(s.id)}"><span class="dayline-bar"><i style="width:${Math.round(100 * d / s.activities.length)}%"></i></span><span class="dayline-num">${esc(code(s))}</span><span class="dayline-title">${esc(s.title)}</span><span class="dayline-min">${s.minutes} min</span></a>`; }).join('')}
     ${(() => { const nx = nextLesson(), inner = `<span class="dayline-bar"></span><span class="dayline-num">${icon(nx ? 'arrow' : 'pen')}</span><span class="dayline-title">${esc(lesson.finish?.title || 'Monday')}</span><span class="dayline-min">${esc(lesson.finish?.text || 'Write the essay')}</span>`;
       return nx ? `<a class="dayline-flag" href="#/${nx.id}" title="Open Week ${nx.week}, Day ${nx.day}">${inner}</a>` : `<div class="dayline-flag">${inner}</div>`; })()}
@@ -525,7 +526,7 @@ function courseMap(current) {
   const pts = [[120, 168], [320, 116], [530, 136], [740, 96], [900, 76]];
   const road = 'M-10 190C60 186 80 168 120 168S250 116 320 116 470 138 530 136 670 96 740 96 850 78 900 76';
   const tree = (x, y, k = 1) => `<g transform="translate(${x} ${y}) scale(${k})"><rect x="-1.6" y="-4" width="3.2" height="12" rx="1" fill="#8a6f4e"/><circle cy="-12" r="10" fill="#8fb47a"/><circle cx="5" cy="-8" r="7" fill="#6f9d5c"/></g>`;
-  return `<svg class="course-map-svg" viewBox="0 0 1000 262" role="img" aria-label="Course map: ${course.map.map(w => `Week ${w.n}, ${w.label}`).join('; ')}. You are in Week ${current}.">
+  return `<svg class="course-map-svg" viewBox="0 0 1000 262" role="group" aria-label="Course map: ${course.map.map(w => `Week ${w.n}, ${w.label}`).join('; ')}. You are in Week ${current}.">
     
     <rect width="1000" height="290" fill="#f7f1e3"/>
     <circle cx="620" cy="52" r="26" fill="#f6dfae"/><circle cx="620" cy="52" r="40" fill="#f6dfae" opacity=".35"/>
@@ -933,6 +934,41 @@ function glide(e, on) {
 }
 ['mouseover', 'focusin'].forEach(t => document.addEventListener(t, e => glide(e, true)));
 ['mouseout', 'focusout'].forEach(t => document.addEventListener(t, e => { if (!e.relatedTarget || !e.target.closest?.('.nav-part')?.contains(e.relatedTarget)) glide(e, false); }));
+/* works offline: the app keeps a copy of itself on the device (sw.js); answers are always saved on the device */
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || /[?&]sw=1\b/.test(location.search))) addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => null));
+addEventListener('offline', () => { paintStatus(); toast('You are offline. You can keep working — your answers are saved on this device.'); });
+addEventListener('online', () => { paintStatus(); toast('Back online.'); });
+/* Projector mode: for showing a lesson on the classroom screen. Big text, no side panel,
+   arrow keys move between activities, Esc or P leaves. */
+const presentBar = document.createElement('div');
+presentBar.className = 'present-bar'; presentBar.setAttribute('role', 'toolbar'); presentBar.setAttribute('aria-label', 'Projector controls');
+presentBar.innerHTML = `<button type="button" data-present-step="-1" aria-label="Previous activity">${icon('left')}</button><span class="present-where"></span><button type="button" data-present-step="1" aria-label="Next activity">${icon('arrow')}</button><button type="button" class="present-exit" data-present-exit>Exit</button>`;
+document.body.append(presentBar);
+function paintPresent() {
+  const cur = $('.act-tabs .current'), where = presentBar.querySelector('.present-where');
+  where.textContent = cur ? `${[...cur.parentNode.children].indexOf(cur) + 1} / ${cur.parentNode.children.length} · ${(document.getElementById('h-' + cur.dataset.jump)?.textContent || '').replace(/\s+/g, ' ').trim()}` : document.title.replace(/^DEC15 · /, '');
+  presentBar.querySelector('[data-present-step="-1"]').disabled = !cur?.previousElementSibling;
+  presentBar.querySelector('[data-present-step="1"]').disabled = !cur?.nextElementSibling;
+}
+function setPresent(on) {
+  document.body.classList.toggle('present', on); $('#present-toggle')?.setAttribute('aria-pressed', String(on));
+  if (on) { paintPresent(); document.documentElement.requestFullscreen?.().catch(() => null); toast('Projector mode: use ← → to move between activities. Press Esc to leave.'); }
+  else if (document.fullscreenElement) document.exitFullscreen?.().catch(() => null);
+}
+function presentStep(d) { const cur = $('.act-tabs .current'), to = d > 0 ? cur?.nextElementSibling : cur?.previousElementSibling; if (to) { const id = to.dataset.jump; to.click(); setTimeout(() => { paintPresent(); document.getElementById(id)?.scrollIntoView({ block: 'start' }); }, 60); } }
+$('#present-toggle').onclick = () => setPresent(!document.body.classList.contains('present'));
+presentBar.addEventListener('click', e => { const t = e.target.closest('button'); if (!t) return; if (t.dataset.presentStep) presentStep(Number(t.dataset.presentStep)); if (t.hasAttribute('data-present-exit')) setPresent(false); });
+document.addEventListener('keydown', e => {
+  if (e.target.closest?.('input, textarea, select, [contenteditable="true"]') || e.metaKey || e.ctrlKey || e.altKey || document.querySelector('dialog[open]')) return;
+  const on = document.body.classList.contains('present');
+  if (e.key === 'p' || e.key === 'P') { setPresent(!on); e.preventDefault(); return; }
+  if (!on) return;
+  if (e.key === 'Escape') setPresent(false);
+  else if (e.key === 'ArrowRight') { presentStep(1); e.preventDefault(); }
+  else if (e.key === 'ArrowLeft') { presentStep(-1); e.preventDefault(); }
+});
+document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && document.body.classList.contains('present')) setPresent(false); });
+addEventListener('hashchange', () => setTimeout(paintPresent, 80));
 /* tap a diagram to see it full size — useful on phones, where wide diagrams are small */
 function closeZoom() { const z = document.querySelector('.zoom'); if (z) z.remove(); }
 document.addEventListener('click', e => {

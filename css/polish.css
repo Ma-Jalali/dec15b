@@ -123,7 +123,7 @@ details.is-closing > :not(summary) { transition: opacity .2s; opacity: 0; }
 .page-hero h1 { margin-top: 6px; }
 .page-hero-art { width: 230px; height: auto; animation: floatySlow 11s ease-in-out infinite; position: relative; z-index: 1; }
 .page-hero-tip { display: flex; align-items: flex-start; gap: 10px; margin-top: 16px !important; padding: 10px 14px; border-radius: 12px; background: #fff; border: 1px solid var(--line); font-size: .9rem !important; max-width: 52ch; }
-.page-hero-tip .icon { width: 18px; height: 18px; flex: none; color: var(--gold-ink, #ad6a12); margin-top: 2px; }
+.page-hero-tip .icon { width: 18px; height: 18px; flex: none; color: var(--gold-ink, #985c0e); margin-top: 2px; }
 .page-hero-tip a { color: inherit; font-weight: 700; }
 .page-hero-stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 .page-hero-stats span { padding: 7px 13px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: .84rem; color: var(--ink-2); }

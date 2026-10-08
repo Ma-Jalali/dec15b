@@ -49,7 +49,7 @@ body::before {
 .lib-art, .journey-art-wrap { border-color: var(--glass-line) !important; }
 
 /* ───────── top bar and tools: frosted ───────── */
-.topbar { background: rgba(242, 238, 230, .62); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--glass-line); }
+.topbar { background: rgba(242, 238, 230, .9); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--glass-line); }
 .tools { background: var(--glass); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); border-color: var(--glass-line); box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow-sm); }
 .tools button:hover { background: rgba(255, 255, 255, .85); }
 body[data-page="stage"] .topbar::after, body[data-page="extra"] .topbar::after { background: var(--accent, var(--gold)); }
@@ -79,7 +79,7 @@ body[data-page="stage"] .topbar::after, body[data-page="extra"] .topbar::after {
 .video-cover { background: #163047; }
 .nb-cover { background: #163047 !important; }
 .nb-cover::after { background: var(--gold); }
-.nb-ext-pdf { background: #d6452c; }
+.nb-ext-pdf { background: #c93e26; }
 .nb-ext-gdocs { background: #3f7fe8; }
 .nb-ext-docx { background: #2f62b4; }
 .flash { background: var(--glass-strong); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); border-color: var(--glass-line); box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow); }
@@ -114,3 +114,29 @@ dialog::backdrop { background: rgba(14, 28, 40, .32); -webkit-backdrop-filter: b
 @media print { body::before { display: none; } }
 /* phones and tablets: no side band (the side panel is a drawer) */
 @media (max-width: 900px) { :root { --side: 0px; } body { background-image: none; } }
+/* top bar text stays readable over any panel scrolling underneath */
+#crumb, #crumb a, #save-status, #save-status span { color: var(--ink-2); }
+
+/* ───────── projector mode (classroom screen) ───────── */
+.present-bar { display: none; }
+body.present { --fs: 23px; --prose: 60ch; display: block; background-image: none; }
+body.present::before { left: 0; }
+body.present .sidebar, body.present .topbar, body.present .wall, body.present .act-foot .done-toggle, body.present main::after, body.present .to-top { display: none !important; }
+body.present main { max-width: 1500px; padding: 34px 56px 130px; }
+body.present .activity { box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow-lift); }
+body.present .act-head h2, body.present .act-head h3 { font-size: 2.4rem; }
+body.present .key h3 { font-size: 2.1rem; }
+body.present .stage-head { padding: 26px 40px; }
+body.present .present-bar { display: flex; align-items: center; gap: 8px; position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 80; padding: 7px; border-radius: 999px;
+  background: rgba(20, 41, 58, .78); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .14), 0 18px 40px -14px rgba(14, 28, 40, .55); color: #fff; }
+.present-bar button { width: 46px; height: 46px; border-radius: 50%; border: 0; display: grid; place-items: center; background: rgba(255, 255, 255, .1); color: #fff; cursor: pointer; transition: background .18s; }
+.present-bar button:hover:not(:disabled) { background: rgba(255, 255, 255, .22); }
+.present-bar button:disabled { opacity: .35; cursor: default; }
+.present-bar .icon { width: 20px; height: 20px; }
+.present-bar .present-exit { width: auto; padding: 0 18px; border-radius: 999px; font: 700 .9rem/1 var(--sans); background: #fff; color: var(--ink); margin-left: 6px; }
+.present-bar .present-exit:hover { background: #f2eee6; }
+.present-where { min-width: 220px; max-width: 46vw; padding: 0 12px; text-align: center; font: 700 .95rem/1.2 var(--sans); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 900px) { .present-btn { display: none !important; } }
+@media print { .present-bar { display: none !important; } }
+body.present #toast { bottom: 100px; }
+body.present .activity { scroll-margin-top: 24px; }
