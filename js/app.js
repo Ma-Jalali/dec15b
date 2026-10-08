@@ -856,6 +856,18 @@ function checkAuthForm(mode, v) {
   if (mode !== 'reset' && v.password.length < 6) return mode === 'signup' ? 'Choose a password with at least 6 characters.' : 'Please type your password.';
   return '';
 }
+/* tap a diagram to see it full size — useful on phones, where wide diagrams are small */
+function closeZoom() { const z = document.querySelector('.zoom'); if (z) z.remove(); }
+document.addEventListener('click', e => {
+  if (e.target.closest('.zoom')) { closeZoom(); return; }
+  const img = e.target.closest('figure.figure img'); if (!img) return;
+  const z = document.createElement('div');
+  z.className = 'zoom'; z.setAttribute('role', 'dialog'); z.setAttribute('aria-label', 'Enlarged picture. Tap to close.');
+  z.innerHTML = `<button class="zoom-x" type="button" aria-label="Close">×</button><div class="zoom-in"><img src="${esc(img.getAttribute('src'))}" alt="${esc(img.alt)}"></div>`;
+  document.body.append(z); z.querySelector('.zoom-x').focus();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeZoom(); });
+window.addEventListener('hashchange', closeZoom);
 document.addEventListener('click', e => {
   const b = e.target.closest('[data-pw-show]'); if (!b) return;
   const inp = b.previousElementSibling, show = inp.type === 'password';

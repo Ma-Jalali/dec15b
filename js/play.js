@@ -209,11 +209,12 @@ window.createDEC15Play = function ({ getState, save, rerender, esc, strip, icon,
   B.cloze = b => {
     const checked = st().checked[b.id], n = b.answers.length;
     const score = b.answers.filter((a, i) => val(`${b.id}-${i}`) === a).length;
-    const html = b.text.replace(/\{\{(\d+)\}\}/g, (_, d) => { const i = Number(d) - 1, v = val(`${b.id}-${i}`), ok = checked ? (v === b.answers[i] ? ' is-right' : ' is-wrong') : '';
-      return `<span class="gap${ok}${v ? ' is-filled' : ''}"><span class="gap-num">${i + 1}</span><select data-save="${b.id}-${i}" data-cloze="${b.id}" aria-label="Gap ${i + 1}" style="${gapWidth(v)}"><option value="">Choose…</option>${b.options.map(o => `<option${v === o ? ' selected' : ''}>${esc(o)}</option>`).join('')}</select>${checked && ok === ' is-wrong' ? `<span class="gap-fix">${esc(b.answers[i])}</span>` : ''}</span>`; });
+    const optsFor = i => Array.isArray(b.options[0]) ? b.options[i] : b.options;   // one shared list, or a list per gap
+    const fill = t => t.replace(/\{\{(\d+)\}\}/g, (_, d) => { const i = Number(d) - 1, v = val(`${b.id}-${i}`), ok = checked ? (v === b.answers[i] ? ' is-right' : ' is-wrong') : '';
+      return `<span class="gap${ok}${v ? ' is-filled' : ''}"><span class="gap-num">${i + 1}</span><select data-save="${b.id}-${i}" data-cloze="${b.id}" aria-label="Gap ${i + 1}" style="${gapWidth(v)}"><option value="">Choose…</option>${optsFor(i).map(o => `<option${v === o ? ' selected' : ''}>${esc(o)}</option>`).join('')}</select>${checked && ok === ' is-wrong' ? `<span class="gap-fix">${esc(b.answers[i])}</span>` : ''}</span>`; });
     return `<section class="block play cloze${checked ? ' is-checked' : ''}${checked && score === n ? ' is-perfect' : ''}" id="cloze-${b.id}">
       ${b.title ? `<h3 class="block-heading">${icon('pen')}${b.title}</h3>` : ''}
-      <p class="cloze-text">${html}</p>
+      ${b.list ? `<ol class="cloze-text cloze-list">${b.text.split('\n').map(l => `<li>${fill(l)}</li>`).join('')}</ol>` : `<p class="cloze-text">${fill(b.text)}</p>`}
       ${checked && b.why ? `<ol class="cloze-why">${b.why.map((w, i) => `<li class="${val(`${b.id}-${i}`) === b.answers[i] ? 'ok' : 'no'}"><b>${i + 1}</b>${w}</li>`).join('')}</ol>` : ''}
       <div class="quiz-bar">${checked ? `<span class="quiz-score${score === n ? ' is-perfect' : ''}">${score === n ? `${icon('check')}All correct!` : `${score} of ${n} correct`}</span>${score === n ? '' : `<button class="btn-quiet" data-cloze-reset="${b.id}">${icon('undo')}Try again</button>`}` : `<button class="btn" data-cloze-check="${b.id}">Check my answers ${icon('arrow')}</button>`}</div>
     </section>`;

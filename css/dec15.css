@@ -1108,6 +1108,7 @@ body.large-text .key h3 { font-size: 1.95rem; }
   .talk-prompts { grid-template-columns: 1fr; }
   .options { padding-left: 0; }
   .quiz-item.compact { grid-template-columns: 1fr; row-gap: 10px; }
+  .quiz-item.compact .options { flex-wrap: wrap; }
   .quiz-why { margin-left: 0; }
   .legend { grid-template-columns: 1fr; }
   .hero { padding: 22px; }
