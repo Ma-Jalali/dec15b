@@ -391,6 +391,7 @@ window.DEC15_LESSON = {
           title: 'Joint construction',
           goal: 'Write a 3–4 sentence conclusion with no new information.',
           blocks: [
+            { type: 'figure', src: 'assets/week3/conclusion-structure.svg', alt: 'How a conclusion works: it mirrors the introduction. 1 restate your position in new words; 2 sum up the main reasons, one for each body paragraph; 3 a final message: why it matters, a recommendation or an implication. No new evidence and no new reasons.', caption: 'Plan your conclusion in three moves', size: 'wide' },
             { type: 'key', title: 'A conclusion has three parts', numbered: true, points: [
               '<b>Restate your position</b> in new words.',
               '<b>Summarise your two reasons</b>.',
@@ -566,6 +567,7 @@ window.DEC15_LESSON = {
           goal: 'Understand why we must show whose ideas are whose.',
           blocks: [
             { type: 'model', title: 'Brick (2011, p.107)', text: '“Academic debate involves a dialogue between many voices. If these voices are not identified, the dialogue disappears, and the essay writer appears to be presenting a personal opinion.” (Brick, 2011, p.107)', note: 'Source: Brick, J. (2011). Academic culture: A student’s guide to studying at university. Macmillan.' },
+            { type: 'figure', src: 'assets/week3/academic-voices.svg', alt: 'Academic writing is a dialogue. When voices are identified, the essay brings together source voices (Nicastro and Carillo 2021, About That 2024, Berti et al. 2021) and your own voice, each clearly marked. When voices are not identified, the dialogue disappears and the essay looks like a personal opinion.', caption: 'Whose voice is speaking?', size: 'wide' },
             { type: 'talk', title: 'Talk in your group', prompts: [
               'What do you understand by this quote?',
               'How do you distinguish between your own ideas and the ideas of others?',

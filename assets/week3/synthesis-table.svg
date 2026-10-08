@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 470" font-family="Manrope, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="syt">
+<title id="syt">From three texts to one synthesis. Step 1: three texts on the same topic. Step 2: a synthesising table: each row is an idea; for each text, mark agree, partially agree or does not mention. Step 3: write. Where two texts agree, make one point and put both sources in one reference, for example (Author A, 2021; Author B, 2024). Where texts differ or focus on different things, contrast them with however, in contrast, although or whereas.</title>
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".13"/></filter>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".14"/></pattern>
+  <g id="yes"><circle r="10" fill="#2b776e"/><path d="M-4.5 0l3 3 6-6.5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g id="part"><circle r="10" fill="#fff" stroke="#ad6a12" stroke-width="2"/><path d="M0-10a10 10 0 0 1 0 20z" fill="#ad6a12"/></g>
+  <g id="no"><circle r="10" fill="#eef1f4"/><path d="M-4 0h8" stroke="#8b969e" stroke-width="2.2" stroke-linecap="round"/></g>
+</defs>
+<rect width="1040" height="470" rx="24" fill="#fffdf8"/>
+<rect x="910" y="22" width="100" height="56" fill="url(#dots)"/>
+<text x="40" y="54" font-family="Fraunces, Georgia, serif" font-size="26" font-weight="600" fill="#14293a">From three texts to one synthesis</text>
+<path d="M40 64c90-5 230-5 380-1" stroke="#e3a843" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<text x="40" y="90" font-size="14" fill="#6b7882">Same topic, different focus: find where the texts meet and where they part.</text>
+
+<!-- 1 texts -->
+<text x="40" y="132" font-size="12" font-weight="800" letter-spacing="2.2" fill="#6b7882">1 · THREE TEXTS</text>
+<g filter="url(#sh)">
+  <rect x="40" y="146" width="200" height="72" rx="14" fill="#fff"/><rect x="40" y="232" width="200" height="72" rx="14" fill="#fff"/><rect x="40" y="318" width="200" height="72" rx="14" fill="#fff"/>
+</g>
+<g><rect x="40" y="146" width="6" height="72" rx="3" fill="#ad6a12"/><rect x="40" y="232" width="6" height="72" rx="3" fill="#2b776e"/><rect x="40" y="318" width="6" height="72" rx="3" fill="#3a58a0"/></g>
+<g stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-width="2">
+  <path d="M62 170h20v26H62z" stroke="#ad6a12"/><path d="M66 177h12M66 183h12M66 189h8" stroke="#ad6a12"/>
+  <path d="M62 266v-6a10 10 0 0 1 20 0v6" stroke="#2b776e"/><rect x="60" y="264" width="6" height="10" rx="2" fill="#2b776e" stroke="none"/><rect x="78" y="264" width="6" height="10" rx="2" fill="#2b776e" stroke="none"/>
+  <path d="M62 342h20v26H62z" stroke="#3a58a0"/><path d="M66 349h12M66 355h12M66 361h8" stroke="#3a58a0"/>
+</g>
+<g font-size="13.5" font-weight="800" fill="#14293a"><text x="96" y="177">Nicastro &amp; Carillo</text><text x="96" y="263">About That</text><text x="96" y="349">Berti et al.</text></g>
+<g font-size="12" fill="#6b7882"><text x="96" y="195">2021 · reading</text><text x="96" y="281">2024 · listening</text><text x="96" y="367">2021 · reading</text></g>
+
+<g fill="none" stroke="#c9bfae" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"><path d="M248 268h28"/><path d="M640 268h28"/></g>
+<g fill="#c9bfae"><path d="M280 262l10 6-10 6z"/><path d="M672 262l10 6-10 6z"/></g>
+
+<!-- 2 table -->
+<text x="300" y="132" font-size="12" font-weight="800" letter-spacing="2.2" fill="#6b7882">2 · SYNTHESISING TABLE</text>
+<g filter="url(#sh)"><rect x="300" y="146" width="330" height="244" rx="14" fill="#fff"/></g>
+<rect x="300" y="146" width="330" height="40" rx="14" fill="#f4efe4"/><rect x="300" y="170" width="330" height="16" fill="#f4efe4"/>
+<g font-size="11" font-weight="800" fill="#6b7882" text-anchor="middle"><text x="508" y="171" fill="#ad6a12">N&amp;C</text><text x="560" y="171" fill="#2b776e">AT</text><text x="606" y="171" fill="#3a58a0">BEA</text></g>
+<text x="318" y="171" font-size="11" font-weight="800" letter-spacing="1.2" fill="#6b7882">IDEA</text>
+<g stroke="#efe9dc"><path d="M300 236h330M300 286h330M300 336h330"/></g>
+<g font-size="13" fill="#3d505e"><text x="318" y="216">Idea 1</text><text x="318" y="266">Idea 2</text><text x="318" y="316">Idea 3</text><text x="318" y="366">Idea 4</text></g>
+<g stroke="#e3e9ec" stroke-width="5" stroke-linecap="round"><path d="M366 212h90M366 262h76M366 312h86M366 362h70"/></g>
+<use href="#yes" x="508" y="211"/><use href="#yes" x="560" y="211"/><use href="#yes" x="606" y="211"/>
+<use href="#yes" x="508" y="261"/><use href="#no" x="560" y="261"/><use href="#yes" x="606" y="261"/>
+<use href="#no" x="508" y="311"/><use href="#part" x="560" y="311"/><use href="#yes" x="606" y="311"/>
+<use href="#yes" x="508" y="361"/><use href="#no" x="560" y="361"/><use href="#no" x="606" y="361"/>
+<rect x="306" y="241" width="318" height="40" rx="10" fill="none" stroke="#2b776e" stroke-width="2" stroke-dasharray="5 4"/>
+<g font-size="11.5" fill="#6b7882"><use href="#yes" x="310" y="414" transform="scale(.8) translate(77 104)"/><text x="324" y="418">Agree</text><use href="#part" transform="translate(390 414) scale(.8)"/><text x="402" y="418">Partially agree</text><use href="#no" transform="translate(504 414) scale(.8)"/><text x="516" y="418">Doesn’t mention</text></g>
+
+<!-- 3 write -->
+<text x="690" y="132" font-size="12" font-weight="800" letter-spacing="2.2" fill="#6b7882">3 · WRITE</text>
+<g filter="url(#sh)"><rect x="690" y="146" width="310" height="118" rx="14" fill="#fff"/><rect x="690" y="278" width="310" height="112" rx="14" fill="#fff"/></g>
+<rect x="690" y="146" width="6" height="118" rx="3" fill="#2b776e"/><rect x="690" y="278" width="6" height="112" rx="3" fill="#b0512a"/>
+<text x="712" y="172" font-size="13.5" font-weight="800" fill="#22655d">Texts agree → compare</text>
+<text x="712" y="192" font-size="12.5" fill="#3d505e">One point, two sources, one reference:</text>
+<text x="712" y="222" font-family="Fraunces, Georgia, serif" font-size="14" fill="#14293a">… (Author A, 2021;</text>
+<text x="712" y="242" font-family="Fraunces, Georgia, serif" font-size="14" fill="#14293a">Author B, 2024).</text>
+<text x="712" y="304" font-size="13.5" font-weight="800" fill="#8e3b1c">Texts differ → contrast</text>
+<text x="712" y="324" font-size="12.5" fill="#3d505e">Different view or different focus:</text>
+<g font-size="12.5" font-weight="700" fill="#8e3b1c">
+  <rect x="712" y="338" width="74" height="26" rx="13" fill="#fbefe8"/><text x="749" y="355" text-anchor="middle">However</text>
+  <rect x="792" y="338" width="88" height="26" rx="13" fill="#fbefe8"/><text x="836" y="355" text-anchor="middle">In contrast</text>
+  <rect x="886" y="338" width="82" height="26" rx="13" fill="#fbefe8"/><text x="927" y="355" text-anchor="middle">whereas</text>
+</g>
+<path d="M630 230c18-6 30-2 46 8" stroke="#2b776e" stroke-width="2" fill="none" stroke-dasharray="3 5" stroke-linecap="round" opacity="0"/>
+<path d="M992 44l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#e3a843"/>
+</svg>

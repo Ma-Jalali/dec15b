@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 430" font-family="Manrope, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="est">
+<title id="est">From weak to strong evidence. Weak evidence uses vague words such as many, some or a large amount, has no source, or uses personal stories only. Strong evidence names a source, who and when, and gives specific data. To make a statement stronger, ask: who? when? how much? where? Example: Many restaurants use new technology, and some have improved, becomes: A 2022 study of 50 restaurants in the UK found that those using waste-tracking software reduced food waste by 25 percent in one year (Smith, 2022). Invented example for practice only.</title>
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".13"/></filter>
+  <linearGradient id="meter" x1="0" x2="1"><stop offset="0" stop-color="#d9826a"/><stop offset=".5" stop-color="#e3a843"/><stop offset="1" stop-color="#2b776e"/></linearGradient>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".14"/></pattern>
+</defs>
+<rect width="1040" height="430" rx="24" fill="#fffdf8"/>
+<rect x="910" y="22" width="100" height="56" fill="url(#dots)"/>
+<text x="40" y="54" font-family="Fraunces, Georgia, serif" font-size="26" font-weight="600" fill="#14293a">From weak to strong evidence</text>
+<path d="M40 64c90-5 220-5 350-1" stroke="#e3a843" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<text x="40" y="90" font-size="14" fill="#6b7882">Strong evidence is specific and sourced.</text>
+
+<!-- meter -->
+<rect x="40" y="114" width="960" height="12" rx="6" fill="url(#meter)"/>
+<circle cx="70" cy="120" r="10" fill="#fff" stroke="#d9826a" stroke-width="3"/><circle cx="970" cy="120" r="10" fill="#fff" stroke="#2b776e" stroke-width="3"/>
+<g font-size="12" font-weight="800" letter-spacing="2"><text x="40" y="150" fill="#b0512a">WEAK</text><text x="1000" y="150" text-anchor="end" fill="#2b776e">STRONG</text></g>
+
+<!-- weak card -->
+<g filter="url(#sh)"><rect x="40" y="164" width="300" height="140" rx="16" fill="#fff"/><rect x="700" y="164" width="300" height="140" rx="16" fill="#fff"/></g>
+<rect x="40" y="164" width="6" height="140" rx="3" fill="#b0512a"/><rect x="994" y="164" width="6" height="140" rx="3" fill="#2b776e"/>
+<g font-size="13.5" fill="#3d505e">
+  <g transform="translate(66 196)"><circle r="9" fill="#fbefe8"/><path d="M-3-3l6 6M3-3l-6 6" stroke="#b0512a" stroke-width="2" stroke-linecap="round"/></g><text x="84" y="201">vague words: <tspan font-style="italic">many, some …</tspan></text>
+  <g transform="translate(66 236)"><circle r="9" fill="#fbefe8"/><path d="M-3-3l6 6M3-3l-6 6" stroke="#b0512a" stroke-width="2" stroke-linecap="round"/></g><text x="84" y="241">no source</text>
+  <g transform="translate(66 276)"><circle r="9" fill="#fbefe8"/><path d="M-3-3l6 6M3-3l-6 6" stroke="#b0512a" stroke-width="2" stroke-linecap="round"/></g><text x="84" y="281">personal stories only</text>
+  <g transform="translate(726 196)"><circle r="9" fill="#e9f4f2"/><path d="M-4 0l3 3 5-6" stroke="#2b776e" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><text x="744" y="201">names a source: <tspan font-weight="700">who</tspan> + <tspan font-weight="700">when</tspan></text>
+  <g transform="translate(726 236)"><circle r="9" fill="#e9f4f2"/><path d="M-4 0l3 3 5-6" stroke="#2b776e" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><text x="744" y="241">specific data: numbers, places</text>
+  <g transform="translate(726 276)"><circle r="9" fill="#e9f4f2"/><path d="M-4 0l3 3 5-6" stroke="#2b776e" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g><text x="744" y="281">a citation: (Author, year)</text>
+</g>
+
+<!-- middle: questions -->
+<text x="520" y="190" text-anchor="middle" font-size="12" font-weight="800" letter-spacing="1.8" fill="#6b7882">MAKE IT STRONGER — ASK</text>
+<g font-size="15" font-weight="800" text-anchor="middle">
+  <g transform="translate(378 206)"><rect width="134" height="38" rx="19" fill="#fff6dc" stroke="#f0e2b6"/><text x="67" y="25" fill="#8a520b">Who?</text></g>
+  <g transform="translate(528 206)"><rect width="134" height="38" rx="19" fill="#fff6dc" stroke="#f0e2b6"/><text x="67" y="25" fill="#8a520b">When?</text></g>
+  <g transform="translate(378 254)"><rect width="134" height="38" rx="19" fill="#fff6dc" stroke="#f0e2b6"/><text x="67" y="25" fill="#8a520b">How much?</text></g>
+  <g transform="translate(528 254)"><rect width="134" height="38" rx="19" fill="#fff6dc" stroke="#f0e2b6"/><text x="67" y="25" fill="#8a520b">Where?</text></g>
+</g>
+<g fill="none" stroke="#c9bfae" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"><path d="M346 250h24M670 250h22"/></g><path d="M690 244l10 6-10 6z" fill="#c9bfae"/>
+
+<!-- example -->
+<rect x="40" y="322" width="960" height="88" rx="16" fill="#f4f8f6"/>
+<text x="62" y="350" font-size="13.5" fill="#6b7882"><tspan font-weight="800" fill="#b0512a">Weak:</tspan> <tspan font-style="italic">Many restaurants use new technology, and some have improved.</tspan></text>
+<text x="62" y="380" font-family="Fraunces, Georgia, serif" font-size="15.5" fill="#14293a"><tspan font-family="Manrope, sans-serif" font-size="13.5" font-weight="800" fill="#2b776e">Strong:</tspan> A <tspan fill="#8a520b" font-weight="600">2022</tspan> study of <tspan fill="#8a520b" font-weight="600">50 restaurants</tspan> in <tspan fill="#8a520b" font-weight="600">the UK</tspan> found that those using waste-tracking software reduced</text>
+<text x="62" y="400" font-family="Fraunces, Georgia, serif" font-size="15.5" fill="#14293a">food waste by <tspan fill="#8a520b" font-weight="600">25%</tspan> in one year <tspan fill="#2f4a8c" font-weight="600">(Smith, 2022)</tspan>.   <tspan font-family="Manrope, sans-serif" font-size="11.5" fill="#8b969e">Invented example — for practice only.</tspan></text>
+<path d="M992 44l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#e3a843"/>
+</svg>

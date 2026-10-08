@@ -122,6 +122,7 @@ window.DEC15_LESSON = {
               '<b>Limiting words</b> — the narrow focus: which part of the topic.',
               '<b>Rhetorical function</b> — what you must <i>do</i>: explain causes? evaluate? suggest solutions?'
             ]},
+            { type: 'figure', src: 'assets/week3/question-layers.svg', alt: 'Read the question in three layers, worked example with the Day 1 question “How critical is addressing food waste as a strategy to combat global food insecurity?”: topic words food waste and food insecurity; limiting words critical (how important) and food waste (this one cause is the focus); rhetorical function: explain the causal links, evaluate how important reducing food waste is, take a position.', caption: 'Worked example — now try it with today’s question', size: 'wide' },
             { type: 'steps', items: [
               { who: 'alone', text: 'Highlight the <b>topic words</b>. Underline the <b>limiting words</b>.' },
               { who: 'pair', text: 'Compare. Then agree on the rhetorical functions and write short answers.' }

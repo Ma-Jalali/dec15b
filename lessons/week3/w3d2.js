@@ -305,6 +305,7 @@ window.DEC15_LESSON = {
               'Use <b>synonyms</b> for key words (<i>occur → happen</i>, <i>reduce → cut</i>) and <b>change the structure</b> (active → passive, verb → noun).',
               'Add the citation: <b>Nicastro and Carillo (2021)</b> or <b>(Nicastro & Carillo, 2021)</b>.'
             ]},
+            { type: 'figure', src: 'assets/week3/paraphrase-notes.svg', alt: 'Paraphrase from your notes in four moves: 1 take short notes of key words; 2 close the text and look only at your notes; 3 change the words (occur → happen, reduce → cut) and the structure (active → passive, verb → noun); 4 add the citation: Nicastro and Carillo (2021) or (Nicastro & Carillo, 2021).', caption: 'Four moves for every paraphrase', size: 'wide' },
             { type: 'steps', items: [
               { who: 'alone', text: 'Answer each question in <b>one or two sentences</b>.' },
               { who: 'alone', text: 'Check one answer against the text: is it accurate? Did you change the words <b>and</b> the structure?' }

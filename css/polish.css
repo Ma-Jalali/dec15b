@@ -206,3 +206,31 @@ body[data-page="stage"] .topbar::after, body[data-page="extra"] .topbar::after {
 .dayline-seg { min-width: 158px; }
 .dayline-flag { flex-basis: 160px; }
 @media (max-width: 720px) { .lib-art img { width: 44%; } .lib-body { padding: 16px 18px 18px; } }
+
+/* ───────── v2.21 small artistic details (quiet, never busy) ───────── */
+/* a hand-drawn gold swash under every page title */
+main h1::after { content: ''; display: block; width: clamp(110px, 32%, 200px); height: 12px; margin-top: 12px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12'%3E%3Cpath d='M3 8C40 3 90 2 140 4s46 3 57 1' fill='none' stroke='%23e3a843' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M30 10.5c30-2 70-2.5 100-1.5' fill='none' stroke='%23e3a843' stroke-width='1.4' stroke-linecap='round' opacity='.5'/%3E%3C/svg%3E") no-repeat left center / 100% 100%; }
+.page-hero h1::after, .stage-head h1::after { margin-bottom: 2px; }
+/* key points: a small four-point sparkle in the corner */
+.key { background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 4l3.2 12.8L36 20l-12.8 3.2L20 36l-3.2-12.8L4 20l12.8-3.2z' fill='%23e3a843' opacity='.75'/%3E%3Ccircle cx='35' cy='6' r='2' fill='%23e3a843' opacity='.45'/%3E%3C/svg%3E") no-repeat right 22px top 20px / 22px 22px,
+  radial-gradient(520px 220px at 100% 0%, rgba(227,168,67,.18), transparent 70%), linear-gradient(160deg, #183247, #12263a 65%); }
+/* section titles: a tiny sprig before the words */
+.section-title { display: flex; align-items: center; gap: 12px; }
+.section-title::before { content: ''; width: 26px; height: 26px; flex: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26' fill='none'%3E%3Cpath d='M6 22C9 14 14 8 22 4' stroke='%232b776e' stroke-width='1.8' stroke-linecap='round'/%3E%3Cpath d='M12 13c-4 0-6-3-6-6 4 0 6 3 6 6zM16 9c0-4 3-6 6-6 0 4-3 6-6 6zM10 18c-3 1-6 0-7-3 3-1 6 0 7 3z' fill='%232b776e' opacity='.75'/%3E%3C/svg%3E") no-repeat center / contain; }
+/* figures: a soft paper frame and a little leaf before the caption */
+.figure img { box-shadow: 0 1px 0 #fff inset, 0 10px 26px -18px rgba(20,41,58,.35); }
+.figure figcaption { display: flex; gap: 8px; align-items: baseline; }
+.figure figcaption::before { content: ''; width: 12px; height: 12px; flex: none; transform: translateY(1px);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 10C2 5 5 2 10 2c0 5-3 8-8 8z' fill='%23e3a843'/%3E%3Cpath d='M2.5 9.5L7 5' stroke='%23fffdf8' stroke-width='1' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / contain; }
+/* the end of every page: a small wheat sprig between two fine lines */
+main::after { content: ''; display: block; height: 30px; margin: 56px auto 0; max-width: 260px; opacity: .8;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 30' fill='none'%3E%3Cpath d='M10 15h86M164 15h86' stroke='%23d8cdb8' stroke-width='1.2' stroke-linecap='round'/%3E%3Ccircle cx='104' cy='15' r='1.6' fill='%23d8cdb8'/%3E%3Ccircle cx='156' cy='15' r='1.6' fill='%23d8cdb8'/%3E%3Cpath d='M130 27V5' stroke='%23c9a35a' stroke-width='1.4' stroke-linecap='round'/%3E%3Cg fill='%23e3a843'%3E%3Cellipse cx='126' cy='9' rx='2.6' ry='4.6' transform='rotate(-28 126 9)'/%3E%3Cellipse cx='134' cy='9' rx='2.6' ry='4.6' transform='rotate(28 134 9)'/%3E%3Cellipse cx='126' cy='16' rx='2.6' ry='4.6' transform='rotate(-28 126 16)'/%3E%3Cellipse cx='134' cy='16' rx='2.6' ry='4.6' transform='rotate(28 134 16)'/%3E%3Cellipse cx='130' cy='4' rx='2.2' ry='3.8'/%3E%3C/g%3E%3C/svg%3E") no-repeat center / contain; }
+@media print { main::after, main h1::after { display: none; } }
+/* phones: a quiet hint that diagrams open full size */
+@media (max-width: 720px) {
+  figure.figure { position: relative; }
+  figure.figure::after { content: 'Tap to enlarge'; position: absolute; top: 8px; right: 8px; padding: 4px 9px 4px 24px; border-radius: 999px; font: 700 .68rem/1.2 var(--sans); color: var(--ink); background: rgba(255,255,255,.92) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314293a' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6'/%3E%3Cpath d='m15 15 5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E") no-repeat 8px center / 12px; box-shadow: 0 2px 8px rgba(20,41,58,.15); pointer-events: none; }
+}

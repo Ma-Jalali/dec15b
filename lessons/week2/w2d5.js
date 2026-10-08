@@ -111,6 +111,7 @@ window.DEC15_LESSON = {
               '<b>Will AI help me learn — or take the learning away?</b> If the task builds a skill (paraphrasing, analysis), try it yourself first. AI can help with mechanical jobs. <i>Example: paraphrase a passage yourself, then compare with AI.</i>',
               '<b>Is AI allowed here?</b> In-class tasks and exams usually require independent work. <i>Example: a timed essay in an exam.</i>'
             ]},
+            { type: 'figure', src: 'assets/week2/ai-decision.svg', alt: 'AI or not? Three questions as a flow chart. 1 Does the task need my own ideas, creativity or reflection? Yes: do it yourself. No: 2 Will AI take the learning away (the task builds a skill)? Yes: try it yourself first, then compare with AI. No: 3 Is AI allowed here? No: work independently. Yes: AI can help with a mechanical job.', caption: 'The three questions as a flow chart', size: 'wide' },
             { type: 'steps', items: [
               { who: 'group', text: 'Go back to your 12 decisions in Activity 2. Ask the three questions for each task. Change any decisions you want to.' },
               { who: 'group', text: 'Choose <b>two</b> tasks you changed or argued about. Explain each one using the language below.' },
@@ -324,6 +325,7 @@ window.DEC15_LESSON = {
               '<b>Strong:</b> names a source (who, when) and gives specific data.',
               '<b>Weak:</b> vague words (“many”, “some”, “a large amount”), no source, or personal stories only.'
             ]},
+            { type: 'figure', src: 'assets/week2/evidence-strength.svg', alt: 'From weak to strong evidence. Weak: vague words (many, some), no source, personal stories only. Strong: names a source (who and when), specific data, a citation. To make it stronger ask: who? when? how much? where? Example: “Many restaurants use new technology, and some have improved.” becomes “A 2022 study of 50 restaurants in the UK found that those using waste-tracking software reduced food waste by 25% in one year (Smith, 2022).” (invented example)', caption: 'What makes evidence strong?', size: 'wide' },
             { type: 'quiz', id: 'c3q', title: 'Choose the stronger statement in each set', items: [
               { q: 'Set 1 — supermarkets', options: [
                 'A. Research by the Food Waste Reduction Alliance (FWRA, 2023) indicates that supermarkets in the U.S. discard millions of tons of food each year, accounting for a substantial portion of retail food waste.',
