@@ -9,7 +9,8 @@ window.createDEC15Cloud = function ({ cfg, lessonId, getState, applyState, onCha
   let client = null, user = null, profile = null, status = enabled ? 'signed-out' : 'local';
   let timer = null, pending = false, lastError = '';
 
-  function set(s, err) { status = s; if (err !== undefined) lastError = err; onChange({ status, user, profile, error: lastError }); }
+  let recovery = false;   // true after opening a "reset password" email link: the student must choose a new password
+  function set(s, err) { status = s; if (err !== undefined) lastError = err; onChange({ status, user, profile, error: lastError, recovery }); }
 
   /* Merge two saved states. The newer copy wins where both have a value;
      anything that exists only in the older copy is kept, so no answer is dropped. */
@@ -26,7 +27,7 @@ window.createDEC15Cloud = function ({ cfg, lessonId, getState, applyState, onCha
   const cloudCopy = s => { const { teacher, ...rest } = s; return rest; };
 
   async function loadProfile() {
-    const { data } = await client.from('profiles').select('full_name, student_id, role').eq('id', user.id).maybeSingle();
+    const { data } = await client.from('profiles').select('full_name, student_id, role, avatar_url').eq('id', user.id).maybeSingle();
     if (data) { profile = data; return; }
     // First sign-in: create the student's profile from the details given at sign-up.
     const fresh = { id: user.id, full_name: user.user_metadata?.full_name || '', student_id: user.user_metadata?.student_id || '' };
@@ -62,9 +63,11 @@ window.createDEC15Cloud = function ({ cfg, lessonId, getState, applyState, onCha
     user = data.session?.user || null;
     if (user) { await loadProfile(); await pull(); } else set('signed-out');
     client.auth.onAuthStateChange(async (evt, session) => {
+      if (evt === 'PASSWORD_RECOVERY') { recovery = true; }
       const was = user?.id; user = session?.user || null;
       if (user && user.id !== was) { await loadProfile(); await pull(); }
       if (!user) { profile = null; set('signed-out'); }
+      else if (evt === 'PASSWORD_RECOVERY' || evt === 'USER_UPDATED') set(status);
     });
     window.addEventListener('online', () => pending && push());
     document.addEventListener('visibilitychange', () => document.visibilityState === 'hidden' && pending && push());
@@ -98,6 +101,46 @@ window.createDEC15Cloud = function ({ cfg, lessonId, getState, applyState, onCha
     const { error } = await client.auth.resetPasswordForEmail(email, { redirectTo: location.href.split('#')[0] });
     return error ? friendly(error) : null;
   }
+
+  /* ───────── account settings ───────── */
+  async function updateProfile(fields) {
+    const clean = { full_name: String(fields.full_name || '').trim().slice(0, 80), student_id: String(fields.student_id || '').trim().slice(0, 30) };
+    if (!clean.full_name) return 'Please write your name.';
+    const { error } = await client.from('profiles').update(clean).eq('id', user.id);
+    if (error) return friendly(error);
+    profile = { ...profile, ...clean }; set(status); return null;
+  }
+  // The picture is made small on the device first (256 × 256), so uploads are quick and light.
+  async function setAvatar(blob) {
+    const ext = blob.type === 'image/webp' ? 'webp' : blob.type === 'image/png' ? 'png' : 'jpg';
+    const path = `${user.id}/avatar-${Date.now()}.${ext}`, bucket = client.storage.from('avatars');
+    const { error } = await bucket.upload(path, blob, { contentType: blob.type, upsert: true, cacheControl: '31536000' });
+    if (error) return friendly(error);
+    const url = bucket.getPublicUrl(path).data.publicUrl;
+    const { error: e2 } = await client.from('profiles').update({ avatar_url: url }).eq('id', user.id);
+    if (e2) return friendly(e2);
+    profile = { ...profile, avatar_url: url }; set(status);
+    cleanAvatars(path); return null;
+  }
+  async function removeAvatar() {
+    const { error } = await client.from('profiles').update({ avatar_url: '' }).eq('id', user.id);
+    if (error) return friendly(error);
+    profile = { ...profile, avatar_url: '' }; set(status); cleanAvatars(''); return null;
+  }
+  async function cleanAvatars(keep) {   // remove older pictures from the student's own folder
+    try { const bucket = client.storage.from('avatars'); const { data } = await bucket.list(user.id);
+      const old = (data || []).map(f => `${user.id}/${f.name}`).filter(f => f !== keep); if (old.length) await bucket.remove(old); } catch (e) { /* not important */ }
+  }
+  async function changePassword(current, next) {
+    if (!recovery) {   // check the current password first, so nobody can change it on a shared computer
+      const { error } = await client.auth.signInWithPassword({ email: user.email, password: current });
+      if (error) return /invalid login/i.test(error.message) ? 'Your current password is not correct.' : friendly(error);
+    }
+    const { error } = await client.auth.updateUser({ password: next });
+    if (error) return /different from the old/i.test(error.message) ? 'Choose a new password that is different from your old one.' : friendly(error);
+    recovery = false; set(status); return null;
+  }
+  async function signOutEverywhere() { if (pending) await push(true); await client.auth.signOut({ scope: 'global' }); }
   async function signOut() { if (pending) await push(true); await client.auth.signOut(); }
   function friendly(e) {
     const m = String(e.message || e), code = e.code || '';
@@ -114,6 +157,7 @@ window.createDEC15Cloud = function ({ cfg, lessonId, getState, applyState, onCha
     return m;
   }
 
-  return { enabled, init, queue, push, signIn, signUp, signOut, resetPassword, merge,
+  return { enabled, init, queue, push, signIn, signUp, signOut, signOutEverywhere, resetPassword, merge, updateProfile, setAvatar, removeAvatar, changePassword,
+    get recovery() { return recovery; },
     get status() { return status; }, get user() { return user; }, get profile() { return profile; }, get client() { return client; } };
 };

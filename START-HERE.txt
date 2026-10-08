@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.23)
+DEC15 — COURSE APP (v2.24)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -245,3 +245,18 @@ ACCESSIBILITY, OFFLINE, PROJECTOR, SPEED (v2.23)
 - Speed: fonts are now WOFF2 (513 KB → 190 KB; the TTF files stay for the PDF export), the two
   largest figures are WebP (233 KB → 53 KB), lesson files download in parallel, and the main fonts
   are preloaded. On a slow 4G connection a lesson appears in about 5.0 s instead of 6.4 s.
+
+ACCOUNT SETTINGS (v2.24)
+- Signed-in students click their name (top right) to open "Your account":
+  · change their name (shown at the top of the page and on the class wall) and student ID
+  · add, change or remove a profile picture (made square 256 × 256 and small on the device, then
+    stored in the Supabase "avatars" bucket, in the student's own folder; older pictures are removed)
+  · change their password (they must type the current password first)
+  · sign out, or sign out on all devices (for shared or lost computers)
+- "Forgot password?" emails now work end to end: opening the link shows "Choose a new password".
+- The class wall shows each author's picture; when a student changes their name or picture, their
+  earlier posts update too (database trigger profiles_sync_wall).
+- Database: supabase/migrations/20261008000000_dec15_profile_settings.sql (already applied):
+  profiles.avatar_url (must point to the student's own avatars folder), wall_posts.author_avatar,
+  storage bucket "avatars" (public read, 512 KB, images only) with "own folder only" rules.
+  Students still cannot change their role.
