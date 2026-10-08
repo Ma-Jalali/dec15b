@@ -4,18 +4,11 @@
   <filter id="paper" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="11"/><feColorMatrix values="0 0 0 0 .55  0 0 0 0 .47  0 0 0 0 .36  0 0 0 .07 0"/><feComposite in2="SourceGraphic" operator="in"/><feBlend in="SourceGraphic" mode="multiply"/></filter>
   <filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#2a1d10" flood-opacity=".22"/></filter>
   <filter id="lift" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#14293a" flood-opacity=".22"/></filter>
-  <radialGradient id="light" cx="24%" cy="18%" r="90%"><stop offset="0" stop-color="#fffaf0"/><stop offset=".6" stop-color="#f3ebdd"/><stop offset="1" stop-color="#e6d9c3"/></radialGradient>
-  <linearGradient id="teal" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#3a8f84"/><stop offset="1" stop-color="#22655d"/></linearGradient>
-  <linearGradient id="clay" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#cf6a3e"/><stop offset="1" stop-color="#a44723"/></linearGradient>
-  <linearGradient id="blue" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#4b6bb7"/><stop offset="1" stop-color="#2f4a8c"/></linearGradient>
-  <linearGradient id="screen" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#1c3448"/><stop offset="1" stop-color="#14293a"/></linearGradient>
-  <linearGradient id="metal" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#d9dde1"/><stop offset="1" stop-color="#b3bac1"/></linearGradient>
-  <linearGradient id="pen" x1="0" x2="1"><stop offset="0" stop-color="#e3a843"/><stop offset="1" stop-color="#b9821f"/></linearGradient>
   <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#93600f" opacity=".22"/></pattern>
   <pattern id="lines" width="10" height="26" patternUnits="userSpaceOnUse"><path d="M0 25.5h10" stroke="#14293a" stroke-opacity=".07"/></pattern>
 </defs>
 
-<rect width="1400" height="933" fill="url(#light)"/>
+<rect width="1400" height="933" fill="#f3ebdd"/>
 <rect width="1400" height="933" fill="#f3ebdd" filter="url(#paper)" opacity=".9"/>
 <circle cx="700" cy="470" r="400" fill="#f6e7c9" opacity=".75"/>
 <circle cx="700" cy="470" r="436" fill="none" stroke="#93600f" stroke-opacity=".2" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
@@ -60,19 +53,19 @@
 </g>
 <!-- pen -->
 <g transform="translate(40 24) rotate(32 600 760)" filter="url(#lift)">
-  <rect x="460" y="748" width="230" height="22" rx="11" fill="url(#pen)"/>
+  <rect x="460" y="748" width="230" height="22" rx="11" fill="#ce9531"/>
   <path d="M690 748l40 11-40 11z" fill="#14293a"/>
   <rect x="470" y="748" width="10" height="22" fill="#14293a" opacity=".85"/>
-  <rect x="560" y="744" width="70" height="7" rx="3.5" fill="url(#metal)"/>
+  <rect x="560" y="744" width="70" height="7" rx="3.5" fill="#c6ccd1"/>
 </g>
 
 <!-- ===== laptop with prompt (right) ===== -->
 <g filter="url(#soft)" transform="translate(64 56)">
-  <path d="M800 690h470l46 58H754z" fill="url(#metal)"/>
+  <path d="M800 690h470l46 58H754z" fill="#c6ccd1"/>
   <rect x="754" y="744" width="562" height="16" rx="8" fill="#a3abb3"/>
   <path d="M990 704h90l8 10h-106z" fill="#9aa2aa"/>
   <rect x="812" y="380" width="446" height="312" rx="16" fill="#26323d"/>
-  <rect x="828" y="396" width="414" height="280" rx="8" fill="url(#screen)"/>
+  <rect x="828" y="396" width="414" height="280" rx="8" fill="#182e41"/>
   <circle cx="850" cy="416" r="5.5" fill="#e76f51"/><circle cx="868" cy="416" r="5.5" fill="#e3a843"/><circle cx="886" cy="416" r="5.5" fill="#6fbf8b"/>
   <text x="908" y="421" font-family="Manrope, 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="800" letter-spacing="2.2" fill="#9fb1bd">YOUR PROMPT</text>
   <g font-family="Manrope, 'Segoe UI', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#fff">
@@ -93,19 +86,19 @@
 <!-- ===== speech bubbles (centre, overlapping) ===== -->
 <g filter="url(#soft)">
   <!-- clarify (teal) -->
-  <path d="M520 130h250a46 46 0 0 1 46 46v96a46 46 0 0 1-46 46H612l-54 46 10-46h-48a46 46 0 0 1-46-46v-96a46 46 0 0 1 46-46z" fill="url(#teal)"/>
+  <path d="M520 130h250a46 46 0 0 1 46 46v96a46 46 0 0 1-46 46H612l-54 46 10-46h-48a46 46 0 0 1-46-46v-96a46 46 0 0 1 46-46z" fill="#2e7a70"/>
   <text x="645" y="226" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="40" font-weight="600" fill="#fff">So, you mean…?</text>
   <text x="645" y="268" text-anchor="middle" font-family="Manrope, 'Segoe UI', Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2.6" fill="#cfe9e4">CLARIFY</text>
 </g>
 <g filter="url(#soft)">
   <!-- justify (clay) -->
-  <path d="M642 300h232a46 46 0 0 1 46 46v96a46 46 0 0 1-46 46h-40l12 50-58-50H642a46 46 0 0 1-46-46v-96a46 46 0 0 1 46-46z" fill="url(#clay)"/>
+  <path d="M642 300h232a46 46 0 0 1 46 46v96a46 46 0 0 1-46 46h-40l12 50-58-50H642a46 46 0 0 1-46-46v-96a46 46 0 0 1 46-46z" fill="#ba5830"/>
   <text x="758" y="394" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="34" font-weight="600" fill="#fff">For me… because…</text>
   <text x="758" y="436" text-anchor="middle" font-family="Manrope, 'Segoe UI', Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2.6" fill="#fadccd">JUSTIFY</text>
 </g>
 <g filter="url(#soft)">
   <!-- build on (blue) -->
-  <path d="M590 512h232a46 46 0 0 1 46 46v86a46 46 0 0 1-46 46H682l-58 44 14-44h-48a46 46 0 0 1-46-46v-86a46 46 0 0 1 46-46z" fill="url(#blue)"/>
+  <path d="M590 512h232a46 46 0 0 1 46 46v86a46 46 0 0 1-46 46H682l-58 44 14-44h-48a46 46 0 0 1-46-46v-86a46 46 0 0 1 46-46z" fill="#3d5aa2"/>
   <text x="706" y="600" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="36" font-weight="600" fill="#fff">Like you said…</text>
   <text x="706" y="640" text-anchor="middle" font-family="Manrope, 'Segoe UI', Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2.6" fill="#d6def3">BUILD ON IT</text>
 </g>

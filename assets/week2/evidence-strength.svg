@@ -2,7 +2,6 @@
 <title id="est">From weak to strong evidence. Weak evidence uses vague words such as many, some or a large amount, has no source, or uses personal stories only. Strong evidence names a source, who and when, and gives specific data. To make a statement stronger, ask: who? when? how much? where? Example: Many restaurants use new technology, and some have improved, becomes: A 2022 study of 50 restaurants in the UK found that those using waste-tracking software reduced food waste by 25 percent in one year (Smith, 2022). Invented example for practice only.</title>
 <defs>
   <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".13"/></filter>
-  <linearGradient id="meter" x1="0" x2="1"><stop offset="0" stop-color="#d9826a"/><stop offset=".5" stop-color="#e3a843"/><stop offset="1" stop-color="#2b776e"/></linearGradient>
   <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".14"/></pattern>
 </defs>
 <rect width="1040" height="430" rx="24" fill="#fffdf8"/>
@@ -12,7 +11,7 @@
 <text x="40" y="90" font-size="14" fill="#6b7882">Strong evidence is specific and sourced.</text>
 
 <!-- meter -->
-<rect x="40" y="114" width="960" height="12" rx="6" fill="url(#meter)"/>
+<rect x="40" y="114" width="316" height="12" rx="6" fill="#d9826a"/><rect x="362" y="114" width="316" height="12" rx="6" fill="#e3a843"/><rect x="684" y="114" width="316" height="12" rx="6" fill="#2b776e"/>
 <circle cx="70" cy="120" r="10" fill="#fff" stroke="#d9826a" stroke-width="3"/><circle cx="970" cy="120" r="10" fill="#fff" stroke="#2b776e" stroke-width="3"/>
 <g font-size="12" font-weight="800" letter-spacing="2"><text x="40" y="150" fill="#b0512a">WEAK</text><text x="1000" y="150" text-anchor="end" fill="#2b776e">STRONG</text></g>
 

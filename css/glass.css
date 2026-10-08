@@ -1,0 +1,116 @@
+/* DEC15 · glass (v2.22): simple, modern and flat — no colour gradients anywhere.
+   Translucent "frosted glass" panels with a hairline light edge, large soft radii, pill controls
+   and quiet flat shapes in the page background. Loaded last, after polish.css. */
+
+:root {
+  --r-lg: 26px; --r: 18px; --r-sm: 12px;
+  --paper: #f2eee6;
+  --glass: rgba(255, 255, 255, .6);
+  --glass-strong: rgba(255, 255, 255, .78);
+  --glass-tint: rgba(255, 255, 255, .42);
+  --glass-edge: rgba(255, 255, 255, .85);
+  --glass-line: rgba(20, 41, 58, .07);
+  --glass-blur: blur(24px) saturate(165%);
+  --shadow-sm: 0 1px 2px rgba(20, 41, 58, .04);
+  --shadow: 0 1px 1px rgba(20, 41, 58, .03), 0 12px 32px -16px rgba(20, 41, 58, .2);
+  --shadow-lift: 0 1px 2px rgba(20, 41, 58, .04), 0 18px 40px -16px rgba(20, 41, 58, .28);
+}
+
+/* ───────── page background: flat paper + a few quiet flat shapes (no gradients) ───────── */
+body {
+  background-color: var(--paper);
+  background-image: linear-gradient(90deg, var(--ink) calc(var(--side) - 3px), var(--brand) calc(var(--side) - 3px) var(--side), transparent var(--side));   /* hard-edged side band, not a colour fade */
+}
+body::before {
+  content: ''; position: fixed; top: 0; right: 0; bottom: 0; left: var(--side); z-index: -1; pointer-events: none; opacity: .6;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 900' preserveAspectRatio='xMidYMid slice'%3E%3Ccircle cx='1080' cy='120' r='260' fill='%23dfe9e2'/%3E%3Ccircle cx='120' cy='820' r='300' fill='%23f0e2c6'/%3E%3Ccircle cx='760' cy='860' r='120' fill='%23f2ddd3'/%3E%3Ccircle cx='520' cy='60' r='70' fill='%23e6e3f1'/%3E%3Cpath d='M860 420c120-60 220-20 300 60' fill='none' stroke='%2314293a' stroke-opacity='.08' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M40 360c80-40 150-30 210 20' fill='none' stroke='%2314293a' stroke-opacity='.07' stroke-width='2' stroke-linecap='round' stroke-dasharray='2 10'/%3E%3Ccircle cx='980' cy='520' r='5' fill='%23e3a843' fill-opacity='.5'/%3E%3Ccircle cx='300' cy='240' r='4' fill='%232b776e' fill-opacity='.35'/%3E%3C/svg%3E") center / cover no-repeat;
+}
+
+/* ───────── glass panels ───────── */
+.activity, .hero, .stage-head, .page-hero, .lib-card, .journey-card, .resume, .day-card, .legend-wrap,
+.nb-act, .nb-export-btn, .course-map, .stage-done, .essay-q, .week-tabs, .dayline, .extra-jump button {
+  background: var(--glass) !important;
+  -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-line);
+  box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow);
+}
+.dayline { padding: 14px 16px 10px; border-radius: var(--r); }
+.extra-jump button { box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow-sm); }
+.journey-card:hover, .lib-card:hover, .day-card:hover { box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow-lift); }
+.stage-head::after, .page-hero::after { display: none; }
+.hero::before { display: none; }
+.act-head { background: transparent; border-bottom-color: var(--glass-line); }
+.act-foot { background: rgba(255, 255, 255, .35); border-top: 1px solid var(--glass-line); }
+.essay-q { border-color: rgba(227, 168, 67, .35); }
+
+/* cells inside a glass panel: clean white, like grouped rows on a phone */
+.quiz-item, .card, .choose-option, .order-item, .check, .plan-part, .glossary-word, .search-hit.first,
+.table-scroll, .source-btn, .legend-item { background-color: rgba(255, 255, 255, .82); }
+.lib-art, .journey-art-wrap { border-color: var(--glass-line) !important; }
+
+/* ───────── top bar and tools: frosted ───────── */
+.topbar { background: rgba(242, 238, 230, .62); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--glass-line); }
+.tools { background: var(--glass); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); border-color: var(--glass-line); box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow-sm); }
+.tools button:hover { background: rgba(255, 255, 255, .85); }
+body[data-page="stage"] .topbar::after, body[data-page="extra"] .topbar::after { background: var(--accent, var(--gold)); }
+
+/* ───────── buttons: solid ink pill or glass pill ───────── */
+.btn { background: var(--ink); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .14), 0 8px 18px -10px rgba(20, 41, 58, .6); }
+.btn:hover { background: #0e2131; }
+.btn-quiet { background: var(--glass-strong); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-line); box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow-sm); }
+.btn-quiet:hover { background: #fff; border-color: var(--line-2); }
+
+/* ───────── segmented controls (iOS style): soft grey track, white selected pill ───────── */
+.week-tabs, .source-tabs, .lang-tabs { background: rgba(118, 118, 128, .1) !important; border: 1px solid transparent !important; box-shadow: none !important; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.week-tab[aria-selected="true"], .lang-tabs button[aria-selected="true"], .source-tabs button.active { background: #fff !important; color: var(--ink) !important; box-shadow: 0 1px 2px rgba(20, 41, 58, .08), 0 4px 12px -4px rgba(20, 41, 58, .18) !important; }
+.lang-tabs button:hover { background: rgba(255, 255, 255, .6); }
+
+/* ───────── key point: flat ink glass ───────── */
+.key { background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 4l3.2 12.8L36 20l-12.8 3.2L20 36l-3.2-12.8L4 20l12.8-3.2z' fill='%23e3a843' opacity='.75'/%3E%3Ccircle cx='35' cy='6' r='2' fill='%23e3a843' opacity='.45'/%3E%3C/svg%3E") no-repeat right 22px top 20px / 22px 22px,
+  #163047;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 18px 36px -20px rgba(20, 41, 58, .6); }
+.key::before { background: var(--gold); }
+.key-warn { background: #fff4ee; }
+.sw-key { background: #163047; }
+
+/* ───────── other surfaces that used colour fades ───────── */
+.avatar { background: var(--ink); }
+.video-cover { background: #163047; }
+.nb-cover { background: #163047 !important; }
+.nb-cover::after { background: var(--gold); }
+.nb-ext-pdf { background: #d6452c; }
+.nb-ext-gdocs { background: #3f7fe8; }
+.nb-ext-docx { background: #2f62b4; }
+.flash { background: var(--glass-strong); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); border-color: var(--glass-line); box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow); }
+.flash-stage::before { background: none; }
+.chat-log { background: rgba(255, 255, 255, .55); }
+.chat-ai .chat-log { background: rgba(243, 245, 251, .7); }
+.msg-ai .msg-av { background: #3a58a0; }
+.pb-bar i, .check-meter i { background: var(--gold); background-size: auto; }
+.page-hero { background: var(--glass) !important; }
+.stage-done { border-color: rgba(227, 168, 67, .3); }
+
+/* ───────── dialogs: frosted sheet with a clear header ───────── */
+dialog { background: rgba(255, 255, 255, .86); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); border: 1px solid rgba(255, 255, 255, .7); box-shadow: 0 40px 90px -30px rgba(14, 28, 40, .55); }
+dialog::backdrop { background: rgba(14, 28, 40, .32); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.dialog-head { background: rgba(255, 255, 255, .55); color: var(--ink); box-shadow: inset 0 -1px 0 var(--glass-line); }
+.dialog-head h2 { color: var(--ink); }
+.dialog-head button { color: var(--ink); border-color: var(--line-2); background: rgba(255, 255, 255, .7); }
+.dialog-head button:hover { background: #fff; }
+
+/* ───────── toast and back-to-top: dark and light glass ───────── */
+#toast { background: rgba(20, 41, 58, .8); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 14px 30px -12px rgba(14, 28, 40, .5); }
+.to-top { background: var(--glass-strong); border-color: var(--glass-line); box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow-lift); }
+
+/* ───────── side panel: flat ink, frosted rows ───────── */
+#nav .nav-part.active, .nav-week.open, .nav-dayitem.open { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08); }
+#side-search { background: rgba(255, 255, 255, .07); }
+
+/* browsers without backdrop-filter: slightly more solid panels */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root { --glass: rgba(255, 255, 255, .9); --glass-strong: rgba(255, 255, 255, .95); }
+}
+@media print { body::before { display: none; } }
+/* phones and tablets: no side band (the side panel is a drawer) */
+@media (max-width: 900px) { :root { --side: 0px; } body { background-image: none; } }

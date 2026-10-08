@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="The outback: a huge, dry, red desert with a big rock and a hot sun."><defs><linearGradient id="sky" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f8d9a0"/><stop offset="1" stop-color="#f4b77c"/></linearGradient><linearGradient id="rock" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#d0643a"/><stop offset="1" stop-color="#a6431f"/></linearGradient></defs>
-<rect width="240" height="160" rx="20" fill="url(#sky)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="The outback: a huge, dry, red desert with a big rock and a hot sun."><defs></defs>
+<rect width="240" height="160" rx="20" fill="#f6c88e"/>
 <circle cx="186" cy="44" r="22" fill="#fff4d6"/><circle cx="186" cy="44" r="30" fill="#fff4d6" opacity=".35"/>
-<path d="M40 112c10-24 30-34 62-36s52 6 64 18 20 18 22 18z" fill="url(#rock)"/>
+<path d="M40 112c10-24 30-34 62-36s52 6 64 18 20 18 22 18z" fill="#bb542c"/>
 <path d="M70 92c8-4 14-4 20 0M120 86c10-2 20 2 26 8" stroke="#8c3415" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".6"/>
 <path d="M0 108c40-6 80 4 120 0s80-10 120-2v54H0z" fill="#c9693d"/>
 <path d="M0 126c50-8 100 6 150 0s70-4 90 0v34H0z" fill="#b2532a"/>

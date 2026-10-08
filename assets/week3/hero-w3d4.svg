@@ -4,12 +4,9 @@
   <filter id="paper" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="13"/><feColorMatrix values="0 0 0 0 .55  0 0 0 0 .47  0 0 0 0 .36  0 0 0 .07 0"/><feComposite in2="SourceGraphic" operator="in"/><feBlend in="SourceGraphic" mode="multiply"/></filter>
   <filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#2a1d10" flood-opacity=".22"/></filter>
   <filter id="lift" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#14293a" flood-opacity=".2"/></filter>
-  <radialGradient id="light" cx="24%" cy="18%" r="90%"><stop offset="0" stop-color="#fffaf0"/><stop offset=".6" stop-color="#f3ebdd"/><stop offset="1" stop-color="#e6d9c3"/></radialGradient>
-  <linearGradient id="pencil" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f1c56b"/><stop offset=".5" stop-color="#e3a843"/><stop offset="1" stop-color="#c4892a"/></linearGradient>
-  <linearGradient id="clock" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2f8378"/><stop offset="1" stop-color="#1f5f57"/></linearGradient>
   <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#93600f" opacity=".22"/></pattern>
 </defs>
-<rect width="1400" height="933" fill="url(#light)"/>
+<rect width="1400" height="933" fill="#f3ebdd"/>
 <rect width="1400" height="933" fill="#f3ebdd" filter="url(#paper)" opacity=".9"/>
 <circle cx="700" cy="470" r="400" fill="#f6e7c9" opacity=".75"/>
 <circle cx="700" cy="470" r="436" fill="none" stroke="#93600f" stroke-opacity=".2" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
@@ -45,7 +42,7 @@
 <!-- timer -->
 <g filter="url(#lift)">
   <rect x="1010" y="236" width="44" height="34" rx="8" fill="#14293a"/>
-  <circle cx="1032" cy="420" r="150" fill="url(#clock)"/>
+  <circle cx="1032" cy="420" r="150" fill="#277168"/>
   <circle cx="1032" cy="420" r="124" fill="#fffdf7"/>
   <path d="M1032 296a124 124 0 1 1-107.4 186" fill="none" stroke="#e3a843" stroke-width="16" stroke-linecap="round" opacity=".9"/>
   <g stroke="#14293a" stroke-width="5" stroke-linecap="round" opacity=".5"><path d="M1032 316v18M1136 420h-18M1032 524v-18M928 420h18"/></g>
@@ -65,7 +62,7 @@
 
 <!-- pencil -->
 <g transform="rotate(-24 980 720)" filter="url(#lift)">
-  <rect x="840" y="700" width="290" height="34" rx="6" fill="url(#pencil)"/>
+  <rect x="840" y="700" width="290" height="34" rx="6" fill="#dda748"/>
   <rect x="1100" y="700" width="40" height="34" rx="6" fill="#e08f9a"/>
   <rect x="1088" y="700" width="16" height="34" fill="#c3c9cf"/>
   <path d="M840 700l-56 17 56 17z" fill="#e7cfa9"/>

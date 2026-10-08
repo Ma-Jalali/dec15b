@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.21)
+DEC15 — COURSE APP (v2.22)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -219,3 +219,12 @@ TEACHING DIAGRAMS + SMALL DETAILS (v2.21)
 - Small artistic details: gold swash under page titles, a sparkle on key-point boxes, a sprig
   before section titles, a leaf before figure captions, a wheat sprig at the end of each page.
 - Phones: diagrams show a "Tap to enlarge" hint.
+
+FLAT + GLASS DESIGN (v2.22)
+- No colour gradients anywhere: every CSS gradient fill was replaced by a flat colour, and the
+  15 illustrations/diagrams that used SVG gradients now use flat colours (assets/week2, week3).
+- New css/glass.css (loaded last): iOS-style frosted glass panels (translucent white, background
+  blur, hairline light edge, large soft corners), pill buttons, iOS segmented controls for tabs,
+  frosted top bar, dialogs, toast and back-to-top. A few quiet flat shapes sit behind the page
+  so the glass reads; the side panel stays flat ink.
+- Fixed: on phones the side width setting from v2.17 overrode the phone layout.
