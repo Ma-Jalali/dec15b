@@ -666,6 +666,8 @@ const foldAttrs = open => open ? '' : ' inert';
 function paintNav(route = navRoute) {
   navRoute = route;
   $('#side-home').classList.toggle('active', route === 'home');
+  $('#side-planner')?.classList.toggle('active', route === 'planner');
+  if (route === 'planner') $('#side-planner')?.setAttribute('aria-current', 'page'); else $('#side-planner')?.removeAttribute('aria-current');
   if (route === 'home') $('#side-home').setAttribute('aria-current', 'page'); else $('#side-home').removeAttribute('aria-current');
   $('#nav').innerHTML = course.weeks.map(w => {
     const open = navOpen[w.n] ?? (w.n === lesson.week), started = w.days.filter(d => dayProgress(d)[0]).length;
@@ -749,6 +751,7 @@ const pageNames = { overview: 'Overview', sources: 'Source library', extra: 'Ext
 function parseRoute() {
   const h = location.hash.slice(1);
   if (!h || h === '/' || h === '/home') return { home: true };
+  if (h === '/planner' || h.startsWith('/planner/')) return { page: 'planner' };
   if (routes.includes(h)) { history.replaceState(null, '', L(h)); return { page: h }; } // old links such as #ai
   const m = h.match(/^\/([\w-]+)(?:\/([\w-]+))?/);
   if (!m) return { page: 'overview' };
@@ -771,6 +774,16 @@ function render() {
   $('#progress-label').innerHTML = `<b>${done}</b> of ${coreActivities.length} activities finished`;
   $('#side-notebook').href = L('notebook');
   const s = lesson.sections.find(x => x.id === route);
+  if (route === 'planner') {   // My planner: its own page, separate from the lesson notebook; kept open across re-renders
+    document.body.dataset.page = 'planner'; document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg');
+    $('#crumb').innerHTML = `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>My planner</b>`;
+    document.title = `${course.code} · My planner`; paintStatus();
+    if (!$('#planner-root')) { $('#main').innerHTML = '<div id="planner-root" class="planner-loading"><p>Opening your planner…</p></div>';
+      loadPlanner().then(() => { const el = $('#planner-root'); if (el && parseRoute().page === 'planner') window.DEC15Planner.mount(el, { esc, icon, toast, getCloud: () => cloud }); })
+        .catch(() => { const el = $('#planner-root'); if (el) el.innerHTML = '<p class="planner-error">The planner could not open. Check your internet connection and reload the page.</p>'; }); }
+    return;
+  }
+  if (window.DEC15Planner?.mounted) window.DEC15Planner.unmount();
   $('#main').innerHTML = route === 'home' ? courseHome() : s ? stagePage(s) : route === 'sources' ? sourcesPage() : route === 'extra' ? extrasPage() : route === 'notebook' ? notebook() : overview();
   document.body.dataset.page = s ? 'stage' : route;
   if (s) { document.body.style.setProperty('--accent', TONES[s.tone][0]); document.body.style.setProperty('--accent-bg', TONES[s.tone][1]); }
@@ -787,6 +800,14 @@ function render() {
   const tabs = $('.act-tabs'), cur = $('.act-tabs .current'); if (tabs && cur) tabs.scrollLeft = cur.offsetLeft - tabs.offsetLeft - 12;
   reader.mount();
   requestAnimationFrame(revealBlocks);
+}
+let plannerLoad = null;
+function loadPlanner() {   // the editor is large, so it loads only when the planner is opened
+  const add = (tag, attrs) => new Promise((ok, bad) => { const el = Object.assign(document.createElement(tag), attrs); el.onload = ok; el.onerror = bad; document.head.append(el); });
+  return plannerLoad || (plannerLoad = Promise.all([
+    add('link', { rel: 'stylesheet', href: 'css/planner.css?v=' + cfg.version }),
+    window.Tiptap ? null : add('script', { src: 'js/vendor/tiptap.bundle.js?v=' + cfg.version }),
+  ]).then(() => window.DEC15Planner || add('script', { src: 'js/planner.js?v=' + cfg.version })).catch(e => { plannerLoad = null; throw e; }));
 }
 function rerender() { const y = window.scrollY; render(); window.scrollTo(0, y); }
 /* Blocks fade up gently the first time they scroll into view (once per visit; never on re-render). */
@@ -1213,6 +1234,7 @@ cloud = window.createDEC15Cloud({
   cfg, lessonId: lesson.id, getState: () => state,
   applyState: next => { state = { ...state, ...next, teacher: state.teacher }; save(false); rerender(); },
   onChange: info => { const was = cloudInfo.user?.id; cloudInfo = info; paintStatus();
+    if (info.user?.id !== was) window.DEC15Planner?.onAuth?.(info);
     if (info.recovery && info.user && !accountDialog.recoveryShown) { accountDialog.recoveryShown = true; setTimeout(() => accountDialog('newpw'), 300); }
     if (wall && info.user?.id !== was) { wall.connect(); rerender(); } if (parseRoute().page === 'notebook' && info.status === 'saved' && info.profile && !paintStatus.named) { paintStatus.named = true; rerender(); } }
 });

@@ -164,3 +164,6 @@ body.present .activity { scroll-margin-top: 24px; }
 .acct-msg.is-ok { background: #eef7f1; border-color: #b8d9c2; color: #1f5c3a; }
 .acct-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 .btn.is-busy { opacity: .6; pointer-events: none; }
+/* side panel: My planner link (separate from the lesson notebook) */
+.side-planner { margin-top: -4px; }
+.side-planner small { grid-column: 2; }
