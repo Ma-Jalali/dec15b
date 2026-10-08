@@ -81,3 +81,17 @@
 .nav-parts { margin-left: 18px; padding-left: 10px; }
 #nav .nav-part { gap: 9px; padding: 6px 6px 6px 7px; font-size: .78rem; }
 #nav .nav-part.active::before { left: -16px; }
+
+/* tap-to-zoom for diagrams */
+figure.figure img { cursor: zoom-in; }
+.zoom { position: fixed; inset: 0; z-index: 200; background: rgba(20, 41, 58, .82); backdrop-filter: blur(4px); display: grid; place-items: center; cursor: zoom-out; animation: zoomIn .2s ease; overflow: auto; }
+.zoom-in { max-width: 96vw; max-height: 92vh; overflow: auto; }
+.zoom-in img { display: block; width: min(1100px, 96vw); height: auto; max-width: 96vw; max-height: 92vh; object-fit: contain; border-radius: 14px; background: #fffdf8; box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+.zoom-x { position: fixed; top: 14px; right: 14px; width: 42px; height: 42px; border-radius: 50%; border: 0; background: #fff; color: #14293a; font-size: 1.5rem; line-height: 1; cursor: pointer; }
+@media (max-width: 720px) {
+  .zoom { place-items: center start; }
+  .zoom-in { max-width: none; max-height: none; padding: 16px; }
+  .zoom-in img { max-width: none; max-height: none; width: 900px; height: auto; }
+}
+@keyframes zoomIn { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .zoom { animation: none; } }

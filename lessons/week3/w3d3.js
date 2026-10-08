@@ -287,7 +287,7 @@ window.DEC15_LESSON = {
       id: 'nouns', number: '02', code: '8A', minutes: 90,
       tone: 'plum', art: 'writing',
       title: 'Academic writing skills 2',
-      subtitle: 'Write with nouns: nominalisation',
+      subtitle: 'Write with nouns: nominalisation, step by step',
       outcome: 'Understand why nominalisation matters in academic writing, change verbs, adjectives or clauses into noun phrases, and unpack complex noun phrases to understand difficult texts.',
       activities: [
         {
@@ -297,63 +297,43 @@ window.DEC15_LESSON = {
           blocks: [
             { type: 'steps', items: [
               { who: 'class', text: 'Your teacher gives you a paper strip. Don’t show it to anyone. Walk around and find a partner.' },
-              { who: 'pair', text: 'Read your definition aloud. Your partner guesses <b>one noun</b>. Then swap strips and find a new partner. Repeat.' },
-              { who: 'pair', text: '<b>No strips?</b> Partner B closes the laptop. Partner A reads cards 1–7; B guesses. Then swap for cards 8–14.' },
-              { who: 'alone', text: 'Finish with the quick quiz: six more definitions.' }
+              { who: 'pair', text: 'Read your definition aloud. Your partner guesses <b>one noun</b>. Swap strips and find a new partner. Repeat.' },
+              { who: 'pair', text: '<b>No strips?</b> Play with the cards: Partner A reads a definition, Partner B guesses, then A turns the card over to check. Swap after five cards.' }
             ]},
-            { type: 'cards', title: 'Definition cards', numbered: true, items: [
-              { text: 'The clearing or thinning of forests by humans.' },
-              { text: 'The movement of people from one place to another.' },
-              { text: 'Preventing the wasteful use of a resource.' },
-              { text: 'Actions or opinions that show you disagree with or disapprove of someone or something.' },
-              { text: 'The expansion of cities and towns as more and more people begin living and working there.' },
-              { text: 'The wearing away of soil, rock, and other land-related materials by natural forces such as water, wind, or ice.' },
-              { text: 'The process of increasing interdependence and integration among the economies, markets, societies, and cultures of different countries worldwide.' },
-              { text: 'The benefits or rewards provided to encourage specific actions or behaviours.' },
-              { text: 'The conduct or actions of people in response to something or someone.' },
-              { text: 'The process of giving careful thought to something usually before making a decision or forming an opinion.' },
-              { text: 'The materials available in our environment used to create value.' },
-              { text: 'The process of judging the quality, importance or value of something.' },
-              { text: 'The act of controlling or governing according to rules or laws.' },
-              { text: 'The likely consequence of something or the conclusion that can be drawn from something.' }
+            { type: 'flip', title: 'Guess the noun', hint: 'Read the definition. Say <b>one noun</b>. Then tap to check — and notice the word it comes from.', items: [
+              { tag: '1', front: 'The clearing or thinning of forests by humans.', backTitle: 'deforestation', back: 'deforest (v.) → deforest<b>ation</b>' },
+              { tag: '2', front: 'The knowledge or understanding of a situation or fact.', backTitle: 'awareness', back: 'aware (adj.) → aware<b>ness</b>' },
+              { tag: '3', front: 'The movement of people from one place to another.', backTitle: 'migration', back: 'migrate (v.) → migr<b>ation</b>' },
+              { tag: '4', front: 'The ability to maintain certain essential processes, systems, and activities at a certain rate or level over the long term.', backTitle: 'sustainability', back: 'sustainable (adj.) → sustainab<b>ility</b>' },
+              { tag: '5', front: 'The expansion of cities and towns as more and more people begin living and working there.', backTitle: 'urbanisation', back: 'urbanise (v.) → urbanis<b>ation</b>' },
+              { tag: '6', front: 'The process of using up a resource.', backTitle: 'consumption', back: 'consume (v.) → consump<b>tion</b>' },
+              { tag: '7', front: 'The process of putting a decision or plan into effect.', backTitle: 'implementation', back: 'implement (v.) → implement<b>ation</b>' },
+              { tag: '8', front: 'The act of controlling or governing according to rules or laws.', backTitle: 'regulation', back: 'regulate (v.) → regul<b>ation</b>' },
+              { tag: '9', front: 'The practicality or possibility of something being achieved.', backTitle: 'feasibility', back: 'feasible (adj.) → feasib<b>ility</b>' },
+              { tag: '10', front: 'The process of judging the quality, importance or value of something.', backTitle: 'evaluation / assessment', back: 'evaluate → evalu<b>ation</b> · assess → assess<b>ment</b>' }
             ]},
-            { type: 'quiz', id: 'n1q', title: 'Quick quiz: which noun?', shared: ['awareness', 'sustainability', 'consumption', 'implementation', 'establishment', 'feasibility'], items: [
-              { q: 'The knowledge or understanding of a situation or fact.', answer: 'awareness', why: 'aware (adj.) → awareness' },
-              { q: 'The ability to maintain certain essential processes, systems, and activities at a certain rate or level over the long term.', answer: 'sustainability', why: 'sustainable (adj.) → sustainability' },
-              { q: 'The process of using up a resource.', answer: 'consumption', why: 'consume (v.) → consumption' },
-              { q: 'The process of putting a decision or plan into effect.', answer: 'implementation', why: 'implement (v.) → implementation' },
-              { q: 'The act of founding or setting up an institution, organization, or system.', answer: 'establishment', why: 'establish (v.) → establishment' },
-              { q: 'The practicality or possibility of something being achieved.', answer: 'feasibility', why: 'feasible (adj.) → feasibility' }
-            ]},
-            { type: 'key', title: 'Many academic nouns have typical endings', points: [
-              '<b>-tion / -sion</b> (migration, expansion) · <b>-ment</b> (establishment) · <b>-ity</b> (feasibility) · <b>-ness</b> (awareness) · <b>-ance / -ence</b> (importance).'
-            ]},
-            { type: 'teacher', text: 'Print the 20 statements (TRP on Canvas) and cut them into strips — one per student. Students mingle, read their strip aloud, partner guesses the noun, they swap strips and find a new partner. Alternative: students fold the strips with the statement facing outwards. The 14 cards + 6 quiz items = all 20 TB statements.' }
-          ],
-          answers: { title: 'Card answers', items: [
-            ['1', 'deforestation'], ['2', 'migration'], ['3', 'preservation / conservation'], ['4', 'opposition'],
-            ['5', 'urbanisation'], ['6', 'erosion'], ['7', 'globalisation'], ['8', 'incentives'],
-            ['9', 'behaviour'], ['10', 'consideration'], ['11', 'resource'], ['12', 'evaluation / assessment'],
-            ['13', 'regulation'], ['14', 'implication']
-          ]}
+            { type: 'teacher', text: 'Print the 20 statements (TRP on Canvas) and cut them into strips — one per student. Students mingle, read their strip aloud, the partner guesses the noun, they swap strips and find a new partner. Alternative: fold the strips with the statement facing outwards. The 10 flip cards are a back-up for pairs. Other TB items: migration · preservation / conservation (preventing the wasteful use of a resource) · opposition · erosion · globalisation · incentives · behaviour · consideration · resource · implication · establishment.' }
+          ]
         },
         {
           id: 'n2', short: 'What & why', minutes: 15, grouping: 'Pairs',
           title: 'What is nominalisation? Why use nominalisation?',
-          goal: 'Notice how academic writers turn verbs and adjectives into nouns.',
+          goal: 'Notice how academic writers turn verbs and adjectives into nouns — and why.',
           blocks: [
             { type: 'steps', items: [
-              { who: 'pair', text: 'Read each pair of sentences. <b>What has changed?</b> Find at least two changes.' },
-              { who: 'pair', text: 'Read the key point. Then choose the more effective version (a or b) in the quiz.' }
+              { who: 'pair', text: 'Compare each pair of sentences. <b>What has changed?</b> Find two changes. Then open the answers.' }
             ]},
-            { type: 'model', title: 'Example 1', before: 'If people keep cutting down trees and clearing forests, there will be less oxygen produced.', text: 'Continued deforestation will reduce the production of oxygen.' },
-            { type: 'model', title: 'Example 2', before: 'Food banks distribute essential food items to those in need.  This can provide immediate relief for people who are hungry.', text: 'The distribution of essential food items through food banks can provide immediate relief from hunger.' },
+            { type: 'model', title: 'Example 1', before: 'If people keep cutting down trees and clearing forests, there will be less oxygen produced.', text: 'Continued deforestation will reduce the <b>production</b> of oxygen.' },
+            { type: 'model', title: 'Example 2', before: 'Food banks distribute essential food items to those in need.  This can provide immediate relief for people who are hungry.', text: 'The <b>distribution</b> of essential food items through food banks can provide immediate relief from <b>hunger</b>.' },
             { type: 'key', title: 'Nominalisation = changing a verb or other word into a noun', points: [
-              'Academic writing tends to use nouns more than verbs. <b>distribute → distribution · hungry → hunger · produce → production</b>.',
-              'Why? It is more <b>formal</b>, it focuses on the <b>action or concept</b> rather than the doer, and it makes sentences more <b>compact</b>.',
-              'It helps you <b>connect ideas</b> (two sentences → one), <b>expand on ideas</b>, and <b>avoid repetition</b> between sentences.'
+              'Academic writing tends to use nouns more than verbs: <b>distribute → distribution · hungry → hunger · produce → production</b>.'
             ]},
-            { type: 'model', title: 'Expand on ideas: look at the subject', before: 'Food waste <b>contributes</b> significantly to food insecurity.', text: 'The significant <b>contribution</b> of food waste to food insecurity is a serious concern.', note: 'All the information in the first sentence becomes part of the subject in the second sentence. Now you can add new information at the end (a serious concern).' },
+            { type: 'cards', title: 'Why use it?', items: [
+              { icon: 'model', label: 'More formal', text: 'Language sounds more formal and sophisticated.' },
+              { icon: 'target', label: 'Focus on the idea', text: 'It focuses on the action or concept, not the doer.' },
+              { icon: 'layers', label: 'More compact', text: 'Two sentences can become one; you can pack a lot of information into a few words.' }
+            ]},
+            { type: 'model', title: 'Expand on ideas: look at the subject', before: 'Food waste <b>contributes</b> significantly to food insecurity.', text: 'The significant <b>contribution</b> of food waste to food insecurity is a serious concern.', note: 'The whole first sentence becomes the subject. Now you can add new information at the end (a serious concern).' },
             { type: 'quiz', id: 'n2q', title: 'Avoid repetition: which version is more effective?', items: [
               { q: 'Pair 1', options: ['a. Farmers often discard their imperfect produce. Because they often discard their imperfect produce, greenhouse gas emissions are released as the food decays.', 'b. Farmers often discard their imperfect produce. This frequent disposal of food increases the release of greenhouse gas emissions as the food decays.'], answer: 'b. Farmers often discard their imperfect produce. This frequent disposal of food increases the release of greenhouse gas emissions as the food decays.', why: '“This frequent disposal of food” sums up the first sentence in a noun phrase. Version a repeats “they often discard their imperfect produce”.' },
               { q: 'Pair 2', options: ['a. The global warming rate has increased significantly in the past few decades. Because the global warming rate has increased significantly, there have been more extreme weather events.', 'b. The global warming rate has increased significantly in the past few decades. This rapid acceleration in temperature has created more extreme weather events.'], answer: 'b. The global warming rate has increased significantly in the past few decades. This rapid acceleration in temperature has created more extreme weather events.', why: '“This rapid acceleration in temperature” connects back without repeating — like the summary phrases from Week 1.' }
@@ -367,45 +347,47 @@ window.DEC15_LESSON = {
         {
           id: 'n3', short: 'How to', minutes: 25, grouping: 'Alone → pair',
           title: 'How to nominalise?',
-          goal: 'Change verbs and adjectives into nouns and rewrite sentences.',
+          goal: 'Nominalise in four steps: find the word, make the noun, build the phrase, add new information.',
           blocks: [
-            { type: 'model', title: 'Compare: the new information is in bold', rows: [
-              ['Active verb sentence', 'Funding for the new program was reduced.'],
-              ['Nominalised version', 'The reduction in funding for the new program <b>was heavily criticised.</b>'],
-              ['Active verb sentence', 'The government implemented a new policy to reduce food waste.'],
-              ['Nominalised version', 'The implementation of a new government policy to reduce food waste <b>has been a success.</b><br>Or: The government’s implementation of a new policy to reduce food waste <b>has been a success.</b>']
+            { type: 'figure', src: 'assets/week3/nominalisation-steps.svg', alt: 'How to nominalise in four steps: 1 find the verb or adjective (The council established new centres); 2 make it a noun (establish → establishment); 3 build the noun phrase (The establishment of new centres); 4 add new information (… was welcomed by the community). Common endings: -tion, -sion, -ment, -ance/-ence, -ity, -ness, -al, -y.', caption: 'Four steps — practise them one by one below', size: 'wide' },
+            { type: 'quiz', id: 'n3q', title: 'Steps 1–2 · Make it a noun: which is the real word?', items: [
+              { q: 'decide (v.)', options: ['decision', 'decidement', 'decidance'], answer: 'decision', why: 'decide → deci<b>sion</b>' },
+              { q: 'react (v.)', options: ['reactness', 'reaction', 'reactment'], answer: 'reaction', why: 'react → react<b>ion</b>' },
+              { q: 'establish (v.)', options: ['establishion', 'establishity', 'establishment'], answer: 'establishment', why: 'establish → establish<b>ment</b>' },
+              { q: 'implement (v.)', options: ['implementation', 'implementness', 'implementity'], answer: 'implementation', why: 'implement → implement<b>ation</b>' },
+              { q: 'discover (v.)', options: ['discoverment', 'discovery', 'discoveration'], answer: 'discovery', why: 'discover → discover<b>y</b>' },
+              { q: 'expand (v.)', options: ['expandment', 'expandity', 'expansion'], answer: 'expansion', why: 'expand → expan<b>sion</b>' },
+              { q: 'important (adj.)', options: ['importance', 'importantness', 'importantity'], answer: 'importance', why: 'important → import<b>ance</b>' },
+              { q: 'accessible (adj.)', options: ['accessibleness', 'accessibility', 'accessment'], answer: 'accessibility', why: 'accessible → accessib<b>ility</b>' },
+              { q: 'significant (adj.)', options: ['significantity', 'significantness', 'significance'], answer: 'significance', why: 'significant → signific<b>ance</b>' },
+              { q: 'available (adj.)', options: ['availability', 'availableness', 'availance'], answer: 'availability', why: 'available → availab<b>ility</b>' },
+              { q: 'feasible (adj.)', options: ['feasibleness', 'feasibility', 'feasiblement'], answer: 'feasibility', why: 'feasible → feasib<b>ility</b>' },
+              { q: 'effective (adj.)', options: ['effectivement', 'effectance', 'effectiveness'], answer: 'effectiveness', why: 'effective → effective<b>ness</b>' }
             ]},
-            { type: 'key', title: 'Two common structures', points: [
-              '<b>the + noun + preposition (of / in / to) + noun phrase + verb</b> — <i>The reduction in funding … was criticised.</i>',
-              '<b>noun ’s + noun phrase + verb</b> — <i>The government’s implementation of … has been a success.</i>',
-              'You often need extra words: articles (a, the), prepositions (in, of) and auxiliary verbs (is, was).'
+            { type: 'key', title: 'Step 3 · Build the noun phrase', points: [
+              '<b>the + noun + of / in / to + …</b> — <i>The reduction in funding for the new program …</i>',
+              '<b>noun ’s + noun + of …</b> — <i>The government’s implementation of a new policy …</i>',
+              'A verb that follows the noun becomes <b>-ing</b>: to educate → <b>of educating</b> · to reduce → <b>in reducing</b>.'
             ]},
-            { type: 'steps', items: [
-              { who: 'alone', text: '<b>Step 1.</b> Write the noun for each verb or adjective.' },
-              { who: 'alone', text: '<b>Step 2.</b> Rewrite the six sentences. Use a noun from the table as the subject, then add the new information in brackets.' },
-              { who: 'pair', text: '<b>Step 3.</b> Compare with a partner. Check the preposition after each noun (of? in?).' }
+            { type: 'cloze', id: 'n3c', list: true, title: 'Steps 3–4 · Guided: choose the noun and the next words', options: [
+              ['establish', 'establishment', 'established'], ['of', 'in', 'to'],
+              ['important', 'importance', 'importantly'], ['of educating', 'to educate', 'of educate'],
+              ['effective', 'effectiveness', 'effect'], ['in reducing', 'to reduce', 'in reduce']
+            ], answers: ['establishment', 'of', 'importance', 'of educating', 'effectiveness', 'in reducing'],
+            why: ['establish (v.) → establishment', 'the establishment <b>of</b> …', 'important (adj.) → importance', 'the importance <b>of</b> + verb-<b>ing</b>', 'effective (adj.) → effectiveness', 'the effectiveness of … <b>in</b> + verb-<b>ing</b>'],
+            text: '<span class="cl-from">The local council <b>established</b> new food distribution centres.</span>The {{1}} {{2}} new food distribution centres <b>was welcomed by the community.</b>\n<span class="cl-from">It is <b>important</b> to educate children about food sustainability.</span>The {{3}} {{4}} children about food sustainability <b>is widely recognised.</b>\n<span class="cl-from">Domestic composting is an <b>effective</b> way to reduce local food waste.</span>The {{5}} of domestic composting {{6}} food waste <b>is evident.</b>' },
+            { type: 'fields', title: 'Step 4 · Now on your own: nominalise the word in bold, then add the new information', fields: [
+              { id: 'n3-4', label: 'D. The program expanded to include more rural areas. → (… was a significant development)', placeholder: 'The … of the program …', rows: 2 },
+              { id: 'n3-5', label: 'E. It is feasible to redirect surplus food to food banks. → (… has been clearly demonstrated)', placeholder: 'The … of redirecting …', rows: 2 },
+              { id: 'n3-6', label: 'F. Researchers discovered a link between pesticide use and declining bee populations. → (… has prompted an international response)', placeholder: 'The … of a link …', rows: 2 }
             ]},
-            { type: 'table', id: 'n3t', title: 'Step 1 · Verb or adjective → noun', columns: ['Verb or adjective', 'Noun'], fixed: ['decide (v.)', 'react (v.)', 'establish (v.)', 'implement (v.)', 'discover (v.)', 'expand (v.)', 'important (adj.)', 'accessible (adj.)', 'significant (adj.)', 'available (adj.)', 'feasible (adj.)', 'effective (adj.)'] },
-            { type: 'fields', title: 'Step 2 · Rewrite the sentences', fields: [
-              { id: 'n3-1', label: '1. The local council established new food distribution centres. (… was welcomed by the community)', placeholder: 'The establishment of …', rows: 2 },
-              { id: 'n3-2', label: '2. It is important to educate children about food sustainability. (… is widely recognised)', placeholder: 'The importance of …', rows: 2 },
-              { id: 'n3-3', label: '3. Domestic composting is an effective way to reduce local food waste. (… is evident)', placeholder: 'The effectiveness of …', rows: 2 },
-              { id: 'n3-4', label: '4. The program expanded to include more rural areas. (… was a significant development)', placeholder: 'The expansion of …', rows: 2 },
-              { id: 'n3-5', label: '5. It is feasible to redirect surplus food to food banks. (… has been clearly demonstrated)', placeholder: 'The feasibility of …', rows: 2 },
-              { id: 'n3-6', label: '6. Researchers discovered a link between pesticide use and declining bee populations. (… has prompted an international response)', placeholder: 'The discovery of …', rows: 2 },
-              { id: 'n3-7', label: 'When you change an adjective to a noun, what happens to the verb after it (e.g. to educate)?', placeholder: 'It becomes …', rows: 1 }
-            ]}
+            { type: 'teacher', text: 'TB order: noun table (12 words) → rewrite 6 sentences → question about the verb after an adjective (it becomes a gerund). In the app the table is a quick “real word” game, sentences 1–3 are guided with drop-downs and sentences 4–6 are written freely (D–F). Students can also write the sentences in their notebooks.' }
           ],
           answers: { items: [
-            ['Verbs → nouns', 'decide → decision · react → reaction · establish → establishment · implement → implementation · discover → discovery · expand → expansion'],
-            ['Adjectives → nouns', 'important → importance · accessible → accessibility · significant → significance · available → availability · feasible → feasibility · effective → effectiveness'],
-            ['1', 'The establishment of new food distribution centres was welcomed by the community. OR The local council’s establishment of new food distribution centres was welcomed by the community.'],
-            ['2', 'The importance <b>of educating</b> children about food sustainability is widely recognised.'],
-            ['3', 'The effectiveness of domestic composting <b>in reducing</b> food waste is evident.'],
-            ['4', 'The expansion of the program to include more rural areas was a significant development.'],
-            ['5', 'The feasibility <b>of redirecting</b> surplus food to food banks has been clearly demonstrated.'],
-            ['6', 'The discovery of a link between pesticide use and declining bee populations has prompted an international response.'],
-            ['The verb', 'It becomes a gerund (verb + -ing) after a preposition: to educate → of educating; to reduce → in reducing.']
+            ['D', 'The expansion of the program to include more rural areas was a significant development.'],
+            ['E', 'The feasibility <b>of redirecting</b> surplus food to food banks has been clearly demonstrated.'],
+            ['F', 'The discovery of a link between pesticide use and declining bee populations has prompted an international response.'],
+            ['A–C', 'The establishment of new food distribution centres was welcomed by the community (OR The local council’s establishment of …) · The importance of educating children about food sustainability is widely recognised. · The effectiveness of domestic composting in reducing food waste is evident.']
           ]}
         },
         {
@@ -413,48 +395,41 @@ window.DEC15_LESSON = {
           title: 'Nominalisation with cause and effect chains',
           goal: 'Combine a cause and an effect into one academic sentence.',
           blocks: [
-            { type: 'steps', items: [
-              { who: 'pair', text: '<b>1.</b> Find the verb or adjective that can be nominalised in each sentence. <b>2.</b> Change it to a noun. <b>3.</b> Combine the pair with causal language.' },
-              { who: 'pair', text: 'Partner A does A, C and E. Partner B does B and D. Then read each other’s sentences and check.' }
-            ]},
             { type: 'model', title: 'Example', before: 'Cause: Food waste <b>decomposes</b> in landfills. → Effect: Methane, a potent greenhouse gas, is <b>produced</b>.', text: 'The <b>decomposition</b> of food waste in landfills <b>results in</b> the <b>production</b> of methane, a potent greenhouse gas.' },
             { type: 'language', title: 'Causal language', groups: [
               { label: 'Cause → effect', phrases: ['The decomposition of … leads to / results in / contributes to the production of …', 'The decomposition of … increases the production of …'] },
               { label: 'Effect ← cause', phrases: ['Methane … is produced because of / as a result of the decomposition of …', 'The production of methane … is a result of / is due to the decomposition of …'] }
             ]},
-            { type: 'fields', fields: [
-              { id: 'n4-1', label: 'A. People consume cheap, highly processed food. → People are more likely to experience health complications later in life.', placeholder: 'The consumption of …', rows: 2 },
-              { id: 'n4-2', label: 'B. People are aware of the environmental and social impacts of food waste. → The amount of food conserved has increased.', placeholder: 'Awareness of …', rows: 2 },
-              { id: 'n4-3', label: 'C. Food waste is being managed. → Methane emissions have reduced.', placeholder: 'The management of …', rows: 2 },
-              { id: 'n4-4', label: 'D. Hunger has been immediately relieved in local communities. ← Food banks are becoming more popular.', placeholder: 'The immediate relief from …', rows: 2 },
-              { id: 'n4-5', label: 'E. Magazzini Sociali approaches food distribution in an effective way. → The food system has noticeably improved.', placeholder: 'Magazzini Sociali’s effective approach …', rows: 2 }
+            { type: 'cloze', id: 'n4c', list: true, title: 'Guided: build the chain', options: [
+              ['consumer', 'consumption', 'consume'], ['increases', 'is due to', 'because of'],
+              ['management', 'manager', 'managing'], ['has led to', 'is due to', 'because'], ['reduce', 'reduced', 'reduction']
+            ], answers: ['consumption', 'increases', 'management', 'has led to', 'reduction'],
+            why: ['consume (v.) → consumption', 'cause → effect: increases', 'manage (v.) → management', 'cause → effect: has led to', 'reduce (v.) → a reduction in …'],
+            text: '<span class="cl-from">People consume cheap, highly processed food. → People are more likely to experience health complications later in life.</span>The {{1}} of cheap, highly processed food {{2}} the likelihood of experiencing health complications later in life.\n<span class="cl-from">Food waste is being managed. → Methane emissions have reduced.</span>The {{3}} of food waste {{4}} a {{5}} in methane emissions.' },
+            { type: 'fields', title: 'Now on your own', fields: [
+              { id: 'n4-2', label: 'B. People are aware of the environmental and social impacts of food waste. → The amount of food conserved has increased.', placeholder: 'Awareness of … has led to …', rows: 2 },
+              { id: 'n4-4', label: 'D. Hunger has been immediately relieved in local communities. ← Food banks are becoming more popular.', placeholder: 'The immediate relief from … is due to …', rows: 2 },
+              { id: 'n4-5', label: 'E. Magazzini Sociali approaches food distribution in an effective way. → The food system has noticeably improved.', placeholder: 'Magazzini Sociali’s effective approach … has resulted in …', rows: 2 }
             ]},
             { type: 'tip', text: 'Be concise. Nominalisation can make a sentence longer. Compare: <i>The reduction in food waste was achieved through the redistribution of resources.</i> / <i>Redistributing resources reduced food waste.</i> With a word limit, the shorter verb version may be better.' },
-            { type: 'teacher', text: 'TB sentence B also has a third line (“They support policies promoting responsible food production and consumption.”) which the answer does not use — it is left out here. E1 in the TB reads “noticeable improved” (corrected to “noticeably”).' }
+            { type: 'teacher', text: 'TB sentence B also has a third line (“They support policies promoting responsible food production and consumption.”) which the answer does not use — it is left out here. E1 in the TB reads “noticeable improved” (corrected to “noticeably”). A and C are guided with drop-downs; B, D and E are written.' }
           ],
           answers: { items: [
-            ['A', 'The consumption of cheap, highly processed food <b>increases</b> the likelihood of experiencing health complications later in life.'],
             ['B', 'Awareness of the environmental and social impacts of food waste <b>has led to</b> an increase in food conservation.'],
-            ['C', 'The management of food waste <b>has led to</b> a reduction in methane emissions.'],
             ['D', 'The immediate relief from hunger in local communities <b>is due to</b> the increasing popularity of food banks.'],
-            ['E', 'Magazzini Sociali’s effective approach to food distribution <b>has resulted in</b> noticeable improvements in the food system.']
+            ['E', 'Magazzini Sociali’s effective approach to food distribution <b>has resulted in</b> noticeable improvements in the food system.'],
+            ['A and C', 'The consumption of cheap, highly processed food <b>increases</b> the likelihood of experiencing health complications later in life. · The management of food waste <b>has led to</b> a reduction in methane emissions.']
           ]}
         },
         {
           id: 'n5', short: 'Noun phrases', minutes: 15, grouping: 'Pairs',
           title: 'Complex noun phrases',
-          goal: 'Find the head noun and the words before and after it.',
+          goal: 'Find the head noun, then see what comes before and after it.',
           blocks: [
-            { type: 'figure', src: 'assets/week3/noun-phrase.svg', alt: 'Diagram of a noun phrase: pre-modifier, then HEAD NOUN, then post-modifier. Example: the significant contribution of food waste to food insecurity — “the significant” comes before, “contribution” is the head noun, “of food waste to food insecurity” comes after.', caption: 'A noun phrase has ONE head noun. Everything else describes it.' },
+            { type: 'figure', src: 'assets/week3/noun-phrase.svg', alt: 'Anatomy of a noun phrase: “the significant” (pre-modifier) + “contribution” (head noun, often a nominalisation) + “of food waste to food insecurity” (post-modifier). The whole phrase can be the subject of a sentence.', caption: 'A noun phrase has ONE head noun. Everything else describes it.', size: 'wide' },
             { type: 'key', title: 'Find the head noun first', points: [
-              'A noun phrase = <b>one head noun</b> + words <b>before</b> it (articles, adjectives, nouns) + words <b>after</b> it (prepositional phrases, relative clauses).',
+              'Before it: articles, adjectives, nouns (<i>the, significant, food</i>). After it: prepositional phrases and relative clauses (<i>of food waste…, that have…, generated in…</i>).',
               'Not sure if it is a noun phrase? Replace it with a <b>pronoun</b> (it, they). If the sentence still makes sense, it is a noun phrase.'
-            ]},
-            { type: 'model', title: 'Worked example: the sentences from the start of the lesson', rows: [
-              ['continued + <b>deforestation</b>', 'adjective + head noun'],
-              ['the + <b>production</b> + of oxygen', 'determiner + head noun + prepositional phrase'],
-              ['the + <b>distribution</b> + of essential food items through food banks', 'determiner + head noun + prepositional phrase'],
-              ['immediate + <b>relief</b> + from hunger', 'adjective + head noun + prepositional phrase']
             ]},
             { type: 'quiz', id: 'n5q', title: 'Warm-up: what is the head noun?', items: [
               { q: 'The <u>implementation of a zero-waste policy</u> has been effective.', options: ['implementation', 'zero-waste', 'policy'], answer: 'implementation', why: 'implement → implementation. “of a zero-waste policy” tells us what is implemented.' },
@@ -464,20 +439,25 @@ window.DEC15_LESSON = {
             ]},
             { type: 'steps', items: [
               { who: 'pair', text: 'Read the extract from <b>Sample 3.1</b>. Highlight the noun phrases. Partner A: sentences 5–6. Partner B: sentence 7.' },
-              { who: 'pair', text: 'Complete the table: what comes <b>before</b> and <b>after</b> each head noun. The first two are done for you below.' }
+              { who: 'pair', text: 'Then sort what comes <b>after</b> each head noun.' }
             ]},
             { type: 'passage', id: 'n5p', title: 'IWA Sample 3.1 — extract from body paragraph 2 (references removed)', text: '⁵However, with the adoption of more sustainable consumption habits and redistribution programs, a significant amount of food could be redirected from waste streams to improve overall food availability in underserved populations. ⁶This redistribution could be particularly impactful in developed countries where surplus food from restaurants, retail, and households could be channelled to food banks to provide immediate relief. ⁷In fact, if the food waste generated in Australia were cut by one third, the amount saved could adequately feed 921,000 people for an entire year, demonstrating the importance of food conservation as a means of combating hunger.' },
-            { type: 'model', title: 'Done for you', rows: [
-              ['the + <b>adoption</b> + of more sustainable consumption habits', 'article + head noun + prepositional phrase'],
-              ['redistribution + <b>programs</b>', 'noun + head noun']
+            { type: 'sort', id: 'n5s', title: 'What comes after the head noun?', buckets: [
+              { label: 'Prepositional phrase', text: 'of…, in…, from…' }, { label: 'Relative clause', text: 'where…, that…, which…' }, { label: 'Reduced (participle) clause', text: '-ed / -ing, no “which was”' }
+            ], items: [
+              { text: 'a significant <b>amount</b> | of food', answer: 0 },
+              { text: 'the food <b>waste</b> | generated in Australia', answer: 2 },
+              { text: 'overall food <b>availability</b> | in underserved populations', answer: 0 },
+              { text: 'developed <b>countries</b> | where surplus food from restaurants, retail, and households…', answer: 1 },
+              { text: 'the <b>amount</b> | saved', answer: 2 },
+              { text: 'the <b>importance</b> | of food conservation', answer: 0 },
+              { text: 'a <b>means</b> | of combating hunger', answer: 0 }
             ]},
-            { type: 'table', id: 'n5t', title: 'Head nouns in the extract', columns: ['Head noun', 'What comes before (pre-modifier)', 'What comes after (post-modifier)'], fixed: ['amount (sentence 5)', 'streams', 'availability', 'redistribution (sentence 6)', 'countries', 'banks', 'waste (sentence 7)', 'amount (sentence 7)', 'year', 'importance', 'means'] },
-            { type: 'fields', fields: [
-              { id: 'n5-1', label: 'What kinds of words come before the head noun? What kinds come after?', placeholder: 'Before: articles, … After: …', rows: 2 }
-            ]},
-            { type: 'teacher', text: 'Head nouns are given in the table to keep the task to 15 minutes — students still have to find where each phrase begins and ends. The head noun does not always have to be a nominalisation. Point out that complex noun phrases are expected in university writing.' }
+            { type: 'teacher', text: 'The full TB head-noun table is in the answers. The head noun does not always have to be a nominalisation. Point out that complex noun phrases are expected in university writing.' }
           ],
-          answers: { items: [
+          answers: { title: 'All noun phrases in the extract', items: [
+            ['the adoption of …', 'before: the (article) · after: of more sustainable consumption habits (prepositional phrase)'],
+            ['redistribution programs', 'before: redistribution (noun)'],
             ['a significant amount', 'before: a significant (article + adjective) · after: of food (prepositional phrase)'],
             ['waste streams', 'before: waste (noun)'],
             ['overall food availability', 'before: (overall) food (noun) · after: in underserved populations (prepositional phrase)'],

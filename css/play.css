@@ -253,3 +253,9 @@
 .cloze-why li.no b { background: #b0312a; }
 .cloze.is-perfect .cloze-text { animation: perfectGlow 1.2s var(--ease); }
 @media (max-width: 640px) { .cloze-text { padding: 16px; font-size: 1.02rem; line-height: 2.2; } .gap { white-space: normal; max-width: 100%; } .gap select { max-width: calc(100vw - 96px); } }
+
+.cloze-list { list-style: none; counter-reset: cl; margin: 0; display: grid; gap: 6px; }
+.cloze-list li { counter-increment: cl; position: relative; padding: 6px 0 6px 40px; border-bottom: 1px dashed #e7dfcf; }
+.cloze-list li:last-child { border-bottom: 0; }
+.cloze-list li::before { content: counter(cl, upper-alpha); position: absolute; left: 0; top: 14px; width: 26px; height: 26px; border-radius: 8px; background: #14293a; color: #fff; display: grid; place-items: center; font: 800 .74rem/1 var(--sans); }
+.cloze-list .cl-from { display: block; font: .92rem/1.5 var(--sans); color: var(--muted); }
