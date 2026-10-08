@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.25)
+DEC15 — COURSE APP (v2.26)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -280,3 +280,16 @@ MY PLANNER (v2.25)
 - Files: js/planner.js, css/planner.css, js/vendor/tiptap.bundle.js (TipTap 2.27.2, MIT; rebuild with
   tools/tiptap: npm ci && node build.mjs). The editor loads only when the planner is opened.
 - Database: supabase/migrations/20261008100000_dec15_planner.sql (already applied).
+
+MY PLANNER UPDATE (v2.26)
+- Side panel: Course map and My planner have larger 40px tiles (same size as the week numbers) with
+  new icons: a folded map with a route, and a ring-bound planner with a ticked line.
+- Notes tree works like a file explorer (Obsidian style): New note / New folder / Collapse all
+  buttons at the top; a new folder appears with a folder icon and is named right there in the list;
+  notes show a page icon. Drag notes or folders into any folder (folders inside folders), or drag
+  them to the empty space below to move them back to the top. A closed folder opens when you hold
+  something over it. Folder menu (⋯): New note here, New folder inside, Rename, Move to top level,
+  Delete (what is inside moves up one level). Folders store parentId; no database change needed.
+- Editor: body text uses the same font and size as the lessons (Manrope 17px); headings stay in
+  Fraunces. Bold text uses Manrope ExtraBold (assets/fonts/manrope-normal-800*.woff2, loaded only in
+  the planner). To-do lines sit closer together.
