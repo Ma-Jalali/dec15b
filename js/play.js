@@ -202,15 +202,37 @@ window.createDEC15Play = function ({ getState, save, rerender, esc, strip, icon,
     </section>`;
   };
 
+  /* ───────── cloze: a paragraph with a drop-down in each gap ─────────
+     { type: 'cloze', id, title?, text: 'words {{1}} more words {{2}} …', options: [..], answers: [..], why?: [..] }
+     Gap n is saved as `${id}-${n-1}` (the same keys as a quiz, so a quiz can become a cloze without losing work). */
+  const gapWidth = v => `width:calc(${Math.max(10, String(v || 'Choose…').length) * 0.6}em + 36px)`;   // fit the chosen answer
+  B.cloze = b => {
+    const checked = st().checked[b.id], n = b.answers.length;
+    const score = b.answers.filter((a, i) => val(`${b.id}-${i}`) === a).length;
+    const html = b.text.replace(/\{\{(\d+)\}\}/g, (_, d) => { const i = Number(d) - 1, v = val(`${b.id}-${i}`), ok = checked ? (v === b.answers[i] ? ' is-right' : ' is-wrong') : '';
+      return `<span class="gap${ok}${v ? ' is-filled' : ''}"><span class="gap-num">${i + 1}</span><select data-save="${b.id}-${i}" data-cloze="${b.id}" aria-label="Gap ${i + 1}" style="${gapWidth(v)}"><option value="">Choose…</option>${b.options.map(o => `<option${v === o ? ' selected' : ''}>${esc(o)}</option>`).join('')}</select>${checked && ok === ' is-wrong' ? `<span class="gap-fix">${esc(b.answers[i])}</span>` : ''}</span>`; });
+    return `<section class="block play cloze${checked ? ' is-checked' : ''}${checked && score === n ? ' is-perfect' : ''}" id="cloze-${b.id}">
+      ${b.title ? `<h3 class="block-heading">${icon('pen')}${b.title}</h3>` : ''}
+      <p class="cloze-text">${html}</p>
+      ${checked && b.why ? `<ol class="cloze-why">${b.why.map((w, i) => `<li class="${val(`${b.id}-${i}`) === b.answers[i] ? 'ok' : 'no'}"><b>${i + 1}</b>${w}</li>`).join('')}</ol>` : ''}
+      <div class="quiz-bar">${checked ? `<span class="quiz-score${score === n ? ' is-perfect' : ''}">${score === n ? `${icon('check')}All correct!` : `${score} of ${n} correct`}</span>${score === n ? '' : `<button class="btn-quiet" data-cloze-reset="${b.id}">${icon('undo')}Try again</button>`}` : `<button class="btn" data-cloze-check="${b.id}">Check my answers ${icon('arrow')}</button>`}</div>
+    </section>`;
+  };
+
   /* ───────── registry (labels for notebook and the answers button) ───────── */
   function register(b, reg) {
     if (b.type === 'flash') reg(b.id, b.title || 'Memory game');
+    if (b.type === 'cloze') b.answers.forEach((_, i) => reg(`${b.id}-${i}`, `${strip(b.title || 'Gap fill')} · gap ${i + 1}`));
     if (b.type === 'sort') reg(b.id, b.title || 'Sort the cards');
     if (b.type === 'promptbuilder') b.parts.forEach(p => reg(pid(b, p), `${p.label}: ${p.lead}…`));
     if (b.type === 'contract') { b.fields.forEach(f => reg(f.id, f.label)); for (let k = 0; k < (b.signers || 3); k++) reg(`${b.id}-sig-${k}`, 'Signature'); reg(`${b.id}-date`, 'Date'); }
   }
   function notebookItems(b) {
     const filled = v => String(v ?? '').trim() !== '', out = [];
+    if (b.type === 'cloze') {
+      const ok = st().checked[b.id], rows = b.answers.map((a, i) => [String(i + 1), String(val(`${b.id}-${i}`) || '—'), ok ? (val(`${b.id}-${i}`) === a ? 'Correct' : 'Answer: ' + a) : '']).filter(r => r[1] !== '—');
+      if (rows.length) out.push({ t: 'table', title: strip(b.title || 'Gap fill'), head: ok ? ['Gap', 'My answer', 'Check'] : ['Gap', 'My answer'], rows: ok ? rows : rows.map(r => r.slice(0, 2)), widths: ok ? [10, 50, 40] : [12, 88] });
+    }
     if (b.type === 'flash' && filled(val(b.id))) out.push({ t: 'qa', label: (b.title || 'Memory game') + ' — what I wrote', value: val(b.id) });
     if (b.type === 'sort' && filled(val(b.id))) {
       const place = placeOf(b), ok = st().checked[b.id];
@@ -231,6 +253,10 @@ window.createDEC15Play = function ({ getState, save, rerender, esc, strip, icon,
     if (d.flashShow) { flashShow(d.flashShow); return true; }
     if (d.flashCheck) { if (!String(val(d.flashCheck)).trim()) { toast('Write the sentence first.'); return true; } st().checked[d.flashCheck] = true; save(); rerender();
       const b = findBlock(d.flashCheck), hit = lcsHits(words(b.text), words(val(b.id))); if (hit.every(Boolean)) { toast('Perfect memory — well done!'); confetti(document.getElementById('flash-' + b.id)); } return true; }
+    if (d.clozeCheck) { const b = findBlock(d.clozeCheck), left = b.answers.filter((_, i) => !val(`${b.id}-${i}`)).length;
+      if (left && !st().teacher) { toast(`Fill every gap first (${left} left).`); return true; }
+      st().checked[b.id] = true; save(); rerender(); if (b.answers.every((a, i) => val(`${b.id}-${i}`) === a)) { toast('All correct — brilliant!'); confetti(document.getElementById('cloze-' + b.id)); } return true; }
+    if (d.clozeReset) { delete st().checked[d.clozeReset]; save(); rerender(); return true; }
     if (d.flashReset) { delete st().checked[d.flashReset]; save(); rerender(); return true; }
     if (d.sortCard) { const i = Number(d.i), id = d.sortCard, zone = Number(t.closest('[data-sort-zone]')?.dataset.z ?? -1);
       // a card is selected and the student taps a card in another box: move the selected card to that box
@@ -252,6 +278,7 @@ window.createDEC15Play = function ({ getState, save, rerender, esc, strip, icon,
     return false;
   }
   function onInput(t) {
+    if (t.dataset.cloze) { t.closest('.gap')?.classList.toggle('is-filled', !!t.value); t.style.cssText = gapWidth(t.value); if (st().checked[t.dataset.cloze]) { delete st().checked[t.dataset.cloze]; save(); rerender(); } }
     if (t.dataset.pb) pbRefresh(t.dataset.pb);
     if (t.dataset.contract) { const b = findBlock(t.dataset.contract), n = b.signers || 3; const signed = Array.from({ length: n }, (_, k) => String(val(`${b.id}-sig-${k}`)).trim()).every(Boolean) && val(`${b.id}-date`);
       const el = document.getElementById('contract-' + b.id); if (el && el.classList.contains('is-signed') !== !!signed) { el.classList.toggle('is-signed', !!signed); if (signed) toast('Contract signed by everyone!'); } }

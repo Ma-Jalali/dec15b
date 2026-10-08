@@ -70,3 +70,14 @@
   .hero-img img, .stage-art { animation: none !important; }
   .answers.just-opened dl, .answers.just-opened dd, .lang-tabbed .lang-group:not([hidden]) { animation: none !important; }
 }
+
+/* side panel: lesson names on one line */
+.nav-pname { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#nav .nav-part { min-width: 0; }
+#nav .nav-part .nav-ptext { min-width: 0; flex: 1; overflow: hidden; }
+.nav-parts > li { min-width: 0; }
+/* a wider side panel so every lesson name fits on one line (grows with the screen) */
+:root { --side: clamp(320px, 30vw, 432px); }
+.nav-parts { margin-left: 18px; padding-left: 10px; }
+#nav .nav-part { gap: 9px; padding: 6px 6px 6px 7px; font-size: .78rem; }
+#nav .nav-part.active::before { left: -16px; }
