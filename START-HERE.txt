@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.18)
+DEC15 — COURSE APP (v2.19)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -182,3 +182,11 @@ NOMINALISATION + DIAGRAMS (v2.18)
 - Gap-fills can now give different options per gap and show one sentence per line.
 - Tap any diagram to see it full size (on phones it opens wide and scrolls sideways).
 - Phones: quiz answer options now wrap instead of running off the screen.
+
+SIDE PANEL + SMOOTH TOGGLES (v2.19)
+- Side panel is narrower again: 300px on laptops, up to 360px on big screens (was up to 432px).
+- Long lesson names stay on one line; on hover (or keyboard focus) they glide sideways so the
+  whole name can be read.
+- Toggles slide open and closed: suggested answers (Show / Hide), "How to read each page",
+  notebook stages. Contents fade up as they open. Reduced-motion settings turn this off.
+- Fixed a stray gold bar next to the active Readings / Extra / Notebook button in the side panel.
