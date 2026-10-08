@@ -10,5 +10,5 @@ window.DEC15_CONFIG = {
   // Use the project URL and the PUBLISHABLE / anon key — never the service_role key.
   supabaseUrl: 'https://bogagtbkiavnhuohzqzb.supabase.co',
   supabaseKey: 'sb_publishable_SThek4oq-ojxSq-CqIbTCg_mDvMkAYR',
-  version: '2.27'
+  version: '2.28'
 };
