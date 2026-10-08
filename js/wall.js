@@ -104,7 +104,7 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
       </div></article>`;
   }
   function listHTML(thread) {
-    if (status === 'signed-out') return '';
+    if (status === 'signed-out' || !cloud()?.user) return '';
     if (status === 'idle') return '<p class="wall-empty">Loading the class wall…</p>';
     if (status === 'error') return '<p class="wall-empty">The class wall could not load. Check your internet connection.</p>';
     const top = posts.filter(p => p.thread === thread && !p.parent_id).reverse();   // newest first

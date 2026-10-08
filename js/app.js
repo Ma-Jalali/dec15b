@@ -82,6 +82,8 @@ const wallOn = a => !!(wall && wall.enabled && lesson.wall !== false && a && a.w
 const ICON = {
   book: '<path d="M3 4c4-1 7 0 9 2 2-2 5-3 9-2v15c-4-1-7 0-9 2-2-2-5-3-9-2zM12 6v15"/>',
   arrow: '<path d="M4 12h15m-6-6 6 6-6 6"/>',
+  search: '<circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>',
+  up: '<path d="M12 19V5m-6 6 6-6 6 6"/>',
   left: '<path d="M20 12H5m6-6-6 6 6 6"/>',
   clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
   key: '<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9m-3 3 3 3m-6 0 2 2"/>',
@@ -361,7 +363,7 @@ B.grid = b => {
   const score = checked && b.answers ? b.rows.reduce((n, _, r) => n + b.columns.filter((_, c) => !b.given?.[`${r}-${c}`] && val(`${b.id}-${r}-${c}`) === b.answers[r][c]).length, 0) : 0;
   const total = b.rows.length * b.columns.length - Object.keys(b.given || {}).length;
   return `<section class="block grid-block">${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}
-  <div class="table-scroll" tabindex="0" role="region" aria-label="${esc(b.title || 'Table')}"><table class="work-table grid-table"><thead><tr><th scope="col"></th>${b.columns.map(c => `<th scope="col">${c}</th>`).join('')}</tr></thead>
+  <div class="table-scroll" tabindex="0" role="region" aria-label="${esc(b.title || 'Table')}"><table class="work-table grid-table grid-cols-${b.columns.length}"><thead><tr><th scope="col"></th>${b.columns.map(c => `<th scope="col">${c}</th>`).join('')}</tr></thead>
   <tbody>${b.rows.map((r, ri) => `<tr><th scope="row">${r}</th>${b.columns.map((_, ci) => cell(ri, ci)).join('')}</tr>`).join('')}</tbody></table></div>
   ${b.answers ? `<div class="quiz-bar">${checked ? `<span class="quiz-score">${score} / ${total} correct</span><button class="btn-quiet" data-grid-reset="${b.id}">Try again</button>` : `<button class="btn" data-grid-check="${b.id}">Check my answers ${icon('arrow')}</button>`}</div>` : ''}
 </section>`;
@@ -424,6 +426,7 @@ function activity(a, i, list, section) {
     <div class="act-body">${blocksHTML(a)}</div>
     ${answersPanel(a)}
     ${wallOn(a) ? wall.sectionHTML(a) : ''}
+    ${section && i === list.length - 1 && list.every(x => state.done[x.id]) ? `<div class="stage-done"><img src="assets/art/complete.svg" alt="" width="120" height="140"><div><b>Stage complete!</b><span>You finished all ${list.length} activities in ${esc(stageName(section))}.</span></div></div>` : ''}
     <footer class="act-foot">
       <label class="done-toggle"><input type="checkbox" data-done="${a.id}"${state.done[a.id] ? ' checked' : ''}><span>I have finished this activity</span></label>
       ${section ? `<div class="pager">${i ? `<button class="btn-quiet" data-jump="${list[i - 1].id}">${icon('left')}Previous</button>` : ''}${i < list.length - 1 ? `<button class="btn" data-jump="${list[i + 1].id}">Next: ${esc(list[i + 1].short)} ${icon('arrow')}</button>` : nextStageLink(section)}</div>` : ''}
@@ -599,12 +602,28 @@ function courseHome() {
     </section>
     ${weekTabs()}`;
 }
+/* page header with a small vector picture on the right (Source library, Extra activities) */
+const pageHero = (eyebrow, title, text, art, extra = '') => `<header class="page-head page-hero"><div><span class="eyebrow">${eyebrow}</span><h1>${title}</h1><p>${text}</p>${extra}</div><img class="page-hero-art" src="assets/art/${art}.svg" alt="" width="440" height="340"></header>`;
+function srcLook(s) {   // the picture, colour and reading time of a course text
+  const k = s.kind.toLowerCase(), words = s.paragraphs.join(' ').split(/\s+/).length;
+  const [art, tone, verb, rate] = k.includes('listening') ? ['listening', 'teal', 'listen', 150] : k.includes('discussion') ? ['discussion', 'plum', 'listen', 150] : ['reading', k.includes('mediation') ? 'blue' : 'amber', 'read', 200];
+  const marks = Object.entries(state.marks || {}).filter(([id, rs]) => id.startsWith('s-' + s.id + '-') && rs?.length).reduce((n, [, rs]) => n + rs.length, 0);
+  return { art, tone, time: `About ${Math.max(1, Math.round(words / rate))} min read`, marks };
+}
 function sourcesPage() {
-  return `<header class="page-head"><span class="eyebrow">Course texts</span><h1>Source library</h1><p>The protected course texts for this week. Open a text to read, highlight and underline.</p></header>
-  <div class="library">${sources.map(s => `<article class="lib-card"><span class="pill">${esc(s.kind)}</span><h2>${esc(s.title)}</h2><p>${esc(s.cite)}</p><button class="btn" data-source="${s.id}">Open and read ${icon('arrow')}</button></article>`).join('')}</div>`;
+  return `${pageHero('Course texts', 'Source library', 'The protected course texts for this week. Open a text to read it, then highlight and underline the ideas you need.', 'library',
+    `<p class="page-hero-tip">${icon('bulb')}<span>Your highlights are saved and also appear in <a href="${L('notebook')}">My notebook</a>.</span></p>`)}
+  <div class="library">${sources.map((s, i) => { const l = srcLook(s); return `<article class="lib-card" style="${tone({ tone: l.tone })};--i:${i}">
+    <button class="lib-art" data-source="${s.id}" aria-label="Open ${esc(s.title)}" tabindex="-1"><img src="${artSrc(l.art)}" alt="" width="440" height="340" loading="lazy"></button>
+    <div class="lib-body"><span class="pill">${esc(s.kind)}</span><h2>${esc(s.title)}</h2><p>${esc(s.cite)}</p>
+    <div class="lib-meta"><span>${icon('clock')}${l.time}</span>${l.marks ? `<span class="lib-marks">${icon('pen')}${l.marks} mark${l.marks > 1 ? 's' : ''}</span>` : ''}</div>
+    <button class="btn" data-source="${s.id}">Open and read ${icon('arrow')}</button></div></article>`; }).join('')}</div>`;
 }
 function extrasPage() {
-  return `<header class="page-head"><span class="eyebrow">Optional · independent practice</span><h1>Extra activities</h1><p>Practice at home. These are <b>not</b> part of the four-hour lesson.</p></header>
+  const n = lesson.extras.length, mins = lesson.extras.reduce((t, a) => t + (a.minutes || 0), 0), dn = lesson.extras.filter(a => state.done[a.id]).length;
+  return `${pageHero('Optional · independent practice', 'Extra activities', 'Practice at home, at your own pace. These are <b>not</b> part of the four-hour lesson.', 'practice',
+    n ? `<div class="page-hero-stats"><span><b>${n}</b> activit${n > 1 ? 'ies' : 'y'}</span>${mins ? `<span><b>${mins}</b> min in total</span>` : ''}<span><b>${dn}</b> finished</span></div>` : '')}
+  ${n ? `<nav class="extra-jump" aria-label="Extra activities">${lesson.extras.map((a, i) => `<button type="button" data-scroll="${esc(a.id)}" class="${state.done[a.id] ? 'is-done' : ''}"><i>${state.done[a.id] ? icon('check') : i + 1}</i>${esc(a.short || a.title)}</button>`).join('')}</nav>` : ''}
   ${lesson.extras.map((a, i) => activity(a, i, lesson.extras, null)).join('')}`;
 }
 function registerTables() {
@@ -675,7 +694,15 @@ function setFold(item, btn, open) {
   const inner = item.querySelector(':scope > .fold > .fold-inner'); if (open) inner.removeAttribute('inert'); else inner.setAttribute('inert', '');
 }
 /* search */
+const plainCache = new Map();
+function plainText(a) {   // all the words inside an activity, without code, for search
+  if (!plainCache.has(a.id)) { const out = []; const walk = v => { if (typeof v === 'string') out.push(v); else if (Array.isArray(v)) v.forEach(walk); else if (v && typeof v === 'object' && v.type !== 'teacher') Object.entries(v).forEach(([k, x]) => { if (!/^(id|type|tone|icon|src|size|who|answer|answers|back|backTitle|why|art|alt|correct|solution)$/.test(k)) walk(x); }); };
+    walk(a.blocks || []); walk(a.goal || ''); plainCache.set(a.id, out.join(' ').replace(/<[^>]+>/g, '').replace(/\{\{\d+\}\}/g, '…').replace(/\s+/g, ' ')); }
+  return plainCache.get(a.id);
+}
+let searchCache = null;
 function searchIndex() {
+  if (searchCache) return searchCache;
   const items = [];
   for (const w of course.weeks) for (const d of w.days) {
     const where = `Week ${w.n} · Day ${d.day}`, href = d.status === 'ready' ? '#/' + d.id : '';
@@ -684,21 +711,25 @@ function searchIndex() {
   }
   lesson.sections.forEach(s => {
     items.push({ kind: 'Stage', ic: 'flag', title: stageName(s), sub: `This lesson · Teacher’s Book ${code(s)}`, href: L(s.id), text: stageName(s) + ' ' + (s.subtitle || '') });
-    s.activities.forEach(a => items.push({ kind: 'Activity', ic: 'pen', title: a.title, sub: `This lesson · ${s.title}`, href: L(s.id), go: a.id, text: a.title + ' ' + a.short }));
+    s.activities.forEach(a => items.push({ kind: 'Activity', ic: 'pen', title: a.title, sub: `This lesson · ${s.title}`, href: L(s.id), go: a.id, text: a.title + ' ' + a.short, body: plainText(a) }));
   });
   [['sources', 'book', 'Readings and source library'], ['extra', 'list', 'Extra activities'], ['notebook', 'model', 'My notebook']].forEach(([id, ic, t]) => items.push({ kind: 'Page', ic, title: t, sub: 'This lesson', href: L(id), text: t }));
   items.push({ kind: 'Page', ic: 'home', title: 'Course map', sub: 'All weeks', href: '#/', text: 'course map home all weeks' });
-  return items;
+  lesson.glossary.forEach(([w, d]) => items.push({ kind: 'Word meaning', ic: 'book', title: w, sub: d, gloss: w, text: w }));
+  return (searchCache = items);
 }
 const reEsc = w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 function searchResults(q) {
-  const words = q.toLowerCase().split(/\s+/).filter(Boolean);
-  const inTitle = it => words.every(w => it.text.toLowerCase().includes(w));
-  const hits = searchIndex().filter(it => words.every(w => (it.text + ' ' + it.sub).toLowerCase().includes(w)))
-    .sort((x, y) => inTitle(y) - inTitle(x)).slice(0, 14);
+  const words = q.toLowerCase().split(/\s+/).filter(Boolean), has = t => words.every(w => t.toLowerCase().includes(w));
+  const hits = searchIndex().map(it => ({ it, rank: has(it.title) ? 3 : has(it.text + ' ' + it.sub) ? 2 : it.body && has(it.body) ? 1 : 0 })).filter(h => h.rank)
+    .sort((x, y) => y.rank - x.rank).slice(0, 16);
   const mark = t => { let h = esc(t); words.forEach(w => { h = h.replace(new RegExp('(' + reEsc(esc(w)) + ')', 'gi'), '<mark>$1</mark>'); }); return h; };
+  const snip = t => { const i = t.toLowerCase().indexOf(words[0]); const a = Math.max(0, i - 34); return (a ? '…' : '') + t.slice(a, i + 70).trim() + '…'; };
   if (!hits.length) return `<p class="search-none">Nothing matches “${esc(q)}”. Try one word, for example <i>essay</i>, <i>listening</i> or <i>food banks</i>.</p>`;
-  return `<ul class="search-list" aria-label="Search results">${hits.map((it, i) => `<li>${it.href ? `<a class="search-hit${i ? '' : ' first'}" href="${it.href}"${it.go ? ` data-go="${it.go}"` : ''}>` : '<span class="search-hit is-soon">'}<span class="search-ic">${icon(it.ic)}</span><span class="search-text"><b>${mark(it.title)}</b><small>${esc(it.kind)} · ${esc(it.sub)}</small></span>${it.href ? '</a>' : '</span>'}</li>`).join('')}</ul>`;
+  return `<ul class="search-list" aria-label="Search results">${hits.map(({ it, rank }, i) => {
+    const sub = rank === 1 ? `<small class="search-snip">${mark(snip(it.body))}</small><small>${esc(it.kind)} · ${esc(it.title)}</small>` : `<small>${esc(it.kind)} · ${esc(it.gloss ? it.sub.slice(0, 70) + (it.sub.length > 70 ? '…' : '') : it.sub)}</small>`;
+    const inner = `<span class="search-ic">${icon(it.ic)}</span><span class="search-text"><b>${mark(rank === 1 ? it.title : it.title)}</b>${sub}</span>`;
+    return `<li>${it.gloss ? `<button type="button" class="search-hit${i ? '' : ' first'}" data-gloss="${esc(it.gloss)}">${inner}</button>` : it.href ? `<a class="search-hit${i ? '' : ' first'}" href="${it.href}"${it.go ? ` data-go="${it.go}"` : ''}>${inner}</a>` : `<span class="search-hit is-soon">${inner}</span>`}</li>`; }).join('')}</ul>`;
 }
 function runSearch() {
   const q = $('#side-search').value.trim(), box = $('#side-results');
@@ -790,12 +821,20 @@ function openSource(id = 'reading1') {
   $('#resource-body').scrollTop = 0;
   reader.mount();
 }
-function glossary() {
+function filterGlossary(q) {
+  q = String(q || '').trim().toLowerCase(); let n = 0;
+  document.querySelectorAll('.glossary-word').forEach(el => { const on = !q || el.dataset.g.includes(q); el.hidden = !on; n += on; });
+  const none = $('.gloss-none'); if (none) none.hidden = n > 0;
+}
+document.addEventListener('input', e => { if (e.target.matches('[data-gloss-find]')) filterGlossary(e.target.value); });
+function glossary(find = '') {
   reader.closeWord();
   $('#resource-title').textContent = 'Word meanings';
-  $('#resource-body').innerHTML = `<div class="glossary-top"><p>Click a <span class="word-help">dotted word</span> on any page for its meaning — or find it here.</p><button class="btn" data-word-game>Play the word game</button></div>
-    <div class="glossary-grid">${[...lesson.glossary].sort((a, b) => a[0].localeCompare(b[0])).map(([w, d, c]) => `<div class="glossary-word"><b>${esc(w)}</b><p>${esc(d)}</p><small>${esc(c)}</small></div>`).join('')}</div>`;
-  $('#resource-dialog').showModal();
+  $('#resource-body').innerHTML = `<div class="glossary-top"><label class="gloss-find">${icon('search')}<input type="search" placeholder="Find a word (${lesson.glossary.length} words)" aria-label="Find a word" data-gloss-find value="${esc(find)}"></label><button class="btn" data-word-game>Play the word game</button></div>
+    <div class="glossary-grid">${[...lesson.glossary].sort((a, b) => a[0].localeCompare(b[0])).map(([w, d, c]) => `<div class="glossary-word" data-g="${esc((w + ' ' + d).toLowerCase())}"><b>${esc(w)}</b><p>${esc(d)}</p>${c ? `<small>${esc(c)}</small>` : ''}</div>`).join('')}</div>
+    <p class="gloss-none" hidden>No word matches. Try the first letters of the word.</p>`;
+  filterGlossary(find);
+  if (!$('#resource-dialog').open) $('#resource-dialog').showModal();
 }
 
 /* ───────── notebook exports ───────── */
@@ -876,6 +915,15 @@ document.addEventListener('click', e => {   // every <details> (page guide, note
   if (!det.open) { det.open = true; det.classList.add('is-opening'); slideHeight(det, from, det.offsetHeight, () => { det.classList.remove('is-opening'); delete det.dataset.sliding; }); }
   else { det.open = false; const to = det.offsetHeight; det.open = true; det.classList.add('is-closing'); slideHeight(det, from, to, () => { det.open = false; det.classList.remove('is-closing'); delete det.dataset.sliding; }); }
 });
+document.addEventListener('dec15:celebrate', e => { if (e.detail && !calm()) play?.confetti?.(e.detail); });
+/* a quiet "back to top" button on long pages */
+const topBtn = document.createElement('button');
+topBtn.type = 'button'; topBtn.className = 'to-top'; topBtn.setAttribute('aria-label', 'Back to the top of the page'); topBtn.innerHTML = icon('up');
+topBtn.onclick = () => { window.scrollTo({ top: 0, behavior: calm() ? 'auto' : 'smooth' }); $('#main')?.focus({ preventScroll: true }); };
+document.body.append(topBtn);
+let topTick = 0;
+addEventListener('scroll', () => { if (topTick) return; topTick = requestAnimationFrame(() => { topTick = 0; topBtn.classList.toggle('show', scrollY > innerHeight * 1.4);
+  const h = document.documentElement.scrollHeight - innerHeight; document.body.style.setProperty('--read', h > 0 ? Math.min(1, scrollY / h).toFixed(3) : 0); }); }, { passive: true });
 /* side panel: a long lesson name glides sideways on hover or focus, so it can be read in full */
 function glide(e, on) {
   const n = e.target.closest?.('#nav .nav-part')?.querySelector('.nav-pname'); if (!n) return;
@@ -1005,6 +1053,8 @@ document.addEventListener('click', e => {
   if (t.tagName === 'A' && t.closest('.sidebar')) { setSide(false); if ($('#side-search').value) { $('#side-search').value = ''; setTimeout(runSearch); } }
   if (d.go) { const sec = lesson.sections.find(x => x.activities.some(a => a.id === d.go)); if (sec) { state.active[sec.id] = d.go; save(false); } return; }
   if (t.classList.contains('skip')) { e.preventDefault(); $('#main').focus(); return; }
+  if (d.gloss) { glossary(d.gloss); return; }
+  if (d.scroll) { const el = document.getElementById(d.scroll); el?.scrollIntoView({ behavior: calm() ? 'auto' : 'smooth', block: 'start' }); el?.focus({ preventScroll: true }); return; }
   if (d.jump) {
     const s = lesson.sections.find(x => x.activities.some(a => a.id === d.jump));
     state.active[s.id] = d.jump; save(); render();
@@ -1046,7 +1096,7 @@ document.addEventListener('keydown', e => {
   }
 });
 $('#teacher-toggle').onclick = () => { state.teacher = !state.teacher; save(); rerender(); toast(state.teacher ? 'Teacher view: answers and teacher notes are shown.' : 'Student view: answers open after students try.'); };
-$('#glossary-open').onclick = glossary;
+$('#glossary-open').onclick = () => glossary();
 $('#source-open').onclick = () => openSource();
 $('#dialog-close').onclick = () => { reader.closeWord(); $('#resource-dialog').close(); };
 $('#text-toggle').onclick = e => { const on = document.body.classList.toggle('large-text'); e.currentTarget.setAttribute('aria-pressed', String(on)); };

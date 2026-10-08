@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.19)
+DEC15 — COURSE APP (v2.20)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -190,3 +190,19 @@ SIDE PANEL + SMOOTH TOGGLES (v2.19)
 - Toggles slide open and closed: suggested answers (Show / Hide), "How to read each page",
   notebook stages. Contents fade up as they open. Reduced-motion settings turn this off.
 - Fixed a stray gold bar next to the active Readings / Extra / Notebook button in the side panel.
+
+POLISH + UX (v2.20)
+- Fixed: the Word game crashed on every Week 3 day (it looked for Week 2 words). It now picks
+  six words from each day's own word list, in a new order each time. Wrong picks shake gently,
+  matched pairs turn green, and finishing all pairs gives a small confetti burst.
+- Source library: new page header with a vector picture; each text has a picture card,
+  reading time and the number of marks you made in it.
+- Extra activities: new header with a vector picture, totals, and quick links to each activity.
+- Word meanings: a "Find a word" box filters the list as you type.
+- Search (side panel) now also finds word meanings and text inside activities, with a short
+  preview. Answers, flip-card backs and teacher notes are never searched.
+- Back-to-top button on long pages; a thin reading-progress line under the top bar on stage pages.
+- "Stage complete!" card with a medal when every activity in a stage is finished.
+- Phones: the "Start here" card on the course map no longer runs off the screen.
+- One-column choice tables give the sentence more room; short stages in "Your day at a glance"
+  keep a readable width; the class wall no longer shows "Loading…" when you are signed out.
