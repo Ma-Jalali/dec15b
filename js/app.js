@@ -526,8 +526,8 @@ function courseMap(current) {
   const road = 'M-10 190C60 186 80 168 120 168S250 116 320 116 470 138 530 136 670 96 740 96 850 78 900 76';
   const tree = (x, y, k = 1) => `<g transform="translate(${x} ${y}) scale(${k})"><rect x="-1.6" y="-4" width="3.2" height="12" rx="1" fill="#8a6f4e"/><circle cy="-12" r="10" fill="#8fb47a"/><circle cx="5" cy="-8" r="7" fill="#6f9d5c"/></g>`;
   return `<svg class="course-map-svg" viewBox="0 0 1000 262" role="img" aria-label="Course map: ${course.map.map(w => `Week ${w.n}, ${w.label}`).join('; ')}. You are in Week ${current}.">
-    <defs><linearGradient id="cm-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbf6ea"/><stop offset="1" stop-color="#f3ecdc"/></linearGradient></defs>
-    <rect width="1000" height="290" fill="url(#cm-sky)"/>
+    
+    <rect width="1000" height="290" fill="#f7f1e3"/>
     <circle cx="620" cy="52" r="26" fill="#f6dfae"/><circle cx="620" cy="52" r="40" fill="#f6dfae" opacity=".35"/>
     <path d="M120 52q6-6 12 0q6-6 12 0M168 74q4-4 8 0q4-4 8 0M560 40q5-5 10 0q5-5 10 0" stroke="#7d8b95" stroke-width="1.6" fill="none" stroke-linecap="round"/>
     <path d="M0 150C120 108 230 130 340 116S560 72 700 92 880 52 1000 66V290H0Z" fill="#ece3cf"/>

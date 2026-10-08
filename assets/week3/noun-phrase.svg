@@ -2,8 +2,7 @@
 <title id="npt">Anatomy of a noun phrase. Food waste contributes significantly to food insecurity becomes: the significant (pre-modifier: article and adjective) contribution (head noun, often a nominalisation) of food waste to food insecurity (post-modifier: prepositional phrase). The whole phrase is now the subject: The significant contribution of food waste to food insecurity is a serious concern.</title>
 <defs>
   <filter id="sh" x="-10%" y="-10%" width="120%" height="150%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".14"/></filter>
-  <linearGradient id="head" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e7b24f"/><stop offset="1" stop-color="#d39a33"/></linearGradient>
-</defs>
+  </defs>
 <rect width="1040" height="360" rx="24" fill="#fffdf8"/>
 <text x="40" y="52" font-size="12" font-weight="800" letter-spacing="2.4" fill="#6b7882">VERB SENTENCE</text>
 <text x="40" y="80" font-family="Fraunces, Georgia, serif" font-size="21" fill="#3d505e">Food waste <tspan fill="#b0512a" font-weight="600">contributes</tspan> significantly to food insecurity.</text>
@@ -13,7 +12,7 @@
 <!-- phrase -->
 <g filter="url(#sh)">
   <rect x="40" y="156" width="230" height="74" rx="16" fill="#eef1fa"/>
-  <rect x="282" y="148" width="250" height="90" rx="18" fill="url(#head)"/>
+  <rect x="282" y="148" width="250" height="90" rx="18" fill="#e3a843"/>
   <rect x="544" y="156" width="456" height="74" rx="16" fill="#e9f4f2"/>
 </g>
 <g font-family="Fraunces, Georgia, serif" font-size="26" text-anchor="middle">
