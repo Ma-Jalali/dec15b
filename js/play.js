@@ -26,7 +26,7 @@ window.createDEC15Play = function ({ getState, save, rerender, esc, strip, icon,
   const set = (k, v) => { st().values[k] = v; save(); };
   const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
   const LETTERS = 'ABCDEFGHIJKLMNOP';
-  const PALETTE = ['#2b776e', '#b0512a', '#3a58a0', '#7a4a8c', '#ad6a12', '#3f7a3a'];
+  const PALETTE = ['#2b776e', '#b0512a', '#3a58a0', '#7a4a8c', '#985c0e', '#3f7a3a'];
   const seen = new Set();   // entrance animations play once per visit, not after every re-render
   const fresh = key => { const f = !seen.has(key); seen.add(key); return f ? ' anim' : ''; };
   const B = {};
@@ -171,12 +171,12 @@ window.createDEC15Play = function ({ getState, save, rerender, esc, strip, icon,
           <textarea id="f-${pid(b, p)}" data-save="${pid(b, p)}" data-pb="${b.id}" rows="2" placeholder="${esc(p.placeholder || '')}">${esc(val(pid(b, p)))}</textarea>
           ${p.chips ? `<div class="pb-chips" aria-label="Ideas">${p.chips.map(c => `<button type="button" class="chip-btn" data-pb-chip="${b.id}" data-field="${pid(b, p)}" data-text="${esc(c)}">+ ${esc(c)}</button>`).join('')}</div>` : ''}
         </div>`).join('')}</div>
-        <aside class="pb-preview" aria-live="polite">
+        <div class="pb-preview" aria-live="polite">
           <div class="pb-screen"><span class="pb-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="pb-title">Your prompt</span></div>
           <p class="pb-text" data-pb-text="${b.id}">${preview(b)}</p>
           <div class="pb-meter" data-pb-meter="${b.id}" style="--s:${s}"><span class="pb-bar"><i></i></span><b>${label}</b></div>
           <div class="pb-actions"><button type="button" class="btn" data-pb-copy="${b.id}">${icon('model')}Copy prompt</button>${b.tryUrl ? `<a class="btn-quiet" href="${esc(b.tryUrl)}" target="_blank" rel="noopener">${icon('open')}${esc(b.tryLabel || 'Try it')}</a>` : ''}</div>
-        </aside>
+        </div>
       </div>
     </section>`;
   };

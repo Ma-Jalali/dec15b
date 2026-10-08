@@ -6,7 +6,7 @@
    - a clean print layout.
    Tables stay tables in every format. */
 window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows, reader, esc, strip, toast, person, extraItems }) {
-  const STAGE_COLORS = { ai: '#ad6a12', feedback: '#2b776e', critical: '#3a58a0', writing: '#b0512a' }; // Week 2 Day 5; other lessons use section.color
+  const STAGE_COLORS = { ai: '#985c0e', feedback: '#2b776e', critical: '#3a58a0', writing: '#b0512a' }; // Week 2 Day 5; other lessons use section.color
   const val = k => getState().values[k] ?? '';
   const filled = v => v !== undefined && v !== null && String(v).trim() !== '';
   const words = s => (String(s).trim().match(/\S+/g) || []).length;

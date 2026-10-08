@@ -5,8 +5,21 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#14293a">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="description" content="DEC15 English for Academic Purposes (University of Sydney): lessons, interactive activities and your own notebook.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="DEC15">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DEC15 · English for Academic Purposes">
+<meta property="og:description" content="Lessons, interactive activities and your own notebook — on any device.">
+<meta property="og:image" content="https://ma-jalali.github.io/dec15b/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
 <title>DEC15</title>
-<link rel="stylesheet" href="css/fonts.css?v=2.22">
+<link rel="preload" href="assets/fonts/manrope-normal-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-normal-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css?v=2.23">
 <script>
 /* If any script fails, show a message instead of an empty page. */
 window.addEventListener('error', function (e) {
@@ -15,10 +28,10 @@ window.addEventListener('error', function (e) {
   if (m && !m.children.length) m.innerHTML = '<div style="max-width:640px;margin:60px auto;padding:24px;border:2px solid #e64626;border-radius:14px;background:#fff;font:16px/1.6 system-ui"><h1 style="font-size:22px;margin:0 0 8px">The lesson could not load</h1><p>Please reload the page without the cache: <b>Ctrl + Shift + R</b> (Windows) or <b>Cmd + Shift + R</b> (Mac). On a phone, close the tab and open the link again.</p><p style="color:#666;font-size:13px">Error: ' + String(msg).replace(/</g, '&lt;') + '</p></div>';
 }, true);
 </script>
-<link rel="stylesheet" href="css/dec15.css?v=2.22">
-<link rel="stylesheet" href="css/play.css?v=2.22">
-<link rel="stylesheet" href="css/polish.css?v=2.22">
-<link rel="stylesheet" href="css/glass.css?v=2.22">
+<link rel="stylesheet" href="css/dec15.css?v=2.23">
+<link rel="stylesheet" href="css/play.css?v=2.23">
+<link rel="stylesheet" href="css/polish.css?v=2.23">
+<link rel="stylesheet" href="css/glass.css?v=2.23">
 </head>
 <body>
 <a class="skip" href="#main">Skip to lesson</a>
@@ -46,6 +59,7 @@ window.addEventListener('error', function (e) {
       <button id="glossary-open" title="Word meanings"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h13"/><path d="M9 8h6m-6 4h4"/></svg><span>Word meanings</span></button>
       <button id="source-open" title="Readings"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4c4-1 7 0 9 2 2-2 5-3 9-2v15c-4-1-7 0-9 2-2-2-5-3-9-2zM12 6v15"/></svg><span>Readings</span></button>
       <button data-word-game title="Word game"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/><path d="M15 3h4a2 2 0 0 1 2 2v4M9 21H5a2 2 0 0 1-2-2v-4"/></svg><span>Word game</span></button>
+      <button id="present-toggle" class="tool-icon present-btn" aria-pressed="false" aria-label="Projector mode (P)" title="Projector mode (P)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/></svg></button>
       <button id="text-toggle" class="tool-icon" aria-pressed="false" aria-label="Large text" title="Large text"><span class="aa" aria-hidden="true">A<small>A</small></span></button>
     </div>
   </header>
@@ -56,13 +70,13 @@ window.addEventListener('error', function (e) {
   <div id="resource-body"></div>
 </dialog>
 <div id="toast" role="status" aria-live="polite"></div>
-<script src="js/config.js?v=2.22"></script>
-<script src="lessons/course.js?v=2.22"></script>
-<script src="js/reader.js?v=2.22"></script>
-<script src="js/cloud.js?v=2.22"></script>
-<script src="js/notebook.js?v=2.22"></script>
-<script src="js/wall.js?v=2.22"></script>
-<script src="js/play.js?v=2.22"></script>
-<script src="js/boot.js?v=2.22"></script>
+<script src="js/config.js?v=2.23"></script>
+<script src="lessons/course.js?v=2.23"></script>
+<script src="js/reader.js?v=2.23"></script>
+<script src="js/cloud.js?v=2.23"></script>
+<script src="js/notebook.js?v=2.23"></script>
+<script src="js/wall.js?v=2.23"></script>
+<script src="js/play.js?v=2.23"></script>
+<script src="js/boot.js?v=2.23"></script>
 </body>
 </html>
