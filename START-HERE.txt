@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.26)
+DEC15 — COURSE APP (v2.27)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -293,3 +293,19 @@ MY PLANNER UPDATE (v2.26)
 - Editor: body text uses the same font and size as the lessons (Manrope 17px); headings stay in
   Fraunces. Bold text uses Manrope ExtraBold (assets/fonts/manrope-normal-800*.woff2, loaded only in
   the planner). To-do lines sit closer together.
+
+MY PLANNER DETAILS + WEEK VIEW (v2.27)
+- Calendar has a Week view (Week · Month · Year). Hours down the side, an all-day row for to-dos
+  without a time, a red "now" line on today, weekends shaded. Click an empty hour to add a to-do at
+  that time; drag a to-do to another hour or day (dropping on the all-day row removes its time).
+  Overlapping to-dos sit side by side. ‹ › move a week at a time; the side month marks the week.
+- Month view: hairline grid, week numbers (click "W41" to open that week), the first of each month
+  is labelled, coloured bars on to-dos, today's column is marked. Year view: this month is framed
+  and each month shows how many open to-dos it has. Each calendar shows its open to-do count.
+- Notes: the folder path above the title, word count and a small to-do progress ring, a count of
+  notes and folders under the tree, and finer writing details (quotes, dividers, list markers,
+  selection colour, a little tick animation).
+- Right rail: a "today" date card (day, week number, to-dos done today); Coming up is grouped by day
+  with calendar colour bars.
+- To-dos: a "This week" progress ring with Late / Today / Next 7 days / No date counts, icons on each
+  group, calendar colour bars on every to-do, and small drawings for empty states.
