@@ -253,8 +253,9 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && (menuFor || picker)) { const id = menuFor; menuFor = null; picker = null; paint(); if (id) document.querySelector(`[data-wall-menu="${CSS.escape(id)}"]`)?.focus(); } });
   async function share(fieldId, thread, label) {
     if (!db()) { signIn(); return; }
-    const text = document.getElementById('f-' + fieldId)?.value || '';
-    if (!text.trim()) { toast('Write something in the box first.'); return; }
+    const ids = String(fieldId).split(','), parts = ids.map(id => [document.querySelector(`label[for="f-${CSS.escape(id)}"]`)?.textContent.trim() || '', (document.getElementById('f-' + id)?.value || '').trim()]).filter(([, v]) => v);
+    if (!parts.length) { toast(ids.length > 1 ? 'Write something in the boxes first.' : 'Write something in the box first.'); return; }
+    const text = ids.length > 1 ? parts.map(([l, v]) => `${l}\n${v}`).join('\n\n') : parts[0][1];
     if (!confirm('Share this writing with your class?\n\nEveryone in DEC15 will see it in the class discussion with your name. Your own copy stays in your notebook.')) return;
     if (await post(thread, text, { kind: 'work', label: (label || '').slice(0, 200) })) {
       toast('Shared with the class. Scroll down to see it in the class discussion.');

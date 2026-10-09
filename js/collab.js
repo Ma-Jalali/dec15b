@@ -12,7 +12,7 @@ window.DEC15Collab = (() => {
 
   /* ───────── the provider: Supabase broadcast for live changes, a table for saved ones ───────── */
   function provider(c, docId, lessonId, ydoc, awareness, onStatus, onCleared) {
-    const T = window.Tiptap, Y = T.Y; let ch = null, buf = [], flushT = 0, awT = 0, closed = false, ready = false, early = [], sinceSnap = 0;
+    const T = window.Tiptap, Y = T.Y; let ch = null, buf = [], flushT = 0, awT = 0, closed = false, ready = false, early = [], sinceSnap = 0, heal = 0;
     const send = (event, payload) => { if (ch && !closed) ch.send({ type: 'broadcast', event, payload }).catch?.(() => {}); };
     const apply = u => Y.applyUpdate(ydoc, u, 'remote');
     async function flush() {
@@ -42,7 +42,10 @@ window.DEC15Collab = (() => {
           send('aw', { a: b64(T.encodeAwarenessUpdate(awareness, [ydoc.clientID])) }); })
         .on('broadcast', { event: 'cleared' }, () => { if (!closed) onCleared(); });
       await new Promise(res => { let done = false; const t = setTimeout(() => { if (!done) { done = true; res(); } }, 6000);
-        ch.subscribe(st => { if (!done && (st === 'SUBSCRIBED' || st === 'CHANNEL_ERROR' || st === 'TIMED_OUT')) { done = true; clearTimeout(t); res(); } }); });
+        ch.subscribe(st => {
+          if (!done && (st === 'SUBSCRIBED' || st === 'CHANNEL_ERROR' || st === 'TIMED_OUT')) { done = true; clearTimeout(t); res(); }
+          else if (done && ready && st === 'SUBSCRIBED') { send('hello', { sv: b64(Y.encodeStateVector(ydoc)) }); flush(); }   // back after a dropped connection: catch up at once
+        }); });
       const { data, error } = await c.from('shared_doc_updates').select('id, update, snapshot').eq('doc_id', docId).order('id', { ascending: true }).limit(5000);
       if (error) { onStatus('error'); return false; }
       const rows = data || [], last = rows.map(r => r.snapshot).lastIndexOf(true);
@@ -52,13 +55,14 @@ window.DEC15Collab = (() => {
       sinceSnap = rows.length - (last < 0 ? 0 : last);
       early.forEach(apply); early = []; ready = true;
       ydoc.on('update', onUpdate); awareness.on('update', onAw);
+      heal = setInterval(() => { if (document.visibilityState === 'visible' && awareness.getStates().size > 1) send('hello', { sv: b64(Y.encodeStateVector(ydoc)) }); }, 15000);   // a quiet safety net
       send('hello', { sv: b64(Y.encodeStateVector(ydoc)) });
       onStatus('saved');
       if (sinceSnap > 80) { sinceSnap = 0; snapshot(); }
       return true;
     }
     async function stop() {
-      await flush(); closed = true;
+      clearInterval(heal); await flush(); closed = true;
       try { T.removeAwarenessStates(awareness, [ydoc.clientID], 'local'); } catch (e) { /* ignore */ }
       ydoc.off('update', onUpdate); awareness.off('update', onAw);
       if (ch) try { await ch.send({ type: 'broadcast', event: 'aw', payload: { a: b64(T.encodeAwarenessUpdate(awareness, [ydoc.clientID])) } }); c.removeChannel(ch); } catch (e) { /* ignore */ }
@@ -106,7 +110,7 @@ window.DEC15Collab = (() => {
           <span class="cw-sp"></span><label class="cw-gsel"><span class="sr-only">Group</span><select data-cw-group aria-label="Group">${GROUPS.map(([k, l]) => `<option value="${k}">${l}</option>`).join('')}</select></label>
           <button type="button" class="cw-more" data-cw-more aria-label="More">⋯</button></div>
         <div class="cw-page"><div class="cw-goal">${o.goal ? `<b>Task</b> ${esc(o.goal)}` : ''}</div><div class="cw-editor"></div></div>
-        <footer class="cw-foot"><span class="cw-status" role="status"></span><span class="cw-words"></span><span class="cw-hint">Everyone in your group sees the same page. Changes save by themselves.</span></footer>
+        <footer class="cw-foot"><span class="cw-status" role="status"></span><span class="cw-words"></span><span class="cw-by" aria-live="polite"></span><span class="cw-hint">Changes save by themselves.</span></footer>
       </div></div>`;
     document.body.append(wrap); document.body.classList.add('cw-open');
     const $ = s => wrap.querySelector(s);
@@ -118,6 +122,20 @@ window.DEC15Collab = (() => {
       $('.cw-faces').innerHTML = list.slice(0, 6).map(u => `<span class="cw-face" style="--c:${u.color}" title="${esc(u.name)}${u.me ? ' (you)' : ''}">${esc(u.name.slice(0, 1).toUpperCase())}</span>`).join('')
         + (list.length > 6 ? `<span class="cw-face more">+${list.length - 6}</span>` : '') + `<span class="cw-here">${list.length} here</span>`;
     };
+    /* a thin caret with a tiny name tag that fades after a moment (hover the caret to see the name again) */
+    function caret(user) {
+      const c = document.createElement('span'); c.className = 'collaboration-cursor__caret cw-caret'; c.style.borderColor = user.color;
+      const l = document.createElement('span'); l.className = 'collaboration-cursor__label'; l.style.backgroundColor = user.color; l.textContent = (user.name || '').split(' ')[0];
+      c.append(l); return c;
+    }
+    /* who has written in this document (kept inside the document itself, so it survives) */
+    let lastMark = 0;
+    const markMe = () => { const now = Date.now(); if (!ydoc || now - lastMark < 4000) return; lastMark = now;
+      const who = ydoc.getMap('who'), mine = who.get(cloud.user.id) || {};
+      who.set(cloud.user.id, { name: me.name, color: me.color, edits: (mine.edits || 0) + 1, at: now }); };
+    const paintBy = () => { const el = $('.cw-by'); if (!el || !ydoc) return;
+      const list = [...ydoc.getMap('who').values()].sort((a, b) => (b.edits || 0) - (a.edits || 0));
+      el.innerHTML = list.length ? `<span class="cw-by-dots">${list.slice(0, 8).map(u => `<i style="--c:${u.color}" title="${esc(u.name)}"></i>`).join('')}</span>Written by ${esc(list.slice(0, 3).map(u => u.name.split(' ')[0]).join(', '))}${list.length > 3 ? ` and ${list.length - 3} more` : ''}` : ''; };
     const words = () => { const n = ((editor?.getText() || '').match(/[\p{L}\p{N}'’-]+/gu) || []).length; const el = $('.cw-words'); if (el) el.textContent = `${n} word${n === 1 ? '' : 's'}`; };
     const paintBar = () => { if (!editor) return; const on = { bold: editor.isActive('bold'), italic: editor.isActive('italic'), underline: editor.isActive('underline'), highlight: editor.isActive('highlight'), h2: editor.isActive('heading', { level: 2 }), bullets: editor.isActive('bulletList'), numbers: editor.isActive('orderedList'), tasks: editor.isActive('taskList') };
       wrap.querySelectorAll('[data-cw]').forEach(b => { if (b.dataset.cw in on) b.setAttribute('aria-pressed', String(!!on[b.dataset.cw])); }); };
@@ -133,9 +151,11 @@ window.DEC15Collab = (() => {
       editor = new T.Editor({ element: $('.cw-editor'),
         extensions: [T.StarterKit.configure({ history: false, heading: { levels: [2, 3] } }), T.Underline, T.Highlight, T.TaskList, T.TaskItem.configure({ nested: true }),
           T.Placeholder.configure({ placeholder: 'Start writing together…' }),
-          T.Collaboration.configure({ document: ydoc }), T.CollaborationCursor.configure({ provider: { awareness }, user: me })],
+          T.Collaboration.configure({ document: ydoc }), T.CollaborationCursor.configure({ provider: { awareness }, user: me, render: caret })],
         editorProps: { attributes: { class: 'cw-doc', spellcheck: 'true', 'aria-label': 'Shared document', role: 'textbox', 'aria-multiline': 'true' } },
         onUpdate: words, onSelectionUpdate: paintBar, onTransaction: paintBar });
+      ydoc.on('update', (u, origin) => { if (origin !== 'remote' && editor?.isFocused) markMe(); });
+      ydoc.getMap('who').observe(paintBy); paintBy();
       words(); faces(); editor.commands.focus('end');
     }
     const RUN = { bold: e => e.toggleBold(), italic: e => e.toggleItalic(), underline: e => e.toggleUnderline(), highlight: e => e.toggleHighlight(), h2: e => e.toggleHeading({ level: 2 }), bullets: e => e.toggleBulletList(), numbers: e => e.toggleOrderedList(), tasks: e => e.toggleTaskList(), undo: e => e.undo(), redo: e => e.redo() };

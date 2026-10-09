@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.30)
+DEC15 — COURSE APP (v2.31)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -375,3 +375,22 @@ the inbox. After that the teacher tools appear on every device you sign in on.
 - Security: database rules (Row Level Security) protect all of this; TRUNCATE rights were removed
   from signed-in users. New files: js/classroom.js, js/board.js, js/collab.js, css/classroom.css,
   supabase/migrations/20261009000000_dec15_classroom.sql. The editor bundle now includes Yjs.
+
+v2.31
+- Sign-in: students and teachers can still sign in with email + password or an email link. A
+  "Continue with Google" button appears by itself once Google sign-in is switched on in Supabase
+  (Authentication › Sign In / Providers › Google, with a Google Cloud OAuth client).
+- Safari: the side panel is painted directly, so it stays dark navy in every browser.
+- Lesson numbers show without the letter (17A → 17).
+- Writing boxes: one "Share my answers" button per group of boxes; it shares every box you filled in,
+  each under its heading.
+- My planner and the class board use Outfit for body text (headings keep Fraunces).
+- Class board › Whiteboard (Excalidraw): pens, shapes, arrows, text in three fonts (hand-drawn,
+  normal, code), sticky notes, Brainstorm, and Mind map (type an outline; indent for each level;
+  select a box and press Ctrl/⌘ + → to grow a branch). Live for the whole class with name cursors.
+  The teacher switches "Students can add" on or off; when off, students only watch. Saved in table
+  board_elements. Files: js/whiteboard.js, js/vendor/excalidraw/ (built by tools/excalidraw),
+  assets/excalidraw/fonts. They load only when a whiteboard is opened.
+- Write together: tiny name tags on other people's cursors (they fade after a moment — hover the
+  cursor to see the name), "Written by …" at the bottom, and a quick catch-up after a dropped
+  connection.

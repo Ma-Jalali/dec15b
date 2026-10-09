@@ -216,3 +216,36 @@ grant update (pinned, answered) on public.wall_posts to authenticated;
 create policy "wall mark" on public.wall_posts for update to authenticated
   using (user_id = (select auth.uid()) or (select public.is_teacher()))
   with check (user_id = (select auth.uid()) or (select public.is_teacher()));
+
+-- 11. Class whiteboard (v2.31): one row per shape; the newer version wins --------------------------------------
+alter table public.boards add column if not exists wb_open boolean not null default false;
+alter table public.boards add column if not exists view text not null default 'notes' check (view in ('notes', 'whiteboard'));
+create table if not exists public.board_elements (
+  board_id uuid not null references public.boards (id) on delete cascade,
+  id text not null check (char_length(id) <= 64),
+  version integer not null default 1,
+  data jsonb not null check (pg_column_size(data) < 200000),
+  updated_by uuid not null default auth.uid() references auth.users (id) on delete cascade,
+  updated_at timestamptz not null default now(),
+  primary key (board_id, id)
+);
+alter table public.board_elements enable row level security;
+revoke all on public.board_elements from anon, authenticated;
+grant select, insert, update, delete on public.board_elements to authenticated;
+create or replace function public.board_elements_guard()
+returns trigger language plpgsql security definer set search_path = '' as $fn$
+begin
+  new.updated_by := auth.uid(); new.updated_at := now();
+  if tg_op = 'UPDATE' and new.version < old.version then return null; end if;
+  return new;
+end $fn$;
+revoke execute on function public.board_elements_guard() from public, anon, authenticated;
+create trigger board_elements_guard before insert or update on public.board_elements for each row execute function public.board_elements_guard();
+create policy "whiteboard: class reads" on public.board_elements for select to authenticated using (true);
+create policy "whiteboard: teacher or open board adds" on public.board_elements for insert to authenticated
+  with check ((select public.is_teacher()) or exists (select 1 from public.boards b where b.id = board_id and b.wb_open));
+create policy "whiteboard: teacher or open board changes" on public.board_elements for update to authenticated
+  using ((select public.is_teacher()) or exists (select 1 from public.boards b where b.id = board_id and b.wb_open))
+  with check ((select public.is_teacher()) or exists (select 1 from public.boards b where b.id = board_id and b.wb_open));
+create policy "whiteboard: teacher removes" on public.board_elements for delete to authenticated using ((select public.is_teacher()));
+alter publication supabase_realtime add table public.board_elements;

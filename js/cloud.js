@@ -44,6 +44,17 @@ window.createDEC15Cloud = function ({ cfg, lessonId, getState, applyState, onCha
     const { error } = await client.auth.signInWithOtp({ email: String(email || user?.email || '').trim(), options: { shouldCreateUser: !!create, emailRedirectTo: location.href.split('#')[0] } });
     return error ? friendly(error) : null;
   }
+  /* "Continue with Google" appears only when the Google provider is switched on in Supabase (Auth › Providers). */
+  let google = null;
+  async function googleEnabled() {
+    if (google !== null || !enabled) return !!google;
+    try { const r = await fetch(cfg.supabaseUrl.replace(/\/$/, '') + '/auth/v1/settings', { headers: { apikey: cfg.supabaseKey } }); google = !!(r.ok && (await r.json())?.external?.google); } catch (e) { google = false; }
+    return google;
+  }
+  async function signInWithGoogle() {
+    const { error } = await client.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: location.href.split('#')[0] + location.hash } });
+    return error ? friendly(error) : null;
+  }
   async function pull() {
     set('syncing');
     const { data, error } = await client.from('lesson_progress').select('state, updated_at').eq('lesson_id', lessonId).maybeSingle();
@@ -168,7 +179,7 @@ window.createDEC15Cloud = function ({ cfg, lessonId, getState, applyState, onCha
     return m;
   }
 
-  return { enabled, init, queue, sendEmailLink, push, signIn, signUp, signOut, signOutEverywhere, resetPassword, merge, updateProfile, setAvatar, removeAvatar, changePassword,
+  return { enabled, init, queue, sendEmailLink, googleEnabled, signInWithGoogle, push, signIn, signUp, signOut, signOutEverywhere, resetPassword, merge, updateProfile, setAvatar, removeAvatar, changePassword,
     get recovery() { return recovery; },
     get status() { return status; }, get user() { return user; }, get profile() { return profile; }, get client() { return client; } };
 };
