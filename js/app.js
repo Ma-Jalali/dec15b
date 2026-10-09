@@ -405,7 +405,7 @@ function answersPanel(a) {
   const open = state.teacher || (state.revealed[a.id] && !locked());
   return `<section class="answers${open ? ' open' : ''}" id="ans-${a.id}">
     <div class="answers-head"><div class="block-label">${icon('check')}${esc(a.answers.title || 'Suggested answers')}</div>
-    ${open ? (state.teacher ? '<span class="answers-hint">Shown in Teacher view</span>' : `<button class="btn-quiet" data-hide-answers="${a.id}">Hide</button>`) : (locked() ? `<span class="answers-locked">${icon('lock')}Your teacher will open the answers</span>` : `<button class="btn" data-reveal="${a.id}">Show suggested answers</button>`)}</div>
+    ${open ? (state.teacher ? '<span class="answers-hint">Shown in Teacher view</span>' : `<button class="btn-quiet" data-hide-answers="${a.id}">Hide</button>`) : (locked() ? `<span class="answers-lock-note">${icon('lock')}Your teacher will open the answers</span>` : `<button class="btn" data-reveal="${a.id}">Show suggested answers</button>`)}</div>
     ${open ? `<dl data-help>${a.answers.items.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl><p class="answers-hint">Other answers can be correct. Compare the reasons, then improve your own work.</p>` : '<p class="answers-hint">Try the activity first. Then compare your work with the suggested answers.</p>'}
   </section>`;
 }
