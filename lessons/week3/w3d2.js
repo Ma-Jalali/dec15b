@@ -56,7 +56,7 @@ window.DEC15_LESSON = {
               'b. Did you find this problem easy to solve?',
               'c. Do you think <b>all</b> problems can be solved with logic like this one?'
             ]},
-            { type: 'teacher', text: 'Explain the problem and ask the 3 questions. Give Ss about 2 minutes before checking; ask them to keep the solution to themselves if they know it. Answers: the fox will eat the chicken; the chicken will eat the grain. For question c, mention that some problems need more than logic — e.g. problems needing creative and innovative solutions, or ethical and moral dilemmas. <b>Pre-lesson note (whole of 4A):</b> listen for pronunciation problems (individual sounds, word stress, sentence stress, pauses, intonation). Give feedback and do a short pronunciation practice in the middle or at the end of the lesson.' }
+            { type: 'teacher', ref: 'w3d2-t1' }
           ],
           answers: { items: [
             ['Fox + chicken', 'The fox will eat the chicken, so the farmer cannot leave them alone together.'],
@@ -84,7 +84,7 @@ window.DEC15_LESSON = {
               'Problems like <b>climate change</b> or <b>conflict</b> are very complex. We cannot solve them quickly.',
               'But <b>food waste</b> is a problem that we can <b>all</b> take steps to address — at home, in shops and in our community.'
             ]},
-            { type: 'teacher', text: 'After a few minutes, collect about 5 problems on the board (or a Word doc on screen). Add from the list in the answers if needed. Make sure Ss change to a new partner for the sharing step. Ask the class questions a–b and check what they struggled with. Elicit or state the key point: complex issues like climate change cannot be solved easily, but food waste is something we can all act on.' }
+            { type: 'teacher', ref: 'w3d2-t2' }
           ],
           answers: { title: 'Problems from Weeks 1–2', items: [
             ['Food insecurity', 'Caused by conflicts, climate change and economics. Malnutrition; obesity; other diet-related health issues (heart disease, diabetes) and childhood development; unaffordable food prices; poor access to healthy food; inadequate resources.'],
@@ -131,7 +131,7 @@ window.DEC15_LESSON = {
               'd. Apart from reducing food waste, what are the <b>other benefits</b> of this type of community action?',
               'e. Can you predict any <b>problems</b> with activities like this?'
             ]},
-            { type: 'teacher', text: 'The community video is only on Canvas — play it once. Check vocab first: composting, hub, curbside, cupboard, local produce. Answer: mentioned in the video — a community composting hub, a curbside garden (the main focus), a community cupboard. Use questions d and e to start evaluating solutions, but don’t go too deep — evaluation is the focus later today. Whole-class feedback depending on time.' }
+            { type: 'teacher', ref: 'w3d2-t3' }
           ],
           answers: { items: [
             ['In the video', 'A community composting hub · a curbside garden (the main focus) · a community cupboard.'],
@@ -173,7 +173,7 @@ window.DEC15_LESSON = {
               'Which position surprised your group most? Why?',
               'Why do you think <b>donating</b> food is better than using it to make energy?'
             ]},
-            { type: 'teacher', text: 'Pre-teach “composting”. Option: print the six methods (Teachers’ Resources Page on Canvas), cut them into strips and let groups stick them on the wall in order. Compare with the food recovery image (in the answers). Note: the EPA hierarchy also has “Feed animals” (between feeding people and industrial uses) — it is not one of the six cards.' }
+            { type: 'teacher', ref: 'w3d2-t4' }
           ],
           answers: { title: 'The Food Recovery Hierarchy', items: [
             ['Compare', '<img src="assets/week3/food-hierarchy.svg" alt="Food Recovery Hierarchy, most to least preferred: source reduction; feed hungry people; feed animals; industrial uses; composting; landfill or incineration.">'],
@@ -223,7 +223,7 @@ window.DEC15_LESSON = {
               { q: '… or being thrown away in (b) ______.', answer: 'landfills', why: 'Paragraph F.' },
               { q: 'There are initiatives to reduce ______ from supermarkets by donating extra food to people who need it.', answer: 'food surpluses', why: 'Paragraph G.' }
             ]},
-            { type: 'teacher', text: 'On Canvas this is a Quizlet set (Part A) and an H5P closed cloze (Part B). Sentences are adapted from the reading.' }
+            { type: 'teacher', ref: 'w3d2-t5' }
           ]
         },
         {
@@ -284,7 +284,7 @@ window.DEC15_LESSON = {
               '<b>Solution: food redistribution (F–G)</b><br><i>Given:</i> Examples: Buon Fine Coop / Fondazione Banco Alimentare Onlus — give extra food to people who need it<br><i>Add:</i> Best method · Food redistribution (when?) · Benefits',
               '<b>Conclusion (H)</b><br><i>Add:</i> two main points'
             ]},
-            { type: 'teacher', text: 'TB: students copy the table onto paper — handwritten notes are good practice for the assessment, so you may ask them to take notes on paper first and then type the best points. Symbols answer: FL, FW, arrows, plus sign and abbreviated words. Note: the TB key for Consumption says “Household responsible for about 50% of household waste”; the text says households cause over 50% of <i>all</i> food waste (about 47 million tonnes a year) — the answers use the text.' }
+            { type: 'teacher', ref: 'w3d2-t6' }
           ],
           answers: { title: 'Sample notes', items: [
             ['Symbols used', 'FL, FW (abbreviations), arrows ↑ ↓, plus sign +, abbreviated words (envnmtal).'],
@@ -362,7 +362,7 @@ window.DEC15_LESSON = {
                 'Food packaging and transport should be improved to avoid overproduction.'
               ], answer: 'We should be careful not to produce more food than is needed.', why: 'Paragraph F: “According to the food waste hierarchy, the best approach is to prevent food waste. This means we should try to avoid making too much food in the first place.” Giving food away is only the second-best option.' }
             ]},
-            { type: 'teacher', text: 'TB: Ss may write the gap answers on paper. Gaps 1–8: other answers may be possible — use your judgement in feedback.' }
+            { type: 'teacher', ref: 'w3d2-t7' }
           ],
           answers: { title: 'Part A · Answers', items: [
             ['1', 'production and distribution'],
@@ -412,7 +412,7 @@ window.DEC15_LESSON = {
               { id: 'r7-2', label: 'b. Language that shows the best solution', placeholder: 'The best way …', rows: 2 },
               { id: 'r7-3', label: 'My two sentences about solutions from the reading', placeholder: 'Selling food close to its expiry date could … / “Buy one, get one later” campaigns have …', rows: 3 }
             ]},
-            { type: 'teacher', text: 'On Canvas this is an H5P slideshow (slides 1–5). TB key: verbs = can prevent, might increase, could keep; time = future; they connect a possible action and its result. Most likely = i (can); least likely = ii (might). iv = has helped: past action with an impact on the present (we can use the present perfect for solutions that began in the past and have an impact on the present). v–vi show the best solution: “The best approach is…”, “It is important to focus on…”.' }
+            { type: 'teacher', ref: 'w3d2-t8' }
           ],
           answers: { items: [
             ['a. Problem → solution', '“Food loss <b>can be reduced by</b> improving…” · “…discouraging consumers from buying more than they need <b>could help to</b> reduce food waste.”'],
@@ -446,7 +446,7 @@ window.DEC15_LESSON = {
               { id: 'r8-1', label: 'Solution 1 — why it will be successful', placeholder: 'The best solution is to … because … However, …', rows: 3 },
               { id: 'r8-2', label: 'Solution 2 — why it will be successful', placeholder: 'A good way to … is … This could …', rows: 3 }
             ]},
-            { type: 'teacher', text: 'TB caption for this figure reads “Figure 1: Measures to prevent and reduce FLW from harvest to distribution stages”; the panel used here is the household consumption panel, Figure 1(a), which matches the TB question (“solutions to household food waste”). Source: Nicastro, R., & Carillo, P. (2021). Food loss and waste prevention strategies from farm to fork. <i>Sustainability, 13</i>(10), Article 5443.' }
+            { type: 'teacher', ref: 'w3d2-t9' }
           ],
           answers: { title: 'Model explanation', items: [
             ['Solution 1', 'The best solution is to make a shopping list before going to the supermarket. It is easy and free, so most people can do it, and it could stop impulse buying. However, it might not work if shops keep offering “buy one, get one free” deals.'],
@@ -487,7 +487,7 @@ window.DEC15_LESSON = {
               'A <b>food bank</b> is a charity that collects donated or surplus food and gives it free to people who cannot afford enough food.',
               'Today’s question: is the usual way food banks work the <b>best</b> way?'
             ]},
-            { type: 'teacher', text: 'The package pictures are on the Canvas slides. Ask Ss to identify the food in the images, then ask the class to vote on which package they would most like to receive.' }
+            { type: 'teacher', ref: 'w3d2-t10' }
           ]
         },
         {
@@ -523,7 +523,7 @@ window.DEC15_LESSON = {
               { q: 'In choice-model food banks, inventory management is much more ______.', answer: 'dynamic', why: 'Dynamic = constantly changing.' },
               { q: 'To the best of our knowledge, this is going to be the largest in Canada, day one, and we only hope to ______ from there.', answer: 'ramp up', why: 'Ramp up = to increase.' }
             ]},
-            { type: 'teacher', text: 'On Canvas: Quizlet (Activity 1) and an H5P drag and drop (Activity 2). Note: the TB Quizlet gloss for “demand for assistance far outstrips supply” is “There are not enough workers available”; the app uses the more accurate meaning “more people need help than the food banks can give”.' }
+            { type: 'teacher', ref: 'w3d2-t11' }
           ]
         },
         {
@@ -578,7 +578,7 @@ window.DEC15_LESSON = {
               '<b>[7:32] Is this new model efficient?</b><br>“So, is the choice model the future of food banking? …”<br><b>[7:43] Conventional method</b> “You know, with the old system, you just...” · Will food banks be able to…',
               '<b>[7:56]</b> “I cycled by a food bank in my neighbourhood on Saturday. The lineup was maybe three blocks long”.'
             ]},
-            { type: 'teacher', text: 'The listening has quotes and times at the transitions to help Ss keep up. Encourage handwritten notes on paper first (assessment practice), then type the best points.' }
+            { type: 'teacher', ref: 'w3d2-t12' }
           ],
           answers: { title: 'Teacher’s Book notes', items: [
             ['[0:00] Conventional', 'Receive a box, but you didn’t choose what’s inside.'],
@@ -651,7 +651,7 @@ window.DEC15_LESSON = {
               { q: 'About conventional food banks, which statement most closely matches the speaker’s opinion?', options: ['They are not very useful.', 'They waste too much food.', 'They are good at helping many people, but there are some limitations.', 'They should all be changed to the new type of food bank.'], answer: 'They are good at helping many people, but there are some limitations.', why: 'The speaker says they are efficient (“give people a box and they go”) but describes problems with choice, waste and volunteers.' },
               { q: 'Overall, what is the speaker’s attitude toward the new type of food bank?', options: ['Cautiously optimistic', 'Very excited', 'No attitude was expressed', 'Somewhat pessimistic'], answer: 'Cautiously optimistic', why: 'The speaker knows the limitations of choice-model food banks but thinks more space can overcome them: “excited but nervous”.' }
             ]},
-            { type: 'teacher', text: 'TB questions 2–10 = quiz items 1–9 here. Doubts about the TB key: in Q1 the TB highlights “They help people to choose healthy food” in blue as well as the two real problems — this looks like a formatting error (it is not a problem, and conventional food banks do not offer choice), so the app marks only “may increase waste” and “volunteer work is boring” as problems. “They are inefficient” is not a problem: conventional food banks are efficient. Q2 and Q3 are fully blue in the TB; answers here (Helpless; no choice) come from the transcript. Q3 option “who to cook” corrected to “how to cook”.' }
+            { type: 'teacher', ref: 'w3d2-t13' }
           ]
         },
         {
@@ -718,7 +718,7 @@ window.DEC15_LESSON = {
               'Each speaker talks for <b>1 minute</b>: Person 1 — opening statement · Person 2 — main argument 1 · Person 3 — main argument 2 · Person 1 — concluding statement.',
               'Use ideas from the listening and other DEC15 texts. You have <b>8 minutes</b> to plan.'
             ]},
-            { type: 'teacher', text: 'Option 1 (5–10 min, the Canvas version) is the main task here. Option 2 (20 min, not on Canvas) is the debate: divide the class in two, with two debates at the same time. With 17–18 Ss: 4 groups of 3 debaters (two for, two against) and the rest as judges/timekeepers (at least two judges per debate, at least two debaters per group). Give debaters the planning sheet and judges the note-taking worksheet (Teachers’ Resources Page on Canvas). Judges review the listening and texts to identify good arguments they expect to hear, then set a 1-minute timer for each speaker. Monitor that judges take notes. If you choose Option 2, the stage takes about 105 minutes.' }
+            { type: 'teacher', ref: 'w3d2-t14' }
           ],
           answers: { title: 'Teacher’s Book features', items: [
             ['Food bank A · Conventional', 'Operation costs are low. Efficiency is high. Can give food to a lot of people. People have no choice. People feel more helpless. More food may be wasted.'],

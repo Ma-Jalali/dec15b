@@ -28,11 +28,21 @@ window.createDEC15Cloud = function ({ cfg, lessonId, getState, applyState, onCha
 
   async function loadProfile() {
     const { data } = await client.from('profiles').select('full_name, student_id, role, avatar_url').eq('id', user.id).maybeSingle();
-    if (data) { profile = data; return; }
+    if (data) { profile = data; await claimTeacher(); return; }
     // First sign-in: create the student's profile from the details given at sign-up.
     const fresh = { id: user.id, full_name: user.user_metadata?.full_name || '', student_id: user.user_metadata?.student_id || '' };
     await client.from('profiles').insert(fresh);
-    profile = { ...fresh, role: 'student' };
+    profile = { ...fresh, role: 'student' }; await claimTeacher();
+  }
+  /* Teachers are listed by email in the database. The role is given only after the person proves they own
+     the inbox (they opened an email link), so nobody can become a teacher by typing a teacher's address. */
+  async function claimTeacher() {
+    try { const { data } = await client.rpc('claim_teacher'); if (data === 'teacher') profile = { ...profile, role: 'teacher' }; profile = { ...profile, teacherClaim: data || '' }; }
+    catch (e) { /* not important */ }
+  }
+  async function sendEmailLink(email, create) {
+    const { error } = await client.auth.signInWithOtp({ email: String(email || user?.email || '').trim(), options: { shouldCreateUser: !!create, emailRedirectTo: location.href.split('#')[0] } });
+    return error ? friendly(error) : null;
   }
   async function pull() {
     set('syncing');
@@ -66,6 +76,7 @@ window.createDEC15Cloud = function ({ cfg, lessonId, getState, applyState, onCha
       if (evt === 'PASSWORD_RECOVERY') { recovery = true; }
       const was = user?.id; user = session?.user || null;
       if (user && user.id !== was) { await loadProfile(); await pull(); }
+      else if (user && (evt === 'SIGNED_IN' || evt === 'PASSWORD_RECOVERY') && profile && profile.role !== 'teacher') { await claimTeacher(); set(status); }
       if (!user) { profile = null; set('signed-out'); }
       else if (evt === 'PASSWORD_RECOVERY' || evt === 'USER_UPDATED') set(status);
     });
@@ -157,7 +168,7 @@ window.createDEC15Cloud = function ({ cfg, lessonId, getState, applyState, onCha
     return m;
   }
 
-  return { enabled, init, queue, push, signIn, signUp, signOut, signOutEverywhere, resetPassword, merge, updateProfile, setAvatar, removeAvatar, changePassword,
+  return { enabled, init, queue, sendEmailLink, push, signIn, signUp, signOut, signOutEverywhere, resetPassword, merge, updateProfile, setAvatar, removeAvatar, changePassword,
     get recovery() { return recovery; },
     get status() { return status; }, get user() { return user; }, get profile() { return profile; }, get client() { return client; } };
 };

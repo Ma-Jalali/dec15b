@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.29)
+DEC15 — COURSE APP (v2.30)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -348,3 +348,30 @@ FRESH LOOK (v2.29)
   columns. Only http/https addresses are accepted. The word count now counts a note before it is
   edited.
 - New file: css/fresh.css (loaded last).
+
+CLASSROOM (v2.30)
+Teacher account: the teacher's role is given only to the e-mail addresses in the database table
+teacher_emails (now: mahyarjalaliii@gmail.com). Sign in with that address, then use "Email me a
+sign-in link" (or Settings › Account › "Turn on your teacher tools") once, so the app knows you own
+the inbox. After that the teacher tools appear on every device you sign in on.
+- Teacher only: Teacher view (teacher notes), Projector mode, the "Answers open / closed" switch in
+  the top bar (students cannot check answers or see suggested answers while it is closed), the class
+  Progress table, "Bring the class to this page", lowering raised hands, the class board editor,
+  pinning discussion posts and clearing a Write-together page. Teacher notes now live in the
+  database table teacher_notes (only teachers can read them); lesson files keep only a ref.
+- Your class (top bar button): who is online now and on which page, raise a hand, the class chat,
+  private messages (student ↔ teacher, student ↔ student), unread badges.
+- Under each activity: "N of M in your class finished this".
+- Class discussion (was "Class wall"): Comment / Question / Idea, filters (Questions, Ideas,
+  Writing, Teacher), Newest / Most liked, "… is writing", who posted / online now / finished,
+  teacher badge, teacher pins, questions marked answered. No pictures or video, by design.
+- Class board (side panel): the teacher writes (with the "/" blocks) and draws with pens; students see
+  it live, read-only, and can copy the text or look back at earlier boards.
+- Write together: on pair and group writing activities (and on any activity for the teacher) — one
+  shared page per group (Whole class, Group 1–8), everyone types at once with coloured cursors, saved
+  automatically. Replaces the shared Google Doc. The teacher can open any group and clear a page.
+- My planner: Share a note or a folder with the whole class or with chosen classmates. They can read
+  it ("Shared with me" in the notes tree) and make their own copy; only the owner can change it.
+- Security: database rules (Row Level Security) protect all of this; TRUNCATE rights were removed
+  from signed-in users. New files: js/classroom.js, js/board.js, js/collab.js, css/classroom.css,
+  supabase/migrations/20261009000000_dec15_classroom.sql. The editor bundle now includes Yjs.

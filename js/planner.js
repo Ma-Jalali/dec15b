@@ -1,5 +1,6 @@
 /* DEC15 · My planner — each student's private notes, to-dos and calendar.
-   Separate from the lesson notebook (highlights, answers): nothing here is shared with teachers or classmates.
+   Separate from the lesson notebook (highlights, answers): private, unless the student shares a note or folder
+   (read-only for the people it is shared with, who can make their own copy; Supabase table planner_shares).
    - Saved on the device first (localStorage), copied online when signed in (Supabase table planner_items,
      owner-only row-level security). Each item merges on its own: the newer copy wins.
    - To-dos live in ONE place (a "task" item). A to-do line inside a note only keeps the task's id, so ticking it
@@ -89,7 +90,7 @@ window.DEC15Planner = (() => {
   }
   async function pull() {
     const c = client(); if (!c || !uid || !navigator.onLine) return false;
-    const { data, error } = await c.from('planner_items').select('id, kind, data, deleted, updated_at').limit(5000);
+    const { data, error } = await c.from('planner_items').select('id, kind, data, deleted, updated_at').eq('user_id', uid).limit(5000);
     if (error) { setStatus('error'); return false; }
     for (const r of data || []) {
       const local = items[r.id], remoteAt = new Date(r.updated_at).getTime();
@@ -104,8 +105,9 @@ window.DEC15Planner = (() => {
   async function setUser(next) {
     if (loaded && (next || null) === uid) return;
     if (!loaded) { loaded = true; uid = next || null; const saved = loadLocal(uid); items = saved.items; dirty = new Set(saved.dirty || []);
-      if (uid) { setStatus('saving'); await pull(); } else setStatus('local'); seedIfEmpty(); emit('*'); return; }
+      if (uid) { setStatus('saving'); await pull(); loadShares(); watchShares(); } else setStatus('local'); seedIfEmpty(); emit('*'); return; }
     if (uid && !next) { if (dirty.size) await push(); try { if (!dirty.size) localStorage.removeItem(KEY(uid)); } catch (e) { /* ignore */ } }
+    unwatchShares(); shared.mine = []; shared.withMe = []; shared.people = null; ui.sharedOpen = null;
     const device = !uid && next ? loadLocal(null) : null;
     uid = next || null;
     const saved = loadLocal(uid); items = saved.items; dirty = new Set(saved.dirty || []);
@@ -114,7 +116,7 @@ window.DEC15Planner = (() => {
       try { localStorage.removeItem(KEY(null)); } catch (e) { /* ignore */ }
     }
     persistNow();
-    if (uid) { setStatus('saving'); await pull(); } else setStatus('local');
+    if (uid) { setStatus('saving'); await pull(); loadShares(); watchShares(); } else setStatus('local');
     seedIfEmpty(); emit('*');
   }
   /* A first visit gets one calendar and a short "Start here" note, so nothing is empty. */
@@ -128,14 +130,14 @@ window.DEC15Planner = (() => {
     const tk = (id, t) => ({ type: 'taskItem', attrs: { checked: false, taskId: id }, content: [p(t)] });
     put(note, 'note', { title: 'Start here', folderId: null, text: '', content: { type: 'doc', content: [
       { type: 'heading', attrs: { level: 2, textAlign: null }, content: [{ type: 'text', text: 'Your private planner' }] },
-      { type: 'paragraph', content: [{ type: 'text', text: 'Only you can see this page. Use the toolbar like in Word: ' }, { type: 'text', marks: [{ type: 'bold' }], text: 'bold' }, { type: 'text', text: ', ' }, { type: 'text', marks: [{ type: 'highlight', attrs: { color: '#fff59d' } }], text: 'highlight' }, { type: 'text', text: ', headings, lists and to-dos.' }] },
+      { type: 'paragraph', content: [{ type: 'text', text: 'Only you can see this page, unless you share it. Use the toolbar like in Word: ' }, { type: 'text', marks: [{ type: 'bold' }], text: 'bold' }, { type: 'text', text: ', ' }, { type: 'text', marks: [{ type: 'highlight', attrs: { color: '#fff59d' } }], text: 'highlight' }, { type: 'text', text: ', headings, lists and to-dos.' }] },
       { type: 'taskList', content: [tk(t1, 'Try ticking this to-do — it ticks on the calendar too'), tk(t2, 'Give this to-do a date with the small date button')] },
     ] } }, { quiet: true });
     ui.openNoteId = note;
   }
 
   /* ───────── the editor (TipTap) ───────── */
-  const ui = { tab: 'notes', openNoteId: null, month: null, calView: 'month', week: null, wkScroll: null, openFolders: {}, renaming: null, renameDraft: null, fresh: null, search: '', showTree: false };
+  const ui = { tab: 'notes', openNoteId: null, month: null, calView: 'month', week: null, wkScroll: null, openFolders: {}, renaming: null, renameDraft: null, fresh: null, search: '', showTree: false, sharedOpen: null };
   let saveTimer = 0, reconcileTimer = 0;
   function makeExtensions() {
     const T = window.Tiptap;
@@ -379,7 +381,7 @@ window.DEC15Planner = (() => {
     ctx = context; root = el; mounted = true; root.className = "";
     root.innerHTML = `<div class="pl" data-tab="${ui.tab}">
       <header class="pl-head">
-        <div class="pl-title"><h1>My planner</h1><span class="pl-private">${ctx.icon('lock')}Only you can see this</span></div>
+        <div class="pl-title"><h1>My planner</h1><span class="pl-private">${ctx.icon('lock')}Private unless you share</span></div>
         <div class="pl-tabs" role="tablist" aria-label="Planner">
           ${['notes', 'calendar', 'todos'].map(t => `<button type="button" role="tab" id="pl-tab-${t}" aria-controls="pl-panel" data-tab="${t}" aria-selected="${ui.tab === t}">${{ notes: 'Notes', calendar: 'Calendar', todos: 'To-dos' }[t]}</button>`).join('')}
         </div>
@@ -390,13 +392,13 @@ window.DEC15Planner = (() => {
     root.addEventListener('mousedown', onResizeStart);
     root.addEventListener('dragstart', onDragStart); root.addEventListener('dragover', onDragOver); root.addEventListener('drop', onDrop); root.addEventListener('dragend', () => { dragging = null; root.querySelectorAll('.pl-over,.pl-dragging').forEach(x => x.classList.remove('pl-over', 'pl-dragging')); });
     offStore = subscribe(onStore);
-    paint();
+    paint(); if (loaded && uid) { loadShares(); watchShares(); }
     setUser(ctx.getCloud?.()?.user?.id || null).then(() => { const was = ui.openNoteId; if (!ui.openNoteId || !get(ui.openNoteId)) ui.openNoteId = firstNote();
       /* keep the open editor (and the caret) when the same note is still open */
       if (ui.tab === 'notes' && editor && editor.__noteId === ui.openNoteId && was === ui.openNoteId) { paintTree(); paintRail(); paintNoteMeta(); } else paint(); });
   }
   let offStore = null;
-  function unmount() { if (!mounted) return; destroyEditor(); persistNow(); push(); closePop(); offStore?.(); mounted = false; root = null; }
+  function unmount() { if (!mounted) return; destroyEditor(); viewer?.destroy(); viewer = null; unwatchShares(); persistNow(); push(); closePop(); offStore?.(); mounted = false; root = null; }
   function onStore(id) {
     if (!mounted) return;
     const it = id !== '*' && items[id];
@@ -421,6 +423,10 @@ window.DEC15Planner = (() => {
   function paintNotes() {
     const p = root.querySelector('#pl-panel');
     if (!ui.openNoteId || !get(ui.openNoteId)) ui.openNoteId = firstNote();
+    viewer?.destroy(); viewer = null;
+    if (ui.sharedOpen) { destroyEditor();
+      p.innerHTML = `<div class="pl-notes${ui.showTree ? ' tree-open' : ''}"><aside class="pl-tree" aria-label="Your notes"></aside><section class="pl-main pl-ro-main">${sharedMainHTML()}</section><aside class="pl-rail" aria-label="Coming up"></aside></div>`;
+      paintTree(); paintRail(); mountViewer(); return; }
     p.innerHTML = `<div class="pl-notes${ui.showTree ? ' tree-open' : ''}">
       <aside class="pl-tree" aria-label="Your notes"></aside>
       <section class="pl-main">${ui.openNoteId ? `<div class="pl-cover" hidden></div><div class="pl-note-head"><button type="button" class="pl-tree-toggle" data-tree-toggle aria-label="Show my notes">☰ Notes</button>
@@ -446,7 +452,7 @@ window.DEC15Planner = (() => {
     if (cr) { const trail = []; for (let x = fid, k = 0; x && k < 64; x = parentOf(x), k++) trail.unshift(get(x));
       cr.innerHTML = `<span class="pl-trail">${GI.folder}<span>My notes</span>${trail.map(f => `${GI.sep}<span>${esc(f.data.name)}</span>`).join('')}</span>
         <span class="pl-pageacts">${n.data.icon ? '' : `<button type="button" data-note-icon>${GI.smile}Add icon</button>`}<button type="button" data-note-cover>${GI.image}${n.data.cover ? 'Change cover' : 'Add cover'}</button>
-        <button type="button" data-note-pin aria-pressed="${!!n.data.pinned}">${GI.pin}${n.data.pinned ? 'Pinned' : 'Pin'}</button><button type="button" data-note-print title="Print, or save as PDF">${GI.print}Print</button></span>`; }
+        <button type="button" data-note-pin aria-pressed="${!!n.data.pinned}">${GI.pin}${n.data.pinned ? 'Pinned' : 'Pin'}</button><button type="button" data-note-print title="Print, or save as PDF">${GI.print}Print</button><button type="button" class="pl-sharebtn" data-note-share aria-pressed="${isShared(n.id)}">${SHARE_ICON}${isShared(n.id) ? 'Shared' : 'Share'}</button></span>`; }
     const ib = root.querySelector('.pl-nicon'); if (ib) { ib.hidden = !n.data.icon; ib.textContent = n.data.icon || ''; ib.setAttribute('aria-label', 'Change the page icon'); ib.title = 'Change icon'; }
     const cv = root.querySelector('.pl-cover'); if (cv) { cv.hidden = !n.data.cover; cv.dataset.cover = n.data.cover || ''; cv.innerHTML = n.data.cover ? `<button type="button" data-note-cover>${GI.image}Change cover</button>` : ''; }
     root.querySelector('.pl-main')?.classList.toggle('has-cover', !!n.data.cover);
@@ -479,13 +485,13 @@ window.DEC15Planner = (() => {
     const kids = pid => folders.filter(f => parentOf(f.id) === pid).sort((a, b) => byName(a.data.name, b.data.name));
     const notesIn = pid => notes.filter(n => noteFolder(n) === pid).sort((a, b) => byName(a.data.title || 'Untitled', b.data.title || 'Untitled'));
     const count = fid => notesIn(fid).length + kids(fid).reduce((s, f) => s + count(f.id), 0);
-    const noteRow = (n, d) => `<button type="button" class="pl-nrow${n.id === ui.openNoteId ? ' on' : ''}${n.id === ui.fresh ? ' fresh' : ''}${n.data.icon ? ' emo' : ''}" style="--d:${d}" data-open-note="${n.id}" draggable="true" data-drag-note="${n.id}"${n.id === ui.openNoteId ? ' aria-current="true"' : ''}>${n.data.icon ? `<i class="pl-emo" aria-hidden="true">${n.data.icon}</i>` : ICON.note}<span>${esc(n.data.title || 'Untitled')}</span>${countOpen(n.id) ? `<small title="Open to-dos">${countOpen(n.id)}</small>` : ''}</button>`;
+    const noteRow = (n, d) => `<button type="button" class="pl-nrow${n.id === ui.openNoteId && !ui.sharedOpen ? ' on' : ''}${n.id === ui.fresh ? ' fresh' : ''}${n.data.icon ? ' emo' : ''}" style="--d:${d}" data-open-note="${n.id}" draggable="true" data-drag-note="${n.id}"${n.id === ui.openNoteId ? ' aria-current="true"' : ''}>${n.data.icon ? `<i class="pl-emo" aria-hidden="true">${n.data.icon}</i>` : ICON.note}<span>${esc(n.data.title || 'Untitled')}</span>${isShared(n.id) ? `<i class="pl-shared-dot" title="Shared">${SHARE_ICON}</i>` : ''}${countOpen(n.id) ? `<small title="Open to-dos">${countOpen(n.id)}</small>` : ''}</button>`;
     const folderRow = (f, d) => {
       const c = count(f.id); if (q && !c) return '';
       const open = !!q || ui.openFolders[f.id] !== false, name = esc(f.data.name);
       const head = ui.renaming === f.id
         ? `<div class="pl-fbtn editing">${ICON.car}${open ? ICON.folderOpen : ICON.folder}<input class="pl-rename" id="pl-rename" maxlength="60" value="${esc(ui.renameDraft ?? f.data.name)}" aria-label="Folder name"></div>`
-        : `<button type="button" class="pl-fbtn" data-toggle-folder="${f.id}" aria-expanded="${open}" draggable="true" data-drag-folder="${f.id}">${ICON.car}${open ? ICON.folderOpen : ICON.folder}<span class="pl-fname">${name}</span>${c ? `<small>${c}</small>` : ''}</button><button type="button" class="pl-more" data-folder-menu="${f.id}" aria-label="Folder options for ${name}">⋯</button>`;
+        : `<button type="button" class="pl-fbtn" data-toggle-folder="${f.id}" aria-expanded="${open}" draggable="true" data-drag-folder="${f.id}">${ICON.car}${open ? ICON.folderOpen : ICON.folder}<span class="pl-fname">${name}</span>${isShared(f.id) ? `<i class="pl-shared-dot" title="Shared">${SHARE_ICON}</i>` : ''}${c ? `<small>${c}</small>` : ''}</button><button type="button" class="pl-more" data-folder-menu="${f.id}" aria-label="Folder options for ${name}">⋯</button>`;
       return `<div class="pl-folder${open ? ' open' : ''}" data-drop-folder="${f.id}" style="--d:${d}"><div class="pl-frow" style="--d:${d}">${head}</div>
         ${open ? `<div class="pl-fkids">${branch(f.id, d + 1) || `<p class="pl-hint" style="--d:${d + 1}">Empty. Drag notes or folders here.</p>`}</div>` : ''}</div>`;
     };
@@ -496,6 +502,7 @@ window.DEC15Planner = (() => {
         <button type="button" class="pl-ibtn" data-collapse-all title="Collapse all folders" aria-label="Collapse all folders">${ICON.collapse}</button></span></div>
       <input type="search" id="pl-search" placeholder="Search notes" aria-label="Search notes" value="${esc(ui.search)}"></div>
       ${!q && notes.some(n => n.data.pinned) ? `<div class="pl-pinned"><p class="pl-tree-sub">${GI.pin}Pinned</p>${notes.filter(n => n.data.pinned).sort((a, b) => byName(a.data.title || 'Untitled', b.data.title || 'Untitled')).map(n => noteRow(n, 0)).join('')}</div>` : ''}
+      ${!q ? sharedTreeHTML() : ''}
       <div class="pl-tree-list" data-drop-folder="">${branch(null, 0)}
         ${q && !notes.length ? `<p class="pl-hint">No note matches “${esc(ui.search)}”.</p>` : ''}</div>
       <p class="pl-tree-foot">${list('note').length} note${list('note').length === 1 ? '' : 's'} · ${folders.length} folder${folders.length === 1 ? '' : 's'}</p>`;
@@ -533,6 +540,135 @@ window.DEC15Planner = (() => {
     ui.tab = 'notes'; ui.openNoteId = id; ui.showTree = false; paint();
     if (focusTask && editor) setTimeout(() => { const el = root.querySelector(`.pl-ti[data-task-id="${CSS.escape(focusTask)}"]`);
       if (el) { el.scrollIntoView({ block: 'center' }); el.classList.add('pl-flash'); setTimeout(() => el.classList.remove('pl-flash'), 1600); } }, 80);
+  }
+
+
+  /* ───────── sharing: a note or a folder, with the whole class or chosen classmates (they can read it and make a copy) ───────── */
+  const shared = { mine: [], withMe: [], people: null, cache: {}, ch: null, timer: 0 };
+  const SHARE_ICON = G('<circle cx="11.6" cy="3.8" r="1.9"/><circle cx="4.4" cy="8" r="1.9"/><circle cx="11.6" cy="12.2" r="1.9"/><path d="m6.1 7 3.8-2.2M6.1 9l3.8 2.2"/>');
+  async function loadShares() {
+    const c = client(); if (!c || !uid || !navigator.onLine) { shared.mine = []; shared.withMe = []; return; }
+    const { data, error } = await c.from('planner_shares').select('owner_id, owner_name, item_id, root_id, root_title, recipient_id, created_at').limit(5000);
+    if (error) { console.warn('planner shares', error.message); return; }
+    shared.mine = (data || []).filter(r => r.owner_id === uid); shared.withMe = (data || []).filter(r => r.owner_id !== uid);
+    for (const k of Object.keys(shared.cache)) delete shared.cache[k];
+    if (ui.sharedOpen && !sharedGroups().some(g => g.owner + '|' + g.root === ui.sharedOpen.key)) { ui.sharedOpen = null; if (mounted && ui.tab === 'notes') { paint(); return; } }
+    if (mounted && ui.tab === 'notes') { paintTree(); paintNoteMeta(); }
+  }
+  function watchShares() {
+    const c = client(); if (!c || !uid || shared.ch) return;
+    shared.ch = c.channel('dec15-shares-' + uid).on('postgres_changes', { event: '*', schema: 'public', table: 'planner_shares' }, () => { clearTimeout(shared.timer); shared.timer = setTimeout(loadShares, 400); }).subscribe();
+  }
+  function unwatchShares() { if (shared.ch) { try { client()?.removeChannel(shared.ch); } catch (e) { /* ignore */ } shared.ch = null; } }
+  /* a note, or a folder with everything inside it */
+  function shareSet(id) {
+    const it = get(id); if (!it) return [];
+    if (it.kind === 'note') return [id];
+    const out = [id]; for (const f of list('folder')) if (f.id !== id && isInside(f.id, id)) out.push(f.id);
+    for (const n of list('note')) { const fid = noteFolder(n); if (fid && isInside(fid, id)) out.push(n.id); }
+    return out;
+  }
+  const sharedTo = id => { const rows = shared.mine.filter(r => r.root_id === id); return { cls: rows.some(r => r.recipient_id == null), who: new Set(rows.filter(r => r.recipient_id).map(r => r.recipient_id)) }; };
+  const isShared = id => shared.mine.some(r => r.root_id === id);
+  async function sharePopover(id, anchor) {
+    const it = get(id), c = client(); if (!it) return;
+    if (!c || !uid) { popover(anchor, `<div class="pl-menu pl-share"><b>${SHARE_ICON}Share</b><p>Sign in to share notes with your class.</p></div>`, () => {}); return; }
+    const name = it.kind === 'note' ? (it.data.title || 'Untitled') : it.data.name, cur = sharedTo(id);
+    popover(anchor, `<form class="pl-menu pl-share" aria-label="Share"><b>${SHARE_ICON}Share “${esc(name)}”</b>
+      <p class="pl-hint">${it.kind === 'folder' ? 'Everything in this folder is shared. Press Share again after you add new notes to it.' : 'Classmates can read it and make their own copy. Only you can change it.'}</p>
+      <label class="pl-share-all"><input type="checkbox" name="cls"${cur.cls ? ' checked' : ''}><span><b>The whole class</b><small>Everyone signed in to DEC15</small></span></label>
+      <p class="pl-tree-sub">Or choose classmates</p><input type="search" class="pl-share-q" placeholder="Find a classmate" aria-label="Find a classmate">
+      <div class="pl-share-people"><p class="pl-hint">Loading the class…</p></div>
+      <div class="pl-pop-actions"><span class="pl-share-state">${cur.cls ? 'Shared with the class' : cur.who.size ? `Shared with ${cur.who.size}` : 'Not shared yet'}</span><button class="pl-btn" type="submit">${isShared(id) ? 'Update' : 'Share'}</button></div></form>`, async p => {
+      const f = p.querySelector('form'), box = p.querySelector('.pl-share-people'), q = p.querySelector('.pl-share-q'), state = p.querySelector('.pl-share-state');
+      const paintPeople = () => { if (!shared.people) return; const s = q.value.trim().toLowerCase(), ppl = shared.people.filter(x => !s || (x.full_name || '').toLowerCase().includes(s));
+        box.innerHTML = ppl.map(x => `<label class="pl-share-row"><input type="checkbox" name="who" value="${esc(x.id)}"${cur.who.has(x.id) ? ' checked' : ''}><span class="pl-share-av" aria-hidden="true">${esc((x.full_name || 'S').trim().slice(0, 1).toUpperCase())}</span><span>${esc(x.full_name || 'Student')}${x.role === 'teacher' ? ' <small>Teacher</small>' : ''}</span></label>`).join('')
+          || `<p class="pl-hint">${shared.people.length ? 'Nobody with that name.' : 'Nobody else has signed in yet.'}</p>`; };
+      box.addEventListener('change', e => { const x = e.target.closest('[name=who]'); if (x) x.checked ? cur.who.add(x.value) : cur.who.delete(x.value); });
+      q.addEventListener('input', paintPeople);
+      f.addEventListener('submit', async e => { e.preventDefault(); const btn = f.querySelector('[type=submit]'); btn.disabled = true; state.textContent = 'Sharing…';
+        const cls = f.cls.checked, ok = await applyShare(id, cls, [...cur.who]); btn.disabled = false;
+        if (ok) { closePop(); ctx.toast(cls ? 'Shared with the whole class.' : cur.who.size ? `Shared with ${cur.who.size} classmate${cur.who.size > 1 ? 's' : ''}.` : 'Not shared any more.'); }
+        else state.textContent = 'Could not share. Check your connection.'; });
+      if (!shared.people) { const { data } = await c.rpc('class_people'); shared.people = (data || []).filter(x => x.id !== uid); }
+      paintPeople();
+    });
+  }
+  async function applyShare(rootId, cls, who) {
+    const c = client(), it = get(rootId); if (!c || !uid || !it) return false;
+    saveNote(); clearTimeout(pushTimer); await push(); if (dirty.size) await push(); if (dirty.size) return false;
+    const ids = shareSet(rootId), title = (it.kind === 'note' ? it.data.title || 'Untitled' : it.data.name || 'Folder').slice(0, 200);
+    const del = await c.from('planner_shares').delete().eq('owner_id', uid).eq('root_id', rootId); if (del.error) return false;
+    const rows = [...(cls ? [null] : []), ...who].flatMap(r => ids.map(item_id => ({ item_id, root_id: rootId, root_title: title, recipient_id: r })));
+    if (rows.length) { const { error } = await c.from('planner_shares').insert(rows); if (error) { console.warn('share', error.message); await loadShares(); return false; } }
+    await loadShares(); return true;
+  }
+  /* what classmates shared with me, one entry per note or folder */
+  function sharedGroups() {
+    const g = new Map();
+    for (const r of shared.withMe) { const k = r.owner_id + '|' + r.root_id; if (!g.has(k)) g.set(k, { owner: r.owner_id, ownerName: r.owner_name, root: r.root_id, title: r.root_title, ids: new Set(), at: r.created_at }); g.get(k).ids.add(r.item_id); }
+    return [...g.values()].sort((a, b) => (b.at || '').localeCompare(a.at || ''));
+  }
+  async function fetchShared(group) {
+    const c = client(); if (!c) return null;
+    const { data, error } = await c.from('planner_items').select('id, kind, data, deleted, updated_at').eq('user_id', group.owner).in('id', [...group.ids]).limit(2000);
+    if (error) return null;
+    const map = {}; (data || []).filter(r => !r.deleted).forEach(r => { map[r.id] = r; }); shared.cache[group.owner + '|' + group.root] = map; return map;
+  }
+  const sharedNotes = map => Object.values(map).filter(r => r.kind === 'note').sort((a, b) => (a.data.title || 'Untitled').localeCompare(b.data.title || 'Untitled', 'en', { numeric: true }));
+  function sharedTreeHTML() {
+    const groups = sharedGroups(); if (!groups.length) return '';
+    return `<div class="pl-shared"><p class="pl-tree-sub">${SHARE_ICON}Shared with me</p>${groups.map(g => {
+      const key = g.owner + '|' + g.root, s = ui.sharedOpen, open = s?.key === key, map = shared.cache[key], folder = map ? map[g.root]?.kind === 'folder' : g.ids.size > 1;
+      const kids = open && map && folder ? sharedNotes(map).map(r => `<button type="button" class="pl-nrow pl-srow${s.note === r.id ? ' on' : ''}" style="--d:1" data-shared-open="${esc(key)}" data-shared-note="${esc(r.id)}">${r.data.icon ? `<i class="pl-emo" aria-hidden="true">${esc(r.data.icon)}</i>` : ICON.note}<span>${esc(r.data.title || 'Untitled')}</span></button>`).join('') || `<p class="pl-hint" style="--d:1">Empty folder.</p>` : '';
+      return `<button type="button" class="pl-nrow pl-srow${open && !folder ? ' on' : ''}" style="--d:0" data-shared-open="${esc(key)}"${open && folder ? ' aria-expanded="true"' : folder ? ' aria-expanded="false"' : ''}>${folder ? (open ? ICON.folderOpen : ICON.folder) : ICON.note}<span>${esc(g.title || 'Untitled')}</span><small class="pl-sby" title="Shared by ${esc(g.ownerName || 'a classmate')}">${esc((g.ownerName || 'Classmate').split(' ')[0])}</small></button>${kids}`; }).join('')}</div>`;
+  }
+  async function openShared(key, noteId) {
+    const g = sharedGroups().find(x => x.owner + '|' + x.root === key); if (!g) return;
+    saveNote(); ui.showTree = false; ui.tab = 'notes';
+    const map = shared.cache[key] || await fetchShared(g); if (!map) { ctx.toast('Could not open it. Check your connection.'); return; }
+    ui.sharedOpen = { key, note: noteId || (map[g.root]?.kind === 'note' ? g.root : sharedNotes(map)[0]?.id || null) };
+    paint();
+  }
+  let viewer = null;
+  function sharedMainHTML() {
+    const s = ui.sharedOpen, g = sharedGroups().find(x => x.owner + '|' + x.root === s.key), map = shared.cache[s.key] || {}, n = s.note && map[s.note], top = g && map[g.root];
+    return `<div class="pl-note-head pl-ro-head"><button type="button" class="pl-tree-toggle" data-tree-toggle aria-label="Show my notes">☰ Notes</button>
+      <div class="pl-crumbs"><span class="pl-trail">${SHARE_ICON}<span>Shared by ${esc(g?.ownerName || 'a classmate')}</span>${top?.kind === 'folder' ? `${GI.sep}<span>${esc(top.data.name || 'Folder')}</span>` : ''}</span>
+        <span class="pl-pageacts"><button type="button" data-shared-copy>${ICON.newNote}${top?.kind === 'folder' ? 'Copy the folder' : 'Make a copy'}</button><button type="button" data-shared-close>Close</button></span></div>
+      <div class="pl-titlerow">${n?.data.icon ? `<span class="pl-nicon">${esc(n.data.icon)}</span>` : ''}<h2 class="pl-ro-title">${esc(n ? n.data.title || 'Untitled' : 'This folder is empty')}</h2></div>
+      <p class="pl-ro-note">${ctx.icon('lock')}Read only. Make a copy to change it in your own notes.</p></div>
+      <div class="pl-page pl-ro"><div id="pl-viewer"></div></div>`;
+  }
+  function mountViewer() {
+    viewer?.destroy(); viewer = null;
+    const s = ui.sharedOpen, n = s && (shared.cache[s.key] || {})[s.note], el = root?.querySelector('#pl-viewer'); if (!n || !el) return;
+    const T = window.Tiptap;
+    viewer = new T.Editor({ element: el, editable: false, content: n.data.content && n.data.content.type ? n.data.content : '',
+      extensions: [T.StarterKit.configure({ heading: { levels: [1, 2, 3] } }), ...window.DEC15Blocks.extensions(T), T.Underline, T.TextStyle, T.Color, T.Highlight.configure({ multicolor: true }), T.TextAlign.configure({ types: ['heading', 'paragraph'] }), T.TaskList,
+        T.TaskItem.extend({ addAttributes() { return { ...this.parent?.(), taskId: { default: null, renderHTML: () => ({}) } }; } }).configure({ nested: true })],
+      editorProps: { attributes: { class: 'pl-doc', 'aria-label': 'Shared note', 'aria-readonly': 'true' } } });
+  }
+  /* copy a shared note (or the whole folder) into my own notes; its to-do lines become my own to-dos */
+  function copyShared() {
+    const s = ui.sharedOpen, g = s && sharedGroups().find(x => x.owner + '|' + x.root === s.key), map = s && shared.cache[s.key]; if (!g || !map) return;
+    const top = map[g.root], by = ` (from ${(g.ownerName || 'a classmate').split(' ')[0]})`, ids = {}; let first = null;
+    const fresh = (node, noteId, tasks) => { if (Array.isArray(node)) return node.map(x => fresh(x, noteId, tasks)); if (!node || typeof node !== 'object') return node;
+      const out = { ...node }; if (out.content) out.content = fresh(out.content, noteId, tasks);
+      if (out.type === 'taskItem') { const tid = uuid(), title = (out.content?.[0]?.content || []).map(x => x.text || '').join('').trim().slice(0, 300);
+        out.attrs = { ...(out.attrs || {}), taskId: tid }; tasks.push([tid, { title, noteId, date: null, time: null, calendarId: null, done: !!out.attrs.checked, pos: tasks.length }]); }
+      return out; };
+    if (top?.kind === 'folder') {
+      Object.values(map).filter(r => r.kind === 'folder').forEach(r => { ids[r.id] = uuid(); });
+      Object.values(map).filter(r => r.kind === 'folder').forEach(r => put(ids[r.id], 'folder', { name: r.id === g.root ? (r.data.name || 'Folder').slice(0, 60 - by.length) + by : r.data.name || 'Folder', parentId: r.id === g.root ? null : ids[r.data.parentId] || ids[g.root] }, { quiet: true }));
+      ui.openFolders[ids[g.root]] = true;
+    }
+    for (const r of sharedNotes(map)) { const id = uuid(), tasks = []; if (r.id === s.note || !first) first = id;
+      const content = r.data.content && r.data.content.type ? fresh(r.data.content, id, tasks) : { type: 'doc', content: [{ type: 'paragraph' }] };
+      put(id, 'note', { title: (r.data.title || 'Untitled') + (top?.kind === 'folder' ? '' : by), folderId: top?.kind === 'folder' ? ids[r.data.folderId] || ids[g.root] : null, content, text: r.data.text || '', icon: r.data.icon || null, cover: r.data.cover || null }, { quiet: true });
+      tasks.forEach(([tid, data]) => put(tid, 'task', data, { quiet: true })); }
+    ui.sharedOpen = null; if (first) { ui.openNoteId = first; ui.fresh = first; } viewer?.destroy(); viewer = null; paint();
+    ctx.toast(top?.kind === 'folder' ? 'The folder is copied into your notes.' : 'Copied into your notes. Your copy is yours to change.');
   }
 
   /* ───────── calendar view ───────── */
@@ -680,16 +816,21 @@ window.DEC15Planner = (() => {
     if (d.tab && t.getAttribute('role') === 'tab' || (d.tab && t.classList.contains('pl-link'))) { ui.tab = d.tab; closePop(); paint(); return; }
     if (d.cmd) { runCmd(d.cmd, t); return; }
     if (d.treeToggle !== undefined) { ui.showTree = !ui.showTree; root.querySelector('.pl-notes')?.classList.toggle('tree-open', ui.showTree); return; }
-    if (d.openNote) { openNote(d.openNote, d.focusTask); return; }
-    if (d.newNote !== undefined) { saveNote(); const id = uuid(), cur = get(ui.openNoteId), folder = d.newNote || (cur ? noteFolder(cur) : null); if (folder) ui.openFolders[folder] = true; ui.fresh = id; put(id, 'note', { title: '', folderId: folder, content: { type: 'doc', content: [{ type: 'paragraph' }] }, text: '' }); ui.openNoteId = id; ui.search = ''; ui.showTree = false; paint(); root.querySelector('#pl-note-title')?.focus(); return; }
+    if (d.openNote) { ui.sharedOpen = null; openNote(d.openNote, d.focusTask); return; }
+    if (d.sharedOpen) { const s = ui.sharedOpen; if (!d.sharedNote && s?.key === d.sharedOpen && Object.values(shared.cache[s.key] || {}).some(r => r.kind === 'folder')) { ui.sharedOpen = null; paint(); return; } openShared(d.sharedOpen, d.sharedNote); return; }
+    if (d.sharedCopy !== undefined) { copyShared(); return; }
+    if (d.sharedClose !== undefined) { ui.sharedOpen = null; paint(); return; }
+    if (d.noteShare !== undefined) { if (ui.openNoteId) sharePopover(ui.openNoteId, t); return; }
+    if (d.newNote !== undefined) { saveNote(); const id = uuid(), cur = get(ui.openNoteId), folder = d.newNote || (cur ? noteFolder(cur) : null); if (folder) ui.openFolders[folder] = true; ui.fresh = id; put(id, 'note', { title: '', folderId: folder, content: { type: 'doc', content: [{ type: 'paragraph' }] }, text: '' }); ui.openNoteId = id; ui.search = ''; ui.showTree = false; ui.sharedOpen = null; paint(); root.querySelector('#pl-note-title')?.focus(); return; }
     if (d.newFolder !== undefined) { newFolder(d.newFolder || null); return; }
     if (d.collapseAll !== undefined) { list('folder').forEach(f => { ui.openFolders[f.id] = false; }); paintTree(); return; }
     if (d.toggleFolder) { ui.openFolders[d.toggleFolder] = ui.openFolders[d.toggleFolder] === false; paintTree(); return; }
     if (d.folderMenu) { const f = get(d.folderMenu); if (!f) return;
-      popover(t, `<div class="pl-menu" role="menu"><button type="button" role="menuitem" data-m="note">New note here</button><button type="button" role="menuitem" data-m="sub">New folder inside</button><button type="button" role="menuitem" data-m="rename">Rename</button>${parentOf(f.id) ? '<button type="button" role="menuitem" data-m="top">Move to top level</button>' : ''}<button type="button" role="menuitem" class="danger" data-m="delete">Delete folder</button><small>Deleting keeps what is inside.</small></div>`, p => p.addEventListener('click', ev => {
+      popover(t, `<div class="pl-menu" role="menu"><button type="button" role="menuitem" data-m="note">New note here</button><button type="button" role="menuitem" data-m="sub">New folder inside</button><button type="button" role="menuitem" data-m="rename">Rename</button><button type="button" role="menuitem" data-m="share">${isShared(f.id) ? 'Sharing…' : 'Share…'}</button>${parentOf(f.id) ? '<button type="button" role="menuitem" data-m="top">Move to top level</button>' : ''}<button type="button" role="menuitem" class="danger" data-m="delete">Delete folder</button><small>Deleting keeps what is inside.</small></div>`, p => p.addEventListener('click', ev => {
       const m = ev.target.closest('[data-m]')?.dataset.m; if (!m) return; closePop();
       if (m === 'note') { const b = document.createElement('button'); b.type = 'button'; b.hidden = true; b.dataset.newNote = f.id; root.append(b); b.click(); b.remove(); }
       if (m === 'sub') newFolder(f.id);
+      if (m === 'share') sharePopover(f.id, t);
       if (m === 'rename') { ui.renaming = f.id; ui.renameDraft = null; paintTree(); }
       if (m === 'top') put(f.id, 'folder', { parentId: null });
       if (m === 'delete') { const up = parentOf(f.id);

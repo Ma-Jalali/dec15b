@@ -78,7 +78,14 @@ function toast(t) { const el = $('#toast'); el.textContent = t; el.classList.add
 const reader = window.createDEC15Reader({ getState: () => state, save, esc, lesson, sources, toast });
 /* Class wall under each activity (needs online saving). Turn it off for a lesson with wall: false,
    or for one activity with wall: false. */
-const wall = window.createDEC15Wall ? window.createDEC15Wall({ getCloud: () => cloud, lessonId: lesson.id, esc, toast, icon: (n, c) => icon(n, c), signIn: () => accountDialog('signin') }) : null;
+const wall = window.createDEC15Wall ? window.createDEC15Wall({ getCloud: () => cloud, lessonId: lesson.id, esc, toast, icon: (n, c) => icon(n, c), signIn: () => accountDialog('signin'), getClass: () => klass }) : null;
+const klass = window.createDEC15Class ? window.createDEC15Class({ getCloud: () => cloud, lesson, esc, icon: (n, c) => icon(n, c), toast, avatarHTML: (p, e, c) => avatarHTML(p, e, c), signIn: () => accountDialog('signin'), rerender: () => rerender() }) : null;
+const isTeacher = () => !!klass?.isTeacher();
+/* "Write together": on pair and group activities where students write; the teacher can open it on any activity */
+const WRITING = new Set(['fields', 'question', 'plan', 'promptbuilder', 'contract']);
+const cowriteOn = a => !!(klass && a && a.cowrite !== false && (isTeacher() || a.cowrite || (!/^(alone|homework)$/i.test(a.grouping || '') && (a.blocks || []).some(b => WRITING.has(b.type)))));
+const locked = () => !!klass?.answersLocked();
+const LOCKED_MSG = 'Your teacher has closed the answers for now. Keep working — they will open them soon.';
 const wallOn = a => !!(wall && wall.enabled && lesson.wall !== false && a && a.wall !== false);
 
 const ICON = {
@@ -206,7 +213,8 @@ B.cards = b => `<section class="block cards-block${b.pick ? ' cards-pick' : ''}"
 /* games and interactive blocks (js/play.js): flash, sort, flip, spinner, chat, promptbuilder, contract */
 if (play) Object.assign(B, play.B);
 B.tip = b => `<p class="block tip" data-help>${icon('bulb')}<span>${b.text}</span></p>`;
-B.teacher = b => state.teacher ? `<div role="note" aria-label="Teacher note" class="block teacher"><div class="block-label">${icon('teacher')}Teacher note</div><p>${b.text}</p></div>` : '';
+B.teacher = b => { if (!state.teacher) return ''; const body = b.ref ? klass?.note(b.ref) : b.text; if (body === '') return '';
+  return `<div role="note" aria-label="Teacher note" class="block teacher"><div class="block-label">${icon('teacher')}Teacher note</div>${body == null ? '<p class="tn-loading">Loading the teacher note…</p>' : `<p>${body}</p>`}</div>`; };
 B.sources = b => `<div class="block source-buttons">${b.ids.map(id => { const s = sources.find(x => x.id === id); return `<button class="source-btn" data-source="${id}">${icon('book')}<span><b>${esc(s.cite)}</b><small>${esc(s.title)}</small></span></button>`; }).join('')}</div>`;
 B.question = (b, a) => `<section class="block essay-q">
   <span class="essay-q-label">${esc(b.label || (lesson.questionKind ? lesson.questionKind : 'The essay question'))}${lesson.wordTarget ? ' · ' + esc(lesson.wordTarget) : ''}</span>
@@ -392,10 +400,10 @@ B.listening = b => {
 function hasAttempt(a) { registerTables(); return Object.keys(state.values).some(k => owner[k] === a.id && state.values[k]); }
 function answersPanel(a) {
   if (!a.answers) return '';
-  const open = state.teacher || state.revealed[a.id];
+  const open = state.teacher || (state.revealed[a.id] && !locked());
   return `<section class="answers${open ? ' open' : ''}" id="ans-${a.id}">
     <div class="answers-head"><div class="block-label">${icon('check')}${esc(a.answers.title || 'Suggested answers')}</div>
-    ${open ? (state.teacher ? '<span class="answers-hint">Shown in Teacher view</span>' : `<button class="btn-quiet" data-hide-answers="${a.id}">Hide</button>`) : `<button class="btn" data-reveal="${a.id}">Show suggested answers</button>`}</div>
+    ${open ? (state.teacher ? '<span class="answers-hint">Shown in Teacher view</span>' : `<button class="btn-quiet" data-hide-answers="${a.id}">Hide</button>`) : (locked() ? `<span class="answers-locked">${icon('lock')}Your teacher will open the answers</span>` : `<button class="btn" data-reveal="${a.id}">Show suggested answers</button>`)}</div>
     ${open ? `<dl data-help>${a.answers.items.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl><p class="answers-hint">Other answers can be correct. Compare the reasons, then improve your own work.</p>` : '<p class="answers-hint">Try the activity first. Then compare your work with the suggested answers.</p>'}
   </section>`;
 }
@@ -431,6 +439,7 @@ function activity(a, i, list, section) {
     ${section && i === list.length - 1 && list.every(x => state.done[x.id]) ? `<div class="stage-done"><img src="assets/art/complete.svg" alt="" width="120" height="140"><div><b>Stage complete!</b><span>You finished all ${list.length} activities in ${esc(stageName(section))}.</span></div></div>` : ''}
     <footer class="act-foot">
       <label class="done-toggle"><input type="checkbox" data-done="${a.id}"${state.done[a.id] ? ' checked' : ''}><span>I have finished this activity</span></label>
+      ${klass ? `<div class="act-class"><span class="class-done" data-class-count="${a.id}" hidden></span>${cowriteOn(a) ? `<button type="button" class="btn-quiet btn-sm cowrite-btn" data-cowrite="${a.id}">${icon('users')}Write together</button>` : ''}</div>` : ''}
       ${section ? `<div class="pager">${i ? `<button class="btn-quiet" data-jump="${list[i - 1].id}">${icon('left')}Previous</button>` : ''}${i < list.length - 1 ? `<button class="btn" data-jump="${list[i + 1].id}">Next: ${esc(list[i + 1].short)} ${icon('arrow')}</button>` : nextStageLink(section)}</div>` : ''}
     </footer>
   </article>`;
@@ -698,7 +707,7 @@ function paintLessonNav(route) {
 }
 function paintNav(route = navRoute) {
   navRoute = route;
-  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-notebook', 'notebook']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
+  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-notebook', 'notebook'], ['side-board', 'board']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
   paintLessonNav(route);
   $('#side-home').classList.toggle('active', route === 'home');
   $('#side-planner')?.classList.toggle('active', route === 'planner');
@@ -788,6 +797,7 @@ function parseRoute() {
   const h = location.hash.slice(1);
   if (!h || h === '/' || h === '/home') return { home: true };
   if (h === '/planner' || h.startsWith('/planner/')) return { page: 'planner' };
+  if (h === '/board') return { page: 'board' };
   if (routes.includes(h)) { history.replaceState(null, '', L(h)); return { page: h }; } // old links such as #ai
   const m = h.match(/^\/([\w-]+)(?:\/([\w-]+))?/);
   if (!m) return { page: 'overview' };
@@ -822,6 +832,18 @@ function render() {
     return;
   }
   if (window.DEC15Planner?.mounted) window.DEC15Planner.unmount();
+  if (route === 'board') {   // the class board: the teacher's whiteboard, live
+    document.body.dataset.page = 'board'; document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg');
+    $('#crumb').innerHTML = `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>Class board</b>`;
+    document.title = `${course.code} · Class board`; paintStatus(); $('#main').dataset.route = 'board';
+    $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher(); document.body.classList.toggle('is-teacher', isTeacher());
+    klass?.setWhere('board', 'Class board');
+    if (!$('#board-root')) { $('#main').innerHTML = '<div id="board-root" class="planner-loading"><p>Opening the class board…</p></div>';
+      loadBoard().then(() => { const el = $('#board-root'); if (el && parseRoute().page === 'board') window.DEC15Board.mount(el, { esc, icon, toast, getCloud: () => cloud, signIn: () => accountDialog('signin') }); })
+        .catch(() => { const el = $('#board-root'); if (el) el.innerHTML = '<p class="planner-error">The board could not open. Check your internet connection and reload the page.</p>'; }); }
+    return;
+  }
+  if (window.DEC15Board?.mounted) window.DEC15Board.unmount();
   const main = $('#main'), changed = main.dataset.route !== route; main.dataset.route = route;
   $('#main').innerHTML = route === 'home' ? courseHome() : s ? stagePage(s) : route === 'sources' ? sourcesPage() : route === 'extra' ? extrasPage() : route === 'notebook' ? notebook() : overview();
   document.body.dataset.page = s ? 'stage' : route;
@@ -832,6 +854,11 @@ function render() {
   $('#crumb').innerHTML = route === 'home' ? `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>Course map</b>`
     : `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i>${route === 'overview' ? `<b>Week ${lesson.week} · Day ${lesson.day}</b>` : `<a href="${L('overview')}">Week ${lesson.week} · Day ${lesson.day}</a><i>/</i><b>${esc(pageName)}</b>`}`;
   document.title = `${course.code} · ${route === 'home' ? 'Course map' : `Week ${lesson.week}, Day ${lesson.day}${route === 'overview' ? '' : ' · ' + pageName}`}`;
+  if (!isTeacher() && state.teacher) state.teacher = false;
+  $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher();
+  document.body.classList.toggle('is-teacher', isTeacher()); document.body.classList.toggle('answers-locked', locked());
+  klass?.setWhere(route + (s ? ':' + s.id : ''), route === 'home' ? 'Course map' : route === 'board' ? 'Class board' : `W${lesson.week} D${lesson.day}${route === 'overview' ? ' · Overview' : ' · ' + (s ? code(s) + ' ' + s.title : pageNames[route] || route)}`);
+  setTimeout(() => klass?.paintCounts(), 0);
   $('#teacher-toggle').setAttribute('aria-pressed', String(state.teacher));
   $('#teacher-toggle .tt-state').textContent = state.teacher ? 'On' : 'Off';
   paintStatus();
@@ -849,6 +876,22 @@ function loadPlanner() {   // the editor is large, so it loads only when the pla
     window.Tiptap ? null : add('script', { src: 'js/vendor/tiptap.bundle.js?v=' + cfg.version }),
   ]).then(() => window.DEC15Blocks || add('script', { src: 'js/planner-blocks.js?v=' + cfg.version }))
     .then(() => window.DEC15Planner || add('script', { src: 'js/planner.js?v=' + cfg.version })).catch(e => { plannerLoad = null; throw e; }));
+}
+let boardLoad = null;
+function loadBoard() {   // the board uses the same editor as My planner
+  const add = (tag, attrs) => new Promise((ok, bad) => { const el = Object.assign(document.createElement(tag), attrs); el.onload = ok; el.onerror = bad; document.head.append(el); });
+  return boardLoad || (boardLoad = Promise.all([
+    document.querySelector('link[href^="css/planner.css"]') ? null : add('link', { rel: 'stylesheet', href: 'css/planner.css?v=' + cfg.version }),
+    window.Tiptap ? null : add('script', { src: 'js/vendor/tiptap.bundle.js?v=' + cfg.version }),
+  ]).then(() => window.DEC15Blocks || add('script', { src: 'js/planner-blocks.js?v=' + cfg.version }))
+    .then(() => window.DEC15Board || add('script', { src: 'js/board.js?v=' + cfg.version })).catch(e => { boardLoad = null; throw e; }));
+}
+let collabLoad = null;
+function loadCollab() {   // the shared editor loads only when "Write together" is pressed
+  const add = (tag, attrs) => new Promise((ok, bad) => { const el = Object.assign(document.createElement(tag), attrs); el.onload = ok; el.onerror = bad; document.head.append(el); });
+  return collabLoad || (collabLoad = Promise.all([
+    window.Tiptap ? null : add('script', { src: 'js/vendor/tiptap.bundle.js?v=' + cfg.version }),
+  ]).then(() => window.DEC15Collab || add('script', { src: 'js/collab.js?v=' + cfg.version })).catch(e => { collabLoad = null; throw e; }));
 }
 function rerender() { const y = window.scrollY; render(); window.scrollTo(0, y); }
 /* Blocks fade up gently the first time they scroll into view (once per visit; never on re-render). */
@@ -936,7 +979,7 @@ function avatarHTML(p = {}, email = '', cls = 'avatar') {
 }
 function accountDialog(mode = cloudInfo.user ? 'account' : 'signin', msg = '', keep = {}) {
   const val = k => keep[k] ? ` value="${esc(keep[k])}"` : '';
-  $('#resource-title').textContent = mode === 'account' ? 'Your account' : 'Save your work online';
+  $('#resource-title').textContent = mode === 'account' ? 'Your account' : mode === 'link' ? 'Sign in with an email link' : 'Save your work online';
   const p = cloudInfo.profile || {};
   const pw = (name, label, auto, hint = '') => `<label>${label}${hint ? ` <small>${hint}</small>` : ''}<span class="pw-wrap"><input name="${name}" type="password" autocomplete="${auto}" minlength="6" required><button type="button" class="pw-show" data-pw-show aria-pressed="false">Show</button></span></label>`;
   const note = (k) => keep.note?.[0] === k ? `<p class="acct-msg${keep.note[2] ? ' is-ok' : ''}" role="${keep.note[2] ? 'status' : 'alert'}">${keep.note[1]}</p>` : '';
@@ -960,17 +1003,19 @@ function accountDialog(mode = cloudInfo.user ? 'account' : 'signin', msg = '', k
       <form class="acct-box" data-acct="password" novalidate><h3>Change password</h3>
         ${pw('current', 'Current password', 'current-password')}${pw('next', 'New password', 'new-password', '(at least 6 characters)')}${pw('again', 'Type the new password again', 'new-password')}
         ${note('password')}<button class="btn" type="submit">Change password</button></form>
+      ${p.role === 'teacher' ? `<p class="acct-note acct-teacher">${icon('teacher')} <b>Teacher account.</b> Teacher view, teacher notes, the answers switch, class progress and the class board tools are on.</p>`
+        : p.teacherClaim === 'needs_email_link' ? `<section class="acct-box acct-teacher-claim"><h3>${icon('teacher')} Turn on your teacher tools</h3><p>This email is on the teacher list. To prove it is your inbox, we email you a sign-in link. Open it on this device and the teacher tools turn on.</p>${note('teacher')}<button type="button" class="btn" data-teacher-link>Email me the link</button></section>` : ''}
       <p class="acct-note">${icon('check')} Your answers, tables, plan and highlights are saved online. Sign in on any computer to continue where you stopped.</p>
       <div class="acct-actions"><button class="btn-quiet" data-signout>Sign out</button><button class="btn-quiet" data-signout-all title="Use this if you signed in on a shared or lost computer">Sign out on all devices</button></div></div>`
     : `<form class="acct-form" data-auth="${mode}" novalidate>
-      ${mode !== 'reset' ? '<img class="acct-art" src="assets/art/sync.svg" alt="" width="360" height="200">' : ''}
-      <p class="acct-intro">${mode === 'signup' ? 'Create an account once. Then your work is saved online and appears on any device where you sign in.' : mode === 'reset' ? 'Enter your email. We will send you a link to choose a new password.' : 'Sign in so your work is saved online — not only on this device.'}</p>
+      ${mode !== 'reset' && mode !== 'link' ? '<img class="acct-art" src="assets/art/sync.svg" alt="" width="360" height="200">' : ''}
+      <p class="acct-intro">${mode === 'signup' ? 'Create an account once. Then your work is saved online and appears on any device where you sign in.' : mode === 'reset' ? 'Enter your email. We will send you a link to choose a new password.' : mode === 'link' ? 'We email you a link. Open it on this device and you are signed in — no password needed. (Teachers: use this once to turn on your teacher tools.)' : 'Sign in so your work is saved online — not only on this device.'}</p>
       ${mode === 'signup' ? `<label>Full name<input name="name" autocomplete="name" required${val('name')}></label><label>Student ID <small>(optional)</small><input name="sid" inputmode="numeric" autocomplete="off"${val('sid')}></label>` : ''}
       <label>Email<input name="email" type="email" autocomplete="email" autocapitalize="off" spellcheck="false" required${val('email')}></label>
-      ${mode !== 'reset' ? `<label>Password${mode === 'signup' ? ' <small>(at least 6 characters)</small>' : ''}<span class="pw-wrap"><input name="password" type="password" autocomplete="${mode === 'signup' ? 'new-password' : 'current-password'}" minlength="6" required${val('password')}><button type="button" class="pw-show" data-pw-show aria-pressed="false">Show</button></span></label>` : ''}
+      ${mode !== 'reset' && mode !== 'link' ? `<label>Password${mode === 'signup' ? ' <small>(at least 6 characters)</small>' : ''}<span class="pw-wrap"><input name="password" type="password" autocomplete="${mode === 'signup' ? 'new-password' : 'current-password'}" minlength="6" required${val('password')}><button type="button" class="pw-show" data-pw-show aria-pressed="false">Show</button></span></label>` : ''}
       ${msg ? `<p class="acct-msg" role="alert">${msg}</p>` : ''}
-      <button class="btn" type="submit">${mode === 'signup' ? 'Create account' : mode === 'reset' ? 'Send reset link' : 'Sign in'}</button>
-      <p class="acct-switch">${mode === 'signin' ? `New here? <button type="button" class="text-link" data-auth-mode="signup">Create an account</button> · <button type="button" class="text-link" data-auth-mode="reset">Forgot password?</button>` : `Already have an account? <button type="button" class="text-link" data-auth-mode="signin">Sign in</button>`}</p>
+      <button class="btn" type="submit">${mode === 'signup' ? 'Create account' : mode === 'reset' ? 'Send reset link' : mode === 'link' ? 'Email me a sign-in link' : 'Sign in'}</button>
+      <p class="acct-switch">${mode === 'signin' ? `New here? <button type="button" class="text-link" data-auth-mode="signup">Create an account</button> · <button type="button" class="text-link" data-auth-mode="reset">Forgot password?</button><br><button type="button" class="text-link" data-auth-mode="link">Email me a sign-in link instead</button>` : `Already have an account? <button type="button" class="text-link" data-auth-mode="signin">Sign in</button>`}</p>
     </form>`;
   if (!$('#resource-dialog').open) $('#resource-dialog').showModal();
   const first = keep.email ? $('#resource-body input[name=password]') : $('#resource-body input'); first?.focus();
@@ -980,7 +1025,7 @@ const EMAIL_LIMIT_MSG = 'Your account was <b>not</b> created yet: the sign-up em
 function checkAuthForm(mode, v) {
   if (mode === 'signup' && !v.name) return 'Please write your full name.';
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.email)) return 'Please check your email address — it should look like name@example.com.';
-  if (mode !== 'reset' && v.password.length < 6) return mode === 'signup' ? 'Choose a password with at least 6 characters.' : 'Please type your password.';
+  if (mode !== 'reset' && mode !== 'link' && v.password.length < 6) return mode === 'signup' ? 'Choose a password with at least 6 characters.' : 'Please type your password.';
   return '';
 }
 /* Toggles slide open and closed instead of jumping: the box grows from its old height to its new one. */
@@ -1092,7 +1137,7 @@ presentBar.addEventListener('click', e => { const t = e.target.closest('button')
 document.addEventListener('keydown', e => {
   if (e.target.closest?.('input, textarea, select, [contenteditable="true"]') || e.metaKey || e.ctrlKey || e.altKey || document.querySelector('dialog[open]')) return;
   const on = document.body.classList.contains('present');
-  if (e.key === 'p' || e.key === 'P') { setPresent(!on); e.preventDefault(); return; }
+  if ((e.key === 'p' || e.key === 'P') && (isTeacher() || on)) { setPresent(!on); e.preventDefault(); return; }
   if (!on) return;
   if (e.key === 'Escape') setPresent(false);
   else if (e.key === 'ArrowRight') { presentStep(1); e.preventDefault(); }
@@ -1113,6 +1158,14 @@ document.addEventListener('click', e => {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeZoom(); });
 window.addEventListener('hashchange', closeZoom);
 document.addEventListener('click', e => {
+  const b = e.target.closest('[data-cowrite]'); if (!b) return;
+  const a = allActivities.find(x => x.id === b.dataset.cowrite); if (!a) return;
+  if (!cloud?.user) { toast('Sign in to write together with your class.'); accountDialog('signin'); return; }
+  b.disabled = true;
+  loadCollab().then(() => window.DEC15Collab.open({ lessonId: lesson.id, activityId: a.id, title: a.title, goal: a.goal, getCloud: () => cloud, esc, icon, toast, signIn: () => accountDialog('signin'), isTeacher }))
+    .catch(() => toast('Write together could not open. Check your internet connection.')).finally(() => { b.disabled = false; });
+});
+document.addEventListener('click', e => {
   const b = e.target.closest('[data-pw-show]'); if (!b) return;
   const inp = b.previousElementSibling, show = inp.type === 'password';
   inp.type = show ? 'text' : 'password'; b.textContent = show ? 'Hide' : 'Show'; b.setAttribute('aria-pressed', String(show)); inp.focus();
@@ -1130,6 +1183,8 @@ document.addEventListener('submit', async e => {
   if (mode === 'signin') err = await cloud.signIn(v.email, v.password);
   if (mode === 'signup') err = await cloud.signUp(v.email, v.password, v.name, v.sid);
   if (mode === 'reset') err = (await cloud.resetPassword(v.email)) || 'SENT';
+  if (mode === 'link') err = (await cloud.sendEmailLink(v.email, true)) || 'LINK_SENT';
+  if (err === 'LINK_SENT') return accountDialog('link', 'Check your inbox (and Junk/Spam). Open the link on this device to sign in — no password needed.', { email: v.email });
   if (err === 'CHECK_EMAIL') return accountDialog('signin', 'Account created. Open the email we sent you (check Junk/Spam too) to confirm it, then sign in here.', { email: v.email });
   if (err === 'SENT') return accountDialog('signin', 'If that email has an account, a reset link is on its way.', { email: v.email });
   if (err === 'EMAIL_LIMIT') return accountDialog(mode, EMAIL_LIMIT_MSG, keep);
@@ -1158,7 +1213,7 @@ document.addEventListener('input', e => {
 document.addEventListener('change', e => {
   const t = e.target;
   if (t.dataset.done) {
-    state.done[t.dataset.done] = t.checked; save(); rerender();
+    state.done[t.dataset.done] = t.checked; save(); rerender(); clearTimeout(klass?._ct); if (klass) klass._ct = setTimeout(() => klass.loadCounts(), 4000);
     if (t.checked) {
       const s = lesson.sections.find(x => x.activities.some(a => a.id === t.dataset.done));
       const all = s && s.activities.every(a => state.done[a.id]);
@@ -1173,6 +1228,7 @@ document.addEventListener('click', e => {
   if (play && play.onClick(t, d)) return;
   if (d.langTab) { const box = t.closest('.language'); box.querySelectorAll('[role=tab]').forEach((x, i) => { const on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; box.querySelectorAll('[role=tabpanel]')[i].hidden = !on; }); return; }
   if (d.quiz) { const k = d.quiz + '-' + d.i; state.values[k] = d.opt; delete state.checked[d.quiz]; save(); rerender(); return; }
+  if ((d.quizCheck || d.orderCheck || d.orderSolve || d.gridCheck || d.reveal) && locked()) { toast(LOCKED_MSG); return; }
   if (d.quizCheck) {
     const b = allActivities.flatMap(a => a.blocks).find(x => x.id === d.quizCheck);
     const missing = b.items.filter((_, i) => !val(b.id + '-' + i)).length;
@@ -1238,6 +1294,7 @@ document.addEventListener('click', e => {
   if (d.authMode) { accountDialog(d.authMode); return; }
   if (t.hasAttribute('data-avatar-remove')) { cloud.removeAvatar().then(err => { paintStatus(); wall?.load?.(); accountDialog('account', '', { note: ['photo', err ? esc(err) : 'Picture removed.', !err] }); }); return; }
   if (t.hasAttribute('data-signout-all')) { if (!confirm('Sign out on every device where you are signed in?')) return; cloud.signOutEverywhere().then(() => { $('#resource-dialog').close(); toast('Signed out on all devices. Work on this device is still saved here.'); }); return; }
+  if (t.hasAttribute('data-teacher-link')) { t.disabled = true; cloud.sendEmailLink(cloudInfo.user?.email, false).then(err => accountDialog('account', '', { note: ['teacher', err ? esc(err === 'EMAIL_LIMIT' ? EMAIL_LIMIT_MSG : err) : 'Sent. Open the email (check Junk/Spam too) and click the link on this device.', !err] })); return; }
   if (t.hasAttribute('data-signout')) { cloud.signOut().then(() => { $('#resource-dialog').close(); toast('Signed out. Work on this device is still saved here.'); }); return; }
   if (t.hasAttribute('data-clear') && confirm('Clear all your answers on this device? Download your notes first if you need them.')) {
     state = { ...state, values: {}, done: {}, revealed: {}, checked: {}, rows: {}, marks: {}, markDocuments: {} }; save(); render(); toast('Cleared.');
@@ -1265,7 +1322,7 @@ document.addEventListener('keydown', e => {
     e.preventDefault(); if (matchMedia('(max-width: 900px)').matches) setSide(true); else $('#side-search').focus();
   }
 });
-$('#teacher-toggle').onclick = () => { state.teacher = !state.teacher; save(); rerender(); toast(state.teacher ? 'Teacher view: answers and teacher notes are shown.' : 'Student view: answers open after students try.'); };
+$('#teacher-toggle').onclick = () => { if (!isTeacher()) { toast('Teacher view is only for your teacher.'); return; } state.teacher = !state.teacher; save(); rerender(); toast(state.teacher ? 'Teacher view: answers and teacher notes are shown.' : 'Student view: answers open after students try.'); };
 $('#glossary-open').onclick = () => glossary();
 $('#source-open').onclick = () => openSource();
 $('#dialog-close').onclick = () => { reader.closeWord(); $('#resource-dialog').close(); };
@@ -1278,7 +1335,8 @@ cloud = window.createDEC15Cloud({
   onChange: info => { const was = cloudInfo.user?.id; cloudInfo = info; paintStatus();
     if (info.user?.id !== was) window.DEC15Planner?.onAuth?.(info);
     if (info.recovery && info.user && !accountDialog.recoveryShown) { accountDialog.recoveryShown = true; setTimeout(() => accountDialog('newpw'), 300); }
-    if (wall && info.user?.id !== was) { wall.connect(); rerender(); } if (parseRoute().page === 'notebook' && info.status === 'saved' && info.profile && !paintStatus.named) { paintStatus.named = true; rerender(); } }
+    if (wall && info.user?.id !== was) { wall.connect(); rerender(); }
+    if (klass && (info.user?.id || '') + ':' + (info.profile?.role || '') !== klass.key) { klass.key = (info.user?.id || '') + ':' + (info.profile?.role || ''); klass.connect(); window.DEC15Board?.reload?.(); if (window.DEC15Board?.mounted) { window.DEC15Board.unmount(); $('#board-root')?.remove(); } rerender(); } if (parseRoute().page === 'notebook' && info.status === 'saved' && info.profile && !paintStatus.named) { paintStatus.named = true; rerender(); } }
 });
 if (wall && cloud.enabled) rerender();   // show the class walls
 cloud.init().catch(e => { console.error(e); cloudInfo = { status: 'error' }; paintStatus(); });

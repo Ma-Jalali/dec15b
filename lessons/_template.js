@@ -43,7 +43,9 @@
                   answers?: [[row 1 answers…], …], given?: { '0-0': 'Agree' } }   a table of drop-down choices
      figure     { type: 'figure', src, alt, caption?, credit?, size?: 'small' | 'wide' }   a picture or diagram
      tip        { type: 'tip', text }
-     teacher    { type: 'teacher', text }                    only shown in Teacher view
+     teacher    { type: 'teacher', ref: 'w1d1-t1' }          only shown in Teacher view, and only to the teacher.
+                The note text is NOT kept in this file (the site is public): add it to the database
+                table teacher_notes (lesson_id, ref, body) in Supabase, and put only its ref here.
    answers: { title?, items: [[label, answer], ...] } — opens after the student tries.
    Class wall: every activity has one. Add wall: false to an activity (or the lesson) to hide it;
    add share: false to a field (or a fields block) to hide its “Share with class” button. */

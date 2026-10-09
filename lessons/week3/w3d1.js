@@ -58,7 +58,7 @@ window.DEC15_LESSON = {
               'Give your <b>position (thesis)</b> — your answer to the question.',
               '<b>Preview</b> your reasons. Each reason becomes one body paragraph.'
             ]},
-            { type: 'teacher', text: 'TB key: S1 Topic historically / background · S2 Definition · S3 Topic currently – reason for emergence of industrial agriculture · S4 Positive result, BUT issue + focus on writer’s position (thesis) · S5 Reasons (preview points), i.e. impact of these factors. Point out the signal words “However” (S3) and “Despite… because” (S4).' }
+            { type: 'teacher', ref: 'w3d1-t1' }
           ],
           answers: { items: [
             ['Narrowing the focus', 'The writer starts with agriculture and food security in general (S1–S2). S3 moves to modern industrial agriculture. S4 narrows to two causes only — <b>economic crises and conflict</b> — and gives the position. S5 previews the two effects: the quality and availability of food.'],
@@ -118,7 +118,7 @@ window.DEC15_LESSON = {
             { type: 'key', tone: 'warn', title: 'Write first, compare later', points: [
               'Do <b>not</b> open Sample 3.1 yet. You will learn more if you compare it with <b>your own</b> introduction.'
             ]},
-            { type: 'teacher', text: 'Students must not see IWA Sample 3.1 (Canvas or the full essay in the Student Booklet) before they write. Circulate and check that each introduction ends with a clear position and two preview points.' }
+            { type: 'teacher', ref: 'w3d1-t2' }
           ]
         },
         {
@@ -149,7 +149,7 @@ window.DEC15_LESSON = {
               { q: 'S4 turns to the writer’s focus (<b>BUT</b>). Which word signals the contrast?', answer: 'While', why: '“While these factors are important…, central to the problem… is…” accepts other causes, then focuses on food waste.' },
               { q: 'S5 gives the <b>reasons</b> for the position (BECAUSE). Which words introduce them?', answer: 'This strategy would contribute substantially to', why: 'This phrase introduces the two preview points: managing the climate crisis and alleviating hunger.' }
             ]},
-            { type: 'teacher', text: 'TB: “What are the main rhetorical functions in this paragraph?” → Explaining consequences (SO), causes (BECAUSE) and contrast (BUT). Students can also draw up the prompt table in their notebooks.' }
+            { type: 'teacher', ref: 'w3d1-t3' }
           ],
           answers: { items: [
             ['Main rhetorical functions', 'Explaining <b>consequences (SO)</b>, <b>causes (BECAUSE)</b> and <b>contrast (BUT)</b>.'],
@@ -224,7 +224,7 @@ window.DEC15_LESSON = {
             { type: 'key', tone: 'warn', title: 'Write first, compare later', points: [
               'Do <b>not</b> look at the Sample 3.1 body paragraphs until both of your paragraphs are written.'
             ]},
-            { type: 'teacher', text: 'Remind students to use cohesive devices, old and new links, and to think about coherence: topic and concluding sentences. Note 1–2 student paragraphs to use for whole-class feedback in Activity 4.' }
+            { type: 'teacher', ref: 'w3d1-t4' }
           ]
         },
         {
@@ -273,7 +273,7 @@ window.DEC15_LESSON = {
               'Agricultural productivity is adversely affected',
               'Overall food availability falls'
             ], ends: ['Start', 'End'], why: 'Causal language: <i>ends up in · undergoes decomposition · releasing · driven by · intensifies · adversely affecting · consequently</i>.' },
-            { type: 'teacher', text: 'TB key: (a) topic sentence introduces reason 1, which relates to the first preview point – impact on climate change/environment; (b) S2 narrows the focus to the production stage of the food system; (c) because imperfect produce doesn’t sell as well and if production costs are higher than selling costs it is not worth harvesting – “leads to”; (d) “Furthermore” adds that other resources are also wasted when food loss occurs (supports the previous point); (e) S5–7 explain the chain of consequences that occurs when food is discarded in the production stage as it relates to the environment; (g) S8 is the concluding sentence linking back to the question and the writer’s thesis. Fill in the deconstruction table (Teachers’ Resources Page on Canvas) under the visualiser as you elicit answers.' }
+            { type: 'teacher', ref: 'w3d1-t5' }
           ],
           answers: { items: [
             ['Purpose of S5–S7', 'They explain the <b>chain of consequences</b> when food is discarded at the production stage, as it relates to the environment.'],
@@ -318,7 +318,7 @@ window.DEC15_LESSON = {
             { type: 'key', title: 'Old → new: summary phrases and referents', points: [
               'Start a sentence with a <b>summary phrase</b> (<i>this impact, this redistribution</i>) or a <b>referent</b> (<i>it, its, such</i>) to link back to the last idea. Then add the new information.'
             ]},
-            { type: 'teacher', text: 'TB: cohesive devices from Week 1 used here = summary phrases & referents, and some conjunctions/linking words. Ask students to highlight examples and what they refer back to. Others: its (B1 S1), this stage (B1 S3), these ultimately wasted foods (B1 S4), it (B2 S1), this food wastage (B2 S3).' }
+            { type: 'teacher', ref: 'w3d1-t6' }
           ],
           answers: { items: [
             ['More referents', 'Body 1: <i>its</i> (S1), <i>this stage</i> (S3), <i>these ultimately wasted foods</i> (S4). Body 2: <i>it</i> (S1), <i>this food wastage</i> (S3).'],
@@ -344,7 +344,7 @@ window.DEC15_LESSON = {
               'How many external citations are there?'
             ]},
             { type: 'tip', text: '<b>Internal citation:</b> the author is part of the sentence — <i>Royer (2024) states…</i>. <b>External citation:</b> the reference is in brackets at the end — <i>…(Royer, 2024).</i>' },
-            { type: 'teacher', text: 'The TB gives no counts for the last three rows; the suggested counts in Answers are ours (body paragraphs only). Select a couple of samples of student writing and analyse/give feedback as a class.' }
+            { type: 'teacher', ref: 'w3d1-t7' }
           ],
           answers: { title: 'Sample 3.1 (body paragraphs)', items: [
             ['Topic sentences / main idea / concluding statements', 'Yes. Each topic sentence gives one reason; every sentence develops it; Body 1 S8 and the end of Body 2 S7 link back to the position.'],
@@ -434,7 +434,7 @@ window.DEC15_LESSON = {
               'Was your final comment similar or different?'
             ]},
             { type: 'tip', text: 'Now go back to Activity 2 and <b>edit your conclusion</b> as needed.' },
-            { type: 'teacher', text: 'Students copy the conclusion from Canvas into the deconstruction table in their Student Booklet. Deconstruct as a class, noticing the rhetorical functions BUT (“While…”, S1) and SO (“therefore”, S3).' }
+            { type: 'teacher', ref: 'w3d1-t8' }
           ],
           answers: { items: [
             ['S1', 'Concession: there are other factors <b>BUT</b> addressing food waste is important and actionable (restatement of the writer’s position). Signal: <i>While</i>.'],
@@ -540,7 +540,7 @@ window.DEC15_LESSON = {
               { id: 'c5-1', label: 'What do you think the teacher feedback was?', placeholder: '1. Use … instead of … 2. … 3. …', rows: 4 },
               { id: 'c5-2', label: 'Two changes to our essay', placeholder: '“…” → “…”', rows: 3 }
             ]},
-            { type: 'teacher', text: 'TB table note: the first row in the TB key says “because of its substantial impact” although the edited paragraph says “significant impact”; the TB also gives “Therefore, prioritising” (paragraph: “prioritizing”) and “adversely affects” (paragraph: “adversely affecting”). The grid follows the TB key. The fourth feedback point in the TB is cut off (“Use appropriate –”); we read it as appropriate linking words.' }
+            { type: 'teacher', ref: 'w3d1-t9' }
           ],
           answers: { title: 'The teacher’s feedback', items: [
             ['1', 'Use formal verbs instead of two-word (phrasal) verbs (<i>cut down on</i> → <i>curtail</i>; <i>breaks down</i> → <i>undergoes decomposition</i>).'],
@@ -617,7 +617,7 @@ window.DEC15_LESSON = {
               'Direct quotations are <b>not common</b> in academic writing.',
               'In DEC you are marked on <b>paraphrasing</b>. You get no marks for language in a quotation. Quote only if it is really necessary — and keep it very short.'
             ]},
-            { type: 'teacher', text: 'TB: there are 3 voices — the writer’s and two sources. The TB calls sentence 2 “INDIRECT VOICE (or INTERNAL)”; in Activity 3 the TB defines a bracket citation as EXTERNAL voice. To avoid confusion here, the grid uses only direct/indirect; internal/external comes next.' }
+            { type: 'teacher', ref: 'w3d1-t10' }
           ],
           answers: { items: [
             ['How many voices?', '3: the writer’s voice and the voices of two sources (Tchonkouang et al. and Royer).'],
@@ -721,7 +721,7 @@ window.DEC15_LESSON = {
         { type: 'fields', fields: [
           { id: 'x1-1', label: 'Two sentences with reporting verbs', placeholder: 'Royer (2024) argues that … · Tchonkouang et al. (2023) found that …', rows: 3 }
         ]},
-        { type: 'teacher', text: 'TB 3A homework. The matching task is also on Canvas. Evaluative reporting verbs (the third group) are not the focus of this module.' }
+        { type: 'teacher', ref: 'w3d1-t11' }
       ],
       answers: { items: [
         ['Example', 'Royer (2024) <b>argues</b> that food rescue programs could reduce food insecurity. · Tchonkouang et al. (2023) <b>found</b> that cutting Australian food waste by a third could feed 921,000 people for a year.']
@@ -749,7 +749,7 @@ window.DEC15_LESSON = {
           { label: 'One chapter in an edited eBook', text: 'Chapter authors: Y. Li, J. Flowerdew · 2019 · “What really is the relationship between plagiarism and culture?” · pages 140–156 · in the book <i>Student Plagiarism in Higher Education: Reflections on Teaching Practice</i>, edited by D. Pecorari and P. Shaw · Routledge.' }
         ]},
         { type: 'table', id: 'x2t', columns: ['Source', 'Full reference', 'In-text citation'], fixed: ['Text 1 · Journal article', 'Text 2 · Full eBook', 'Text 3 · One chapter in an edited eBook'] },
-        { type: 'teacher', text: 'The TB shows the three sources as images (cover/record screenshots), which are not in this export; the cards give the same details. The answers are the TB answers, copied exactly.' }
+        { type: 'teacher', ref: 'w3d1-t12' }
       ],
       answers: { items: [
         ['Text 1 · Journal article', 'Molloy, E., Boud, D., &amp; Henderson, M. (2020). Developing a learning-centred framework for feedback literacy. <i>Assessment &amp; Evaluation in Higher Education, 45</i>(4), 527-540.<br>In-text: Molloy et al. (2020) argue that … / … (Molloy et al., 2020).'],
