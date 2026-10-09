@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.31)
+DEC15 — COURSE APP (v2.32)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -394,3 +394,10 @@ v2.31
 - Write together: tiny name tags on other people's cursors (they fade after a moment — hover the
   cursor to see the name), "Written by …" at the bottom, and a quick catch-up after a dropped
   connection.
+
+v2.32
+- Fixed: while the teacher had the answers closed, students (and signed-out visitors) saw a pink page
+  with a gap on the right. The small "Your teacher will open the answers" label and the page shared one
+  class name, so the page took the label's look. The label is now .answers-lock-note.
+- Fixed: the bottom of letters like "g" was cut off in the side panel ("Readings").
+- The class board no longer shows Copy text / Print when there is no board yet.

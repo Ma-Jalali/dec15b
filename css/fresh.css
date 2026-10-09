@@ -160,3 +160,5 @@ body[data-page="planner"] #save-status { display: none; }
 
 /* v2.31: paint the side panel itself (Safari does not always draw the body's side band) */
 @media (min-width: 901px) { .sidebar { background-color: var(--ink); box-shadow: inset -3px 0 0 var(--brand); } }
+/* v2.32: room for descenders (g, y, p) in one-line labels that hide overflow */
+.side-tx { line-height: 1.35; padding-block: 1px; }
