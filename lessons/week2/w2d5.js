@@ -72,7 +72,7 @@ window.DEC15_LESSON = {
               { label: 'Describing a tool', phrases: ['I asked it to…', 'It was useful for…', 'One limitation was that…'] },
               { label: 'Comparing', phrases: ['Both tools…', 'Copilot…, whereas Cogniti…', 'I prefer… because…'] }
             ]},
-            { type: 'teacher', text: 'This is the homework follow-up (16A). Keep the quiz brisk: 5 minutes alone + pair check. Spend the remaining time on the group discussion about Cogniti/Copilot.' }
+            { type: 'teacher', ref: 'w2d5-t1' }
           ]
         },
         {
@@ -125,7 +125,7 @@ window.DEC15_LESSON = {
               { id: 'a3-1', label: 'Task 1 and my explanation', placeholder: 'For … , AI could / should not … because …', rows: 3 },
               { id: 'a3-2', label: 'Task 2 and my explanation', placeholder: 'I changed my mind about … because …', rows: 3 }
             ]},
-            { type: 'teacher', text: 'Students will plan their essay later today. Point out that question 1 and 2 of the framework mean: do not use AI to plan the essay. We want to avoid students offloading the thinking.' }
+            { type: 'teacher', ref: 'w2d5-t2' }
           ],
           answers: { items: [
             ['Example', 'Writing an introduction: I changed my answer to “AI is unnecessary”. This task needs my own understanding and position, so if I used AI I would not practise how to introduce my argument.'],
@@ -178,7 +178,7 @@ window.DEC15_LESSON = {
               { id: 'b1-2', label: 'One thing to improve', placeholder: 'Next time I need to …', rows: 2 },
               { id: 'b1-3', label: 'A question for my teacher', placeholder: 'What did you mean by …? / How can I …?', rows: 2 }
             ]},
-            { type: 'teacher', text: 'Before class: send each group the ‘Teacher Feedback’ document via Canvas messaging. Bring butcher’s paper (or A3) and coloured pens for Activity 3. For Activities 2–3, students sit with their DISCUSSION group from yesterday (not their research group). Circulate and answer feedback questions while they work.' }
+            { type: 'teacher', ref: 'w2d5-t3' }
           ]
         },
         {
@@ -196,7 +196,7 @@ window.DEC15_LESSON = {
               'How does self-regulation help you beyond writing — for example in exams or reading?',
               'How do strong self-regulation skills help a group project or presentation?'
             ]},
-            { type: 'teacher', text: 'Possible answers: (1) Pomodoro timer — list tasks with estimated times, work 25 minutes, break 5; a task-breakdown tool — type a task and choose how many subtasks to generate. (2) Tracking progress, changing strategies and finishing on time; more independence. (3) Everyone takes responsibility for their part and manages time to meet group deadlines.' }
+            { type: 'teacher', ref: 'w2d5-t4' }
           ],
           answers: { items: [
             ['Tools', 'A Pomodoro timer (work 25 minutes, then a 5-minute break) and a tool that breaks a big task into smaller subtasks.'],
@@ -229,7 +229,7 @@ window.DEC15_LESSON = {
               { id: 'b3-1', label: 'Our poster: three strategies', placeholder: '1. … 2. … 3. …', rows: 3 },
               { id: 'b3-2', label: 'A strategy from another group that I will try', placeholder: 'I will try … when … because …', rows: 2 }
             ]},
-            { type: 'teacher', text: 'Assign outcomes 1–4 (it is fine to double up). Encourage visual posters. Optional: vote for the most useful poster, or ask students to connect another group’s poster to their own experience. Keep checking in with groups about their feedback.' }
+            { type: 'teacher', ref: 'w2d5-t5' }
           ],
           answers: { items: [
             ['Before the task (example)', 'Read the task twice and underline key words · write 2–3 goals · list one possible problem and a solution · use a task-breakdown tool.'],
@@ -257,7 +257,7 @@ window.DEC15_LESSON = {
               { label: 'When', phrases: ['In the Week 4 discussion,…', 'Before I write on Monday,…'] },
               { label: 'Check', phrases: ['I will check this by…', '… will tell me if…'] }
             ]},
-            { type: 'teacher', text: 'Tell students: if they wrote “Needs work” for anything, they must add at least one point to the action plan. Encourage constructive peer feedback on summaries and the process. Students save the form — they will return to it in Week 3.' }
+            { type: 'teacher', ref: 'w2d5-t6' }
           ],
           answers: { items: [
             ['Model row', 'Peer: “You read from your notes a lot.” · Teacher: “Use more evidence from your source.” · New goal: In the Week 4 discussion I will speak from key-word notes only and give two examples from my article. My group will tell me if I read aloud.']
@@ -487,7 +487,7 @@ window.DEC15_LESSON = {
             { type: 'fields', fields: [
               { id: 'd2-1', label: 'My best notes from the listening', placeholder: 'Before sale: … After sale: … Environment: … Hunger: …', rows: 6 }
             ]},
-            { type: 'teacher', text: 'Play the recording to the whole class once. Students take notes by hand on paper, as they will in the assessment. Discourage AI use in this lesson — we don’t want students offloading the thinking.' }
+            { type: 'teacher', ref: 'w2d5-t7' }
           ],
           answers: { items: [
             ['Before sale', 'Imperfect-looking produce doesn’t sell → left in fields or sent to landfill. Low market prices: harvesting costs more than the selling price (California: 33.7% of produce unharvested). Shops overbuy to create an “illusion of abundance”.'],
@@ -524,7 +524,7 @@ window.DEC15_LESSON = {
             { type: 'fields', fields: [
               { id: 'd3-1', label: 'Two ideas that appear in more than one source', placeholder: '1. Both … and … show that … 2. …', rows: 3 }
             ]},
-            { type: 'teacher', text: 'Students can build the table in a shared Google Doc if you prefer. Model one column first (group similar ideas together). Do NOT show the colour-coded sample table on Canvas until students have made their own.' }
+            { type: 'teacher', ref: 'w2d5-t8' }
           ],
           answers: { title: 'Sample notes', items: [
             ['Food loss in production', 'Tchonkouang: food that doesn’t look perfect is hard to sell; poor practices and limited technology → big losses after harvest in less developed countries; lower profits for farmers. · Our Changing Climate: imperfect produce rots or goes to landfill; if harvest costs > selling price, crops are left (California 33.7%); shops overbuy (“illusion of abundance”).'],
@@ -561,7 +561,7 @@ window.DEC15_LESSON = {
               { id: 'd4-2', label: 'Reason 1', placeholder: 'because it …', rows: 2 },
               { id: 'd4-3', label: 'Reason 2', placeholder: 'and because it …', rows: 2 }
             ]},
-            { type: 'teacher', text: 'You may bring the class together to discuss reasons and agree on two. In the sample essay, the writer thinks addressing food waste is very important. The two reasons: (1) managing the climate crisis — also a key cause of food insecurity; (2) better management of resources to help reduce hunger.' }
+            { type: 'teacher', ref: 'w2d5-t9' }
           ],
           answers: { items: [
             ['Sample position', 'Food waste is central to the problem of food insecurity — reducing it could contribute a great deal to food security.'],
@@ -590,7 +590,7 @@ window.DEC15_LESSON = {
               'Bring this plan to class. You will <b>write the essay in class on Monday</b>.',
               'Do <b>not</b> start writing, and do <b>not</b> use AI to write a response over the weekend.'
             ]},
-            { type: 'teacher', text: 'On Monday students write the essay and then deconstruct a sample response. They will also look at writing introductions and conclusions — this plan previews that structure. Show the sample outline (Answers) only after students have made their own.' }
+            { type: 'teacher', ref: 'w2d5-t10' }
           ],
           answers: { title: 'Sample essay outline', items: [
             ['Introduction', 'Topic/problem: pressure on the food system — growing population. · Issue: food insecurity (FAO, 2020: 30% of the global population food insecure). · Thesis: food waste is central to the problem — reducing waste could contribute a great deal. · Preview: (1) managing the climate crisis — also a key cause of food insecurity; (2) better management of resources — helping to reduce hunger.'],
@@ -624,7 +624,7 @@ window.DEC15_LESSON = {
           'Bias — whose perspective is included or left out?',
           'Strong tone — which words persuade?'
         ]},
-        { type: 'teacher', text: 'This is the 18A wrap-up/follow-up task (15 min). There is no time for it in the 4-hour day, so it is set for homework. Assign half the class Reading 1 and half Reading 2.' }
+        { type: 'teacher', ref: 'w2d5-t11' }
       ]
     },
     {

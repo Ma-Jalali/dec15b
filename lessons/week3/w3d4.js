@@ -52,7 +52,7 @@ window.DEC15_LESSON = {
               'This morning you practise the <b>steps</b> you need for the Integrated Writing Assessment.',
               'This afternoon you <b>use them on your own</b> in the practice assessment on Canvas.'
             ]},
-            { type: 'teacher', text: 'Groups of 3–4. Aim for at least two factors and one solution per level, with the source named. Keep it to 10 minutes — the board list is useful later when students judge which ideas are relevant.' }
+            { type: 'teacher', ref: 'w3d4-t1' }
           ]
         },
         {
@@ -76,7 +76,7 @@ window.DEC15_LESSON = {
               { label: 'Different', phrases: ['Unlike Text B, Text C…', 'Text A focuses on…, whereas…'] }
             ]},
             { type: 'tip', text: 'A good row has 2–3 main ideas. A similarity names <b>which</b> sources share the idea.' },
-            { type: 'teacher', text: 'Texts A, B, C and the Lecture are the practice assessment sources (Canvas only — not in the app). Students can also copy this template into their notebooks, as in the TB. If you prefer, they can practise the template with this week’s texts (Nicastro & Carillo; About That; Berti et al.) — they just relabel the rows.' }
+            { type: 'teacher', ref: 'w3d4-t2' }
           ]
         },
         {
@@ -102,7 +102,7 @@ window.DEC15_LESSON = {
               { id: 'c3-1', label: 'Our essay question 1', placeholder: 'To what extent …?', rows: 2 },
               { id: 'c3-2', label: 'Our essay question 2 (optional)', placeholder: 'Should … or …?', rows: 2 }
             ]},
-            { type: 'teacher', text: 'Set up a shared doc for students before class. Show the sample questions (Answers) after pairs have posted. Next we use sample question 1 for the rest of the lesson.' }
+            { type: 'teacher', ref: 'w3d4-t3' }
           ],
           answers: { title: 'Sample questions', items: [
             ['1', 'To what extent are consumers responsible for food waste, and how can individual actions significantly reduce waste at the household level?'],
@@ -133,7 +133,7 @@ window.DEC15_LESSON = {
               { id: 'c4-3', label: 'Rhetorical functions I can use', placeholder: 'I need to evaluate … and suggest …', rows: 2 }
             ]},
             { type: 'tip', text: 'This question has <b>two parts</b>: “To what extent…?” and “how can…?”. Your answer must cover both.' },
-            { type: 'teacher', text: 'The TB gives no key for this step; the answers are suggestions that match the TB sample plan (causes and effects; suggestions).' }
+            { type: 'teacher', ref: 'w3d4-t4' }
           ],
           answers: { items: [
             ['Topic words', '<i>consumers</i>, <i>responsible</i>, <i>food waste</i>, <i>individual actions</i>, <i>reduce waste</i>.'],
@@ -168,7 +168,7 @@ window.DEC15_LESSON = {
               'Choose one “Not useful” statement. Could it be useful for a <b>different</b> question? Look at the sample questions in Activity 3.',
               'Which useful statement would you use first in your essay? Why?'
             ]},
-            { type: 'teacher', text: 'Answer key = TB. Note a TB discrepancy: the task list for Text A prints “Food waste estimates in terms of monetary value per state”, but the answer list has “International commitments to reduce food waste like the Courtauld Commitment 2025” (No). The app uses the statement that has a key. If your practice Text A uses the monetary-value statement, it is also Not useful (it measures cost, not consumer responsibility or household actions). Discussion idea for prompt 1: the technology statement fits sample question 2; the Courtauld statement fits question 3. The 1.3 billion tonnes figure is useful mainly as background — the sample plan uses it in the introduction.' }
+            { type: 'teacher', ref: 'w3d4-t5' }
           ]
         },
         {
@@ -232,7 +232,7 @@ window.DEC15_LESSON = {
               { label: 'Cause and effect', phrases: ['… because…', '…, which increases…', 'As a result,…'] },
               { label: 'Suggestions', phrases: ['Households could…', 'One simple change is to…'] }
             ]},
-            { type: 'teacher', text: 'Give students time to work out a draft plan with a partner or a group of 3. They can copy the template into their notebook, device or a shared doc. Show the sample plan (Answers) in the Reflection activity, after pairs finish. TB note: in the sample plan, Body 3’s evidence repeats Body 2’s (“Household food waste increases due to retailers encouraging consumers to buy in excess.”). The Answers use the Text C statement instead (“Many people do not realize the extent of their food waste…”), which matches Body 3’s topic sentence.' }
+            { type: 'teacher', ref: 'w3d4-t6' }
           ],
           answers: { title: 'Sample plan', items: [
             ['Intro', '<b>Background/Evidence:</b> Each year, approximately 1.3 billion tonnes of the food produced for us is either lost or wasted globally.<br><b>Thesis statement:</b> Consumers play a key role in the food waste problem because many are unaware of how much they waste and stores encourage overbuying, yet simple changes at home can help reduce this waste.'],
@@ -264,7 +264,7 @@ window.DEC15_LESSON = {
               { id: 'c8-1', label: 'One change I would make to my plan', placeholder: 'I would change … because …', rows: 2 },
               { id: 'c8-2', label: 'Exit ticket: the step I will use carefully this afternoon', placeholder: 'In the practice assessment, I will … (step no. __)', rows: 2 }
             ]},
-            { type: 'teacher', text: 'Point out that the sample plan uses only a few statements. That is the skill: selecting, not using everything. Remind students to have lunch and come back ready for exam conditions.' }
+            { type: 'teacher', ref: 'w3d4-t7' }
           ],
           answers: { title: 'Model exit ticket', items: [
             ['Model', 'In the practice assessment, I will do step 3 carefully: for every note I take, I will ask “How does this help answer my question?” and cross out anything that doesn’t.']
@@ -312,7 +312,7 @@ window.DEC15_LESSON = {
               ['Vocabulary', 'Uses a good range of vocabulary with mostly accurate collocations; mostly suitable hedging'],
               ['Grammar', 'Uses a good range of grammatical structures with minor errors, meaning is mostly clear']
             ], note: 'If 50% or more of the text is lifted, the score for Use of Sources cannot be over 50.' },
-            { type: 'teacher', text: 'Check Canvas and refer to instructions from DEC team. Exam conditions: no talking, no AI. Students should not use this app’s notes or plan from this morning during the assessment unless the DEC instructions allow it. After the assessment, remind students about tonight’s homework (feedback literacy self-reflection form, in Extra practice).' }
+            { type: 'teacher', ref: 'w3d4-t8' }
           ]
         }
       ]
@@ -348,7 +348,7 @@ window.DEC15_LESSON = {
               'What do you like most about…?',
               'Is that common in your country?'
             ]},
-            { type: 'teacher', text: 'The TB leaves this session to the teacher. The two ideas are optional and need no preparation. After a 1.5-hour exam, start with a quick, low-pressure check-in (“One word for how you feel now”). Avoid discussing the practice essay in detail here — reflection is tonight’s homework.' }
+            { type: 'teacher', ref: 'w3d4-t9' }
           ]
         }
       ]
@@ -389,7 +389,7 @@ window.DEC15_LESSON = {
           ['What exactly I will do', 'Use at least one idea from each of the four sources, and cite each one (author, year).'],
           ['How I will practise / check', 'In my plan, I will write the source next to every idea. Before I write, I will check that all four sources appear.']
         ]},
-        { type: 'teacher', text: 'TB 14A: students download the form from Canvas (TB file link missing in the export). Check tomorrow (W3 D5) that it is done, and remind students they need the form in W4 D5, when they view teacher feedback on the practice assessment. The quick check is self-assessment only (no answer key).' }
+        { type: 'teacher', ref: 'w3d4-t10' }
       ]
     },
     {

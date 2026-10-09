@@ -16,3 +16,9 @@ export { default as TableRow } from '@tiptap/extension-table-row';
 export { default as TableCell } from '@tiptap/extension-table-cell';
 export { default as TableHeader } from '@tiptap/extension-table-header';
 export { default as Link } from '@tiptap/extension-link';
+// "Write together" (shared writing in a lesson activity): Yjs documents kept in step through Supabase
+export { default as Collaboration } from '@tiptap/extension-collaboration';
+export { default as CollaborationCursor } from '@tiptap/extension-collaboration-cursor';
+export * as Y from 'yjs';
+export { Awareness, encodeAwarenessUpdate, applyAwarenessUpdate, removeAwarenessStates } from 'y-protocols/awareness';
+export { yXmlFragmentToProsemirrorJSON } from 'y-prosemirror';

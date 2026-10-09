@@ -47,7 +47,7 @@ window.DEC15_LESSON = {
             { type: 'key', title: 'An opinion needs a reason', points: [
               'In a discussion, an opinion without a reason is weak. <b>Justify</b> your opinion: say <b>why</b>, and give an <b>example</b> or evidence from your research.'
             ]},
-            { type: 'teacher', text: 'Purpose: more practice of the Discussion task and an introduction to justifying opinions. Board version (TB): show the quote for 5 seconds only, then erase it: ‘Strong opinions are only valid when supported by stronger reasons.’ The app version does the same on Student B’s screen. Alternative (TB): give the scrambled version and feed them the 1st, 2nd word if they struggle — ‘stronger strong supported reasons by valid are only opinions when’. Ex 2: a couple of minutes only; remind Ss of their Week 2 discussion for examples. Ask some Ss to share. If they don’t mention it, stress that justifying your opinions strengthens your argument.' }
+            { type: 'teacher', ref: 'w3d5-t1' }
           ]
         },
         {
@@ -76,13 +76,13 @@ window.DEC15_LESSON = {
               { q: 'What do the speakers say about the three options (problems) from the question?', options: ['they are all interlinked (connected)', 'they all have the same solution', 'they should be addressed in isolation'], answer: 'they are all interlinked (connected)', why: '“Environmental damage, animal welfare, and health issues are all critical and interlinked aspects of modern agriculture.”' },
               { q: 'Which consequence do they finally choose as the most serious?', options: ['health problems', 'environmental damage', 'animal rights violations'], answer: 'environmental damage', why: '“Environmental damage is the most serious consequence of the modern agricultural production system.”' }
             ]},
-            { type: 'teacher', text: 'The recording is on Canvas only — play it from there. Remind Ss of the Step 5 instructions; today we hear only the ‘Negotiation’ part. This sample (modern agricultural production) is NOT their research topic. Give Ss time to read the questions and predict (the prediction poll) before you play. Let them compare before playing again. Answers: 1 animal rights violations · 2 eat less meat · 3 because it’s the focus of next week’s discussion · 4 The Netherlands and the UK · 5 air pollution from factories · 6 they are all interlinked · 7 environmental damage. (Q3 option text in the TB reads “the focus next week’s discussion”; “of” added.)' },
+            { type: 'teacher', ref: 'w3d5-t2' },
             { type: 'talk', title: 'Discussion skills: Negotiation — talk with your partner (2 min)', prompts: [
               'What does the word <b>negotiation</b> mean?',
               'What did the students in the recording <b>do</b> to negotiate?'
             ]},
             { type: 'figure', src: 'assets/week3/negotiation-skills.svg', alt: 'Four negotiation skills: 1 ask for clarification (“So, you’re saying that…?”), 2 ask for opinions and justification (“Why are you so firm with that choice?”), 3 give and justify opinions (“For me, … because…”), 4 build on others’ contributions (“Like you said before about…”). Together they build shared understanding.', caption: 'Today’s four skills for negotiation — you practise each one next' },
-            { type: 'teacher', text: 'Discussion skills: Negotiation (5 min, TB): Ss can look up ‘negotiation’, but they need to think about how it applies to an academic discussion. Tell Ss they will look at techniques and language for negotiation today and next week.' }
+            { type: 'teacher', ref: 'w3d5-t3' }
           ],
           answers: { title: 'Negotiation', items: [
             ['Meaning', 'The process of discussing something with someone and trying to reach an agreement.'],
@@ -130,7 +130,7 @@ window.DEC15_LESSON = {
               { tag: 'Student B · 3', front: 'They went for a walk around the <u>billabong</u>.', backTitle: 'billabong', back: 'A stagnant pool that’s formed after a river changes its course.', art: 'assets/week3/aussie-billabong.svg' },
               { tag: 'Student B · 4', front: 'I love <u>lamingtons</u>!', backTitle: 'lamingtons', back: 'Square-shaped sponge cakes coated in a layer of chocolate icing and desiccated coconut.', art: 'assets/week3/aussie-lamington.svg' }
             ]},
-            { type: 'teacher', text: 'You might choose Ss to read the extracts aloud. Check Q1 together before moving on; Ss can do Qs 2–5 with a partner. Activity 2: in the TB, Student A looks up the definition (in English); here the definitions are on the back of each card — make sure each student turns over only their own two cards. To extend, add more difficult words or ask Ss to think of their own. Definitions: wobbegong — a flat-looking type of shark found in shallow, temperate and tropical waters around Australia · billabong — a stagnant pool that’s formed after a river changes its course · the outback — the vast, remote, dry interior of Australia · lamingtons — square-shaped sponge cakes coated in a layer of chocolate icing and desiccated coconut.' }
+            { type: 'teacher', ref: 'w3d5-t4' }
           ],
         },
         {
@@ -164,7 +164,7 @@ window.DEC15_LESSON = {
               { label: 'Animal', start: 'Spin!', items: ['platypus', 'wombat', 'frilled-neck lizard', 'blue-tongue lizard', 'cassowary', 'echidna', 'dugong', 'quokka', 'wobbegong', 'an animal from your country'] },
               { label: 'Your move', start: '…', items: ['Give your opinion + a reason', 'Ask your partner’s opinion', 'Ask “Why…?” — ask for justification', 'Disagree and say why', 'Reaffirm your choice: “I would still go with…”', 'Compare with your country'] }
             ]},
-            { type: 'teacher', text: 'Answers Part A: also asks for justification = c · asks for a choice = b & d · asks generally for ideas = a. Part B: weak argument without justification = B · with justification = A, C & F · reaffirming their choice = D & E (‘still’ refers back to a previous comment that has not changed). Discussion: simply saying ‘I agree’ is a weak form of discussion/negotiation — Ss should justify with examples and evidence. Brainstorm: type Ss’ phrases into the ‘Giving opinions’ section of your shared ‘Negotiation Language – Other Possible Phrases’ doc and display it. Practice: the superlative requires comparison with other countries; ‘the best’ is open to interpretation. The spinner uses the TB animal list (platypus, wombat, frilled-neck lizard, blue-tongue lizard, cassowary, echidna, dugong, quokka) plus the wobbegong.' }
+            { type: 'teacher', ref: 'w3d5-t5' }
           ],
           answers: { title: 'Discussion and example phrases', items: [
             ['Weak contribution', 'Simply saying “I agree” without any further comment is a weak form of discussion/negotiation. Express yourself more fully and justify your opinion with explanation, examples and evidence.'],
@@ -202,7 +202,7 @@ window.DEC15_LESSON = {
               { label: 'Significance', phrases: ['Yeah, this issue seems to be increasing around the world.'] },
               { label: 'Summarising', phrases: ['Well, all these points show that while the specifics might vary, the underlying issues are quite similar across different regions.', 'It’s clear that all these consequences are serious.'] }
             ]},
-            { type: 'teacher', text: 'Ss can do the matching and brainstorm in pairs/small groups OR as a whole class. Check each one before moving on. TB answers (A explanation · B similar example · C significance · D agree/oppose · E summarise): 1 B · 2 D · 3 A · 4 C · 5 E · 6 D/E. Brainstorm: type Ss’ phrases into the ‘Building on Others’ Contributions’ section of your shared ‘Negotiation Language – Other Possible Phrases’ doc. Practice (TB): Student A’s sentence: Sydney is the best city in the world. Student B’s sentence: It’s easy and cheap to eat healthy food. Pairs (groups of 3 where needed); make sure they respond in all 4 ways — they don’t need one long string. Model it first.' }
+            { type: 'teacher', ref: 'w3d5-t6' }
           ],
           answers: { title: 'Example phrases', items: [
             ['Refer back (examples)', 'Going back to what (name) said about…, … · That reminds me of… in (region). · Building on your point about…, …'],
@@ -233,7 +233,7 @@ window.DEC15_LESSON = {
               'Everyone knows when the summary must be ready.'
             ]},
             { type: 'tip', text: 'A notetaking template for your summary is in <b>Extra</b> (homework).' },
-            { type: 'teacher', text: 'Group check-in (10 min): if articles overlap, decide who finds a new one (a volunteer, a back-up, or toss a coin). If a student has NOT found an article and/or done the CRAAP test, remind them they must find and summarise it for next week. Task reminder (2–3 min): direct Ss to the full task instructions on the assessment overview page if they have questions. Notetaking template (1–2 min): now in Extra — show it; Ss can use it or their own technique.' }
+            { type: 'teacher', ref: 'w3d5-t7' }
           ]
         },
         {
@@ -259,7 +259,7 @@ window.DEC15_LESSON = {
               { id: 'n8-1', label: 'a) What issues did I encounter last time?', placeholder: 'Last time I …', rows: 1 },
               { id: 'n8-2', label: 'b) How can I improve the notetaking and summarising process?', placeholder: 'This time I will …', rows: 1 }
             ]},
-            { type: 'teacher', text: 'Before the lesson, check Ss completed yesterday’s homework (self-reflection on the practice Interactive Writing Assessment) — they need it again in W4 D5. Check Ss understand the questions and give examples. Q1 Comments = ‘much easier than last time’; Action plan = ‘always brainstorm keywords before beginning research’. Q2 Comments = ‘There were a lot more search results this time, so it was difficult to choose’; Action plan = ‘pay close attention to article/text titles and skim read journal abstracts where possible’. Ss can finish at home. Make sure Ss download and save the document. Alternative: a Google Doc in your class group page.' }
+            { type: 'teacher', ref: 'w3d5-t8' }
           ],
           answers: { title: 'Examples', items: [
             ['Q1 (example)', 'Comments: much easier than last time. · Action plan: always brainstorm keywords before beginning research.'],
@@ -351,7 +351,7 @@ window.DEC15_LESSON = {
               { text: 'Solve problems quickly', answer: 5 }
             ]},
             { type: 'talk', title: 'Then', prompts: ['Which <b>two</b> steps will be hardest for your research group? Tell another pair.'] },
-            { type: 'teacher', text: 'TB key: 1 Set clear goals · 2 Give everyone a role · 3 Make a plan and deadlines · 4 Communicate often · 5 Work as a team · 6 Solve problems quickly · 7 Be responsible · 8 Be flexible · 9 Use technology · 10 Review the work.' }
+            { type: 'teacher', ref: 'w3d5-t9' }
           ]
         },
         {
@@ -392,7 +392,7 @@ window.DEC15_LESSON = {
               { id: 't4-6', label: 'Behaviour', placeholder: 'We will …' },
               { id: 't4-7', label: 'Conflict resolution', placeholder: 'If we disagree, we will …' }
             ]},
-            { type: 'teacher', text: 'Allow 20–30 min. Groups create the contract in a shared doc (e.g. Google Doc); each student also copies it into the app so it appears in their notebook. Circulate and push for specific answers (days, times, names). Link to the Lead-in: deadlines and roles should match what they checked there.' }
+            { type: 'teacher', ref: 'w3d5-t10' }
           ],
           answers: { title: 'A model contract', items: [
             ['Purpose', 'To give clear 2-minute summaries of three different solutions articles and to discuss and negotiate well in the Research Summary Discussion (Week 4, Thursday).'],
@@ -480,7 +480,7 @@ window.DEC15_LESSON = {
               { label: '3 · Requirements', text: 'As much information as possible, so the AI doesn’t make wrong assumptions: what the output should look like and its conditions.' },
               { label: '4 · Instructions', text: 'How the AI should complete the task: steps, examples, what to include.' }
             ]},
-            { type: 'teacher', text: 'TB overall ratings: 1 Tell me about food waste — poor · 2 restaurants, at least three examples — good but could be slightly refined · 3 Explain why food waste is bad — weak · 4 sustainability consultant — excellent · 5 list of ways at home — decent but could be more targeted. In the app: 1 and 3 = Weak; 2 and 5 = Good — could be refined; 4 = Excellent. The prompts are mixed in the app so students must read them.' }
+            { type: 'teacher', ref: 'w3d5-t11' }
           ]
         },
         {
@@ -532,7 +532,7 @@ window.DEC15_LESSON = {
               { id: 'p5-1', label: 'My improved prompt', placeholder: 'Act as … provide … focus on … include …', rows: 3 },
               { id: 'p5-2', label: 'Was the AI response useful? What would I change?', placeholder: 'The response was useful / not very useful because … Next time I will add …', rows: 2 }
             ]},
-            { type: 'teacher', text: 'The TB lists ChatGPT, Copilot or Vanilla on Cogniti; in DEC15 point students to the University-approved tools (Copilot, Cogniti). Ask 2–3 pairs to share their before/after prompts and the difference in the output.' }
+            { type: 'teacher', ref: 'w3d5-t12' }
           ],
           answers: { title: 'Example reflection', items: [
             ['Reflection', 'The first answer was too general. I added “for university student households in Sydney, on a small budget” and asked for a table. The second answer was more practical. Next time I will ask it to explain each step.']
@@ -566,7 +566,7 @@ window.DEC15_LESSON = {
               { label: 'Island negotiation', text: 'Your group is going to a desert island. You can take only <b>three things</b>. Each person suggests one item and justifies it. Then <b>negotiate</b> to choose the best three.' },
               { label: 'Two truths and a lie', text: 'Tell your group three facts about yourself — one is false. Your group asks <b>clarification questions</b> (“So, you’re saying that…?”) and guesses the lie.' }
             ]},
-            { type: 'teacher', text: '18A is teacher-led (30 min). The games are optional and recycle today’s language (justifying opinions, clarification, building on ideas). Use your own activity if you prefer.' }
+            { type: 'teacher', ref: 'w3d5-t13' }
           ]
         }
       ]

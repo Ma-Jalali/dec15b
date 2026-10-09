@@ -49,7 +49,7 @@ window.DEC15_LESSON = {
               { q: 'According to the listening, what is <b>NOT</b> a problem with conventional food banks?', options: ['They make people feel helpless', 'Volunteer work is boring', 'They may create more waste.', 'They are efficient.'], answer: 'They are efficient.', why: 'Efficiency is a strength of the hamper model, not a problem.' },
               { q: 'What is a limitation of the new types of food bank?', options: ['They empower people.', 'They cannot easily help a large number of people.', 'They are cheap to operate.', 'Volunteers are happier.'], answer: 'They cannot easily help a large number of people.', why: 'The client-choice model is slower, so it is harder to serve many people.' }
             ]},
-            { type: 'teacher', text: 'TB recap (10 min) — teachers can choose how to run it (e.g. Kahoot or show of hands). Keep it brisk: 5 min alone, 3 min pair check, 2 min whole-class on any surprises. Answer key: 1 between production and distribution · 2 in retail and households · 3 keeping fruit fresh for longer · 4 may increase CO₂ emissions · 5 buy one get one later · 6 roofs · 7 educate consumers · 8 avoid producing too much food · 9 they are efficient · 10 cannot easily help a large number of people.' }
+            { type: 'teacher', ref: 'w3d3-t1' }
           ]
         },
         {
@@ -75,7 +75,7 @@ window.DEC15_LESSON = {
               { label: 'Contrast: link two sentences', phrases: ['However, …', 'In contrast, …', 'By contrast, …', 'On the other hand, …', 'Conversely, …', 'Despite this, …'] },
               { label: 'Contrast: inside one sentence', phrases: ['Although X…, Y…', 'While X…, Y…', 'X…, whereas Y…', 'X…, yet Y…'] }
             ]},
-            { type: 'teacher', text: 'TB answers: another way to show texts agree = external referencing with two sources in one bracket, e.g. (Nicastro & Carillo, 2021; Berti et al., 2021). Other things we could contrast: information between sentences and clauses; point of focus; inclusion or exclusion of certain points.' }
+            { type: 'teacher', ref: 'w3d3-t2' }
           ],
           answers: { items: [
             ['Showing agreement', 'Put two sources in one reference: <b>(Nicastro & Carillo, 2021; Berti et al., 2021)</b>. This is called external referencing.'],
@@ -107,7 +107,7 @@ window.DEC15_LESSON = {
               { q: 'This makes food banks <b>(4) ______</b>.', answer: 'controversial', why: 'People disagree about them.' },
               { q: 'Large agricultural companies <b>(5) ______</b> profit over human health.', answer: 'prioritise', why: 'prioritise X over Y = put X first.' }
             ]},
-            { type: 'teacher', text: 'TB uses a Quizlet set for this vocabulary — you can use it instead of Part A. Gap-fill key: 1 contradiction · 2 win-win situation · 3 band-aid solution · 4 controversial · 5 prioritise.' }
+            { type: 'teacher', ref: 'w3d3-t3' }
           ]
         },
         {
@@ -164,7 +164,7 @@ window.DEC15_LESSON = {
               { q: 'Which type of food was donated <b>most</b>?', options: ['Bread', 'Other meals', 'Milk and juices', 'Pasta'], answer: 'Other meals', why: 'Other meals = 15.9%, the biggest part of the chart.' },
               { q: 'Paragraph C says the most donated products are “other meals, bread, milk, and juices”. Which <b>large</b> category in the chart does the text not list?', options: ['Second course (12.5%)', 'Baby food (1.4%)', 'Oil (0.7%)', 'Tomato sauce (3.7%)'], answer: 'Second course (12.5%)', why: 'Second course (12.5%) is slightly bigger than bread (12.4%). Always check a writer’s summary against the data.' }
             ]},
-            { type: 'teacher', text: 'Students can also copy the headings on paper (as in the TB). The figure question is an addition: it practises reading data and checking a text against its figure.' }
+            { type: 'teacher', ref: 'w3d3-t4' }
           ],
           answers: { title: 'Sample notes (Teacher’s Book)', items: [
             ['Food insecurity', 'Serious problem in wealthy countries.'],
@@ -223,7 +223,7 @@ window.DEC15_LESSON = {
               'Look at the focus question. Which rows help you answer “Can food banks help to solve food insecurity?”'
             ]},
             { type: 'question' },
-            { type: 'teacher', text: 'The TB key uses only “Agree” and “Doesn’t mention”. If a group argues for “Partially agree” with good evidence (e.g. Berti et al. on “stopping food waste is more important”), accept the discussion — the reasoning is the point. Row 1 is given, as in the student booklet.' }
+            { type: 'teacher', ref: 'w3d3-t5' }
           ]
         },
         {
@@ -243,7 +243,7 @@ window.DEC15_LESSON = {
               { id: 'm7-1', label: 'a. Find the parts that show comparison. How has the writer compared?', placeholder: 'The writer puts two sources in one bracket: (… ; …) and also writes … and …', rows: 3 },
               { id: 'm7-2', label: 'b. Which words show contrast? Which connect sentences, and which connect clauses?', placeholder: 'Contrast words: … Sentences: … Clauses: …', rows: 3 }
             ]},
-            { type: 'teacher', text: 'In the TB this is a drag-and-drop with the references as tiles (About That (2024) appears twice in the tile bank). The paragraph is reproduced exactly from the TB, including “reduce food loss and waste, loss.” — you may point out the repeated word as an editing slip.' }
+            { type: 'teacher', ref: 'w3d3-t6' }
           ],
           answers: { items: [
             ['Completed paragraph', 'Redistribution of extra food through food banks is one possible solution to the increasing problems of food waste and food insecurity <b>(Nicastro & Carillo, 2021; Berti et al., 2021).</b> However, <b>Nicastro and Carillo (2021)</b> argue that eliminating food waste from occurring in the first place is a higher priority. Food redistribution should therefore only be considered when producing extra food is unavoidable. Although <b>Nicastro and Carillo (2021) and Berti et al. (2021)</b> do not consider that food banks may also create food waste, <b>About That (2024)</b> points out that giving people food they don’t like might actually increase waste. It is therefore important to consider how food banks redistribute extra food. In addition to food banks, <b>Nicastro and Carillo (2021)</b> suggest a variety of other ways for businesses, producers and individuals to reduce food loss and waste, loss.  In contrast, <b>Berti et al. (2021)</b> focus more on the role of governments in reducing waste, improving food security and supporting food redistribution programs. At present, food banks are limited by their reliance on volunteers and donations to fund their operations <b>(Berti et al., 2021; About That, 2024).</b>  Overall, food banks may be part of the solution to food insecurity and food waste if they are adequately supported.'],
@@ -274,7 +274,7 @@ window.DEC15_LESSON = {
             { type: 'fields', fields: [
               { id: 'm8-1', label: 'My contrast sentence about two sources', placeholder: 'Although Berti et al. (2021) …, About That (2024) … / In contrast, …', rows: 3 }
             ]},
-            { type: 'teacher', text: 'The yet/although/Despite this matching is optional in the TB (“if time allows”). Answers: yet · although · Despite this.' }
+            { type: 'teacher', ref: 'w3d3-t7' }
           ],
           answers: { title: 'Model exit ticket', items: [
             ['Model', 'While Berti et al. (2021) see food banks as a way to redistribute extra food, About That (2024) shows that the way food is given out matters, because people may waste food they don’t like.']
@@ -313,7 +313,7 @@ window.DEC15_LESSON = {
               { tag: '9', front: 'The practicality or possibility of something being achieved.', backTitle: 'feasibility', back: 'feasible (adj.) → feasib<b>ility</b>' },
               { tag: '10', front: 'The process of judging the quality, importance or value of something.', backTitle: 'evaluation / assessment', back: 'evaluate → evalu<b>ation</b> · assess → assess<b>ment</b>' }
             ]},
-            { type: 'teacher', text: 'Print the 20 statements (TRP on Canvas) and cut them into strips — one per student. Students mingle, read their strip aloud, the partner guesses the noun, they swap strips and find a new partner. Alternative: fold the strips with the statement facing outwards. The 10 flip cards are a back-up for pairs. Other TB items: migration · preservation / conservation (preventing the wasteful use of a resource) · opposition · erosion · globalisation · incentives · behaviour · consideration · resource · implication · establishment.' }
+            { type: 'teacher', ref: 'w3d3-t8' }
           ]
         },
         {
@@ -382,7 +382,7 @@ window.DEC15_LESSON = {
               { id: 'n3-5', label: 'E. It is feasible to redirect surplus food to food banks. → (… has been clearly demonstrated)', placeholder: 'The … of redirecting …', rows: 2 },
               { id: 'n3-6', label: 'F. Researchers discovered a link between pesticide use and declining bee populations. → (… has prompted an international response)', placeholder: 'The … of a link …', rows: 2 }
             ]},
-            { type: 'teacher', text: 'TB order: noun table (12 words) → rewrite 6 sentences → question about the verb after an adjective (it becomes a gerund). In the app the table is a quick “real word” game, sentences 1–3 are guided with drop-downs and sentences 4–6 are written freely (D–F). Students can also write the sentences in their notebooks.' }
+            { type: 'teacher', ref: 'w3d3-t9' }
           ],
           answers: { items: [
             ['D', 'The expansion of the program to include more rural areas was a significant development.'],
@@ -414,7 +414,7 @@ window.DEC15_LESSON = {
               { id: 'n4-5', label: 'E. Magazzini Sociali approaches food distribution in an effective way. → The food system has noticeably improved.', placeholder: 'Magazzini Sociali’s effective approach … has resulted in …', rows: 2 }
             ]},
             { type: 'tip', text: 'Be concise. Nominalisation can make a sentence longer. Compare: <i>The reduction in food waste was achieved through the redistribution of resources.</i> / <i>Redistributing resources reduced food waste.</i> With a word limit, the shorter verb version may be better.' },
-            { type: 'teacher', text: 'TB sentence B also has a third line (“They support policies promoting responsible food production and consumption.”) which the answer does not use — it is left out here. E1 in the TB reads “noticeable improved” (corrected to “noticeably”). A and C are guided with drop-downs; B, D and E are written.' }
+            { type: 'teacher', ref: 'w3d3-t10' }
           ],
           answers: { items: [
             ['B', 'Awareness of the environmental and social impacts of food waste <b>has led to</b> an increase in food conservation.'],
@@ -455,7 +455,7 @@ window.DEC15_LESSON = {
               { text: 'the <b>importance</b> | of food conservation', answer: 0 },
               { text: 'a <b>means</b> | of combating hunger', answer: 0 }
             ]},
-            { type: 'teacher', text: 'The full TB head-noun table is in the answers. The head noun does not always have to be a nominalisation. Point out that complex noun phrases are expected in university writing.' }
+            { type: 'teacher', ref: 'w3d3-t11' }
           ],
           answers: { title: 'All noun phrases in the extract', items: [
             ['the adoption of …', 'before: the (article) · after: of more sustainable consumption habits (prepositional phrase)'],
@@ -509,7 +509,7 @@ window.DEC15_LESSON = {
               { q: 'What do the 2 ‘A’s in the CRAAP Test represent?', options: ['Authority and Accuracy', 'Authority and Answers', 'Accuracy and Adaptability', 'Adaptability and Accessibility'], answer: 'Authority and Accuracy', why: 'Who wrote it, and is the information supported?' },
               { q: 'What does the ‘P’ in the CRAAP Test represent?', options: ['Positivity', 'Purpose', 'Preparation', 'Position'], answer: 'Purpose', why: 'Why was it written?' }
             ]},
-            { type: 'teacher', text: 'TB review questions — teachers choose how to run this (e.g. Kahoot). Keep it brisk.' }
+            { type: 'teacher', ref: 'w3d3-t12' }
           ]
         },
         {
@@ -560,7 +560,7 @@ window.DEC15_LESSON = {
               { id: 'r3-2', label: 'b) How can I improve this process and make my research more efficient?', placeholder: 'This time I will …', rows: 2 }
             ]},
             { type: 'tip', text: 'In Week 2, did you find an article about solutions that you didn’t use? You can use it now.' },
-            { type: 'teacher', text: 'If students did not save their self-reflection form, ask them to download a new one and think back about their experience.' }
+            { type: 'teacher', ref: 'w3d3-t13' }
           ],
           answers: { title: 'Model', items: [
             ['a)', 'I searched with the whole question, so I got too many general results, and I spent a long time reading articles that were not about my region.'],
@@ -582,7 +582,7 @@ window.DEC15_LESSON = {
               'Find <b>one reliable academic source</b> about solutions to food insecurity in your group’s region. Apply the <b>CRAAP test</b>.',
               'Later this week (Day 5) you will show your group your article, explain why it is appropriate, and check that everyone has a <b>different</b> article.'
             ]},
-            { type: 'teacher', text: 'Make sure students work in their original research groups (not their discussion groups). Students share their articles in the W3 D5 Discussion skills lesson.' }
+            { type: 'teacher', ref: 'w3d3-t14' }
           ],
           answers: { title: 'Possible keywords (Teacher’s Book)', items: [
             ['solution (noun)', 'resolution, strategy, approach, innovation'],
@@ -608,7 +608,7 @@ window.DEC15_LESSON = {
           { who: 'alone', text: 'Afterwards, write down one thing that was difficult. Bring it to class.' }
         ]},
         { type: 'fields', fields: [{ id: 'x1-1', label: 'One thing that was difficult, and what I will do about it', placeholder: 'It was hard to … Next time I will …', rows: 2 }] },
-        { type: 'teacher', text: 'TB 10A: check Canvas and refer to instructions from the DEC team. Time shown is approximate.' }
+        { type: 'teacher', ref: 'w3d3-t15' }
       ]
     },
     {
