@@ -19,13 +19,13 @@ lesson.sections.forEach((s, i) => {
   s.art = s.art || (LEGACY[s.id] ? s.id : 'reading');
 });
 const tone = s => `--accent:${TONES[s.tone][0]};--accent-bg:${TONES[s.tone][1]}`;
-/* The Teacher’s Book code of a stage (e.g. 15A) — shown everywhere so students can find the same lesson in the book. */
-const code = s => s.code || pad(Number(s.number));
+/* The Teacher’s Book lesson number of a stage, shown without the letter (15A → 15). */
+const code = s => (s.code ? navCode(s.code) : pad(Number(s.number)));   // "17A" shows as "17"
 /* In the side panel the badge shows the lesson number only (7A → 7). */
 const navCode = c => String(c).replace(/^(\d+)A$/, '$1');
-const stageName = s => `${s.code ? s.code + ' ' : ''}${s.title}`;
+const stageName = s => `${s.code ? navCode(s.code) + ' ' : ''}${s.title}`;
 /* A day's part from course.js, e.g. '15A Discussion skills' → { code: '15A', name: 'Discussion skills', tone } */
-const dayPart = (d, k) => { const m = String(d.parts[k]).match(/^(\d+[A-Z])\s+(.*)$/); return { code: m ? m[1] : String(k + 1), name: m ? m[2] : d.parts[k], tone: TONES[d.tones?.[k]] ? d.tones[k] : null }; };
+const dayPart = (d, k) => { const m = String(d.parts[k]).match(/^(\d+[A-Z])\s+(.*)$/); return { code: m ? navCode(m[1]) : String(k + 1), name: m ? m[2] : d.parts[k], tone: TONES[d.tones?.[k]] ? d.tones[k] : null }; };
 const artSrc = name => `assets/art/stage-${name}.svg`;
 /* Addresses inside this lesson: L('ai') → #/w2d5/ai */
 const L = p => '#/' + lesson.id + (p && p !== 'overview' ? '/' + p : '');
@@ -226,7 +226,9 @@ B.passage = b => `<section class="block passage">
   ${reader.toolbar('activity')}
   <blockquote class="passage-text" data-help>${reader.text('c-' + b.id, b.text, b.title)}</blockquote>
 </section>`;
-B.fields = (b, a) => `<section class="block fields">${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}${b.fields.map(f => `<div class="field"><label for="f-${f.id}">${esc(f.label)}</label><textarea id="f-${f.id}" data-save="${f.id}" rows="${f.rows || 3}" placeholder="${esc(f.placeholder || '')}">${esc(val(f.id))}</textarea>${wallOn(a) && f.share !== false && b.share !== false ? `<button type="button" class="share-btn" data-wall-share="${f.id}" data-thread="${a.id}" data-label="${esc(f.label)}">${icon('share')}Share with class</button>` : ''}</div>`).join('')}</section>`;
+/* One "Share with class" button per writing block: it shares every box the student has filled in, with its label. */
+B.fields = (b, a) => { const sharable = b.fields.filter(f => f.share !== false);
+  return `<section class="block fields">${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}${b.fields.map(f => `<div class="field"><label for="f-${f.id}">${esc(f.label)}</label><textarea id="f-${f.id}" data-save="${f.id}" rows="${f.rows || 3}" placeholder="${esc(f.placeholder || '')}">${esc(val(f.id))}</textarea></div>`).join('')}${wallOn(a) && b.share !== false && sharable.length ? `<button type="button" class="share-btn" data-wall-share="${sharable.map(f => f.id).join(',')}" data-thread="${a.id}" data-label="${esc(b.title ? String(b.title).replace(/<[^>]+>/g, '') : sharable.length === 1 ? sharable[0].label : '')}">${icon('share')}Share ${sharable.length > 1 ? 'my answers' : 'with class'}</button>` : ''}</section>`; };
 B.quiz = b => {
   const checked = state.checked[b.id];
   return `<section class="block quiz" id="quiz-${b.id}">
@@ -462,7 +464,7 @@ function stagePage(s) {
   return `<header class="stage-head${complete ? ' is-complete' : ''}">
       <span class="stage-numeral${code(s).length > 2 ? ' is-code' : ''}" aria-hidden="true">${esc(code(s))}</span>
       <div class="stage-copy">
-        <span class="eyebrow">${s.code ? `Teacher’s Book ${esc(s.code)}<span class="sep"></span>` : ''}Stage ${Number(s.number)} of ${lesson.sections.length}<span class="sep"></span>${esc(s.subtitle)}</span>
+        <span class="eyebrow">${s.code ? `Teacher’s Book ${esc(navCode(s.code))}<span class="sep"></span>` : ''}Stage ${Number(s.number)} of ${lesson.sections.length}<span class="sep"></span>${esc(s.subtitle)}</span>
         <h1>${esc(s.title)}</h1>
         <p class="stage-outcome" data-help>${esc(s.outcome)}</p>
         <div class="stage-meta">
@@ -839,7 +841,7 @@ function render() {
     $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher(); document.body.classList.toggle('is-teacher', isTeacher());
     klass?.setWhere('board', 'Class board');
     if (!$('#board-root')) { $('#main').innerHTML = '<div id="board-root" class="planner-loading"><p>Opening the class board…</p></div>';
-      loadBoard().then(() => { const el = $('#board-root'); if (el && parseRoute().page === 'board') window.DEC15Board.mount(el, { esc, icon, toast, getCloud: () => cloud, signIn: () => accountDialog('signin') }); })
+      loadBoard().then(() => { const el = $('#board-root'); if (el && parseRoute().page === 'board') window.DEC15Board.mount(el, { esc, icon, toast, getCloud: () => cloud, signIn: () => accountDialog('signin'), version: cfg.version }); })
         .catch(() => { const el = $('#board-root'); if (el) el.innerHTML = '<p class="planner-error">The board could not open. Check your internet connection and reload the page.</p>'; }); }
     return;
   }
@@ -987,7 +989,8 @@ function accountDialog(mode = cloudInfo.user ? 'account' : 'signin', msg = '', k
     $('#resource-title').textContent = 'Choose a new password';
     $('#resource-body').innerHTML = `<form class="acct-form" data-acct="password" novalidate><p class="acct-intro">You opened a password reset link. Choose a new password for <b>${esc(cloudInfo.user?.email || 'your account')}</b>.</p>
       ${pw('next', 'New password', 'new-password', '(at least 6 characters)')}${pw('again', 'Type it again', 'new-password')}${note('password')}<button class="btn" type="submit">Save new password</button></form>`;
-    if (!$('#resource-dialog').open) $('#resource-dialog').showModal(); $('#resource-body input')?.focus(); return;
+    if (mode === 'signin' || mode === 'signup') cloud?.googleEnabled?.().then(on => { const g = $('#resource-body .acct-google'); if (g) g.hidden = !on; });
+  if (!$('#resource-dialog').open) $('#resource-dialog').showModal(); $('#resource-body input')?.focus(); return;
   }
   $('#resource-body').innerHTML = mode === 'account' ? `<div class="acct acct-settings">
       <section class="acct-card acct-hero">
@@ -1015,6 +1018,7 @@ function accountDialog(mode = cloudInfo.user ? 'account' : 'signin', msg = '', k
       ${mode !== 'reset' && mode !== 'link' ? `<label>Password${mode === 'signup' ? ' <small>(at least 6 characters)</small>' : ''}<span class="pw-wrap"><input name="password" type="password" autocomplete="${mode === 'signup' ? 'new-password' : 'current-password'}" minlength="6" required${val('password')}><button type="button" class="pw-show" data-pw-show aria-pressed="false">Show</button></span></label>` : ''}
       ${msg ? `<p class="acct-msg" role="alert">${msg}</p>` : ''}
       <button class="btn" type="submit">${mode === 'signup' ? 'Create account' : mode === 'reset' ? 'Send reset link' : mode === 'link' ? 'Email me a sign-in link' : 'Sign in'}</button>
+      ${mode === 'signin' || mode === 'signup' ? '<div class="acct-google" hidden><span class="acct-or">or</span><button type="button" class="btn-google" data-google><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.8z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3a7.2 7.2 0 0 1 0-4.6V6.6h-4a12 12 0 0 0 0 10.8z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4A12 12 0 0 0 1.3 6.6l4 3.1c.9-2.9 3.6-4.9 6.7-4.9z"/></svg>Continue with Google</button></div>' : ''}
       <p class="acct-switch">${mode === 'signin' ? `New here? <button type="button" class="text-link" data-auth-mode="signup">Create an account</button> · <button type="button" class="text-link" data-auth-mode="reset">Forgot password?</button><br><button type="button" class="text-link" data-auth-mode="link">Email me a sign-in link instead</button>` : `Already have an account? <button type="button" class="text-link" data-auth-mode="signin">Sign in</button>`}</p>
     </form>`;
   if (!$('#resource-dialog').open) $('#resource-dialog').showModal();
@@ -1294,6 +1298,7 @@ document.addEventListener('click', e => {
   if (d.authMode) { accountDialog(d.authMode); return; }
   if (t.hasAttribute('data-avatar-remove')) { cloud.removeAvatar().then(err => { paintStatus(); wall?.load?.(); accountDialog('account', '', { note: ['photo', err ? esc(err) : 'Picture removed.', !err] }); }); return; }
   if (t.hasAttribute('data-signout-all')) { if (!confirm('Sign out on every device where you are signed in?')) return; cloud.signOutEverywhere().then(() => { $('#resource-dialog').close(); toast('Signed out on all devices. Work on this device is still saved here.'); }); return; }
+  if (t.hasAttribute('data-google')) { t.disabled = true; cloud.signInWithGoogle().then(err => { if (err) { t.disabled = false; toast(err); } }); return; }
   if (t.hasAttribute('data-teacher-link')) { t.disabled = true; cloud.sendEmailLink(cloudInfo.user?.email, false).then(err => accountDialog('account', '', { note: ['teacher', err ? esc(err === 'EMAIL_LIMIT' ? EMAIL_LIMIT_MSG : err) : 'Sent. Open the email (check Junk/Spam too) and click the link on this device.', !err] })); return; }
   if (t.hasAttribute('data-signout')) { cloud.signOut().then(() => { $('#resource-dialog').close(); toast('Signed out. Work on this device is still saved here.'); }); return; }
   if (t.hasAttribute('data-clear') && confirm('Clear all your answers on this device? Download your notes first if you need them.')) {

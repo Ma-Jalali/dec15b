@@ -7,7 +7,8 @@ const version = fs.readFileSync(path.join(root, 'js/config.js'), 'utf8').match(/
 const walk = d => fs.readdirSync(path.join(root, d), { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
 const versioned = [...walk('css'), ...walk('js').filter(f => !f.includes('vendor')), ...walk('lessons').filter(f => !f.includes('_template'))]
   .filter(f => /\.(css|js)$/.test(f)).concat(['js/vendor/tiptap.bundle.js']).map(f => f.split(path.sep).join('/') + '?v=' + version);
-const plain = walk('assets').filter(f => /\.(svg|png|jpg|webp|woff2)$/.test(f)).map(f => f.split(path.sep).join('/'))
+const plain = walk('assets').filter(f => /\.(svg|png|jpg|webp|woff2)$/.test(f) && !f.includes('excalidraw'))   // the whiteboard's files load only when used
+.map(f => f.split(path.sep).join('/'))
   .concat(['./', 'index.html', 'manifest.webmanifest', 'js/vendor/supabase.min.js']);
 const list = [...plain, ...versioned].sort();
 let sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');

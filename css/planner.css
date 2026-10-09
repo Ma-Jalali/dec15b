@@ -709,3 +709,7 @@ body.pl-resizing, body.pl-resizing * { cursor: ns-resize !important; user-select
 .pl-ro ul[data-type="taskList"] li > div { flex: 1; min-width: 0; }
 .pl-ro ul[data-type="taskList"] li > div p { margin: 0; }
 .pl-ro ul[data-type="taskList"] li[data-checked="true"] > div { color: var(--muted); text-decoration: line-through; }
+
+/* v2.31: Outfit for the body text of My planner and the class board (headings keep Fraunces) */
+.pl, .bd, .pl-pop, .bd-root { --sans: 'Outfit', 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif; font-family: var(--sans); }
+.pl-doc, .bd-doc { font-family: var(--sans); }

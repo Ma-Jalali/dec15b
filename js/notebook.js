@@ -56,7 +56,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
   }
   function model() {
     const st = getState(), core = lesson.sections.flatMap(s => s.activities);
-    const sections = [...lesson.sections.map(s => ({ id: s.id, number: s.code || s.number, title: s.title, color: s.color || STAGE_COLORS[s.id], activities: s.activities })),
+    const sections = [...lesson.sections.map(s => ({ id: s.id, number: s.code ? String(s.code).replace(/^(\d+)A$/, '$1') : s.number, title: s.title, color: s.color || STAGE_COLORS[s.id], activities: s.activities })),
       { id: 'extra', number: '+', title: 'Extra activities', color: '#5d6b75', activities: lesson.extras }]
       .map(s => ({ ...s, activities: s.activities.map(a => ({ id: a.id, title: a.title, done: !!st.done[a.id], items: activityItems(a) })).filter(a => a.items.length) }))
       .filter(s => s.activities.length);
