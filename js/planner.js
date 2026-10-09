@@ -435,7 +435,7 @@ window.DEC15Planner = (() => {
   function paintNoteMeta() {
     const m = root?.querySelector('.pl-note-meta'), n = get(ui.openNoteId); if (!m || !n) return;
     const folders = list('folder').map(f => [folderPath(f.id), f]).sort((a, b) => a[0].localeCompare(b[0]));
-    const t = new Date(n.updatedAt || Date.now()), words = ((n.data.text || '').match(/[\p{L}\p{N}'’-]+/gu) || []).length;
+    const t = new Date(n.updatedAt || Date.now()), words = ((editor && editor.__noteId === n.id ? editor.getText() : n.data.text || '').match(/[\p{L}\p{N}'’-]+/gu) || []).length;
     const tasks = list('task').filter(x => x.data.noteId === n.id && (x.data.title || '').trim()), doneN = tasks.filter(x => x.data.done).length;
     m.innerHTML = `<label class="pl-mini-sel"><span class="sr-only">Folder</span><select data-move-note aria-label="Folder"><option value="">No folder</option>${folders.map(([path, f]) => `<option value="${f.id}"${f.id === n.data.folderId ? ' selected' : ''}>${esc(path)}</option>`).join('')}</select></label>
       <span class="pl-stat" title="Words">${GI.words}${words.toLocaleString('en-AU')} word${words === 1 ? '' : 's'}</span>

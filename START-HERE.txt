@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.28)
+DEC15 — COURSE APP (v2.29)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -330,3 +330,21 @@ MY PLANNER: BLOCKS + DAY VIEW (v2.28)
   weekday name to open that day. Keys in the calendar: D W M Y switch view, T today, ← → move.
 - Editor bundle now also includes TipTap table and link extensions (tools/tiptap, same 2.27.2).
   New file: js/planner-blocks.js (loaded with the planner).
+
+FRESH LOOK (v2.29)
+- Side panel, calmer: five one-line links with coloured icons (Course map, This lesson, My planner,
+  Readings, My notebook); "This lesson" lists today's stages (one line each, with a small progress
+  line and done/total); "All weeks" stays folded until opened; a progress ring and a gear button at
+  the bottom. The gear opens Settings: Teacher view, Projector mode (P) and Large text.
+- Top bar: Word meanings, Readings and Word game only. The save status is a small coloured dot
+  (hover for the words); problems ("Not saved", "Offline") still show in words.
+- Colour and motion: a brighter flat background, a four-colour ribbon on the big lesson cards,
+  coloured tool icons, pages ease in when opened, buttons respond to presses, cards lift on hover.
+  All motion stops when the device asks for reduced motion.
+- New "Up next" card at the end of each stage (the next stage, or the end of the day with the next
+  lesson). Weeks with one lesson show one wide card on the course map.
+- Phones: the lesson hero and activity tabs no longer run off the right edge.
+- My planner: three new blocks in the "/" menu — Image (from a web address), Link card, and 2 or 3
+  columns. Only http/https addresses are accepted. The word count now counts a note before it is
+  edited.
+- New file: css/fresh.css (loaded last).
