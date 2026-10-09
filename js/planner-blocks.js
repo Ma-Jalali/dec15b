@@ -21,6 +21,10 @@ window.DEC15Blocks = (() => {
     divider: I('<path d="M3 10h14"/><path d="M6 5.5h8M6 14.5h8" opacity=".35"/>'),
     code: I('<path d="m7 6-4 4 4 4M13 6l4 4-4 4M11.2 4.5 8.8 15.5"/>'),
     table: I('<rect x="3" y="4" width="14" height="12" rx="2"/><path d="M3 8h14M3 12h14M8 4v12"/>'),
+    image: I('<rect x="2.5" y="4" width="15" height="12" rx="2.5"/><circle cx="7" cy="8.5" r="1.6"/><path d="m3 15 4.5-4.2 3.2 2.8 2.8-2.6L17 14.5"/>'),
+    cols2: I('<rect x="2.5" y="4" width="6.5" height="12" rx="1.8"/><rect x="11" y="4" width="6.5" height="12" rx="1.8"/>'),
+    cols3: I('<rect x="2" y="4" width="4.4" height="12" rx="1.4"/><rect x="7.8" y="4" width="4.4" height="12" rx="1.4"/><rect x="13.6" y="4" width="4.4" height="12" rx="1.4"/>'),
+    bookmark: I('<rect x="2.5" y="4.5" width="15" height="11" rx="2.5"/><path d="M8.3 10.7a2 2 0 0 0 2.9 0l1.6-1.6a2 2 0 0 0-2.9-2.9l-.6.6M11.7 9.3a2 2 0 0 0-2.9 0l-1.6 1.6a2 2 0 0 0 2.9 2.9l.6-.6"/>'),
     date: I('<rect x="3.5" y="4.5" width="13" height="12" rx="2.5"/><path d="M3.5 8.5h13M7 3v3M13 3v3"/><circle cx="10" cy="12.5" r="1.2" fill="currentColor"/>'),
     grip: '<svg viewBox="0 0 10 16" aria-hidden="true"><circle cx="3" cy="3" r="1.3"/><circle cx="7" cy="3" r="1.3"/><circle cx="3" cy="8" r="1.3"/><circle cx="7" cy="8" r="1.3"/><circle cx="3" cy="13" r="1.3"/><circle cx="7" cy="13" r="1.3"/></svg>',
     plus: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg>',
@@ -103,11 +107,35 @@ window.DEC15Blocks = (() => {
     const Trailing = T.Extension.create({ name: 'trailingLine', addProseMirrorPlugins() { return [new T.Plugin({ key: new T.PluginKey('trailingLine'),
       appendTransaction: (trs, _o, state) => { if (!trs.some(t => t.docChanged)) return null; const last = state.doc.lastChild; if (!last || last.type.name === 'paragraph') return null;
         return state.tr.insert(state.doc.content.size, state.schema.nodes.paragraph.create()).setMeta('addToHistory', false); } })]; } });
-    return [Callout, Toggle, Trailing,
+    /* columns: two or three side by side */
+    const Column = T.Node.create({ name: 'column', content: 'block+', isolating: true,
+      parseHTML() { return [{ tag: 'div[data-type="column"]' }]; }, renderHTML({ HTMLAttributes }) { return ['div', T.mergeAttributes(HTMLAttributes, { 'data-type': 'column', class: 'pl-col' }), 0]; } });
+    const Columns = T.Node.create({ name: 'columns', group: 'block', content: 'column{2,3}', defining: true, isolating: true,
+      parseHTML() { return [{ tag: 'div[data-type="columns"]' }]; }, renderHTML({ HTMLAttributes }) { return ['div', T.mergeAttributes(HTMLAttributes, { 'data-type': 'columns', class: 'pl-cols' }), 0]; } });
+    /* a picture from a web address (http/https only) */
+    const Picture = T.Node.create({ name: 'picture', group: 'block', atom: true, draggable: true,
+      addAttributes() { return { src: { default: null }, alt: { default: '' } }; },
+      parseHTML() { return [{ tag: 'figure[data-type="picture"] img', getAttrs: el => (safeUrl(el.getAttribute('src')) ? { src: el.getAttribute('src'), alt: el.getAttribute('alt') || '' } : false) }]; },
+      renderHTML({ node }) { return ['figure', { 'data-type': 'picture', class: 'pl-pic' }, ['img', { src: safeUrl(node.attrs.src) || '', alt: node.attrs.alt || '', loading: 'lazy' }]]; } });
+    /* a link card */
+    const Bookmark = T.Node.create({ name: 'bookmark', group: 'block', atom: true, draggable: true,
+      addAttributes() { return { href: { default: null }, title: { default: '' } }; },
+      parseHTML() { return [{ tag: 'div[data-type="bookmark"]', getAttrs: el => { const a = el.querySelector('a'); return a && safeUrl(a.getAttribute('href')) ? { href: a.getAttribute('href'), title: a.textContent || '' } : false; } }]; },
+      renderHTML({ node }) { const href = safeUrl(node.attrs.href) || '#', host = hostOf(href);
+        return ['div', { 'data-type': 'bookmark', class: 'pl-bm' }, ['span', { class: 'pl-bm-ico', 'aria-hidden': 'true' }, host.slice(0, 1).toUpperCase()],
+          ['span', { class: 'pl-bm-tx' }, ['a', { href, target: '_blank', rel: 'noopener noreferrer' }, node.attrs.title || host], ['small', {}, href]]]; } });
+    return [Callout, Toggle, Trailing, Column, Columns, Picture, Bookmark,
       T.Table.configure({ resizable: false, HTMLAttributes: { class: 'pl-table' } }), T.TableRow, T.TableHeader, T.TableCell,
       T.Link.configure({ openOnClick: false, autolink: true, linkOnPaste: true, HTMLAttributes: { rel: 'noopener noreferrer', target: '_blank' } })];
   }
 
+  const safeUrl = u => (typeof u === 'string' && /^https?:\/\/[^\s"'<>]+$/i.test(u.trim()) ? u.trim() : null);
+  const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return 'link'; } };
+  const col = () => ({ type: 'column', content: [{ type: 'paragraph' }] });
+  async function askUrl(e, ask, what) {
+    let v = await ask(what); if (!v) return; v = v.trim(); if (!/^https?:\/\//i.test(v)) v = 'https://' + v.replace(/^\/+/, '');
+    return safeUrl(v);
+  }
   /* ── the block catalogue (used by "/" and "Turn into") ── */
   const todayText = d => d.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
   function blockNode(state, json) { return state.schema.nodeFromJSON(json); }
@@ -138,6 +166,10 @@ window.DEC15Blocks = (() => {
     { id: 'divider', group: 'Blocks', title: 'Divider', hint: 'A line between parts', md: '---', keys: 'divider line hr separator rule', run: e => e.chain().focus().setHorizontalRule().run() },
     { id: 'code', group: 'Blocks', title: 'Code', hint: 'Plain text in a box', md: '```', keys: 'code monospace pre', run: e => e.chain().focus().toggleCodeBlock().run(), active: e => e.isActive('codeBlock') },
     { id: 'table', group: 'Blocks', title: 'Table', hint: '3 × 3, with a header row', keys: 'table grid columns rows', run: e => e.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run() },
+    { id: 'image', group: 'Media & layout', title: 'Image', hint: 'A picture from a web address', keys: 'image picture photo img', run: async (e, x) => { const src = await askUrl(e, x.ask, 'image'); if (src) replaceEmptyBlock(e, { type: 'picture', attrs: { src, alt: '' } }, 1); } },
+    { id: 'bookmark', group: 'Media & layout', title: 'Link card', hint: 'A web page as a card', keys: 'bookmark link card url web', run: async (e, x) => { const href = await askUrl(e, x.ask, 'link'); if (href) replaceEmptyBlock(e, { type: 'bookmark', attrs: { href, title: hostOf(href) } }, 1); } },
+    { id: 'cols2', group: 'Media & layout', title: '2 columns', hint: 'Two blocks side by side', keys: 'columns two side layout grid', run: e => replaceEmptyBlock(e, { type: 'columns', content: [col(), col()] }, 3) },
+    { id: 'cols3', group: 'Media & layout', title: '3 columns', hint: 'Three blocks side by side', keys: 'columns three side layout grid', run: e => replaceEmptyBlock(e, { type: 'columns', content: [col(), col(), col()] }, 3) },
     { id: 'today', group: 'Insert', title: 'Today’s date', hint: todayText(new Date()), icon: 'date', keys: 'date today now', run: e => e.chain().focus().insertContent(todayText(new Date()) + ' ').run() },
     { id: 'tomorrow', group: 'Insert', title: 'Tomorrow’s date', hint: (() => { const d = new Date(); d.setDate(d.getDate() + 1); return todayText(d); })(), icon: 'date', keys: 'date tomorrow', run: e => { const d = new Date(); d.setDate(d.getDate() + 1); return e.chain().focus().insertContent(todayText(d) + ' ').run(); } },
   ];
@@ -179,9 +211,21 @@ window.DEC15Blocks = (() => {
       st = { from, q: m[1], items, i: m[1] !== st?.q ? 0 : keep }; menu.hidden = false; paintMenu();
     }
     function close() { if (!st) return; st = null; menu.hidden = true; }
+    function ask(what) {   // a small box under the caret asking for a web address
+      return new Promise(done => {
+        const c = view.coordsAtPos(editor.state.selection.from), anchor = { getBoundingClientRect: () => ({ left: c.left, right: c.left, top: c.top, bottom: c.bottom, width: 0, height: c.bottom - c.top }) };
+        let answered = false; const finish = v => { if (answered) return; answered = true; done(v); };
+        api.popover(anchor, `<form class="pl-task-pop pl-linkpop" novalidate><b>${what === 'image' ? 'Add an image' : 'Add a link card'}</b>
+          <label>${what === 'image' ? 'Image address (ends in .jpg, .png…)' : 'Web address'}<input name="u" type="url" inputmode="url" placeholder="https://…" autofocus></label>
+          <div class="pl-pop-actions"><span></span><button class="pl-btn" type="submit">Add</button></div></form>`, p => {
+          const f = p.querySelector('form'); f.addEventListener('submit', ev => { ev.preventDefault(); const v = String(new FormData(f).get('u') || ''); api.closePop(); finish(v); editor.commands.focus(); });
+          new MutationObserver((_, o) => { if (!p.isConnected) { o.disconnect(); finish(null); } }).observe(document.body, { childList: true });
+        });
+      });
+    }
     function choose(i) {
       const it = st?.items[i]; if (!it) return; const from = st.from, to = editor.state.selection.from; close(); dismissed = -1;
-      editor.chain().focus().deleteRange({ from, to }).run(); it.run(editor);
+      editor.chain().focus().deleteRange({ from, to }).run(); it.run(editor, { ask });
     }
     menu.addEventListener('mousedown', e => e.preventDefault());
     menu.addEventListener('click', e => { const b = e.target.closest('[data-i]'); if (b) choose(+b.dataset.i); });

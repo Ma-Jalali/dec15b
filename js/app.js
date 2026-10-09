@@ -50,6 +50,7 @@ function paintStatus() {
   const [tone, label] = !storageOK && cloudInfo.status !== 'saved' ? ['bad', 'Not saved — download your notebook'] : map[cloudInfo.status] || map.local;
   const off = navigator.onLine === false;
   el.dataset.tone = off ? 'warn' : tone; el.innerHTML = off ? '<span>Offline · saved on this device</span>' : `<span>${label}</span>`;
+  el.title = el.textContent; el.dataset.off = off ? '1' : '';
   const btn = $('#account-btn'); if (!btn) return;
   btn.hidden = !cloud?.enabled;
   const name = cloudInfo.profile?.full_name || cloudInfo.user?.email || '';
@@ -464,7 +465,22 @@ function stagePage(s) {
       <div class="stage-art-wrap"><img class="stage-art" src="${artSrc(s.art)}" alt="" width="220" height="170">${complete ? '<img class="stage-medal" src="assets/art/complete.svg" alt="" width="60" height="70">' : ''}</div>
     </header>
     <nav class="act-tabs" aria-label="Activities in this stage" style="--done:${doneCount / s.activities.length};--n:${s.activities.length}">${s.activities.map((a, i) => `<button data-jump="${a.id}" class="${a.id === activeId ? 'current' : ''}${state.done[a.id] ? ' is-done' : ''}" aria-current="${a.id === activeId ? 'step' : 'false'}"><span class="tab-num">${state.done[a.id] ? icon('check') : i + 1}</span><span class="tab-text">${esc(a.short)}<small>${a.minutes} min</small></span></button>`).join('')}</nav>
-    ${activity(s.activities[idx], idx, s.activities, s)}`;
+    ${activity(s.activities[idx], idx, s.activities, s)}${upNext(s, idx)}`;
+}
+/* At the last activity of a stage: a card for what comes next (the next stage, or the end of the day). */
+function upNext(s, idx) {
+  if (idx !== s.activities.length - 1) return '';
+  const next = lesson.sections[lesson.sections.indexOf(s) + 1];
+  if (next) return `<aside class="upnext" style="${tone(next)}" aria-label="Up next">
+      <div class="upnext-art"><img src="${artSrc(next.art)}" alt="" width="150" height="116" loading="lazy"></div>
+      <div class="upnext-copy"><span class="eyebrow">Up next · Teacher’s Book ${esc(code(next))}</span><h2>${esc(next.title)}</h2><p>${esc(next.outcome)}</p>
+        <span class="chip">${icon('clock')}${next.minutes} min · ${next.activities.length} activities</span></div>
+      <a class="btn" href="${L(next.id)}">Start ${esc(code(next))} ${icon('arrow')}</a></aside>`;
+  const nx = nextLesson();
+  return `<aside class="upnext is-end" aria-label="End of the day">
+      <div class="upnext-art"><img src="assets/art/complete.svg" alt="" width="96" height="112" loading="lazy"></div>
+      <div class="upnext-copy"><span class="eyebrow">Last stage of the day</span><h2>You reached the end of today</h2><p>Look back over your notebook${nx ? `, then go on to Week ${nx.week}, Day ${nx.day}` : ''}.</p></div>
+      <a class="btn" href="${nx ? '#/' + nx.id : L('notebook')}">${nx ? 'Next lesson' : 'Open my notebook'} ${icon('arrow')}</a></aside>`;
 }
 /* The first activity not yet finished (for "Continue" buttons). */
 function nextUp() {
@@ -661,16 +677,35 @@ function dayContents(d, route) {
   const tools = here ? `<li class="nav-tools"${stagger()}>${[['sources', 'book', 'Readings'], ['extra', 'list', 'Extra'], ['notebook', 'model', 'Notebook']].map(([id, ic, t]) => `<a href="${L(id)}" class="nav-tool${cur(id)}">${icon(ic)}<span>${t}</span></a>`).join('')}</li>` : '';
   return `<ol class="nav-parts">${start}${stages}${tools}</ol>`;
 }
+document.addEventListener('pointerdown', e => { const m = $('#side-menu'); if (m && !m.hidden && !e.target.closest('#side-menu, #side-settings')) { m.hidden = true; $('#side-settings')?.setAttribute('aria-expanded', 'false'); } });
+document.addEventListener('keydown', e => { const m = $('#side-menu'); if (e.key === 'Escape' && m && !m.hidden) { m.hidden = true; $('#side-settings')?.setAttribute('aria-expanded', 'false'); $('#side-settings')?.focus(); } });
 const navDayOpen = {};   // which days are slid open in this visit (the open lesson starts open)
 const foldAttrs = open => open ? '' : ' inert';
+/* sidebar footer: a small ring for the whole lesson */
+function paintSideRing(done, total) {
+  const el = $('#side-ring'); if (!el) return; const c = 2 * Math.PI * 9, p = total ? done / total : 0;
+  el.innerHTML = `<svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="9"/><circle cx="11" cy="11" r="9" style="stroke-dasharray:${(c * p).toFixed(2)} ${c.toFixed(2)}"/></svg>`;
+  el.classList.toggle('is-done', total > 0 && done === total);
+}
+/* "This lesson": the open day's stages, always in view (one line each) */
+function paintLessonNav(route) {
+  const box = $('#nav-lesson'); if (!box) return;
+  const cur = r => route === r ? ' active" aria-current="page' : '';
+  box.innerHTML = `<p class="nav-label">This lesson <span>Week ${lesson.week} · Day ${lesson.day}</span></p>
+    <ol class="nav-stages">${lesson.sections.map(s => { const dn = s.activities.filter(a => state.done[a.id]).length, n = s.activities.length, all = dn === n;
+      return `<li><a href="${L(s.id)}" class="nav-stage${all ? ' complete' : ''}${cur(s.id)}" style="${tone(s)};--p:${n ? dn / n : 0}" title="${esc(code(s))} · ${esc(s.title)}"><span class="nav-scode">${all ? icon('check') : esc(navCode(code(s)))}</span><span class="nav-sname">${esc(s.title)}</span><span class="nav-scount" aria-label="${dn} of ${n} done">${dn}/${n}</span></a></li>`; }).join('')}
+      <li><a href="${L('extra')}" class="nav-stage is-extra${cur('extra')}"><span class="nav-scode">${icon('list')}</span><span class="nav-sname">Extra practice</span></a></li></ol>`;
+}
 function paintNav(route = navRoute) {
   navRoute = route;
+  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-notebook', 'notebook']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
+  paintLessonNav(route);
   $('#side-home').classList.toggle('active', route === 'home');
   $('#side-planner')?.classList.toggle('active', route === 'planner');
   if (route === 'planner') $('#side-planner')?.setAttribute('aria-current', 'page'); else $('#side-planner')?.removeAttribute('aria-current');
   if (route === 'home') $('#side-home').setAttribute('aria-current', 'page'); else $('#side-home').removeAttribute('aria-current');
   $('#nav').innerHTML = course.weeks.map(w => {
-    const open = navOpen[w.n] ?? (w.n === lesson.week), started = w.days.filter(d => dayProgress(d)[0]).length;
+    const open = navOpen[w.n] ?? false, started = w.days.filter(d => dayProgress(d)[0]).length;
     return `<section class="nav-week${open ? ' open' : ''}">
       <button type="button" class="nav-week-head" data-nav-week="${w.n}" aria-expanded="${open}" aria-controls="nav-w${w.n}">
         <span class="nav-week-num"><small>Week</small>${w.n}</span>
@@ -680,7 +715,8 @@ function paintNav(route = navRoute) {
       <div class="fold" id="nav-w${w.n}"><div class="fold-inner"${foldAttrs(open)}>
       <ol class="nav-days">${w.days.map(d => {
         if (d.status !== 'ready') return `<li class="nav-dayitem is-soon"><div class="nav-day">${ring(0, d.day)}<span class="nav-day-text"><span class="nav-day-eyebrow">Day ${d.day} · Coming soon</span><b>${esc(d.title)}</b></span></div></li>`;
-        const here = d.id === lesson.id, [dn, tot] = dayProgress(d), p = tot ? dn / tot : 0, dopen = navDayOpen[d.id] ?? here;
+        const here = d.id === lesson.id, [dn, tot] = dayProgress(d), p = tot ? dn / tot : 0, dopen = navDayOpen[d.id] ?? false;
+        if (here) return `<li class="nav-dayitem here"><a class="nav-day" href="${L('overview')}">${ring(p, d.day, tot && p === 1)}<span class="nav-day-text"><span class="nav-day-eyebrow">Day ${d.day}<em>Open now</em></span><b>${esc(d.title)}</b></span></a></li>`;
         return `<li class="nav-dayitem${here ? ' here' : ''}${dopen ? ' open' : ''}">
           <button type="button" class="nav-day" data-nav-day="${d.id}" aria-expanded="${dopen}" aria-controls="nav-${d.id}">
             ${ring(p, d.day, tot && p === 1)}
@@ -772,20 +808,24 @@ function render() {
   paintNav(route);
   $('#progress').value = done; $('#progress').max = coreActivities.length;
   $('#progress-label').innerHTML = `<b>${done}</b> of ${coreActivities.length} activities finished`;
-  $('#side-notebook').href = L('notebook');
+  $('#side-notebook').href = L('notebook'); $('#side-readings').href = L('sources'); $('#side-lesson').href = L('overview');
+  paintSideRing(done, coreActivities.length);
   const s = lesson.sections.find(x => x.id === route);
   if (route === 'planner') {   // My planner: its own page, separate from the lesson notebook; kept open across re-renders
     document.body.dataset.page = 'planner'; document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg');
     $('#crumb').innerHTML = `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>My planner</b>`;
     document.title = `${course.code} · My planner`; paintStatus();
+    $('#main').dataset.route = 'planner';
     if (!$('#planner-root')) { $('#main').innerHTML = '<div id="planner-root" class="planner-loading"><p>Opening your planner…</p></div>';
       loadPlanner().then(() => { const el = $('#planner-root'); if (el && parseRoute().page === 'planner') window.DEC15Planner.mount(el, { esc, icon, toast, getCloud: () => cloud }); })
         .catch(() => { const el = $('#planner-root'); if (el) el.innerHTML = '<p class="planner-error">The planner could not open. Check your internet connection and reload the page.</p>'; }); }
     return;
   }
   if (window.DEC15Planner?.mounted) window.DEC15Planner.unmount();
+  const main = $('#main'), changed = main.dataset.route !== route; main.dataset.route = route;
   $('#main').innerHTML = route === 'home' ? courseHome() : s ? stagePage(s) : route === 'sources' ? sourcesPage() : route === 'extra' ? extrasPage() : route === 'notebook' ? notebook() : overview();
   document.body.dataset.page = s ? 'stage' : route;
+  if (changed && !matchMedia('(prefers-reduced-motion: reduce)').matches) { main.classList.remove('route-in'); void main.offsetWidth; main.classList.add('route-in'); clearTimeout(render.t); render.t = setTimeout(() => main.classList.remove('route-in'), 900); }
   if (s) { document.body.style.setProperty('--accent', TONES[s.tone][0]); document.body.style.setProperty('--accent-bg', TONES[s.tone][1]); }
   else { document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg'); }
   const pageName = route === 'home' ? '' : s ? s.title : pageNames[route];
@@ -1176,6 +1216,7 @@ document.addEventListener('click', e => {
     navDayOpen[d.navDay] = open; setFold(item, t, open);
     if (open) setTimeout(() => item.scrollIntoView({ block: 'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }), 340);
     return; }
+  if (t.id === 'side-settings') { const m = $('#side-menu'), open = m.hidden; m.hidden = !open; t.setAttribute('aria-expanded', String(open)); if (open) m.querySelector('button')?.focus(); return; }
   if (t.id === 'menu-btn') { setSide(!document.body.classList.contains('side-open')); return; }
   if (t.tagName === 'A' && t.closest('.sidebar')) { setSide(false); if ($('#side-search').value) { $('#side-search').value = ''; setTimeout(runSearch); } }
   if (d.go) { const sec = lesson.sections.find(x => x.activities.some(a => a.id === d.go)); if (sec) { state.active[sec.id] = d.go; save(false); } return; }
