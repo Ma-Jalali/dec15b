@@ -193,7 +193,7 @@ window.DEC15_LESSON = {
           title: 'Listening for gist',
           goal: 'Hear what the speaker thinks about fixing food waste.',
           blocks: [
-            { type: 'listening', source: 'Gunders (2024) · TED', title: 'How to turn the tables on food waste', videoId: '', url: 'https://www.ted.com/talks/dana_gunders_how_to_turn_the_tables_on_food_waste', urlLabel: 'Watch on TED.com', clip: 'play 3:42–4:30', transcripts: [['gunders', 'Transcript (adapted)']] },
+            { type: 'listening', source: 'Gunders (2024) · TED', title: 'How to turn the tables on food waste', videoId: '6iqXH9RPK1w', start: 222, clip: 'play 3:42–4:30', transcripts: [['gunders', 'Transcript (adapted)']] },
             { type: 'tip', text: 'Your teacher plays the extract from <b>3:42</b>. You only need the general idea.' },
             { type: 'quiz', id: 'l3q', items: [
               { q: 'Does the speaker think that fixing food waste is difficult?', options: ['Yes — it is a very hard problem', 'No — it is “not rocket science”'], answer: 'No — it is “not rocket science”', why: '“Fixing food waste is not rocket science. It’s really just about managing our food better, and it’s solvable.”' },
@@ -215,7 +215,7 @@ window.DEC15_LESSON = {
               { who: 'alone', text: 'Listen to the whole talk and take notes. Use short words, symbols and numbers.' },
               { who: 'pair', text: 'Check your notes with the person next to you. Add points you missed. Then listen again.' }
             ]},
-            { type: 'listening', source: 'Gunders (2024) · TED', title: 'How to turn the tables on food waste', videoId: '', url: 'https://www.ted.com/talks/dana_gunders_how_to_turn_the_tables_on_food_waste', urlLabel: 'Watch on TED.com', clip: 'full talk · about 11 minutes', transcripts: [['gunders', 'Transcript (adapted)']] },
+            { type: 'listening', source: 'Gunders (2024) · TED', title: 'How to turn the tables on food waste', videoId: '6iqXH9RPK1w', start: 0, clip: 'full talk · about 11 minutes', transcripts: [['gunders', 'Transcript (adapted)']] },
             { type: 'table', id: 'l4t', title: 'My notes: How to turn the tables on food waste', columns: ['', 'Notes'], fixed: [
               'The food waste problem',
               'Climate impacts of food waste<br><small>greenhouse gas · wasted resources</small>',
