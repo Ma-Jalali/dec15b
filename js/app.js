@@ -138,6 +138,8 @@ function whoBadge(w) {
 
 const findBlock = id => allActivities.flatMap(a => a.blocks).find(x => x.id === id);
 const play = window.createDEC15Play ? window.createDEC15Play({ getState: () => state, save, rerender: () => rerender(), esc, strip, icon, toast, findBlock }) : null;
+/* feedback forms, stance scale, quiz board and "Share with classmates" (js/forms.js) */
+const forms = window.createDEC15Forms ? window.createDEC15Forms({ getState: () => state, save, rerender: () => rerender(), esc, strip, icon, toast, lesson, tableRows: b => tableRows(b), findBlock, getCloud: () => cloud, getClass: () => klass, signIn: () => accountDialog('signin'), avatarHTML: (p, e, c) => avatarHTML(p, e, c), locked: () => locked() }) : null;
 
 /* ───────── label registry (for notebook + export) ───────── */
 const labels = {}, owner = {};
@@ -151,6 +153,7 @@ function register(a) {
   const reg = (k, l) => { labels[k] = l; owner[k] = a.id; };
   for (const b of a.blocks) {
     play?.register(b, reg);
+    forms?.register(b, reg);
     if (b.type === 'fields') b.fields.forEach(f => reg(f.id, f.label));
     if (b.type === 'quiz') b.items.forEach((q, i) => reg(b.id + '-' + i, strip(q.q)));
     if (b.type === 'choose') reg(b.id, b.title);
@@ -392,7 +395,7 @@ B.listening = b => {
   return `<section class="block media">
   <div class="block-label">${icon('play')}Listening · ${esc(b.source || 'Our Changing Climate (2020)')}</div>
   ${vid ? `<div class="video-wrap"><button class="video-cover" data-video="${esc(vid)}" data-start="${b.start ?? 9}" data-title="${esc(title)}" aria-label="Play the video">${icon('play', 'play-big')}<span><b>${esc(title)}</b><small>YouTube · ${esc(b.clip || 'play 0:09–9:05')} · internet needed</small></span></button></div>` : ''}
-  <div class="media-links">${tr.filter(([id]) => sources.some(x => x.id === id)).map(([id, l]) => `<button class="btn-quiet" data-source="${id}">${icon('book')}${esc(l)}</button>`).join('')}${b.mode === 'video' || !vid ? '' : `<a class="btn-quiet" href="https://www.youtube.com/watch?v=${esc(vid)}" target="_blank" rel="noopener">${icon('open')}Open on YouTube</a>`}</div>
+  <div class="media-links">${b.url ? `<a class="btn" href="${esc(b.url)}" target="_blank" rel="noopener">${icon('play')}${esc(b.urlLabel || 'Watch the video')}</a>` : ''}${tr.filter(([id]) => sources.some(x => x.id === id)).map(([id, l]) => `<button class="btn-quiet" data-source="${id}">${icon('book')}${esc(l)}</button>`).join('')}${b.mode === 'video' || !vid ? '' : `<a class="btn-quiet" href="https://www.youtube.com/watch?v=${esc(vid)}" target="_blank" rel="noopener">${icon('open')}Open on YouTube</a>`}</div>
   ${audio ? `<audio controls preload="none" src="${esc(audio)}"></audio>` : ''}
   <p class="media-note">Listen first, take notes, <b>then</b> read the transcript to check.</p>
 </section>`;
@@ -400,6 +403,13 @@ B.listening = b => {
 
 /* ───────── activity ───────── */
 function hasAttempt(a) { registerTables(); return Object.keys(state.values).some(k => owner[k] === a.id && state.values[k]); }
+/* forms.js blocks; tables and writing boxes with send: true get "Share with classmates" + PDF */
+if (forms) {
+  Object.assign(B, forms.B);
+  const baseTable = B.table, baseFields = B.fields;
+  B.table = (b, a) => baseTable(b, a) + (b.send && b.id ? forms.sendBar(b, a) : '');
+  B.fields = (b, a) => baseFields(b, a) + (b.send && b.id ? forms.sendBar(b, a) : '');
+}
 function answersPanel(a) {
   if (!a.answers) return '';
   const open = state.teacher || (state.revealed[a.id] && !locked());
@@ -709,7 +719,7 @@ function paintLessonNav(route) {
 }
 function paintNav(route = navRoute) {
   navRoute = route;
-  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-notebook', 'notebook'], ['side-board', 'board']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
+  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-notebook', 'notebook'], ['side-board', 'board'], ['side-shared', 'shared']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
   paintLessonNav(route);
   $('#side-home').classList.toggle('active', route === 'home');
   $('#side-planner')?.classList.toggle('active', route === 'planner');
@@ -800,6 +810,7 @@ function parseRoute() {
   if (!h || h === '/' || h === '/home') return { home: true };
   if (h === '/planner' || h.startsWith('/planner/')) return { page: 'planner' };
   if (h === '/board') return { page: 'board' };
+  if (h === '/shared' || h.startsWith('/shared/')) return { page: 'shared' };
   if (routes.includes(h)) { history.replaceState(null, '', L(h)); return { page: h }; } // old links such as #ai
   const m = h.match(/^\/([\w-]+)(?:\/([\w-]+))?/);
   if (!m) return { page: 'overview' };
@@ -846,6 +857,17 @@ function render() {
     return;
   }
   if (window.DEC15Board?.mounted) window.DEC15Board.unmount();
+  if (route === 'shared') {   // "Shared with me": forms classmates sent to this student (js/forms.js)
+    document.body.dataset.page = 'shared'; document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg');
+    $('#crumb').innerHTML = `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>Shared with me</b>`;
+    document.title = `${course.code} · Shared with me`; paintStatus();
+    const main = $('#main'), changed = main.dataset.route !== 'shared'; main.dataset.route = 'shared';
+    main.innerHTML = forms ? forms.pageHTML(location.hash.slice(1)) : '';
+    if (changed && !matchMedia('(prefers-reduced-motion: reduce)').matches) { main.classList.remove('route-in'); void main.offsetWidth; main.classList.add('route-in'); }
+    $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher(); document.body.classList.toggle('is-teacher', isTeacher());
+    klass?.setWhere('shared', 'Shared with me'); forms?.paintBadge();
+    return;
+  }
   const main = $('#main'), changed = main.dataset.route !== route; main.dataset.route = route;
   $('#main').innerHTML = route === 'home' ? courseHome() : s ? stagePage(s) : route === 'sources' ? sourcesPage() : route === 'extra' ? extrasPage() : route === 'notebook' ? notebook() : overview();
   document.body.dataset.page = s ? 'stage' : route;
@@ -946,7 +968,7 @@ function glossary(find = '') {
 }
 
 /* ───────── notebook exports ───────── */
-const nb = window.createDEC15Notebook({ lesson, getState: () => state, planParts, tableRows, reader, esc, strip, toast, person: () => cloudInfo.profile?.full_name || '', extraItems: b => play ? play.notebookItems(b) : [] });
+const nb = window.createDEC15Notebook({ lesson, getState: () => state, planParts, tableRows, reader, esc, strip, toast, person: () => cloudInfo.profile?.full_name || '', extraItems: b => [...(play ? play.notebookItems(b) : []), ...(forms ? forms.notebookItems(b) : [])] });
 async function runExport(kind, btn) {
   if (kind === 'gdocs') {
     const copied = await nb.gdocs();
@@ -1212,10 +1234,12 @@ document.addEventListener('input', e => {
   const t = e.target; if (!t.dataset.save) return;
   state.values[t.dataset.save] = t.type === 'checkbox' ? t.checked : t.value; save();
   play?.onInput(t);
+  forms?.onInput(t);
   if (t.type === 'checkbox' && t.closest('.checklist')?.querySelector('.check-meter')) rerender();
 });
 document.addEventListener('change', e => {
   const t = e.target;
+  if (forms && forms.onChange(t)) return;
   if (t.dataset.done) {
     state.done[t.dataset.done] = t.checked; save(); rerender(); clearTimeout(klass?._ct); if (klass) klass._ct = setTimeout(() => klass.loadCounts(), 4000);
     if (t.checked) {
@@ -1230,6 +1254,7 @@ document.addEventListener('click', e => {
   const t = e.target.closest('button,a,[data-week-tab]'); if (!t) return;
   const d = t.dataset;
   if (play && play.onClick(t, d)) return;
+  if (forms && forms.onClick(t, d)) return;
   if (d.langTab) { const box = t.closest('.language'); box.querySelectorAll('[role=tab]').forEach((x, i) => { const on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; box.querySelectorAll('[role=tabpanel]')[i].hidden = !on; }); return; }
   if (d.quiz) { const k = d.quiz + '-' + d.i; state.values[k] = d.opt; delete state.checked[d.quiz]; save(); rerender(); return; }
   if ((d.quizCheck || d.orderCheck || d.orderSolve || d.gridCheck || d.reveal) && locked()) { toast(LOCKED_MSG); return; }
@@ -1341,6 +1366,7 @@ cloud = window.createDEC15Cloud({
     if (info.user?.id !== was) window.DEC15Planner?.onAuth?.(info);
     if (info.recovery && info.user && !accountDialog.recoveryShown) { accountDialog.recoveryShown = true; setTimeout(() => accountDialog('newpw'), 300); }
     if (wall && info.user?.id !== was) { wall.connect(); rerender(); }
+    if (forms && info.user?.id !== was) forms.connect();
     if (klass && (info.user?.id || '') + ':' + (info.profile?.role || '') !== klass.key) { klass.key = (info.user?.id || '') + ':' + (info.profile?.role || ''); klass.connect(); window.DEC15Board?.reload?.(); if (window.DEC15Board?.mounted) { window.DEC15Board.unmount(); $('#board-root')?.remove(); } rerender(); } if (parseRoute().page === 'notebook' && info.status === 'saved' && info.profile && !paintStatus.named) { paintStatus.named = true; rerender(); } }
 });
 if (wall && cloud.enabled) rerender();   // show the class walls

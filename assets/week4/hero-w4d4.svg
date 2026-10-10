@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 933" role="img" aria-labelledby="t">
+<title id="t">Research Summary Discussion in a fishbowl: an inner circle of three chairs with speech bubbles rising above them, surrounded by a dotted outer ring of observers, each holding a clipboard marked with ticks.</title>
+<defs>
+  <filter id="paper" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="61"/><feColorMatrix values="0 0 0 0 .55  0 0 0 0 .47  0 0 0 0 .36  0 0 0 .07 0"/><feComposite in2="SourceGraphic" operator="in"/><feBlend in="SourceGraphic" mode="multiply"/></filter>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#2a1d10" flood-opacity=".22"/></filter>
+  <filter id="lift" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#14293a" flood-opacity=".2"/></filter>
+  <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#93600f" opacity=".22"/></pattern>
+  <g id="seat"><rect x="-38" y="16" width="10" height="30" rx="4"/><rect x="28" y="16" width="10" height="30" rx="4"/><rect x="-40" y="-56" width="80" height="44" rx="16"/><rect x="-46" y="-16" width="92" height="40" rx="14"/><rect x="-30" y="-48" width="60" height="12" rx="6" fill="#fff" opacity=".22"/></g>
+  <g id="obs"><circle cy="-58" r="22"/><path d="M-38 30v-30a38 38 0 0 1 76 0v30z"/><g transform="rotate(-8)"><rect x="-26" y="-18" width="52" height="64" rx="6" fill="#fffdf7"/><rect x="-12" y="-24" width="24" height="12" rx="4" fill="#5d6a74"/><path d="M-16 0l5 5 9-10M-16 20l5 5 9-10" fill="none" stroke="#3f7a3a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 2h12M4 22h12" stroke="#14293a" stroke-opacity=".3" stroke-width="3" stroke-linecap="round"/></g></g>
+</defs>
+<rect width="1400" height="933" fill="#f3ebdd"/>
+<rect width="1400" height="933" fill="#f3ebdd" filter="url(#paper)" opacity=".9"/>
+<circle cx="700" cy="470" r="400" fill="#f6e7c9" opacity=".75"/>
+<rect x="96" y="96" width="176" height="128" fill="url(#dots)"/>
+<rect x="1130" y="720" width="176" height="128" fill="url(#dots)"/>
+<path d="M1200 140l7 18 18 7-18 7-7 18-7-18-18-7 18-7z" fill="#e3a843"/>
+<path d="M170 760l5 13 13 5-13 5-5 13-5-13-13-5 13-5z" fill="#2b776e" opacity=".8"/>
+<path d="M1250 420h34m-17-17v34" stroke="#b0512a" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+
+<!-- floor rings -->
+<ellipse cx="700" cy="600" rx="520" ry="210" fill="#2a1d10" opacity=".05"/>
+<ellipse cx="700" cy="600" rx="470" ry="186" fill="none" stroke="#93600f" stroke-opacity=".35" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round"/>
+<ellipse cx="700" cy="600" rx="250" ry="96" fill="#e9f4f2"/>
+<ellipse cx="700" cy="600" rx="250" ry="96" fill="none" stroke="#2b776e" stroke-width="4" stroke-opacity=".5"/>
+
+<!-- observers: back row -->
+<g filter="url(#lift)">
+  <g fill="#7a4a8c"><use href="#obs" x="420" y="470"/></g>
+  <g fill="#3a58a0"><use href="#obs" x="700" y="420"/></g>
+  <g fill="#985c0e"><use href="#obs" x="980" y="470"/></g>
+</g>
+
+<!-- inner circle chairs -->
+<g filter="url(#soft)">
+  <g fill="#2b776e"><use href="#seat" x="590" y="580"/></g>
+  <g fill="#b0512a"><use href="#seat" x="810" y="580"/></g>
+  <g fill="#3f7a3a"><use href="#seat" x="700" y="640"/></g>
+</g>
+
+<!-- bubbles -->
+<g filter="url(#soft)" transform="translate(0 30)">
+  <path d="M500 170h150a34 34 0 0 1 34 34v52a34 34 0 0 1-34 34h-60l-20 50-16-50h-54a34 34 0 0 1-34-34v-52a34 34 0 0 1 34-34z" fill="#2e7a70"/>
+  <path d="M760 210h150a34 34 0 0 1 34 34v52a34 34 0 0 1-34 34h-54l-16 50-20-50h-60a34 34 0 0 1-34-34v-52a34 34 0 0 1 34-34z" fill="#ba5830"/>
+</g>
+<g stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".85" transform="translate(0 30)"><path d="M500 218h120M500 246h80"/><path d="M760 258h120M760 286h70"/></g>
+<g filter="url(#lift)"><circle cx="702" cy="140" r="34" fill="#3d5aa2"/></g>
+<g fill="#fff"><circle cx="688" cy="140" r="5"/><circle cx="702" cy="140" r="5"/><circle cx="716" cy="140" r="5"/></g>
+<path d="M702 176v40" stroke="#3d5aa2" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round"/>
+
+<!-- observers: front row -->
+<g filter="url(#lift)">
+  <g fill="#2b776e"><use href="#obs" x="300" y="680"/></g>
+  <g fill="#c2402b"><use href="#obs" x="520" y="790"/></g>
+  <g fill="#7a4a8c"><use href="#obs" x="880" y="790"/></g>
+  <g fill="#3a58a0"><use href="#obs" x="1100" y="680"/></g>
+</g>
+<g fill="#93600f" opacity=".5"><circle cx="1190" cy="560" r="5"/><circle cx="1210" cy="574" r="4"/><circle cx="1226" cy="590" r="3"/></g>
+<g transform="translate(180 450)">
+  <path d="M0 40c10-30 30-56 60-70" fill="none" stroke="#3f7a3a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M24 2c12-14 30-14 38-6-12 12-28 12-38 6z" fill="#6f9a5a"/><path d="M40-18c4-18 18-26 30-22-4 16-18 24-30 22z" fill="#3f7a3a"/>
+</g>
+</svg>

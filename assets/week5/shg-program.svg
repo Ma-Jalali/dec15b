@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 520" font-family="Manrope, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="sgt">
+<title id="sgt">How the fresh fruit and vegetable program in Odisha, India, worked (Mockshell &amp; Ritter, 2024). During the COVID-19 lockdown, producers (farmers) sold to self-help groups of 10 to 15 women each. The self-help groups bought fresh fruit and vegetables and sold them to consumers in towns and villages. A branch shows that very poor households received free produce.</title>
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".13"/></filter>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".14"/></pattern>
+  <g id="per"><circle cy="-12" r="9"/><path d="M-16 14c0-12 7-18 16-18s16 6 16 18z"/></g>
+</defs>
+<rect width="1040" height="520" rx="24" fill="#fffdf8"/>
+<rect x="910" y="22" width="100" height="56" fill="url(#dots)"/>
+<text x="40" y="54" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600" fill="#14293a">The fresh fruit &amp; vegetable program</text>
+<path d="M40 66c120-5 300-5 460-1" stroke="#e3a843" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<text x="40" y="96" font-size="16" fill="#5d6a74">Odisha, India (Mockshell &amp; Ritter, 2024)</text>
+
+<!-- lockdown band -->
+<rect x="40" y="122" width="960" height="40" rx="20" fill="#f4efe4"/>
+<g transform="translate(70 142)" fill="none" stroke="#985c0e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M-12 0l12-10 12 10v12h-24z"/><path d="M-4 12v-7h8v7"/></g>
+<text x="94" y="148" font-size="15.5" font-weight="800" letter-spacing="1.4" fill="#8a520b">DURING THE COVID-19 LOCKDOWN</text>
+<path d="M440 142h540" stroke="#c9bfae" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/>
+
+<!-- cards -->
+<g filter="url(#sh)">
+  <rect x="40" y="190" width="270" height="206" rx="18" fill="#fff"/>
+  <rect x="385" y="190" width="270" height="206" rx="18" fill="#fff"/>
+  <rect x="730" y="190" width="270" height="206" rx="18" fill="#fff"/>
+</g>
+<rect x="40" y="190" width="270" height="6" rx="3" fill="#3f7a3a"/><rect x="385" y="190" width="270" height="6" rx="3" fill="#7a4a8c"/><rect x="730" y="190" width="270" height="6" rx="3" fill="#2b776e"/>
+<circle cx="175" cy="250" r="38" fill="#eef6ea"/><circle cx="520" cy="250" r="38" fill="#f6eff8"/><circle cx="865" cy="250" r="38" fill="#e9f4f2"/>
+<!-- farmer -->
+<g transform="translate(175 254)">
+  <circle cy="-6" r="10" fill="#3f7a3a"/><path d="M-26-14h52" stroke="#3f7a3a" stroke-width="4" stroke-linecap="round"/><path d="M-12-15c0-12 24-12 24 0z" fill="#3f7a3a"/>
+  <path d="M-18 24c0-14 8-20 18-20s18 6 18 20z" fill="#3f7a3a"/>
+  <path d="M26 24v-14m0 0c-8 0-10-6-10-10 6 0 10 4 10 10zm0-4c0-8 4-12 10-12 0 6-4 12-10 12z" fill="#6fa862" stroke="#3f7a3a" stroke-width="2" stroke-linejoin="round"/>
+</g>
+<!-- group of women -->
+<g transform="translate(520 256)" fill="#7a4a8c">
+  <use href="#per" x="-18" y="2" opacity=".55"/><use href="#per" x="18" y="2" opacity=".55"/><use href="#per" y="-2"/>
+  <path d="M-8-4l16 18" stroke="#e3a843" stroke-width="3"/>
+</g>
+<!-- consumers -->
+<g transform="translate(865 252)" fill="none" stroke="#2b776e" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M-26 22V0l16-14L6 0v22z" fill="#fff"/><path d="M-14 22v-10h8v10"/>
+  <path d="M8 2h22l-3 20H11z" fill="#2b776e"/><path d="M13 2c0-8 12-8 12 0"/>
+</g>
+<g text-anchor="middle">
+  <text x="175" y="318" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="600" fill="#2c5a28">Producers</text>
+  <text x="175" y="346" font-size="16" fill="#3d505e">(farmers)</text>
+  <text x="520" y="318" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="600" fill="#5b3569">Self-help groups</text>
+  <text x="520" y="348" font-size="16" font-weight="700" fill="#5b3569">10–15 women each</text>
+  <text x="865" y="318" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="600" fill="#22655d">Consumers</text>
+  <text x="865" y="346" font-size="16" fill="#3d505e">in towns and villages</text>
+</g>
+
+<!-- arrows -->
+<g stroke-width="3" stroke-linecap="round" fill="none"><path d="M318 285h52" stroke="#3f7a3a"/><path d="M663 285h52" stroke="#7a4a8c"/></g>
+<path d="M368 277l12 8-12 8z" fill="#3f7a3a"/><path d="M713 277l12 8-12 8z" fill="#7a4a8c"/>
+<g font-size="15" font-weight="800" text-anchor="middle"><text x="347" y="268" fill="#2c5a28">buy</text><text x="692" y="268" fill="#5b3569">sell</text></g>
+<text x="520" y="374" text-anchor="middle" font-size="15.5" fill="#3d505e">buy fresh fruit &amp; vegetables</text>
+
+<!-- branch -->
+<path d="M520 396v42c0 12 8 20 20 20h170" fill="none" stroke="#b0512a" stroke-width="3" stroke-dasharray="3 7" stroke-linecap="round"/>
+<path d="M712 450l12 8-12 8z" fill="#b0512a"/>
+<text x="548" y="446" font-size="15" font-weight="800" fill="#8e3b1c">free of charge</text>
+<g filter="url(#sh)"><rect x="730" y="418" width="270" height="80" rx="16" fill="#fbefe8"/></g>
+<circle cx="770" cy="458" r="22" fill="#fff"/>
+<path d="M770 470c-14-8-18-18-12-23 5-4 10-1 12 4 2-5 7-8 12-4 6 5 2 15-12 23z" fill="#b0512a"/>
+<text x="804" y="452" font-size="16" font-weight="800" fill="#8e3b1c">Very poor households</text>
+<text x="804" y="474" font-size="15.5" fill="#3d505e">receive free produce</text>
+<path d="M1012 44l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#e3a843"/>
+</svg>

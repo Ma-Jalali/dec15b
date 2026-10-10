@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1170" font-family="Manrope, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="tmt">
+<title id="tmt">Text map of Sample 5.1. Thesis: Governments need to considerably increase their involvement. Body 1, action needed to prevent food waste in the consumption stage: consumers could take action on their own; but (however) not enough consumers do; because they lack appreciation for the resources needed to produce food; so (this is where…) public awareness campaigns are crucial. Also: there are innovations such as waste-tracking apps; but progress is too slow; so greater government investment is needed to support innovation and increase impact; so government efforts would support consumer and business efforts. Body 2, need to manage waste more responsibly: so (that would require…) government involvement; because (this is because…) governments are responsible for regulation and financing. Financing: one solution is to redistribute food through food banks; but (however…) this is difficult to scale with limited resources. Regulation: encourage businesses to donate food to reduce landfill; some countries do this well, but all countries should; so (this suggests that…) there is potential for governments to do more. Conclusion: The issue of food waste demands greater government intervention. Connectors are colour-coded: but in clay, because in blue, so in teal.</title>
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".13"/></filter>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".14"/></pattern>
+</defs>
+<rect width="1100" height="1170" rx="24" fill="#fffdf8"/>
+<rect x="970" y="22" width="100" height="56" fill="url(#dots)"/>
+<text x="40" y="54" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600" fill="#14293a">Sample 5.1 text map</text>
+<path d="M40 66c80-5 180-5 270-1" stroke="#e3a843" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<text x="40" y="96" font-size="16" fill="#5d6a74">How each idea leads to the next.</text>
+<!-- key -->
+<g font-size="14.5" font-weight="800" letter-spacing="1.2" text-anchor="middle">
+  <rect x="580" y="78" width="62" height="26" rx="13" fill="#fbefe8" stroke="#b0512a" stroke-width="1.5"/><text x="611" y="96" fill="#8e3b1c">BUT</text>
+  <rect x="740" y="78" width="104" height="26" rx="13" fill="#edf1fa" stroke="#3a58a0" stroke-width="1.5"/><text x="792" y="96" fill="#2c467f">BECAUSE</text>
+  <rect x="924" y="78" width="50" height="26" rx="13" fill="#e9f4f2" stroke="#2b776e" stroke-width="1.5"/><text x="949" y="96" fill="#22655d">SO</text>
+</g>
+<g font-size="15" fill="#5d6a74"><text x="650" y="96">contrast</text><text x="852" y="96">reason</text><text x="982" y="96">result</text></g>
+
+<!-- thesis -->
+<g filter="url(#sh)"><rect x="40" y="122" width="1020" height="54" rx="14" fill="#14293a"/></g>
+<text x="550" y="156" text-anchor="middle" font-size="18" fill="#fff"><tspan font-weight="800" fill="#f3cf6e">Thesis:</tspan> Governments need to considerably increase their involvement.</text>
+<g stroke="#b9ad98" stroke-width="2.5" fill="none"><path d="M290 176v16M810 176v16"/></g>
+<!-- column heads -->
+<g filter="url(#sh)"><rect x="40" y="194" width="500" height="92" rx="14" fill="#fbf3e4"/><rect x="560" y="194" width="500" height="92" rx="14" fill="#f6eff8"/></g>
+<rect x="40" y="194" width="7" height="92" rx="3.5" fill="#e3a843"/><rect x="560" y="194" width="7" height="92" rx="3.5" fill="#7a4a8c"/>
+<text x="66" y="221" font-size="14.5" font-weight="800" letter-spacing="2" fill="#985c0e">BODY 1</text>
+<text x="66" y="248" font-size="17" font-weight="700" fill="#14293a">Action needed to prevent food waste</text><text x="66" y="271" font-size="17" font-weight="700" fill="#14293a">in the consumption stage</text>
+<text x="586" y="232" font-size="14.5" font-weight="800" letter-spacing="2" fill="#7a4a8c">BODY 2</text>
+<text x="586" y="259" font-size="17" font-weight="700" fill="#14293a">Need to manage waste more responsibly</text>
+<path d="M290 286v20" stroke="#b9ad98" stroke-width="2.5"/>
+<g transform="translate(0 20)">
+<!-- body 1 -->
+<rect x="70" y="286" width="440" height="46" rx="12" fill="#fff" stroke="#e6dccb" stroke-width="1.5"/>
+<text x="290.0" y="317" text-anchor="middle" font-size="15.5" fill="#14293a">Consumers could take action on their own</text>
+<path d="M290.0 334V368" stroke="#b0512a" stroke-width="2.5"/><path d="M284.0 366l6 8 6-8z" fill="#b0512a"/>
+<rect x="260.5" y="340.0" width="59" height="26" rx="13" fill="#fbefe8" stroke="#b0512a" stroke-width="1.5"/><text x="290.0" y="358.5" text-anchor="middle" font-size="14.5" font-weight="800" letter-spacing="1.2" fill="#8e3b1c">BUT</text>
+<text x="329.5" y="359.0" font-size="15" font-style="italic" fill="#5d6a74">However, …</text>
+<rect x="70" y="376" width="440" height="46" rx="12" fill="#fff" stroke="#e6dccb" stroke-width="1.5"/>
+<text x="290.0" y="407" text-anchor="middle" font-size="15.5" fill="#14293a">Not enough consumers do</text>
+<path d="M290.0 424V458" stroke="#3a58a0" stroke-width="2.5"/><path d="M284.0 456l6 8 6-8z" fill="#3a58a0"/>
+<rect x="238.5" y="430.0" width="103" height="26" rx="13" fill="#edf1fa" stroke="#3a58a0" stroke-width="1.5"/><text x="290.0" y="448.5" text-anchor="middle" font-size="14.5" font-weight="800" letter-spacing="1.2" fill="#2c467f">BECAUSE</text>
+<rect x="70" y="466" width="440" height="68" rx="12" fill="#fff" stroke="#e6dccb" stroke-width="1.5"/>
+<text x="290.0" y="497" text-anchor="middle" font-size="15.5" fill="#14293a">They lack appreciation for the resources</text>
+<text x="290.0" y="519" text-anchor="middle" font-size="15.5" fill="#14293a">needed to produce food</text>
+<path d="M290.0 536V570" stroke="#2b776e" stroke-width="2.5"/><path d="M284.0 568l6 8 6-8z" fill="#2b776e"/>
+<rect x="266.0" y="542.0" width="48" height="26" rx="13" fill="#e9f4f2" stroke="#2b776e" stroke-width="1.5"/><text x="290.0" y="560.5" text-anchor="middle" font-size="14.5" font-weight="800" letter-spacing="1.2" fill="#22655d">SO</text>
+<text x="324.0" y="561.0" font-size="15" font-style="italic" fill="#5d6a74">This is where …</text>
+<rect x="70" y="578" width="440" height="46" rx="12" fill="#e9f4f2" stroke="#2b776e" stroke-width="1.5"/>
+<text x="290.0" y="609" text-anchor="middle" font-size="15.5" font-weight="700" fill="#14293a">Public awareness campaigns are crucial</text>
+<path d="M70 648h170M340 648h170" stroke="#c9bfae" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/><text x="290.0" y="653" text-anchor="middle" font-size="15" font-weight="800" letter-spacing="2" fill="#5d6a74">ALSO</text>
+<rect x="70" y="672" width="440" height="46" rx="12" fill="#fff" stroke="#e6dccb" stroke-width="1.5"/>
+<text x="290.0" y="703" text-anchor="middle" font-size="15.5" fill="#14293a">There are innovations (e.g. waste-tracking apps)</text>
+<path d="M290.0 720V754" stroke="#b0512a" stroke-width="2.5"/><path d="M284.0 752l6 8 6-8z" fill="#b0512a"/>
+<rect x="260.5" y="726.0" width="59" height="26" rx="13" fill="#fbefe8" stroke="#b0512a" stroke-width="1.5"/><text x="290.0" y="744.5" text-anchor="middle" font-size="14.5" font-weight="800" letter-spacing="1.2" fill="#8e3b1c">BUT</text>
+<rect x="70" y="762" width="440" height="46" rx="12" fill="#fff" stroke="#e6dccb" stroke-width="1.5"/>
+<text x="290.0" y="793" text-anchor="middle" font-size="15.5" fill="#14293a">Progress is too slow</text>
+<path d="M290.0 810V844" stroke="#2b776e" stroke-width="2.5"/><path d="M284.0 842l6 8 6-8z" fill="#2b776e"/>
+<rect x="266.0" y="816.0" width="48" height="26" rx="13" fill="#e9f4f2" stroke="#2b776e" stroke-width="1.5"/><text x="290.0" y="834.5" text-anchor="middle" font-size="14.5" font-weight="800" letter-spacing="1.2" fill="#22655d">SO</text>
+<rect x="70" y="852" width="440" height="68" rx="12" fill="#fff" stroke="#e6dccb" stroke-width="1.5"/>
+<text x="290.0" y="883" text-anchor="middle" font-size="15.5" fill="#14293a">Greater government investment is needed to</text>
+<text x="290.0" y="905" text-anchor="middle" font-size="15.5" fill="#14293a">support innovation and increase impact</text>
+<path d="M290.0 922V956" stroke="#2b776e" stroke-width="2.5"/><path d="M284.0 954l6 8 6-8z" fill="#2b776e"/>
+<rect x="266.0" y="928.0" width="48" height="26" rx="13" fill="#e9f4f2" stroke="#2b776e" stroke-width="1.5"/><text x="290.0" y="946.5" text-anchor="middle" font-size="14.5" font-weight="800" letter-spacing="1.2" fill="#22655d">SO</text>
+<rect x="70" y="964" width="440" height="68" rx="12" fill="#e9f4f2" stroke="#2b776e" stroke-width="1.5"/>
+<text x="290.0" y="995" text-anchor="middle" font-size="15.5" font-weight="700" fill="#14293a">Government efforts would support</text>
+<text x="290.0" y="1017" text-anchor="middle" font-size="15.5" font-weight="700" fill="#14293a">consumer and business efforts</text>
+<!-- body 2 -->
+<path d="M810.0 268V308" stroke="#2b776e" stroke-width="2.5"/><path d="M804.0 306l6 8 6-8z" fill="#2b776e"/>
+<rect x="786.0" y="277.0" width="48" height="26" rx="13" fill="#e9f4f2" stroke="#2b776e" stroke-width="1.5"/><text x="810.0" y="295.5" text-anchor="middle" font-size="14.5" font-weight="800" letter-spacing="1.2" fill="#22655d">SO</text>
+<text x="844.0" y="296.0" font-size="15" font-style="italic" fill="#5d6a74">That would require …</text>
+<rect x="590" y="316" width="440" height="46" rx="12" fill="#fff" stroke="#e6dccb" stroke-width="1.5"/>
+<text x="810.0" y="347" text-anchor="middle" font-size="15.5" font-weight="700" fill="#14293a">Government involvement</text>
+<path d="M810.0 364V398" stroke="#3a58a0" stroke-width="2.5"/><path d="M804.0 396l6 8 6-8z" fill="#3a58a0"/>
+<rect x="758.5" y="370.0" width="103" height="26" rx="13" fill="#edf1fa" stroke="#3a58a0" stroke-width="1.5"/><text x="810.0" y="388.5" text-anchor="middle" font-size="14.5" font-weight="800" letter-spacing="1.2" fill="#2c467f">BECAUSE</text>
+<text x="871.5" y="389.0" font-size="15" font-style="italic" fill="#5d6a74">This is because …</text>
+<rect x="590" y="406" width="440" height="68" rx="12" fill="#fff" stroke="#e6dccb" stroke-width="1.5"/>
+<text x="810.0" y="437" text-anchor="middle" font-size="15.5" fill="#14293a">Governments are responsible for</text>
+<text x="810.0" y="459" text-anchor="middle" font-size="15.5" fill="#14293a">regulation and financing</text>
+<path d="M810.0 474v18H695.0v34M810.0 492H925.0v34" fill="none" stroke="#b9ad98" stroke-width="2.5" stroke-linejoin="round"/>
+<rect x="633.0" y="522" width="124" height="28" rx="14" fill="#fbf3e4"/><text x="695.0" y="541.5" text-anchor="middle" font-size="14.5" font-weight="800" letter-spacing="1.6" fill="#985c0e">FINANCING</text>
+<rect x="863.0" y="522" width="124" height="28" rx="14" fill="#f6eff8"/><text x="925.0" y="541.5" text-anchor="middle" font-size="14.5" font-weight="800" letter-spacing="1.6" fill="#7a4a8c">REGULATION</text>
+<rect x="590" y="562" width="210" height="90" rx="12" fill="#fff" stroke="#e6dccb" stroke-width="1.5"/>
+<text x="695.0" y="593" text-anchor="middle" font-size="15.5" fill="#14293a">One solution:</text>
+<text x="695.0" y="615" text-anchor="middle" font-size="15.5" fill="#14293a">redistribute food</text>
+<text x="695.0" y="637" text-anchor="middle" font-size="15.5" fill="#14293a">through food banks</text>
+<path d="M695.0 654V688" stroke="#b0512a" stroke-width="2.5"/><path d="M689.0 686l6 8 6-8z" fill="#b0512a"/>
+<rect x="665.5" y="660.0" width="59" height="26" rx="13" fill="#fbefe8" stroke="#b0512a" stroke-width="1.5"/><text x="695.0" y="678.5" text-anchor="middle" font-size="14.5" font-weight="800" letter-spacing="1.2" fill="#8e3b1c">BUT</text>
+<text x="734.5" y="679.0" font-size="15" font-style="italic" fill="#5d6a74">However, …</text>
+<rect x="590" y="696" width="210" height="90" rx="12" fill="#fff" stroke="#e6dccb" stroke-width="1.5"/>
+<text x="695.0" y="727" text-anchor="middle" font-size="15.5" fill="#14293a">Difficult to scale</text>
+<text x="695.0" y="749" text-anchor="middle" font-size="15.5" fill="#14293a">with limited</text>
+<text x="695.0" y="771" text-anchor="middle" font-size="15.5" fill="#14293a">resources</text>
+<rect x="820" y="562" width="210" height="90" rx="12" fill="#fff" stroke="#e6dccb" stroke-width="1.5"/>
+<text x="925.0" y="593" text-anchor="middle" font-size="15.5" fill="#14293a">Encourage businesses</text>
+<text x="925.0" y="615" text-anchor="middle" font-size="15.5" fill="#14293a">to donate food to</text>
+<text x="925.0" y="637" text-anchor="middle" font-size="15.5" fill="#14293a">reduce landfill</text>
+<path d="M925.0 654V680" stroke="#b9ad98" stroke-width="2.5"/><path d="M919.0 678l6 8 6-8z" fill="#b9ad98"/>
+<rect x="820" y="688" width="210" height="90" rx="12" fill="#fff" stroke="#e6dccb" stroke-width="1.5"/>
+<text x="925.0" y="719" text-anchor="middle" font-size="15.5" fill="#14293a">Some countries do</text>
+<text x="925.0" y="741" text-anchor="middle" font-size="15.5" fill="#14293a">this well, but ALL</text>
+<text x="925.0" y="763" text-anchor="middle" font-size="15.5" fill="#14293a">countries should</text>
+<path d="M925.0 780V814" stroke="#2b776e" stroke-width="2.5"/><path d="M919.0 812l6 8 6-8z" fill="#2b776e"/>
+<rect x="901.0" y="786.0" width="48" height="26" rx="13" fill="#e9f4f2" stroke="#2b776e" stroke-width="1.5"/><text x="925.0" y="804.5" text-anchor="middle" font-size="14.5" font-weight="800" letter-spacing="1.2" fill="#22655d">SO</text>
+<text x="891.0" y="805.0" text-anchor="end" font-size="15" font-style="italic" fill="#5d6a74">This suggests that …</text>
+<rect x="820" y="822" width="210" height="90" rx="12" fill="#e9f4f2" stroke="#2b776e" stroke-width="1.5"/>
+<text x="925.0" y="853" text-anchor="middle" font-size="15.5" font-weight="700" fill="#14293a">There is potential</text>
+<text x="925.0" y="875" text-anchor="middle" font-size="15.5" font-weight="700" fill="#14293a">for governments</text>
+<text x="925.0" y="897" text-anchor="middle" font-size="15.5" font-weight="700" fill="#14293a">to do more</text>
+</g>
+<!-- conclusion -->
+<g stroke="#b9ad98" stroke-width="2.5" fill="none" stroke-dasharray="2 7" stroke-linecap="round"><path d="M290 1052v34M925.0 932v154M695.0 806v280"/></g>
+<g filter="url(#sh)"><rect x="40" y="1088" width="1020" height="54" rx="14" fill="#14293a"/></g>
+<text x="550" y="1122" text-anchor="middle" font-size="18" fill="#fff"><tspan font-weight="800" fill="#f3cf6e">Conclusion:</tspan> The issue of food waste demands greater government intervention.</text>
+<path d="M1042 44l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#e3a843"/>
+</svg>

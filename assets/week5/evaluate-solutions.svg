@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 450" font-family="Manrope, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="evt">
+<title id="evt">Questions to evaluate a solution. 1: What problems does it improve? 2: Who does it help? 3: How far does it reach, in place and time? 4: How accessible is it for different groups? 5: Are there any limitations or unintended consequences? We can evaluate quality, value, significance, and strengths and limitations.</title>
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".13"/></filter>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".14"/></pattern>
+</defs>
+<rect width="1040" height="450" rx="24" fill="#fffdf8"/>
+<rect x="910" y="22" width="100" height="56" fill="url(#dots)"/>
+<text x="40" y="54" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600" fill="#14293a">Questions to evaluate a solution</text>
+<path d="M40 66c110-5 270-5 420-1" stroke="#e3a843" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<text x="40" y="96" font-size="16" fill="#5d6a74">Ask each question, then support your answer with evidence.</text>
+<g filter="url(#sh)"><rect x="40" y="128" width="180" height="214" rx="18" fill="#fff"/></g><rect x="40" y="128" width="180" height="6" rx="3" fill="#e3a843"/>
+<circle cx="130" cy="196" r="36" fill="#fbf3e4"/><g transform="translate(130 196)" fill="none" stroke="#985c0e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M-22 20h44M-18 12l11-12 9 8 16-18"/><path d="M10-12h8v8"/></g>
+<circle cx="64" cy="158" r="13" fill="#985c0e"/><text x="64" y="163.5" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">1</text>
+<text x="130" y="260" text-anchor="middle" font-size="16.5" font-weight="700" fill="#14293a">What problems</text>
+<text x="130" y="283" text-anchor="middle" font-size="16.5" font-weight="700" fill="#14293a">does it improve?</text>
+<g filter="url(#sh)"><rect x="235" y="128" width="180" height="214" rx="18" fill="#fff"/></g><rect x="235" y="128" width="180" height="6" rx="3" fill="#2b776e"/>
+<circle cx="325" cy="196" r="36" fill="#e9f4f2"/><g transform="translate(325 196)" fill="none" stroke="#2b776e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="-9" cy="-8" r="7"/><path d="M-22 16c0-10 6-15 13-15s13 5 13 15"/><circle cx="11" cy="-4" r="6"/><path d="M6 6c2-2 4-3 5-3 7 0 12 5 12 13"/></g>
+<circle cx="259" cy="158" r="13" fill="#2b776e"/><text x="259" y="163.5" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">2</text>
+<text x="325" y="260" text-anchor="middle" font-size="16.5" font-weight="700" fill="#14293a">Who does</text>
+<text x="325" y="283" text-anchor="middle" font-size="16.5" font-weight="700" fill="#14293a">it help?</text>
+<g filter="url(#sh)"><rect x="430" y="128" width="180" height="214" rx="18" fill="#fff"/></g><rect x="430" y="128" width="180" height="6" rx="3" fill="#3a58a0"/>
+<circle cx="520" cy="196" r="36" fill="#edf1fa"/><g transform="translate(520 196)" fill="none" stroke="#3a58a0" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="-4" r="16"/><path d="M-20 0h32M-4-16c-8 9-8 23 0 32M-4-16c8 9 8 23 0 32"/><circle cx="16" cy="12" r="9" fill="#edf1fa"/><path d="M16 7v5l3 2"/></g>
+<circle cx="454" cy="158" r="13" fill="#3a58a0"/><text x="454" y="163.5" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">3</text>
+<text x="520" y="260" text-anchor="middle" font-size="16.5" font-weight="700" fill="#14293a">How far does</text>
+<text x="520" y="283" text-anchor="middle" font-size="16.5" font-weight="700" fill="#14293a">it reach?</text>
+<text x="520" y="306" text-anchor="middle" font-size="15" font-weight="600" fill="#5d6a74">(place and time)</text>
+<g filter="url(#sh)"><rect x="625" y="128" width="180" height="214" rx="18" fill="#fff"/></g><rect x="625" y="128" width="180" height="6" rx="3" fill="#7a4a8c"/>
+<circle cx="715" cy="196" r="36" fill="#f6eff8"/><g transform="translate(715 196)" fill="none" stroke="#7a4a8c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="-8" cy="-2" r="10"/><circle cx="-8" cy="-2" r="3"/><path d="M2-2h22M18-2v8M24-2v6"/></g>
+<circle cx="649" cy="158" r="13" fill="#7a4a8c"/><text x="649" y="163.5" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">4</text>
+<text x="715" y="260" text-anchor="middle" font-size="16.5" font-weight="700" fill="#14293a">How accessible</text>
+<text x="715" y="283" text-anchor="middle" font-size="16.5" font-weight="700" fill="#14293a">is it for different</text>
+<text x="715" y="306" text-anchor="middle" font-size="16.5" font-weight="700" fill="#14293a">groups?</text>
+<g filter="url(#sh)"><rect x="820" y="128" width="180" height="214" rx="18" fill="#fff"/></g><rect x="820" y="128" width="180" height="6" rx="3" fill="#b0512a"/>
+<circle cx="910" cy="196" r="36" fill="#fbefe8"/><g transform="translate(910 196)" fill="none" stroke="#b0512a" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M0-20L22 18H-22z"/><path d="M0-6v10"/><circle cy="11" r="1.5" fill="#b0512a"/></g>
+<circle cx="844" cy="158" r="13" fill="#b0512a"/><text x="844" y="163.5" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">5</text>
+<text x="910" y="260" text-anchor="middle" font-size="16.5" font-weight="700" fill="#14293a">Any limitations</text>
+<text x="910" y="283" text-anchor="middle" font-size="16.5" font-weight="700" fill="#14293a">or unintended</text>
+<text x="910" y="306" text-anchor="middle" font-size="16.5" font-weight="700" fill="#14293a">consequences?</text>
+<rect x="40" y="366" width="960" height="64" rx="18" fill="#fbf3e4"/>
+<text x="64" y="404" font-size="15.5" font-weight="800" letter-spacing="1.6" fill="#985c0e">WE CAN EVALUATE</text>
+<rect x="300" y="382" width="80" height="32" rx="16" fill="#fff" stroke="#e3a843" stroke-width="1.5"/><text x="340.0" y="403.5" text-anchor="middle" font-size="15.5" font-weight="700" fill="#8a520b">quality</text>
+<rect x="394" y="382" width="66" height="32" rx="16" fill="#fff" stroke="#e3a843" stroke-width="1.5"/><text x="427.0" y="403.5" text-anchor="middle" font-size="15.5" font-weight="700" fill="#8a520b">value</text>
+<rect x="474" y="382" width="112" height="32" rx="16" fill="#fff" stroke="#e3a843" stroke-width="1.5"/><text x="530.0" y="403.5" text-anchor="middle" font-size="15.5" font-weight="700" fill="#8a520b">significance</text>
+<rect x="600" y="382" width="196" height="32" rx="16" fill="#fff" stroke="#e3a843" stroke-width="1.5"/><text x="698.0" y="403.5" text-anchor="middle" font-size="15.5" font-weight="700" fill="#8a520b">strengths &amp; limitations</text>
+<path d="M1012 44l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#e3a843"/>
+</svg>

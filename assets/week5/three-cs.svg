@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 490" font-family="Manrope, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="tct">
+<title id="tct">The 3Cs framework. Cost: Is it affordable? Is it worth it? Convenience: Is it easy to use? Does it save time? Consequences: What are the short- and long-term effects? Are they positive or negative?</title>
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".13"/></filter>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".14"/></pattern>
+</defs>
+<rect width="1040" height="490" rx="24" fill="#fffdf8"/>
+<rect x="910" y="22" width="100" height="56" fill="url(#dots)"/>
+<text x="40" y="54" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600" fill="#14293a">The 3Cs framework</text>
+<path d="M40 66c70-5 170-5 250-1" stroke="#e3a843" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<text x="40" y="96" font-size="16" fill="#5d6a74">Three lenses for looking at any solution.</text>
+
+<g transform="translate(0 20)">
+<!-- overlapping rings behind medallions -->
+<g fill="none" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round" opacity=".6">
+  <circle cx="194" cy="164" r="68" stroke="#985c0e"/><circle cx="520" cy="164" r="68" stroke="#2b776e"/><circle cx="846" cy="164" r="68" stroke="#b0512a"/>
+</g>
+<path d="M262 164h190M588 164h190" stroke="#c9bfae" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round"/>
+
+<g filter="url(#sh)">
+  <rect x="40" y="236" width="308" height="200" rx="18" fill="#fff"/>
+  <rect x="366" y="236" width="308" height="200" rx="18" fill="#fff"/>
+  <rect x="692" y="236" width="308" height="200" rx="18" fill="#fff"/>
+</g>
+<rect x="40" y="236" width="308" height="6" rx="3" fill="#e3a843"/><rect x="366" y="236" width="308" height="6" rx="3" fill="#2b776e"/><rect x="692" y="236" width="308" height="6" rx="3" fill="#b0512a"/>
+<g filter="url(#sh)"><circle cx="194" cy="164" r="52" fill="#fbf3e4"/><circle cx="520" cy="164" r="52" fill="#e9f4f2"/><circle cx="846" cy="164" r="52" fill="#fbefe8"/></g>
+
+<!-- icons -->
+<g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <g transform="translate(194 164)" stroke="#985c0e">
+    <ellipse cx="-6" cy="14" rx="20" ry="7"/><path d="M-26 14v-8M14 14v-8"/><ellipse cx="-6" cy="6" rx="20" ry="7" fill="#fbf3e4"/>
+    <circle cx="10" cy="-10" r="18" fill="#e3a843" stroke="#985c0e"/><text x="10" y="-3.5" text-anchor="middle" font-size="20" font-weight="800" fill="#985c0e" stroke="none">$</text>
+  </g>
+  <g transform="translate(520 164)" stroke="#2b776e">
+    <circle cx="6" cy="0" r="22" fill="#fff"/><path d="M6-12v12l9 6"/><path d="M2-26h8M6-26v4"/><circle cx="6" cy="0" r="2" fill="#2b776e"/>
+    <path d="M-26-8h-8M-24 2h-12M-26 12h-8" opacity=".75"/>
+  </g>
+  <g transform="translate(846 164)" stroke="#b0512a">
+    <circle cx="-22" cy="0" r="6" fill="#b0512a"/><path d="M-16 0h10c8 0 10-18 20-18h8M-6 0c8 0 10 18 20 18h8"/><path d="M16-24l7 6-7 6M16 12l7 6-7 6"/>
+  </g>
+</g>
+
+<!-- labels -->
+<g font-family="Fraunces, Georgia, serif" font-size="27" font-weight="600" text-anchor="middle">
+  <text x="194" y="290" fill="#8a520b">Cost</text><text x="520" y="290" fill="#22655d">Convenience</text><text x="846" y="290" fill="#8e3b1c">Consequences</text>
+</g>
+<g font-size="16.5" fill="#3d505e">
+  <circle cx="70" cy="330" r="4" fill="#e3a843"/><text x="84" y="336">Is it affordable?</text>
+  <circle cx="70" cy="366" r="4" fill="#e3a843"/><text x="84" y="372">Is it worth it?</text>
+  <circle cx="396" cy="330" r="4" fill="#2b776e"/><text x="410" y="336">Is it easy to use?</text>
+  <circle cx="396" cy="366" r="4" fill="#2b776e"/><text x="410" y="372">Does it save time?</text>
+  <circle cx="722" cy="330" r="4" fill="#b0512a"/><text x="736" y="336">Short- and long-term effects?</text>
+  <circle cx="722" cy="366" r="4" fill="#b0512a"/><text x="736" y="372">Positive or negative?</text>
+</g>
+<g font-size="14.5" font-weight="800" text-anchor="middle">
+  <rect x="736" y="392" width="104" height="30" rx="15" fill="#eef6ea"/><text x="788" y="412" fill="#3f7a3a">+ positive</text>
+  <rect x="850" y="392" width="112" height="30" rx="15" fill="#fbefe8"/><text x="906" y="412" fill="#8e3b1c">− negative</text>
+</g>
+</g>
+<path d="M1012 44l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#e3a843"/>
+</svg>

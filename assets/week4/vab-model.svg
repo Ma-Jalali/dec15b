@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 650" font-family="Manrope, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="vbt">
+<title id="vbt">The Value–Attitude–Behaviour (VAB) model, adapted from Huang et al. (2024). The main VAB path is highlighted: Health values (HV) lead, through hypothesis H1, to Attitude towards upcycled foods (AUF), which leads, through hypothesis H2, to Green behavioural intentions (GBI). Three further factors also point to Green behavioural intentions: Green perceived value (GPV), hypothesis H3; Product novelty (PN), hypothesis H4; and Moral (ethical) consumption (MC), hypothesis H5. The figure shows the hypotheses only, not the results.</title>
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".13"/></filter>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".14"/></pattern>
+  <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0l10 5-10 5z" fill="#14293a"/></marker>
+  <marker id="as" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0l10 5-10 5z" fill="#8b969e"/></marker>
+</defs>
+<rect width="1040" height="650" rx="24" fill="#fffdf8"/>
+<rect x="910" y="22" width="100" height="56" fill="url(#dots)"/>
+<text x="40" y="56" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600" fill="#14293a">The Value–Attitude–Behaviour (VAB) model</text>
+<path d="M40 68c160-5 380-5 560-1" stroke="#e3a843" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<text x="40" y="96" font-size="16" fill="#5d6a74">Five hypotheses (H1–H5) about intentions to buy upcycled food.</text>
+
+<!-- main path band -->
+<rect x="24" y="122" width="992" height="158" rx="22" fill="#fbf3e4"/>
+<rect x="40" y="110" width="196" height="28" rx="14" fill="#985c0e"/>
+<text x="138" y="129" text-anchor="middle" font-size="15" font-weight="800" letter-spacing="1.6" fill="#fff">MAIN VAB PATH</text>
+<g font-size="15" font-weight="800" letter-spacing="2" fill="#985c0e" text-anchor="middle"><text x="165" y="166">VALUE</text><text x="520" y="166">ATTITUDE</text><text x="875" y="166">BEHAVIOUR</text></g>
+
+<g filter="url(#sh)">
+  <rect x="40" y="178" width="250" height="86" rx="16" fill="#fff"/>
+  <rect x="395" y="178" width="250" height="86" rx="16" fill="#fff"/>
+  <rect x="750" y="178" width="250" height="432" rx="18" fill="#14293a"/>
+  <rect x="40" y="318" width="605" height="70" rx="16" fill="#fff"/>
+  <rect x="40" y="408" width="605" height="70" rx="16" fill="#fff"/>
+  <rect x="40" y="498" width="605" height="70" rx="16" fill="#fff"/>
+</g>
+<rect x="40" y="178" width="7" height="86" rx="3.5" fill="#3f7a3a"/>
+<rect x="395" y="178" width="7" height="86" rx="3.5" fill="#985c0e"/>
+<text x="165" y="214" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="26" font-weight="600" fill="#3f7a3a">HV</text>
+<text x="165" y="244" text-anchor="middle" font-size="17" fill="#3d505e">Health values</text>
+<text x="520" y="208" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="26" font-weight="600" fill="#985c0e">AUF</text>
+<text x="520" y="236" text-anchor="middle" font-size="17" fill="#3d505e">Attitude towards</text>
+<text x="520" y="256" text-anchor="middle" font-size="17" fill="#3d505e">upcycled foods</text>
+<!-- GBI -->
+<circle cx="875" cy="350" r="40" fill="#2b776e"/>
+<path d="M875 372c-22-6-26-30-10-46 16 8 22 30 10 46z" fill="#e9f4f2"/><path d="M875 372c0-14-2-26-8-36" stroke="#2b776e" stroke-width="3" fill="none" stroke-linecap="round"/>
+<text x="875" y="430" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="30" font-weight="600" fill="#fff">GBI</text>
+<text x="875" y="462" text-anchor="middle" font-size="17" fill="#d9e3ea">Green behavioural</text>
+<text x="875" y="484" text-anchor="middle" font-size="17" fill="#d9e3ea">intentions</text>
+<text x="875" y="230" text-anchor="middle" font-size="15" font-weight="800" letter-spacing="1.6" fill="#e3a843">OUTCOME</text>
+
+<!-- secondary boxes -->
+<text x="40" y="306" font-size="15" font-weight="800" letter-spacing="2" fill="#5d6a74">OTHER FACTORS</text>
+<g font-family="Fraunces, Georgia, serif" font-size="22" font-weight="600" fill="#fff" text-anchor="middle">
+  <rect x="56" y="332" width="86" height="42" rx="12" fill="#3a58a0"/><text x="99" y="361">GPV</text>
+  <rect x="56" y="422" width="86" height="42" rx="12" fill="#7a4a8c"/><text x="99" y="451">PN</text>
+  <rect x="56" y="512" width="86" height="42" rx="12" fill="#b0512a"/><text x="99" y="541">MC</text>
+</g>
+<g font-size="17.5" fill="#14293a" font-weight="600"><text x="162" y="359">Green perceived value</text><text x="162" y="449">Product novelty</text><text x="162" y="539">Moral (ethical) consumption</text></g>
+
+<!-- arrows -->
+<g stroke="#14293a" stroke-width="4.5" fill="none" marker-end="url(#ah)"><path d="M292 221h96"/><path d="M647 221h96"/></g>
+<g stroke="#8b969e" stroke-width="3" fill="none" marker-end="url(#as)"><path d="M647 353h96"/><path d="M647 443h96"/><path d="M647 533h96"/></g>
+<g filter="url(#sh)" font-size="15" font-weight="800" text-anchor="middle">
+  <rect x="318" y="206" width="44" height="30" rx="15" fill="#e3a843"/><rect x="673" y="206" width="44" height="30" rx="15" fill="#e3a843"/>
+  <rect x="673" y="338" width="44" height="30" rx="15" fill="#fff" stroke="#c9bfae"/><rect x="673" y="428" width="44" height="30" rx="15" fill="#fff" stroke="#c9bfae"/><rect x="673" y="518" width="44" height="30" rx="15" fill="#fff" stroke="#c9bfae"/>
+</g>
+<g font-size="15" font-weight="800" text-anchor="middle"><text x="340" y="226" fill="#14293a">H1</text><text x="695" y="226" fill="#14293a">H2</text><text x="695" y="358" fill="#3a58a0">H3</text><text x="695" y="448" fill="#7a4a8c">H4</text><text x="695" y="538" fill="#b0512a">H5</text></g>
+
+<text x="40" y="624" font-size="15" font-style="italic" fill="#5d6a74">Adapted from Huang et al. (2024)</text>
+<path d="M992 44l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#e3a843"/>
+</svg>

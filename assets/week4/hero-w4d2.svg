@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 933" role="img" aria-labelledby="t">
+<title id="t">Mediation and discussion: three source documents in amber, teal and blue joined by coloured threads that merge into one new summary page; an upcycling chain from a bowl of brewer's spent grain to a bag of flour to a plate of biscuits; and two overlapping speech bubbles in a friendly negotiation.</title>
+<defs>
+  <filter id="paper" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="41"/><feColorMatrix values="0 0 0 0 .55  0 0 0 0 .47  0 0 0 0 .36  0 0 0 .07 0"/><feComposite in2="SourceGraphic" operator="in"/><feBlend in="SourceGraphic" mode="multiply"/></filter>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#2a1d10" flood-opacity=".22"/></filter>
+  <filter id="lift" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#14293a" flood-opacity=".2"/></filter>
+  <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#93600f" opacity=".22"/></pattern>
+  <pattern id="grain" width="14" height="12" patternUnits="userSpaceOnUse"><ellipse cx="4" cy="4" rx="3.2" ry="1.8" fill="#985c0e" opacity=".55" transform="rotate(-25 4 4)"/><ellipse cx="11" cy="9" rx="3.2" ry="1.8" fill="#7a4a24" opacity=".45" transform="rotate(30 11 9)"/></pattern>
+  <g id="doc"><rect width="170" height="132" rx="12" fill="#fffdf7"/><g stroke="#14293a" stroke-opacity=".28" stroke-width="7" stroke-linecap="round"><path d="M24 54h120M24 76h100M24 98h112"/></g></g>
+  <g id="ck"><circle r="13" fill="#d9a35c"/><circle r="13" fill="none" stroke="#b47a35" stroke-width="2.5"/><g fill="#7a4a24"><circle cx="-5" cy="-3" r="2.2"/><circle cx="4" cy="-5" r="1.8"/><circle cx="2" cy="5" r="2"/><circle cx="-4" cy="6" r="1.4"/></g></g>
+</defs>
+<rect width="1400" height="933" fill="#f3ebdd"/>
+<rect width="1400" height="933" fill="#f3ebdd" filter="url(#paper)" opacity=".9"/>
+<circle cx="700" cy="470" r="400" fill="#f6e7c9" opacity=".75"/>
+<circle cx="700" cy="470" r="436" fill="none" stroke="#93600f" stroke-opacity=".2" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+<rect x="96" y="740" width="176" height="128" fill="url(#dots)"/>
+<rect x="560" y="70" width="176" height="110" fill="url(#dots)"/>
+<path d="M1260 520l7 18 18 7-18 7-7 18-7-18-18-7 18-7z" fill="#e3a843"/>
+<path d="M440 800l5 13 13 5-13 5-5 13-5-13-13-5 13-5z" fill="#2b776e" opacity=".8"/>
+<path d="M120 140h34m-17-17v34" stroke="#b0512a" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+<ellipse cx="700" cy="842" rx="520" ry="26" fill="#2a1d10" opacity=".08"/>
+
+<!-- threads -->
+<g fill="none" stroke-width="6" stroke-linecap="round">
+  <path d="M330 244c120 0 120 170 236 170" stroke="#e3a843"/>
+  <path d="M330 434c90 0 120 0 236 0" stroke="#2b776e"/>
+  <path d="M330 624c120 0 120-170 236-170" stroke="#3a58a0"/>
+</g>
+<g fill="#fffdf7" stroke-width="4"><circle cx="330" cy="244" r="9" stroke="#e3a843"/><circle cx="330" cy="434" r="9" stroke="#2b776e"/><circle cx="330" cy="624" r="9" stroke="#3a58a0"/></g>
+<!-- three sources -->
+<g filter="url(#lift)">
+  <use href="#doc" x="150" y="178"/><use href="#doc" x="150" y="368"/><use href="#doc" x="150" y="558"/>
+</g>
+<rect x="174" y="196" width="60" height="16" rx="8" fill="#e3a843"/>
+<rect x="174" y="386" width="60" height="16" rx="8" fill="#2b776e"/>
+<rect x="174" y="576" width="60" height="16" rx="8" fill="#3a58a0"/>
+<!-- merged page -->
+<g filter="url(#soft)" transform="rotate(-3 670 440)">
+  <rect x="560" y="250" width="230" height="330" rx="14" fill="#fffdf7"/>
+  <rect x="560" y="250" width="230" height="56" rx="14" fill="#14293a"/><rect x="560" y="290" width="230" height="16" fill="#14293a"/>
+  <g fill="#fff"><circle cx="596" cy="278" r="7" fill="#e3a843"/><circle cx="618" cy="278" r="7" fill="#7fc2b9"/><circle cx="640" cy="278" r="7" fill="#9fb6e8"/></g>
+  <g stroke-width="8" stroke-linecap="round">
+    <path d="M590 346h140" stroke="#e3a843"/><path d="M590 372h170" stroke="#14293a" stroke-opacity=".25"/>
+    <path d="M590 410h100" stroke="#2b776e"/><path d="M590 436h160" stroke="#14293a" stroke-opacity=".25"/>
+    <path d="M590 474h126" stroke="#3a58a0"/><path d="M590 500h150" stroke="#14293a" stroke-opacity=".25"/><path d="M590 526h90" stroke="#14293a" stroke-opacity=".25"/>
+  </g>
+</g>
+
+<!-- speech bubbles -->
+<g filter="url(#soft)">
+  <path d="M900 140h200a40 40 0 0 1 40 40v70a40 40 0 0 1-40 40h-130l-50 42 10-42h-30a40 40 0 0 1-40-40v-70a40 40 0 0 1 40-40z" fill="#2e7a70"/>
+</g>
+<g stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".85"><path d="M900 196h150M900 230h100"/></g>
+<g filter="url(#soft)">
+  <path d="M1050 270h180a40 40 0 0 1 40 40v66a40 40 0 0 1-40 40h-30l12 44-56-44h-106a40 40 0 0 1-40-40v-66a40 40 0 0 1 40-40z" fill="#ba5830"/>
+</g>
+<g fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M1060 342h50m-12-14l14 14-14 14"/><path d="M1200 352h-50m12-14l-14 14 14 14" opacity=".75"/>
+</g>
+
+<!-- upcycling chain -->
+<g filter="url(#soft)">
+  <path d="M846 672h152a10 10 0 0 1 10 12c-8 60-40 92-86 92s-78-32-86-92a10 10 0 0 1 10-12z" fill="#5d6a74"/>
+  <ellipse cx="922" cy="672" rx="80" ry="22" fill="#b98a4c"/>
+</g>
+<ellipse cx="922" cy="668" rx="74" ry="18" fill="url(#grain)"/>
+<path d="M906 650c-4-24 6-44 24-54" fill="none" stroke="#985c0e" stroke-width="3.5" stroke-linecap="round"/>
+<g fill="#e3a843"><ellipse cx="920" cy="618" rx="6" ry="12" transform="rotate(-30 920 618)"/><ellipse cx="934" cy="606" rx="6" ry="12" transform="rotate(35 934 606)"/><ellipse cx="912" cy="636" rx="6" ry="12" transform="rotate(-30 912 636)"/></g>
+<g filter="url(#lift)">
+  <path d="M1052 640h96l10 132h-116z" fill="#fbf3e4"/>
+  <path d="M1052 640l-6-16h108l-6 16z" fill="#e9dcc4"/>
+  <rect x="1066" y="684" width="68" height="46" rx="8" fill="#e3a843"/>
+  <path d="M1100 722v-30m-12 10c6 0 12 4 12 10m12-10c-6 0-12 4-12 10" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+</g>
+<g filter="url(#soft)"><ellipse cx="1240" cy="772" rx="84" ry="20" fill="#fffdf7"/></g>
+<g transform="translate(1240 740)"><g transform="translate(-34 6) scale(2.3)"><use href="#ck"/></g><g transform="translate(34 6) scale(2.3)"><use href="#ck"/></g><g transform="translate(0 -14) scale(2.5) rotate(60)"><use href="#ck"/></g></g>
+<g fill="none" stroke="#985c0e" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="2 9"><path d="M1004 700c12-14 22-18 34-16"/><path d="M1164 700c12-12 22-14 34-10"/></g>
+<g fill="#985c0e"><path d="M1036 676l12 8-13 6z"/><path d="M1196 682l12 10-14 4z"/></g>
+<!-- sprig -->
+<g transform="translate(420 690) scale(-1 1)">
+  <path d="M0 40c10-30 30-56 60-70" fill="none" stroke="#3f7a3a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M24 2c12-14 30-14 38-6-12 12-28 12-38 6z" fill="#6f9a5a"/><path d="M40-18c4-18 18-26 30-22-4 16-18 24-30 22z" fill="#3f7a3a"/>
+</g>
+</svg>

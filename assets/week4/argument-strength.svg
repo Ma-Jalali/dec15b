@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 640" font-family="Manrope, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="ast">
+<title id="ast">What makes an argument strong? A weighing scale tips towards the stronger side. Stronger arguments use evidence and statistics from research; name credible, reputable sources; give clear, relevant examples; and consider other perspectives. Weaker arguments rely on emotional appeal, for example “Meat is murder!”; on overgeneralised personal experience, for example “My family’s farm…”; ignore counterarguments; and show certainty without evidence, for example “I’m sure…”.</title>
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".13"/></filter>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".14"/></pattern>
+  <g id="yes"><circle r="13" fill="#3f7a3a"/><path d="M-6 0l4 4 8-8" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g id="no"><circle r="13" fill="#fbefe8" stroke="#b0512a" stroke-width="2"/><path d="M-5-5l10 10M5-5l-10 10" stroke="#b0512a" stroke-width="2.6" stroke-linecap="round"/></g>
+</defs>
+<rect width="1040" height="640" rx="24" fill="#fffdf8"/>
+<rect x="910" y="22" width="100" height="56" fill="url(#dots)"/>
+<text x="40" y="56" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600" fill="#14293a">What makes an argument strong?</text>
+<path d="M40 68c120-5 260-5 420-1" stroke="#e3a843" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<text x="40" y="96" font-size="16" fill="#5d6a74">Evidence adds weight. Opinion alone does not.</text>
+
+<!-- scale -->
+<rect x="512" y="140" width="16" height="460" rx="8" fill="#985c0e"/>
+<path d="M466 612h108l-18-26h-72z" fill="#985c0e"/>
+<path d="M256 166L74 228M256 166l200 62M784 130L584 182M784 130l196 52" stroke="#985c0e" stroke-width="2.5" fill="none" opacity=".75"/>
+<path d="M254 159l532-37 1 14-532 37z" fill="#985c0e"/>
+<circle cx="256" cy="166" r="7" fill="#985c0e"/><circle cx="784" cy="130" r="7" fill="#985c0e"/>
+<circle cx="520" cy="148" r="20" fill="#e3a843"/><circle cx="520" cy="148" r="8" fill="#fbf3e4"/>
+
+<g filter="url(#sh)">
+  <rect x="40" y="226" width="440" height="340" rx="20" fill="#fff"/>
+  <rect x="560" y="180" width="440" height="340" rx="20" fill="#fff"/>
+</g>
+<path d="M40 246a20 20 0 0 1 20-20h400a20 20 0 0 1 20 20v38H40z" fill="#3f7a3a"/>
+<path d="M560 200a20 20 0 0 1 20-20h400a20 20 0 0 1 20 20v38H560z" fill="#fbefe8"/>
+<text x="64" y="265" font-size="17" font-weight="800" letter-spacing="2.4" fill="#fff">STRONGER</text>
+<text x="584" y="219" font-size="17" font-weight="800" letter-spacing="2.4" fill="#8e3b1c">WEAKER</text>
+
+<use href="#yes" x="74" y="326"/><use href="#yes" x="74" y="398"/><use href="#yes" x="74" y="470"/><use href="#yes" x="74" y="532"/>
+<g font-size="17" fill="#14293a">
+  <text x="100" y="324" font-weight="700">Evidence and statistics</text><text x="100" y="346" fill="#3d505e">from research</text>
+  <text x="100" y="396" font-weight="700">Credible, reputable sources</text><text x="100" y="418" fill="#3d505e">named in the argument</text>
+  <text x="100" y="476" font-weight="700">Clear, relevant examples</text>
+  <text x="100" y="538" font-weight="700">Considers other perspectives</text>
+</g>
+
+<use href="#no" x="594" y="280"/><use href="#no" x="594" y="352"/><use href="#no" x="594" y="424"/><use href="#no" x="594" y="478"/>
+<g font-size="17" fill="#14293a">
+  <text x="620" y="278" font-weight="700">Emotional appeal</text><text x="620" y="300" fill="#8e3b1c" font-family="Fraunces, Georgia, serif" font-style="italic">e.g. “Meat is murder!”</text>
+  <text x="620" y="350" font-weight="700">Overgeneralised personal experience</text><text x="620" y="372" fill="#8e3b1c" font-family="Fraunces, Georgia, serif" font-style="italic">e.g. “My family’s farm…”</text>
+  <text x="620" y="430" font-weight="700">Ignoring counterarguments</text>
+  <text x="620" y="484" font-weight="700">Certainty without evidence</text><text x="620" y="506" fill="#8e3b1c" font-family="Fraunces, Georgia, serif" font-style="italic">e.g. “I’m sure…”</text>
+</g>
+<path d="M992 44l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#e3a843"/>
+</svg>

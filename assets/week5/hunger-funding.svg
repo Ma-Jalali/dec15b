@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 520" font-family="Manrope, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="hft">
+<title id="hft">What would it cost to end hunger? (Oxfam, 2022). Donor governments would need to give about 37 billion US dollars a year until 2030 to tackle extreme and chronic hunger. This is made up of 23 billion dollars needed this year for extreme hunger, as cash and food assistance, and an additional 14 billion dollars a year in foreign aid for chronic hunger. In 2021, world leaders funded only 46% of humanitarian needs. The extra 14 billion dollars a year would roughly double aid and is about 1% of world military spending. Low- and middle-income countries would contribute about 19 billion dollars a year.</title>
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".13"/></filter>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".14"/></pattern>
+  <g id="coin"><ellipse cy="5" rx="17" ry="6" fill="#b8801f"/><rect x="-17" y="0" width="34" height="5" fill="#b8801f"/><ellipse rx="17" ry="6" fill="#e3a843"/></g>
+</defs>
+<rect width="1040" height="520" rx="24" fill="#fffdf8"/>
+<rect x="910" y="22" width="100" height="56" fill="url(#dots)"/>
+<text x="40" y="54" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600" fill="#14293a">What would it cost to end hunger?</text>
+<path d="M40 66c120-5 290-5 450-1" stroke="#e3a843" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<text x="40" y="96" font-size="16" fill="#5d6a74">Oxfam (2022) estimates, in US dollars.</text>
+
+<!-- scale -->
+<g stroke="#e6dccb" stroke-width="1.5" stroke-dasharray="3 5"><path d="M202.2 184V254M202.2 384V452"/><path d="M364.3 184V254M364.3 384V452"/><path d="M526.5 184V254M526.5 384V452"/></g>
+<g font-size="15" fill="#8b969e"><text x="40.0" y="474" text-anchor="middle">$0bn</text><text x="202.2" y="474" text-anchor="middle">$10bn</text><text x="364.3" y="474" text-anchor="middle">$20bn</text><text x="526.5" y="474" text-anchor="middle">$30bn</text></g>
+
+<!-- donors -->
+<text x="40" y="132" font-size="15" font-weight="800" letter-spacing="1.6" fill="#5d6a74">DONOR GOVERNMENTS · EVERY YEAR UNTIL 2030</text>
+<text x="40" y="172" font-family="Fraunces, Georgia, serif" font-size="34" font-weight="600" fill="#14293a">~$37 billion <tspan font-family="Manrope, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#3d505e">a year to tackle extreme + chronic hunger</tspan></text>
+<g filter="url(#sh)">
+  <rect x="40" y="190" width="373.0" height="56" rx="12" fill="#b0512a"/>
+  <rect x="417.0" y="190" width="223.0" height="56" rx="12" fill="#e3a843"/>
+</g>
+<text x="60" y="226" font-size="21" font-weight="800" fill="#fff">$23 bn</text>
+<text x="437.0" y="226" font-size="21" font-weight="800" fill="#5a3708">$14 bn</text>
+<text x="40" y="280" font-size="16.5" font-weight="800" fill="#8e3b1c">Extreme hunger</text>
+<text x="40" y="303" font-size="15.5" fill="#3d505e">needed this year: cash and</text>
+<text x="40" y="324" font-size="15.5" fill="#3d505e">food assistance</text>
+<text x="437.0" y="280" font-size="16.5" font-weight="800" fill="#8a520b">Chronic hunger</text>
+<text x="437.0" y="303" font-size="15.5" fill="#3d505e">additional foreign</text>
+<text x="437.0" y="324" font-size="15.5" fill="#3d505e">aid every year</text>
+
+<!-- LMICs -->
+<text x="40" y="376" font-size="15" font-weight="800" letter-spacing="1.6" fill="#5d6a74">LOW- AND MIDDLE-INCOME COUNTRIES</text>
+<g filter="url(#sh)"><rect x="40" y="390" width="308.1" height="48" rx="12" fill="#3f7a3a"/></g>
+<text x="60" y="421" font-size="20" font-weight="800" fill="#fff">$19 bn</text>
+<text x="364.1" y="421" font-size="16" fill="#3d505e">about $19 billion a year</text>
+
+<!-- side cards -->
+<g filter="url(#sh)"><rect x="696" y="118" width="304" height="176" rx="18" fill="#fff"/><rect x="696" y="310" width="304" height="190" rx="18" fill="#fff"/></g>
+<rect x="696" y="118" width="6" height="176" rx="3" fill="#b0512a"/><rect x="696" y="310" width="6" height="190" rx="3" fill="#e3a843"/>
+<text x="720" y="150" font-size="15.5" font-weight="700" fill="#3d505e">World leaders funded only</text>
+<text x="720" y="204" font-family="Fraunces, Georgia, serif" font-size="46" font-weight="600" fill="#8e3b1c">46%</text>
+<text x="826" y="182" font-size="15.5" fill="#3d505e">of humanitarian</text>
+<text x="826" y="203" font-size="15.5" fill="#3d505e">needs in 2021</text>
+<rect x="720" y="222" width="256" height="18" rx="9" fill="#f4efe4"/>
+<rect x="720" y="222" width="117.8" height="18" rx="9" fill="#b0512a"/>
+<g font-size="15" fill="#8b969e"><text x="720" y="264">0%</text><text x="976" y="264" text-anchor="end">100%</text></g>
+<text x="720" y="346" font-size="15" font-weight="800" letter-spacing="1.4" fill="#985c0e">THE EXTRA $14 BN A YEAR</text>
+<rect x="720" y="362" width="44" height="30" rx="15" fill="#fbf3e4"/><text x="742" y="383" text-anchor="middle" font-size="16" font-weight="800" fill="#8a520b">×2</text>
+<text x="776" y="383" font-size="15.5" fill="#3d505e">≈ doubling aid</text>
+<circle cx="718" cy="408" r="3" fill="#d9cfbf"/><circle cx="726" cy="408" r="3" fill="#d9cfbf"/><circle cx="734" cy="408" r="3" fill="#d9cfbf"/><circle cx="742" cy="408" r="3" fill="#d9cfbf"/><circle cx="750" cy="408" r="3" fill="#d9cfbf"/><circle cx="758" cy="408" r="3" fill="#d9cfbf"/><circle cx="766" cy="408" r="3" fill="#d9cfbf"/><circle cx="774" cy="408" r="3" fill="#d9cfbf"/><circle cx="782" cy="408" r="3" fill="#d9cfbf"/><circle cx="790" cy="408" r="3" fill="#d9cfbf"/><circle cx="718" cy="416" r="3" fill="#d9cfbf"/><circle cx="726" cy="416" r="3" fill="#d9cfbf"/><circle cx="734" cy="416" r="3" fill="#d9cfbf"/><circle cx="742" cy="416" r="3" fill="#d9cfbf"/><circle cx="750" cy="416" r="3" fill="#d9cfbf"/><circle cx="758" cy="416" r="3" fill="#d9cfbf"/><circle cx="766" cy="416" r="3" fill="#d9cfbf"/><circle cx="774" cy="416" r="3" fill="#d9cfbf"/><circle cx="782" cy="416" r="3" fill="#d9cfbf"/><circle cx="790" cy="416" r="3" fill="#d9cfbf"/><circle cx="718" cy="424" r="3" fill="#d9cfbf"/><circle cx="726" cy="424" r="3" fill="#d9cfbf"/><circle cx="734" cy="424" r="3" fill="#d9cfbf"/><circle cx="742" cy="424" r="3" fill="#d9cfbf"/><circle cx="750" cy="424" r="3" fill="#d9cfbf"/><circle cx="758" cy="424" r="3" fill="#d9cfbf"/><circle cx="766" cy="424" r="3" fill="#d9cfbf"/><circle cx="774" cy="424" r="3" fill="#d9cfbf"/><circle cx="782" cy="424" r="3" fill="#d9cfbf"/><circle cx="790" cy="424" r="3" fill="#d9cfbf"/><circle cx="718" cy="432" r="3" fill="#d9cfbf"/><circle cx="726" cy="432" r="3" fill="#d9cfbf"/><circle cx="734" cy="432" r="3" fill="#d9cfbf"/><circle cx="742" cy="432" r="3" fill="#d9cfbf"/><circle cx="750" cy="432" r="3" fill="#d9cfbf"/><circle cx="758" cy="432" r="3" fill="#d9cfbf"/><circle cx="766" cy="432" r="3" fill="#d9cfbf"/><circle cx="774" cy="432" r="3" fill="#d9cfbf"/><circle cx="782" cy="432" r="3" fill="#d9cfbf"/><circle cx="790" cy="432" r="3" fill="#d9cfbf"/><circle cx="718" cy="440" r="3" fill="#d9cfbf"/><circle cx="726" cy="440" r="3" fill="#d9cfbf"/><circle cx="734" cy="440" r="3" fill="#d9cfbf"/><circle cx="742" cy="440" r="3" fill="#d9cfbf"/><circle cx="750" cy="440" r="3" fill="#d9cfbf"/><circle cx="758" cy="440" r="3" fill="#d9cfbf"/><circle cx="766" cy="440" r="3" fill="#d9cfbf"/><circle cx="774" cy="440" r="3" fill="#d9cfbf"/><circle cx="782" cy="440" r="3" fill="#d9cfbf"/><circle cx="790" cy="440" r="3" fill="#d9cfbf"/><circle cx="718" cy="448" r="3" fill="#d9cfbf"/><circle cx="726" cy="448" r="3" fill="#d9cfbf"/><circle cx="734" cy="448" r="3" fill="#d9cfbf"/><circle cx="742" cy="448" r="3" fill="#d9cfbf"/><circle cx="750" cy="448" r="3" fill="#d9cfbf"/><circle cx="758" cy="448" r="3" fill="#d9cfbf"/><circle cx="766" cy="448" r="3" fill="#d9cfbf"/><circle cx="774" cy="448" r="3" fill="#d9cfbf"/><circle cx="782" cy="448" r="3" fill="#d9cfbf"/><circle cx="790" cy="448" r="3" fill="#d9cfbf"/><circle cx="718" cy="456" r="3" fill="#d9cfbf"/><circle cx="726" cy="456" r="3" fill="#d9cfbf"/><circle cx="734" cy="456" r="3" fill="#d9cfbf"/><circle cx="742" cy="456" r="3" fill="#d9cfbf"/><circle cx="750" cy="456" r="3" fill="#d9cfbf"/><circle cx="758" cy="456" r="3" fill="#d9cfbf"/><circle cx="766" cy="456" r="3" fill="#d9cfbf"/><circle cx="774" cy="456" r="3" fill="#d9cfbf"/><circle cx="782" cy="456" r="3" fill="#d9cfbf"/><circle cx="790" cy="456" r="3" fill="#d9cfbf"/><circle cx="718" cy="464" r="3" fill="#d9cfbf"/><circle cx="726" cy="464" r="3" fill="#d9cfbf"/><circle cx="734" cy="464" r="3" fill="#d9cfbf"/><circle cx="742" cy="464" r="3" fill="#d9cfbf"/><circle cx="750" cy="464" r="3" fill="#d9cfbf"/><circle cx="758" cy="464" r="3" fill="#d9cfbf"/><circle cx="766" cy="464" r="3" fill="#d9cfbf"/><circle cx="774" cy="464" r="3" fill="#d9cfbf"/><circle cx="782" cy="464" r="3" fill="#d9cfbf"/><circle cx="790" cy="464" r="3" fill="#d9cfbf"/><circle cx="718" cy="472" r="3" fill="#d9cfbf"/><circle cx="726" cy="472" r="3" fill="#d9cfbf"/><circle cx="734" cy="472" r="3" fill="#d9cfbf"/><circle cx="742" cy="472" r="3" fill="#d9cfbf"/><circle cx="750" cy="472" r="3" fill="#d9cfbf"/><circle cx="758" cy="472" r="3" fill="#d9cfbf"/><circle cx="766" cy="472" r="3" fill="#d9cfbf"/><circle cx="774" cy="472" r="3" fill="#d9cfbf"/><circle cx="782" cy="472" r="3" fill="#d9cfbf"/><circle cx="790" cy="472" r="3" fill="#d9cfbf"/><circle cx="718" cy="480" r="3" fill="#d9cfbf"/><circle cx="726" cy="480" r="3" fill="#d9cfbf"/><circle cx="734" cy="480" r="3" fill="#d9cfbf"/><circle cx="742" cy="480" r="3" fill="#d9cfbf"/><circle cx="750" cy="480" r="3" fill="#d9cfbf"/><circle cx="758" cy="480" r="3" fill="#d9cfbf"/><circle cx="766" cy="480" r="3" fill="#d9cfbf"/><circle cx="774" cy="480" r="3" fill="#d9cfbf"/><circle cx="782" cy="480" r="3" fill="#d9cfbf"/><circle cx="790" cy="480" r="3" fill="#b0512a"/>
+<text x="810" y="440" font-size="15.5" fill="#3d505e">≈ 1% of world</text>
+<text x="810" y="461" font-size="15.5" fill="#3d505e">military spending</text>
+<path d="M1012 44l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#e3a843"/>
+</svg>
