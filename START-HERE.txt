@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.33)
+DEC15 — COURSE APP (v2.34)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -431,3 +431,7 @@ v2.33 — WEEKS 4 AND 5 + SHARE FORMS WITH CHOSEN CLASSMATES
 - Teacher tip (W4D4): fill in the teacher’s feedback table for one group, Share → tick that group’s members, then clear it and
   do the next group (or download a PDF per group).
 
+
+v2.34
+- W4 D1 2A (Listening for gist + note-taking) and W4 D5 12A: the Gunders TED talk is now embedded from YouTube
+  (6iqXH9RPK1w); the gist extract starts at 3:42.

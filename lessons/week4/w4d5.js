@@ -207,7 +207,7 @@ window.DEC15_LESSON = {
               'Try to <b>paraphrase</b> the ideas as you take notes.',
               'Group ideas from each text that are on the <b>same theme</b>.'
             ]},
-            { type: 'listening', source: 'Gunders (2024) · TED', title: 'How to turn the tables on food waste', videoId: '', url: 'https://www.ted.com/talks/dana_gunders_how_to_turn_the_tables_on_food_waste', urlLabel: 'Watch on TED.com', clip: 'full talk · about 11 minutes', transcripts: [['gunders', 'Transcript (adapted)']] },
+            { type: 'listening', source: 'Gunders (2024) · TED', title: 'How to turn the tables on food waste', videoId: '6iqXH9RPK1w', start: 0, clip: 'full talk · about 11 minutes', transcripts: [['gunders', 'Transcript (adapted)']] },
             { type: 'steps', items: [
               { who: 'alone', text: 'Listen once and take notes <b>by hand</b>. Listen for what governments do — and what they could do more of.' },
               { who: 'group', text: 'Compare your notes with your group members. Add relevant points to the note-taking table in the next activity.' }
