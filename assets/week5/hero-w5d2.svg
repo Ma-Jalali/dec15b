@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 933" role="img" aria-labelledby="t">
+<title id="t">Listening, reading and writing assessment day: a calm, tidy exam desk with a pair of headphones, a closed reading booklet with a small heart sticker, a pen, a glass of water and a little potted plant, under a friendly wall clock and a window with a bright sky.</title>
+<defs>
+  <filter id="paper" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="41"/><feColorMatrix values="0 0 0 0 .55  0 0 0 0 .47  0 0 0 0 .36  0 0 0 .07 0"/><feComposite in2="SourceGraphic" operator="in"/><feBlend in="SourceGraphic" mode="multiply"/></filter>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#2a1d10" flood-opacity=".22"/></filter>
+  <filter id="lift" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#14293a" flood-opacity=".2"/></filter>
+  <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#93600f" opacity=".22"/></pattern>
+  <pattern id="grain" width="120" height="18" patternUnits="userSpaceOnUse"><path d="M0 9c30-4 60 4 120 0" fill="none" stroke="#a87b45" stroke-opacity=".18" stroke-width="2"/></pattern>
+</defs>
+<rect width="1400" height="933" fill="#f3ebdd"/>
+<rect width="1400" height="933" fill="#f3ebdd" filter="url(#paper)" opacity=".9"/>
+<circle cx="700" cy="470" r="400" fill="#f6e7c9" opacity=".75"/>
+<circle cx="700" cy="470" r="436" fill="none" stroke="#93600f" stroke-opacity=".2" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+<rect x="104" y="104" width="176" height="128" fill="url(#dots)"/>
+<path d="M1220 150l7 18 18 7-18 7-7 18-7-18-18-7 18-7z" fill="#e3a843"/>
+<path d="M180 420l5 13 13 5-13 5-5 13-5-13-13-5 13-5z" fill="#2b776e" opacity=".7"/>
+
+<!-- window -->
+<g filter="url(#lift)">
+  <rect x="830" y="120" width="250" height="250" rx="16" fill="#fffaf0"/>
+  <rect x="846" y="136" width="218" height="218" rx="8" fill="#d9e8f2"/>
+  <circle cx="1010" cy="196" r="30" fill="#f3cf6e"/>
+  <path d="M870 300c10-24 46-26 56-6 18-10 40 2 38 22h-94z" fill="#fff"/>
+  <path d="M846 324c60-30 140-40 218-20v50H846z" fill="#b8d4a8"/>
+  <path d="M955 136v218M846 245h218" stroke="#fffaf0" stroke-width="10"/>
+</g>
+<!-- clock -->
+<g filter="url(#soft)">
+  <circle cx="470" cy="250" r="112" fill="#2b776e"/>
+  <circle cx="470" cy="250" r="94" fill="#fffdf7"/>
+  <g stroke="#14293a" stroke-width="5" stroke-linecap="round"><path d="M470 168v14M470 318v14M388 250h14M538 250h14"/></g>
+  <g fill="#14293a" opacity=".4"><circle cx="511" cy="179" r="3.5"/><circle cx="541" cy="209" r="3.5"/><circle cx="541" cy="291" r="3.5"/><circle cx="511" cy="321" r="3.5"/><circle cx="429" cy="321" r="3.5"/><circle cx="399" cy="291" r="3.5"/><circle cx="399" cy="209" r="3.5"/><circle cx="429" cy="179" r="3.5"/></g>
+  <path d="M470 250l-46-26" stroke="#14293a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M470 250l52-40" stroke="#14293a" stroke-width="6" stroke-linecap="round"/>
+  <path d="M470 250l-10 64" stroke="#b0512a" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="470" cy="250" r="9" fill="#b0512a"/>
+</g>
+
+<!-- desk -->
+<path d="M190 560h1020l90 230H100z" fill="#e6cba0"/>
+<path d="M190 560h1020l90 230H100z" fill="url(#grain)"/>
+<rect x="100" y="790" width="1200" height="30" rx="6" fill="#c8a271"/>
+<rect x="160" y="820" width="40" height="70" fill="#b38a59"/><rect x="1200" y="820" width="40" height="70" fill="#b38a59"/>
+<path d="M190 560h1020" stroke="#fff" stroke-opacity=".5" stroke-width="3"/>
+
+<!-- headphones lying on desk -->
+<g filter="url(#lift)">
+  <path d="M250 690c-10-90 60-150 140-150s150 60 140 150" fill="none" stroke="#14293a" stroke-width="20" stroke-linecap="round"/>
+  <path d="M250 690c-10-90 60-150 140-150s150 60 140 150" fill="none" stroke="#2b4458" stroke-width="8" stroke-linecap="round"/>
+  <ellipse cx="256" cy="704" rx="50" ry="30" fill="#2e7a70"/><ellipse cx="256" cy="698" rx="36" ry="18" fill="#22655d"/>
+  <ellipse cx="526" cy="704" rx="50" ry="30" fill="#2e7a70"/><ellipse cx="526" cy="698" rx="36" ry="18" fill="#22655d"/>
+  <path d="M526 734c10 30 40 40 70 36" fill="none" stroke="#14293a" stroke-width="5" stroke-linecap="round"/>
+</g>
+
+<!-- reading booklet -->
+<g transform="rotate(-5 720 640)" filter="url(#soft)">
+  <rect x="580" y="508" width="300" height="250" rx="10" fill="#d9dfe9"/>
+  <rect x="572" y="500" width="300" height="250" rx="10" fill="#3a58a0"/>
+  <rect x="572" y="500" width="22" height="250" fill="#2c467f"/>
+  <rect x="628" y="540" width="200" height="104" rx="8" fill="#fffaf0"/>
+  <g stroke="#14293a" stroke-opacity=".4" stroke-width="7" stroke-linecap="round"><path d="M652 572h150M652 600h110M652 624h130"/></g>
+  <g stroke="#fff" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"><path d="M628 684h120M628 706h80"/></g>
+  <circle cx="824" cy="704" r="24" fill="#e3a843"/>
+  <path d="M824 716c-14-8-18-18-12-23 5-4 10-1 12 4 2-5 7-8 12-4 6 5 2 15-12 23z" fill="#fffaf0"/>
+</g>
+
+<!-- pen -->
+<g transform="translate(-20 116) rotate(-6 930 650)" filter="url(#lift)">
+  <rect x="820" y="640" width="210" height="20" rx="10" fill="#b0512a"/>
+  <path d="M1030 640l34 10-34 10z" fill="#e8d3ac"/><path d="M1054 647l10 3-10 3z" fill="#14293a"/>
+  <rect x="828" y="640" width="10" height="20" fill="#14293a" opacity=".8"/>
+  <rect x="860" y="635" width="64" height="6" rx="3" fill="#c6ccd1"/>
+</g>
+
+<!-- glass of water -->
+<g filter="url(#lift)">
+  <ellipse cx="1050" cy="716" rx="52" ry="12" fill="#2a1d10" opacity=".08"/>
+  <path d="M996 520h108l-12 194c-1 8-6 12-14 12h-56c-8 0-13-4-14-12z" fill="#eef5f8" opacity=".9"/>
+  <path d="M1000 580h100l-8 134c-1 8-6 12-14 12h-56c-8 0-13-4-14-12z" fill="#a8cde0" opacity=".75"/>
+  <path d="M1000 580c30 8 70 8 100 0" fill="none" stroke="#fff" stroke-width="4" opacity=".7"/>
+  <path d="M1016 540l8 160" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".75"/>
+  <path d="M996 520h108" stroke="#c7d6de" stroke-width="4" stroke-linecap="round"/>
+</g>
+
+<!-- plant -->
+<g filter="url(#lift)">
+  <path d="M1124 650h104l-12 76h-80z" fill="#c2683f"/>
+  <rect x="1116" y="640" width="120" height="22" rx="6" fill="#b0512a"/>
+  <path d="M1176 640c-4-50-20-80-50-96 30 0 54 30 56 70" fill="#3f7a3a"/>
+  <path d="M1178 640c4-60 26-96 64-108-14 34-40 70-58 108" fill="#5a9450"/>
+  <path d="M1172 640c-24-30-56-36-80-30 26 6 50 20 74 34" fill="#6fa862"/>
+  <path d="M1180 640c0-70-2-112 6-150 14 40 12 90-2 150" fill="#3f7a3a"/>
+  <path d="M1182 600c0-40 2-70 4-100" stroke="#2c5a28" stroke-width="2.5" fill="none" opacity=".6"/>
+</g>
+</svg>

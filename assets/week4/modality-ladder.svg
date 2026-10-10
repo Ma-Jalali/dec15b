@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 630" font-family="Manrope, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="mlt">
+<title id="mlt">Modality: how strongly do you claim? A staircase with three steps. Low modality, a tentative claim: perhaps, somewhat, occasionally. Medium modality, a moderate claim: should, often, it is possible. High modality, a strong claim: it is evident, highly likely, unquestionably.</title>
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".13"/></filter>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".14"/></pattern>
+</defs>
+<rect width="1040" height="630" rx="24" fill="#fffdf8"/>
+<rect x="910" y="22" width="100" height="56" fill="url(#dots)"/>
+<text x="40" y="56" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600" fill="#14293a">Modality: how strongly do you claim?</text>
+<path d="M40 68c140-5 320-5 480-1" stroke="#e3a843" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<text x="40" y="96" font-size="16" fill="#5d6a74">Choose words that match the strength of your evidence.</text>
+
+<g filter="url(#sh)">
+<path d="M40 456a16 16 0 0 1 16-16h278a16 16 0 0 1 16 16V554H40z" fill="#d6ebe7"/>
+<path d="M365 376a16 16 0 0 1 16-16h278a16 16 0 0 1 16 16V554H365z" fill="#7fb8b0"/>
+<path d="M690 296a16 16 0 0 1 16-16h278a16 16 0 0 1 16 16V554H690z" fill="#2b776e"/>
+</g>
+<text x="64" y="482" font-size="17" font-weight="800" letter-spacing="2.4" fill="#22655d">LOW</text>
+<text x="64" y="506" font-size="16" fill="#22655d" opacity=".85">Tentative claim</text>
+<rect x="296" y="484" width="8" height="10" rx="2" fill="#22655d" opacity="1"/>
+<rect x="308" y="476" width="8" height="18" rx="2" fill="#22655d" opacity="0.25"/>
+<rect x="320" y="468" width="8" height="26" rx="2" fill="#22655d" opacity="0.25"/>
+<g filter="url(#sh)"><rect x="56" y="298" width="110" height="38" rx="19" fill="#fff"/></g><circle cx="74" cy="317" r="5" fill="#7fb8b0"/><text x="88" y="323" font-family="Fraunces, Georgia, serif" font-size="19" font-style="italic" fill="#14293a">perhaps</text>
+<g filter="url(#sh)"><rect x="56" y="344" width="120" height="38" rx="19" fill="#fff"/></g><circle cx="74" cy="363" r="5" fill="#7fb8b0"/><text x="88" y="369" font-family="Fraunces, Georgia, serif" font-size="19" font-style="italic" fill="#14293a">somewhat</text>
+<g filter="url(#sh)"><rect x="56" y="390" width="160" height="38" rx="19" fill="#fff"/></g><circle cx="74" cy="409" r="5" fill="#7fb8b0"/><text x="88" y="415" font-family="Fraunces, Georgia, serif" font-size="19" font-style="italic" fill="#14293a">occasionally</text>
+<text x="389" y="402" font-size="17" font-weight="800" letter-spacing="2.4" fill="#14293a">MEDIUM</text>
+<text x="389" y="426" font-size="16" fill="#14293a" opacity=".85">Moderate claim</text>
+<rect x="621" y="404" width="8" height="10" rx="2" fill="#14293a" opacity="1"/>
+<rect x="633" y="396" width="8" height="18" rx="2" fill="#14293a" opacity="1"/>
+<rect x="645" y="388" width="8" height="26" rx="2" fill="#14293a" opacity="0.25"/>
+<g filter="url(#sh)"><rect x="381" y="218" width="100" height="38" rx="19" fill="#fff"/></g><circle cx="399" cy="237" r="5" fill="#7fb8b0"/><text x="413" y="243" font-family="Fraunces, Georgia, serif" font-size="19" font-style="italic" fill="#14293a">should</text>
+<g filter="url(#sh)"><rect x="381" y="264" width="90" height="38" rx="19" fill="#fff"/></g><circle cx="399" cy="283" r="5" fill="#7fb8b0"/><text x="413" y="289" font-family="Fraunces, Georgia, serif" font-size="19" font-style="italic" fill="#14293a">often</text>
+<g filter="url(#sh)"><rect x="381" y="310" width="180" height="38" rx="19" fill="#fff"/></g><circle cx="399" cy="329" r="5" fill="#7fb8b0"/><text x="413" y="335" font-family="Fraunces, Georgia, serif" font-size="19" font-style="italic" fill="#14293a">it is possible</text>
+<text x="714" y="322" font-size="17" font-weight="800" letter-spacing="2.4" fill="#fff">HIGH</text>
+<text x="714" y="346" font-size="16" fill="#fff" opacity=".85">Strong claim</text>
+<rect x="946" y="324" width="8" height="10" rx="2" fill="#fff" opacity="1"/>
+<rect x="958" y="316" width="8" height="18" rx="2" fill="#fff" opacity="1"/>
+<rect x="970" y="308" width="8" height="26" rx="2" fill="#fff" opacity="1"/>
+<g filter="url(#sh)"><rect x="706" y="138" width="170" height="38" rx="19" fill="#fff"/></g><circle cx="724" cy="157" r="5" fill="#2b776e"/><text x="738" y="163" font-family="Fraunces, Georgia, serif" font-size="19" font-style="italic" fill="#14293a">it is evident</text>
+<g filter="url(#sh)"><rect x="706" y="184" width="170" height="38" rx="19" fill="#fff"/></g><circle cx="724" cy="203" r="5" fill="#2b776e"/><text x="738" y="209" font-family="Fraunces, Georgia, serif" font-size="19" font-style="italic" fill="#14293a">highly likely</text>
+<g filter="url(#sh)"><rect x="706" y="230" width="180" height="38" rx="19" fill="#fff"/></g><circle cx="724" cy="249" r="5" fill="#2b776e"/><text x="738" y="255" font-family="Fraunces, Georgia, serif" font-size="19" font-style="italic" fill="#14293a">unquestionably</text>
+<path d="M196 590h630" stroke="#c9bfae" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/><path d="M988 582l14 8-14 8z" fill="#c9bfae"/><rect x="40" y="574" width="150" height="32" fill="#fffdf8"/><text x="44" y="596" font-size="15.5" font-weight="800" fill="#5d6a74">weaker claim</text><rect x="830" y="574" width="150" height="32" fill="#fffdf8"/><text x="976" y="596" text-anchor="end" font-size="15.5" font-weight="800" fill="#5d6a74">stronger claim</text>
+<path d="M992 44l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#e3a843"/>
+</svg>

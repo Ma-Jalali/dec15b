@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 560" font-family="Manrope, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="fwt">
+<title id="fwt">Three stages of household food waste, from Castro et al., 2023, shown as a cycle. Stage 1, acquisition: planning and purchasing food, at the supermarket, shown with a shopping cart. Stage 2, consumption: preparing and eating food, in the household kitchen, shown with a pan and a plate. Stage 3, disposal: throwing away uneaten food, in the household, shown with a rubbish bin, a compost bin and food sharing. An arrow returns from disposal to acquisition, and the cycle starts again.</title>
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".13"/></filter>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".14"/></pattern>
+  <path id="pin" d="M0 8s-7-7-7-12a7 7 0 0 1 14 0c0 5-7 12-7 12z"/>
+</defs>
+<rect width="1040" height="560" rx="24" fill="#fffdf8"/>
+<rect x="910" y="22" width="100" height="56" fill="url(#dots)"/>
+<text x="40" y="56" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600" fill="#14293a">Three stages of household food waste <tspan font-size="20" font-weight="400" fill="#5d6a74">(Castro et al., 2023)</tspan></text>
+<path d="M40 68c160-5 400-5 660-1" stroke="#e3a843" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<text x="40" y="96" font-size="16" fill="#5d6a74">Food can be wasted at every stage of the household food cycle.</text>
+
+<g filter="url(#sh)">
+  <rect x="40" y="124" width="290" height="320" rx="20" fill="#fff"/>
+  <rect x="375" y="124" width="290" height="320" rx="20" fill="#fff"/>
+  <rect x="710" y="124" width="290" height="320" rx="20" fill="#fff"/>
+</g>
+<rect x="40" y="124" width="290" height="8" rx="4" fill="#985c0e"/><rect x="375" y="124" width="290" height="8" rx="4" fill="#2b776e"/><rect x="710" y="124" width="290" height="8" rx="4" fill="#b0512a"/>
+
+<!-- icons -->
+<g fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <g transform="translate(185 196) scale(1.25)"><circle r="36" fill="#fbf3e4" stroke="none"/>
+    <circle cx="-6" cy="-6" r="6" fill="#e3a843" stroke="none"/><circle cx="6" cy="-7" r="6" fill="#6f9a5a" stroke="none"/>
+    <path d="M-28-16h8l7 28h26l6-22h-36" stroke="#985c0e"/><circle cx="-9" cy="20" r="3.5" fill="#985c0e" stroke="none"/><circle cx="11" cy="20" r="3.5" fill="#985c0e" stroke="none"/></g>
+  <g transform="translate(520 196) scale(1.25)"><circle r="36" fill="#e9f4f2" stroke="none"/>
+    <ellipse cx="10" cy="10" rx="20" ry="7" stroke="#2b776e"/><path d="M-28-6h30v6a12 12 0 0 1-12 12h-6a12 12 0 0 1-12-12z" fill="#2b776e" stroke="none"/><path d="M2-3h14" stroke="#2b776e"/>
+    <path d="M-20-14c-4-5 4-8 0-13M-10-14c-4-5 4-8 0-13" stroke="#2b776e" stroke-width="2.4"/></g>
+  <g transform="translate(855 196) scale(1.25)"><rect x="-74" y="-36" width="148" height="72" rx="36" fill="#fbefe8" stroke="none"/>
+    <path d="M-62-8h28M-58-8l3 26h14l3-26M-52-14h16" stroke="#b0512a"/>
+    <path d="M-12-8h26l-3 26h-20z" fill="#3f7a3a" stroke="none"/><path d="M0 12c-7-2-8-10-3-15 5 3 6 10 3 15z" fill="#eef6ea" stroke="none"/>
+    <path d="M30 4h34a17 17 0 0 1-34 0z" fill="#b0512a" stroke="none"/><path d="M26 4h42" stroke="#b0512a"/><path d="M47-6c-6-4-10-8-6-12 3-3 6-1 6 2 0-3 3-5 6-2 4 4 0 8-6 12z" fill="#b0512a" stroke="none"/></g>
+</g>
+
+<g font-size="15" font-weight="800" letter-spacing="2" text-anchor="middle"><text x="185" y="272" fill="#985c0e">STAGE 1</text><text x="520" y="272" fill="#2b776e">STAGE 2</text><text x="855" y="272" fill="#b0512a">STAGE 3</text></g>
+<g font-family="Fraunces, Georgia, serif" font-size="27" font-weight="600" fill="#14293a" text-anchor="middle"><text x="185" y="306">Acquisition</text><text x="520" y="306">Consumption</text><text x="855" y="306">Disposal</text></g>
+<g font-size="17" fill="#3d505e" text-anchor="middle">
+  <text x="185" y="340">Planning and</text><text x="185" y="362">purchasing food</text>
+  <text x="520" y="340">Preparing and</text><text x="520" y="362">eating food</text>
+  <text x="855" y="340">Throwing away</text><text x="855" y="362">uneaten food</text>
+</g>
+<!-- location chips -->
+<rect x="105" y="390" width="160" height="34" rx="17" fill="#fbf3e4"/>
+<rect x="420" y="390" width="200" height="34" rx="17" fill="#e9f4f2"/>
+<rect x="780" y="390" width="150" height="34" rx="17" fill="#fbefe8"/>
+<use href="#pin" x="128" y="410" fill="#985c0e"/><use href="#pin" x="443" y="410" fill="#2b776e"/><use href="#pin" x="803" y="410" fill="#b0512a"/>
+<g font-size="16" font-weight="700"><text x="142" y="413" fill="#7a4a0b">Supermarket</text><text x="457" y="413" fill="#22655d">Household kitchen</text><text x="817" y="413" fill="#8e3b1c">Household</text></g>
+
+<!-- arrows between -->
+<g filter="url(#sh)"><circle cx="352.5" cy="196" r="20" fill="#14293a"/><circle cx="687.5" cy="196" r="20" fill="#14293a"/></g>
+<g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M344 196h16m-6-7l7 7-7 7"/><path d="M679 196h16m-6-7l7 7-7 7"/></g>
+<!-- return loop -->
+<path d="M855 452c0 50-30 66-90 66H275c-60 0-90-16-90-56" fill="none" stroke="#c9bfae" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+<path d="M176 466l9-14 9 14z" fill="#c9bfae"/>
+<rect x="400" y="502" width="240" height="32" rx="16" fill="#fffdf8"/>
+<text x="520" y="524" text-anchor="middle" font-size="15" font-style="italic" fill="#5d6a74">… and the cycle starts again</text>
+<path d="M992 44l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#e3a843"/>
+</svg>

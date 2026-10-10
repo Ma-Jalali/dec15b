@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 804" font-family="Manrope, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="apt">
+<title id="apt">Four app functions, adapted from Castro et al. (2023). 1, Smart inventory: create grocery lists from past use and current stock; scan barcodes; how to store food; when food should really be thrown away; an overview of food in stock; statistics on past waste, including money and environment. 2, Smart recipes: recipes from your inventory and soon-to-expire food; track leftovers for creative reuse; adjust recipes to ideal portions. 3, Food-sharing hub: manage a shared inventory in your flat; a digital marketplace to share leftovers with the community; see and rate profiles of other sharers. 4, Portion-ready food delivery: ingredients for specific meals delivered to your door; how to store items; when items should be thrown away.</title>
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".13"/></filter>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".14"/></pattern>
+</defs>
+<rect width="1040" height="804" rx="24" fill="#fffdf8"/>
+<rect x="910" y="22" width="100" height="56" fill="url(#dots)"/>
+<text x="40" y="56" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600" fill="#14293a">Four app functions</text>
+<path d="M40 68c80-5 170-5 250-1" stroke="#e3a843" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<text x="40" y="96" font-size="16" fill="#5d6a74">Four functions of one food-waste app. Each function groups several features.</text>
+<g filter="url(#sh)"><rect x="40" y="124" width="470" height="366" rx="20" fill="#fff"/></g>
+<path d="M40 144a20 20 0 0 1 20-20h430a20 20 0 0 1 20 20v52h-470z" fill="#fbf3e4"/>
+<g transform="translate(86 162)"><circle r="26" fill="#985c0e"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="-11" y="-16" width="22" height="32" rx="4"/><path d="M-11-4h22M6-11v4M6 1v8"/></g></g>
+<text x="126" y="154" font-size="15" font-weight="800" letter-spacing="2" fill="#7a4a0b">FUNCTION 1</text>
+<text x="126" y="180" font-family="Fraunces, Georgia, serif" font-size="23" font-weight="600" fill="#14293a">Smart inventory</text>
+<circle cx="74" cy="226.5" r="4.5" fill="#985c0e"/>
+<circle cx="74" cy="288.5" r="4.5" fill="#985c0e"/>
+<circle cx="74" cy="324.5" r="4.5" fill="#985c0e"/>
+<circle cx="74" cy="360.5" r="4.5" fill="#985c0e"/>
+<circle cx="74" cy="396.5" r="4.5" fill="#985c0e"/>
+<circle cx="74" cy="432.5" r="4.5" fill="#985c0e"/>
+<g font-size="16.5" fill="#3d505e">
+<text x="90" y="232">Create grocery lists from past use</text>
+<text x="90" y="258">and current stock</text>
+<text x="90" y="294">Scan barcodes</text>
+<text x="90" y="330">How to store food</text>
+<text x="90" y="366">When food should really be thrown away</text>
+<text x="90" y="402">Overview of food in stock</text>
+<text x="90" y="438">Statistics on past waste, including</text>
+<text x="90" y="464">money and environment</text>
+</g>
+<g filter="url(#sh)"><rect x="530" y="124" width="470" height="366" rx="20" fill="#fff"/></g>
+<path d="M530 144a20 20 0 0 1 20-20h430a20 20 0 0 1 20 20v52h-470z" fill="#e9f4f2"/>
+<g transform="translate(576 162)"><circle r="26" fill="#2b776e"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M-14-3h28v6a10 10 0 0 1-10 10h-8a10 10 0 0 1-10-10z"/><path d="M-18-3h36M-5-8h10"/><path d="M-6-14c-3-3 3-5 0-8M4-14c-3-3 3-5 0-8" stroke-width="2"/></g></g>
+<text x="616" y="154" font-size="15" font-weight="800" letter-spacing="2" fill="#22655d">FUNCTION 2</text>
+<text x="616" y="180" font-family="Fraunces, Georgia, serif" font-size="23" font-weight="600" fill="#14293a">Smart recipes</text>
+<circle cx="564" cy="226.5" r="4.5" fill="#2b776e"/>
+<circle cx="564" cy="288.5" r="4.5" fill="#2b776e"/>
+<circle cx="564" cy="324.5" r="4.5" fill="#2b776e"/>
+<g font-size="16.5" fill="#3d505e">
+<text x="580" y="232">Recipes from your inventory and</text>
+<text x="580" y="258">soon-to-expire food</text>
+<text x="580" y="294">Track leftovers for creative reuse</text>
+<text x="580" y="330">Adjust recipes to ideal portions</text>
+</g>
+<g filter="url(#sh)"><rect x="40" y="512" width="470" height="232" rx="20" fill="#fff"/></g>
+<path d="M40 532a20 20 0 0 1 20-20h430a20 20 0 0 1 20 20v52h-470z" fill="#f6eff8"/>
+<g transform="translate(86 550)"><circle r="26" fill="#7a4a8c"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="-7" cy="-7" r="5"/><circle cx="8" cy="-7" r="5"/><path d="M-16 12c0-7 4-11 9-11s9 4 9 11M0 12c0-7 3-11 8-11s9 4 9 11"/></g></g>
+<text x="126" y="542" font-size="15" font-weight="800" letter-spacing="2" fill="#5f3570">FUNCTION 3</text>
+<text x="126" y="568" font-family="Fraunces, Georgia, serif" font-size="23" font-weight="600" fill="#14293a">Food-sharing hub</text>
+<circle cx="74" cy="614.5" r="4.5" fill="#7a4a8c"/>
+<circle cx="74" cy="650.5" r="4.5" fill="#7a4a8c"/>
+<circle cx="74" cy="712.5" r="4.5" fill="#7a4a8c"/>
+<g font-size="16.5" fill="#3d505e">
+<text x="90" y="620">Manage a shared inventory in your flat</text>
+<text x="90" y="656">Digital marketplace to share leftovers</text>
+<text x="90" y="682">with the community</text>
+<text x="90" y="718">See and rate profiles of other sharers</text>
+</g>
+<g filter="url(#sh)"><rect x="530" y="512" width="470" height="232" rx="20" fill="#fff"/></g>
+<path d="M530 532a20 20 0 0 1 20-20h430a20 20 0 0 1 20 20v52h-470z" fill="#edf1fa"/>
+<g transform="translate(576 550)"><circle r="26" fill="#3a58a0"/><g fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M-15-8l15-8 15 8v16l-15 8-15-8z"/><path d="M-15-8l15 8 15-8M0 0v16"/></g></g>
+<text x="616" y="542" font-size="15" font-weight="800" letter-spacing="2" fill="#2c4581">FUNCTION 4</text>
+<text x="616" y="568" font-family="Fraunces, Georgia, serif" font-size="23" font-weight="600" fill="#14293a">Portion-ready food delivery</text>
+<circle cx="564" cy="614.5" r="4.5" fill="#3a58a0"/>
+<circle cx="564" cy="676.5" r="4.5" fill="#3a58a0"/>
+<circle cx="564" cy="712.5" r="4.5" fill="#3a58a0"/>
+<g font-size="16.5" fill="#3d505e">
+<text x="580" y="620">Ingredients for specific meals</text>
+<text x="580" y="646">delivered to your door</text>
+<text x="580" y="682">How to store items</text>
+<text x="580" y="718">When items should be thrown away</text>
+</g>
+<g transform="translate(880 410)"><rect x="-70" y="-34" width="110" height="72" fill="url(#dots)"/><ellipse cx="40" cy="34" rx="60" ry="14" fill="#e9f4f2"/><ellipse cx="40" cy="30" rx="44" ry="9" fill="#fff" stroke="#2b776e" stroke-width="2.5"/><circle cx="28" cy="24" r="9" fill="#e3a843"/><circle cx="48" cy="22" r="8" fill="#6f9a5a"/><path d="M64 20c4-14 14-20 24-20-2 12-12 20-24 20z" fill="#3f7a3a"/></g>
+<text x="40" y="778" font-size="15" font-style="italic" fill="#5d6a74">Adapted from Castro et al. (2023)</text>
+<path d="M992 44l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#e3a843"/>
+</svg>

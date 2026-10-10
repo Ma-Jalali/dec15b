@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 933" role="img" aria-labelledby="t">
+<title id="t">Solutions to food waste: a smartphone showing a fridge-inventory app with a list of foods and freshness bars, a small cold room powered by a solar panel under the sun, a plate of upcycled biscuits beside a sprig of grain, and a tidy shopping list with ticked items.</title>
+<defs>
+  <filter id="paper" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="21"/><feColorMatrix values="0 0 0 0 .55  0 0 0 0 .47  0 0 0 0 .36  0 0 0 .07 0"/><feComposite in2="SourceGraphic" operator="in"/><feBlend in="SourceGraphic" mode="multiply"/></filter>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#2a1d10" flood-opacity=".22"/></filter>
+  <filter id="lift" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#14293a" flood-opacity=".2"/></filter>
+  <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#93600f" opacity=".22"/></pattern>
+  <pattern id="cells" width="34" height="30" patternUnits="userSpaceOnUse"><path d="M0 0h34v30" fill="none" stroke="#9fb6d8" stroke-width="2"/></pattern>
+  <g id="ck"><circle r="13" fill="#d9a35c"/><circle r="13" fill="none" stroke="#b47a35" stroke-width="2.5"/><g fill="#7a4a24"><circle cx="-5" cy="-3" r="2.2"/><circle cx="4" cy="-5" r="1.8"/><circle cx="2" cy="5" r="2"/><circle cx="-4" cy="6" r="1.4"/></g></g>
+</defs>
+<rect width="1400" height="933" fill="#f3ebdd"/>
+<rect width="1400" height="933" fill="#f3ebdd" filter="url(#paper)" opacity=".9"/>
+<circle cx="700" cy="470" r="400" fill="#f6e7c9" opacity=".75"/>
+<circle cx="700" cy="470" r="436" fill="none" stroke="#93600f" stroke-opacity=".2" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+<rect x="104" y="112" width="176" height="128" fill="url(#dots)"/>
+<rect x="1130" y="96" width="176" height="128" fill="url(#dots)"/>
+<path d="M240 330l7 18 18 7-18 7-7 18-7-18-18-7 18-7z" fill="#e3a843"/>
+<path d="M1250 690l5 13 13 5-13 5-5 13-5-13-13-5 13-5z" fill="#2b776e" opacity=".8"/>
+<path d="M128 560h34m-17-17v34" stroke="#b0512a" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+<ellipse cx="700" cy="842" rx="520" ry="26" fill="#2a1d10" opacity=".08"/>
+
+<!-- sun -->
+<g transform="translate(1100 218)">
+  <circle r="46" fill="#e3a843"/><circle r="64" fill="none" stroke="#e3a843" stroke-width="3" stroke-dasharray="3 12" stroke-linecap="round"/>
+</g>
+<!-- solar cold room -->
+<g filter="url(#soft)">
+  <rect x="850" y="420" width="300" height="250" rx="14" fill="#e9f4f2"/>
+  <rect x="850" y="420" width="300" height="36" rx="14" fill="#2b776e"/><rect x="850" y="440" width="300" height="16" fill="#2b776e"/>
+  <rect x="890" y="490" width="120" height="180" rx="8" fill="#fffdf7"/>
+  <rect x="990" y="560" width="10" height="44" rx="5" fill="#2b776e"/>
+  <rect x="1036" y="490" width="80" height="80" rx="10" fill="#cfe7e3"/>
+</g>
+<g stroke="#2b776e" stroke-width="5" stroke-linecap="round" fill="none" transform="translate(950 570)">
+  <path d="M0-30v60M-26-15l52 30M-26 15l52-30"/><path d="M-8-24l8 8 8-8M-8 24l8-8 8 8"/>
+</g>
+<path d="M1046 530h60" stroke="#2b776e" stroke-width="3" opacity=".5"/><circle cx="1060" cy="518" r="10" fill="#c2402b"/><circle cx="1084" cy="519" r="9" fill="#e3a843"/><rect x="1050" y="540" width="16" height="24" rx="4" fill="#3a58a0"/><path d="M1080 560c0-12 6-18 10-24 4 6 10 12 10 24 0 4-4 6-10 6s-10-2-10-6z" fill="#6f9a5a"/>
+<path d="M920 420v-40M1090 420v-86" stroke="#5d6a74" stroke-width="7" stroke-linecap="round"/>
+<g filter="url(#lift)" transform="translate(0 -54)">
+  <path d="M868 400l248-70 22 74-248 70z" fill="#3a58a0"/>
+  <path d="M868 400l248-70 22 74-248 70z" fill="url(#cells)" opacity=".7"/>
+  <path d="M874 406l246-69" stroke="#fff" stroke-opacity=".35" stroke-width="3"/>
+</g>
+<g stroke="#e3a843" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 9" fill="none" opacity=".9"><path d="M1060 270l-30 50"/><path d="M1090 280l-22 44"/></g>
+
+<!-- phone -->
+<g transform="rotate(-6 590 470)">
+  <g filter="url(#soft)">
+    <rect x="470" y="190" width="250" height="500" rx="38" fill="#14293a"/>
+    <rect x="484" y="204" width="222" height="472" rx="28" fill="#fffdf7"/>
+  </g>
+  <rect x="560" y="216" width="70" height="12" rx="6" fill="#14293a"/>
+  <!-- fridge header -->
+  <rect x="500" y="246" width="190" height="96" rx="18" fill="#e9f4f2"/>
+  <rect x="526" y="258" width="52" height="74" rx="9" fill="#fff" stroke="#2b776e" stroke-width="4"/>
+  <path d="M526 284h52M568 266v10M568 292v14" stroke="#2b776e" stroke-width="4" stroke-linecap="round"/>
+  <g stroke="#14293a" stroke-opacity=".3" stroke-width="7" stroke-linecap="round"><path d="M598 280h70M598 302h50"/></g>
+  <!-- inventory rows -->
+  <g>
+    <circle cx="520" cy="384" r="16" fill="#c2402b"/><path d="M520 368c3-6 8-8 13-8" stroke="#3f7a3a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <rect x="548" y="370" width="80" height="8" rx="4" fill="#14293a" opacity=".3"/>
+    <rect x="548" y="388" width="130" height="8" rx="4" fill="#eef6ea"/><rect x="548" y="388" width="104" height="8" rx="4" fill="#3f7a3a"/>
+    <ellipse cx="520" cy="446" rx="18" ry="13" fill="#e3a843"/><ellipse cx="520" cy="446" rx="9" ry="6" fill="#fbf3e4"/>
+    <rect x="548" y="432" width="96" height="8" rx="4" fill="#14293a" opacity=".3"/>
+    <rect x="548" y="450" width="130" height="8" rx="4" fill="#fbf3e4"/><rect x="548" y="450" width="40" height="8" rx="4" fill="#e3a843"/>
+    <path d="M508 512c0-14 8-22 12-30 4 8 12 16 12 30 0 8-6 12-12 12s-12-4-12-12z" fill="#6f9a5a"/>
+    <rect x="548" y="494" width="70" height="8" rx="4" fill="#14293a" opacity=".3"/>
+    <rect x="548" y="512" width="130" height="8" rx="4" fill="#eef6ea"/><rect x="548" y="512" width="78" height="8" rx="4" fill="#3f7a3a"/>
+  </g>
+  <rect x="500" y="552" width="190" height="2" fill="#14293a" opacity=".1"/>
+  <rect x="500" y="572" width="190" height="80" rx="16" fill="#fbf3e4"/>
+  <circle cx="530" cy="612" r="16" fill="#e3a843"/><path d="M530 602v12M530 620v1" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <g stroke="#985c0e" stroke-opacity=".55" stroke-width="7" stroke-linecap="round"><path d="M560 602h106M560 622h74"/></g>
+</g>
+
+<!-- biscuits + grain -->
+<g filter="url(#soft)">
+  <ellipse cx="330" cy="720" rx="150" ry="44" fill="#fffdf7"/>
+  <ellipse cx="330" cy="714" rx="118" ry="30" fill="#f4ecdc"/>
+</g>
+<g transform="translate(330 690)">
+  <g transform="translate(-50 10) scale(3.2)"><use href="#ck"/></g>
+  <g transform="translate(50 12) scale(3)"><use href="#ck"/></g>
+  <g transform="translate(0 -24) scale(3.3) rotate(40)"><use href="#ck"/></g>
+</g>
+<g fill="none" stroke="#985c0e" stroke-width="4" stroke-linecap="round">
+  <path d="M160 742c-6-90 4-180 40-250"/>
+</g>
+<g fill="#e3a843">
+  <ellipse cx="184" cy="540" rx="9" ry="18" transform="rotate(-30 184 540)"/><ellipse cx="208" cy="526" rx="9" ry="18" transform="rotate(35 208 526)"/>
+  <ellipse cx="178" cy="580" rx="9" ry="18" transform="rotate(-30 178 580)"/><ellipse cx="200" cy="566" rx="9" ry="18" transform="rotate(35 200 566)"/>
+  <ellipse cx="172" cy="620" rx="9" ry="18" transform="rotate(-28 172 620)"/><ellipse cx="194" cy="606" rx="9" ry="18" transform="rotate(35 194 606)"/>
+  <ellipse cx="204" cy="490" rx="8" ry="17" transform="rotate(20 204 490)"/>
+</g>
+<g fill="#c99032"><circle cx="420" cy="770" r="4"/><circle cx="436" cy="778" r="3.5"/><circle cx="452" cy="768" r="4"/><circle cx="408" cy="784" r="3"/></g>
+
+<!-- shopping list -->
+<g transform="rotate(6 1090 690)" filter="url(#soft)">
+  <rect x="980" y="580" width="230" height="230" rx="10" fill="#fffdf7"/>
+  <rect x="1060" y="566" width="70" height="26" rx="8" fill="#b0512a"/>
+  <g fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1004" y="622" width="26" height="26" rx="6" stroke="#2b776e"/><path d="M1010 636l6 6 12-14" stroke="#2b776e"/>
+    <rect x="1004" y="672" width="26" height="26" rx="6" stroke="#2b776e"/><path d="M1010 686l6 6 12-14" stroke="#2b776e"/>
+    <rect x="1004" y="722" width="26" height="26" rx="6" stroke="#5d6a74" opacity=".6"/>
+  </g>
+  <g stroke="#14293a" stroke-opacity=".3" stroke-width="7" stroke-linecap="round"><path d="M1046 635h120M1046 685h90M1046 735h134"/></g>
+  <path d="M1044 636h126M1044 686h96" stroke="#14293a" stroke-width="2.5" opacity=".55"/>
+</g>
+<!-- leaf sprig -->
+<g transform="translate(760 760)">
+  <path d="M0 40c10-30 30-56 60-70" fill="none" stroke="#3f7a3a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M24 2c12-14 30-14 38-6-12 12-28 12-38 6z" fill="#6f9a5a"/><path d="M40-18c4-18 18-26 30-22-4 16-18 24-30 22z" fill="#3f7a3a"/>
+</g>
+</svg>

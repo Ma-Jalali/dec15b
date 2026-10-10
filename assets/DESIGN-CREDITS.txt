@@ -34,3 +34,13 @@ lentil jar, seedling) drawn in the same cut-paper editorial direction as the Wee
 also generated in the teacher's Canva account (media MAHXP771JXw) but is not used in the site.
 assets/week3/*.svg diagrams: original redraws of Teacher's Book figures (credits inside each figure).
 assets/favicon.svg: original sprout emblem in the course colours.
+
+WEEKS 4–5 — 10 October 2026
+Original code-native SVG illustrations created for this course: assets/week4/ (hero-week4, hero-w4d1…5 and teaching diagrams
+food-waste-stages, app-features, vab-model, certainty-verbs, rsd-steps, fishbowl, argument-strength, modality-ladder,
+stance-tools, three-actors, ai-checklist, negotiation-map) and assets/week5/ (hero-week5, hero-w5d1…5, six-pillars, three-cs,
+text-map-5-1, shg-program, evaluate-solutions, hunger-funding, ai-concerns, presentation-roles). Flat colours only.
+Diagrams redraw course content: the VAB model after Huang et al. (2024), Figure 1; app functions after Castro et al. (2023);
+the six dimensions after Clapp et al. (2022) / HLPE (2020) (an original design, not the HLPE slide); the Sample 5.1 text map
+after the DEC15 Teacher's Book; funding figures from Oxfam (2022).
+

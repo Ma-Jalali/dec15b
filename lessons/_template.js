@@ -43,6 +43,15 @@
                   answers?: [[row 1 answers…], …], given?: { '0-0': 'Agree' } }   a table of drop-down choices
      figure     { type: 'figure', src, alt, caption?, credit?, size?: 'small' | 'wide' }   a picture or diagram
      tip        { type: 'tip', text }
+     listening  … also url: 'https://…', urlLabel: 'Watch on TED.com' — a button for media that is not on YouTube
+     form       { type: 'form', id, title, intro?, observe?: 'Who are you observing?', scale?: ['Yes', 'Mostly', 'Needs work'],
+                  cols?: ['Comments', 'Action plan for further improvement'], sections: [{ label, hint?, items: [..] }],
+                  fields?: [{ id, label, rows?, placeholder? }], send?: true }   rating form (feedback / self-reflection)
+     scale      { type: 'scale', id, title?, statement, ends: ['Strongly disagree', 'Strongly agree'], mid?, answer?: 0–100, why? }
+     jeopardy   { type: 'jeopardy', id, title?, teams?: 4, seconds?: 20, cols: [{ title, clues: [{ pts, clue, answer }] }] }
+     send: true on a form, table or fields block (the block needs an id) adds “Share with classmates” + PDF.
+                Use it only where students observe / give feedback to a classmate or group, or swap work.
+                Optional sendLabel and sendHint change the text. Recipients read it in “Shared with me” (#/shared).
      teacher    { type: 'teacher', ref: 'w1d1-t1' }          only shown in Teacher view, and only to the teacher.
                 The note text is NOT kept in this file (the site is public): add it to the database
                 table teacher_notes (lesson_id, ref, body) in Supabase, and put only its ref here.

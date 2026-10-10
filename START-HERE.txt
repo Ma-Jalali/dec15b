@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.32)
+DEC15 — COURSE APP (v2.33)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -401,3 +401,33 @@ v2.32
   class name, so the page took the label's look. The label is now .answers-lock-note.
 - Fixed: the bottom of letters like "g" was cut off in the side panel ("Readings").
 - The class board no longer shows Copy text / Print when there is no board yet.
+
+v2.33 — WEEKS 4 AND 5 + SHARE FORMS WITH CHOSEN CLASSMATES
+- Week 4 (lessons/week4/): w4d1 1A RSD preparation · 2A Listening to speak (Gunders TED talk) · 3A Reading to speak
+  (Castro et al.) | w4d2 4A Mediation + Academic writing skills 1 (Huang et al., upcycled food) · 5A Discussion skills 1 |
+  w4d3 6A Discussion skills 2 · 7A Criticality (Kooringal town meeting) · 8A Academic writing skills 2 (stance) · 9A Building
+  rapport | w4d4 10A Research summary discussions (fishbowl) | w4d5 11A IWPA feedback · 12A Workshop set up · 13A Digital
+  literacy and AI · 14A Teacher feedback on the RSD.
+- Week 5 (lessons/week5/): w5d1 1A Academic writing skills workshop (joint essay, Sample 5.1, text map) | w5d2 2A LRW
+  assessment (a short support page — follow the DEC team’s instructions) | w5d3 3A Discussion skills (frameworks) · 4A Reading
+  to write (Clapp et al.) · 5A Listening to write (Oxfam) | w5d4 6A Mediation (Mockshell & Ritter; quiz-board recap) · 7A
+  Applying the frameworks | w5d5 8A Presentations · 9A AST: AI reflection · 10A STAR moment.
+- Texts: lessons/week4/sources.js and lessons/week5/sources.js (copied from the Teacher’s Book; they add to the Week 3 texts
+  when a day loads both). Pictures: assets/week4/ and assets/week5/ (11 headers + 21 teaching diagrams, flat colours).
+- Teacher notes for all ten days are in the database table teacher_notes (refs w4d1-t1 … w5d5-t7), not in the files.
+  Each note lists Teacher’s Book places that looked inconsistent and the original Quizlet / Wordwall / Jeopardy links.
+- Media: the TED talk opens on TED.com (button). The negotiation sample, the Oxfam listening and the AI podcast have no public
+  link: the teacher plays them; transcripts are in Readings. To add a link later, set videoId (YouTube) or url in the lesson file.
+- New blocks (js/forms.js, css/forms.css): form (Yes / Mostly / Needs work + comments, e.g. peer-feedback and self-reflection
+  forms), scale (place a thesis on an agree–disagree line), jeopardy (team quiz board with a timer). See lessons/_template.js.
+- SHARE WITH CLASSMATES: forms where a student observes or gives feedback to someone (W4D4 peer-feedback form and the
+  teacher’s feedback form, W4D5 peer feedback tool, W4D2 implications paragraph, W5D4 question exchange + checklist, W5D5
+  presentation feedback; optional on self-reflection and goals) have “Share with classmates” and “PDF”. The student ticks
+  classmates who have signed in; each gets a read-only copy. Sending again updates the copy.
+  Recipients see it in the new side-panel page “Shared with me” (#/shared, red badge for new items, a pop-up notice when it
+  arrives). They can reply (opens a private message), download a PDF, open the lesson, or remove it. “Sent by me” lists what
+  you shared; “Stop sharing” takes it back. Only the sender and the recipient can read a share (Row Level Security).
+  Database: supabase/migrations/20261010000000_dec15_form_shares.sql (already applied to the project).
+- Teacher tip (W4D4): fill in the teacher’s feedback table for one group, Share → tick that group’s members, then clear it and
+  do the next group (or download a PDF per group).
+

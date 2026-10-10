@@ -60,6 +60,62 @@ window.DEC15_COURSE = {
           stages: ['negotiate', 'teamwork', 'prompts', 'rapport'], tones: ['teal', 'clay', 'blue', 'amber'],
           scripts: ['lessons/week3/sources.js', 'lessons/week3/w3d5.js'] }
       ]
+    },
+    {
+      n: 4, theme: 'Solutions to food waste',
+      image: 'assets/week4/hero-week4.svg',
+      imageAlt: 'Illustration: a smartphone showing a fridge-inventory app, a small solar-powered cold room, an upcycled biscuit with grain and a tidy shopping list — practical solutions to food waste.',
+      summary: 'Apps, cold rooms and upcycled food: evaluate solutions, negotiate in your second Research Summary Discussion and plan an argument essay.',
+      days: [
+        { id: 'w4d1', day: 1, status: 'ready', title: 'Prepare, listen and read to speak', art: 'listening',
+          parts: ['1A Research summary discussion preparation', '2A Listening to speak', '3A Reading to speak'],
+          stages: ['rsd', 'listen', 'read'], tones: ['teal', 'amber', 'plum'],
+          scripts: ['lessons/week4/sources.js', 'lessons/week4/w4d1.js'] },
+        { id: 'w4d2', day: 2, status: 'ready', title: 'Bring sources together and negotiate', art: 'research',
+          parts: ['4A Mediation + Academic writing skills 1', '5A Discussion skills 1'],
+          stages: ['mediate', 'discuss'], tones: ['blue', 'teal'],
+          scripts: ['lessons/week4/sources.js', 'lessons/week4/w4d2.js'] },
+        { id: 'w4d3', day: 3, status: 'ready', title: 'Negotiate, stay flexible, take a stance', art: 'discussion',
+          parts: ['6A Discussion skills 2', '7A AST: Criticality: Engaging with sources', '8A Academic writing skills 2', '9A Building rapport'],
+          stages: ['options', 'flex', 'stance', 'rapport'], tones: ['teal', 'blue', 'clay', 'amber'],
+          scripts: ['lessons/week4/sources.js', 'lessons/week4/w4d3.js'] },
+        { id: 'w4d4', day: 4, status: 'ready', title: 'Research Summary Discussion 2', art: 'group',
+          parts: ['10A Research summary discussions'],
+          stages: ['rsd'], tones: ['clay'],
+          scripts: ['lessons/week3/sources.js', 'lessons/week4/sources.js', 'lessons/week4/w4d4.js'] },
+        { id: 'w4d5', day: 5, status: 'ready', title: 'Feedback, essay planning and AI', art: 'feedback',
+          parts: ['11A Feedback session on Week 3 Integrated Writing Practice Assessment', '12A Academic writing skills Workshop set up', '13A AST: Digital literacy and AI', '14A Teacher feedback on research summary discussions'],
+          stages: ['feedback', 'plan', 'ai', 'rsdfb'], tones: ['teal', 'clay', 'amber', 'plum'],
+          scripts: ['lessons/week3/sources.js', 'lessons/week4/sources.js', 'lessons/week4/w4d5.js'] }
+      ]
+    },
+    {
+      n: 5, theme: 'Assessment and frameworks',
+      image: 'assets/week5/hero-week5.svg',
+      imageAlt: 'Illustration: six coloured pillars standing in a grain field beside an open notebook, a pen and a finishing ribbon — the six dimensions of food security and the end of DEC15.',
+      summary: 'Write a full argument essay together, sit the LRW assessment, then use the six-dimensional food security framework to evaluate real solutions.',
+      days: [
+        { id: 'w5d1', day: 1, status: 'ready', title: 'Academic writing skills workshop', art: 'writing',
+          parts: ['1A Academic writing skills workshop'],
+          stages: ['workshop'], tones: ['clay'],
+          scripts: ['lessons/week3/sources.js', 'lessons/week4/sources.js', 'lessons/week5/w5d1.js'] },
+        { id: 'w5d2', day: 2, status: 'ready', title: 'LRW assessment', art: 'assessment',
+          parts: ['2A LRW assessment'],
+          stages: ['lrw'], tones: ['blue'],
+          scripts: ['lessons/week5/w5d2.js'] },
+        { id: 'w5d3', day: 3, status: 'ready', title: 'Frameworks: read and listen', art: 'reading',
+          parts: ['3A Discussion skills', '4A Reading to write', '5A Listening to write'],
+          stages: ['frame', 'read', 'listen'], tones: ['teal', 'plum', 'amber'],
+          scripts: ['lessons/week5/sources.js', 'lessons/week5/w5d3.js'] },
+        { id: 'w5d4', day: 4, status: 'ready', title: 'Mediation and applying the framework', art: 'research',
+          parts: ['6A Mediation', '7A Applying the frameworks'],
+          stages: ['mediate', 'apply'], tones: ['blue', 'green'],
+          scripts: ['lessons/week5/sources.js', 'lessons/week5/w5d4.js'] },
+        { id: 'w5d5', day: 5, status: 'ready', title: 'Present, reflect and celebrate', art: 'group',
+          parts: ['8A Applying the frameworks: Presentations', '9A AST: AI reflection', '10A STAR moment'],
+          stages: ['present', 'ai', 'star'], tones: ['clay', 'amber', 'green'],
+          scripts: ['lessons/week5/sources.js', 'lessons/week5/w5d5.js'] }
+      ]
     }
   ]
 };

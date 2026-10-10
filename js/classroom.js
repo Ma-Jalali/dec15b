@@ -311,7 +311,7 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
     connect, disconnect, setWhere, answersLocked, paintCounts, loadCounts, toggle,
     isTeacher, note: ref => (notes ? notes[ref] ?? '' : null), get answersOpen() { return settings.answers_open !== false; },
     message: id => toggle(true, 'chat', id),
-    online: () => online.size, onlineStudents, typing, onTyping: fn => (typingFns.add(fn), () => typingFns.delete(fn)),
+    online: () => online.size, onlineIds: () => [...online.keys()], onlineStudents, typing, onTyping: fn => (typingFns.add(fn), () => typingFns.delete(fn)),
     done: id => ({ n: counts[id] || 0, of: students || people.filter(p => p.role === 'student').length }),
   };
 };

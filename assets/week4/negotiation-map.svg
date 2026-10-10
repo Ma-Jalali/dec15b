@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 486" font-family="Manrope, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="nmt">
+<title id="nmt">Negotiation moves: four connected stations on a route. Station 1, present a convincing argument: use evidence, assert your position, invite agreement. Station 2, respond: disagree politely, challenge, paraphrase and counter. Station 3, evaluate: is it a strong point? Is it overgeneralised? Is it too narrow? Station 4, be flexible: revise your view.</title>
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".13"/></filter>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".14"/></pattern>
+</defs>
+<rect width="1040" height="486" rx="24" fill="#fffdf8"/>
+<rect x="910" y="22" width="100" height="56" fill="url(#dots)"/>
+<text x="40" y="56" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600" fill="#14293a">Negotiation moves</text>
+<path d="M40 68c80-5 160-5 240-1" stroke="#e3a843" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<text x="40" y="96" font-size="16" fill="#5d6a74">Four stations on the way to a shared decision.</text>
+<path d="M152 160C220 122 300 122 397 160S560 198 642 160 820 122 887 160" fill="none" stroke="#e9dcc4" stroke-width="14" stroke-linecap="round"/>
+<path d="M152 160C220 122 300 122 397 160S560 198 642 160 820 122 887 160" fill="none" stroke="#985c0e" stroke-width="2.5" stroke-dasharray="2 9" stroke-linecap="round"/>
+<g filter="url(#sh)"><rect x="40" y="196" width="225" height="250" rx="20" fill="#fff"/><circle cx="152.5" cy="160" r="30" fill="#985c0e"/></g>
+<g transform="translate(152.5 160)" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M-14-4h6l14-9v26L-8 4h-6z"/><path d="M-10 4l3 10"/><path d="M12-6c3 3 3 9 0 12"/></g>
+<text x="62" y="230" font-size="15" font-weight="800" letter-spacing="2" fill="#985c0e">STATION 1</text>
+<text x="62" y="260" font-family="Fraunces, Georgia, serif" font-size="18.5" font-weight="600" fill="#14293a">Present a</text>
+<text x="62" y="284" font-family="Fraunces, Georgia, serif" font-size="18.5" font-weight="600" fill="#14293a">convincing argument</text>
+<rect x="62" y="314" width="181" height="2" fill="#fbf3e4"/>
+<rect x="56" y="328" width="193" height="30" rx="10" fill="#fbf3e4"/><circle cx="70" cy="343" r="4" fill="#985c0e"/><text x="82" y="349" font-size="16.5" fill="#14293a">Use evidence</text>
+<rect x="56" y="362" width="193" height="30" rx="10" fill="#fbf3e4"/><circle cx="70" cy="377" r="4" fill="#985c0e"/><text x="82" y="383" font-size="16.5" fill="#14293a">Assert your position</text>
+<rect x="56" y="396" width="193" height="30" rx="10" fill="#fbf3e4"/><circle cx="70" cy="411" r="4" fill="#985c0e"/><text x="82" y="417" font-size="16.5" fill="#14293a">Invite agreement</text>
+<g transform="translate(275 328)"><circle r="13" fill="#14293a"/><path d="M-5 0h9m-4-5l5 5-5 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g filter="url(#sh)"><rect x="285" y="196" width="225" height="250" rx="20" fill="#fff"/><circle cx="397.5" cy="160" r="30" fill="#2b776e"/></g>
+<g transform="translate(397.5 160)" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M-15-12h18v12H-6l-6 5v-5h-3z"/><path d="M7-4h8v12h-2v5l-6-5H-3V3"/></g>
+<text x="307" y="230" font-size="15" font-weight="800" letter-spacing="2" fill="#2b776e">STATION 2</text>
+<text x="307" y="260" font-family="Fraunces, Georgia, serif" font-size="18.5" font-weight="600" fill="#14293a">Respond</text>
+<rect x="307" y="314" width="181" height="2" fill="#e9f4f2"/>
+<rect x="301" y="328" width="193" height="30" rx="10" fill="#e9f4f2"/><circle cx="315" cy="343" r="4" fill="#2b776e"/><text x="327" y="349" font-size="16.5" fill="#14293a">Disagree politely</text>
+<rect x="301" y="362" width="193" height="30" rx="10" fill="#e9f4f2"/><circle cx="315" cy="377" r="4" fill="#2b776e"/><text x="327" y="383" font-size="16.5" fill="#14293a">Challenge</text>
+<rect x="301" y="396" width="193" height="30" rx="10" fill="#e9f4f2"/><circle cx="315" cy="411" r="4" fill="#2b776e"/><text x="327" y="417" font-size="16.5" fill="#14293a">Paraphrase + counter</text>
+<g transform="translate(520 328)"><circle r="13" fill="#14293a"/><path d="M-5 0h9m-4-5l5 5-5 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g filter="url(#sh)"><rect x="530" y="196" width="225" height="250" rx="20" fill="#fff"/><circle cx="642.5" cy="160" r="30" fill="#3a58a0"/></g>
+<g transform="translate(642.5 160)" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M0-14v28M-8 14h16M-14-8h28M-14-8l-6 12h12zM14-8l-6 12h12z"/></g>
+<text x="552" y="230" font-size="15" font-weight="800" letter-spacing="2" fill="#3a58a0">STATION 3</text>
+<text x="552" y="260" font-family="Fraunces, Georgia, serif" font-size="18.5" font-weight="600" fill="#14293a">Evaluate</text>
+<rect x="552" y="314" width="181" height="2" fill="#edf1fa"/>
+<rect x="546" y="328" width="193" height="30" rx="10" fill="#edf1fa"/><circle cx="560" cy="343" r="4" fill="#3a58a0"/><text x="572" y="349" font-size="16.5" fill="#14293a">Strong point?</text>
+<rect x="546" y="362" width="193" height="30" rx="10" fill="#edf1fa"/><circle cx="560" cy="377" r="4" fill="#3a58a0"/><text x="572" y="383" font-size="16.5" fill="#14293a">Overgeneralised?</text>
+<rect x="546" y="396" width="193" height="30" rx="10" fill="#edf1fa"/><circle cx="560" cy="411" r="4" fill="#3a58a0"/><text x="572" y="417" font-size="16.5" fill="#14293a">Too narrow?</text>
+<g transform="translate(765 328)"><circle r="13" fill="#14293a"/><path d="M-5 0h9m-4-5l5 5-5 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g filter="url(#sh)"><rect x="775" y="196" width="225" height="250" rx="20" fill="#fff"/><circle cx="887.5" cy="160" r="30" fill="#7a4a8c"/></g>
+<g transform="translate(887.5 160)" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M-12 2a12 12 0 0 1 21-8M12-2a12 12 0 0 1-21 8"/><path d="M9-14v8h-8M-9 14v-8h8"/></g>
+<text x="797" y="230" font-size="15" font-weight="800" letter-spacing="2" fill="#7a4a8c">STATION 4</text>
+<text x="797" y="260" font-family="Fraunces, Georgia, serif" font-size="18.5" font-weight="600" fill="#14293a">Be flexible</text>
+<rect x="797" y="314" width="181" height="2" fill="#f6eff8"/>
+<rect x="791" y="328" width="193" height="30" rx="10" fill="#f6eff8"/><circle cx="805" cy="343" r="4" fill="#7a4a8c"/><text x="817" y="349" font-size="16.5" fill="#14293a">Revise your view</text>
+<g transform="translate(930 432)" opacity=".9"><path d="M-40 10c10-24 26-40 50-48" fill="none" stroke="#3f7a3a" stroke-width="3" stroke-linecap="round"/><path d="M-20-10c10-12 26-12 32-4-10 10-24 10-32 4z" fill="#6f9a5a"/><path d="M-4-26c4-14 16-20 26-16-4 12-16 18-26 16z" fill="#3f7a3a"/></g>
+<path d="M992 44l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#e3a843"/>
+</svg>

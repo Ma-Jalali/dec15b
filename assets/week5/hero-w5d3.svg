@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 933" role="img" aria-labelledby="t">
+<title id="t">Frameworks, reading and listening day: six small coloured pillars stand in a circle around a globe with a tied sheaf of grain in front of it, with a magnifying glass, a pair of headphones and a stack of coins nearby, suggesting money set against hunger.</title>
+<defs>
+  <filter id="paper" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="53"/><feColorMatrix values="0 0 0 0 .55  0 0 0 0 .47  0 0 0 0 .36  0 0 0 .07 0"/><feComposite in2="SourceGraphic" operator="in"/><feBlend in="SourceGraphic" mode="multiply"/></filter>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#2a1d10" flood-opacity=".22"/></filter>
+  <filter id="lift" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#14293a" flood-opacity=".2"/></filter>
+  <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#93600f" opacity=".22"/></pattern>
+  <g id="pil"><rect x="-18" y="-132" width="36" height="124"/><rect x="-26" y="-148" width="52" height="16" rx="3"/><rect x="-28" y="-12" width="56" height="14" rx="3"/><rect x="5" y="-132" width="13" height="120" fill="#14293a" opacity=".16"/><path d="M-8-124v108M2-124v108" stroke="#fff" stroke-opacity=".3" stroke-width="3"/></g>
+  <g id="stalk"><path d="M0 0c2-60 4-120 6-190" fill="none" stroke="#b9802a" stroke-width="4" stroke-linecap="round"/><g fill="#d59a35"><ellipse cx="0" cy="-166" rx="6" ry="12" transform="rotate(-24 0 -166)"/><ellipse cx="12" cy="-172" rx="6" ry="12" transform="rotate(28 12 -172)"/><ellipse cx="2" cy="-186" rx="6" ry="12" transform="rotate(-22 2 -186)"/><ellipse cx="14" cy="-192" rx="6" ry="12" transform="rotate(28 14 -192)"/><ellipse cx="7" cy="-206" rx="5" ry="12"/></g></g>
+  <g id="coin"><ellipse cx="0" cy="8" rx="56" ry="18" fill="#b8801f"/><rect x="-56" y="-2" width="112" height="10" fill="#b8801f"/><ellipse cx="0" cy="-2" rx="56" ry="18" fill="#e3a843"/><ellipse cx="0" cy="-2" rx="38" ry="11" fill="none" stroke="#985c0e" stroke-width="3" opacity=".6"/></g>
+</defs>
+<rect width="1400" height="933" fill="#f3ebdd"/>
+<rect width="1400" height="933" fill="#f3ebdd" filter="url(#paper)" opacity=".9"/>
+<circle cx="700" cy="470" r="400" fill="#f6e7c9" opacity=".75"/>
+<circle cx="700" cy="470" r="436" fill="none" stroke="#93600f" stroke-opacity=".2" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+<rect x="1124" y="100" width="176" height="128" fill="url(#dots)"/>
+<rect x="100" y="710" width="176" height="128" fill="url(#dots)"/>
+<path d="M230 160l7 18 18 7-18 7-7 18-7-18-18-7 18-7z" fill="#e3a843"/>
+<path d="M1220 470l5 13 13 5-13 5-5 13-5-13-13-5 13-5z" fill="#7a4a8c" opacity=".7"/>
+
+<!-- platform -->
+<ellipse cx="700" cy="676" rx="400" ry="116" fill="#d9bf92"/>
+<ellipse cx="700" cy="660" rx="400" ry="116" fill="#ecdcbc"/>
+<ellipse cx="700" cy="660" rx="330" ry="90" fill="none" stroke="#93600f" stroke-opacity=".3" stroke-width="2.5" stroke-dasharray="2 10" stroke-linecap="round"/>
+
+<!-- back pillars -->
+<g filter="url(#lift)"><use href="#pil" transform="translate(535 582) scale(.88)" fill="#7a4a8c"/><use href="#pil" transform="translate(865 582) scale(.88)" fill="#3f7a3a"/></g>
+
+<!-- globe -->
+<g filter="url(#soft)">
+  <rect x="690" y="560" width="20" height="90" fill="#985c0e"/>
+  <ellipse cx="700" cy="652" rx="70" ry="18" fill="#985c0e"/>
+  <path d="M566 300a172 172 0 0 0 230 266" fill="none" stroke="#e3a843" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="700" cy="410" r="150" fill="#8fc7bf"/>
+  <path d="M600 330c30-30 80-40 110-22 14 22-10 36-30 44-16 30 10 56-10 80-30 4-40-30-60-34-22-6-30-36-10-68z" fill="#3f7a3a"/>
+  <path d="M740 300c40-6 80 20 92 56-20 10-40-6-52 10-6 26 26 34 22 64-6 30-34 40-52 70-20-24-6-60-26-80-16-20 8-40 0-60-10-20 2-48 16-60z" fill="#5a9450"/>
+  <path d="M620 470c20-6 40 4 46 22-12 14-34 10-46-22z" fill="#6fa862"/>
+  <g fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2.5"><ellipse cx="700" cy="410" rx="150" ry="52"/><ellipse cx="700" cy="410" rx="62" ry="150"/><path d="M550 410h300"/></g>
+  <path d="M598 330a130 130 0 0 1 60-44" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="10" stroke-linecap="round"/>
+</g>
+
+<!-- sheaf -->
+<g>
+  <g stroke="#b9802a" stroke-width="4" stroke-linecap="round"><path d="M700 620l-34 84M700 620l-16 90M700 620l2 92M700 620l20 88M700 620l36 80"/></g>
+  <use href="#stalk" transform="translate(700 630) rotate(-24) scale(1.2)"/><use href="#stalk" transform="translate(700 630) rotate(-13) scale(1.25)"/><use href="#stalk" transform="translate(700 630) rotate(-3) scale(1.3)"/>
+  <use href="#stalk" transform="translate(700 630) rotate(7) scale(1.25)"/><use href="#stalk" transform="translate(700 630) rotate(17) scale(1.2)"/><use href="#stalk" transform="translate(700 630) rotate(27) scale(1.05)"/>
+  <use href="#stalk" transform="translate(700 630) rotate(-34) scale(1.05)"/>
+  <path d="M674 606c16 8 36 8 52 0l4 24c-18 8-42 8-60 0z" fill="#b0512a"/>
+  <path d="M700 620l-24 36M700 620l24 36" stroke="#8e3b1c" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="700" cy="619" r="9" fill="#8e3b1c"/>
+</g>
+<!-- front pillars -->
+<g filter="url(#lift)">
+  <use href="#pil" transform="translate(370 660)" fill="#e3a843"/>
+  <use href="#pil" transform="translate(1030 660)" fill="#b0512a"/>
+  <use href="#pil" transform="translate(520 740) scale(1.08)" fill="#2b776e"/>
+  <use href="#pil" transform="translate(880 740) scale(1.08)" fill="#3a58a0"/>
+</g>
+
+<!-- magnifying glass -->
+<g filter="url(#soft)" transform="rotate(-20 1040 290)">
+  <rect x="1028" y="360" width="26" height="150" rx="13" fill="#14293a"/>
+  <rect x="1032" y="350" width="18" height="28" fill="#985c0e"/>
+  <circle cx="1040" cy="270" r="92" fill="#d9e8f2" opacity=".55"/>
+  <circle cx="1040" cy="270" r="92" fill="none" stroke="#14293a" stroke-width="18"/>
+  <path d="M980 240a64 64 0 0 1 40-38" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".8"/>
+</g>
+
+<!-- headphones -->
+<g filter="url(#lift)" transform="rotate(-14 330 300)">
+  <path d="M230 330c0-80 46-130 100-130s100 50 100 130" fill="none" stroke="#14293a" stroke-width="16" stroke-linecap="round"/>
+  <rect x="206" y="300" width="50" height="78" rx="22" fill="#7a4a8c"/><rect x="404" y="300" width="50" height="78" rx="22" fill="#7a4a8c"/>
+  <rect x="218" y="314" width="12" height="48" rx="6" fill="#fff" opacity=".25"/><rect x="416" y="314" width="12" height="48" rx="6" fill="#fff" opacity=".25"/>
+</g>
+<g fill="none" stroke="#7a4a8c" stroke-width="4" stroke-linecap="round" opacity=".6"><path d="M470 250c14 14 14 36 0 50"/><path d="M494 234c24 24 24 62 0 86"/></g>
+
+<!-- coins -->
+<g filter="url(#lift)">
+  <use href="#coin" x="1130" y="800"/><use href="#coin" x="1130" y="780"/><use href="#coin" x="1130" y="760"/><use href="#coin" x="1130" y="740"/>
+  <use href="#coin" x="1238" y="806"/><use href="#coin" x="1238" y="786"/>
+  <g transform="translate(1010 800) rotate(-70)"><ellipse rx="30" ry="34" fill="#b8801f"/><ellipse cx="-6" rx="28" ry="34" fill="#e3a843"/><circle cx="-6" r="18" fill="none" stroke="#985c0e" stroke-width="3" opacity=".6"/></g>
+</g>
+</svg>

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 690" font-family="Manrope, 'Segoe UI', Arial, sans-serif" role="img" aria-labelledby="fbt">
+<title id="fbt">The fishbowl. An inner circle is the discussion group: 3 to 4 students, with no laptops and handwritten notes only. An outer ring is the peer-feedback group: they watch and fill in the peer-feedback form on their device. The teacher sits outside the ring taking notes. Other students do self-study. The cycle: watch, give feedback, then swap roles. Timeline: 5 minutes to prepare, 15 minutes to discuss, 5 minutes of self-evaluation, then swap.</title>
+<defs>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".13"/></filter>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".14"/></pattern>
+  <marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0l10 5-10 5z" fill="#985c0e"/></marker>
+  <g id="dev"><rect x="-8" y="-6" width="16" height="12" rx="2" fill="#fff"/><path d="M-4-2h8M-4 2h5" stroke="#3a58a0" stroke-width="1.6" stroke-linecap="round"/></g>
+  <g id="pad"><rect x="-6" y="-8" width="12" height="16" rx="2" fill="#fff"/><path d="M-3-3h6M-3 1h6M-3 5h4" stroke="#2b776e" stroke-width="1.4" stroke-linecap="round"/></g>
+</defs>
+<rect width="1040" height="690" rx="24" fill="#fffdf8"/>
+<rect x="910" y="22" width="100" height="56" fill="url(#dots)"/>
+<text x="40" y="56" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="600" fill="#14293a">The fishbowl</text>
+<path d="M40 68c60-5 120-5 172-1" stroke="#e3a843" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+<text x="40" y="96" font-size="16" fill="#5d6a74">One group talks in the middle; another group watches and gives feedback. Then swap.</text>
+<circle cx="320" cy="340" r="214" fill="#edf1fa"/>
+<circle cx="320" cy="340" r="214" fill="none" stroke="#3a58a0" stroke-width="2.5" stroke-dasharray="3 9" stroke-linecap="round" opacity=".6"/>
+<circle cx="320" cy="340" r="116" fill="#e9f4f2" stroke="#2b776e" stroke-width="3"/>
+<g filter="url(#sh)">
+<circle cx="371" cy="391" r="22" fill="#2b776e"/>
+<circle cx="269" cy="391" r="22" fill="#2b776e"/>
+<circle cx="269" cy="289" r="22" fill="#2b776e"/>
+<circle cx="371" cy="289" r="22" fill="#2b776e"/>
+<circle cx="373" cy="178" r="22" fill="#3a58a0"/>
+<circle cx="458" cy="240" r="22" fill="#3a58a0"/>
+<circle cx="490" cy="340" r="22" fill="#3a58a0"/>
+<circle cx="458" cy="440" r="22" fill="#3a58a0"/>
+<circle cx="373" cy="502" r="22" fill="#3a58a0"/>
+<circle cx="267" cy="502" r="22" fill="#3a58a0"/>
+<circle cx="182" cy="440" r="22" fill="#3a58a0"/>
+<circle cx="150" cy="340" r="22" fill="#3a58a0"/>
+<circle cx="182" cy="240" r="22" fill="#3a58a0"/>
+<circle cx="267" cy="178" r="22" fill="#3a58a0"/>
+<rect x="510" y="500" width="54" height="54" rx="14" fill="#b0512a"/>
+</g>
+<use href="#pad" x="371" y="391"/>
+<use href="#pad" x="269" y="391"/>
+<use href="#pad" x="269" y="289"/>
+<use href="#pad" x="371" y="289"/>
+<use href="#dev" x="373" y="178"/>
+<use href="#dev" x="458" y="240"/>
+<use href="#dev" x="490" y="340"/>
+<use href="#dev" x="458" y="440"/>
+<use href="#dev" x="373" y="502"/>
+<use href="#dev" x="267" y="502"/>
+<use href="#dev" x="182" y="440"/>
+<use href="#dev" x="150" y="340"/>
+<use href="#dev" x="182" y="240"/>
+<use href="#dev" x="267" y="178"/>
+<rect x="528" y="516" width="18" height="22" rx="3" fill="#fff"/><path d="M532 523h10M532 528h10M532 533h6" stroke="#b0512a" stroke-width="1.6" stroke-linecap="round"/>
+<text x="537" y="579" text-anchor="middle" font-size="15" font-weight="800" fill="#8e3b1c">Teacher</text>
+<g font-size="16" font-weight="800" fill="#22655d" text-anchor="middle"><text x="320" y="336">Discussion</text><text x="320" y="356">group</text></g>
+<g fill="#c9bfae"><circle cx="58" cy="134" r="11"/><circle cx="86" cy="128" r="11"/><circle cx="66" cy="160" r="11"/><circle cx="94" cy="156" r="11"/></g><text x="44" y="196" font-size="15" font-weight="800" fill="#5d6a74">Self-study</text>
+<g fill="none" stroke="#985c0e" stroke-width="3" stroke-linecap="round" marker-end="url(#ah)"><path d="M170 300c-14 30-14 60 0 84"/><path d="M202 400c10-30 10-60 -2-86"/></g>
+<g filter="url(#sh)">
+  <rect x="580" y="124" width="420" height="132" rx="18" fill="#fff"/>
+  <rect x="580" y="270" width="420" height="132" rx="18" fill="#fff"/>
+  <rect x="580" y="416" width="200" height="106" rx="18" fill="#fff"/>
+  <rect x="800" y="416" width="200" height="106" rx="18" fill="#fff"/>
+</g>
+<rect x="580" y="124" width="7" height="132" rx="3.5" fill="#2b776e"/><rect x="580" y="270" width="7" height="132" rx="3.5" fill="#3a58a0"/>
+<rect x="580" y="416" width="7" height="106" rx="3.5" fill="#b0512a"/><rect x="800" y="416" width="7" height="106" rx="3.5" fill="#a59a88"/>
+<g font-size="15" font-weight="800" letter-spacing="1.8"><text x="604" y="154" fill="#2b776e">INNER CIRCLE</text><text x="604" y="300" fill="#3a58a0">OUTER RING</text><text x="604" y="446" fill="#b0512a">TEACHER</text><text x="824" y="446" fill="#5d6a74">OTHERS</text></g>
+<g font-family="Fraunces, Georgia, serif" font-size="21" font-weight="600" fill="#14293a"><text x="604" y="182">Discussion group</text><text x="604" y="328">Peer-feedback group</text></g>
+<g font-size="16" fill="#3d505e">
+  <text x="604" y="210">3–4 students · no laptops</text><text x="604" y="234">Handwritten notes only</text>
+  <text x="604" y="356">Watch the discussion and fill in the</text><text x="604" y="380">peer-feedback form on your device</text>
+  <text x="604" y="474">Sits outside the</text><text x="604" y="496">ring, taking notes</text>
+  <text x="824" y="474">Other students:</text><text x="824" y="496">self-study</text>
+</g>
+<g font-size="16" font-weight="800" text-anchor="middle">
+  <rect x="580" y="540" width="120" height="36" rx="18" fill="#edf1fa"/><text x="640" y="564" fill="#3a58a0">watch</text>
+  <rect x="728" y="540" width="148" height="36" rx="18" fill="#fbf3e4"/><text x="802" y="564" fill="#985c0e">give feedback</text>
+  <rect x="904" y="540" width="96" height="36" rx="18" fill="#14293a"/><text x="952" y="564" fill="#fff">swap</text>
+</g>
+<g fill="#c9bfae"><path d="M706 552l14 6-14 6z"/><path d="M882 552l14 6-14 6z"/></g>
+<text x="40" y="642" font-size="15" font-weight="800" letter-spacing="1.8" fill="#5d6a74" opacity="0">.</text>
+<rect x="40" y="616" width="164" height="40" rx="12" fill="#e9f4f2"/><text x="122.0" y="642" text-anchor="middle" font-size="15.5" font-weight="800" fill="#22655d">5 min · prepare</text>
+<rect x="210" y="616" width="424" height="40" rx="12" fill="#2b776e"/><text x="422.0" y="642" text-anchor="middle" font-size="15.5" font-weight="800" fill="#fff">15 min · discuss</text>
+<rect x="640" y="616" width="204" height="40" rx="12" fill="#fbf3e4"/><text x="742.0" y="642" text-anchor="middle" font-size="15.5" font-weight="800" fill="#7a4a0b">5 min · self-evaluation</text>
+<rect x="850" y="616" width="150" height="40" rx="12" fill="#14293a"/><text x="925.0" y="642" text-anchor="middle" font-size="15.5" font-weight="800" fill="#fff">⇄ swap</text>
+<path d="M992 44l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#e3a843"/>
+</svg>
