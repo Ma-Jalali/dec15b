@@ -181,3 +181,23 @@ body[data-page="planner"] #save-status { display: none; }
 .cowrite-card .btn .icon { width: 16px; height: 16px; }
 @media (max-width: 760px) { .cowrite-card { grid-template-columns: auto minmax(0, 1fr); margin: 0 14px 4px; } .cowrite-card .btn { grid-column: 1 / -1; justify-self: start; } }
 .passage-text { white-space: pre-line; }
+
+/* Readings: one fold per week */
+.lib-weeks { display: grid; gap: 14px; }
+.lib-week { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow-sm); overflow: hidden; }
+.lib-week-head { width: 100%; display: flex; align-items: center; gap: 14px; padding: 14px 18px; border: 0; background: none; color: var(--ink); text-align: left; cursor: pointer; transition: background .18s var(--ease); }
+.lib-week-head:hover { background: color-mix(in srgb, var(--gold) 10%, transparent); }
+.lib-week-head:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
+.lib-week-num { width: 48px; height: 48px; flex: none; border-radius: 14px; display: grid; place-content: center; text-align: center; background: color-mix(in srgb, var(--ink) 8%, transparent); font: 600 1.35rem/1 var(--serif); transition: background .25s, color .25s; }
+.lib-week-num small { display: block; font: 800 .52rem/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; opacity: .7; margin-bottom: 3px; }
+.lib-week.open .lib-week-num { background: var(--gold); color: var(--ink); }
+.lib-week-text { flex: 1; min-width: 0; }
+.lib-week-text b { display: block; font-size: 1.12rem; }
+.lib-week-text small { display: block; color: var(--muted); font-weight: 600; margin-top: 2px; }
+.lib-week-now { display: inline-flex; align-items: center; gap: 5px; font-style: normal; font-size: .74rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--ink); background: color-mix(in srgb, var(--gold) 35%, transparent); padding: 5px 10px; border-radius: 999px; white-space: nowrap; }
+.lib-week-now svg { width: 13px; height: 13px; }
+.lib-week-head .nav-chev { color: var(--muted); }
+.lib-week-body { padding: 4px 18px 20px; border-top: 1px solid var(--line); }
+.lib-week-body .library { margin-top: 16px; }
+.lib-loading { color: var(--muted); padding: 16px 2px 0; }
+@media (max-width: 560px) { .lib-week-head { padding: 12px; gap: 10px; } .lib-week-now { display: none; } .lib-week-body { padding: 0 12px 14px; } }

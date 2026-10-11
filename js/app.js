@@ -658,14 +658,45 @@ function srcLook(s) {   // the picture, colour and reading time of a course text
   const marks = Object.entries(state.marks || {}).filter(([id, rs]) => id.startsWith('s-' + s.id + '-') && rs?.length).reduce((n, [, rs]) => n + rs.length, 0);
   return { art, tone, time: `About ${Math.max(1, Math.round(words / rate))} min read`, marks };
 }
-function sourcesPage() {
-  return `${pageHero('Course texts', 'Source library', 'The protected course texts for this week. Open a text to read it, then highlight and underline the ideas you need.', 'library',
-    `<p class="page-hero-tip">${icon('bulb')}<span>Your highlights are saved and also appear in <a href="${L('notebook')}">My notebook</a>.</span></p>`)}
-  <div class="library">${sources.map((s, i) => { const l = srcLook(s); return `<article class="lib-card" style="${tone({ tone: l.tone })};--i:${i}">
-    <button class="lib-art" data-source="${s.id}" aria-label="Open ${esc(s.title)}" tabindex="-1"><img src="${artSrc(l.art)}" alt="" width="440" height="340" loading="lazy"></button>
+/* Readings: every week's course texts, one fold per week. Each week's text files are read on demand
+   (from the course map) into their own list, so a week shows only its own texts. */
+const libWeeks = course.weeks.map(w => ({ n: w.n, theme: w.theme,
+  files: [...new Set(w.days.filter(d => d.status === 'ready').flatMap(d => d.scripts || []).filter(f => f.startsWith(`lessons/week${w.n}/`) && !/\/w\d+d\d+\.js$/.test(f)))]
+    .sort((a, b) => (b.endsWith('/sources.js') ? 1 : 0) - (a.endsWith('/sources.js') ? 1 : 0)) })).filter(w => w.files.length);
+const library = {}, libLoading = {};
+let libOpen = null;
+function loadWeekTexts(n) {
+  const w = libWeeks.find(x => x.n === n); if (!w || library[n] || libLoading[n]) return libLoading[n];
+  return libLoading[n] = (async () => {
+    const win = {};
+    for (const f of w.files) new Function('window', await (await fetch(f + '?v=' + cfg.version)).text())(win);
+    library[n] = win.DEC15_SOURCES || [];
+  })().catch(() => { library[n] = []; }).finally(() => { if (navRoute === 'sources') rerender(); });
+}
+const weekTexts = n => library[n] || (n === lesson.week && libWeeks.every(w => w.n !== n) ? sources : null);
+function libCard(s, i, week) {
+  const l = srcLook(s);
+  return `<article class="lib-card" style="${tone({ tone: l.tone })};--i:${i}">
+    <button class="lib-art" data-source="${s.id}" data-src-week="${week}" aria-label="Open ${esc(s.title)}" tabindex="-1"><img src="${artSrc(l.art)}" alt="" width="440" height="340" loading="lazy"></button>
     <div class="lib-body"><span class="pill">${esc(s.kind)}</span><h2>${esc(s.title)}</h2><p>${esc(s.cite)}</p>
     <div class="lib-meta"><span>${icon('clock')}${l.time}</span>${l.marks ? `<span class="lib-marks">${icon('pen')}${l.marks} mark${l.marks > 1 ? 's' : ''}</span>` : ''}</div>
-    <button class="btn" data-source="${s.id}">Open and read ${icon('arrow')}</button></div></article>`; }).join('')}</div>`;
+    <button class="btn" data-source="${s.id}" data-src-week="${week}">Open and read ${icon('arrow')}</button></div></article>`;
+}
+function sourcesPage() {
+  if (libOpen === null) libOpen = libWeeks.some(w => w.n === lesson.week) ? lesson.week : libWeeks[0]?.n;
+  libWeeks.forEach(w => loadWeekTexts(w.n));   // small files; loading all of them shows each week's count
+  return `${pageHero('Course texts', 'Readings and listening scripts', 'All the course texts, week by week. Open a week, then open a text to read it. You can highlight and underline the ideas you need.', 'library',
+    `<p class="page-hero-tip">${icon('bulb')}<span>Your highlights are saved and also appear in <a href="${L('notebook')}">My notebook</a>.</span></p>`)}
+  <div class="lib-weeks">${libWeeks.map(w => { const list = weekTexts(w.n), open = w.n === libOpen;
+    const count = list ? `${list.length} text${list.length === 1 ? '' : 's'}` : '';
+    return `<section class="lib-week${open ? ' open' : ''}">
+      <button type="button" class="lib-week-head" data-lib-week="${w.n}" aria-expanded="${open}" aria-controls="lib-w${w.n}">
+        <span class="lib-week-num"><small>Week</small>${w.n}</span>
+        <span class="lib-week-text"><b>Week ${w.n}</b><small>${esc(w.theme)}${count ? ' · ' + count : ''}</small></span>
+        ${w.n === lesson.week ? `<em class="lib-week-now">${icon('flag')}This week</em>` : ''}
+        <span class="nav-chev" aria-hidden="true"></span></button>
+      <div class="lib-week-body" id="lib-w${w.n}"${open ? '' : ' hidden'}>${open ? (list ? `<div class="library">${list.map((s, i) => libCard(s, i, w.n)).join('')}</div>` : '<p class="lib-loading">Loading the texts…</p>') : ''}</div>
+    </section>`; }).join('')}</div>`;
 }
 function extrasPage() {
   const n = lesson.extras.length, mins = lesson.extras.reduce((t, a) => t + (a.minutes || 0), 0), dn = lesson.extras.filter(a => state.done[a.id]).length;
@@ -787,7 +818,7 @@ function searchIndex() {
     items.push({ kind: 'Stage', ic: 'flag', title: stageName(s), sub: `This lesson · Teacher’s Book ${code(s)}`, href: L(s.id), text: stageName(s) + ' ' + (s.subtitle || '') });
     s.activities.forEach(a => items.push({ kind: 'Activity', ic: 'pen', title: a.title, sub: `This lesson · ${s.title}`, href: L(s.id), go: a.id, text: a.title + ' ' + a.short, body: plainText(a) }));
   });
-  [['sources', 'book', 'Readings and source library'], ['extra', 'list', 'Extra activities'], ['notebook', 'model', 'My notebook']].forEach(([id, ic, t]) => items.push({ kind: 'Page', ic, title: t, sub: 'This lesson', href: L(id), text: t }));
+  [['sources', 'book', 'Readings and listening scripts (all weeks)'], ['extra', 'list', 'Extra activities'], ['notebook', 'model', 'My notebook']].forEach(([id, ic, t]) => items.push({ kind: 'Page', ic, title: t, sub: 'This lesson', href: L(id), text: t }));
   items.push({ kind: 'Page', ic: 'home', title: 'Course map', sub: 'All weeks', href: '#/', text: 'course map home all weeks' });
   lesson.glossary.forEach(([w, d]) => items.push({ kind: 'Word meaning', ic: 'book', title: w, sub: d, gloss: w, text: w }));
   return (searchCache = items);
@@ -818,7 +849,7 @@ function setSide(open) {
 
 /* ───────── render ───────── */
 const routes = ['overview', 'sources', 'extra', 'notebook', ...lesson.sections.map(s => s.id)];
-const pageNames = { overview: 'Overview', sources: 'Source library', extra: 'Extra activities', notebook: 'My notebook' };
+const pageNames = { overview: 'Overview', sources: 'Readings', extra: 'Extra activities', notebook: 'My notebook' };
 function parseRoute() {
   const h = location.hash.slice(1);
   if (!h || h === '/' || h === '/home') return { home: true };
@@ -948,13 +979,14 @@ function revealBlocks() {
 }
 
 /* ───────── sources dialog / glossary ───────── */
-const srcName = id => sources.find(x => x.id === id)?.short || ({ reading1: 'Reading 1', reading2: 'Reading 2', reading3: 'Reading 3', listening: 'Listening transcript', 'video-script': 'Video script' }[id] || id);
-function openSource(id = 'reading1') {
+const srcName = (id, pool = sources) => pool.find(x => x.id === id)?.short || ({ reading1: 'Reading 1', reading2: 'Reading 2', reading3: 'Reading 3', listening: 'Listening transcript', 'video-script': 'Video script' }[id] || id);
+function openSource(id = 'reading1', week = null) {
   reader.closeWord();
-  if (!sources.length) { toast('This lesson has no course texts.'); return; }
-  const s = sources.find(x => x.id === id) || sources[0];
+  const pool = (week && library[week]) || sources, wk = week && library[week] ? ` data-src-week="${week}"` : '';
+  if (!pool.length) { toast('This lesson has no course texts.'); return; }
+  const s = pool.find(x => x.id === id) || pool[0];
   $('#resource-title').textContent = 'Read and highlight';
-  $('#resource-body').innerHTML = `<div class="source-tabs">${sources.map(x => `<button class="${x.id === s.id ? 'active' : ''}" data-source="${x.id}">${srcName(x.id)}</button>`).join('')}</div>
+  $('#resource-body').innerHTML = `<div class="source-tabs">${pool.map(x => `<button class="${x.id === s.id ? 'active' : ''}" data-source="${x.id}"${wk}>${srcName(x.id, pool)}</button>`).join('')}</div>
     ${reader.toolbar('reading')}
     <article class="source-text" data-help><span class="eyebrow">${esc(s.cite)} · ${esc(s.kind)}</span><h3>${esc(s.title)}</h3>${s.note ? `<p class="script-note">${esc(s.note)}</p>` : ''}
     <p class="source-ref">${esc(s.reference)}</p>
@@ -1332,7 +1364,8 @@ document.addEventListener('click', e => {
     const el = $('.act-tabs'); el?.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     $('#' + d.jump)?.focus({ preventScroll: true }); return;
   }
-  if (d.source) { openSource(d.source); return; }
+  if (d.source) { openSource(d.source, Number(d.srcWeek) || null); return; }
+  if (d.libWeek) { const n = Number(d.libWeek); libOpen = libOpen === n ? 0 : n; rerender(); return; }   // one week open at a time
   if (t.hasAttribute('data-video')) { t.closest('.video-wrap').innerHTML = `<iframe title="${esc(d.title)}" src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(d.video)}?start=${Number(d.start) || 0}" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`; return; }
   if (d.timer) { startTimer(Number(d.timer)); return; }
   if (t.hasAttribute('data-pause')) { paused = !paused; if (!paused) deadline = Date.now() + remaining * 1000; t.textContent = paused ? 'Resume' : 'Pause'; return; }
