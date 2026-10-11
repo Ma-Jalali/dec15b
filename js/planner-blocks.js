@@ -153,6 +153,49 @@ window.DEC15Blocks = (() => {
     if (tr.docChanged) editor.view.dispatch(tr);
     editor.commands.focus(); return hit;
   }
+  /* Lists with sub-items, like Word:
+     Enter at the end of an item that has sub-items → a new first sub-item (it does not take the sub-items away);
+     Backspace in an empty item that has sub-items → the item goes, its sub-items move up under the item above
+     (or take its place), so no empty line is left behind. */
+  function listKey(editor, e) {
+    if (e.key !== 'Enter' && e.key !== 'Backspace' || e.shiftKey || e.ctrlKey || e.metaKey || e.altKey) return false;
+    const { state } = editor, sel = state.selection, $f = sel.$from;
+    if (!sel.empty || $f.depth < 3 || $f.parent.type.name !== 'paragraph') return false;
+    const d = $f.depth - 1, item = $f.node(d);
+    if (!/^(listItem|taskItem)$/.test(item.type.name) || $f.index(d) !== 0) return false;
+    const para = $f.parent, itemPos = $f.before(d), tr = state.tr;
+    if (item.childCount < 2) {   // an empty first sub-item: delete it and go back to the end of the line above
+      if (e.key !== 'Backspace' || para.content.size || $f.index(d - 1) !== 0 || d < 3 || !/^(listItem|taskItem)$/.test($f.node(d - 2).type.name)) return false;
+      const list = $f.node(d - 1), from = list.childCount === 1 ? $f.before(d - 1) : itemPos, to = list.childCount === 1 ? $f.after(d - 1) : itemPos + item.nodeSize;
+      tr.delete(from, to);
+      tr.setSelection(T().TextSelection.create(tr.doc, $f.before(d - 2) + 1 + $f.node(d - 2).child(0).nodeSize - 1));
+      editor.view.dispatch(tr.scrollIntoView()); return true;
+    }
+    if (e.key === 'Enter') {
+      if ($f.parentOffset !== para.content.size || !para.content.size) return false;
+      const sub = item.child(1); if (!/List$/.test(sub.type.name)) return false;
+      const at = itemPos + 1 + para.nodeSize + 1, fresh = sub.child(0).type.create(null, state.schema.nodes.paragraph.create());
+      tr.insert(at, fresh).setSelection(T().TextSelection.create(tr.doc, at + 2));
+      editor.view.dispatch(tr.scrollIntoView()); return true;
+    }
+    if ($f.parentOffset !== 0 || para.content.size) return false;
+    const list = $f.node(d - 1), idx = $f.index(d - 1), rest = [];
+    for (let i = 1; i < item.childCount; i++) rest.push(item.child(i));
+    if (idx > 0) {
+      const prev = list.child(idx - 1), prevPos = itemPos - prev.nodeSize;
+      let kids = []; for (let i = 0; i < prev.childCount; i++) kids.push(prev.child(i));
+      rest.forEach(n => { const last = kids[kids.length - 1]; if (last && last.type === n.type && /List$/.test(n.type.name)) { const all = []; last.forEach(c => all.push(c)); n.forEach(c => all.push(c)); kids[kids.length - 1] = last.type.create(last.attrs, all); } else kids.push(n); });
+      tr.replaceWith(prevPos, itemPos + item.nodeSize, prev.type.create(prev.attrs, kids));
+      const end = prevPos + 1 + prev.child(0).nodeSize - 1;
+      tr.setSelection(T().TextSelection.create(tr.doc, end));
+    } else {
+      const lifted = []; rest.forEach(n => { if (/List$/.test(n.type.name)) n.forEach(c => lifted.push(c)); else lifted.push(item.type.create(null, n)); });
+      tr.replaceWith(itemPos, itemPos + item.nodeSize, lifted);
+      tr.setSelection(T().TextSelection.near(tr.doc.resolve(itemPos + 2)));
+    }
+    editor.view.dispatch(tr.scrollIntoView()); return true;
+  }
+  const T = () => window.Tiptap;
   const safeUrl = u => (typeof u === 'string' && /^https?:\/\/[^\s"'<>]+$/i.test(u.trim()) ? u.trim() : null);
   const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return 'link'; } };
   const col = () => ({ type: 'column', content: [{ type: 'paragraph' }] });
@@ -339,6 +382,7 @@ window.DEC15Blocks = (() => {
         if ((e.key === 'Enter' || e.key === 'Tab') && st.items.length) { e.preventDefault(); choose(st.i); return true; }
         if (e.key === 'Escape') { e.preventDefault(); dismissed = st.from; close(); return true; }
       }
+      if (listKey(editor, e)) { e.preventDefault(); return true; }
       if (e.key === 'Tab' && !e.ctrlKey && !e.metaKey && !e.altKey) { if (indent(editor, e.shiftKey ? -1 : 1) !== false) { e.preventDefault(); return true; } return false; }
       if (e.altKey && e.shiftKey && (e.key === 'ArrowUp' || e.key === 'ArrowDown')) { const b = selectedBlock(); if (b) { e.preventDefault(); moveBlock(b, e.key === 'ArrowUp' ? -1 : 1); return true; } }
       if ((e.ctrlKey || e.metaKey) && !e.shiftKey && e.key.toLowerCase() === 'd') { const b = selectedBlock(); if (b) { e.preventDefault(); view.dispatch(editor.state.tr.insert(b.start + b.node.nodeSize, b.node.copy(b.node.content))); return true; } }

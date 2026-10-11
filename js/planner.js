@@ -200,6 +200,7 @@ window.DEC15Planner = (() => {
       T.TextAlign.configure({ types: ['heading', 'paragraph'] }),
       T.TaskList, PlannerTask.configure({ nested: true }),
       T.Placeholder.configure({ includeChildren: true, placeholder: ({ node, pos, editor: ed }) => {
+        if (!node.isTextblock) return '';   // only text lines show a hint (never a whole to-do row or list)
         if (node.type.name === 'heading') return `Heading ${node.attrs.level}`;
         const up = pos > 0 ? ed.state.doc.resolve(pos).parent.type.name : '';
         if (up === 'taskItem') return 'To-do'; if (up === 'toggle') return 'Toggle';
