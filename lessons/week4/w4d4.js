@@ -57,11 +57,11 @@ window.DEC15_LESSON = {
             ]},
             { type: 'teacher', ref: 'w4d4-t1' },
             { type: 'teacher', ref: 'w4d4-t2' },
-            { type: 'figure', src: 'assets/week4/rsd-steps.svg', alt: 'The five steps of the Research Summary Discussion: 1 find a source, 2 summarise your source to your group, 3 prepare a group presentation, 4 present to a new group, 5 discuss for 15 minutes.', caption: 'Part 2 · Preparation time — today you do Steps 4 and 5', size: 'wide' },
             { type: 'key', title: 'Part 2 · Preparation time: Steps 4 and 5', compare: [
               { label: 'Step 4', text: 'You join a <b>new group</b>. Each person researched a different region. You each talk for <b>5 minutes</b> about your region.' },
               { label: 'Step 5', text: 'A <b>15-minute discussion</b>. ① Respond to a <b>quote</b>. Use examples from your research. ② Choose the best of <b>three options</b>. You don’t have to agree.' }
             ]},
+            { type: 'figure', src: 'assets/week4/rsd-steps.svg', alt: 'The five steps of the Research Summary Discussion: 1 find a source, 2 summarise your source to your group, 3 prepare a group presentation, 4 present to a new group, 5 discuss for 15 minutes.', caption: 'Today you do Steps 4 and 5', size: 'wide' },
             { type: 'steps', items: [
               { who: 'group', text: 'Sit with your research group. Get ready to present your <b>whole group’s</b> research.' },
               { who: 'alone', text: 'Check your <b>handwritten notes</b>. Soon you will move away from your group.' },
@@ -113,12 +113,12 @@ window.DEC15_LESSON = {
           title: 'RSD Step 5: Discussion (Instructions) + Preparation time + Setting up the discussion order',
           goal: 'Know your role, your group and the rules for a good discussion.',
           blocks: [
-            { type: 'figure', src: 'assets/week4/fishbowl.svg', alt: 'A fishbowl discussion: an inner discussion group sits in a circle; an outer peer-feedback group and the teacher sit around them and take notes. Timeline: 5 minutes preparation, 15 minutes discussion, 5 minutes self-evaluation, then the groups swap roles.', caption: 'Part 1 · RSD Step 5: Discussion (Instructions) — the fishbowl: one group talks, one group watches, then you swap', size: 'wide' },
-            { type: 'cards', title: 'Three roles — what do you do?', items: [
+            { type: 'cards', title: 'Part 1 · RSD Step 5: Discussion (Instructions) — three roles', items: [
               { label: 'Discussion group', icon: 'chat', text: '<b>5 min</b> read the question and your notes.<br><b>15 min</b> discuss.<br><b>5 min</b> self-evaluation (no Action plan yet).<br><b>1–2 min</b> notes on teacher feedback.' },
               { label: 'Peer-feedback group', icon: 'users', text: '<b>5 min</b> read the feedback form.<br><b>15 min</b> watch and write notes on the form.<br><b>5 min</b> finish your notes. Share ideas with the other observers.' },
               { label: 'Other groups', icon: 'book', text: 'Work on the Self-Study module.<br>Give and get peer feedback.<br>Then write your Action plan.' }
             ]},
+            { type: 'figure', src: 'assets/week4/fishbowl.svg', alt: 'A fishbowl discussion: an inner discussion group sits in a circle; an outer peer-feedback group and the teacher sit around them and take notes. Timeline: 5 minutes preparation, 15 minutes discussion, 5 minutes self-evaluation, then the groups swap roles.', caption: 'The fishbowl: one group talks, one group watches, then you swap', size: 'wide' },
             { type: 'order', id: 'd4o', title: 'Quick challenge: put the discussion steps in order', ends: ['First', 'Last'], items: [
               'Preparation (5 min): read the question and your notes',
               'Discussion (15 min)',
