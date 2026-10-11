@@ -147,12 +147,12 @@ window.DEC15_LESSON = {
               { text: 'Think about different perspectives.', answer: 0 },
               { text: 'Back up your ideas with your research.', answer: 0, why: 'You can also use the Week 3 and 4 texts or your own knowledge.' }
             ]},
-            { type: 'tip', text: '<b>Part 3 · Running the discussions: Setting up the discussion order/feedback groups.</b> Your teacher tells you the <b>discussion order</b> and the group you <b>watch</b>. You stay with your <b>new</b> group from Step 4. Write it down below.' },
-            { type: 'fields', fields: [
+            { type: 'fields', title: 'Part 3 · Running the discussions: Setting up the discussion order/feedback groups', fields: [
               { id: 'd8-1', label: 'My discussion group (names)', placeholder: 'Group 2: …', rows: 1, share: false },
               { id: 'd8-2', label: 'The group I observe and give feedback to', placeholder: 'Group 1: …', rows: 1, share: false },
               { id: 'd8-3', label: 'When is our discussion? When do we observe?', placeholder: 'We discuss at about … · We observe at about …', rows: 2, share: false }
             ]},
+            { type: 'tip', text: 'Your teacher tells you the <b>discussion order</b> and the group you <b>watch</b>. You stay with your <b>new</b> group from Step 4. Write it in the boxes above.' },
             { type: 'teacher', ref: 'w4d4-t7' }
           ]
         },
@@ -253,12 +253,12 @@ window.DEC15_LESSON = {
           title: 'After the discussions: Self-evaluation + General teacher feedback + Finalising',
           goal: 'Rate yourself, take notes on feedback and make your Action plan.',
           blocks: [
-            { type: 'tip', text: '<b>Part 1 · After the discussions: Self-evaluation.</b> This is the last part of your <b>Week 3–4 self-reflection</b>: <b>Participating in the discussion</b>. Do it straight after your discussion — before you hear any feedback.' },
-            { type: 'steps', items: [
+            { type: 'steps', title: 'Part 1 · After the discussions: Self-evaluation', items: [
               { who: 'alone', text: '<b>Now:</b> choose Yes, Mostly or Needs work for each question.' },
               { who: 'alone', text: '<b>Now:</b> write a short <b>Comment</b> for each one.' },
               { who: 'alone', text: '<b>Later</b> (after all the feedback): fill in the <b>Action plan for further improvement</b>.' }
             ]},
+            { type: 'tip', text: 'This is the last part of your <b>Week 3–4 self-reflection</b>: <b>Participating in the discussion</b>. Do it straight after your discussion — before you hear any feedback.' },
             { type: 'model', title: 'An example comment and action', rows: [
               ['Comment', 'I agreed with everyone and didn’t give my own opinion about the options.'],
               ['Action plan', 'Prepare one clear opinion with a reason and an example for each option, and use a phrase for polite disagreement at least once.']
@@ -272,12 +272,12 @@ window.DEC15_LESSON = {
                 'Did you compare and contrast the different options and evaluate their importance and implications?'
               ]}
             ], send: true, sendLabel: 'Share your reflection (optional)', sendHint: 'You can send a copy to your teacher or a groupmate — only they will see it.' },
-            { type: 'tip', text: '<b>Part 2 · General teacher feedback.</b> Your teacher fills in the form below for your group. Later, your teacher <b>sends it to each group member</b> — find it in <b>“Shared with me”</b>. Now, listen and write your own notes.' },
-            { type: 'fields', title: 'My notes on the teacher’s feedback', fields: [
+            { type: 'fields', title: 'Part 2 · General teacher feedback — my notes', fields: [
               { id: 'd11-1', label: 'What we did well', placeholder: 'e.g. We used examples from our research…', rows: 2 },
               { id: 'd11-2', label: 'What we can improve', placeholder: 'e.g. Move on to the negotiation question sooner…', rows: 2 },
               { id: 'd11-3', label: 'Questions for my teacher (ask tomorrow)', placeholder: 'What did you mean by…?', rows: 2 }
             ]},
+            { type: 'tip', text: 'Your teacher fills in the form below for your group. Later, your teacher <b>sends it to each group member</b> — find it in <b>“Shared with me”</b>. Now, listen and write your own notes.' },
             { type: 'table', id: 'd11t', title: 'DEC 15 Week 4 Research Summary Discussion: Teacher’s feedback', columns: ['Points for observation', 'Strengths', 'Areas for improvement'], fixed: [
               'Group members<br><small>add names (the discussion group, not the research group)</small>',
               'General speaking skills<br><small>• Language use (grammar and vocabulary)<br>• Fluency and pronunciation<br>• Spontaneous discussion (avoiding over-reliance on notes)</small>',
@@ -285,14 +285,14 @@ window.DEC15_LESSON = {
               'General comments'
             ], send: true, sendLabel: 'Teacher: send feedback to this group', sendHint: 'Tick every member of this discussion group. Each of them gets a read-only copy in “Shared with me”. You can also download a PDF.' },
             { type: 'teacher', ref: 'w4d4-t10' },
-            { type: 'tip', text: '<b>Part 3 · Finalising self-reflection & peer feedback.</b> Congratulations on finishing your second Research Summary Discussion! Well done!' },
-            { type: 'checklist', id: 'd12c', title: 'Before the end of the lesson', meter: ['done', 'All done — well done!'], items: [
+            { type: 'checklist', id: 'd12c', title: 'Part 3 · Finalising self-reflection & peer feedback — before the end of the lesson', meter: ['done', 'All done — well done!'], items: [
               'I wrote a Comment for every question in my self-reflection.',
               'I gave peer feedback to the group I watched — by talking and with the form.',
               'I got peer feedback and took notes.',
               'I took notes on my teacher’s feedback.',
               'I wrote my Action plan for further improvement.'
             ]},
+            { type: 'tip', text: 'Congratulations on finishing your second Research Summary Discussion! Well done!' },
             { type: 'fields', title: 'Check your Action plan again', fields: [
               { id: 'd12-1', label: 'Can you add anything else to do better next time?', placeholder: 'Next time I will… so that…', rows: 3 }
             ]},

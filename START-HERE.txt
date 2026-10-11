@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.35)
+DEC15 — COURSE APP (v2.36)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -439,3 +439,14 @@ v2.34
 v2.35
 - Fixed: word meanings (In plain words) opened partly outside the reading window. The card now stays inside the
   visible window and opens above the word when there is no room below.
+
+v2.36
+- Weeks 4–5 are easier for A2–B1 students: plain instructions, key words, models and sentence starters before
+  hard tasks, and a quick game or check in every stage. Reading/listening texts and writing topics are unchanged.
+- Fewer tabs: related activities are merged into one tab with "Part 1 · Part 2 ·" headings (e.g. W5 D1 workshop 18 → 6).
+  Note: merged activities keep the first activity's ticks; "finished" ticks or wall posts of removed activities are not shown.
+- Side panel: "This lesson" removed. The current week opens by itself and today's day is marked "You are here",
+  with its stages and Extra practice underneath.
+- Write together: pair/group writing activities now show a "Writing with a partner or group?" card at the top.
+  Students sign in, press Write together and choose the same Group number as their partners.
+- Fixed: some reading passages showed raw <br>/<b> tags; they now show proper line breaks.
