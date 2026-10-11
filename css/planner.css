@@ -733,3 +733,12 @@ body.pl-resizing, body.pl-resizing * { cursor: ns-resize !important; user-select
 .pl-doc ul[data-type="taskList"] ul[data-type="taskList"] { padding-left: 0; }   /* sub-to-dos line up under the text above */
 /* the grey hint belongs to a text line only; on a list row it pushed the line in and split the text */
 .pl-doc li.is-empty::before, .pl-doc ul.is-empty::before, .pl-doc ol.is-empty::before, .pl-doc div.is-empty::before, .pl-doc blockquote.is-empty::before { content: none; }
+
+/* divider styles (--- ___ === *** ~~~ and the menu) */
+.pl-doc hr[data-variant]:not([data-variant="dots"])::before { content: none; }
+.pl-doc hr[data-variant="line"] { height: 0; border-top: 1.5px solid var(--line-3, #c9d3da); margin: 1.4em 0; }
+.pl-doc hr[data-variant="thick"] { height: 0; border-top: 4px solid var(--ink, #14293a); border-radius: 2px; margin: 1.5em 0; }
+.pl-doc hr[data-variant="double"] { height: 4px; border-top: 1.5px solid var(--ink, #14293a); border-bottom: 1.5px solid var(--ink, #14293a); margin: 1.5em 0; }
+.pl-doc hr[data-variant="dotted"] { height: 0; border-top: 3px dotted var(--muted, #6b7c88); margin: 1.5em 0; }
+.pl-doc hr[data-variant="wavy"] { height: 10px; margin: 1.3em 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='10' viewBox='0 0 24 10'%3E%3Cpath d='M0 5Q6 0 12 5T24 5' fill='none' stroke='%232b776e' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x center / 24px 10px; }
+.pl-doc hr.ProseMirror-selectednode { outline: 2px solid color-mix(in srgb, var(--gold, #e3a843) 70%, transparent); outline-offset: 5px; border-radius: 4px; }

@@ -214,7 +214,8 @@ window.DEC15Planner = (() => {
     editor = new window.Tiptap.Editor({
       element: el, extensions: makeExtensions(), content: window.DEC15Blocks.withTrailingLine(note.data.content) || '',
       editorProps: { attributes: { class: 'pl-doc', spellcheck: 'true', 'aria-label': 'Note text', role: 'textbox', 'aria-multiline': 'true' },
-        handleKeyDown: (v, e) => !!blocks?.keydown(v, e) || linkKey(e) },
+        handleKeyDown: (v, e) => !!blocks?.keydown(v, e) || linkKey(e),
+        handleTextInput: (v, from, to, text) => window.DEC15Blocks.dividerInput(editor, from, to, text) },
       onUpdate: () => { clearTimeout(saveTimer); setStatus(uid ? 'saving' : 'local'); saveTimer = setTimeout(saveNote, 500); clearTimeout(reconcileTimer); reconcileTimer = setTimeout(reconcileNow, 600); },
       onSelectionUpdate: paintToolbar, onTransaction: paintToolbar,
     });
