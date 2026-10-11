@@ -50,7 +50,7 @@ window.DEC15_LESSON = {
               { front: 'discussion', back: 'On Thursday you have a 15-minute <b>discussion</b>.', tag: 'Step 5' }
             ]},
             { type: 'teacher', ref: 'w4d1-t1' },
-            { type: 'order', id: 'a2o', title: 'Part 2 · Groupwork: Summarising your source — quick challenge: put the 5 steps of the Research Summary Discussion in order', items: [
+            { type: 'order', id: 'a2o', title: 'Part 2 · Groupwork: Summarising your source — quick challenge: put the 5 steps in order', items: [
               'Find one reliable article (alone).',
               'Summarise your article for your group (2 minutes).',
               'Prepare a group presentation together (5 minutes).',
