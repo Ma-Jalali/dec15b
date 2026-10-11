@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.41)
+DEC15 — COURSE APP (v2.42)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -477,3 +477,8 @@ v2.41 (My planner)
   that takes the sub-items away.
 - Backspace in an empty sub-item deletes it and goes back to the line above; Backspace in an empty item that has
   sub-items deletes it and keeps the sub-items under the item above. No stray empty lines are left behind.
+
+v2.42 (My planner)
+- Divider lines, like Word: on an empty line type --- (line), ___ (thick line), === (double line), *** (dotted line)
+  or ~~~ (wavy line). The "/" menu and Insert button have a new "Dividers" group with all of them plus decorative dots.
+  Dividers made before this version keep their gold dots.

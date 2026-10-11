@@ -19,6 +19,11 @@ window.DEC15Blocks = (() => {
     quote: I('<path d="M4 4.5v11"/><path d="M8 7h8M8 10.5h8M8 14h5"/>'),
     callout: I('<rect x="2.5" y="3.5" width="15" height="13" rx="3"/><circle cx="6.5" cy="8" r="1.4"/><path d="M10 8h4.5M6 12.5h8.5"/>'),
     divider: I('<path d="M3 10h14"/><path d="M6 5.5h8M6 14.5h8" opacity=".35"/>'),
+    divThick: I('<path d="M3 10h14" stroke-width="3.2"/>'),
+    divDouble: I('<path d="M3 8.3h14M3 11.7h14"/>'),
+    divDotted: I('<path d="M3 10h14" stroke-dasharray="0.1 3" stroke-width="2.2"/>'),
+    divWavy: I('<path d="M2.5 10c1.6-2.4 3.1-2.4 4.7 0s3.1 2.4 4.7 0 3.1-2.4 4.7 0"/>'),
+    divDots: I('<circle cx="5.5" cy="10" r="1.1" fill="currentColor"/><circle cx="10" cy="10" r="1.1" fill="currentColor"/><circle cx="14.5" cy="10" r="1.1" fill="currentColor"/>'),
     code: I('<path d="m7 6-4 4 4 4M13 6l4 4-4 4M11.2 4.5 8.8 15.5"/>'),
     table: I('<rect x="3" y="4" width="14" height="12" rx="2"/><path d="M3 8h14M3 12h14M8 4v12"/>'),
     image: I('<rect x="2.5" y="4" width="15" height="12" rx="2.5"/><circle cx="7" cy="8.5" r="1.6"/><path d="m3 15 4.5-4.2 3.2 2.8 2.8-2.6L17 14.5"/>'),
@@ -128,12 +133,33 @@ window.DEC15Blocks = (() => {
     const Indent = T.Extension.create({ name: 'indent', addGlobalAttributes() { return [{ types: ['paragraph', 'heading'], attributes: { indent: { default: 0,
       parseHTML: el => Math.min(MAX_INDENT, Math.max(0, parseInt(el.getAttribute('data-indent'), 10) || 0)),
       renderHTML: a => (a.indent ? { 'data-indent': a.indent, style: `margin-left:${a.indent * 2}em` } : {}) } } }]; } });
-    return [Callout, Toggle, Trailing, Column, Columns, Picture, Bookmark, Indent,
+    // divider styles, like Word: --- line, ___ thick, === double, *** dotted, ~~~ wavy; older dividers keep their dots
+    const DividerStyle = T.Extension.create({ name: 'dividerStyle', addGlobalAttributes() { return [{ types: ['horizontalRule'], attributes: { variant: { default: 'dots',
+      parseHTML: el => (DIVIDERS[el.getAttribute('data-variant')] ? el.getAttribute('data-variant') : 'dots'), renderHTML: a => ({ 'data-variant': a.variant || 'dots' }) } } }]; } });
+    return [Callout, Toggle, Trailing, Column, Columns, Picture, Bookmark, Indent, DividerStyle,
       T.Table.configure({ resizable: false, HTMLAttributes: { class: 'pl-table' } }), T.TableRow, T.TableHeader, T.TableCell,
       T.Link.configure({ openOnClick: false, autolink: true, linkOnPaste: true, HTMLAttributes: { rel: 'noopener noreferrer', target: '_blank' } })];
   }
 
   const MAX_INDENT = 8;
+  /* dividers: style → [name, what to type at the start of an empty line] */
+  const DIVIDERS = { line: ['Line', '---'], thick: ['Thick line', '___'], double: ['Double line', '==='], dotted: ['Dotted line', '***'], wavy: ['Wavy line', '~~~'], dots: ['Decorative dots', ''] };
+  const DIVIDER_KEYS = Object.fromEntries(Object.entries(DIVIDERS).filter(([, v]) => v[1]).map(([k, v]) => [v[1], k]));
+  function insertDivider(editor, variant) {
+    editor.chain().focus().setHorizontalRule().run();
+    const { state } = editor, $f = state.selection.$from, pos = $f.depth ? $f.before($f.depth) : $f.pos, n = state.doc.resolve(pos).nodeBefore;
+    if (n && n.type.name === 'horizontalRule') editor.view.dispatch(state.tr.setNodeMarkup(pos - n.nodeSize, undefined, { ...n.attrs, variant }));
+    return true;
+  }
+  /* typing ---, ___, ===, *** or ~~~ on an empty line turns it into that divider */
+  function dividerInput(editor, from, to, text) {
+    const { state } = editor, $f = state.doc.resolve(from);
+    if (from !== to || $f.parent.type.name !== 'paragraph' || $f.parentOffset !== $f.parent.content.size) return false;
+    for (let d = $f.depth - 1; d > 0; d--) if (/^(listItem|taskItem|tableCell|tableHeader)$/.test($f.node(d).type.name)) return false;
+    const variant = DIVIDER_KEYS[$f.parent.textContent + text]; if (!variant) return false;
+    editor.chain().deleteRange({ from: $f.start(), to: from }).run();
+    return insertDivider(editor, variant);
+  }
   /* Increase (dir 1) or decrease (dir -1) the indent, like Word: list items nest one level deeper
      (or come out one level); other text moves 2em per step. Returns false inside tables and code. */
   function indent(editor, dir) {
@@ -230,9 +256,14 @@ window.DEC15Blocks = (() => {
     { id: 'tip', group: 'Blocks', title: 'Tip', hint: 'Green callout', icon: 'callout', tone: 'tip', keys: 'tip idea callout green', run: e => wrapCallout(e, 'tip') },
     { id: 'warning', group: 'Blocks', title: 'Warning', hint: 'Amber callout', icon: 'callout', tone: 'warning', keys: 'warning caution callout amber', run: e => wrapCallout(e, 'warning') },
     { id: 'important', group: 'Blocks', title: 'Important', hint: 'Red callout', icon: 'callout', tone: 'important', keys: 'important key callout red exam', run: e => wrapCallout(e, 'important') },
-    { id: 'divider', group: 'Blocks', title: 'Divider', hint: 'A line between parts', md: '---', keys: 'divider line hr separator rule', run: e => e.chain().focus().setHorizontalRule().run() },
     { id: 'code', group: 'Blocks', title: 'Code', hint: 'Plain text in a box', md: '```', keys: 'code monospace pre', run: e => e.chain().focus().toggleCodeBlock().run(), active: e => e.isActive('codeBlock') },
     { id: 'table', group: 'Blocks', title: 'Table', hint: '3 × 3, with a header row', keys: 'table grid columns rows', run: e => e.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run() },
+    { id: 'divider', group: 'Dividers', title: 'Divider · line', hint: 'A thin line between parts', md: '---', keys: 'divider line hr separator rule thin', run: e => insertDivider(e, 'line') },
+    { id: 'divThick', group: 'Dividers', icon: 'divThick', title: 'Divider · thick line', hint: 'A strong line between sections', md: '___', keys: 'divider thick bold heavy line hr separator rule', run: e => insertDivider(e, 'thick') },
+    { id: 'divDouble', group: 'Dividers', icon: 'divDouble', title: 'Divider · double line', hint: 'Two thin lines', md: '===', keys: 'divider double line hr separator rule equals', run: e => insertDivider(e, 'double') },
+    { id: 'divDotted', group: 'Dividers', icon: 'divDotted', title: 'Divider · dotted line', hint: 'A light, dotted break', md: '***', keys: 'divider dotted dashed line hr separator rule', run: e => insertDivider(e, 'dotted') },
+    { id: 'divWavy', group: 'Dividers', icon: 'divWavy', title: 'Divider · wavy line', hint: 'A playful wave', md: '~~~', keys: 'divider wavy wave squiggle line hr separator rule', run: e => insertDivider(e, 'wavy') },
+    { id: 'divDots', group: 'Dividers', icon: 'divDots', title: 'Divider · decorative dots', hint: 'Three gold dots', keys: 'divider dots ornament decorative hr separator', run: e => insertDivider(e, 'dots') },
     { id: 'image', group: 'Media & layout', title: 'Image', hint: 'A picture from a web address', keys: 'image picture photo img', run: async (e, x) => { const src = await askUrl(e, x.ask, 'image'); if (src) replaceEmptyBlock(e, { type: 'picture', attrs: { src, alt: '' } }, 1); } },
     { id: 'bookmark', group: 'Media & layout', title: 'Link card', hint: 'A web page as a card', keys: 'bookmark link card url web', run: async (e, x) => { const href = await askUrl(e, x.ask, 'link'); if (href) replaceEmptyBlock(e, { type: 'bookmark', attrs: { href, title: hostOf(href) } }, 1); } },
     { id: 'cols2', group: 'Media & layout', title: '2 columns', hint: 'Two blocks side by side', keys: 'columns two side layout grid', run: e => replaceEmptyBlock(e, { type: 'columns', content: [col(), col()] }, 3) },
@@ -403,5 +434,5 @@ window.DEC15Blocks = (() => {
     const last = content.content[content.content.length - 1];
     return last.type === 'paragraph' ? content : { ...content, content: [...content.content, { type: 'paragraph' }] };
   }
-  return { extensions, attach, withTrailingLine, indent, ICONS };
+  return { extensions, attach, withTrailingLine, indent, dividerInput, ICONS };
 })();
