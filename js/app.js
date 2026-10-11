@@ -438,6 +438,14 @@ function blocksHTML(a) {
   }
   return out;
 }
+/* Group writing activities show a clear "Write together" card at the top (the footer button stays for everything else). */
+const groupWriting = a => !!(a && a.cowrite !== false && (a.cowrite || (!/^(alone|homework)$/i.test(a.grouping || '') && (a.blocks || []).some(b => WRITING.has(b.type) || (b.type === 'table' && !b.send)))));
+function cowriteCard(a) {
+  if (!klass || !groupWriting(a)) return '';
+  return `<aside class="cowrite-card" aria-label="Write together"><span class="cwc-ico" aria-hidden="true">${icon('users')}</span>
+    <span class="cwc-tx"><b>Writing with a partner or group?</b><small>Open one shared page for your group. Everyone types at the same time and sees each other’s cursor. Choose the same group number as your partners.</small></span>
+    <button type="button" class="btn btn-sm" data-cowrite="${a.id}">${icon('pen')}Write together</button></aside>`;
+}
 function activity(a, i, list, section) {
   return `<article class="activity" id="${a.id}" tabindex="-1" aria-labelledby="h-${a.id}">
     <header class="act-head">
@@ -445,7 +453,7 @@ function activity(a, i, list, section) {
       <h2 id="h-${a.id}">${esc(a.title)}</h2>
       <p class="act-goal">${icon('target')}<span><b>Goal:</b> ${esc(a.goal)}</span></p>
     </header>
-    <div class="act-body">${blocksHTML(a)}</div>
+    ${cowriteCard(a)}<div class="act-body">${blocksHTML(a)}</div>
     ${answersPanel(a)}
     ${wallOn(a) ? wall.sectionHTML(a) : ''}
     ${section && i === list.length - 1 && list.every(x => state.done[x.id]) ? `<div class="stage-done"><img src="assets/art/complete.svg" alt="" width="120" height="140"><div><b>Stage complete!</b><span>You finished all ${list.length} activities in ${esc(stageName(section))}.</span></div></div>` : ''}
@@ -695,8 +703,8 @@ function dayContents(d, route) {
     ? lesson.sections.map(s => { const dn = s.activities.filter(a => state.done[a.id]).length, all = dn === s.activities.length;
         return `<li${stagger()}><a href="${L(s.id)}" class="nav-part is-stage${all ? ' complete' : ''}${cur(s.id)}" style="${tone(s)}"><span class="nav-pnum">${all ? icon('check') : esc(navCode(code(s)))}</span><span class="nav-ptext"><span class="nav-pname" title="${esc(s.title)}">${esc(s.title)}</span><small>${s.minutes} min<i class="nav-bar" style="--p:${dn / s.activities.length}" aria-label="${dn} of ${s.activities.length} done"></i></small></span></a></li>`; }).join('')
     : (d.parts || []).map((pt, k) => { const p = dayPart(d, k); return `<li${stagger()}><a href="#/${d.id}${d.stages?.[k] ? '/' + d.stages[k] : ''}" class="nav-part${p.tone ? ' is-stage' : ''}"${p.tone ? ` style="${tone(p)}"` : ''}><span class="nav-pnum">${esc(navCode(p.code))}</span><span class="nav-ptext"><span class="nav-pname" title="${esc(p.name)}">${esc(p.name)}</span></span></a></li>`; }).join('');
-  const tools = here ? `<li class="nav-tools"${stagger()}>${[['sources', 'book', 'Readings'], ['extra', 'list', 'Extra'], ['notebook', 'model', 'Notebook']].map(([id, ic, t]) => `<a href="${L(id)}" class="nav-tool${cur(id)}">${icon(ic)}<span>${t}</span></a>`).join('')}</li>` : '';
-  return `<ol class="nav-parts">${start}${stages}${tools}</ol>`;
+  const tools = here && lesson.extras.length ? `<li${stagger()}><a href="${L('extra')}" class="nav-part nav-extra${cur('extra')}"><span class="nav-pnum">${icon('list')}</span><span class="nav-ptext"><span class="nav-pname">Extra practice</span><small>${lesson.extras.length} optional ${lesson.extras.length === 1 ? 'activity' : 'activities'}</small></span></a></li>` : '';   // Readings and Notebook are in the main menu
+  return `<ol class="nav-parts">${here ? '' : start}${stages}${tools}</ol>`;
 }
 document.addEventListener('pointerdown', e => { const m = $('#side-menu'); if (m && !m.hidden && !e.target.closest('#side-menu, #side-settings')) { m.hidden = true; $('#side-settings')?.setAttribute('aria-expanded', 'false'); } });
 document.addEventListener('keydown', e => { const m = $('#side-menu'); if (e.key === 'Escape' && m && !m.hidden) { m.hidden = true; $('#side-settings')?.setAttribute('aria-expanded', 'false'); $('#side-settings')?.focus(); } });
@@ -726,7 +734,7 @@ function paintNav(route = navRoute) {
   if (route === 'planner') $('#side-planner')?.setAttribute('aria-current', 'page'); else $('#side-planner')?.removeAttribute('aria-current');
   if (route === 'home') $('#side-home').setAttribute('aria-current', 'page'); else $('#side-home').removeAttribute('aria-current');
   $('#nav').innerHTML = course.weeks.map(w => {
-    const open = navOpen[w.n] ?? false, started = w.days.filter(d => dayProgress(d)[0]).length;
+    const open = navOpen[w.n] ?? (w.n === lesson.week && route !== 'home'), started = w.days.filter(d => dayProgress(d)[0]).length;
     return `<section class="nav-week${open ? ' open' : ''}">
       <button type="button" class="nav-week-head" data-nav-week="${w.n}" aria-expanded="${open}" aria-controls="nav-w${w.n}">
         <span class="nav-week-num"><small>Week</small>${w.n}</span>
@@ -737,7 +745,8 @@ function paintNav(route = navRoute) {
       <ol class="nav-days">${w.days.map(d => {
         if (d.status !== 'ready') return `<li class="nav-dayitem is-soon"><div class="nav-day">${ring(0, d.day)}<span class="nav-day-text"><span class="nav-day-eyebrow">Day ${d.day} · Coming soon</span><b>${esc(d.title)}</b></span></div></li>`;
         const here = d.id === lesson.id, [dn, tot] = dayProgress(d), p = tot ? dn / tot : 0, dopen = navDayOpen[d.id] ?? false;
-        if (here) return `<li class="nav-dayitem here"><a class="nav-day" href="${L('overview')}">${ring(p, d.day, tot && p === 1)}<span class="nav-day-text"><span class="nav-day-eyebrow">Day ${d.day}<em>Open now</em></span><b>${esc(d.title)}</b></span></a></li>`;
+        if (here) return `<li class="nav-dayitem here open"><a class="nav-day" href="${L('overview')}"${route === 'overview' ? ' aria-current="page"' : ''}>${ring(p, d.day, tot && p === 1)}<span class="nav-day-text"><span class="nav-day-eyebrow">Day ${d.day}<em class="nav-here">${icon('flag')}You are here</em></span><b>${esc(d.title)}</b><small>${tot ? `${dn} of ${tot} activities done` : 'Not started yet'}</small></span></a>
+          <div class="nav-here-body">${dayContents(d, route)}</div></li>`;
         return `<li class="nav-dayitem${here ? ' here' : ''}${dopen ? ' open' : ''}">
           <button type="button" class="nav-day" data-nav-day="${d.id}" aria-expanded="${dopen}" aria-controls="nav-${d.id}">
             ${ring(p, d.day, tot && p === 1)}
@@ -831,7 +840,7 @@ function render() {
   paintNav(route);
   $('#progress').value = done; $('#progress').max = coreActivities.length;
   $('#progress-label').innerHTML = `<b>${done}</b> of ${coreActivities.length} activities finished`;
-  $('#side-notebook').href = L('notebook'); $('#side-readings').href = L('sources'); $('#side-lesson').href = L('overview');
+  $('#side-notebook').href = L('notebook'); $('#side-readings').href = L('sources');
   paintSideRing(done, coreActivities.length);
   const s = lesson.sections.find(x => x.id === route);
   if (route === 'planner') {   // My planner: its own page, separate from the lesson notebook; kept open across re-renders
