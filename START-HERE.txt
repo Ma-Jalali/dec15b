@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.36)
+DEC15 — COURSE APP (v2.37)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -450,3 +450,6 @@ v2.36
 - Write together: pair/group writing activities now show a "Writing with a partner or group?" card at the top.
   Students sign in, press Write together and choose the same Group number as their partners.
 - Fixed: some reading passages showed raw <br>/<b> tags; they now show proper line breaks.
+
+v2.37
+- Side panel: only one week is open at a time. Opening a week closes the others; opening a lesson opens its own week.

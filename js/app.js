@@ -682,9 +682,10 @@ function notebook() {
 }
 
 /* ───────── side panel: the whole course; the open lesson is expanded ─────────
-   Weeks fold open and closed (remembered on this device). The search box finds lessons, parts
+   One week is open at a time (opening a week folds the others). The search box finds lessons, parts
    of lessons, and the stages and activities of the open lesson. */
-const navOpen = (() => { try { return JSON.parse(localStorage.getItem('dec15-nav-weeks')) || {}; } catch (e) { return {}; } })();
+// one week open at a time: the week number, 0 = all closed, null = follow the current lesson
+let navWeekOpen = (() => { try { const v = JSON.parse(localStorage.getItem('dec15-nav-week')); return typeof v === 'number' ? v : null; } catch (e) { return null; } })();
 let navRoute = 'home';
 /* Progress ring around a day number. */
 function ring(p, n, done) {
@@ -727,8 +728,10 @@ function paintLessonNav(route) {
       return `<li><a href="${L(s.id)}" class="nav-stage${all ? ' complete' : ''}${cur(s.id)}" style="${tone(s)};--p:${n ? dn / n : 0}" title="${esc(code(s))} · ${esc(s.title)}"><span class="nav-scode">${all ? icon('check') : esc(navCode(code(s)))}</span><span class="nav-sname">${esc(s.title)}</span><span class="nav-scount" aria-label="${dn} of ${n} done">${dn}/${n}</span></a></li>`; }).join('')}
       <li><a href="${L('extra')}" class="nav-stage is-extra${cur('extra')}"><span class="nav-scode">${icon('list')}</span><span class="nav-sname">Extra practice</span></a></li></ol>`;
 }
+let navLessonWeek = null;
 function paintNav(route = navRoute) {
   navRoute = route;
+  if (route !== 'home' && lesson.week !== navLessonWeek) { navLessonWeek = lesson.week; navWeekOpen = null; }   // a lesson in another week opens its own week
   [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-notebook', 'notebook'], ['side-board', 'board'], ['side-shared', 'shared']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
   paintLessonNav(route);
   $('#side-home').classList.toggle('active', route === 'home');
@@ -736,7 +739,7 @@ function paintNav(route = navRoute) {
   if (route === 'planner') $('#side-planner')?.setAttribute('aria-current', 'page'); else $('#side-planner')?.removeAttribute('aria-current');
   if (route === 'home') $('#side-home').setAttribute('aria-current', 'page'); else $('#side-home').removeAttribute('aria-current');
   $('#nav').innerHTML = course.weeks.map(w => {
-    const open = navOpen[w.n] ?? (w.n === lesson.week && route !== 'home'), started = w.days.filter(d => dayProgress(d)[0]).length;
+    const open = navWeekOpen === null ? (w.n === lesson.week && route !== 'home') : w.n === navWeekOpen, started = w.days.filter(d => dayProgress(d)[0]).length;
     return `<section class="nav-week${open ? ' open' : ''}">
       <button type="button" class="nav-week-head" data-nav-week="${w.n}" aria-expanded="${open}" aria-controls="nav-w${w.n}">
         <span class="nav-week-num"><small>Week</small>${w.n}</span>
@@ -1303,9 +1306,13 @@ document.addEventListener('click', e => {
   if (d.hideAnswers) { delete state.revealed[d.hideAnswers]; save(); morph('ans-' + d.hideAnswers, rerender); return; }
   if (d.addRow) { state.rows[d.addRow] = (state.rows[d.addRow] || 0) + 1; save(); rerender(); return; }
   if (d.weekTab) { homeWeek = Number(d.weekTab); rerender(); $(`#tab-week-${homeWeek}`)?.focus({ preventScroll: !t.classList.contains('week-tab') }); if (!t.classList.contains('week-tab')) $('.week')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
-  if (d.navWeek) { const w = Number(d.navWeek), wk = t.closest('.nav-week'), open = !wk.classList.contains('open'); navOpen[w] = open;
-    try { localStorage.setItem('dec15-nav-weeks', JSON.stringify(navOpen)); } catch (e) { /* ignore */ }
-    setFold(wk, t, open); return; }
+  if (d.navWeek) {   // one week open at a time: opening a week folds the others
+    const w = Number(d.navWeek), wk = t.closest('.nav-week'), open = !wk.classList.contains('open'); navWeekOpen = open ? w : 0;
+    try { localStorage.setItem('dec15-nav-week', JSON.stringify(navWeekOpen)); } catch (e) { /* ignore */ }
+    if (open) document.querySelectorAll('.nav-week.open').forEach(o => { if (o !== wk) setFold(o, o.querySelector('[data-nav-week]'), false); });
+    setFold(wk, t, open);
+    if (open) setTimeout(() => wk.scrollIntoView({ block: 'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }), 340);
+    return; }
   if (d.navDay) {   // one day open at a time: opening a day slides the others closed
     const item = t.closest('.nav-dayitem'), open = !item.classList.contains('open');
     if (open) document.querySelectorAll('.nav-dayitem.open').forEach(o => { if (o !== item) { navDayOpen[o.querySelector('[data-nav-day]').dataset.navDay] = false; setFold(o, o.querySelector('[data-nav-day]'), false); } });
