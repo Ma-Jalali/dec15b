@@ -180,3 +180,4 @@ body[data-page="planner"] #save-status { display: none; }
 .cwc-tx small { display: block; color: var(--ink-2); font-size: .86rem; line-height: 1.4; margin-top: 2px; }
 .cowrite-card .btn .icon { width: 16px; height: 16px; }
 @media (max-width: 760px) { .cowrite-card { grid-template-columns: auto minmax(0, 1fr); margin: 0 14px 4px; } .cowrite-card .btn { grid-column: 1 / -1; justify-self: start; } }
+.passage-text { white-space: pre-line; }

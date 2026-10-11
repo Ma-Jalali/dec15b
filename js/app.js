@@ -224,10 +224,12 @@ B.question = (b, a) => `<section class="block essay-q">
   <blockquote>${reader.text('q-' + a.id, b.text || lesson.question, 'Essay question')}</blockquote>
   ${reader.toolbar('activity')}
 </section>`;
+/* The highlighter shows text exactly as written (HTML is escaped), so line breaks become real new lines and other tags are dropped. */
+const plainPassage = t => String(t ?? '').replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ');
 B.passage = b => `<section class="block passage">
   <h3 class="block-heading">${b.title}</h3>
   ${reader.toolbar('activity')}
-  <blockquote class="passage-text" data-help>${reader.text('c-' + b.id, b.text, b.title)}</blockquote>
+  <blockquote class="passage-text" data-help>${reader.text('c-' + b.id, plainPassage(b.text), b.title)}</blockquote>
 </section>`;
 /* One "Share with class" button per writing block: it shares every box the student has filled in, with its label. */
 B.fields = (b, a) => { const sharable = b.fields.filter(f => f.share !== false);

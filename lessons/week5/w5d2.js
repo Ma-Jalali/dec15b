@@ -15,7 +15,7 @@ window.DEC15_LESSON = {
   wordTarget: '',
   image: 'assets/week5/hero-w5d2.svg',
   imageAlt: 'A calm exam desk with headphones, a reading booklet, a clock, a pen, a glass of water and a small plant.',
-  journey: 'Today is your Listening, Reading and Writing (LRW) assessment. Follow your teacher’s and the DEC team’s instructions. Before you start, check you have what you need and remind yourself of the strategies you have practised. Afterwards, take a few minutes to reflect.',
+  journey: 'Today is your Listening, Reading and Writing (LRW) assessment. Follow your teacher and the DEC team. First, check you are ready. Then play a quick game to remember your best strategies. After the test, write a short reflection.',
   finish: { title: 'Wednesday', text: 'Frameworks: read and listen' },
 
   sections: [
@@ -25,72 +25,87 @@ window.DEC15_LESSON = {
       tone: 'blue', art: 'assessment',
       title: 'LRW assessment',
       subtitle: 'Get ready, stay calm, then reflect',
-      outcome: 'Follow the instructions from the DEC team, use the listening, reading and writing strategies you have learned, and reflect on how the assessment went.',
+      outcome: 'Follow the DEC team’s instructions. Use your listening, reading and writing strategies. Think about how the test went.',
       activities: [
         {
           id: 'a1', short: 'Get ready', minutes: 5, grouping: 'Alone',
           title: 'Before the assessment: What to bring and expect',
-          goal: 'Check you have what you need — and follow your teacher’s and the DEC team’s instructions.',
+          goal: 'Check you have everything you need.',
           blocks: [
-            { type: 'key', tone: 'warn', title: 'Follow your teacher’s and the DEC team’s instructions', points: [
-              'The <b>official instructions</b> (time, place, what is allowed) come from your teacher and the DEC team — not from this page.',
-              'If something is not clear, <b>ask your teacher</b> before the assessment starts.'
+            { type: 'key', tone: 'warn', title: 'Listen to your teacher and the DEC team', points: [
+              'Your teacher and the DEC team give the <b>official instructions</b>: time, place and rules.',
+              'This page does not have the test. It only helps you get ready.',
+              'Not sure about something? <b>Ask your teacher</b> before the test starts.'
             ]},
-            { type: 'checklist', id: 'a1c', title: 'My checklist', meter: ['ready', 'Ready — good luck!'], items: [
-              'I know the time and the room (or online link) for the assessment.',
-              'My laptop is charged, and I have my charger.',
-              'I have headphones that work with my laptop.',
+            { type: 'checklist', id: 'a1c', title: 'My checklist: tick each one', meter: ['ready', 'Ready — good luck!'], items: [
+              'I know the time and the room (or the online link).',
+              'My laptop is charged. I have my charger.',
+              'My headphones work with my laptop.',
               'I have my student card.',
-              'I can sign in to the systems I need (I checked my password).',
-              'I have water, and I arrive a little early.',
-              'I have read or listened to the instructions from my teacher and the DEC team.'
+              'I can log in. I checked my password.',
+              'I have water. I will arrive a little early.',
+              'I have read or heard the instructions from my teacher and the DEC team.'
             ]},
-            { type: 'tip', text: 'Feeling nervous is normal. Breathe slowly, read each instruction carefully, and do one task at a time.' },
+            { type: 'tip', text: 'Nervous? That is normal! Breathe slowly. Read each instruction twice. Do one task at a time.' },
             { type: 'teacher', ref: 'w5d2-t1' }
           ]
         },
         {
-          id: 'a2', short: 'Strategies', minutes: 20, grouping: 'Alone',
+          id: 'a2', short: 'Strategies', minutes: 20, grouping: 'Alone → pair',
           title: 'Quick review: Strategies from DEC15',
-          goal: 'Remind yourself of the listening, reading and writing strategies from Weeks 1–5.',
+          goal: 'Remember your best listening, reading and writing strategies.',
           blocks: [
-            { type: 'key', title: 'Listening', points: [
-              '<b>Predict</b> before you listen: read the headings and questions first.',
-              'Listen for the <b>gist</b> first, then for <b>detail</b>.',
-              'Take <b>short notes</b>: key words, abbreviations, symbols and numbers — not full sentences.'
+            { type: 'sort', id: 'a2s', title: 'Part 1 · Game: Listening, Reading or Writing?', hint: 'Drag (or tap) each strategy into the right box. Then check.', buckets: [
+              { label: 'Listening' }, { label: 'Reading' }, { label: 'Writing' }
+            ], items: [
+              { text: 'Read the questions first. <b>Predict</b> what you will hear.', answer: 0, why: 'Predicting helps you listen for the right things.' },
+              { text: 'First get the <b>gist</b> (= main idea). Then listen again for details.', answer: 0, why: 'Gist first, detail second.' },
+              { text: 'Write <b>short notes</b>: key words, symbols and numbers.', answer: [0, 1], why: 'Short notes work for listening and reading.' },
+              { text: '<b>Skim</b> (= read fast) the title and topic sentences for the main idea.', answer: 1, why: 'Skimming is a reading strategy.' },
+              { text: '<b>Scan</b> (= look quickly) for names and numbers.', answer: 1, why: 'Scanning finds details in a text.' },
+              { text: 'Write the <b>author and year</b> next to every note.', answer: 1, why: 'Then you can cite the source later.' },
+              { text: 'Read the question. Decide your <b>position</b> (= your answer).', answer: 2, why: 'Know your answer before you write.' },
+              { text: 'Plan: <b>thesis</b> + one main idea in each paragraph + evidence.', answer: 2, why: 'A plan keeps your essay clear.' },
+              { text: '<b>Paraphrase</b> (= use your own words) and <b>cite</b> every source.', answer: 2, why: 'Always say where an idea comes from.' },
+              { text: 'Leave 5 minutes at the end to <b>check</b> your writing.', answer: 2, why: 'You can find small mistakes.' }
             ]},
-            { type: 'key', title: 'Reading', points: [
-              '<b>Skim</b> for the main idea (title, abstract, topic sentences); <b>scan</b> for details (names, numbers).',
-              'Notice the writer’s <b>position</b> and how they support it with evidence.',
-              'Keep the <b>author and year</b> with every note.'
+            { type: 'flip', title: 'Part 2 · Six skills from Weeks 1–5: explain, then turn the card', hint: 'Say one sentence about the skill to your partner. Then turn the card and check.', items: [
+              { front: 'Note-taking', back: 'Use headings, key words and symbols. Write only what answers the question.', tag: 'Listening · Reading' },
+              { front: 'Paraphrasing', back: 'Change the words and the sentence. Keep the meaning. Still cite the source.', tag: 'Writing' },
+              { front: 'Synthesising', back: 'Join ideas from two or more sources: <i>Similarly, …</i> · <i>In contrast, …</i> · (A, 2021; B, 2024).', tag: 'Writing' },
+              { front: 'Position', back: 'Say your thesis in the introduction. Support it in every paragraph. Repeat it in the conclusion.', tag: 'Writing' },
+              { front: 'Hedging', back: 'Make claims careful: <i>may, might, could, suggest, tend to</i>.', tag: 'Writing · Reading' },
+              { front: 'Referencing', back: 'APA: <i>Gunders (2024) argues…</i> or <i>(Berti et al., 2021)</i>. Use <i>et al.</i> for three or more authors.', tag: 'Writing' }
             ]},
-            { type: 'key', title: 'Writing', points: [
-              'Analyse the <b>question</b> and decide your <b>position</b> before you write.',
-              'Plan: <b>thesis</b> + one main idea per body paragraph + evidence from the sources.',
-              '<b>Paraphrase</b> and <b>synthesise</b> sources; <b>cite</b> every idea from a source.',
-              'Use <b>evaluative language</b> and <b>hedging</b> to show your voice. Leave time to <b>check</b>.'
+            { type: 'key', title: 'My test-day plan', compare: [
+              { label: 'Listening', text: 'Predict → gist → detail. Short notes.' },
+              { label: 'Reading', text: 'Skim → scan. Author and year with every note.' },
+              { label: 'Writing', text: 'Plan first. Paraphrase and cite. Check at the end.' }
             ]},
-            { type: 'flip', title: 'Six skills from Weeks 1–5 — say what you remember, then turn the card', hint: 'Explain the skill in one sentence before you turn.', items: [
-              { front: 'Note-taking', back: 'Use headings, key words, abbreviations and symbols. Note only what answers the question. Paraphrase as you write.', tag: 'Listening · Reading' },
-              { front: 'Paraphrasing', back: 'Change the words (synonyms), the word forms and the sentence structure — but keep the meaning. Still cite the source.', tag: 'Writing' },
-              { front: 'Synthesising', back: 'Connect ideas from two or more sources: <i>Similarly, …</i> · <i>In contrast, …</i> · multi-source citations (A, 2021; B, 2024).', tag: 'Writing' },
-              { front: 'Position', back: 'State your thesis in the introduction, support it in every topic sentence, and restate it in the conclusion.', tag: 'Writing' },
-              { front: 'Hedging', back: 'Make claims careful: <i>may, might, could, suggest, tend to, potentially</i>.', tag: 'Writing · Reading' },
-              { front: 'Referencing', back: 'APA author–date: narrative <i>Gunders (2024) argues…</i> or parenthetical <i>(Berti et al., 2021)</i>. Use <i>et al.</i> for three or more authors.', tag: 'Writing' }
-            ]},
+            { type: 'tip', text: 'Nice work! Choose <b>one</b> strategy you want to remember most today. Tell your partner.' },
             { type: 'teacher', ref: 'w5d2-t2' }
-          ]
+          ],
+          answers: { title: 'Why these answers?', items: [
+            ['Listening', 'Predict before you listen · gist first, then detail · short notes.'],
+            ['Reading', 'Skim for the main idea · scan for details · author and year with every note. (Short notes help in reading too.)'],
+            ['Writing', 'Decide your position · plan · paraphrase and cite · check at the end.']
+          ]}
         },
         {
           id: 'a3', short: 'Reflect', minutes: 10, grouping: 'Alone',
           title: 'After the assessment: Reflection',
-          goal: 'Think about what went well and what you will do next time.',
+          goal: 'Think about what went well and what to do next time.',
           blocks: [
-            { type: 'tip', text: 'Do this <b>after</b> the assessment is finished. Don’t write about the assessment questions — write about <b>how you worked</b>.' },
+            { type: 'tip', text: 'Do this <b>after</b> the test. Do not write about the test questions. Write about <b>how you worked</b>.' },
+            { type: 'language', title: 'Sentence starters', tabs: false, groups: [
+              { label: 'What helped', phrases: ['The strategy that helped me most was…', 'It was useful to…'] },
+              { label: 'What was difficult', phrases: ['I found it hard to… because…', 'I did not have enough time to…'] },
+              { label: 'Next time', phrases: ['Next time, I will…', 'I want to practise…'] }
+            ]},
             { type: 'fields', title: 'My reflection', fields: [
-              { id: 'a3-1', label: 'Which strategies helped me most today?', placeholder: 'Reading the questions before listening…', rows: 3 },
-              { id: 'a3-2', label: 'What was difficult? Why?', placeholder: 'Managing my time in the writing part…', rows: 3 },
-              { id: 'a3-3', label: 'One thing I will do differently next time', placeholder: 'Plan for 10 minutes before I write…', rows: 2 }
+              { id: 'a3-1', label: 'Which strategies helped me most today?', placeholder: 'The strategy that helped me most was reading the questions first…', rows: 3 },
+              { id: 'a3-2', label: 'What was difficult? Why?', placeholder: 'I found it hard to manage my time in the writing part…', rows: 3 },
+              { id: 'a3-3', label: 'One thing I will do differently next time', placeholder: 'Next time, I will plan for 10 minutes before I write…', rows: 2 }
             ]},
             { type: 'teacher', ref: 'w5d2-t3' }
           ]
