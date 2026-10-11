@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.40)
+DEC15 — COURSE APP (v2.41)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -469,3 +469,11 @@ v2.40 (My planner)
 - Indent like Word: Tab / Shift+Tab (or the new Increase / Decrease indent buttons) nest bullet, numbered and to-do
   lists one level deeper or back out, and indent normal text and headings. Lists change style by level:
   bullets ● → ○ → ■, numbers 1. → a. → i. Tab still moves between cells inside a table.
+
+v2.41 (My planner)
+- Fixed: a new empty to-do (and sub-to-do) was pushed to the right and its grey "To-do" hint could split around the box.
+  The hint now belongs to the text line only. Sub-to-dos line up under the text of the to-do above.
+- Enter at the end of a to-do / bullet / number that has sub-items adds a new first sub-item, instead of an empty item
+  that takes the sub-items away.
+- Backspace in an empty sub-item deletes it and goes back to the line above; Backspace in an empty item that has
+  sub-items deletes it and keeps the sub-items under the item above. No stray empty lines are left behind.
