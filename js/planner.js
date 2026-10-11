@@ -202,7 +202,8 @@ window.DEC15Planner = (() => {
       T.Placeholder.configure({ includeChildren: true, placeholder: ({ node, pos, editor: ed }) => {
         if (node.type.name === 'heading') return `Heading ${node.attrs.level}`;
         const up = pos > 0 ? ed.state.doc.resolve(pos).parent.type.name : '';
-        return up === 'taskItem' ? 'To-do' : up === 'toggle' ? 'Toggle' : up === 'tableCell' || up === 'tableHeader' ? '' : 'Write, or type “/” for blocks'; } }),
+        if (up === 'taskItem') return 'To-do'; if (up === 'toggle') return 'Toggle';
+        return ed.isEmpty ? 'Start writing…' : ''; } }),   // the "/" tip sits once above the page, not on every line
     ];
   }
   function openEditor(noteId) {
@@ -267,6 +268,9 @@ window.DEC15Planner = (() => {
   const ic = {
     undo: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>', redo: '<path d="m15 14 5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/>',
     left: '<path d="M4 6h16M4 10h10M4 14h16M4 18h10"/>', center: '<path d="M4 6h16M7 10h10M4 14h16M7 18h10"/>', right: '<path d="M4 6h16M10 10h10M4 14h16M10 18h10"/>',
+    indent: '<path d="M4 6h16M11 10h9M11 14h9M4 18h16"/><path d="m4 9.5 3 2.5-3 2.5"/>',
+    outdent: '<path d="M4 6h16M11 10h9M11 14h9M4 18h16"/><path d="m7 9.5-3 2.5 3 2.5"/>',
+    bulb: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.4 1.1 2.2h5c0-.8.4-1.6 1.1-2.2A6 6 0 0 0 12 3z"/>',
     bullets: '<circle cx="5" cy="7" r="1.2" fill="currentColor"/><circle cx="5" cy="12" r="1.2" fill="currentColor"/><circle cx="5" cy="17" r="1.2" fill="currentColor"/><path d="M9 7h11M9 12h11M9 17h11"/>',
     numbers: '<path d="M4 5h2v4M4 9h3M4 14.5c0-1 2.5-1.5 2.5 0S4 17 4 18.5h3"/><path d="M10 7h10M10 12h10M10 17h10"/>',
     tasks: '<rect x="3.5" y="4.5" width="6" height="6" rx="1.5"/><path d="m5 7.5 1.3 1.3L8.6 6.4"/><rect x="3.5" y="13.5" width="6" height="6" rx="1.5"/><path d="M13 7.5h7M13 16.5h7"/>',
@@ -287,7 +291,7 @@ window.DEC15Planner = (() => {
       <div class="pl-grp">${b('bold', 'Bold (Ctrl+B)', '<b>B</b>')}${b('italic', 'Italic (Ctrl+I)', '<i class="pl-it">I</i>')}${b('underline', 'Underline (Ctrl+U)', '<u>U</u>')}${b('strike', 'Strikethrough', '<s>S</s>')}</div>
       <div class="pl-grp">${b('color', 'Font colour', '<span class="pl-a">A</span><i class="pl-bar" data-bar="color"></i>', ' aria-haspopup="true"')}${b('highlight', 'Text highlight colour', svg(ic.pen) + '<i class="pl-bar" data-bar="highlight"></i>', ' aria-haspopup="true"')}</div>
       <div class="pl-grp pl-fold">${b('left', 'Align left', svg(ic.left))}${b('center', 'Centre', svg(ic.center))}${b('right', 'Align right', svg(ic.right))}</div>
-      <div class="pl-grp">${b('bullets', 'Bulleted list', svg(ic.bullets))}${b('numbers', 'Numbered list', svg(ic.numbers))}${b('tasks', 'To-do list', svg(ic.tasks))}</div>
+      <div class="pl-grp">${b('bullets', 'Bulleted list', svg(ic.bullets))}${b('numbers', 'Numbered list', svg(ic.numbers))}${b('tasks', 'To-do list', svg(ic.tasks))}${b('outdent', 'Decrease indent (Shift+Tab)', svg(ic.outdent))}${b('indent', 'Increase indent (Tab)', svg(ic.indent))}</div>
       <div class="pl-grp">${b('quote', 'Quote', svg(ic.quote))}${b('link', 'Link (Ctrl+K)', svg(ic.link))}</div>
       <div class="pl-grp pl-tablegrp" hidden>${b('rowAfter', 'Add a row below', svg(ic.rowAdd))}${b('colAfter', 'Add a column to the right', svg(ic.colAdd))}${b('rowDel', 'Delete this row', svg(ic.rowDel))}${b('colDel', 'Delete this column', svg(ic.colDel))}${b('tableDel', 'Delete the table', svg(ic.tableDel))}</div>
     </div>`;
@@ -299,6 +303,7 @@ window.DEC15Planner = (() => {
       underline: () => c.toggleUnderline().run(), strike: () => c.toggleStrike().run(),
       left: () => c.setTextAlign('left').run(), center: () => c.setTextAlign('center').run(), right: () => c.setTextAlign('right').run(),
       bullets: () => c.toggleBulletList().run(), numbers: () => c.toggleOrderedList().run(), tasks: () => c.toggleTaskList().run(),
+      indent: () => window.DEC15Blocks.indent(editor, 1), outdent: () => window.DEC15Blocks.indent(editor, -1),
       quote: () => c.toggleBlockquote().run(), link: () => linkPop(el), insert: () => blocks?.openInsert(),
       rowAfter: () => c.addRowAfter().run(), colAfter: () => c.addColumnAfter().run(), rowDel: () => c.deleteRow().run(), colDel: () => c.deleteColumn().run(), tableDel: () => c.deleteTable().run(),
       color: () => palette(el, 'color'), highlight: () => palette(el, 'highlight') })[cmd]?.();
@@ -432,7 +437,7 @@ window.DEC15Planner = (() => {
       <section class="pl-main">${ui.openNoteId ? `<div class="pl-cover" hidden></div><div class="pl-note-head"><button type="button" class="pl-tree-toggle" data-tree-toggle aria-label="Show my notes">☰ Notes</button>
           <div class="pl-crumbs"></div><div class="pl-titlerow"><button type="button" class="pl-nicon" data-note-icon hidden></button><input class="pl-note-title" id="pl-note-title" aria-label="Note title" maxlength="120" value="${esc(get(ui.openNoteId).data.title || '')}" placeholder="Untitled"></div>
           <div class="pl-note-meta"></div></div>
-        ${toolbarHTML()}<div class="pl-page"><div id="pl-editor"></div></div>`
+        ${toolbarHTML()}<p class="pl-hint">${svg(ic.bulb)}<span>Type <kbd>/</kbd> at the start of a line to add a block · <kbd>Tab</kbd> / <kbd>Shift</kbd>+<kbd>Tab</kbd> to increase or decrease the indent</span></p><div class="pl-page"><div id="pl-editor"></div></div>`
         : `<div class="pl-empty"><button type="button" class="pl-tree-toggle" data-tree-toggle>☰ Notes</button>${ART.notes}<p><b>A blank page.</b> Notes you write here are only for you.</p><button type="button" class="pl-btn" data-new-note>＋ New note</button></div>`}</section>
       <aside class="pl-rail" aria-label="Coming up"></aside></div>`;
     paintTree(); paintRail(); paintNoteMeta();

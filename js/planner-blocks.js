@@ -124,11 +124,35 @@ window.DEC15Blocks = (() => {
       renderHTML({ node }) { const href = safeUrl(node.attrs.href) || '#', host = hostOf(href);
         return ['div', { 'data-type': 'bookmark', class: 'pl-bm' }, ['span', { class: 'pl-bm-ico', 'aria-hidden': 'true' }, host.slice(0, 1).toUpperCase()],
           ['span', { class: 'pl-bm-tx' }, ['a', { href, target: '_blank', rel: 'noopener noreferrer' }, node.attrs.title || host], ['small', {}, href]]]; } });
-    return [Callout, Toggle, Trailing, Column, Columns, Picture, Bookmark,
+    // indent for normal text and headings (lists indent by nesting instead): Tab / Shift+Tab or the toolbar
+    const Indent = T.Extension.create({ name: 'indent', addGlobalAttributes() { return [{ types: ['paragraph', 'heading'], attributes: { indent: { default: 0,
+      parseHTML: el => Math.min(MAX_INDENT, Math.max(0, parseInt(el.getAttribute('data-indent'), 10) || 0)),
+      renderHTML: a => (a.indent ? { 'data-indent': a.indent, style: `margin-left:${a.indent * 2}em` } : {}) } } }]; } });
+    return [Callout, Toggle, Trailing, Column, Columns, Picture, Bookmark, Indent,
       T.Table.configure({ resizable: false, HTMLAttributes: { class: 'pl-table' } }), T.TableRow, T.TableHeader, T.TableCell,
       T.Link.configure({ openOnClick: false, autolink: true, linkOnPaste: true, HTMLAttributes: { rel: 'noopener noreferrer', target: '_blank' } })];
   }
 
+  const MAX_INDENT = 8;
+  /* Increase (dir 1) or decrease (dir -1) the indent, like Word: list items nest one level deeper
+     (or come out one level); other text moves 2em per step. Returns false inside tables and code. */
+  function indent(editor, dir) {
+    const { state } = editor, $f = state.selection.$from;
+    for (let d = $f.depth; d > 0; d--) {
+      const n = $f.node(d).type.name;
+      if (n === 'tableCell' || n === 'tableHeader' || n === 'codeBlock') return false;
+      if (n === 'listItem' || n === 'taskItem') { if (dir > 0) editor.chain().focus().sinkListItem(n).run(); else editor.chain().focus().liftListItem(n).run(); return true; }
+    }
+    if ($f.parent.type.spec.code) return false;
+    const tr = state.tr; let hit = false;
+    state.doc.nodesBetween(state.selection.from, state.selection.to, (node, pos) => {
+      if (node.type.name !== 'paragraph' && node.type.name !== 'heading') return;
+      hit = true; const v = Math.min(MAX_INDENT, Math.max(0, (node.attrs.indent || 0) + dir));
+      if (v !== (node.attrs.indent || 0)) tr.setNodeMarkup(pos, undefined, { ...node.attrs, indent: v });
+    });
+    if (tr.docChanged) editor.view.dispatch(tr);
+    editor.commands.focus(); return hit;
+  }
   const safeUrl = u => (typeof u === 'string' && /^https?:\/\/[^\s"'<>]+$/i.test(u.trim()) ? u.trim() : null);
   const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return 'link'; } };
   const col = () => ({ type: 'column', content: [{ type: 'paragraph' }] });
@@ -201,7 +225,7 @@ window.DEC15Blocks = (() => {
       const s = editor.state.selection;
       if (!editor.isFocused || !s.empty || s.$from.parent.type.spec.code) return close();
       const $f = s.$from, before = $f.parent.textBetween(0, $f.parentOffset, null, '￼');
-      const m = /(?:^|\s)\/([\p{L}\p{N}’' -]{0,24})$/u.exec(before);
+      const m = /^\s*\/([\p{L}\p{N}’' -]{0,24})$/u.exec(before);   // only at the start of a line, not in the middle of a sentence
       if (!m) return close();
       const from = $f.pos - m[1].length - 1; if (from === dismissed) return;
       const items = match(m[1]);
@@ -315,6 +339,7 @@ window.DEC15Blocks = (() => {
         if ((e.key === 'Enter' || e.key === 'Tab') && st.items.length) { e.preventDefault(); choose(st.i); return true; }
         if (e.key === 'Escape') { e.preventDefault(); dismissed = st.from; close(); return true; }
       }
+      if (e.key === 'Tab' && !e.ctrlKey && !e.metaKey && !e.altKey) { if (indent(editor, e.shiftKey ? -1 : 1) !== false) { e.preventDefault(); return true; } return false; }
       if (e.altKey && e.shiftKey && (e.key === 'ArrowUp' || e.key === 'ArrowDown')) { const b = selectedBlock(); if (b) { e.preventDefault(); moveBlock(b, e.key === 'ArrowUp' ? -1 : 1); return true; } }
       if ((e.ctrlKey || e.metaKey) && !e.shiftKey && e.key.toLowerCase() === 'd') { const b = selectedBlock(); if (b) { e.preventDefault(); view.dispatch(editor.state.tr.insert(b.start + b.node.nodeSize, b.node.copy(b.node.content))); return true; } }
       return false;
@@ -334,5 +359,5 @@ window.DEC15Blocks = (() => {
     const last = content.content[content.content.length - 1];
     return last.type === 'paragraph' ? content : { ...content, content: [...content.content, { type: 'paragraph' }] };
   }
-  return { extensions, attach, withTrailingLine, ICONS };
+  return { extensions, attach, withTrailingLine, indent, ICONS };
 })();

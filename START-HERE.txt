@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.39)
+DEC15 — COURSE APP (v2.40)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -462,3 +462,10 @@ v2.39
 - Readings (side panel) now shows all the course texts week by week (Weeks 2–5). Each week is a fold: open it to see
   that week's readings and listening scripts. One week is open at a time; the current lesson's week opens first.
   A new week appears here by itself when its lessons (and lessons/weekN/sources.js) are added to lessons/course.js.
+
+v2.40 (My planner)
+- "/" opens the block menu only at the start of a line, not in the middle of a sentence.
+- The "Write, or type / for blocks" hint no longer appears on every empty line; one tip sits above the page instead.
+- Indent like Word: Tab / Shift+Tab (or the new Increase / Decrease indent buttons) nest bullet, numbered and to-do
+  lists one level deeper or back out, and indent normal text and headings. Lists change style by level:
+  bullets ● → ○ → ■, numbers 1. → a. → i. Tab still moves between cells inside a table.

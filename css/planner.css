@@ -713,3 +713,21 @@ body.pl-resizing, body.pl-resizing * { cursor: ns-resize !important; user-select
 /* v2.31: Outfit for the body text of My planner and the class board (headings keep Fraunces) */
 .pl, .bd, .pl-pop, .bd-root { --sans: 'Outfit', 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif; font-family: var(--sans); }
 .pl-doc, .bd-doc { font-family: var(--sans); }
+
+/* one tip above the page instead of "type /" on every line */
+.pl-hint { display: flex; align-items: center; gap: 8px; margin: 6px 0 0; padding: 6px 12px; font-size: .8rem; color: var(--muted); }
+.pl-hint .pl-i { width: 16px; height: 16px; flex: none; color: #b07a17; }
+.pl-hint kbd { font: 700 .74rem/1 var(--sans, inherit); padding: 2px 6px; border-radius: 6px; background: #fff; box-shadow: inset 0 0 0 1px var(--line), 0 1px 0 var(--line); color: var(--ink); }
+@media (max-width: 640px) { .pl-hint { display: none; } }
+
+/* list levels, like Word: filled dot → hollow circle → square; 1. → a. → i. */
+.pl-doc ul:not([data-type]) { list-style-type: disc; }
+.pl-doc ul:not([data-type]) ul:not([data-type]) { list-style-type: circle; }
+.pl-doc ul:not([data-type]) ul:not([data-type]) ul:not([data-type]) { list-style-type: square; }
+.pl-doc ul:not([data-type]) ul:not([data-type]) ul:not([data-type]) ul:not([data-type]) { list-style-type: disc; }
+.pl-doc ol { list-style-type: decimal; }
+.pl-doc ol ol { list-style-type: lower-alpha; }
+.pl-doc ol ol ol { list-style-type: lower-roman; }
+.pl-doc ol ol ol ol { list-style-type: decimal; }
+.pl-doc li > ul, .pl-doc li > ol { margin: .15em 0; }
+.pl-doc ul[data-type="taskList"] ul[data-type="taskList"] { padding-left: 1.6em; }
