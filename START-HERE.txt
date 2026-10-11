@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.38)
+DEC15 — COURSE APP (v2.39)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -457,3 +457,8 @@ v2.37
 v2.38
 - Fixed: in the side panel, days other than the current one ("You are here") could not be opened, so you could not
   move to another lesson from the side panel.
+
+v2.39
+- Readings (side panel) now shows all the course texts week by week (Weeks 2–5). Each week is a fold: open it to see
+  that week's readings and listening scripts. One week is open at a time; the current lesson's week opens first.
+  A new week appears here by itself when its lessons (and lessons/weekN/sources.js) are added to lessons/course.js.
