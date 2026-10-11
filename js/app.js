@@ -1315,7 +1315,7 @@ document.addEventListener('click', e => {
     return; }
   if (d.navDay) {   // one day open at a time: opening a day slides the others closed
     const item = t.closest('.nav-dayitem'), open = !item.classList.contains('open');
-    if (open) document.querySelectorAll('.nav-dayitem.open').forEach(o => { if (o !== item) { navDayOpen[o.querySelector('[data-nav-day]').dataset.navDay] = false; setFold(o, o.querySelector('[data-nav-day]'), false); } });
+    if (open) document.querySelectorAll('.nav-dayitem.open').forEach(o => { const b = o.querySelector(':scope > [data-nav-day]'); if (o !== item && b) { navDayOpen[b.dataset.navDay] = false; setFold(o, b, false); } });   // the "You are here" day has no fold button and stays open
     navDayOpen[d.navDay] = open; setFold(item, t, open);
     if (open) setTimeout(() => item.scrollIntoView({ block: 'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }), 340);
     return; }
