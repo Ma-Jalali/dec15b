@@ -742,3 +742,5 @@ body.pl-resizing, body.pl-resizing * { cursor: ns-resize !important; user-select
 .pl-doc hr[data-variant="dotted"] { height: 0; border-top: 3px dotted var(--muted, #6b7c88); margin: 1.5em 0; }
 .pl-doc hr[data-variant="wavy"] { height: 10px; margin: 1.3em 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='10' viewBox='0 0 24 10'%3E%3Cpath d='M0 5Q6 0 12 5T24 5' fill='none' stroke='%232b776e' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x center / 24px 10px; }
 .pl-doc hr.ProseMirror-selectednode { outline: 2px solid color-mix(in srgb, var(--gold, #e3a843) 70%, transparent); outline-offset: 5px; border-radius: 4px; }
+.pl-size { min-width: 104px; margin-left: 6px; }
+@container note (max-width: 760px) { .pl-size { min-width: 96px; } }
