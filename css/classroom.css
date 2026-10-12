@@ -487,21 +487,24 @@ body.present .ct-dock { top: 18px; } body.present .ct:not(.mini) { transform-ori
 .timer-btn.on { background: #eaf5f2; border-color: #9fd2c7; }
 .timer-btn .tb-left { font-variant-numeric: tabular-nums; }
 @media (max-width: 1440px) { .timer-btn:not(.on) .tb-tx { display: none; } .timer-btn:not(.on) { padding: 0 9px; } }
-.ct-pop { position: fixed; z-index: 120; width: min(360px, calc(100vw - 16px)); padding: 18px; border-radius: 22px; background: #fff; box-shadow: 0 0 0 1px rgba(20,41,58,.08), 0 28px 60px -24px rgba(14,28,40,.5); animation: ctIn .3s cubic-bezier(.2,.8,.2,1.1); }
+.ct-pop, .ct-pop * { box-sizing: border-box; }
+.ct-pop { position: fixed; z-index: 120; width: min(380px, calc(100vw - 16px)); padding: 18px; border-radius: 22px; background: #fff; box-shadow: 0 0 0 1px rgba(20,41,58,.08), 0 28px 60px -24px rgba(14,28,40,.5); animation: ctIn .3s cubic-bezier(.2,.8,.2,1.1); }
 .ct-pop form { display: grid; gap: 10px; }
 .ct-pop-head { display: flex; gap: 12px; align-items: flex-start; }
 .ct-pop-head > svg { width: 34px; height: 34px; padding: 7px; border-radius: 12px; background: #eaf5f2; color: #2a8a7d; flex: none; }
-.ct-pop-head b { display: block; font: 600 1.15rem var(--serif); } .ct-pop-head small { color: var(--muted); font-size: .8rem; }
+.ct-pop-head b { display: block; font: 600 1.15rem var(--serif); } .ct-pop-head small { display: block; color: var(--muted); font-size: .8rem; line-height: 1.4; margin-top: 2px; }
 .ct-pop-l { margin: 4px 0 0; font-weight: 800; font-size: .78rem; letter-spacing: .04em; color: var(--ink-2); } .ct-pop-l small { font-weight: 600; color: var(--faint); }
-.ct-chips { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
-.ct-chips button { height: 46px; border-radius: 13px; border: 1px solid var(--line-2); background: #fff; font: 600 1.1rem/1 var(--serif); color: var(--ink); cursor: pointer; display: grid; place-content: center; gap: 2px; transition: background .15s, border-color .15s, transform .15s; }
+.ct-chips { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+.ct-chips button { min-width: 0; padding: 0; height: 46px; border-radius: 13px; border: 1px solid var(--line-2); background: #fff; font: 600 1.1rem/1 var(--serif); color: var(--ink); cursor: pointer; display: grid; place-content: center; gap: 2px; transition: background .15s, border-color .15s, transform .15s; }
 .ct-chips button small { font: 700 .58rem var(--sans); color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
 .ct-chips button:hover { border-color: #2a8a7d; }
 .ct-chips button[aria-checked="true"] { background: #2a8a7d; border-color: #2a8a7d; color: #fff; transform: translateY(-1px); box-shadow: 0 8px 16px -10px #2a8a7d; }
 .ct-chips button[aria-checked="true"] small { color: #d9f1ec; }
 .ct-own { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: .82rem; color: var(--muted); }
-.ct-own input { width: 90px; height: 36px; border-radius: 10px; border: 1px solid var(--line-2); padding: 0 10px; font: 600 .95rem var(--sans); }
-.ct-label { height: 40px; border-radius: 12px; border: 1px solid var(--line-2); padding: 0 12px; font: 500 .92rem var(--sans); }
+.ct-own input { flex: none; width: 92px; height: 38px; text-align: center; border-radius: 10px; border: 1px solid var(--line-2); padding: 0 10px; font: 600 .95rem var(--sans); }
+.ct-label { width: 100%; height: 40px; border-radius: 12px; border: 1px solid var(--line-2); padding: 0 12px; font: 500 .92rem var(--sans); }
 .ct-own input:focus, .ct-label:focus { outline: 2px solid #2a8a7d; outline-offset: 1px; }
-.ct-pop-act { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 6px; }
+.ct-pop-act { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-top: 6px; }
+.ct-pop-act .btn { margin-left: auto; white-space: nowrap; }
+.ct-pop-act [data-pop="stop"] { color: #a2412d; white-space: nowrap; }
 .ct-pop-act .btn svg { width: 14px; height: 14px; margin-right: 6px; }
