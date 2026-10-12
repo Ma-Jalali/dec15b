@@ -118,9 +118,9 @@ window.DEC15_LESSON = {
               { who: 'pair', text: '<b>Teach your partner</b> your paragraphs in your own words. They complete the other notes.' },
               { who: 'pair', text: 'Check together. Then check your answers.' }
             ]},
-            { type: 'cloze', id: 'f3-m4n', title: 'My notes: Huang et al. (2024)', list: true,
+            { type: 'cloze', id: 'f3-m4n', title: 'My notes: Huang et al. (2024)',
               options: [['upcycled food', 'food-sharing apps', 'new food laws'], ['price', 'health', 'taste'], ['certifications', 'lower prices', 'new recipes'], ['little', 'a strong', 'a negative'], ['practical use and cost', 'colour and shape', 'brand names'], ['the environment', 'food prices', 'farmers’ incomes']],
-              text: '<b>A · The problem:</b> about ⅓ of food is wasted. A possible solution: {{1}}.\n<b>C · Main finding:</b> {{2}} shapes consumers’ attitudes most → advertise health benefits.\n<b>D · Ethical consumption matters</b> → businesses should show {{3}} on their packaging.\n<b>E · Surprising result:</b> green value and novelty had {{4}} effect.\n<b>E · Possible reason:</b> consumers may value {{5}} more than green value.\n<b>F · Conclusion:</b> even if consumers don’t care about green value, more uptake still helps {{6}}.',
+              text: '<b>Paragraph A · The problem:</b> about ⅓ of food is wasted. A possible solution: {{1}}.<br><b>Paragraph C · Main finding:</b> {{2}} shapes consumers’ attitudes most → advertise health benefits.<br><b>Paragraph D · Ethical consumption matters</b> → businesses should show {{3}} on their packaging.<br><b>Paragraph E · Surprising result:</b> green value and novelty had {{4}} effect.<br><b>Paragraph E · Possible reason:</b> consumers may value {{5}} more than green value.<br><b>Paragraph F · Conclusion:</b> even if consumers don’t care about green value, more uptake still helps {{6}}.',
               answers: ['upcycled food', 'health', 'certifications', 'little', 'practical use and cost', 'the environment'],
               why: ['“…using upcycled food is crucial” (A).', '“…health considerations greatly shape consumer attitudes…” (C).', '“…businesses should get and show certifications for ethical production on their product packaging…” (D).', '“…have little effect on green actions…” (E).', '“…consumers may value practical use and cost-effectiveness over a product’s green value” (E).', '“…increased uptake of these products will nonetheless have benefits for the environment” (F).'] },
             { type: 'tip', text: '<b>Hint for gaps 4–5:</b> in paragraph E, look for the words <b>Interestingly</b> and <b>However</b>.' },
@@ -737,6 +737,14 @@ window.DEC15_LESSON = {
     ['dismissive', 'Not taking an idea seriously.', 'I think you’re being a bit dismissive.'],
     ['paraphrase', 'Say someone’s idea again in your own words.', 'Paraphrase, then give your view.'],
     ['counterargument', 'An argument against another argument.', 'Paraphrase, then add a counterargument.'],
-    ['flexibility', 'Being ready to change your opinion.', 'Flexibility is part of critical thinking.']
+    ['flexibility', 'Being ready to change your opinion.', 'Flexibility is part of critical thinking.'],
+    ['impact', 'A strong effect.', 'Food waste has a significant impact on climate change.'],
+    ['address (a problem)', 'Start to deal with a problem.', 'Upcycled food could help to address food waste.'],
+    ['cost-effective', 'Giving good results for the money you spend.', 'Freezing leftovers is a cost-effective habit.'],
+    ['consequence', 'A result of an action, often a bad one.', 'Food waste is one consequence of overbuying.'],
+    ['pressing', 'Urgent; it needs action now.', 'Water shortage is a pressing issue.'],
+    ['prioritise', 'Treat something as most important and deal with it first.', 'We should prioritise public health.'],
+    ['valid', 'Reasonable and acceptable.', 'You make a valid point, but…'],
+    ['interconnected', 'Linked, so each part affects the others.', 'Health and the environment are interconnected.']
   ]
 };
