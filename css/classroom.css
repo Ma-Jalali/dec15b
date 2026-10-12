@@ -201,8 +201,8 @@ body[data-page="board"] main { max-width: none; padding: 18px clamp(10px, 1.6vw,
 .bd-board { padding: 10px; border-radius: 26px; background: #2f4f45; box-shadow: inset 0 0 0 6px #3d6457, 0 24px 50px -28px rgba(14, 28, 40, .6); }
 .bd-paper { position: relative; min-height: 74vh; border-radius: 18px; background: #fffdf8; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='2' cy='2' r='1' fill='%2314293a' fill-opacity='.08'/%3E%3C/svg%3E"); padding: clamp(24px, 4vw, 52px) clamp(22px, 5vw, 70px) 60px; overflow: hidden; }
 .bd-paper.pl-has-handle { padding-left: clamp(60px, 6vw, 84px); }
-.bd-doc { max-width: none; min-height: 40vh; font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.6; }
-.bd-doc h1 { font-size: clamp(2rem, 3.4vw, 2.8rem); } .bd-doc h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
+.bd-doc, .pl-doc.bd-doc { max-width: none; min-height: 40vh; font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.6; }   /* .pl-doc.bd-doc: wins over css/planner.css, which loads later */
+.pl-doc.bd-doc h1 { font-size: clamp(2rem, 3.4vw, 2.8rem); } .pl-doc.bd-doc h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
 .bd-ink { position: absolute; left: 0; top: 0; width: 100%; pointer-events: none; touch-action: none; }
 .bd-board.drawing .bd-ink { pointer-events: auto; cursor: crosshair; }
 .bd-board.drawing .bd-doc { user-select: none; }
