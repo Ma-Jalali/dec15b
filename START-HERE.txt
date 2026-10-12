@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.43)
+DEC15 — COURSE APP (v2.44)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -494,3 +494,7 @@ v2.43
   with friendly words ("Plenty of time", "Halfway there", "Start wrapping up", "Time's up — finish your sentence").
   Teacher controls on the card: pause / continue, +1 min, stop. Anyone can make the card small.
   Saved in class_settings ("class_timer"); no database change was needed.
+
+v2.44
+- Fixed: on the class board, text wrapped to a new line in the middle of the board (a 760px limit from
+  My planner's styles). Lines now use the full width of the board, and board text has its intended larger size.
