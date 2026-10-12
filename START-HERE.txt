@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.44)
+DEC15 — COURSE APP (v2.45)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -498,3 +498,10 @@ v2.43
 v2.44
 - Fixed: on the class board, text wrapped to a new line in the middle of the board (a 760px limit from
   My planner's styles). Lines now use the full width of the board, and board text has its intended larger size.
+
+v2.45 (class timer)
+- Fixed: the timer could not be stopped (the database does not accept an empty value, so the stop was refused and
+  the timer came back). A stopped timer is now saved as { state: 'off' }. A finished timer also hides itself for
+  everyone 3 minutes after the end.
+- Fixed: the timer panel was wider than its box (buttons and the minutes box spilled over the edge). Added 45 min;
+  "Stop the current timer" is now "Stop timer".

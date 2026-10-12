@@ -3,13 +3,17 @@
    words are encouraging ("Plenty of time", "Start wrapping up"). Students can make it small; it never blinks.
    Stored in class_settings under the key "class_timer" (everyone reads it, only the teacher writes it), so it reaches
    every open page through the same live channel as the answers switch. Value:
-     { state: 'running' | 'paused' | 'done', total: seconds, endsAt: ISO time (running), left: seconds (paused), label } */
+     { state: 'running' | 'paused' | 'done' | 'off', total: seconds, endsAt: ISO time (running), left: seconds (paused), label }
+   The column cannot be empty, so a stopped timer is saved as { state: 'off' }. A finished timer hides itself for
+   everyone 3 minutes after the end, so it can never stay on screen. */
 window.createDEC15Timer = function ({ getDb, isTeacher, esc, toast }) {
-  let t = null, dock = null, timerId = 0, popEl = null, lastPhase = '', doneSeen = '';
+  let t = null, dock = null, timerId = 0, popEl = null, lastPhase = '', doneSeen = '', hideT = 0;
+  const LIVE = ['running', 'paused', 'done'], DONE_FOR = 3 * 60 * 1000;
+  const norm = v => (v && LIVE.includes(v.state) ? v : null);   // 'off', null or anything unknown = no timer
   const LS = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } };
   let mini = LS('dec15-timer-mini') === '1';
   const R = 26, C = 2 * Math.PI * R;
-  const PRESETS = [1, 2, 3, 5, 8, 10, 15, 20, 30];
+  const PRESETS = [1, 2, 3, 5, 8, 10, 15, 20, 30, 45];
   const LABELS = ['Reading', 'Pair discussion', 'Group task', 'Writing', 'Listening', 'Break'];
   const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -22,7 +26,7 @@ window.createDEC15Timer = function ({ getDb, isTeacher, esc, toast }) {
   /* ───────── saving (teacher only) ───────── */
   async function save(v) {
     const c = getDb(); if (!c || !isTeacher()) return false;
-    const before = t; t = v; render();
+    const before = t; t = norm(v); render();
     const { error } = await c.from('class_settings').upsert({ key: 'class_timer', value: v, updated_at: new Date().toISOString() });
     if (error) { t = before; render(); toast('The timer could not be shared. Check your internet.'); return false; }
     return true;
@@ -32,7 +36,7 @@ window.createDEC15Timer = function ({ getDb, isTeacher, esc, toast }) {
   const resume = () => t && save({ ...t, state: 'running', endsAt: new Date(Date.now() + left() * 1000).toISOString(), left: null });
   const add = secs => { if (!t) return; const s = left() + secs, total = (t.total || 0) + secs;
     return save(t.state === 'paused' ? { ...t, left: s, total } : { ...t, state: 'running', total: t.state === 'done' ? secs : total, endsAt: new Date(Date.now() + s * 1000).toISOString() }); };
-  const stop = () => save(null);
+  const stop = () => save({ state: 'off' });
 
   /* ───────── the card at the top of the page ───────── */
   function ensureDock() {
@@ -43,8 +47,10 @@ window.createDEC15Timer = function ({ getDb, isTeacher, esc, toast }) {
     return dock;
   }
   function render() {
-    const d = ensureDock(); clearInterval(timerId); timerId = 0;
-    if (!t || !t.state) { d.innerHTML = ''; d.hidden = true; paintButton(); return; }
+    const d = ensureDock(); clearInterval(timerId); timerId = 0; clearTimeout(hideT);
+    const doneAgo = t?.state === 'done' ? Date.now() - (Date.parse(t.endsAt) || 0) : 0;
+    if (!t || doneAgo > DONE_FOR) { d.innerHTML = ''; d.hidden = true; paintButton(); return; }
+    if (t.state === 'done') hideT = setTimeout(render, DONE_FOR - doneAgo + 500);
     if (t.state === 'done' && !isTeacher() && doneSeen === t.endsAt + t.total) { d.innerHTML = ''; d.hidden = true; paintButton(); return; }
     d.hidden = false; const teach = isTeacher();
     d.innerHTML = `<section class="ct${mini ? ' mini' : ''}" role="timer" aria-live="off" aria-label="Class timer">
@@ -105,7 +111,7 @@ window.createDEC15Timer = function ({ getDb, isTeacher, esc, toast }) {
       <label class="ct-own">Or type minutes <input name="m" type="number" min="0.5" max="180" step="0.5" inputmode="decimal" value="${mins}"></label>
       <p class="ct-pop-l">What is it for? <small>(optional)</small></p>
       <input class="ct-label" name="l" maxlength="60" placeholder="e.g. Pair discussion" list="ct-labels" value="${esc(LS('dec15-timer-label') || '')}"><datalist id="ct-labels">${LABELS.map(l => `<option value="${l}">`).join('')}</datalist>
-      <div class="ct-pop-act">${t ? '<button type="button" class="btn-quiet btn-sm" data-pop="stop">Stop the current timer</button>' : '<span></span>'}<button class="btn btn-sm" type="submit">${I.play}Start for everyone</button></div></form>`;
+      <div class="ct-pop-act">${t ? '<button type="button" class="btn-quiet btn-sm" data-pop="stop">Stop timer</button>' : '<span></span>'}<button class="btn btn-sm" type="submit">${I.play}Start for everyone</button></div></form>`;
     document.body.append(popEl);
     const r = btn.getBoundingClientRect(); popEl.style.top = (r.bottom + 8) + 'px'; popEl.style.left = Math.max(8, Math.min(r.left + r.width / 2 - popEl.offsetWidth / 2, innerWidth - popEl.offsetWidth - 8)) + 'px';
     btn.setAttribute('aria-expanded', 'true');
@@ -128,6 +134,6 @@ window.createDEC15Timer = function ({ getDb, isTeacher, esc, toast }) {
   const GLYPH = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h10M7 20.5h10M8 3.5c0 4.2 4 5.3 4 8.5s-4 4.3-4 8.5M16 3.5c0 4.2-4 5.3-4 8.5s4 4.3 4 8.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="ct-sand" d="M9.6 19.2c.7-1.8 1.7-2.6 2.4-2.6s1.7.8 2.4 2.6z" fill="currentColor"/></svg>`;
 
   const DONE = `<svg class="ct-check" viewBox="0 0 24 24" aria-hidden="true"><path d="m6.5 12.5 3.6 3.6 7.4-8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-  return { set(v) { const was = t; t = v && v.state ? v : null; if (!was || !t || was.endsAt !== t.endsAt || was.state !== t.state || was.total !== t.total || was.label !== t.label) { if (t && (!was || was.endsAt !== t.endsAt)) lastPhase = ''; render(); } },
+  return { set(v) { const was = t; t = norm(v); if (!was || !t || was.endsAt !== t.endsAt || was.state !== t.state || was.total !== t.total || was.label !== t.label) { if (t && (!was || was.endsAt !== t.endsAt)) lastPhase = ''; render(); } },
     paintButton, get value() { return t; } };
 };
