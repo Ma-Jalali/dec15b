@@ -6,7 +6,10 @@
    v2 (teacher feedback): fewer tabs, plainer English, a game in every stage. Merged tabs keep the id of their first
    TB activity; each TB heading is the title of the first block of its part ('Part 1 · …'). All block / field / table ids
    are unchanged (saved work). Teacher notes live in the database (teacher_notes), refs only here.
-   Sharing (send: true): peer feedback tool (f2f), optional AI paragraph table (f1t). */
+   Sharing (send: true): peer feedback tool (f2f), optional AI paragraph table (f1t).
+   v3 (teacher feedback): each stage has a story and ends with a quick win + can-do check; personal warm-ups,
+   useful pre-taught words, realistic gist/detail questions, B2 speaking language with model, practice and freer task.
+   New block ids start with g3-. */
 
 window.DEC15_LESSON = {
   id: 'w4d5',
@@ -607,28 +610,52 @@ window.DEC15_LESSON = {
           title: 'Read the teacher’s feedback + Update your action plan',
           goal: 'Understand your teacher’s feedback. Then add it to your action plan.',
           blocks: [
-            { type: 'steps', title: 'Part 1 · Read the teacher’s feedback (15 min)', items: [
-              { who: 'alone', text: 'Open <b>“Shared with me”</b>. Find <b>DEC 15 Week 4 Research Summary Discussion: Teacher’s feedback</b>.' },
-              { who: 'alone', text: 'Read the strengths and the areas for improvement.' },
-              { who: 'group', text: 'Sit with your <b>discussion group</b>. Do you all understand the feedback? Compare it with your peer feedback and self-evaluation.' },
-              { who: 'group', text: 'Your teacher visits each group. Ask your questions.' }
+            { type: 'talk', title: 'Warm-up (3 min) · How did it go?', prompts: [
+              'Rate yesterday’s discussion from 1 to 5. Tell your group why.',
+              'What is one thing you did well? What is one thing you want to do better?'
             ]},
-            { type: 'language', title: 'Questions to ask your teacher', tabs: false, groups: [
-              { label: 'Ask', phrases: ['What did you mean by…?', 'Can you give an example of…?', 'How can I improve my…?'] }
+            { type: 'steps', title: 'Part 1 · Read the teacher’s feedback (12 min)', items: [
+              { who: 'alone', text: 'Open <b>“Shared with me”</b>. Find <b>DEC 15 Week 4 Research Summary Discussion: Teacher’s feedback</b>.' },
+              { who: 'alone', text: 'Read the strengths and the areas for improvement. Underline anything unclear.' },
+              { who: 'group', text: 'Sit with your <b>discussion group</b>. Compare it with your peer feedback and self-evaluation.' },
+              { who: 'group', text: 'Your teacher visits each group. Ask at least one question each.' }
+            ]},
+            { type: 'language', title: 'Ask for clarification and check you understand', tabs: false, groups: [
+              { label: 'Ask for clarification', phrases: ['Could you clarify what you meant by…?', 'Could you give me an example of how I might…?', 'What would a stronger answer look like?'] },
+              { label: 'Check understanding', phrases: ['So, if I understand correctly, I should…?', 'Do you mean that I need to… rather than…?'] },
+              { label: 'Ask for a priority', phrases: ['If I could change one thing, what would it be?', 'Which is more important: … or …?'] }
+            ]},
+            { type: 'chat', title: 'Model · A student talks to the teacher', right: 'Teacher', lines: [
+              ['Student', '<mark>Could you clarify what you meant by</mark> “build on others’ ideas”?'],
+              ['Teacher', 'Sure. You gave good points, but you didn’t connect them to what others said.'],
+              ['Student', '<mark>So, if I understand correctly, I should</mark> refer to a classmate’s point first?'],
+              ['Teacher', 'Exactly. For example: “Building on Mia’s point…”.'],
+              ['Student', '<mark>If I could change one thing, what would it be?</mark>'],
+              ['Teacher', 'Give a reason or an example every time you give an opinion.']
             ]},
             { type: 'fields', fields: [
               { id: 't1-1', label: 'The most important point in my teacher’s feedback', placeholder: 'Our group needs to…', rows: 2, share: false },
-              { id: 't1-2', label: 'My questions for my teacher', placeholder: 'What did you mean by…? Can you give an example of…?', rows: 3, share: false }
+              { id: 't1-2', label: 'My questions for my teacher', placeholder: 'Could you clarify what you meant by…? Could you give me an example of…?', rows: 3, share: false }
             ]},
             { type: 'teacher', ref: 'w4d5-t11' },
 
-            { type: 'quiz', id: 't1q', title: 'Part 2 · Update your action plan (15 min) — Quick check: which action is clear and specific?', items: [
+            { type: 'quiz', id: 't1q', title: 'Part 2 · Update your action plan (15 min) — Game: which action is clear and specific?', items: [
               { q: 'Which action is better?', options: ['I will speak more.', 'I will give my opinion at least 3 times and add a reason each time.'], answer: 'I will give my opinion at least 3 times and add a reason each time.', why: 'It says exactly what to do, so you can check it.' },
               { q: 'Which action is better?', options: ['I will ask a question to build on a classmate’s idea, e.g. “Can you give an example?”', 'I will be a better listener.'], answer: 'I will ask a question to build on a classmate’s idea, e.g. “Can you give an example?”', why: 'It is specific and gives the words to use.' }
             ]},
             { type: 'tip', text: 'Go back to <b>Thursday → Self-evaluation</b>. Look at your <b>Action plan for further improvement</b> column. Does it include your teacher’s feedback?' },
             { type: 'fields', fields: [
               { id: 't2-1', label: 'Two specific actions for my next discussion (e.g. the Week 5 presentation)', placeholder: '1. I will… so that… 2. …', rows: 3, share: false }
+            ]},
+            { type: 'steps', title: 'Finish (5 min) · Goal round', items: [
+              { who: 'group', text: 'Say your <b>top</b> action aloud to your group: “Next week, I will…”' },
+              { who: 'group', text: 'One person asks: “How will you check it?” Answer in one sentence.' },
+              { who: 'group', text: 'Next week, your group checks: did you do it?' }
+            ]},
+            { type: 'checklist', id: 'g3-t1k', title: 'Can-do check · I can now…', items: [
+              'ask my teacher to clarify feedback and check I understand',
+              'turn feedback into clear actions I can check',
+              'tell my group my goal for the Week 5 presentation'
             ]}
           ]
         }
@@ -674,6 +701,17 @@ window.DEC15_LESSON = {
     ['objective', 'Based on facts, not feelings or opinions.', 'Is the AI response objective?'],
     ['misleading', 'Giving a wrong idea or impression.', 'Some statements in the AI text are misleading.'],
     ['assumption', 'Something accepted as true without proof.', 'The text assumes composting is available everywhere.'],
-    ['verify', 'To check that something is true.', 'Verify the information with reliable sources.']
+    ['verify', 'To check that something is true.', 'Verify the information with reliable sources.'],
+    ['impact', 'A strong effect.', 'Food waste has a significant impact on the climate.'],
+    ['infrastructure', 'The basic systems a place needs, e.g. roads, power and cold storage.', 'Poor infrastructure causes food loss in many countries.'],
+    ['prevention', 'Stopping something before it happens.', 'Prevention is cheaper than recycling.'],
+    ['investment', 'Money put into something to get a benefit later.', 'Governments could increase investment in new solutions.'],
+    ['incentive', 'A benefit that encourages people to do something.', 'Tax incentives encourage shops to donate food.'],
+    ['policy', 'A plan or set of rules made by a government or organisation.', 'National policy can change how businesses behave.'],
+    ['restrict', 'To limit or control what people can do.', 'Some countries restrict food waste in landfill.'],
+    ['surplus', 'More than is needed.', 'Shops can donate surplus food to charities.'],
+    ['edible', 'Safe and good enough to eat.', 'Much of the food in bins is still edible.'],
+    ['redistribution', 'Moving extra food to people who need it.', 'Food banks are a form of redistribution.'],
+    ['reinforce', 'To make an idea or feeling stronger.', 'Biased images can reinforce stereotypes.']
   ]
 };
