@@ -32,11 +32,17 @@ window.DEC15_LESSON = {
       outcome: 'Give useful feedback to a classmate, use AI to learn about language, and use feedback to make your writing better.',
       activities: [
         {
-          id: 'f1', short: 'Reflect', minutes: 10, grouping: 'Alone',
+          id: 'f1', short: 'Reflect', minutes: 15, grouping: 'Pairs → alone',
           title: 'Self-reflection',
-          goal: 'Choose one paragraph from your Week 3 essay. Write questions about your teacher’s feedback.',
+          goal: 'Talk about feedback. Then choose one paragraph from your Week 3 essay and write questions about your teacher’s feedback.',
           blocks: [
-            { type: 'steps', items: [
+            { type: 'scale', id: 'g3-f1s', title: 'Warm-up (5 min) · Where do you stand?', statement: 'Feedback from a classmate can be as useful as feedback from a teacher.', ends: ['Strongly disagree', 'Strongly agree'], mid: 'Not sure' },
+            { type: 'talk', title: 'Talk with a partner, then share one idea with the class', prompts: [
+              'What is the most useful feedback you have ever had (in any subject, job or sport)? Why was it useful?',
+              'When you get an essay back, what do you read first: the mark or the comments?',
+              'What do you usually <b>do</b> with feedback after you read it?'
+            ]},
+            { type: 'steps', title: 'Self-reflection (10 min)', items: [
               { who: 'alone', text: 'Find your <b>Week 3 Integrated Writing Practice Assessment</b> on Canvas.' },
               { who: 'alone', text: 'Choose <b>ONE paragraph</b>. Paste it into the first column of the table (<b>Original version</b>).' },
               { who: 'alone', text: 'Leave the other two columns empty. You fill them later with AI (tab 3).' },
@@ -68,14 +74,25 @@ window.DEC15_LESSON = {
               { who: 'pair', text: '<b>Swap essays</b> with a partner (swap devices or show your essay on the screen).' },
               { who: 'alone', text: 'Read your partner’s essay. Complete the <b>Peer and Teacher Feedback Tool</b> below.' },
               { who: 'alone', text: 'Read the essay again. <b>Highlight</b> grammar or language errors.' },
+              { who: 'pair', text: '<b>Talk</b> for 5 minutes: give your feedback face to face, with the expressions below.' },
               { who: 'pair', text: 'Talk about how to correct the errors. Then <b>send</b> your feedback to your partner.' },
               { who: 'alone', text: 'Look at your <b>self-evaluation</b> from the W3 D4 homework. Does the peer feedback agree with it?' }
             ]},
-            { type: 'language', title: 'Sentence starters for feedback', tabs: false, groups: [
-              { label: 'Praise', phrases: ['… was good; to make it even better, you might…', 'The way you have… makes…'] },
-              { label: 'Suggest', phrases: ['Perhaps you could…', 'I suggest …-ing… rather than…', 'It might be helpful to…'] },
-              { label: 'Point out a problem', phrases: ['I noticed a few places where…', 'Don’t forget to… / Remember to…'] }
+            { type: 'language', title: 'Giving and responding to feedback (builds on W2 D2. 6A)', tabs: false, groups: [
+              { label: 'Specific praise', phrases: ['One thing that works really well is…', 'Your use of… makes your argument more…'] },
+              { label: 'Suggest tactfully', phrases: ['It might be worth …-ing…', 'Have you thought about …-ing…?', 'I’d suggest… rather than…'] },
+              { label: 'Point out a problem gently', phrases: ['I wasn’t quite sure what you meant by…', 'This part could be clearer if you…'] },
+              { label: 'Respond to feedback', phrases: ['That’s a fair point. I’ll…', 'Could you show me an example?', 'I see what you mean, but I did that because…'] }
             ]},
+            { type: 'chat', title: 'Listen to two students give feedback', right: 'Ravi', lines: [
+              ['Mia', '<mark>One thing that works really well is</mark> your position. It’s clear from the first paragraph.'],
+              ['Ravi', 'Thanks! What about my body paragraphs?'],
+              ['Mia', '<mark>I wasn’t quite sure what you meant by</mark> “this problem” in paragraph 2. <mark>It might be worth</mark> naming the problem again.'],
+              ['Ravi', '<mark>That’s a fair point. I’ll</mark> change it. Anything about sources?'],
+              ['Mia', '<mark>Have you thought about</mark> adding a second source? Right now the paragraph only uses Berti et al.'],
+              ['Ravi', '<mark>Could you show me</mark> where a second source would fit?']
+            ]},
+            { type: 'cloze', id: 'g3-f2c', title: 'Practice · Complete the feedback', text: '{{1}} really well is your introduction. However, I {{2}} what you meant by “it” in the second sentence. It {{3}} replacing “it” with the noun. {{4}} adding a citation after the statistic? I’d also suggest different linking words {{5}} starting three sentences with “This”.', options: ['One thing that works', 'wasn’t quite sure', 'might be worth', 'Have you thought about', 'rather than'], answers: ['One thing that works', 'wasn’t quite sure', 'might be worth', 'Have you thought about', 'rather than'], why: ['Start with specific praise.', 'A gentle way to point out a problem.', 'It might be worth + -ing = a tactful suggestion.', 'A question makes the suggestion softer.', 'suggest X rather than Y.'] },
             { type: 'form', id: 'f2f', title: 'Peer and Teacher Feedback Tool - Integrated Writing Task', intro: 'For each point, choose Yes, Mostly or Needs work. Add a comment with an example. At the end, write clear actions.', observe: 'Whose essay are you reviewing?', cols: ['Comments'], sections: [
               { label: 'Argumentation', items: [
                 'The overall argument of the essay is clear and well developed.',
@@ -112,23 +129,29 @@ window.DEC15_LESSON = {
               { id: 'f2-a3', label: 'Actions for further improvement · Vocabulary', placeholder: 'Remember not to use contractions like ‘can’t’ and ‘doesn’t’, which are non-academic words.', rows: 3 },
               { id: 'f2-a4', label: 'Actions for further improvement · Grammar', placeholder: 'Try to include sentences with more than one clause (to improve range of grammatical structure).', rows: 3 }
             ], send: true, sendLabel: 'Send your feedback to your partner', sendHint: 'Choose your partner. They get a read-only copy of the ratings, comments and actions in “Shared with me”. You can also download a PDF.' },
+            { type: 'steps', title: 'Feedback talk (5 min)', items: [
+              { who: 'pair', text: 'Give one piece of praise and two suggestions. Point to examples in the essay.' },
+              { who: 'pair', text: 'Your partner responds: accept, ask for an example, or explain.' },
+              { who: 'pair', text: 'Swap roles. Then tick the checklist for your partner.' }
+            ]},
+            { type: 'checklist', id: 'g3-f2k', title: 'Peer check · Did your partner…', items: [
+              'start with specific praise?',
+              'use at least 2 expressions to suggest or point out a problem?',
+              'give an example from my essay for each point?',
+              'respond to my feedback with a question or a reason?'
+            ]},
             { type: 'fields', title: 'Compare with your self-evaluation', fields: [
               { id: 'f2-s', label: 'Does the peer feedback agree with my W3 D4 self-evaluation? What is different?', placeholder: 'My partner also thought… but they noticed…', rows: 3, share: false }
-            ]},
-            { type: 'language', title: 'More expressions for peer feedback (W2 D2. 6A)', tabs: false, groups: [
-              { label: 'Suggesting', phrases: ['For more…, perhaps you could…', 'Perhaps …-ing could…', 'For more…, consider …-ing…', 'I would recommend …-ing…', 'You could possibly…', 'It might be beneficial to…'] },
-              { label: 'Pointing out problems', phrases: ['Paying a bit more attention to… would…', 'I noticed… that you might want to…', 'Try to… so…'] },
-              { label: 'Praising + building', phrases: ['You’ve… but maybe you could…', 'To (further) strengthen…, it would help…'] }
             ]},
             { type: 'teacher', ref: 'w4d5-t2' }
           ]
         },
         {
-          id: 'f3', short: 'AI + plan', minutes: 35, grouping: 'Alone',
+          id: 'f3', short: 'AI + plan', minutes: 30, grouping: 'Alone',
           title: 'Language review with AI + Action plan',
           goal: 'Use AI to correct your paragraph and check each change. Then write your action plan.',
           blocks: [
-            { type: 'steps', title: 'Part 1 · Language review with AI (25 min)', items: [
+            { type: 'steps', title: 'Part 1 · Language review with AI (20 min)', items: [
               { who: 'alone', text: 'Open the <b>Vanilla GPT-4 agent</b> in <b>Cogniti</b>.' },
               { who: 'alone', text: 'Paste your paragraph from tab 1 (Self-reflection) with the prompt below.' },
               { who: 'alone', text: 'Copy the AI version into the <b>second column</b> of your table in tab 1.' },
@@ -137,6 +160,11 @@ window.DEC15_LESSON = {
               { who: 'alone', text: 'Write down useful words and phrases for your next essay.' }
             ]},
             { type: 'model', title: 'The prompt', text: 'Correct this paragraph for grammar and clarity.', note: 'AI can be wrong. It can also change your meaning. Check every change — you are the writer.' },
+            { type: 'language', title: 'Then show a partner two changes and explain them', tabs: false, groups: [
+              { label: 'Describe the change', phrases: ['AI changed… to… because…', 'It replaced… with a more formal word.'] },
+              { label: 'Judge the change', phrases: ['I think this change is correct, because…', 'I’m not convinced this is right, because…', 'This sounds better, but it changes my meaning.'] },
+              { label: 'Decide', phrases: ['I’ll keep this change.', 'I’ll reject this one and write…'] }
+            ]},
             { type: 'fields', title: 'Language I learned', fields: [
               { id: 'f3-1', label: 'Useful words and phrases for my next essay', placeholder: 'in recent years (not “in today’s age”) · alleviate starvation · bring about adverse consequences…', rows: 4 }
             ]},
@@ -151,6 +179,11 @@ window.DEC15_LESSON = {
               { who: 'alone', text: 'What will you do differently on Monday? Write one clear action for each area.' }
             ]},
             { type: 'model', title: 'Example: vague → clear action', before: 'I will improve my vocabulary.', text: 'I will not use contractions (can’t, doesn’t). I will check for them before I submit.', note: 'A good action says exactly what you will do — and how you will check it.' },
+            { type: 'key', title: 'A clear action has three parts', numbered: true, points: [
+              '<b>What</b> exactly: <i>I will use a different linking word in each paragraph…</i>',
+              '<b>When</b>: <i>…when I write my body paragraphs on Monday…</i>',
+              '<b>How I check</b>: <i>…and I will underline them before I submit.</i>'
+            ]},
             { type: 'fields', title: 'My actions for further improvement', fields: [
               { id: 'f4-1', label: 'Argumentation', placeholder: 'Next time I will…', rows: 2, share: false },
               { id: 'f4-2', label: 'Use of sources', placeholder: 'I will paraphrase… / cite…', rows: 2, share: false },
@@ -172,11 +205,16 @@ window.DEC15_LESSON = {
       outcome: 'Understand what the essay question asks, choose useful information from the sources and take notes, and take a position and plan your essay.',
       activities: [
         {
-          id: 'p1', short: 'Question', minutes: 20, grouping: 'Pairs → groups',
+          id: 'p1', short: 'Question', minutes: 25, grouping: 'Pairs → groups',
           title: 'Analyse the Question + Discuss your position',
           goal: 'Understand the question. Then choose your first position with your group.',
           blocks: [
-            { type: 'steps', title: 'Part 1 · Analyse the Question (10 min)', items: [
+            { type: 'talk', title: 'Warm-up (3 min) · Food waste where you live', prompts: [
+              'In your home city, what happens to food nobody eats: at home, in shops, in restaurants?',
+              'Have you seen a government campaign or a law about food waste? What was it?',
+              'Who do you think wastes the most food: farms, shops, restaurants or households?'
+            ]},
+            { type: 'steps', title: 'Part 1 · Analyse the Question (7 min)', items: [
               { who: 'pair', text: 'Look at the picture. Read the essay question.' },
               { who: 'pair', text: 'Talk with a partner. Then answer questions a)–d).' }
             ]},
@@ -191,13 +229,31 @@ window.DEC15_LESSON = {
             ]},
             { type: 'teacher', ref: 'w4d5-t4' },
 
-            { type: 'spinner', id: 'p2sp', title: 'Part 2 · Activity 1 Discuss your position (10 min) — Spin and speak', text: 'Spin. Say if governments should do more about this solution. Give a reason. Then pass the turn.', reels: [
+            { type: 'language', title: 'Part 2 · Activity 1 Discuss your position (15 min) — Language for a group decision', tabs: false, groups: [
+              { label: 'Take a position + justify it', phrases: ['My position is that governments need to… The main reason is…', 'I’d argue that…, mainly because…', 'The strongest argument for this is…'] },
+              { label: 'Partly agree or disagree politely', phrases: ['I see your point, but…', 'That’s true to some extent; however,…', 'I’m not sure I agree. What about…?'] },
+              { label: 'Build on ideas + reach agreement', phrases: ['Building on what… said,…', 'So, are we all agreed that…?', 'Shall we go with… as our position?'] }
+            ]},
+            { type: 'chat', title: 'Model · A group chooses a position', right: 'Ben', lines: [
+              ['Ana', '<mark>I’d argue that</mark> governments need to do a lot more, <mark>mainly because</mark> solutions like food waste apps work, but they are not growing fast enough.'],
+              ['Ben', '<mark>I see your point, but</mark> businesses make money from those apps. Why do they need governments?'],
+              ['Chen', '<mark>Building on what</mark> Ana said, charities like food banks can’t grow without funding. So governments still matter.'],
+              ['Ana', '<mark>So, are we all agreed that</mark> governments should do more, but together with businesses?'],
+              ['Ben', 'Yes. <mark>Shall we go with</mark> “all actors should do more” <mark>as our position</mark>?']
+            ]},
+            { type: 'sort', id: 'g3-p1s', title: 'Practice · What does each expression do?', hint: '<b>Drag</b> each card into a box — or <b>tap</b> a card, then tap a box.', buckets: [
+              { label: 'Take a position' }, { label: 'Partly agree / disagree' }, { label: 'Build + agree' }
+            ], items: [
+              { text: 'Personally, I’m convinced that…', answer: 0, why: 'You give your own view strongly.' },
+              { text: 'The key reason I think this is…', answer: 0, why: 'You justify your position.' },
+              { text: 'You have a point. Even so,…', answer: 1, why: 'You accept part of the idea, then disagree.' },
+              { text: 'I’d see it slightly differently.', answer: 1, why: 'A polite way to disagree.' },
+              { text: 'To add to Chen’s idea,…', answer: 2, why: 'You build on a classmate’s point.' },
+              { text: 'Can we agree on…?', answer: 2, why: 'You move the group to a decision.' }
+            ]},
+            { type: 'spinner', id: 'p2sp', title: 'Spin and speak', text: 'Spin. Should governments do more about this solution? Use one expression and give a reason. Others respond. Then pass the turn.', reels: [
               { label: 'Solution', start: 'Spin!', items: ['food banks', 'upcycled food', 'food waste apps', 'laws about landfill', 'investment in new ideas', 'education campaigns', 'tax incentives for donations'] },
               { label: 'Who should act?', start: '…', items: ['governments', 'businesses', 'consumers', 'everyone together'] }
-            ]},
-            { type: 'language', title: 'Sentence starters', tabs: false, groups: [
-              { label: 'Give your view', phrases: ['I think governments should… because…', 'In my view, businesses can… without help.'] },
-              { label: 'Respond', phrases: ['I agree, and also…', 'Maybe, but what about…?'] }
             ]},
             { type: 'choose', id: 'p2c', title: 'Our first position', options: [
               'Governments need to significantly increase their efforts.',
@@ -212,6 +268,11 @@ window.DEC15_LESSON = {
             { type: 'fields', fields: [
               { id: 'p2-1', label: 'Our position and the main reason', placeholder: 'We think governments should… because…', rows: 3 }
             ]},
+            { type: 'checklist', id: 'g3-p1k', title: 'Group check', items: [
+              'Everyone used at least 2 expressions from the box.',
+              'Someone partly agreed or disagreed politely.',
+              'We agreed on one position and one main reason.'
+            ]},
             { type: 'teacher', ref: 'w4d5-t5' }
           ]
         },
@@ -220,6 +281,27 @@ window.DEC15_LESSON = {
           title: 'Activity 2 Prepare notes',
           goal: 'Listen to Gunders’ TED talk again. Take notes that help you answer the question.',
           blocks: [
+            { type: 'talk', title: 'Before you listen (2 min) · What do you remember?', prompts: [
+              'You heard Dana Gunders’ talk earlier this week. Tell your partner two things you remember.',
+              'Did she say anything about <b>governments</b>? What do you think she said?'
+            ]},
+            { type: 'flip', title: 'Useful words in the talk (3 min)', hint: 'Read the line from the talk. Guess the meaning. Then tap the card. These words are useful in your essay too.', items: [
+              { front: 'why food waste would have such a big climate <b>impact</b>', back: '<b>impact</b> (n) = a strong effect.<br><i>Food waste has a significant impact on the climate.</i>' },
+              { front: 'there’s simply not the <b>infrastructure</b> to keep food cold', back: '<b>infrastructure</b> = basic systems a place needs, e.g. roads, power, cold storage.<br><i>Poor infrastructure causes food loss in many countries.</i>' },
+              { front: 'Many of them are about <b>prevention</b>', back: '<b>prevention</b> = stopping something before it happens (verb: prevent).<br><i>Prevention is cheaper than recycling.</i>' },
+              { front: 'Let’s inject the funds to really <b>scale</b> them', back: '<b>scale (up)</b> = make something bigger so it reaches more people.<br><i>Small projects need funding to scale up.</i>' },
+              { front: 'we need <b>investment</b> to spark new innovation', back: '<b>investment</b> = money put into something to get a benefit later (verb: invest).<br><i>Governments could increase investment in new solutions.</i>' },
+              { front: 'Let’s provide <b>incentives</b> so that every food business has those', back: '<b>incentive</b> = a benefit that encourages people to do something.<br><i>Tax incentives encourage shops to donate food.</i>' },
+              { front: 'We also need <b>policy</b>.', back: '<b>policy</b> = a plan or set of rules made by a government or organisation.<br><i>National policy can change how businesses behave.</i>' },
+              { front: 'laws that <b>restrict</b> food from going to landfills', back: '<b>restrict</b> = limit or control what people can do.<br><i>Some countries restrict food waste in landfill.</i>' }
+            ]},
+            { type: 'quiz', id: 'g3-p3w', title: 'Quick check · Which word?', shared: ['prevention', 'infrastructure', 'incentive', 'policy', 'scale up'], items: [
+              { q: 'Roads, electricity and cold rooms are all examples of…', answer: 'infrastructure', why: 'Basic systems a country needs.' },
+              { q: 'A tax cut for shops that donate food is an…', answer: 'incentive', why: 'It encourages a behaviour.' },
+              { q: 'Stopping extra food before it is produced is…', answer: 'prevention', why: 'It stops waste before it happens.' },
+              { q: 'A government’s plan and rules on food waste is its…', answer: 'policy', why: 'Policy = a plan or set of rules.' },
+              { q: 'A successful app moves to 17 countries. It has managed to…', answer: 'scale up', why: 'It grew to reach more people.' }
+            ]},
             { type: 'key', title: 'Good notes', points: [
               'Choose only information that helps <b>answer the question</b>.',
               'Try to <b>paraphrase</b> (= use your own words) as you write.',
@@ -228,35 +310,73 @@ window.DEC15_LESSON = {
             { type: 'model', title: 'Example: one good note', before: 'Dana Gunders talked about lots of things and food waste is a very big problem in America and other places.', text: 'Gunders (2024): solutions (e.g. apps) work, but progress is too slow → governments need to invest to scale them up (= make them bigger).', note: 'Short, in your own words, and about governments.' },
             { type: 'listening', source: 'Gunders (2024) · TED', title: 'How to turn the tables on food waste', videoId: '6iqXH9RPK1w', start: 0, clip: 'full talk · about 11 minutes', transcripts: [['gunders', 'Transcript (adapted)']] },
             { type: 'steps', items: [
+              { who: 'alone', text: 'Read the two gist questions and the notes below first.' },
               { who: 'alone', text: 'Listen once. Take notes <b>by hand</b>.' },
               { who: 'alone', text: 'Listen for: What do governments do now? What could they do more of?' },
-              { who: 'group', text: 'Compare your notes with your group. Add good points to the note-taking table (tab 3).' }
+              { who: 'alone', text: 'Then answer. Use the transcript to check a second time.' }
             ]},
+            { type: 'quiz', id: 'g3-p3g', title: 'Gist · The big picture', items: [
+              { q: '1. What is Gunders’ main message?', options: ['Food waste is solvable, but solutions must grow faster', 'Only consumers can solve food waste', 'Food waste is too big to solve'], answer: 'Food waste is solvable, but solutions must grow faster', why: '“It’s solvable” (F) but “it’s not enough, and it’s not fast enough” (J).' },
+              { q: '2. Overall, what does she want governments to do?', options: ['Invest, give incentives and make laws', 'Leave food waste to businesses', 'Run education campaigns only'], answer: 'Invest, give incentives and make laws', why: 'Paragraphs K–M: funds to scale, incentives, and laws on landfill.' }
+            ]},
+            { type: 'cloze', id: 'g3-p3n', list: true, title: 'Detail · Complete the notes (in the order you hear them)', text: '<b>The problem (A–E):</b> food waste is a {{1}} problem, too big for one person to solve.\n<b>Why it happens (E):</b> we don’t {{2}} it, so it is invisible and hard to manage.\n<b>Priority (F):</b> {{3}} first; then donating food; then composting or recycling.\n<b>Progress (J):</b> solutions like ColdHubs and apps work, but progress is {{4}}.\n<b>Governments (K):</b> invest to {{5}} solutions and give businesses incentives.\n<b>Policy (M):</b> laws that stop food going to {{6}} should be everywhere.', options: [
+              ['systems', 'personal', 'farming'],
+              ['measure', 'cook', 'sell'],
+              ['prevention', 'composting', 'donation'],
+              ['not fast enough', 'very fast', 'complete'],
+              ['scale up', 'slow down', 'replace'],
+              ['landfill', 'markets', 'animals']
+            ], answers: ['systems', 'measure', 'prevention', 'not fast enough', 'scale up', 'landfill'], why: [
+              '“This is a systems problem, and it’s just way too big.” (A)',
+              '“We don’t measure it, so it’s invisible.” (E)',
+              '“Prevention… is really our priority.” (F)',
+              '“It’s not enough, and it’s not fast enough.” (J)',
+              '“Let’s inject the funds to really scale them.” (K)',
+              '“Laws that restrict food from going to landfills… should be everywhere.” (M)'
+            ]},
+            { type: 'tip', text: '<b>Hint for gap 4:</b> after the examples (ColdHubs, Too Good To Go, Compass Group), listen for <b>“But…”</b>.' },
             { type: 'fields', fields: [
-              { id: 'p3-1', label: 'Gunders (2024): my notes on governments and food waste (type them after listening)', placeholder: 'Progress too slow… investment needed to scale… laws restricting food going to landfill…', rows: 4 }
+              { id: 'p3-1', label: 'Gunders (2024): my notes on governments and food waste, in my own words (type them after listening)', placeholder: 'Progress too slow… investment needed to scale… laws restricting food going to landfill…', rows: 4 }
+            ]},
+            { type: 'language', title: 'Compare notes with your group · Talk about the source', tabs: false, groups: [
+              { label: 'Report the source', phrases: ['According to Gunders (2024),…', 'Gunders argues / points out that…', 'She gives the example of… to show that…'] },
+              { label: 'Paraphrase + check', phrases: ['In other words,…', 'Did you get the same point about…?', 'I think she meant… rather than…'] },
+              { label: 'Link to the question', phrases: ['This supports the view that governments should…', 'This could be evidence for our reason that…'] }
+            ]},
+            { type: 'steps', items: [
+              { who: 'group', text: 'Compare your notes. Use 2–3 expressions above.' },
+              { who: 'group', text: 'Add good points to the note-taking table (tab 3).' }
             ]}
           ]
         },
         {
-          id: 'p4', short: 'Notes + plan', minutes: 35, grouping: 'Groups', cowrite: true,
+          id: 'p4', short: 'Notes + plan', minutes: 30, grouping: 'Groups', cowrite: true,
           title: 'Note-taking table + Making a plan',
           goal: 'Collect notes from all the sources as a group. Then plan your essay: a position and two reasons.',
           blocks: [
-            { type: 'steps', title: 'Part 1 · Note-taking table (15 min)', items: [
+            { type: 'steps', title: 'Part 1 · Note-taking table (12 min)', items: [
               { who: 'group', text: 'Press <b>Write together</b> to share one page with your group. Or each person fills the table below.' },
               { who: 'group', text: 'Add your Gunders notes first.' },
               { who: 'group', text: 'Then add useful points from the other texts (Weeks 3 and 4) and from your <b>own sources</b>. One source per row.' }
             ]},
+            { type: 'model', title: 'Example: one row of the table', rows: [
+              ['Gunders (2024)', 'Solutions work (e.g. ColdHubs, apps) but progress too slow → govt investment needed to scale up + incentives for businesses. Laws restricting food in landfill (e.g. France, Japan) → should be everywhere.']
+            ], note: 'Short notes, your own words, only points that help answer the question.' },
             { type: 'table', id: 'p4t', title: 'Note-taking table', columns: ['Source', 'Relevant points'], rows: 5, extraRows: true },
             { type: 'sources', ids: ['gunders', 'nicastro', 'berti', 'aboutthat', 'castro', 'huang'] },
             { type: 'teacher', ref: 'w4d5-t6' },
             { type: 'teacher', ref: 'w4d5-t7' },
 
-            { type: 'steps', title: 'Part 2 · Making a plan (20 min)', items: [
+            { type: 'steps', title: 'Part 2 · Making a plan (18 min)', items: [
               { who: 'group', text: 'Agree on a <b>clear position</b>.' },
               { who: 'group', text: 'Find <b>TWO main reasons</b> for your position.' },
               { who: 'group', text: 'Look at your note-taking table. Which notes support each reason?' },
               { who: 'group', text: 'Decide the order of your two body paragraphs. Then complete the plan.' }
+            ]},
+            { type: 'language', title: 'Language for planning together', tabs: false, groups: [
+              { label: 'Choose reasons', phrases: ['Our strongest reason is probably…', 'Which source best supports this point?'] },
+              { label: 'Combine sources', phrases: ['Both Gunders and Berti et al. suggest that…', 'This note fits better under reason 2, because…'] },
+              { label: 'Decide the order', phrases: ['Let’s start with… because it’s our strongest point.', 'I’d leave this out. It doesn’t answer the question.'] }
             ]},
             { type: 'key', tone: 'warn', title: 'Be selective (= choose only the best)', points: [
               'You do <b>NOT</b> need all your notes. Choose the best ones.',
@@ -283,9 +403,26 @@ window.DEC15_LESSON = {
           title: 'Warmer',
           goal: 'Watch a short video about bias in AI pictures. Then test an image generator yourself.',
           blocks: [
-            { type: 'tip', text: '<b>Key words</b> · <b>bias</b> (= unfair support for one group or idea) · <b>stereotype</b> (= a fixed, too-simple idea about a group of people) · <b>image generator</b> (= an AI tool that makes pictures).' },
+            { type: 'talk', title: 'Warm-up (3 min) · Talk with a partner', prompts: [
+              'Which AI tools do you use? What for?',
+              'Do you trust AI answers always, sometimes or never? Why?',
+              '<b>Predict:</b> you ask AI for a picture of a <b>CEO</b>. What will most pictures show?'
+            ]},
+            { type: 'flip', title: 'Useful words for the video and the task', hint: 'Guess the meaning. Then tap the card.', items: [
+              { front: '<b>bias</b>', back: 'unfair support for one group or idea over others.<br><i>AI images can show gender bias.</i>' },
+              { front: '<b>stereotype</b>', back: 'a fixed, too-simple idea about a group of people.<br><i>Showing every nurse as a woman is a stereotype.</i>' },
+              { front: '<b>represent</b> / <b>misrepresent</b>', back: 'show or describe (in a fair / unfair way).<br><i>The images misrepresent who does these jobs.</i>' },
+              { front: '<b>diverse</b>', back: 'including many different kinds of people or ideas.<br><i>The pictures were not very diverse.</i>' },
+              { front: '<b>reinforce</b>', back: 'make an idea or feeling stronger.<br><i>Biased images can reinforce stereotypes.</i>' },
+              { front: '<b>image generator</b>', back: 'an AI tool that makes pictures from a text prompt.<br><i>I typed “teacher” into an image generator.</i>' }
+            ]},
+            { type: 'quiz', id: 'g3-i1w', title: 'Quick check · Which word?', shared: ['stereotype', 'diverse', 'reinforce'], items: [
+              { q: '“All engineers are men” is a…', answer: 'stereotype', why: 'A fixed, too-simple idea about a group.' },
+              { q: 'A class with students from 20 countries is…', answer: 'diverse', why: 'It includes many different people.' },
+              { q: 'Repeating the same images again and again can … a bias.', answer: 'reinforce', why: 'It makes the idea stronger.' }
+            ]},
             { type: 'listening', source: 'YouTube', title: 'Bias in AI-generated images', videoId: 'L2sQRrf1Cd8', start: 48, clip: 'play to 2:16', transcripts: [] },
-            { type: 'quiz', id: 'i1q', title: 'Quick check', items: [
+            { type: 'quiz', id: 'i1q', title: 'Watch to 2:16 · Was your prediction right?', items: [
               { q: '1. What is the main problem in the video?', options: ['Gender and race bias, which leads to stereotypes', 'The images are too expensive to make', 'The images are low quality'], answer: 'Gender and race bias, which leads to stereotypes', why: 'The generators repeat the biases in the data they learned from.' }
             ]},
             { type: 'steps', title: '2. Try it yourself', items: [
@@ -298,9 +435,10 @@ window.DEC15_LESSON = {
               'AI can show gender, race or age unfairly in pictures. Can it also show <b>facts or arguments</b> unfairly in academic work? How?',
               'What can go wrong if we use AI text in research and don’t check it?'
             ]},
-            { type: 'language', title: 'Sentence starters', tabs: false, groups: [
-              { label: 'Say what you noticed', phrases: ['Most of the pictures showed…', 'I was surprised that…'] },
-              { label: 'Think about academic work', phrases: ['AI might leave out…', 'This could be a problem because…'] }
+            { type: 'language', title: 'Useful language for your group talk', tabs: false, groups: [
+              { label: 'Describe what you noticed', phrases: ['The majority of the images showed…', 'What stood out to me was…', 'Only one or two pictures showed…'] },
+              { label: 'Explain and speculate (hedging)', phrases: ['This suggests that the AI…', 'It seems that the data…', 'This might lead to…'] },
+              { label: 'Link to academic work', phrases: ['In the same way, AI text could leave out…', 'If we don’t check it, we risk…'] }
             ]},
             { type: 'teacher', ref: 'w4d5-t8' }
           ],
@@ -310,7 +448,7 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'i2', short: 'Check AI text', minutes: 20, grouping: 'Groups',
+          id: 'i2', short: 'Check AI text', minutes: 22, grouping: 'Groups',
           title: 'Evaluating AI output',
           goal: 'Use your Week 2 reading skills to judge an AI answer about food waste.',
           blocks: [
@@ -320,8 +458,38 @@ window.DEC15_LESSON = {
               'What does the text <b>assume</b> (= think is true without proof)?',
               'Is there any <b>bias</b>?'
             ]},
+            { type: 'flip', title: 'Useful words in the AI text and the questions', hint: 'Read the phrase. Guess the meaning. Then tap the card.', items: [
+              { front: 'produce that is still <b>edible</b>', back: '<b>edible</b> = safe and good enough to eat.<br><i>Much of the food in bins is still edible.</i>' },
+              { front: '<b>surplus</b> production / donate <b>surplus</b> food', back: '<b>surplus</b> = more than is needed.<br><i>Shops can donate surplus food to charities.</i>' },
+              { front: 'significant economic and environmental <b>consequences</b>', back: '<b>consequence</b> = a result, often a bad one.<br><i>Food waste has serious consequences for the climate.</i>' },
+              { front: 'supporting <b>redistribution</b> programs', back: '<b>redistribution</b> = moving extra food to people who need it.<br><i>Food banks are a form of redistribution.</i>' },
+              { front: 'a more efficient and <b>sustainable</b> food system', back: '<b>sustainable</b> = able to continue without harming the environment.<br><i>Composting is a more sustainable option.</i>' },
+              { front: 'What does the text <b>assume</b>?', back: '<b>assume / assumption</b> = think something is true without proof.<br><i>The text assumes composting is available everywhere.</i>' },
+              { front: 'Is anything <b>misleading</b>?', back: '<b>misleading</b> = giving a wrong idea.<br><i>The claim is misleading because it is not true in all countries.</i>' },
+              { front: 'Is the text <b>objective</b>?', back: '<b>objective</b> = based on facts, not feelings.<br><i>Academic writing should be objective.</i>' }
+            ]},
+            { type: 'quiz', id: 'g3-i2w', title: 'Quick check · Which word?', shared: ['edible', 'surplus', 'assumption', 'misleading', 'objective'], items: [
+              { q: 'A bakery has 40 extra loaves at closing time. They are…', answer: 'surplus', why: 'More than is needed.' },
+              { q: 'An “ugly” but fresh carrot is still…', answer: 'edible', why: 'You can safely eat it.' },
+              { q: '“Everyone has a fridge” is an … in many texts.', answer: 'assumption', why: 'It is taken as true without proof.' },
+              { q: 'A text that gives facts, not feelings, is…', answer: 'objective', why: 'Objective = based on facts.' },
+              { q: 'A true fact used to give a wrong idea is…', answer: 'misleading', why: 'It leads the reader to a wrong idea.' }
+            ]},
             { type: 'model', title: 'The prompt', text: '“What are the main causes of food waste, and what are the most effective solutions?”' },
             { type: 'passage', id: 'i2p', title: 'AI-generated text — highlight anything you question', text: 'Food waste occurs at various stages of the supply chain due to multiple factors. At the household level, overbuying, improper storage, and confusion over expiration dates lead to unnecessary disposal of food. Supermarkets contribute to the problem by discarding produce that does not meet aesthetic standards, even if it is still edible. Restaurants and catering businesses generate waste through oversized portions and inefficient inventory management. Additionally, food loss happens at the production and distribution stages due to strict quality controls, surplus production, and poor transportation or storage conditions. These issues result in significant economic and environmental consequences, making food waste a critical global challenge.<br><br>Addressing food waste requires a combination of education, policy changes, and technological improvements. Consumers can reduce waste by planning meals, storing food correctly, and understanding food labeling. Businesses can implement better inventory control, donate surplus food, and sell imperfect but edible products. Governments and organizations play a crucial role in supporting redistribution programs, improving logistics, and promoting sustainable waste management practices. Additionally, composting and food recycling initiatives can help convert waste into useful resources such as biofuel or animal feed. By adopting these strategies, society can move towards a more efficient and sustainable food system.' },
+            { type: 'quiz', id: 'g3-i2g', title: 'Read once for gist, then again for detail', items: [
+              { q: '1. Gist: what does the AI text do?', options: ['Explains causes, then solutions', 'Argues that governments must act', 'Compares rich and poor countries'], answer: 'Explains causes, then solutions', why: 'Paragraph 1 = causes; paragraph 2 = solutions.' },
+              { q: '2. Why do households waste food, according to the text?', options: ['Overbuying, poor storage, date confusion', 'Food is too expensive', 'There is no rubbish collection'], answer: 'Overbuying, poor storage, date confusion', why: '“overbuying, improper storage, and confusion over expiration dates”.' },
+              { q: '3. Why do supermarkets throw food away?', options: ['It does not look perfect', 'It is past its date', 'Customers return it'], answer: 'It does not look perfect', why: '“does not meet aesthetic standards, even if it is still edible”.' },
+              { q: '4. How much does the text say about what governments should do?', options: ['Very little: one general sentence', 'A full paragraph with examples', 'Nothing at all'], answer: 'Very little: one general sentence', why: 'Only: “Governments and organizations play a crucial role in…”. No details or examples.' },
+              { q: '5. Does the text name any studies or sources?', options: ['No', 'Yes, one study', 'Yes, several'], answer: 'No', why: 'There are no references, so we cannot check the claims.' }
+            ]},
+            { type: 'tip', text: '<b>Hint for question 4:</b> find the word <i>Governments</i> in paragraph 2. How many sentences are about them?' },
+            { type: 'language', title: 'Language for evaluating a text (use it in your group answers)', tabs: false, groups: [
+              { label: 'Point out a weakness', phrases: ['The text seems to assume that…', 'It doesn’t take into account…', 'One perspective that is missing is…'] },
+              { label: 'Hedge and balance', phrases: ['This may be true in…, but not in…', 'To be fair, the text does mention…'] },
+              { label: 'Suggest an improvement', phrases: ['A more balanced answer would…', 'It would be more reliable if it…'] }
+            ]},
             { type: 'fields', title: 'Answer with your group', fields: [
               { id: 'i2-1', label: 'Balance: does it show all sides fairly? Or is there bias (e.g. only Western ideas, stereotypes, missing views)?', placeholder: 'It assumes that…', rows: 3 },
               { id: 'i2-2', label: 'Accuracy: is anything wrong or misleading (= gives a wrong idea)?', placeholder: 'The statement about… is not true everywhere because…', rows: 3 },
@@ -346,7 +514,7 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'i3', short: 'Checklist', minutes: 25, grouping: 'Groups', cowrite: true,
+          id: 'i3', short: 'Checklist', minutes: 23, grouping: 'Groups', cowrite: true,
           title: 'Make a checklist',
           goal: 'Write key questions for one part of a checklist for checking AI text.',
           blocks: [
