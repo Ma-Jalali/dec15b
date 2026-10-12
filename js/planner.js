@@ -226,19 +226,6 @@ window.DEC15Planner = (() => {
   let blocks = null;
   function destroyEditor() { if (!editor) return; saveNote(); reconcileNow(); blocks?.destroy(); blocks = null; editor.destroy(); editor = null; }
   const linkKey = e => { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); linkPop(root.querySelector('[data-cmd=link]')); return true; } return false; };
-  function linkPop(anchor) {
-    if (!editor || !anchor) return; const had = editor.getAttributes('link').href || '';
-    popover(anchor, `<form class="pl-task-pop pl-linkpop" novalidate><b>${had ? 'Edit link' : 'Add a link'}</b><label>Web address<input name="href" type="url" inputmode="url" value="${esc(had)}" placeholder="https://…" autofocus></label>
-      <div class="pl-pop-actions">${had ? '<button type="button" class="pl-link danger" data-unlink>Remove link</button>' : '<span></span>'}<button class="pl-btn" type="submit">${had ? 'Save' : 'Add link'}</button></div></form>`, p => {
-      const f = p.querySelector('form');
-      f.addEventListener('submit', e => { e.preventDefault(); let v = String(new FormData(f).get('href') || '').trim(); closePop();
-        if (!v) { editor.chain().focus().extendMarkRange('link').unsetLink().run(); return; }
-        if (!/^(https?:|mailto:)/i.test(v)) v = 'https://' + v.replace(/^\/+/, '');
-        if (editor.state.selection.empty && !had) editor.chain().focus().insertContent({ type: 'text', text: v, marks: [{ type: 'link', attrs: { href: v } }] }).run();
-        else editor.chain().focus().extendMarkRange('link').setLink({ href: v }).run(); });
-      p.querySelector('[data-unlink]')?.addEventListener('click', () => { closePop(); editor.chain().focus().extendMarkRange('link').unsetLink().run(); });
-    });
-  }
   function saveNote() {
     clearTimeout(saveTimer); if (!editor) return;
     const id = editor.__noteId, n = get(id); if (!n) return;
@@ -264,9 +251,7 @@ window.DEC15Planner = (() => {
     if (fixes.length) { const tr = editor.state.tr; fixes.forEach(([p, n, nid]) => tr.setNodeMarkup(p, undefined, { ...n.attrs, taskId: nid, checked: false })); editor.view.dispatch(tr.setMeta('addToHistory', false)); }
   }
 
-  /* ───────── toolbar (Word "Home" tab) ───────── */
-  const FONT_COLORS = ['#14293a', '#3d505e', '#7a868e', '#b0512a', '#c0392b', '#985c0e', '#3f7a3a', '#2b776e', '#3a58a0', '#7a4a8c'];
-  const HIGHLIGHTS = [['#fff59d', 'Yellow'], ['#c8f0c0', 'Green'], ['#b9f3f0', 'Turquoise'], ['#ffd0e6', 'Pink'], ['#cfe6ff', 'Blue'], ['#ffd9b0', 'Orange'], ['#e4d4f4', 'Violet'], ['#e3e3e3', 'Grey']];
+  /* ───────── toolbar (Word "Home" tab, shared with the class board: js/planner-blocks.js) ───────── */
   const ic = {
     undo: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>', redo: '<path d="m15 14 5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/>',
     left: '<path d="M4 6h16M4 10h10M4 14h16M4 18h10"/>', center: '<path d="M4 6h16M7 10h10M4 14h16M7 18h10"/>', right: '<path d="M4 6h16M10 10h10M4 14h16M10 18h10"/>',
@@ -284,57 +269,9 @@ window.DEC15Planner = (() => {
     tableDel: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16M14.5 12.5l4 4M18.5 12.5l-4 4"/>',
   };
   const svg = (p, cls = '') => `<svg class="pl-i ${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
-  function toolbarHTML() {
-    const b = (cmd, label, inner, extra = '') => `<button type="button" class="pl-tb" data-cmd="${cmd}" aria-label="${label}" title="${label}" aria-pressed="false"${extra}>${inner}</button>`;
-    return `<div class="pl-toolbar" role="toolbar" aria-label="Formatting">
-      <div class="pl-grp"><button type="button" class="pl-tb pl-insert" data-cmd="insert" title="Insert a block (or type /)" aria-label="Insert a block">${svg(ic.plus)}<span>Insert</span></button></div>
-      <div class="pl-grp">${b('undo', 'Undo (Ctrl+Z)', svg(ic.undo))}${b('redo', 'Redo (Ctrl+Y)', svg(ic.redo))}</div>
-      <div class="pl-grp"><label class="sr-only" for="pl-style">Style</label><select id="pl-style" class="pl-style" data-cmd="style" title="Style"><option value="p">Normal text</option><option value="1">Heading 1</option><option value="2">Heading 2</option><option value="3">Heading 3</option></select></div>
-      <div class="pl-grp">${b('bold', 'Bold (Ctrl+B)', '<b>B</b>')}${b('italic', 'Italic (Ctrl+I)', '<i class="pl-it">I</i>')}${b('underline', 'Underline (Ctrl+U)', '<u>U</u>')}${b('strike', 'Strikethrough', '<s>S</s>')}</div>
-      <div class="pl-grp">${b('color', 'Font colour', '<span class="pl-a">A</span><i class="pl-bar" data-bar="color"></i>', ' aria-haspopup="true"')}${b('highlight', 'Text highlight colour', svg(ic.pen) + '<i class="pl-bar" data-bar="highlight"></i>', ' aria-haspopup="true"')}</div>
-      <div class="pl-grp pl-fold">${b('left', 'Align left', svg(ic.left))}${b('center', 'Centre', svg(ic.center))}${b('right', 'Align right', svg(ic.right))}</div>
-      <div class="pl-grp">${b('bullets', 'Bulleted list', svg(ic.bullets))}${b('numbers', 'Numbered list', svg(ic.numbers))}${b('tasks', 'To-do list', svg(ic.tasks))}${b('outdent', 'Decrease indent (Shift+Tab)', svg(ic.outdent))}${b('indent', 'Increase indent (Tab)', svg(ic.indent))}</div>
-      <div class="pl-grp">${b('quote', 'Quote', svg(ic.quote))}${b('link', 'Link (Ctrl+K)', svg(ic.link))}</div>
-      <div class="pl-grp pl-tablegrp" hidden>${b('rowAfter', 'Add a row below', svg(ic.rowAdd))}${b('colAfter', 'Add a column to the right', svg(ic.colAdd))}${b('rowDel', 'Delete this row', svg(ic.rowDel))}${b('colDel', 'Delete this column', svg(ic.colDel))}${b('tableDel', 'Delete the table', svg(ic.tableDel))}</div>
-    </div>`;
-  }
-  let lastColor = '#b0512a', lastHl = '#fff59d';
-  function runCmd(cmd, el) {
-    if (!editor) return; const c = editor.chain().focus();
-    ({ undo: () => c.undo().run(), redo: () => c.redo().run(), bold: () => c.toggleBold().run(), italic: () => c.toggleItalic().run(),
-      underline: () => c.toggleUnderline().run(), strike: () => c.toggleStrike().run(),
-      left: () => c.setTextAlign('left').run(), center: () => c.setTextAlign('center').run(), right: () => c.setTextAlign('right').run(),
-      bullets: () => c.toggleBulletList().run(), numbers: () => c.toggleOrderedList().run(), tasks: () => c.toggleTaskList().run(),
-      indent: () => window.DEC15Blocks.indent(editor, 1), outdent: () => window.DEC15Blocks.indent(editor, -1),
-      quote: () => c.toggleBlockquote().run(), link: () => linkPop(el), insert: () => blocks?.openInsert(),
-      rowAfter: () => c.addRowAfter().run(), colAfter: () => c.addColumnAfter().run(), rowDel: () => c.deleteRow().run(), colDel: () => c.deleteColumn().run(), tableDel: () => c.deleteTable().run(),
-      color: () => palette(el, 'color'), highlight: () => palette(el, 'highlight') })[cmd]?.();
-  }
-  function palette(anchor, kind) {
-    const cols = kind === 'color' ? FONT_COLORS.map(c => [c, c]) : HIGHLIGHTS;
-    popover(anchor, `<div class="pl-pal" role="menu" aria-label="${kind === 'color' ? 'Font colour' : 'Highlight colour'}">
-      <b>${kind === 'color' ? 'Font colour' : 'Highlight'}</b>
-      <div class="pl-sw ${kind}">${cols.map(([c, n]) => `<button type="button" role="menuitem" style="--sw:${c}" data-pick="${c}" title="${esc(n)}" aria-label="${esc(n)}"></button>`).join('')}</div>
-      <button type="button" class="pl-link" data-pick="">${kind === 'color' ? 'Automatic' : 'No colour'}</button></div>`, pop => {
-      pop.addEventListener('click', e => { const t = e.target.closest('[data-pick]'); if (!t) return; const v = t.dataset.pick;
-        const c = editor.chain().focus();
-        if (kind === 'color') { if (v) { lastColor = v; c.setColor(v).run(); } else c.unsetColor().run(); }
-        else { if (v) { lastHl = v; c.setHighlight({ color: v }).run(); } else c.unsetHighlight().run(); }
-        closePop(); paintToolbar(); });
-    });
-  }
-  function paintToolbar() {
-    const tb = root?.querySelector('.pl-toolbar'); if (!tb || !editor) return;
-    const on = { bold: editor.isActive('bold'), italic: editor.isActive('italic'), underline: editor.isActive('underline'), strike: editor.isActive('strike'),
-      left: editor.isActive({ textAlign: 'left' }), center: editor.isActive({ textAlign: 'center' }), right: editor.isActive({ textAlign: 'right' }),
-      bullets: editor.isActive('bulletList'), numbers: editor.isActive('orderedList'), tasks: editor.isActive('taskList'), quote: editor.isActive('blockquote'), link: editor.isActive('link') };
-    const tg = tb.querySelector('.pl-tablegrp'); if (tg) tg.hidden = !editor.isActive('table');
-    tb.querySelectorAll('button[data-cmd]').forEach(b => { if (b.dataset.cmd in on) { b.setAttribute('aria-pressed', String(on[b.dataset.cmd])); b.classList.toggle('on', on[b.dataset.cmd]); } });
-    const st = tb.querySelector('#pl-style'); st.value = [1, 2, 3].find(l => editor.isActive('heading', { level: l })) || 'p';
-    tb.querySelector('[data-bar=color]').style.background = editor.getAttributes('textStyle').color || lastColor;
-    tb.querySelector('[data-bar=highlight]').style.background = editor.getAttributes('highlight').color || lastHl;
-    tb.querySelector('[data-cmd=undo]').disabled = !editor.can().undo(); tb.querySelector('[data-cmd=redo]').disabled = !editor.can().redo();
-  }
+  const tb = window.DEC15Blocks.toolbar({ getEditor: () => editor, popover, closePop: () => closePop(), esc, openInsert: () => blocks?.openInsert(), id: 'pl' });
+  const toolbarHTML = () => tb.html(), runCmd = (cmd, el) => tb.run(cmd, el), linkPop = el => tb.linkPop(el);
+  const paintToolbar = () => tb.paint(root?.querySelector('.pl-toolbar'));
 
   /* ───────── popover (one at a time) ───────── */
   let pop = null;
@@ -893,7 +830,7 @@ window.DEC15Planner = (() => {
   function onChange(e) {
     const t = e.target, d = t.dataset;
     if (d.toggleTask) { put(d.toggleTask, 'task', { done: t.checked, doneAt: t.checked ? nowIso() : null }); if (t.checked) ctx.toast('Done — nice work.'); return; }
-    if (t.id === 'pl-style' && editor) { const v = t.value, c = editor.chain().focus(); v === 'p' ? c.setParagraph().run() : c.toggleHeading({ level: +v }).run(); return; }
+    if (tb.change(t)) return;
     if (d.moveNote !== undefined) { put(ui.openNoteId, 'note', { folderId: t.value || null }); return; }
     if (d.calShow) { hidden[d.calShow] = !t.checked; try { localStorage.setItem('dec15-planner-hidden', JSON.stringify(hidden)); } catch (e2) { /* ignore */ } paintPanel(); return; }
     if (d.calName) { const v = t.value.trim().slice(0, 40); if (v) put(d.calName, 'calendar', { name: v }); else paintPanel(); return; }

@@ -53,7 +53,7 @@ window.DEC15Board = (() => {
           <div class="bd-pens"${mode === 'draw' ? '' : ' hidden'}>${PENS.map(([c, n]) => `<button type="button" class="bd-pen" style="--pc:${c}" data-bd-pen="${c}" aria-label="${n} pen" aria-pressed="${pen.c === c}"></button>`).join('')}
             <span class="bd-sep"></span>${[2, 4, 8].map(w => `<button type="button" class="bd-w" data-bd-w="${w}" aria-label="${w === 2 ? 'Thin' : w === 4 ? 'Medium' : 'Thick'} line" aria-pressed="${pen.w === w}"><i style="--w:${w}px"></i></button>`).join('')}
             <span class="bd-sep"></span><button type="button" class="bd-tool" data-bd-eraser aria-pressed="${pen.c === 'erase'}">Eraser</button><button type="button" class="bd-tool" data-bd-undo>Undo</button><button type="button" class="bd-tool" data-bd-clear>Clear drawing</button></div>
-          <span class="bd-hint">${mode === 'write' ? 'Type “/” for blocks: headings, lists, callouts, tables…' : 'Draw with the mouse, a pen or your finger.'}</span></div>` : ''}
+          ${mode === 'draw' ? '<span class="bd-hint">Draw with the mouse, a pen or your finger.</span>' : `<div class="bd-format">${tb().html()}</div>`}</div>` : ''}
       ${b && v === 'whiteboard' ? `<div class="bd-wb" id="bd-wb"><p class="bd-wb-loading">Opening the whiteboard…</p></div>`
         : b ? `<div class="bd-board${mode === 'draw' && t ? ' drawing' : ''}"><div class="bd-paper"><div id="bd-editor"></div><svg class="bd-ink" aria-hidden="true"></svg></div></div>`
         : `<div class="bd-empty">${art()}<h2>${t ? 'Your first board' : 'Nothing on the board yet'}</h2><p>${t ? 'Write notes and draw for the whole class. Everyone signed in sees them live.' : 'When your teacher writes on the board, it appears here straight away.'}</p>${t ? '<button class="btn" type="button" data-bd-new>＋ New board</button>' : ''}</div>`}
@@ -109,12 +109,17 @@ window.DEC15Board = (() => {
     const t = teacher();
     editor = new T.Editor({ element: el, editable: t, content: window.DEC15Blocks.withTrailingLine(b.content && b.content.type ? b.content : { type: 'doc', content: [{ type: 'paragraph' }] }),
       extensions: [T.StarterKit.configure({ heading: { levels: [1, 2, 3] } }), ...window.DEC15Blocks.extensions(T), T.Underline, T.TextStyle, T.Color, T.Highlight.configure({ multicolor: true }), T.TextAlign.configure({ types: ['heading', 'paragraph'] }), T.TaskList, T.TaskItem.configure({ nested: true }),
-        T.Placeholder.configure({ placeholder: t ? 'Write on the board… type “/” for headings, lists, callouts and tables' : '' })],
-      editorProps: { attributes: { class: 'pl-doc bd-doc', 'aria-label': 'Class board', role: 'textbox', 'aria-multiline': 'true', 'aria-readonly': String(!t) }, handleKeyDown: (v, e) => !!blocks?.keydown(v, e) },
-      onUpdate: () => { if (t) queueSave(); } });
+        T.Placeholder.configure({ placeholder: ({ editor: ed, node }) => (t && node.isTextblock && ed.isEmpty ? 'Write on the board…' : '') })],
+      editorProps: { attributes: { class: 'pl-doc bd-doc', 'aria-label': 'Class board', role: 'textbox', 'aria-multiline': 'true', 'aria-readonly': String(!t) }, handleKeyDown: (v, e) => !!blocks?.keydown(v, e),
+        handleTextInput: (v, from, to, text) => t && window.DEC15Blocks.dividerInput(editor, from, to, text) },
+      onUpdate: () => { if (t) queueSave(); }, onSelectionUpdate: paintTb, onTransaction: paintTb });
     if (t) blocks = window.DEC15Blocks.attach(editor, root.querySelector('.bd-paper'), { esc, popover, closePop });
+    paintTb();
     if (t && mode === 'write' && !b.content?.content?.some(n => n.content?.length)) setTimeout(() => editor?.commands.focus('end'), 50);
   }
+  let tbar = null;   // the same formatting toolbar as My planner
+  const tb = () => tbar || (tbar = window.DEC15Blocks.toolbar({ getEditor: () => editor, popover, closePop: () => closePop(), esc, openInsert: () => blocks?.openInsert(), id: 'bd' }));
+  const paintTb = () => { if (editor && teacher()) tb().paint(root?.querySelector('.bd-format .pl-toolbar')); };
   function destroyEditor() { blocks?.destroy(); blocks = null; editor?.destroy(); editor = null; if (wb) { wb.destroy(); wb = null; wbFor = null; } }
   function refresh(prev) {   // a student's board follows the teacher's changes
     const b = boards.find(x => x.id === cur); if (!b) { paint(); return; }
@@ -190,11 +195,12 @@ window.DEC15Board = (() => {
     const r = anchor.getBoundingClientRect(); pop.style.left = Math.min(Math.max(8, r.left), innerWidth - pop.offsetWidth - 8) + 'px'; pop.style.top = Math.min(r.bottom + 6, innerHeight - pop.offsetHeight - 8) + 'px';
     wire?.(pop); setTimeout(() => (pop?.querySelector('[autofocus]') || pop?.querySelector('input,button'))?.focus(), 0);
   }
-  document.addEventListener('mousedown', e => { if (pop && !pop.contains(e.target)) closePop(); });
+  document.addEventListener('mousedown', e => { if (pop && !pop.contains(e.target) && !e.target.closest('.bd-format [data-cmd=color], .bd-format [data-cmd=highlight]')) closePop(); });
 
   /* ───────── events ───────── */
   function onClick(e) {
     const t = e.target.closest('button'); if (!t) return; const d = t.dataset;
+    if (d.cmd && t.closest('.bd-format')) { tb().run(d.cmd, t); return; }
     if (d.bdSignin !== undefined) { ctx.signIn(); return; }
     if (d.bdView) { const b = boards.find(x => x.id === cur); if (!b) return; save();
       if (teacher()) { b.view = d.bdView; db()?.from('boards').update({ view: d.bdView }).eq('id', b.id).then(({ error }) => error && ctx.toast('Could not switch the class view.')); } else myView[b.id] = d.bdView;
@@ -225,6 +231,7 @@ window.DEC15Board = (() => {
   function mount(el, context) {
     ctx = context; root = el; mounted = true; root.className = 'bd-root';
     root.addEventListener('click', onClick); root.addEventListener('input', onInput);
+    root.addEventListener('change', e => { if (e.target.closest('.bd-format')) tb().change(e.target); });
     root.addEventListener('pointerdown', onDown); root.addEventListener('pointermove', onMove); root.addEventListener('pointerup', onUp); root.addEventListener('pointercancel', onUp);
     addEventListener('resize', onResize);
     root.innerHTML = '<p class="planner-loading">Opening the class board…</p>';

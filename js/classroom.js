@@ -15,6 +15,7 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
   const LS = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } };
 
   let settings = { answers_open: null }, settingsCh = null;
+  const timer = window.createDEC15Timer ? window.createDEC15Timer({ getDb: () => db(), isTeacher, esc, toast }) : null;   // js/timer.js
   let people = [], byId = new Map(), online = new Map(), presence = null, joined = false, myHand = false, where = { key: '', label: '' };
   let msgs = [], msgCh = null, counts = {}, students = 0, countsT = 0, notes = null, progress = null, hands = new Set();
   let panel = null, open = false, tab = 'people', thread = null, lastSeenClass = +(LS('dec15-class-seen') || 0), connected = null;
@@ -23,12 +24,13 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
   async function loadSettings() {
     const c = anyDb(); if (!c) return;
     try { const { data } = await c.from('class_settings').select('key, value'); (data || []).forEach(r => { settings[r.key] = r.value; }); } catch (e) { return; }
-    rerender(); paintTop();
+    timer?.set(settings.class_timer); rerender(); paintTop();
   }
   function watchSettings() {
     const c = anyDb(); if (!c || settingsCh || typeof c.channel !== 'function') return;
     settingsCh = c.channel('dec15-settings').on('postgres_changes', { event: '*', schema: 'public', table: 'class_settings' }, p => {
       const r = p.new; if (!r?.key) return; const was = settings[r.key]; settings[r.key] = r.value;
+      if (r.key === 'class_timer') { timer?.set(r.value); return; }
       if (r.key === 'answers_open' && was !== r.value && !isTeacher()) toast(r.value ? 'Your teacher opened the suggested answers.' : 'Your teacher closed the answers for now.');
       rerender(); paintTop(); paintPanel();
     }).subscribe();
@@ -168,6 +170,7 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
 
   /* ───────── top bar button ───────── */
   function paintTop() {
+    timer?.paintButton();
     const btn = document.getElementById('class-btn'); if (!btn) return;
     const signed = !!db(), n = signed ? onlineStudents() : 0, unread = signed ? unreadDM() + unreadClass() : 0;
     const faces = [...online].filter(([id]) => id !== me()).slice(0, 3).map(([, p]) => avatarHTML({ full_name: p.name, avatar_url: p.avatar }, '', 'avatar cb-face')).join('');
