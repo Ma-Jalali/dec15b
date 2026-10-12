@@ -70,13 +70,11 @@ window.DEC15_LESSON = {
           title: 'Peer feedback',
           goal: 'Read your partner’s essay. Give feedback with the feedback tool and talk about language errors.',
           blocks: [
-            { type: 'steps', items: [
-              { who: 'pair', text: '<b>Swap essays</b> with a partner (swap devices or show your essay on the screen).' },
-              { who: 'alone', text: 'Read your partner’s essay. Complete the <b>Peer and Teacher Feedback Tool</b> below.' },
-              { who: 'alone', text: 'Read the essay again. <b>Highlight</b> grammar or language errors.' },
-              { who: 'pair', text: '<b>Talk</b> for 5 minutes: give your feedback face to face, with the expressions below.' },
-              { who: 'pair', text: 'Talk about how to correct the errors. Then <b>send</b> your feedback to your partner.' },
-              { who: 'alone', text: 'Look at your <b>self-evaluation</b> from the W3 D4 homework. Does the peer feedback agree with it?' }
+            { type: 'key', title: 'Your mission: be the “editor” your partner needs', points: [
+              '<b>Prepare (5 min):</b> learn how good editors talk: kind, specific, useful.',
+              '<b>Read and rate (15 min):</b> swap essays. Complete the feedback tool. Highlight 3–5 language errors.',
+              '<b>Feedback meeting (8 min):</b> meet face to face, like an editor and a writer. Then swap roles.',
+              '<b>Send + compare (2 min):</b> send your feedback. Compare it with your W3 D4 self-evaluation.'
             ]},
             { type: 'language', title: 'Giving and responding to feedback (builds on W2 D2. 6A)', tabs: false, groups: [
               { label: 'Specific praise', phrases: ['One thing that works really well is…', 'Your use of… makes your argument more…'] },
@@ -129,10 +127,9 @@ window.DEC15_LESSON = {
               { id: 'f2-a3', label: 'Actions for further improvement · Vocabulary', placeholder: 'Remember not to use contractions like ‘can’t’ and ‘doesn’t’, which are non-academic words.', rows: 3 },
               { id: 'f2-a4', label: 'Actions for further improvement · Grammar', placeholder: 'Try to include sentences with more than one clause (to improve range of grammatical structure).', rows: 3 }
             ], send: true, sendLabel: 'Send your feedback to your partner', sendHint: 'Choose your partner. They get a read-only copy of the ratings, comments and actions in “Shared with me”. You can also download a PDF.' },
-            { type: 'steps', title: 'Feedback talk (5 min)', items: [
-              { who: 'pair', text: 'Give one piece of praise and two suggestions. Point to examples in the essay.' },
-              { who: 'pair', text: 'Your partner responds: accept, ask for an example, or explain.' },
-              { who: 'pair', text: 'Swap roles. Then tick the checklist for your partner.' }
+            { type: 'cards', title: 'Feedback meeting (8 min) · Role cards', items: [
+              { label: 'Editor', text: 'Give <b>one</b> specific praise and your <b>two</b> most important suggestions. Point to the essay each time. Help fix one highlighted error together.' },
+              { label: 'Writer', text: 'Listen. For each point, <b>accept</b> it, <b>ask</b> for an example, or <b>explain</b> your choice. Decide which suggestion you will use on Monday.' }
             ]},
             { type: 'checklist', id: 'g3-f2k', title: 'Peer check · Did your partner…', items: [
               'start with specific praise?',
@@ -160,6 +157,12 @@ window.DEC15_LESSON = {
               { who: 'alone', text: 'Write down useful words and phrases for your next essay.' }
             ]},
             { type: 'model', title: 'The prompt', text: 'Correct this paragraph for grammar and clarity.', note: 'AI can be wrong. It can also change your meaning. Check every change — you are the writer.' },
+            { type: 'quiz', id: 'g3-f3j', title: 'Warm-up game · You are the judge: keep or reject the AI change?', shared: ['Keep', 'Reject'], items: [
+              { q: '“lots of food” → “a considerable amount of food”', answer: 'Keep', why: 'More formal, same meaning.' },
+              { q: '“Food banks <b>may</b> reduce hunger” → “Food banks reduce hunger”', answer: 'Reject', why: 'AI removed your hedging. The claim is now too strong.' },
+              { q: '“Gunders (2024) argues that…” → “Experts agree that…”', answer: 'Reject', why: 'The citation is gone, and “experts agree” is not what the source says.' },
+              { q: '“Despite it is cheap, …” → “Although it is cheap, …”', answer: 'Keep', why: 'Although + clause is correct; despite needs a noun.' }
+            ]},
             { type: 'language', title: 'Then show a partner two changes and explain them', tabs: false, groups: [
               { label: 'Describe the change', phrases: ['AI changed… to… because…', 'It replaced… with a more formal word.'] },
               { label: 'Judge the change', phrases: ['I think this change is correct, because…', 'I’m not convinced this is right, because…', 'This sounds better, but it changes my meaning.'] },
@@ -190,6 +193,15 @@ window.DEC15_LESSON = {
               { id: 'f4-3', label: 'Connection of ideas', placeholder: 'I will use a variety of linking words, e.g. …', rows: 2, share: false },
               { id: 'f4-4', label: 'Vocabulary', placeholder: 'I will avoid contractions and…', rows: 2, share: false },
               { id: 'f4-5', label: 'Grammar', placeholder: 'I will check verb tenses and…', rows: 2, share: false }
+            ]},
+            { type: 'steps', title: 'Finish (2 min) · Quick win', items: [
+              { who: 'pair', text: 'Read your <b>best</b> action to your partner. Is it clear enough to check on Monday?' },
+              { who: 'class', text: 'Post your best new phrase on the class wall. Vote for the most useful one.' }
+            ]},
+            { type: 'checklist', id: 'g3-f3k', title: 'Can-do check · I can now…', items: [
+              'give a classmate kind, specific and useful feedback',
+              'decide if an AI correction is right or wrong, and say why',
+              'write clear actions that I can check on Monday'
             ]}
           ]
         }
@@ -255,13 +267,19 @@ window.DEC15_LESSON = {
               { label: 'Solution', start: 'Spin!', items: ['food banks', 'upcycled food', 'food waste apps', 'laws about landfill', 'investment in new ideas', 'education campaigns', 'tax incentives for donations'] },
               { label: 'Who should act?', start: '…', items: ['governments', 'businesses', 'consumers', 'everyone together'] }
             ]},
+            { type: 'steps', title: 'Four corners · Debate and vote (6 min)', items: [
+              { who: 'alone', text: 'Read the four positions. Choose yours. Then <b>stand in that corner</b> of the room.' },
+              { who: 'group', text: 'In your corner: agree on your best reason (1 min).' },
+              { who: 'class', text: 'Each corner gives its reason in 30 seconds. Other corners may reply once.' },
+              { who: 'class', text: 'Anyone convinced? Move corners now. Count the final vote.' }
+            ]},
             { type: 'choose', id: 'p2c', title: 'Our first position', options: [
               'Governments need to significantly increase their efforts.',
               'All actors in the food system should be doing more.',
               'Businesses and consumers need to do more, not governments.',
               'Governments are already doing enough.'
             ]},
-            { type: 'talk', prompts: [
+            { type: 'talk', title: 'Back in your research group: choose your group position', prompts: [
               'Which solutions from Weeks 3 and 4 need help from governments?',
               'What did your own research say about governments in your region?'
             ]},
@@ -354,10 +372,11 @@ window.DEC15_LESSON = {
           title: 'Note-taking table + Making a plan',
           goal: 'Collect notes from all the sources as a group. Then plan your essay: a position and two reasons.',
           blocks: [
-            { type: 'steps', title: 'Part 1 · Note-taking table (12 min)', items: [
-              { who: 'group', text: 'Press <b>Write together</b> to share one page with your group. Or each person fills the table below.' },
-              { who: 'group', text: 'Add your Gunders notes first.' },
-              { who: 'group', text: 'Then add useful points from the other texts (Weeks 3 and 4) and from your <b>own sources</b>. One source per row.' }
+            { type: 'steps', title: 'Part 1 · Jigsaw note-taking table (12 min)', items: [
+              { who: 'group', text: 'Press <b>Write together</b> to share one page with your group. Add your Gunders notes first.' },
+              { who: 'alone', text: 'Each person takes <b>one</b> other source: Nicastro, Berti et al., About That, or your own research.' },
+              { who: 'alone', text: 'Skim your source (5 min). Find 1–2 points about governments. Add them in one row.' },
+              { who: 'group', text: 'Teach your point to the group in 30 seconds: “According to…, … In other words, …”' }
             ]},
             { type: 'model', title: 'Example: one row of the table', rows: [
               ['Gunders (2024)', 'Solutions work (e.g. ColdHubs, apps) but progress too slow → govt investment needed to scale up + incentives for businesses. Laws restricting food in landfill (e.g. France, Japan) → should be everywhere.']
@@ -367,7 +386,7 @@ window.DEC15_LESSON = {
             { type: 'teacher', ref: 'w4d5-t6' },
             { type: 'teacher', ref: 'w4d5-t7' },
 
-            { type: 'steps', title: 'Part 2 · Making a plan (18 min)', items: [
+            { type: 'steps', title: 'Part 2 · Making a plan (14 min)', items: [
               { who: 'group', text: 'Agree on a <b>clear position</b>.' },
               { who: 'group', text: 'Find <b>TWO main reasons</b> for your position.' },
               { who: 'group', text: 'Look at your note-taking table. Which notes support each reason?' },
@@ -384,6 +403,15 @@ window.DEC15_LESSON = {
               'Don’t write the essay at the weekend, and don’t use AI to write it. You write it in class.'
             ]},
             { type: 'plan' },
+            { type: 'steps', title: 'Finish (4 min) · 30-second pitch', items: [
+              { who: 'group', text: 'One speaker pitches your plan: position + two reasons + one source each.' },
+              { who: 'class', text: 'Listen. Vote for the most convincing plan (you can’t vote for your own).' }
+            ]},
+            { type: 'checklist', id: 'g3-p4k', title: 'Can-do check · I can now…', items: [
+              'explain what the essay question asks me to do',
+              'choose notes from a source that answer the question',
+              'take a position and support it with two reasons from the sources'
+            ]},
             { type: 'tip', text: 'Nice work! A clear plan makes Monday’s writing much easier.' }
           ]
         }
@@ -461,9 +489,7 @@ window.DEC15_LESSON = {
             { type: 'flip', title: 'Useful words in the AI text and the questions', hint: 'Read the phrase. Guess the meaning. Then tap the card.', items: [
               { front: 'produce that is still <b>edible</b>', back: '<b>edible</b> = safe and good enough to eat.<br><i>Much of the food in bins is still edible.</i>' },
               { front: '<b>surplus</b> production / donate <b>surplus</b> food', back: '<b>surplus</b> = more than is needed.<br><i>Shops can donate surplus food to charities.</i>' },
-              { front: 'significant economic and environmental <b>consequences</b>', back: '<b>consequence</b> = a result, often a bad one.<br><i>Food waste has serious consequences for the climate.</i>' },
               { front: 'supporting <b>redistribution</b> programs', back: '<b>redistribution</b> = moving extra food to people who need it.<br><i>Food banks are a form of redistribution.</i>' },
-              { front: 'a more efficient and <b>sustainable</b> food system', back: '<b>sustainable</b> = able to continue without harming the environment.<br><i>Composting is a more sustainable option.</i>' },
               { front: 'What does the text <b>assume</b>?', back: '<b>assume / assumption</b> = think something is true without proof.<br><i>The text assumes composting is available everywhere.</i>' },
               { front: 'Is anything <b>misleading</b>?', back: '<b>misleading</b> = giving a wrong idea.<br><i>The claim is misleading because it is not true in all countries.</i>' },
               { front: 'Is the text <b>objective</b>?', back: '<b>objective</b> = based on facts, not feelings.<br><i>Academic writing should be objective.</i>' }
@@ -489,6 +515,12 @@ window.DEC15_LESSON = {
               { label: 'Point out a weakness', phrases: ['The text seems to assume that…', 'It doesn’t take into account…', 'One perspective that is missing is…'] },
               { label: 'Hedge and balance', phrases: ['This may be true in…, but not in…', 'To be fair, the text does mention…'] },
               { label: 'Suggest an improvement', phrases: ['A more balanced answer would…', 'It would be more reliable if it…'] }
+            ]},
+            { type: 'steps', title: 'Jigsaw · One lens each (8 min)', items: [
+              { who: 'alone', text: 'In your group, each person takes <b>one</b> question below (Balance, Accuracy, Objectivity or Citations).' },
+              { who: 'alone', text: 'Read the text again with your lens only. Write 1–2 sentences (3 min).' },
+              { who: 'group', text: 'Teach your group what you found (1 min each). Use the language above.' },
+              { who: 'group', text: 'Group verdict: would you trust this text for your essay? Yes, partly, or no?' }
             ]},
             { type: 'fields', title: 'Answer with your group', fields: [
               { id: 'i2-1', label: 'Balance: does it show all sides fairly? Or is there bias (e.g. only Western ideas, stereotypes, missing views)?', placeholder: 'It assumes that…', rows: 3 },
@@ -518,7 +550,7 @@ window.DEC15_LESSON = {
           title: 'Make a checklist',
           goal: 'Write key questions for one part of a checklist for checking AI text.',
           blocks: [
-            { type: 'talk', title: 'Reflect — talk in groups', prompts: [
+            { type: 'talk', title: 'Your mission: write the class checklist (3 min talk first)', prompts: [
               'What problems have you noticed in AI texts?',
               'What makes a <b>good</b> academic answer? What makes a <b>bad</b> one?',
               'You are making a checklist to help students check AI text. What would you put in it?'
@@ -538,6 +570,16 @@ window.DEC15_LESSON = {
               { who: 'group', text: 'Add them to the table. Press <b>Write together</b> so the class builds one checklist. Or share your questions with the class.' }
             ]},
             { type: 'table', id: 'i3t', title: 'Our checklist for AI-generated text', columns: ['Category', 'Key questions'], fixed: ['Accuracy and Reliability', 'Balance and Bias', 'Objectivity and Language', 'Citation and Supporting evidence'] },
+            { type: 'steps', title: 'Finish (6 min) · Vote and test', items: [
+              { who: 'class', text: 'Read all the groups’ questions. Vote for the <b>best question</b> in each category.' },
+              { who: 'group', text: 'Test the four winning questions on the AI text from tab 2. Give it a score out of 4.' },
+              { who: 'class', text: 'Compare scores. Would you use this AI text in your essay?' }
+            ]},
+            { type: 'checklist', id: 'g3-i3k', title: 'Can-do check · I can now…', items: [
+              'explain how AI can show bias, in pictures and in text',
+              'find assumptions and missing views in an AI answer',
+              'use a checklist to decide if a text is reliable'
+            ]},
             { type: 'tip', text: 'Great job! This checklist is not just for AI text. Use it to check <b>any</b> text in your research.' },
             { type: 'teacher', ref: 'w4d5-t10' }
           ],

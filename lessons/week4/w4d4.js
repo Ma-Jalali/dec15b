@@ -7,7 +7,8 @@
    Sharing (send: true): peer-feedback form (d6f), teacher’s feedback table (d11t), optional self-evaluation (d10f).
    v3 (more functional, upper-intermediate): lead-in (scale + spinner) and upgraded discussion phrases with model,
    practice and a practice negotiation in the Warm-up; listener language in Step 4; 8 useful words in How it works;
-   realistic questions on the sample negotiation (extras). New ids start with f3-. Assessment forms unchanged. */
+   realistic questions on the sample negotiation (extras); region info-gap table, golden-moment feedback, class verdict
+   and can-do check. Story: decide, as a class, which strategy wins. New ids start with f3-. Assessment forms unchanged. */
 
 window.DEC15_LESSON = {
   id: 'w4d4',
@@ -20,7 +21,7 @@ window.DEC15_LESSON = {
   wordTarget: '',
   image: 'assets/week4/hero-w4d4.svg',
   imageAlt: 'An inner circle of three chairs with speech bubbles above them, and an outer ring of observers holding clipboards — a fishbowl discussion.',
-  journey: 'Today is your second Research Summary Discussion. First, you revise discussion phrases. Then you present your group’s research to a new group. Next, you discuss in a “fishbowl” while classmates watch and give feedback. Finally, you think about how it went and make a plan.',
+  journey: 'Today is your second Research Summary Discussion. First, you warm up, win a team quiz and try some stronger discussion phrases. Then you present your group’s research to a new group. Next, you discuss in a “fishbowl” while classmates watch and give feedback. Finally, the class votes on the winning strategy and you make a plan.',
   finish: { title: 'Friday', text: 'Feedback on your writing, an essay plan and AI literacy' },
 
   sections: [
@@ -53,7 +54,11 @@ window.DEC15_LESSON = {
                 'What is harder for you: starting to speak, disagreeing or changing your mind?'
               ]}
             ]},
-            { type: 'tip', text: 'Today is your <b>2nd Research Summary Discussion</b>. Do the quiz in pairs and say each phrase aloud. Can you get 18 out of 18?' },
+            { type: 'steps', title: 'Team race: how much do you remember? (8 minutes)', items: [
+              { who: 'group', text: 'Make teams of 3. One device per team.' },
+              { who: 'group', text: 'Answer fast, but say each phrase aloud first.' },
+              { who: 'class', text: 'Check answers. The team with the highest score wins.' }
+            ]},
             { type: 'quiz', id: 'd1q', title: 'Part 1 · Warmer: Revision of discussion skills and language — choose the best answer', items: [
               { q: '1. Complete the sentence: In an academic discussion, you should…', options: ['…encourage others to speak', '…show interest', '…manage communication breakdowns', '…do all of these things'], answer: '…do all of these things', why: 'A good discussion needs all three: bring others in, show interest and fix misunderstandings.' },
               { q: '2. How can you fix a <b>communication breakdown</b> (= when people don’t understand each other)?', options: ['Ask for clarification', 'Agree', 'Show surprise', 'Move on to a new point'], answer: 'Ask for clarification', why: 'For example: “What do you mean?” or “I’m not sure I get your meaning.”' },
@@ -76,7 +81,7 @@ window.DEC15_LESSON = {
             ]},
             { type: 'teacher', ref: 'w4d4-t1' },
             { type: 'teacher', ref: 'w4d4-t2' },
-            { type: 'language', title: 'Level up: 10 phrases for a stronger discussion today', groups: [
+            { type: 'language', title: 'Level up: 10 phrases for a stronger discussion today', tabs: false, groups: [
               { label: 'Explaining the quote', phrases: ['As I understand it, the quote suggests that…', 'This seems to imply that…, although it doesn’t say how.'] },
               { label: 'Using evidence', phrases: ['Our research on (Kenya) supports this. For example,…', 'This is backed up by (Berti et al., 2021), who found that…'] },
               { label: 'Building on and partly disagreeing', phrases: ['Building on what (Mai) said,…', 'I agree up to a point, but I’d question whether…'] },
@@ -136,7 +141,8 @@ window.DEC15_LESSON = {
               'My handwritten notes cover all three articles.',
               'I know the common themes and the best examples.',
               'I can present for about 5 minutes without reading a script.',
-              'I have looked at my notes on the Week 3 and 4 texts.'
+              'I have looked at my notes on the Week 3 and 4 texts.',
+              'I have chosen 3 “Level up” phrases to use today.'
             ]},
             { type: 'sources', ids: ['nicastro', 'berti', 'aboutthat', 'gunders', 'castro', 'huang'] },
             { type: 'teacher', ref: 'w4d4-t3' }
@@ -164,6 +170,12 @@ window.DEC15_LESSON = {
               { label: 'Linking the three sources', phrases: ['In the article which I read, the authors state that…', 'This is supported by my groupmate’s article, which found that…', 'Whereas the first two articles focus on…, the third looks at…', 'Significantly, all 3 articles emphasise…'] },
               { label: 'Finishing clearly', phrases: ['What stood out most for us was…', 'Overall, the key point is that…'] },
               { label: 'Listeners: asking a follow-up question', phrases: ['Could you say a bit more about…?', 'So, if I understand correctly, …?'] }
+            ]},
+            { type: 'table', id: 'f3-d3t', title: 'Listen and fill in: compare the regions', columns: ['Region', 'Biggest problem', 'What is working', 'Best strategy for this region?'], rows: 4 },
+            { type: 'steps', title: 'After all the talks (3 minutes)', items: [
+              { who: 'group', text: 'Compare your tables. Which region has the biggest problem?' },
+              { who: 'group', text: 'Agree on one idea a region could “borrow” from another.' },
+              { who: 'class', text: 'One person shares your group’s idea in one sentence.' }
             ]},
             { type: 'fields', title: 'My notes on the other regions', fields: [
               { id: 'd3-1', label: 'Regions, main points and useful examples I can use in the discussion', placeholder: 'Region: … · Main point: … · Example: …', rows: 5 }
@@ -250,6 +262,7 @@ window.DEC15_LESSON = {
               { who: 'alone', text: 'While you watch, choose <b>Yes</b>, <b>Mostly</b> or <b>Needs work</b> for each question.' },
               { who: 'alone', text: 'Add a comment with an example.' },
               { who: 'group', text: 'Be <b>constructive</b> (= helpful): show them what they can improve.' },
+              { who: 'alone', text: 'Also note one <b>golden moment</b>: the best phrase or argument you heard.' },
               { who: 'group', text: 'After their self-evaluation, tell the group your feedback. Then send them the form.' }
             ]},
             { type: 'tip', text: 'Key words for the form: <b>fluency</b> (= speaking smoothly) · <b>spontaneous</b> (= natural, not reading notes) · <b>justify</b> (= give reasons) · <b>implications</b> (= possible results).' },
@@ -270,6 +283,11 @@ window.DEC15_LESSON = {
             { type: 'language', title: 'Sentence starters for giving feedback', tabs: false, groups: [
               { label: 'Strengths', phrases: ['The way you… made your point very clear.', '… was good; to make it even better, you might…', 'You’ve made a good point here, but maybe you could…'] },
               { label: 'Areas to improve', phrases: ['I noticed a few times where…', 'It might be helpful to…', 'Don’t forget to… / Remember to…'] }
+            ]},
+            { type: 'model', title: 'Giving feedback face to face: an example', rows: [
+              ['Golden moment', 'When Kai said “I agree up to a point, but…”, the discussion really opened up.'],
+              ['Strength', 'The way you used the Kenya example made your point very clear.'],
+              ['To improve', 'It might be helpful to invite quieter members in, e.g. “What do you think, Sara?”']
             ]},
             { type: 'fields', title: 'Feedback I received', fields: [
               { id: 'd6-r', label: 'What did my observers say? (add these notes to your self-reflection later)', placeholder: 'Strength: … · To improve: …', rows: 3 }
@@ -377,6 +395,18 @@ window.DEC15_LESSON = {
               'I took notes on my teacher’s feedback.',
               'I wrote my Action plan for further improvement.'
             ]},
+            { type: 'steps', title: 'Class verdict: which strategy won? (5 minutes)', items: [
+              { who: 'group', text: 'Each discussion group: say your choice and your best reason in one sentence.' },
+              { who: 'class', text: 'Your teacher counts the votes on the board: food banks, upcycled food or apps?' },
+              { who: 'class', text: 'Share golden moments: the best phrases and arguments you heard today.' }
+            ]},
+            { type: 'checklist', id: 'f3-d10cd', title: 'Today I can…', meter: ['ticked', 'Great progress today!'], items: [
+              'summarise my group’s research for a new audience.',
+              'explain a quote and support my view with evidence.',
+              'compare and prioritise three options.',
+              'disagree politely and concede when I hear a good argument.',
+              'give and receive constructive feedback.'
+            ]},
             { type: 'tip', text: 'Congratulations on finishing your second Research Summary Discussion! Well done!' },
             { type: 'fields', title: 'Check your Action plan again', fields: [
               { id: 'd12-1', label: 'Can you add anything else to do better next time?', placeholder: 'Next time I will… so that…', rows: 3 }
@@ -404,11 +434,11 @@ window.DEC15_LESSON = {
           { q: 'How does the negotiation end?', options: ['They all choose environmental damage.', 'Two students agree; one still disagrees.', 'They all choose health problems.'], answer: 'Two students agree; one still disagrees.', why: 'Student 5 moves to the environment, but Student 4 still argues for health.' }
         ]},
         { type: 'quiz', id: 'f3-x1d', title: 'Second read: details (in order)', items: [
-          { q: '1. At the start, Student 1 says the three consequences are…', options: ['not very serious.', 'all connected.', 'mostly about animals.'], answer: 'all connected.', why: '“None of these issues can be viewed in isolation. Each factor affects the other.”' },
-          { q: '2. What evidence does Student 4 give first for health problems?', options: ['A UN statistic', 'A personal story', 'A research article'], answer: 'A personal story', why: '“Last year I got really sick…” — a personal story is weaker evidence than research.' },
-          { q: '3. How does Student 1 support the environment argument?', options: ['With a statistic from a UN programme', 'With a story about a farm', 'By asking a question'], answer: 'With a statistic from a UN programme', why: 'Student 1 cites the UN Environment Programme on degraded soils.' },
-          { q: '4. Why is Student 5 not convinced by the dairy farm example?', options: ['It is only a small-scale example.', 'It comes from Kenya.', 'The farm has no animals.'], answer: 'It is only a small-scale example.', why: '“…a small-scale operation which does not accurately represent this global issue.”' },
-          { q: '5. Why does Student 5 change their mind?', options: ['Time is nearly over.', 'Protecting the environment also protects animals.', 'The teacher told them to agree.'], answer: 'Protecting the environment also protects animals.', why: 'Student 5 says this directly before choosing the environment.' }
+          { q: 'At the start, Student 1 says the three consequences are…', options: ['not very serious.', 'all connected.', 'mostly about animals.'], answer: 'all connected.', why: '“None of these issues can be viewed in isolation. Each factor affects the other.”' },
+          { q: 'What evidence does Student 4 give first for health problems?', options: ['A UN statistic', 'A personal story', 'A research article'], answer: 'A personal story', why: '“Last year I got really sick…” — a personal story is weaker evidence than research.' },
+          { q: 'How does Student 1 support the environment argument?', options: ['With a statistic from a UN programme', 'With a story about a farm', 'By asking a question'], answer: 'With a statistic from a UN programme', why: 'Student 1 cites the UN Environment Programme on degraded soils.' },
+          { q: 'Why is Student 5 not convinced by the dairy farm example?', options: ['It is only a small-scale example.', 'It comes from Kenya.', 'The farm has no animals.'], answer: 'It is only a small-scale example.', why: '“…a small-scale operation which does not accurately represent this global issue.”' },
+          { q: 'Why does Student 5 change their mind?', options: ['Time is nearly over.', 'Protecting the environment also protects animals.', 'The teacher told them to agree.'], answer: 'Protecting the environment also protects animals.', why: 'Student 5 says this directly before choosing the environment.' }
         ]},
         { type: 'tip', text: 'Question 2 is the hardest. Think: is one person’s experience strong evidence for a global issue?' },
         { type: 'talk', title: 'Think about it', prompts: [
