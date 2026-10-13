@@ -8,7 +8,11 @@
    v3 (more functional, upper-intermediate): lead-in (scale + spinner) and upgraded discussion phrases with model,
    practice and a practice negotiation in the Warm-up; listener language in Step 4; 8 useful words in How it works;
    realistic questions on the sample negotiation (extras); region info-gap table, golden-moment feedback, class verdict
-   and can-do check. Story: decide, as a class, which strategy wins. New ids start with f3-. Assessment forms unchanged. */
+   and can-do check. Story: decide, as a class, which strategy wins. New ids start with f3-. Assessment forms unchanged.
+   v4 (clear language focus): the Warm-up teaches ONE point — comparing and prioritising options — in five stages
+   (Part 1 Notice → 2 Clarify → 3 Controlled → 4 Less controlled → 5 Production). The mixed 5-function “Level up” bank and
+   its sort (f3-d1srt) moved to the Phrase bank extra; the Discussion-tab reminder is now 10 phrases. New ids start with h4-.
+   Minutes: Warm-up 50, How it works 20, Peer feedback 30. Assessment forms (d6f, d10f, d11t) unchanged. */
 
 window.DEC15_LESSON = {
   id: 'w4d4',
@@ -34,11 +38,11 @@ window.DEC15_LESSON = {
       outcome: 'Present your group’s research. Discuss and compare 3 options in a group. Then think about how you did and set goals.',
       activities: [
         {
-          id: 'd1', short: 'Warm-up', minutes: 40, grouping: 'Pairs → whole class → research groups',
+          id: 'd1', short: 'Warm-up', minutes: 50, grouping: 'Pairs → whole class → groups of 3 → research groups',
           title: 'Warmer: Revision of discussion skills and language + Preparation time',
-          goal: 'Warm up, revise and upgrade your discussion phrases. Then get ready to present.',
+          goal: 'Revise your discussion phrases. Learn one skill for the negotiation: comparing and prioritising options. Then get ready to present.',
           blocks: [
-            { type: 'steps', title: 'Lead-in · Food waste and you (5 minutes)', items: [
+            { type: 'steps', title: 'Lead-in · Food waste and you (4 minutes)', items: [
               { who: 'alone', text: 'Move the slider: how ready do you feel today?' },
               { who: 'pair', text: 'Spin. Talk for one minute each. Then spin again.' },
               { who: 'class', text: 'Share one interesting answer from your partner.' }
@@ -59,7 +63,7 @@ window.DEC15_LESSON = {
               { who: 'group', text: 'Answer fast, but say each phrase aloud first.' },
               { who: 'class', text: 'Check answers. The team with the highest score wins.' }
             ]},
-            { type: 'quiz', id: 'd1q', title: 'Part 1 · Warmer: Revision of discussion skills and language — choose the best answer', items: [
+            { type: 'quiz', id: 'd1q', title: 'Warmer: Revision of discussion skills and language — choose the best answer', items: [
               { q: '1. Complete the sentence: In an academic discussion, you should…', options: ['…encourage others to speak', '…show interest', '…manage communication breakdowns', '…do all of these things'], answer: '…do all of these things', why: 'A good discussion needs all three: bring others in, show interest and fix misunderstandings.' },
               { q: '2. How can you fix a <b>communication breakdown</b> (= when people don’t understand each other)?', options: ['Ask for clarification', 'Agree', 'Show surprise', 'Move on to a new point'], answer: 'Ask for clarification', why: 'For example: “What do you mean?” or “I’m not sure I get your meaning.”' },
               { q: '3. Which phrase invites others to speak?', options: ['“Well, to put it another way…”', '“I’d like to ask (name) what he/she thinks.”', '“For instance, in the….”', '“I think it’s fair because…”'], answer: '“I’d like to ask (name) what he/she thinks.”', why: 'It brings a quiet groupmate into the discussion.' },
@@ -81,52 +85,100 @@ window.DEC15_LESSON = {
             ]},
             { type: 'teacher', ref: 'w4d4-t1' },
             { type: 'teacher', ref: 'w4d4-t2' },
-            { type: 'language', title: 'Level up: 10 phrases for a stronger discussion today', tabs: false, groups: [
-              { label: 'Explaining the quote', phrases: ['As I understand it, the quote suggests that…', 'This seems to imply that…, although it doesn’t say how.'] },
-              { label: 'Using evidence', phrases: ['Our research on (Kenya) supports this. For example,…', 'This is backed up by (Berti et al., 2021), who found that…'] },
-              { label: 'Building on and partly disagreeing', phrases: ['Building on what (Mai) said,…', 'I agree up to a point, but I’d question whether…'] },
-              { label: 'Comparing and prioritising', phrases: ['Whereas (option A) helps in the short term, (option B) could…', 'If we had to prioritise one, I’d go for… because…'] },
-              { label: 'Conceding and concluding', phrases: ['That’s a fair point. I hadn’t looked at it that way.', 'It seems we agree on…, but not on…'] }
+
+            /* ── Language focus: ONE point — comparing and prioritising options (Parts 1–5, about 28 minutes) ── */
+            { type: 'key', title: 'Part 1 · Notice (2 minutes): putting one option first', compare: [
+              { label: 'Nicastro and Carillo (2021), Reading 1, Para. F', text: '“According to the food waste hierarchy, <b>the best approach is</b> to prevent food waste.”' },
+              { label: 'Gunders (2024), Listening', text: '“[Prevention] is really <b>our priority because</b> prevention gives you <b>the most</b> bang for your buck.”' }
+            ], points: [
+              '<b>Question:</b> Which option does each source put first? Which words in <b>bold</b> show this?'
             ]},
-            { type: 'chat', title: 'Listen in: a practice negotiation (best way to cut food waste at home?)', lines: [
-              ['Ana', '<mark>If we had to prioritise one, I’d go for</mark> shopping lists, <mark>because</mark> Gunders says shopping is where we commit to food.'],
-              ['Ben', '<mark>I agree up to a point, but I’d question whether</mark> people really stick to a list. <mark>Whereas</mark> a list helps before you shop, freezing food <mark>could</mark> save what you already bought.'],
-              ['Chen', '<mark>Building on what Ben said,</mark> lots of people throw food away because of the “best by” date. So learning labels matters too.'],
-              ['Ana', '<mark>That’s a fair point. I hadn’t looked at it that way.</mark> <mark>It seems we agree on</mark> freezing, <mark>but not on</mark> what comes first.']
+            { type: 'key', title: 'Part 2 · Clarify (4 minutes): what is comparing and prioritising?', points: [
+              '<b>Comparing</b> = saying how two options are different. <b>Prioritising</b> = saying which option is the best or most important — and <b>why</b>.',
+              '<b>Why it matters:</b> in Part 2 of today’s discussion, you choose the best of three options. Your observers check: “Did they compare the options and evaluate their importance?”'
             ]},
-            { type: 'sort', id: 'f3-d1srt', title: 'Practice: what does each new phrase do?', hint: 'These phrases are new. Match each one to its job.', buckets: [
-              { label: 'Explain the quote' }, { label: 'Use evidence' }, { label: 'Partly disagree' }, { label: 'Prioritise' }, { label: 'Concede' }
-            ], items: [
-              { text: 'From what I can tell, the authors mean that…', answer: 0 },
-              { text: 'In our region, the data showed that…', answer: 1 },
-              { text: 'I see where you’re coming from, but…', answer: 2 },
-              { text: 'On balance, (B) seems the most realistic option.', answer: 3 },
-              { text: 'OK, you’ve convinced me.', answer: 4 },
-              { text: 'One study from (Italy) found that…', answer: 1 },
-              { text: 'That’s true in cities, but is it true in rural areas?', answer: 2, why: 'A polite question can be a way to partly disagree.' },
-              { text: 'For me, the top priority has to be…', answer: 3 }
+            { type: 'model', title: 'The forms: one everyday example each', rows: [
+              ['Compare · <b>Whereas</b> (A)…, (B)…', '<i><b>Whereas</b> buses are cheap, bikes are faster in the city.</i>'],
+              ['Compare · (A) is <b>cheaper / more useful than</b> (B)', '<i>Cooking at home is <b>cheaper than</b> eating out.</i>'],
+              ['Choose first · <b>The top priority is</b>…, <b>because</b>…', '<i>For me, <b>the top priority is</b> sleep, <b>because</b> I can’t study when I’m tired.</i>'],
+              ['Choose first · <b>If I had to choose one, I’d go for</b>…, <b>because</b>…', '<i><b>If I had to choose one</b> app, <b>I’d go for</b> maps, <b>because</b> I use it every day.</i>'],
+              ['Rank the others · (B) <b>comes second</b>, because…', '<i>Price is first for me, and the camera <b>comes second</b>.</i>'],
+              ['Rank the others · (C) is <b>the least effective</b>, because…', '<i>Studying with music on is <b>the least effective</b> for me, because I lose focus.</i>'],
+              ['Conclude · <b>On balance</b>, (A) seems <b>the most realistic</b>.', '<i><b>On balance</b>, the library seems <b>the most realistic</b> place to study.</i>']
             ]},
-            { type: 'steps', title: 'Use it: a 3-minute practice negotiation', items: [
-              { who: 'group', text: 'Work in threes. Spin for a practice question and a challenge.' },
-              { who: 'group', text: 'Discuss for 3 minutes. Try to choose one option.' },
-              { who: 'group', text: 'Check the boxes below together. Then spin again if there is time.' }
+            { type: 'tip', text: '<b>Common mistakes:</b> ① choosing with no reason — “I’d go for apps.” → “I’d go for apps, <b>because</b> young people use them.” ② double comparatives — not “more cheaper” or “the most best”, but “cheaper” and “the best”.' },
+            { type: 'cloze', id: 'h4-d1cz', title: 'Part 3 · Controlled practice (5 minutes): choose the best word', list: true,
+              text: 'If I had to choose one, I’d go {{1}} the train, because it is never late.\nWhereas buses are cheap, bikes are {{2}} in the city.\nFor me, the top {{3}} is sleep, because I can’t study when I’m tired.\nCooking at home is cheaper {{4}} eating out.\nOf the three apps, this one is the {{5}} useful.\nStudying with friends is fun. {{6}}, studying alone is quieter.\nOnline classes are the {{7}} effective option for me: I lose focus at home.\nPrice is first for me, and the camera comes {{8}}.',
+              options: [
+                ['for', 'to', 'with'],
+                ['faster', 'fastest', 'more fast'],
+                ['priority', 'prioritise', 'first'],
+                ['than', 'that', 'as'],
+                ['most', 'more', 'best'],
+                ['On the other hand', 'Because', 'So'],
+                ['least', 'less', 'fewest'],
+                ['second', 'two', 'secondly']
+              ],
+              answers: ['for', 'faster', 'priority', 'than', 'most', 'On the other hand', 'least', 'second'],
+              why: [
+                '“I’d go <b>for</b> (X)” = I would choose X.',
+                'Two options → comparative: fast → <b>faster</b>.',
+                '“the top <b>priority</b>” is a noun; “prioritise” is a verb.',
+                'Comparatives use <b>than</b>: cheaper than, more useful than.',
+                'Three or more → superlative: <b>the most</b> useful.',
+                '<b>On the other hand</b> shows a contrast between two options.',
+                '<b>the least</b> effective = the opposite of the most effective.',
+                'Ranking: first, <b>second</b>, third.'
+              ] },
+            { type: 'model', title: 'Part 4 · Less controlled practice (8 minutes): first, read a model answer', rows: [
+              ['Starter', 'If I had to choose one way to save money on food, I’d go for…'],
+              ['Model', 'If I had to choose one way to save money on food, <b>I’d go for</b> cooking at home, <b>because</b> it is much <b>cheaper than</b> eating out. A discount app <b>comes second</b>.']
             ]},
-            { type: 'spinner', id: 'f3-d1rh', title: 'Practice question + challenge', text: 'These are practice questions, not today’s discussion questions.', reels: [
+            { type: 'fields', id: 'h4-d1lc', title: 'Now finish the sentences about your own life', fields: [
+              { id: 'h4-d1lc-1', label: '1. If I had to choose one way to save money on food, I’d go for…', placeholder: '… because …', rows: 2 },
+              { id: 'h4-d1lc-2', label: '2. Library or home? Whereas studying in the library…, studying at home…', placeholder: 'Whereas …, …', rows: 2 },
+              { id: 'h4-d1lc-3', label: '3. A new phone: price, camera or battery? For me, the top priority is…', placeholder: '… because … · … comes second · … is the least important', rows: 2 },
+              { id: 'h4-d1lc-4', label: '4. Food waste at home: shopping lists, freezing food or checking dates? On balance, … seems the most effective.', placeholder: 'On balance, … because …', rows: 2 }
+            ]},
+            { type: 'steps', title: 'Then in pairs', items: [
+              { who: 'pair', text: 'Read one sentence to your partner.' },
+              { who: 'pair', text: 'Partner asks: “Why not the other option?” Answer with a reason.' },
+              { who: 'pair', text: 'Swap. Do this for all four sentences.' }
+            ]},
+            { type: 'steps', title: 'Part 5 · Production (10 minutes): a 3-minute mini-negotiation', items: [
+              { who: 'group', text: 'Work in threes. Spin for a practice question below.' },
+              { who: 'group', text: 'Discuss for 3 minutes. Choose the best option together.' },
+              { who: 'alone', text: 'Use the three phrase types in the frame: compare, choose first, least effective.' },
+              { who: 'group', text: 'Afterwards, each partner ticks your checklist. Spin again if there is time.' }
+            ]},
+            { type: 'chat', title: 'Model: a short practice negotiation (best way to cut food waste at home?)', lines: [
+              ['Ana', '<mark>If we had to choose one, I’d go for</mark> shopping lists, <mark>because</mark> you only buy what you need.'],
+              ['Ben', '<mark>Whereas</mark> a list helps before you shop, freezing saves food you already bought. For me, freezing is <mark>more useful than</mark> a list.'],
+              ['Chen', 'Checking dates <mark>comes second</mark> for me. Lists are <mark>the least effective</mark>, <mark>because</mark> people forget them at home.'],
+              ['Ana', 'OK. <mark>On balance</mark>, freezing seems <mark>the most realistic</mark>. We agree on that, but not on what comes second.']
+            ]},
+            { type: 'model', title: 'Frame: your three turns', rows: [
+              ['1 · Compare', 'Whereas (A)…, (B)… · (A) is more useful than (B), because…'],
+              ['2 · Choose first', 'If we had to choose one, I’d go for…, because… · The top priority should be…'],
+              ['3 · Least effective', '(C) is the least effective, because… · (B) comes second.'],
+              ['End together', 'On balance, (A) seems the most realistic.']
+            ]},
+            { type: 'spinner', id: 'f3-d1rh', title: 'Practice question', text: 'These are practice questions, not today’s discussion questions.', reels: [
               { label: 'Question', start: 'Spin!', items: [
-                'Best way to cut food waste at home: shopping lists, freezing food or learning labels?',
+                'Best way to cut food waste at home: shopping lists, freezing food or checking dates?',
                 'Who should do most about food waste: governments, supermarkets or consumers?',
                 'Best way to cut waste in a university canteen: smaller portions, cheap leftovers at closing time or tracking waste?',
                 'Best way to make people care: school lessons, social media campaigns or fees for throwing food away?'
-              ]},
-              { label: 'Everyone must use…', start: 'Spin!', items: ['a phrase to partly disagree', 'a phrase to prioritise', 'a phrase to build on an idea', 'a phrase to concede', 'evidence from a class text'] }
+              ]}
             ]},
-            { type: 'checklist', id: 'f3-d1ck', title: 'Quick peer check', items: [
-              'Everyone used at least 2 new phrases.',
-              'Someone partly disagreed and gave a reason.',
-              'We compared two options with “whereas” or “on the other hand”.',
-              'We tried to prioritise one option at the end.'
+            { type: 'checklist', id: 'f3-d1ck', title: 'Partner check: tick what your partner did', items: [
+              'Compared two options in one sentence (Whereas… / …than…).',
+              'Chose one option first and gave a reason (because…).',
+              'Said which option is the least effective, and why.'
             ]},
-            { type: 'key', title: 'Part 2 · Preparation time: Steps 4 and 5', compare: [
+
+            /* ── Preparation time (Teacher’s Book, 10 minutes) ── */
+            { type: 'key', title: 'Preparation time (10 minutes): Steps 4 and 5', compare: [
               { label: 'Step 4', text: 'You join a <b>new group</b>. Each person researched a different region. You each talk for <b>5 minutes</b> about your region.' },
               { label: 'Step 5', text: 'A <b>15-minute discussion</b>. ① Respond to a <b>quote</b>. Use examples from your research. ② Choose the best of <b>three options</b>. You don’t have to agree.' }
             ]},
@@ -142,11 +194,15 @@ window.DEC15_LESSON = {
               'I know the common themes and the best examples.',
               'I can present for about 5 minutes without reading a script.',
               'I have looked at my notes on the Week 3 and 4 texts.',
-              'I have chosen 3 “Level up” phrases to use today.'
+              'I have chosen 3 phrases for comparing and prioritising to use today.'
             ]},
             { type: 'sources', ids: ['nicastro', 'berti', 'aboutthat', 'gunders', 'castro', 'huang'] },
             { type: 'teacher', ref: 'w4d4-t3' }
-          ]
+          ],
+          answers: { title: 'Part 1 · Notice — answer', items: [
+            ['Which option comes first?', 'Both sources put <b>prevention</b> first (stop waste before it happens).'],
+            ['Which words show it?', '“<b>the best approach is</b>…”, “<b>our priority because</b>…” (a reason follows) and “<b>the most</b>…” (a superlative).']
+          ]}
         },
         {
           id: 'd3', short: 'Step 4', minutes: 25, grouping: 'New groups (3–4)',
@@ -193,7 +249,7 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'd4', short: 'How it works', minutes: 25, grouping: 'Whole class → alone',
+          id: 'd4', short: 'How it works', minutes: 20, grouping: 'Whole class → alone',
           title: 'RSD Step 5: Discussion (Instructions) + Preparation time + Setting up the discussion order',
           goal: 'Know your role, your group and the rules for a good discussion.',
           blocks: [
@@ -252,7 +308,7 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'd6', short: 'Peer feedback', minutes: 35, grouping: 'Feedback group → alone',
+          id: 'd6', short: 'Peer feedback', minutes: 30, grouping: 'Feedback group → alone',
           title: 'Peer-feedback groups + Other Groups (not discussing or giving feedback)',
           goal: 'Watch another group, rate their discussion and give helpful feedback.',
           blocks: [
@@ -338,14 +394,14 @@ window.DEC15_LESSON = {
               ['Student 3', '<mark>Building on that,</mark> <mark>whereas</mark> apps work well in cities, they <mark>may not be as effective</mark> in rural areas.'],
               ['Student 1', '<mark>That’s a fair point. I hadn’t looked at it that way.</mark> <mark>It seems we agree on</mark> the problem, <mark>but not on</mark> the solution — and that’s OK.']
             ]},
-            { type: 'language', title: 'Negotiation language — quick reminder', groups: [
-              { label: 'Responding to the quote', phrases: ['As I understand it, the quote suggests that…', 'This seems to imply that…', 'Especially in countries like (Kenya) that I researched…'] },
-              { label: 'Opinions and evidence', phrases: ['Our research on (Kenya) supports this. For example,…', 'This is backed up by (Gunders, 2024), who argues that…', 'Which one do you think we should choose, and why?'] },
-              { label: 'Building on and disagreeing', phrases: ['Building on what (Mai) said,…', 'I agree up to a point, but I’d question whether…', 'I’m afraid we don’t see eye to eye there.'] },
-              { label: 'Comparing and prioritising', phrases: ['Whereas (option A) helps in the short term, (option B) could…', 'The main drawback of (option C) is that…', 'If we had to prioritise one, I’d go for… because…'] },
-              { label: 'Conceding and concluding', phrases: ['That’s a fair point. I hadn’t looked at it that way.', 'You make a strong case. Maybe that is the best option.', 'It seems we agree on…, but not on…'] }
+            { type: 'language', title: 'Negotiation language — 10 phrases to remember', groups: [
+              { label: 'Comparing and prioritising', phrases: ['Whereas (option A) helps in the short term, (option B) could…', 'If we had to choose one, I’d go for… because…', '(Option C) is the least effective, because…'] },
+              { label: 'Responding to the quote', phrases: ['As I understand it, the quote suggests that…'] },
+              { label: 'Using evidence', phrases: ['Our research on (Kenya) supports this. For example,…', 'This is backed up by (Gunders, 2024), who argues that…'] },
+              { label: 'Building on and disagreeing', phrases: ['Building on what (Mai) said,…', 'I agree up to a point, but I’d question whether…'] },
+              { label: 'Conceding and concluding', phrases: ['That’s a fair point. I hadn’t looked at it that way.', 'It seems we agree on…, but not on…'] }
             ]},
-            { type: 'tip', text: 'Personal goal: use at least <b>3 phrases</b> from this list. Your observers will listen for them.' },
+            { type: 'tip', text: 'Personal goal: use at least <b>3 phrases</b> from this list — one for <b>comparing and prioritising</b> (Warm-up, Parts 1–5). Your observers will listen for them. More phrases: <b>Phrase bank</b> (extras).' },
             { type: 'sources', ids: ['gunders', 'nicastro', 'berti'] },
             { type: 'teacher', ref: 'w4d4-t8' },
             { type: 'teacher', ref: 'w4d4-t9' }
@@ -455,6 +511,25 @@ window.DEC15_LESSON = {
       title: 'Phrase bank: all the discussion phrases',
       goal: 'Find more phrases for summarising, negotiating and giving feedback.',
       blocks: [
+        { type: 'language', title: 'Level up: upgraded discussion phrases', groups: [
+          { label: 'Responding to the quote', phrases: ['As I understand it, the quote suggests that…', 'This seems to imply that…, although it doesn’t say how.', 'Especially in countries like (Kenya) that I researched…'] },
+          { label: 'Opinions and evidence', phrases: ['Our research on (Kenya) supports this. For example,…', 'This is backed up by (Berti et al., 2021), who found that…', 'Which one do you think we should choose, and why?'] },
+          { label: 'Building on and disagreeing', phrases: ['Building on what (Mai) said,…', 'I agree up to a point, but I’d question whether…', 'I’m afraid we don’t see eye to eye there.'] },
+          { label: 'Comparing and prioritising', phrases: ['Whereas (option A) helps in the short term, (option B) could…', 'The main drawback of (option C) is that…', 'If we had to prioritise one, I’d go for… because…', 'On balance, (B) seems the most realistic option.'] },
+          { label: 'Conceding and concluding', phrases: ['That’s a fair point. I hadn’t looked at it that way.', 'You make a strong case. Maybe that is the best option.', 'It seems we agree on…, but not on…'] }
+        ]},
+        { type: 'sort', id: 'f3-d1srt', title: 'Practice: what does each phrase do?', hint: 'Match each phrase to its job.', buckets: [
+          { label: 'Explain the quote' }, { label: 'Use evidence' }, { label: 'Partly disagree' }, { label: 'Prioritise' }, { label: 'Concede' }
+        ], items: [
+          { text: 'From what I can tell, the authors mean that…', answer: 0 },
+          { text: 'In our region, the data showed that…', answer: 1 },
+          { text: 'I see where you’re coming from, but…', answer: 2 },
+          { text: 'On balance, (B) seems the most realistic option.', answer: 3 },
+          { text: 'OK, you’ve convinced me.', answer: 4 },
+          { text: 'One study from (Italy) found that…', answer: 1 },
+          { text: 'That’s true in cities, but is it true in rural areas?', answer: 2, why: 'A polite question can be a way to partly disagree.' },
+          { text: 'For me, the top priority has to be…', answer: 3 }
+        ]},
         { type: 'language', title: 'Summarising a group’s research into a specific region', tabs: false, groups: [
           { label: 'Bringing in the three sources', phrases: ['My groupmate’s article points out that…', 'The synthesis of these articles presents a comprehensive view of the multifaceted challenges…', 'In our 3 articles there was a focus on…', 'All of our articles address…. They highlight…', 'The third article reviewed by another groupmate discusses…', 'Significantly, all 3 articles emphasise…', 'In the article which I read, the authors state that…'] },
           { label: 'Introducing your region', phrases: ['The region that our group chose to research was…', 'We all imagine that in… well in certain regions in…', 'The multifaceted challenges associated with (the UK’s)…', '(The UK’s) ambitious goal to…', '(The UK’s) vulnerability due to its…', 'This country’s stringent regulations greatly influence…'] }
@@ -501,6 +576,8 @@ window.DEC15_LESSON = {
     ['food security', 'When people always have enough safe, healthy food.', 'Less waste could improve food security.'],
     ['scale up', 'To make something bigger so it reaches more people.', 'Good ideas need money to scale up.'],
     ['sustainable', 'Able to continue for a long time without harm.', 'Is a food bank a sustainable solution?'],
-    ['concede', 'To accept that someone else’s point is true or good.', '“That’s a fair point” is a polite way to concede.']
+    ['concede', 'To accept that someone else’s point is true or good.', '“That’s a fair point” is a polite way to concede.'],
+    ['whereas', 'A word that compares two different things in one sentence.', 'Whereas buses are cheap, bikes are faster.'],
+    ['on balance', 'After thinking about all the points for and against.', 'On balance, freezing food seems the most realistic.']
   ]
 };

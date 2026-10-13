@@ -4,7 +4,10 @@
    Activity titles use the Teacher’s Book headings. Teacher notes live in the database (teacher_notes), refs only here.
    Block types: lessons/_template.js, js/play.js and js/forms.js (form, scale, jeopardy, send: true).
    v2 (A2–B1 version): simpler instructions, sentence starters and games; 10A is one tab ('Part 1 · …', 'Part 2 · …').
-   All saved-work ids (blocks, fields, tables) are unchanged. */
+   All saved-work ids (blocks, fields, tables) are unchanged.
+   v3 (Brief 4): 8A has a language tab e0 'Asking clarification questions' (Part 1 Notice → 2 Clarify → 3 Controlled →
+   4 Less controlled → 5 Production); presentations e1 keep the notes table and peer form. 9A: lead-ins, detail quiz,
+   note-taking frames for the big question (h4-i2n, h4-i3n, i4t) and a framed 1-minute pair talk. New ids start with h4-. */
 
 window.DEC15_LESSON = {
   id: 'w5d5',
@@ -30,9 +33,103 @@ window.DEC15_LESSON = {
       outcome: 'Explain your ideas to your classmates. Answer questions about what you said. Think about your goals and set new ones.',
       activities: [
         {
-          id: 'e1', short: 'Presentations', minutes: 60, grouping: 'Groups → class',
+          id: 'e0', short: 'Clarifying', minutes: 20, grouping: 'Pairs → two groups',
+          title: 'Presentations: asking clarification questions',
+          goal: 'Ask a clear clarification question about something a speaker said — and answer one.',
+          blocks: [
+            /* Part 1 · Notice */
+            { type: 'model', title: 'Part 1 · Notice: read what a classmate asked a presenter', rows: [
+              ['The presenter said', '“Mobile apps help users make more informed <b>decisions</b>.”'],
+              ['A classmate asked', '<b>You said</b> apps help users make decisions. <b>Can you specify</b> what kind of decisions?']
+            ]},
+            { type: 'quiz', id: 'h4-e0n', items: [
+              { q: 'What does the classmate want?', options: ['more detail about one idea', 'to disagree with the presenter', 'to change the topic'], answer: 'more detail about one idea', why: 'They repeat one idea (<i>You said…</i>) and ask for more detail. This is a <b>clarification question</b>.' }
+            ]},
+
+            /* Part 2 · Clarify */
+            { type: 'key', title: 'Part 2 · Clarify: what is a clarification question?', points: [
+              'It asks a speaker to <b>explain one thing more clearly</b>: a word, a detail, an example or a source.',
+              'Why? It shows you <b>listened</b>, and it helps everyone <b>understand</b>. In DEC10 every presentation ends with questions like this.',
+              'How? <b>Two steps:</b> 1) repeat the idea (<i>You said…</i>) 2) ask about one thing.',
+              'Later, in DEC10, you will also ask <b>probing questions</b> (= questions that go deeper).'
+            ]},
+            { type: 'model', title: 'Step 2: what can you ask about? (everyday examples)', rows: [
+              ['A detail<br><b>Can you specify…?</b>', 'You said the café is cheap. <b>Can you specify</b> how much a coffee costs?'],
+              ['A word<br><b>Could you explain what you mean by…?</b>', 'You said you sleep badly. <b>Could you explain what you mean by</b> “badly”?'],
+              ['An example<br><b>Could you give an example of…?</b>', 'You said your city has good food. <b>Could you give an example of</b> a typical dish?'],
+              ['Check you understood<br><b>When you said…, did you mean…?</b>', '<b>When you said</b> you study a lot, <b>did you mean</b> every day?'],
+              ['The source<br><b>Which source said that?</b>', 'You said phones hurt our sleep. <b>Which source said that?</b>']
+            ]},
+            { type: 'language', title: 'When someone asks YOU a clarification question', tabs: false, groups: [
+              { label: 'Answering', phrases: ['Sure. What I meant was…', 'For example, …', 'According to… (2024), …', 'Good question. I’m not completely sure, but I think…'] }
+            ]},
+            { type: 'tip', text: '<b>Two common mistakes.</b> 1) Word order: <i>Could you explain what <s>do you mean</s></i> → <i>Could you explain what <b>you mean</b>?</i> 2) Only saying “I don’t understand.” Say <b>which idea</b> first: <i>You said…</i>' },
+
+            /* Part 3 · Controlled practice */
+            { type: 'cloze', id: 'h4-e0c', list: true, title: 'Part 3 · Controlled practice: choose the correct word', options: [
+                ['mean', 'means', 'meaning'],
+                ['specify', 'specific', 'speak'],
+                ['example', 'explain', 'exactly'],
+                ['you sleep', 'do you sleep', 'sleep you'],
+                ['mean', 'meant', 'meaning'],
+                ['said', 'asked', 'spoke'],
+                ['the bus is', 'is the bus', 'the bus it is']
+              ],
+              answers: ['mean', 'specify', 'example', 'you sleep', 'mean', 'said', 'the bus is'],
+              why: [
+                'Could you explain what you <b>mean</b> by…? (you + mean)',
+                'Can you <b>specify</b>…? = Can you say exactly…? <i>Specify</i> is the verb.',
+                'Could you give an <b>example</b> of…? (a noun after <i>an</i>)',
+                'After <i>Can you specify…</i> use normal word order: how many hours <b>you sleep</b>.',
+                'did you + base verb: did you <b>mean</b>…?',
+                'Repeat the idea first: You <b>said</b> (that)…',
+                'After <i>Could you explain…</i> use normal word order: why <b>the bus is</b> late.'
+              ],
+              text: 'Could you explain what you {{1}} by “healthy”?\nYou said the test was hard. Can you {{2}} which part was hard?\nCould you give an {{3}} of a cheap meal?\nCan you specify how many hours {{4}}?\nWhen you said “a lot”, did you {{5}} every day?\nYou {{6}} that phones help students. Which source said that?\nCould you explain why {{7}} late?' },
+
+            /* Part 4 · Less controlled practice */
+            { type: 'chat', title: 'Part 4 · Less controlled practice: first, read the model', right: 'Student B', lines: [
+              ['Student A', '“The solution is moderately effective.”'],
+              ['Student B', '<mark>You said</mark> the solution is moderately effective. <mark>Could you explain what you mean by</mark> “moderately”?'],
+              ['Student A', '<mark>Sure. What I meant was</mark> it helps families in cities, but it does not help people without a phone.']
+            ]},
+            { type: 'spinner', id: 'e1sp', title: 'Now you: spin, ask, answer', text: '<b>Student A</b> spins and reads the statement. <b>Student B</b> repeats it (<i>You said…</i>) and asks with the starter. Student A answers. Swap after each spin.', reels: [
+              { label: 'A presenter says…', start: 'Spin!', items: ['“Food banks improve access.”', '“The app is not very accessible.”', '“Upcycled food reduces waste.”', '“Some groups cannot use this solution.”', '“The solution is moderately effective.”', '“The evidence is mixed.”'] },
+              { label: 'Ask with…', start: '…', items: ['Can you specify…?', 'Could you explain what you mean by…?', 'Could you give an example of…?', 'When you said…, did you mean…?', 'Which source said that?'] }
+            ]},
+
+            /* Part 5 · Production */
+            { type: 'steps', title: 'Part 5 · Production: practice round with another group (8 minutes)', items: [
+              { who: 'group', text: 'Sit with another group.' },
+              { who: 'group', text: 'Speaker 1 gives a <b>1-minute summary</b>: your solution, your pillar(s), your overall evaluation.' },
+              { who: 'group', text: 'Each listener asks <b>one clarification question</b>. Use a different starter each time.' },
+              { who: 'group', text: 'Your group answers: <i>What I meant was… / For example…</i>' },
+              { who: 'group', text: 'Swap: the other group gives its summary.' }
+            ]},
+            { type: 'model', title: 'Model practice round', rows: [
+              ['1-minute summary', '“Our solution is food-sharing apps. We looked at the pillars of <b>access</b> and <b>agency</b>. Overall, we think the apps are moderately effective.”'],
+              ['Clarification question', '“You said you looked at agency. Could you explain what you mean by agency here?”'],
+              ['Answer', '“Sure. What I meant was that people can choose what food they take. For example, …”']
+            ]},
+            { type: 'fields', title: 'After the practice round', fields: [
+              { id: 'h4-e0f1', label: 'The questions the other group asked us — which part was not clear?', placeholder: 'They asked what we mean by… / They wanted an example of…', rows: 2 },
+              { id: 'h4-e0f2', label: 'What we will explain more clearly in our presentation', placeholder: 'We will add one example of… / We will say which source…', rows: 2 }
+            ]},
+            { type: 'checklist', id: 'h4-e0k', title: 'Check your questions: did you…', items: [
+              'repeat the idea first (You said…)?',
+              'ask about ONE thing: a detail, a word, an example or a source?',
+              'use normal word order (Could you explain what you mean…)?'
+            ]}
+          ],
+          answers: { items: [
+            ['Part 1', 'The classmate wants <b>more detail about one idea</b> (which decisions?). That is a clarification question.'],
+            ['Part 3', '1 mean · 2 specify · 3 example · 4 you sleep · 5 mean · 6 said · 7 the bus is']
+          ]}
+        },
+        {
+          id: 'e1', short: 'Presentations', minutes: 40, grouping: 'Groups → class',
           title: 'Presentations',
-          goal: 'Give your 5–6 minute presentation. Ask other groups questions and give feedback.',
+          goal: 'Give your 5–6 minute presentation. Ask each group one clarification question and give feedback.',
           blocks: [
             { type: 'steps', title: 'Part 1 · Get ready', items: [
               { who: 'group', text: 'Look at your notes again for a few minutes.' },
@@ -41,27 +138,14 @@ window.DEC15_LESSON = {
               { who: 'class', text: 'Ask each group at least <b>one clarification question</b>.' }
             ]},
             { type: 'figure', src: 'assets/week5/presentation-roles.svg', alt: 'Three speakers share the presentation: speaker 1 introduces the solution, the pillar(s) and one question; speaker 2 discusses two questions; speaker 3 discusses one question and gives the overall evaluation; then classmates ask follow-up clarification questions.', caption: 'Present — then answer follow-up questions', size: 'wide' },
-            { type: 'key', title: 'What is a clarification question?', points: [
-              'It asks the speaker to <b>explain something more clearly</b>.',
-              'It helps you <b>understand</b> better.',
-              'In DEC10 you will also ask <b>probing questions</b> (= questions that go deeper).'
-            ]},
-            { type: 'model', title: 'Example', rows: [
-              ['They said', '“Mobile apps help users make more informed decisions.”'],
-              ['You ask', 'You said apps help users make decisions. Can you specify (= say exactly) what kind of decisions?']
-            ]},
-            { type: 'language', title: 'Asking for clarification', tabs: false, groups: [
-              { label: 'Questions', phrases: ['You said that… . Can you specify…?', 'Could you explain what you mean by…?', 'Could you give an example of…?', 'When you said…, did you mean…?', 'Which source said that…?'] },
-              { label: 'Answering', phrases: ['Sure. What I meant was…', 'For example, …', 'According to…, …', 'That’s a good question. I think…'] }
-            ]},
-            { type: 'spinner', id: 'e1sp', title: 'Practice game: ask a clarification question', text: '<b>Student A</b> spins and reads the statement. <b>Student B</b> asks a question with the starter. Student A answers. Then swap.', reels: [
-              { label: 'A presenter says…', start: 'Spin!', items: ['“Food banks improve access.”', '“The app is not very accessible.”', '“Upcycled food reduces waste.”', '“Some groups cannot use this solution.”', '“The solution is moderately effective.”', '“The evidence is mixed.”'] },
-              { label: 'Ask with…', start: '…', items: ['Can you specify…?', 'Could you explain what you mean by…?', 'Could you give an example of…?', 'Which source said that…?'] }
+            { type: 'language', title: 'Your question starters (from the last tab)', tabs: false, groups: [
+              { label: 'Ask', phrases: ['You said… . Can you specify…?', 'Could you explain what you mean by…?', 'Could you give an example of…?', 'Which source said that?'] },
+              { label: 'Answer', phrases: ['Sure. What I meant was…', 'For example, …', 'According to…, …'] }
             ]},
             { type: 'teacher', ref: 'w5d5-t1' },
 
             { type: 'table', id: 'e1t', title: 'Part 2 · During the presentations: my notes', columns: ['Group', 'Solution and pillar(s)', 'Their overall evaluation', 'My clarification question'], rows: 4, extraRows: true },
-            { type: 'tip', text: 'Short notes are fine! Write key words, not sentences.' },
+            { type: 'tip', text: 'Short notes are fine! Write key words, not sentences. Write your question <b>while</b> they speak: <i>You said… . Can you specify…?</i>' },
             { type: 'form', id: 'e1f', title: 'Peer feedback for the presenting group', intro: 'Your teacher tells you which group to give feedback to. Choose Yes, Mostly or Needs work. Add a comment.', observe: 'Which group presented?', cols: ['Comments'], sections: [
               { label: 'The presentation', items: [
                 'Was the information clear?',
@@ -77,9 +161,14 @@ window.DEC15_LESSON = {
         {
           id: 'e2', short: 'My goals', minutes: 15, grouping: 'Alone',
           title: 'Self-Reflection on DEC15 Goals',
-          goal: 'Look back at your DEC15 goals. Set new goals for DEC10.',
+          goal: 'Look back at your DEC15 goals. Write three new, clear goals for DEC10.',
           blocks: [
-            { type: 'tip', text: 'In DEC15 you got feedback from <b>classmates, teachers and AI</b>. Open your <b>Self-Reflection Forms</b> and <b>Writing Feedback Tools</b>. Read the feedback again.' },
+            { type: 'steps', items: [
+              { who: 'alone', text: '<b>5 min:</b> open your Self-Reflection Forms and Writing Feedback Tools. Read the feedback again.' },
+              { who: 'alone', text: '<b>5 min:</b> complete table 1 about your DEC15 goals.' },
+              { who: 'alone', text: '<b>5 min:</b> read the model. Write three new goals in table 2.' }
+            ]},
+            { type: 'tip', text: 'In DEC15 you got feedback from <b>classmates, teachers and AI</b>. Use it to choose your goals.' },
             { type: 'cards', title: 'Your goals may be about…', items: [
               { icon: 'chat', label: 'Discussion skills', text: 'e.g. responding to others’ ideas' },
               { icon: 'search', label: 'Research skills', text: 'e.g. judging if an article is good' },
@@ -88,6 +177,12 @@ window.DEC15_LESSON = {
             ]},
             { type: 'scale', id: 'e2sc', title: 'Quick self-check', statement: 'I met my DEC15 goals.', ends: ['Not yet', 'Completely'], mid: 'Partly' },
             { type: 'table', id: 'e2t', title: '1 · My DEC15 goals', columns: ['My goal', 'Progress: how well did I meet it?', 'Challenges: what made it difficult?'], rows: 3, extraRows: true },
+            { type: 'model', title: 'Model: one student’s goal — before and after', rows: [
+              ['DEC15 goal', 'Respond to other people’s ideas in discussions.'],
+              ['Progress', 'I have improved. For example, in the Week 4 negotiation I said “Building on what you said…” twice.'],
+              ['Challenge', 'I still find it hard to answer quickly when people speak fast.'],
+              ['New DEC10 speaking goal', 'In DEC10, I want to ask one follow-up question in every discussion. To do this, I will write two question starters before each class.']
+            ], note: 'A good goal is <b>small</b> (one skill) and says <b>how</b> you will practise.' },
             { type: 'language', title: 'Sentence starters', tabs: false, groups: [
               { label: 'Progress', phrases: ['I have improved my… . For example, …', 'I still find… difficult because…'] },
               { label: 'New goals', phrases: ['In DEC10, I want to…', 'To do this, I will… every week.', 'I will ask for feedback on…'] }
@@ -97,6 +192,11 @@ window.DEC15_LESSON = {
               'Speaking goals',
               'General goals for DEC10<br><small>e.g. discussion, research, group work</small>'
             ], send: true, sendLabel: 'Share your goals with your teacher (optional)', sendHint: 'Only the person you choose will see it, in “Shared with me”.' },
+            { type: 'checklist', id: 'h4-e2k', title: 'Check your new goals: does each one…', items: [
+              'name ONE skill (not “improve my English”)?',
+              'say how you will practise (To do this, I will…)?',
+              'connect to feedback you got in DEC15?'
+            ]},
             { type: 'teacher', ref: 'w5d5-t2' }
           ]
         }
@@ -144,7 +244,8 @@ window.DEC15_LESSON = {
           title: 'Listening Part 1',
           goal: 'Learn eight expressions. Then listen for the host’s two questions and the answers.',
           blocks: [
-            { type: 'cards', title: 'Activity 1 · Vocabulary: read the sentences', numbered: true, items: [
+            { type: 'talk', title: 'Lead-in (2 minutes)', prompts: ['ChatGPT arrived in late 2022. How did your school or teachers react? Were they worried, excited or relaxed?'] },
+            { type: 'cards', title: 'Activity 1 · Useful words: read the sentences from the podcast', numbered: true, items: [
               { text: 'In late 2022 the AI program ChatGPT was released and brought with it a complete <b>upheaval</b> to the modern university experience.' },
               { text: 'As institutions <b>grappled with</b> issues such as potential plagiarism, students wasted no time putting this new tool to work.' },
               { text: 'Is true <b>coexistence</b> between AI and universities actually possible?' },
@@ -179,7 +280,15 @@ window.DEC15_LESSON = {
               { id: 'i2-1', label: '1. What questions does the host ask?', placeholder: 'How have…? · How are universities…?', rows: 3 },
               { id: 'i2-2', label: '2. Listen again if you need to. Notes on the answers', placeholder: 'Attitudes: panic → … · Assignments: …', rows: 4 }
             ]},
-            { type: 'talk', title: 'Activity 3 · Critical thinking', prompts: [
+            { type: 'quiz', id: 'h4-i2q', title: 'Check the details', items: [
+              { q: 'When ChatGPT arrived, how did many universities react at first?', options: ['They panicked.', 'They were excited.', 'They did not notice.'], answer: 'They panicked.', why: 'Everyone was “on the back foot”: they did not know how to respond.' },
+              { q: 'How do many universities see AI now?', options: ['They accept it carefully.', 'They ban it completely.', 'They use it in every exam.'], answer: 'They accept it carefully.', why: 'AI is now “cautiously embraced”. It is here to stay.' },
+              { q: 'Some universities allow AI in assignments if students…', options: ['say that they used it', 'pay for the tool', 'use it only at home'], answer: 'say that they used it', why: 'This is <b>attribution</b> — like a citation.' },
+              { q: 'In which subjects is this common?', options: ['engineering and coding', 'art and music', 'law and medicine'], answer: 'engineering and coding', why: 'The podcast gives engineering and coding as examples.' }
+            ]},
+            { type: 'table', id: 'h4-i2n', title: 'My notes for the big question: “AI will help my university studies more than it harms them.”', columns: ['Idea from Part 1', 'Detail or example', 'Helps or harms students?', 'For or against the statement?'], rows: 2, extraRows: true },
+            { type: 'tip', text: 'Keep these notes. You will add to them in Parts 2 and 3, and use them for a short talk at the end.' },
+            { type: 'talk', title: 'Activity 3 · Critical thinking (groups, 4 minutes)', prompts: [
               'How has your opinion of AI in education changed over time?',
               'People moved from fear to careful acceptance of AI. Do you agree with this change? Why?',
               'Some universities allow AI if you say you used it. They compare it to a calculator. Is this a fair comparison?',
@@ -201,7 +310,8 @@ window.DEC15_LESSON = {
           title: 'Listening Part 2',
           goal: 'Learn six phrases. Then fill the gaps with the words you hear about how students use AI.',
           blocks: [
-            { type: 'sort', id: 'i3s', single: true, title: 'Activity 1 · Vocabulary: match each phrase with its meaning', hint: '<b>Drag</b> each phrase to its meaning — or tap a phrase, then tap a meaning.', buckets: [
+            { type: 'talk', title: 'Lead-in (1 minute)', prompts: ['How do university students use AI to study? Guess three ways. Then listen and check.'] },
+            { type: 'sort', id: 'i3s', single: true, title: 'Activity 1 · Useful words: match each phrase with its meaning', hint: '<b>Drag</b> each phrase to its meaning — or tap a phrase, then tap a meaning.', buckets: [
               { label: 'A big change has happened and we cannot go back.' },
               { label: 'Saying something quickly, without checking or preparing.' },
               { label: 'Make something stronger or more united.' },
@@ -224,6 +334,7 @@ window.DEC15_LESSON = {
             { type: 'cloze', id: 'i3g', title: 'Activity 2 · How are students using AI? Fill the gaps with the words you hear', options: ['learning outcomes', 'information', 'incorrect', 'explain', 'unique', 'analogies', 'proofreading', 'tailored', 'accessibility', 'summaries', 'translation', 'creativity'],
               answers: ['learning outcomes', 'information', 'incorrect', 'explain', 'unique', 'analogies', 'proofreading', 'tailored', 'accessibility'],
               text: '<b>Jack Quinlan:</b> Before lectures he inputs {{1}} into AI tools, which gives him more {{2}} walking into the lecture. Even if some of the content is {{3}}, he can replace it in the lecture. While studying he uses AI to {{4}} lecture content in different and {{5}} ways, often receiving useful {{6}} that enhance his understanding.<br><br><b>Caitlin Cassidy</b> also explains ways students are using AI in their studies. They commonly use it for {{7}} assignments to catch grammar mistakes or ideas missed. AI also supports more {{8}} learning, similar to how apps like Duolingo adapt to users. Additionally, AI improves {{9}} for students with different learning needs — for example, by offering text-to-speech or note-taking support.' },
+            { type: 'table', id: 'h4-i3n', title: 'My notes: how students use AI (for the big question)', columns: ['Way students use AI', 'Who said it? (Jack / Caitlin)', 'Helps or harms students?', 'Would I use it? Why?'], rows: 3, extraRows: true },
             { type: 'talk', title: 'Activity 3 · Critical thinking', prompts: [
               'Look at your answer to warmer question 2 (your plan for using AI). Are Jack’s and Caitlin’s ideas similar to yours or different? How?'
             ]},
@@ -236,9 +347,9 @@ window.DEC15_LESSON = {
         {
           id: 'i4', short: 'Part 3', minutes: 15, grouping: 'Pairs',
           title: 'Listening Part 3',
-          goal: 'Take notes on five worries about AI in education. Then put them in order.',
+          goal: 'Take notes on five worries about AI in education. Rank them and give your view in a 1-minute talk.',
           blocks: [
-            { type: 'flip', title: 'Activity 1 · Vocabulary: check the bold words', hint: 'Read the sentence. Guess the meaning. Then tap the card.', items: [
+            { type: 'flip', title: 'Activity 1 · Useful words: check the bold words', hint: 'Read the sentence. Guess the meaning. Then tap the card.', items: [
               { front: 'There are plenty of reasons to be cautious about <b>embracing</b> AI wholeheartedly.', back: '<b>embrace</b> = accept a change happily.' },
               { front: 'One of the <b>chief issues</b> there being plagiarism, which is still a problem.', back: '<b>chief issue</b> = the most important problem.' },
               { front: 'There are also <b>inherent biases</b> of the search engines.', back: '<b>inherent biases</b> = unfair views that are built into a system or tool.' },
@@ -250,11 +361,25 @@ window.DEC15_LESSON = {
             { type: 'tip', text: '<b>Hint:</b> literacy = being able to read and write. Contract = an agreement, often for money.' },
             { type: 'listening', source: 'Podcast (your teacher plays it)', title: 'Can university and AI coexist?', videoId: '', clip: 'Part 3 · 15:04–19:41', transcripts: [] },
             { type: 'table', id: 'i4t', title: 'Activity 3 · Listen and take notes: five concerns (= worries)', columns: ['Concern', 'Details or examples'], rows: 5 },
+            { type: 'tip', text: 'These five concerns are the <b>“harms”</b> for the big question. Keep them with your notes from Parts 1 and 2.' },
             { type: 'table', id: 'i4r', title: 'Activity 4 · Critical thinking: rank the concerns', columns: ['Rank', 'Concern', 'Why?'], fixed: ['1 · most important', '2', '3', '4', '5 · least important'] },
-            { type: 'talk', prompts: ['Compare your ranking with a partner. Explain your reasons. There is no single correct order!'] },
-            { type: 'language', tabs: false, groups: [
-              { label: 'Sentence starters', phrases: ['For me, the most serious concern is… because…', 'I put… last because…', 'I see your point, but I think…'] }
+            { type: 'steps', title: 'Your view: pair talk (1 minute each)', items: [
+              { who: 'pair', text: 'Question: <b>To what extent do you agree?</b> “AI will help my university studies more than it harms them.”' },
+              { who: 'alone', text: 'Plan in 1 minute: your position → one benefit (Part 1 or 2) → your top concern (Part 3) → conclusion.' },
+              { who: 'pair', text: 'Speak for 1 minute. Your partner ticks the checklist. Then swap.' },
+              { who: 'pair', text: 'Compare your rankings. There is no single correct order!' }
             ]},
+            { type: 'model', title: 'Model answer', text: '“Overall, I <b>partly agree</b>. One benefit is that AI can explain lectures in new ways. For example, Jack says AI gives him useful analogies. However, for me the most serious concern is <b>plagiarism</b>, because universities find it hard to check AI-written work. So, I think AI helps if we use it carefully and say that we used it.”' },
+            { type: 'language', title: 'Frame', tabs: false, groups: [
+              { label: 'Position', phrases: ['Overall, I (partly) agree / disagree that…', 'For me, the most serious concern is… because…'] },
+              { label: 'Podcast + conclusion', phrases: ['For example, Jack / Caitlin says…', 'However, the podcast also mentions…', 'So, I think…', 'I put… last because…'] }
+            ]},
+            { type: 'checklist', id: 'h4-i4k', title: 'Partner check: did your partner…', items: [
+              'give a clear position in the first sentence?',
+              'use one benefit AND one concern from the podcast?',
+              'finish with a conclusion (So, I think…)?'
+            ]},
+            { type: 'scale', id: 'h4-i4sc', title: 'Vote again: has your view changed since the warmer?', statement: 'AI will help my university studies more than it harms them.', ends: ['Strongly disagree', 'Strongly agree'], mid: 'Not sure' },
             { type: 'teacher', ref: 'w5d5-t6' }
           ],
           answers: { items: [
@@ -320,6 +445,11 @@ window.DEC15_LESSON = {
       title: 'My plan for using AI at university',
       goal: 'Write a short plan for using AI in a responsible way.',
       blocks: [
+        { type: 'model', title: 'Model plan', rows: [
+          ['How I will use AI', 'Before lectures, I will ask AI to explain the key words. After lectures, I will ask it for practice questions.'],
+          ['Attribution', 'At the end of each assignment I will write which AI tool I used and what for.'],
+          ['One concern', 'To keep my own critical thinking strong, I will write my first draft without AI.']
+        ]},
         { type: 'fields', fields: [
           { id: 'x1-1', label: 'How will I use AI to help my studies? How will I say that I used it (= attribution)?', placeholder: 'Before lectures I will… · I will say I used AI by…', rows: 4 },
           { id: 'x1-2', label: 'Which concern from the podcast will I be careful about? What will I do?', placeholder: 'To keep my own critical thinking strong, I will…', rows: 3 }
@@ -330,6 +460,7 @@ window.DEC15_LESSON = {
 
   glossary: [
     ['clarification question', 'A question that asks a speaker to explain something more clearly.', 'Can you specify what kind of decisions are being made?'],
+    ['specify', 'To say something exactly, with details.', 'Can you specify what kind of decisions?'],
     ['probing question', 'A question that asks a speaker to go deeper into an idea.', 'In DEC10 you will also ask probing questions.'],
     ['upheaval', 'A sudden, major change that causes disruption.', 'ChatGPT brought an upheaval to university life.'],
     ['grapple with', 'To struggle to deal with or understand something difficult.', 'Institutions grappled with plagiarism.'],

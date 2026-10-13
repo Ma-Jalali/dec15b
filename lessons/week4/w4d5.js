@@ -9,7 +9,13 @@
    Sharing (send: true): peer feedback tool (f2f), optional AI paragraph table (f1t).
    v3 (teacher feedback): each stage has a story and ends with a quick win + can-do check; personal warm-ups,
    useful pre-taught words, realistic gist/detail questions, B2 speaking language with model, practice and freer task.
-   New block ids start with g3-. */
+   New block ids start with g3-.
+   v4 (teacher feedback): one language point per activity, taught in five clear parts
+   (Part 1 Notice · Part 2 Clarify · Part 3 Controlled · Part 4 Less controlled · Part 5 Production):
+   giving/responding to feedback (f2) · stating a position (h4-pos) · reporting a source (h4-rep)
+   · hedging (h4-hdg) · evaluating a text (h4-ev). Production in each = the Teacher’s Book task.
+   Input tabs (p3 listening, i2 AI text) keep their questions and get a note-taking frame for the essay.
+   Group-decision language (old p1 bank, chat and sort g3-p1s) moved to extras (h4-x2). New ids start with h4-. */
 
 window.DEC15_LESSON = {
   id: 'w4d5',
@@ -35,17 +41,17 @@ window.DEC15_LESSON = {
       outcome: 'Give useful feedback to a classmate, use AI to learn about language, and use feedback to make your writing better.',
       activities: [
         {
-          id: 'f1', short: 'Reflect', minutes: 15, grouping: 'Pairs → alone',
+          id: 'f1', short: 'Reflect', minutes: 10, grouping: 'Pairs → alone',
           title: 'Self-reflection',
           goal: 'Talk about feedback. Then choose one paragraph from your Week 3 essay and write questions about your teacher’s feedback.',
           blocks: [
-            { type: 'scale', id: 'g3-f1s', title: 'Warm-up (5 min) · Where do you stand?', statement: 'Feedback from a classmate can be as useful as feedback from a teacher.', ends: ['Strongly disagree', 'Strongly agree'], mid: 'Not sure' },
+            { type: 'scale', id: 'g3-f1s', title: 'Warm-up (3 min) · Where do you stand?', statement: 'Feedback from a classmate can be as useful as feedback from a teacher.', ends: ['Strongly disagree', 'Strongly agree'], mid: 'Not sure' },
             { type: 'talk', title: 'Talk with a partner, then share one idea with the class', prompts: [
               'What is the most useful feedback you have ever had (in any subject, job or sport)? Why was it useful?',
               'When you get an essay back, what do you read first: the mark or the comments?',
               'What do you usually <b>do</b> with feedback after you read it?'
             ]},
-            { type: 'steps', title: 'Self-reflection (10 min)', items: [
+            { type: 'steps', title: 'Self-reflection (7 min)', items: [
               { who: 'alone', text: 'Find your <b>Week 3 Integrated Writing Practice Assessment</b> on Canvas.' },
               { who: 'alone', text: 'Choose <b>ONE paragraph</b>. Paste it into the first column of the table (<b>Original version</b>).' },
               { who: 'alone', text: 'Leave the other two columns empty. You fill them later with AI (tab 3).' },
@@ -69,23 +75,42 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'f2', short: 'Peer feedback', minutes: 30, grouping: 'Pairs',
+          id: 'f2', short: 'Peer feedback', minutes: 35, grouping: 'Pairs',
           title: 'Peer feedback',
-          goal: 'Read your partner’s essay. Give feedback with the feedback tool and talk about language errors.',
+          goal: 'Language point: giving and responding to feedback. Learn the phrases, practise them, then use them in a real feedback meeting about your partner’s essay.',
           blocks: [
-            { type: 'key', title: 'Your mission: be the “editor” your partner needs', points: [
-              '<b>Prepare (5 min):</b> learn how good editors talk: kind, specific, useful.',
-              '<b>Read and rate (15 min):</b> swap essays. Complete the feedback tool. Highlight 3–5 language errors.',
-              '<b>Feedback meeting (8 min):</b> meet face to face, like an editor and a writer. Then swap roles.',
-              '<b>Send + compare (2 min):</b> send your feedback. Compare it with your W3 D4 self-evaluation.'
+            { type: 'model', title: 'Part 1 · Notice (2 min) · Two sentences from a feedback meeting', list: [
+              '“<b>One thing that works really well is</b> your position. It’s clear from the first paragraph.”',
+              '“<b>It might be worth</b> naming the problem again.”'
+            ], note: 'Mia is giving feedback on Ravi’s essay. Look at the words in bold.' },
+            { type: 'quiz', id: 'h4-f2n', title: 'What is Mia doing?', items: [
+              { q: 'Sentence 1: what is Mia doing?', options: ['Praising', 'Suggesting a change', 'Responding'], answer: 'Praising', why: 'She says exactly what is good: the position.' },
+              { q: 'Sentence 2: why does Mia say <b>might</b>?', options: ['To make her suggestion soft and polite', 'Because she is not sure about the essay', 'To talk about the future'], answer: 'To make her suggestion soft and polite', why: 'Soft words make feedback kind, so the writer listens.' }
             ]},
-            { type: 'language', title: 'Giving and responding to feedback (builds on W2 D2. 6A)', tabs: false, groups: [
-              { label: 'Specific praise', phrases: ['One thing that works really well is…', 'Your use of… makes your argument more…'] },
-              { label: 'Suggest tactfully', phrases: ['It might be worth …-ing…', 'Have you thought about …-ing…?', 'I’d suggest… rather than…'] },
-              { label: 'Point out a problem gently', phrases: ['I wasn’t quite sure what you meant by…', 'This part could be clearer if you…'] },
-              { label: 'Respond to feedback', phrases: ['That’s a fair point. I’ll…', 'Could you show me an example?', 'I see what you mean, but I did that because…'] }
+
+            { type: 'key', title: 'Part 2 · Clarify (4 min) · What is good feedback?', points: [
+              '<b>Feedback</b> = telling a writer what works and what to change.',
+              'Good feedback is <b>specific</b> (it says where) and <b>kind</b> (it uses soft words like <i>might</i>, <i>could</i>).',
+              'The writer <b>responds</b>: accept it, ask a question, or explain a choice.'
             ]},
-            { type: 'chat', title: 'Listen to two students give feedback', right: 'Ravi', lines: [
+            { type: 'model', title: 'The phrases · with everyday examples', rows: [
+              ['Praise (say what is good)', 'One thing that works really well is… <br><i>One thing that works really well is your <b>first slide</b>. It’s very clear.</i>'],
+              ['Suggest (softly)', 'It might be worth + -ing… / Have you thought about + -ing…? <br><i>It might be worth <b>adding</b> a photo.</i> · <i>Have you thought about <b>using</b> bigger letters?</i>'],
+              ['Point out a problem (gently)', 'I wasn’t quite sure what you meant by… / This part could be clearer if you… <br><i>I wasn’t quite sure what you meant by “soon”.</i>'],
+              ['Respond: accept', 'That’s a fair point. I’ll… <br><i>That’s a fair point. I’ll change the colour.</i>'],
+              ['Respond: ask', 'Could you show me an example? <br><i>Could you show me where the problem is?</i>'],
+              ['Respond: explain', 'I see what you mean, but I did that because… <br><i>I see what you mean, but I used red because it’s our team colour.</i>']
+            ]},
+            { type: 'tip', text: '<b>Common mistakes:</b> “It might be worth <s>to add</s>” → It might be worth <b>adding</b>. “Have you thought about <s>add</s>” → about <b>adding</b>. And don’t only say “Good!” — say <b>what</b> is good.' },
+
+            { type: 'cloze', id: 'g3-f2c', title: 'Part 3 · Controlled practice (4 min) · Complete the feedback', text: '{{1}} really well is your introduction. However, I {{2}} what you meant by “it” in the second sentence. It {{3}} replacing “it” with the noun. {{4}} adding a citation after the statistic? I’d also suggest different linking words {{5}} starting three sentences with “This”.', options: ['One thing that works', 'wasn’t quite sure', 'might be worth', 'Have you thought about', 'rather than'], answers: ['One thing that works', 'wasn’t quite sure', 'might be worth', 'Have you thought about', 'rather than'], why: ['Start with specific praise.', 'A gentle way to point out a problem.', 'It might be worth + -ing = a tactful suggestion.', 'A question makes the suggestion softer.', 'suggest X rather than Y.'] },
+            { type: 'quiz', id: 'h4-f2q', title: 'Quick check · Choose the correct form', items: [
+              { q: 'It might be worth ___ a second source.', options: ['add', 'to add', 'adding'], answer: 'adding', why: 'worth + -ing.' },
+              { q: 'Have you thought about ___ the title?', options: ['change', 'changing', 'to change'], answer: 'changing', why: 'about + -ing.' },
+              { q: 'I’d suggest a full stop ___ a comma here.', options: ['rather than', 'instead', 'more than'], answer: 'rather than', why: 'suggest X rather than Y.' }
+            ]},
+
+            { type: 'chat', title: 'Part 4 · Less controlled practice (5 min) · Model: two students give feedback', right: 'Ravi', lines: [
               ['Mia', '<mark>One thing that works really well is</mark> your position. It’s clear from the first paragraph.'],
               ['Ravi', 'Thanks! What about my body paragraphs?'],
               ['Mia', '<mark>I wasn’t quite sure what you meant by</mark> “this problem” in paragraph 2. <mark>It might be worth</mark> naming the problem again.'],
@@ -93,7 +118,17 @@ window.DEC15_LESSON = {
               ['Mia', '<mark>Have you thought about</mark> adding a second source? Right now the paragraph only uses Berti et al.'],
               ['Ravi', '<mark>Could you show me</mark> where a second source would fit?']
             ]},
-            { type: 'cloze', id: 'g3-f2c', title: 'Practice · Complete the feedback', text: '{{1}} really well is your introduction. However, I {{2}} what you meant by “it” in the second sentence. It {{3}} replacing “it” with the noun. {{4}} adding a citation after the statistic? I’d also suggest different linking words {{5}} starting three sentences with “This”.', options: ['One thing that works', 'wasn’t quite sure', 'might be worth', 'Have you thought about', 'rather than'], answers: ['One thing that works', 'wasn’t quite sure', 'might be worth', 'Have you thought about', 'rather than'], why: ['Start with specific praise.', 'A gentle way to point out a problem.', 'It might be worth + -ing = a tactful suggestion.', 'A question makes the suggestion softer.', 'suggest X rather than Y.'] },
+            { type: 'model', title: 'Model · one spin', before: 'Spin: <b>a poster with tiny writing</b> + <b>a soft suggestion</b>', text: 'A: “One thing that works really well is the colours. <b>It might be worth</b> making the writing bigger.”<br>B: “<b>That’s a fair point. I’ll</b> use size 24.”', note: 'A gives feedback with the phrase on the reel. B responds: accept, ask or explain.' },
+            { type: 'spinner', id: 'h4-f2sp', title: 'Spin and give feedback (in pairs)', text: 'Spin. Give feedback on the work with the phrase type on reel 2. Your partner responds. Then swap.', reels: [
+              { label: 'Your partner’s work', start: 'Spin!', items: ['a poster with tiny writing', 'an email with no greeting', 'a presentation with 25 slides', 'a recipe with no amounts', 'a paragraph with no citation', 'a CV with three spelling mistakes', 'a paragraph where every sentence starts with “This”'] },
+              { label: 'Say…', start: '…', items: ['one specific praise', 'a soft suggestion', 'a gentle problem'] }
+            ]},
+
+            { type: 'key', title: 'Part 5 · Production (24 min) · Be the “editor” your partner needs', points: [
+              '<b>Read and rate (14 min):</b> swap essays. Complete the feedback tool below. Highlight 3–5 language errors.',
+              '<b>Feedback meeting (8 min, 4 min each):</b> use the role cards. Use at least <b>3 phrases</b> from Part 2.',
+              '<b>Send + compare (2 min):</b> send your feedback. Compare it with your W3 D4 self-evaluation.'
+            ]},
             { type: 'form', id: 'f2f', title: 'Peer and Teacher Feedback Tool - Integrated Writing Task', intro: 'For each point, choose Yes, Mostly or Needs work. Add a comment with an example. At the end, write clear actions.', observe: 'Whose essay are you reviewing?', cols: ['Comments'], sections: [
               { label: 'Argumentation', items: [
                 'The overall argument of the essay is clear and well developed.',

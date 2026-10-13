@@ -4,7 +4,10 @@
    Activity titles use the Teacher’s Book headings. Teacher notes live in the database (teacher_notes), refs only here.
    Block types: lessons/_template.js, js/play.js and js/forms.js (form, scale, jeopardy, send: true).
    v2 (A2–B1 version): related TB activities are merged into one tab; each TB heading is the title of the
-   first block of its part ('Part 1 · …'). All saved-work ids (blocks, fields, tables) are unchanged. */
+   first block of its part ('Part 1 · …'). All saved-work ids (blocks, fields, tables) are unchanged.
+   v3 (B2, brief 4): reading has a lead-in, 8 useful words, 2 gist + 6 detail questions in text order and a
+   note-taking frame (+/– column) that feeds 7A. Synthesising (m8) and writing evaluation questions (p1 Part 2)
+   follow Notice → Clarify → Controlled → Less controlled → Production. New ids start with 'h4-'. */
 
 window.DEC15_LESSON = {
   id: 'w5d4',
@@ -81,20 +84,33 @@ window.DEC15_LESSON = {
             { type: 'sources', ids: ['clapp', 'oxfam'] },
             { type: 'teacher', ref: 'w5d4-t1' },
 
-            { type: 'key', title: 'Part 2 · Academic Skills: Evaluating solutions', points: [
+            { type: 'talk', title: 'Part 2 · Academic Skills: Evaluating solutions — lead-in (1 minute)', prompts: [
+              'Think of a free service at your university or in your city (e.g. a free bus, free breakfast, a library app).',
+              'Is it a <b>good</b> solution? Tell your partner <b>one good point</b> and <b>one problem</b>.'
+            ]},
+            { type: 'key', title: 'Evaluate = judge how good something is', points: [
               '<b>Evaluate</b> = judge something. Is it good or bad? How good?',
-              'Today’s reading uses Clapp et al.’s (2022) <b>six pillars</b> to judge one solution to hunger.',
-              'We look at a solution’s <b>strengths</b> (good points) and <b>limitations</b> (weak points).'
+              'We look at a solution’s <b>strengths</b> (good points) and <b>limitations</b> (weak points).',
+              'Today’s reading uses Clapp et al.’s (2022) <b>six pillars</b> to judge one solution to hunger. Tomorrow your group judges a solution to food waste.'
             ]},
             { type: 'figure', src: 'assets/week5/evaluate-solutions.svg', alt: 'Five questions to evaluate a solution: 1 What problems does it improve? 2 Who does it help? 3 How far does it reach (place and time)? 4 How accessible is it for different groups? 5 Any limitations or unintended consequences? We can evaluate quality, value, significance, strengths and limitations.', caption: 'Five questions we can ask about any solution', size: 'wide' },
+            { type: 'model', title: 'Example: a free breakfast for students', rows: [
+              ['What problems does it improve?', 'Students are hungry in morning classes.'],
+              ['Who does it help?', 'Students with little money.'],
+              ['How far does it reach?', 'One campus, only in semester time.'],
+              ['How accessible is it?', 'Easy for students who live near — hard for students who start late.'],
+              ['Any limitations?', 'Food runs out by 8:30, so some students miss it.']
+            ], note: 'Short answers are fine. Each answer = one question.' },
             { type: 'quiz', id: 'm2q', title: 'Quick check · Which question does it answer?', shared: ['What problems does it improve?', 'Who does it help?', 'How far does it reach?', 'How accessible is it?', 'Any limitations?'], items: [
               { q: '“Food banks give food to families with low incomes.”', answer: 'Who does it help?', why: 'It names a group of people: families with low incomes.' },
               { q: '“There are food banks in only two cities in my country.”', answer: 'How far does it reach?', why: 'It talks about place — where the solution works.' },
-              { q: '“Some food arrives too old to eat, so it is thrown away.”', answer: 'Any limitations?', why: 'It is a weak point of the solution.' }
+              { q: '“Some food arrives too old to eat, so it is thrown away.”', answer: 'Any limitations?', why: 'It is a weak point of the solution.' },
+              { q: '“Food banks mean that fewer families go to bed hungry.”', answer: 'What problems does it improve?', why: 'It names the problem that gets better: hunger.' },
+              { q: '“People who work all day cannot visit, because it closes at 4 pm.”', answer: 'How accessible is it?', why: 'It is about how easy it is for a group to use.' }
             ]},
-            { type: 'talk', title: 'Your turn', prompts: ['Think of a solution to food waste from Weeks 3 and 4 (e.g. food banks). Answer <b>one</b> of the five questions about it.'] },
+            { type: 'talk', title: 'Your turn (2 minutes)', prompts: ['Think of a solution to food waste from Weeks 3 and 4 (e.g. a food-sharing app). Answer <b>two</b> of the five questions about it.'] },
             { type: 'language', title: 'Sentence starters', tabs: false, groups: [
-              { label: 'Judging a solution', phrases: ['I think … helps … because…', 'One strength of … is that…', 'One limitation is that…'] }
+              { label: 'Judging a solution', phrases: ['One strength of … is that…', 'It mainly helps…', 'One limitation is that…'] }
             ]},
             { type: 'teacher', ref: 'w5d4-t2' }
           ],
@@ -107,18 +123,21 @@ window.DEC15_LESSON = {
         {
           id: 'm3', short: 'Read: gist', minutes: 20, grouping: 'Pairs',
           title: 'Vocabulary + Reading for gist',
-          goal: 'Learn nine key words. Then read the start and end of the study and say what it found.',
+          goal: 'Learn the key words. Then read the start and end of the study and say what it found.',
           blocks: [
-            { type: 'flip', title: 'Part 1 · Vocabulary: key words', hint: 'Guess the meaning. Then tap the card to check.', items: [
-              { front: 'self-help groups', back: 'A group of people who work together to solve a problem they all have.' },
-              { front: 'resilience', back: 'The ability to adapt and recover when there are problems.' },
-              { front: 'supply chain participants', back: 'Suppliers, manufacturers, distributors, retailers (shops) and consumers.' },
-              { front: 'value chain actors', back: 'People who buy and sell a product to make a profit.' },
-              { front: 'solidarity', back: 'Support for each other; unity.' },
-              { front: 'social norms', back: 'The rules or expected behaviour in a social group.' },
-              { front: 'resentful', back: 'Angry because you feel you were treated unfairly.' },
-              { front: 'multifaceted', back: 'Having many parts or sides.' },
-              { front: 'procurement', back: 'Buying goods (that are already produced) to sell them again.' }
+            { type: 'talk', title: 'Lead-in · 2 minutes with a partner', prompts: [
+              'Think about the COVID-19 lockdowns. How did your family get <b>fresh fruit and vegetables</b>?',
+              'Were markets and shops open? Who helped people who had no money or could not go out?'
+            ]},
+            { type: 'flip', title: 'Part 1 · Vocabulary: 8 useful words from the study', hint: 'Guess the meaning with your partner. Then tap the card to check.', items: [
+              { front: 'self-help group', back: 'A group of people who work together to solve a problem they all have.<br><i>Ten women formed a self-help group to save money.</i>' },
+              { front: 'procurement', back: 'Buying goods (that are already produced) to sell them again.<br><i>The café’s procurement of fruit is from local farms.</i>' },
+              { front: 'supply chain participants · value chain actors', back: 'All the people who move a product from farm to shop to buyer — and earn money from it.<br><i>Farmers, drivers and shop owners are value chain actors.</i>' },
+              { front: 'resilience', back: 'The ability to adapt and recover when there are problems.<br><i>Local markets give a city resilience in a crisis.</i>' },
+              { front: 'solidarity', back: 'Support for each other; unity.<br><i>The students showed solidarity with their hungry classmates.</i>' },
+              { front: 'social norms', back: 'The rules or expected behaviour in a social group.<br><i>In some villages, social norms say women stay at home.</i>' },
+              { front: 'resentful', back: 'Angry because you feel you were treated unfairly.<br><i>Shop owners felt resentful when the new market took their customers.</i>' },
+              { front: 'multifaceted', back: 'Having many parts or sides.<br><i>Hunger is a multifaceted problem: money, transport, health…</i>' }
             ]},
             { type: 'cloze', id: 'm3c', list: true, title: 'Complete the sentences with the key words', options: ['self-help groups', 'resilience', 'supply chain participants', 'value chain actors', 'solidarity', 'social norms', 'resentful', 'multifaceted', 'procurement'],
               answers: ['self-help groups', 'resilience', 'supply chain participants', 'value chain actors', 'solidarity', 'social norms', 'resentful', 'multifaceted'],
@@ -128,18 +147,15 @@ window.DEC15_LESSON = {
 
             { type: 'steps', title: 'Part 2 · Reading for gist', items: [
               { who: 'alone', text: 'Open the reading. Read only the <b>introduction</b> (paragraph A).' },
-              { who: 'alone', text: 'Read the <b>conclusion</b> below.' },
-              { who: 'pair', text: 'Answer the five questions. Compare with your partner.' }
+              { who: 'alone', text: 'Read the <b>conclusion</b> below. You have <b>5 minutes</b>.' },
+              { who: 'pair', text: 'Answer the two gist questions. Compare with your partner.' }
             ]},
             { type: 'sources', ids: ['mockshell'] },
             { type: 'tip', text: '<b>Gist</b> = the main idea. You don’t need every word! Two useful words: <b>albeit</b> (= although) and <b>holistic</b> (= looking at the whole thing).' },
             { type: 'passage', id: 'm4p', title: 'Conclusion (paragraph G)', text: 'This study contributed to the literature by applying Clapp et al.’s (2022) six-dimensional food security framework to examine the effects of a specific policy (Clapp et al., 2022). The policy in question was a fresh fruit and vegetable procurement program implemented by self-help groups. Through semi-structured interviews and focus group discussions, we found that the policy was able to contribute to all six dimensions of food security, albeit with mixed results on agency and sustainability. We showed that including the two additional dimensions of food security, namely agency and sustainability, allowed for a more thorough, complete, and holistic analysis of the impacts of the policy. Examining policies and programs through the lens of the six-dimensional food security framework is one step towards designing and implementing policies that are more inclusive. A multifaceted approach will help ensure that the most vulnerable are not left behind.' },
             { type: 'quiz', id: 'm4q', title: 'Gist questions', items: [
-              { q: '1. What program do the authors evaluate?', options: ['A fresh fruit and vegetable procurement program implemented by self-help groups', 'A government food bank for poor families', 'A mobile app that helps farmers sell vegetables'], answer: 'A fresh fruit and vegetable procurement program implemented by self-help groups', why: '“The policy in question was a fresh fruit and vegetable procurement program implemented by self-help groups.”' },
-              { q: '2. Which model do they use to evaluate it?', options: ['Clapp et al.’s (2022) six-dimensional food security framework', 'The Value–Attitude–Behaviour model', 'The food waste hierarchy'], answer: 'Clapp et al.’s (2022) six-dimensional food security framework', why: 'The study uses Clapp et al.’s six pillars: availability, access, utilization, stability, agency and sustainability.' },
-              { q: '3. What were the results?', options: ['The program contributed to all six dimensions, with mixed results on agency and sustainability.', 'The program only improved availability and access.', 'The program had no clear effect on food security.'], answer: 'The program contributed to all six dimensions, with mixed results on agency and sustainability.', why: '“…able to contribute to all six dimensions of food security, albeit with mixed results on agency and sustainability.”' },
-              { q: '4. Were there any limitations (weak points) in the results? Hint: look for “albeit”.', options: ['Yes — the results are not as clear for agency and sustainability.', 'Yes — the program was too expensive.', 'No — all results were completely positive.'], answer: 'Yes — the results are not as clear for agency and sustainability.', why: 'Albeit = although. The results for these two pillars were mixed (some good, some not good).' },
-              { q: '5. How could people use the results?', options: ['To design more inclusive programs that empower vulnerable groups', 'To replace all markets with self-help groups', 'To prove that the four-pillar model is enough'], answer: 'To design more inclusive programs that empower vulnerable groups', why: '“…designing and implementing policies that are more inclusive… the most vulnerable are not left behind.”' }
+              { q: '1. What do the authors evaluate?<br><small>Hint: sentence 2 of the conclusion.</small>', options: ['Women’s groups selling fruit and vegetables', 'A government food bank', 'A farming app'], answer: 'Women’s groups selling fruit and vegetables', why: '“…a fresh fruit and vegetable procurement program implemented by self-help groups.” The groups are women’s groups (paragraph B).' },
+              { q: '2. What did they find, in general?<br><small>Hint: look for “albeit” (= although).</small>', options: ['It helped all six pillars, but not clearly for two', 'It only helped availability', 'It did not help food security'], answer: 'It helped all six pillars, but not clearly for two', why: '“…contribute to all six dimensions… albeit with mixed results on agency and sustainability.”' }
             ]},
             { type: 'teacher', ref: 'w5d4-t4' }
           ]
@@ -153,16 +169,29 @@ window.DEC15_LESSON = {
           blocks: [
             { type: 'steps', title: 'Part 1 · Reading for detail: Note-taking', items: [
               { who: 'alone', text: 'Read the whole text. You have about <b>20 minutes</b>.' },
-              { who: 'alone', text: 'Use the small questions in each row of the table. They tell you what to look for.' },
+              { who: 'alone', text: 'First answer the six quick questions. They follow the text (A → G).' },
+              { who: 'alone', text: 'Then fill in the notes table. The small questions tell you what to look for.' },
               { who: 'alone', text: 'Write <b>short notes in your own words</b> (= paraphrase). Don’t copy whole sentences.' }
             ]},
+            { type: 'quiz', id: 'h4-m5q', title: 'Six quick questions (in text order)', items: [
+              { q: '1. Paragraph A: which two pillars does Clapp et al.’s framework add?', options: ['Agency and sustainability', 'Availability and access', 'Utilization and stability'], answer: 'Agency and sustainability', why: 'The four old pillars + agency and sustainability = six.' },
+              { q: '2. Paragraph B: who were the self-help groups (SHGs)?', options: ['Groups of 10–15 women', 'Local shop owners', 'Government workers'], answer: 'Groups of 10–15 women', why: '“SHGs are typically comprised of about 10 to 15 women…”' },
+              { q: '3. Paragraph C: how did the poorest families get vegetables?', options: ['They got them free', 'They got cash from the bank', 'They grew their own'], answer: 'They got them free', why: '“very poor consumers were given free FFV”.' },
+              { q: '4. Paragraph D: why did prices stay stable?', options: ['The supply never stopped', 'The government fixed prices', 'People bought less'], answer: 'The supply never stopped', why: '“a constant supply of FFV… stabilized FFV prices and quantities”.' },
+              { q: '5. Paragraph E: who did the program <b>harm</b>?', options: ['Independent shop owners', 'Very poor families', 'Farmers in the SHGs'], answer: 'Independent shop owners', why: 'Independent retailers had to lower prices or travel further and felt resentful.' },
+              { q: '6. Paragraph F: what did two-thirds of sellers report?', options: ['Less fruit and vegetable waste', 'More rotten food', 'Higher prices'], answer: 'Less fruit and vegetable waste', why: '“…the program reduced FFV waste.”' }
+            ]},
+            { type: 'tip', text: '<b>Hint:</b> each question has a paragraph letter. Look for numbers and names — they are easy to find.' },
             { type: 'model', title: 'Example: from the text to a note', rows: [
               ['The text says', '“The policy in question was a fresh fruit and vegetable procurement program implemented by self-help groups.”'],
-              ['My note', 'program = women’s self-help groups (SHGs) buy + sell fresh fruit & veg (FFV)']
-            ], note: 'Use short forms (SHG, FFV), arrows (→) and key words only.' },
+              ['My note', 'program = women’s self-help groups (SHGs) buy + sell fresh fruit & veg (FFV)'],
+              ['Text (paragraph C)', '“…very poor consumers were given free FFV…”'],
+              ['My note + judgement', 'v. poor → free FFV · <b>+</b> helps the most vulnerable (access)']
+            ], note: 'Use short forms (SHG, FFV), arrows (→) and key words only. Add <b>+</b> or <b>–</b> in the last column.' },
             { type: 'sources', ids: ['mockshell'] },
             { type: 'figure', src: 'assets/week5/shg-program.svg', alt: 'The fresh fruit and vegetable program in Odisha, India, during the COVID-19 lockdown: self-help groups of 10–15 women buy fresh fruit and vegetables from producers (farmers) and sell them to consumers in towns and villages; very poor households receive free produce.', caption: 'How the program worked', credit: 'Based on Mockshell and Ritter (2024)', size: 'wide' },
-            { type: 'table', id: 'm5t', title: 'My notes (in my own words)', columns: ['', 'Notes'], fixed: [
+            { type: 'tip', text: '<b>Keep these notes.</b> The last column helps you judge a solution. You use it in 7A (your group’s evaluation) and in tomorrow’s presentation.' },
+            { type: 'table', id: 'm5t', title: 'My notes (in my own words)', columns: ['', 'Notes', 'Strength (+) or limitation (–) of the program?'], fixed: [
               'Introduction<br><small>Which solution? · Which framework? · What do “agency” and “sustainability” mean in this study?</small>',
               'The program<br><small>Where and when? · Who ran it? · What did they do? · How did SHGs help people before?</small>',
               'Availability and access<br><small>How did the SHGs change these pillars? · Who are the vulnerable (= easily harmed) groups?</small>',
@@ -187,6 +216,7 @@ window.DEC15_LESSON = {
             { type: 'teacher', ref: 'w5d4-t6' }
           ],
           answers: { title: 'Sample answers', items: [
+            ['Quick questions', '1 agency and sustainability · 2 groups of 10–15 women · 3 free · 4 the supply never stopped · 5 independent shop owners · 6 less waste'],
             ['Notes · Introduction', 'Solution: a fresh fruit and vegetable (FFV) program run by self-help groups in India. Framework: Clapp et al.’s 6-pillar framework. <b>Agency</b>: the ability of people to control their lives → can lead to collective action, which can reduce inequality. <b>Sustainability</b>: the ability to provide food to current generations without reducing future generations’ ability to do the same. Resilience is included in sustainability — not another dimension.'],
             ['Notes · The program', 'SHGs in Odisha, India, during the COVID-19 lockdowns. Groups of 10–15 women. Bought FFV from producers and sold them to consumers. Previous benefits of SHGs: food expenditures, nutritional outcomes and women’s empowerment.'],
             ['Notes · Availability and access', 'Increased availability, especially in rural areas. Increased access to nutritious foods. Producers could make money and consumers could get healthy food at a reasonable price. Very poor consumers were given free FFV.'],
@@ -194,6 +224,7 @@ window.DEC15_LESSON = {
             ['Notes · Agency', 'Increased sense of solidarity among SHG members; SHGs could support their communities. They had a choice over who they bought from and sold to, and could give free food to poor people. But women were restricted in the roles they could take because of gender and cultural (social) norms. Independent retailers were affected negatively: they could only sell illegally during lockdown, had to lower prices or travel further, and felt neglected and resentful.'],
             ['Notes · Sustainability', 'Seen as resilience in food systems, rather than environmentally friendly farming (Clapp et al.). Still: reduced FFV waste, and the SHG received a solar-powered cold storage facility thanks to better government (political) connections.'],
             ['Notes · Conclusion', 'Contributed to all 6 dimensions. Limitation: the impact on agency and sustainability was mixed. Use: to create more inclusive food systems and policies that protect the vulnerable.'],
+            ['Strength (+) or limitation (–)?', '<b>+</b> more fresh food, free food for the poorest, stable prices, less waste, solidarity · <b>–</b> social norms limited women, independent shop owners lost income, only one state during lockdown.'],
             ['Part 2 · Mixed results', 'The results were not clearly positive. Why? Shop owners outside the SHGs lost money. Cultural norms limited women’s agency. And there was no clear sign that farming became more sustainable — but the authors also understand sustainability differently (as resilience).'],
             ['Part 2 · What problems?', 'All 6 pillars of food security were positively affected.'],
             ['Part 2 · Who does it help?', 'Poor and vulnerable groups who could not get fresh fruit and vegetables.'],
@@ -205,13 +236,13 @@ window.DEC15_LESSON = {
 
         /* ── 4 · Building understanding across texts ── */
         {
-          id: 'm7', short: 'Across texts', minutes: 30, grouping: 'Alone → pair',
+          id: 'm7', short: 'Across texts', minutes: 25, grouping: 'Alone → pair',
           title: 'Building understanding across texts',
           goal: 'Find out which of the three texts talk about each idea.',
           blocks: [
             { type: 'steps', items: [
               { who: 'alone', text: 'Read each statement. Choose <b>Y</b> if the text talks about it. Choose <b>N</b> if it does not.' },
-              { who: 'alone', text: 'Use your notes and the texts. You have about <b>20 minutes</b>.' },
+              { who: 'alone', text: 'Use your notes and the texts. You have about <b>15 minutes</b>.' },
               { who: 'pair', text: 'Check with a partner (10 minutes). For each Y, show <b>where</b> you found it.' }
             ]},
             { type: 'tip', text: '<b>Key words:</b> <b>inequality</b> (= things are not fair or equal) · <b>empower</b> (= give power and confidence) · <b>make a living</b> (= earn money) · <b>beneficial</b> (= good, helpful).' },
@@ -247,38 +278,76 @@ window.DEC15_LESSON = {
 
         /* ── 5 · Synthesizing: Discussion ── */
         {
-          id: 'm8', short: 'Discussion', minutes: 15, grouping: 'Groups of 3–4',
+          id: 'm8', short: 'Synthesising', minutes: 20, grouping: 'Alone → groups of 3–4',
           title: 'Synthesizing: Discussion',
-          goal: 'Discuss how giving women more power can improve food security. Use ideas from all three texts.',
+          goal: 'One language point: bring two sources together in one sentence (= synthesise). Then use it in a discussion.',
           blocks: [
-            { type: 'key', title: 'Discussion question', points: ['<b>How can empowering women improve food security?</b><br><small>empowering = giving more power, money, skills and choices</small>'] },
+            { type: 'cards', title: 'Part 1 · Notice (2 minutes): two sentences from Mockshell and Ritter (2024)', items: [
+              { label: 'Paragraph B', text: '“SHG membership has been found to lead to a number of beneficial outcomes…, such as… nutritional outcomes <b>(Kumar et al., 2018)</b>, and women’s empowerment <b>(Kumar et al., 2021)</b>.”' },
+              { label: 'Paragraph F', text: '“We… emphasized the concept of resilience…, <b>rather than</b> focusing on sustainable agricultural practices and reduced food loss <b>as in Clapp et al. (2022)</b>.”' }
+            ]},
+            { type: 'talk', title: 'Ask yourself', prompts: ['How many sources are in each sentence?', 'In which sentence do the sources <b>agree</b>? In which one are they <b>different</b>?'] },
+            { type: 'key', title: 'Part 2 · Clarify: what is synthesising?', points: [
+              '<b>Synthesise</b> = put ideas from <b>two or more sources</b> together in one sentence. Show if they say the <b>same</b> thing, <b>add</b> to each other, or are <b>different</b>.',
+              'Why? It shows you read widely, and two sources make your point <b>stronger</b> than one. Tomorrow’s presentation and your essays need it.'
+            ], compare: [
+              { label: 'Same idea', text: '<b>Both</b> A <b>and</b> B suggest that… · A <b>and</b> B <b>agree that</b>…', eg: '<b>Both</b> my doctor <b>and</b> my coach <b>say that</b> sleep helps you learn.' },
+              { label: 'Adding support', text: 'A says… . <b>Similarly</b>, B… · <b>This is supported by</b> B, who found that…', eg: 'My teacher says reading helps. <b>Similarly</b>, my friend says it improved her English.' },
+              { label: 'Different idea', text: 'A says… . <b>In contrast</b>, B… · A…, <b>whereas</b> B…', eg: 'My mum cooks every day, <b>whereas</b> my brother orders food.' }
+            ]},
+            { type: 'tip', text: '<b>Common mistakes:</b> (1) <i>Both A and B <s>suggests</s></i> → <b>suggest</b> (two sources = plural). (2) <i>Similarly</i> is only for the <b>same</b> idea — for a different idea use <i>In contrast</i> or <i>whereas</i>.' },
+            { type: 'cloze', id: 'h4-m8c', list: true, title: 'Part 3 · Controlled practice: choose the best word', options: [
+              ['Both', 'Similarly', 'Whereas'], ['suggest', 'suggests', 'suggesting'], ['Similarly', 'In contrast', 'Both'], ['In contrast', 'Similarly', 'Both'], ['whereas', 'similarly', 'both'], ['supported', 'contrasted', 'agreed']
+            ], text: '{{1}} my teacher and my friend say that a shopping list saves money.\nBoth the news and my phone app {{2}} that tomorrow will be hot.\nMy flatmate eats leftovers for lunch. {{3}}, I take last night’s dinner to class.\nCafé A gives old bread to a food bank. {{4}}, Café B throws it away.\nMy sister cooks at home, {{5}} I usually eat on campus.\nThe app works well. This is {{6}} by a study, which found users wasted 30% less food.',
+              answers: ['Both', 'suggest', 'Similarly', 'In contrast', 'whereas', 'supported'],
+              why: ['Two people say the same thing → Both … and…', 'Two sources = plural verb: suggest.', 'Same idea (eating leftovers) → Similarly.', 'Different idea (give vs. throw away) → In contrast.', 'Different idea in the same sentence → whereas.', 'The study agrees and adds evidence → This is supported by…'] },
+            { type: 'model', title: 'Part 4 · Less controlled practice: join two notes in one sentence', rows: [
+              ['Note A', 'Clapp et al. (2022): women = vulnerable group, need agency'],
+              ['Note B', 'Mockshell & Ritter (2024): social norms limited women’s roles'],
+              ['One sentence', '<b>Clapp et al. (2022) argue that</b> women need more agency. <b>This is supported by</b> Mockshell and Ritter (2024), <b>who found that</b> social norms limited women’s roles.']
+            ], note: 'Name both sources. Choose: same, adding support, or different.' },
+            { type: 'fields', title: 'Your turn: write one sentence for each pair', fields: [
+              { id: 'h4-m8-1', label: '1. Oxfam (2022): women farmers lack land and money · Clapp et al. (2022): women need more agency', placeholder: 'Both Oxfam (2022) and Clapp et al. (2022) suggest that…', rows: 2 },
+              { id: 'h4-m8-2', label: '2. Mockshell & Ritter (2024): program reduced vegetable waste · Clapp et al. (2022): less food loss = more sustainable', placeholder: 'Mockshell and Ritter (2024) found that… . Similarly, …', rows: 2 },
+              { id: 'h4-m8-3', label: '3. Clapp et al. (2022): sustainability = good farming + less food loss · Mockshell & Ritter (2024): sustainability = resilience (recovering from problems)', placeholder: 'Clapp et al. (2022) see sustainability as…, whereas…', rows: 2 }
+            ]},
+            { type: 'key', title: 'Part 5 · Production: group discussion (10 minutes)', points: ['<b>How can empowering women improve food security?</b><br><small>empowering = giving more power, money, skills and choices</small>'] },
             { type: 'steps', items: [
-              { who: 'alone', text: 'Prepare for <b>5 minutes</b>. Choose <b>two or three pillars</b>.' },
-              { who: 'alone', text: 'For each pillar, write one idea and the text it comes from.' },
-              { who: 'group', text: 'Discuss for <b>6–8 minutes</b>. Your teacher may ask some groups to share.' }
+              { who: 'alone', text: 'Prepare for <b>3 minutes</b>. Choose <b>two pillars</b>.' },
+              { who: 'alone', text: 'For each pillar, write one idea and <b>two</b> sources.' },
+              { who: 'group', text: 'Discuss for <b>6–7 minutes</b>. Use two linking phrases. A partner ticks the checklist.' }
             ]},
             { type: 'figure', src: 'assets/week5/six-pillars.svg', alt: 'The six dimensions of food security: availability, access, utilisation, stability, agency and sustainability.', caption: 'The six pillars', credit: 'Based on Clapp et al. (2022)', size: 'small' },
             { type: 'table', id: 'm8t', title: 'My preparation: 2–3 pillars', columns: ['Pillar', 'How empowering women helps', 'Evidence (which text?)'], rows: 3 },
-            { type: 'chat', title: 'Listen in: a short sample discussion', lines: [
+            { type: 'chat', title: 'Model: a short sample discussion', lines: [
               ['Student 1', 'I chose <b>access</b>. <mark>Mockshell and Ritter (2024) found that</mark> the women’s groups gave free vegetables to very poor families.'],
               ['Student 2', 'Good point. <mark>Similarly, Oxfam (2022) points out that</mark> equal pay for women helps families buy healthy food.'],
               ['Student 3', 'I looked at <b>agency</b>. <mark>However, social norms may limit</mark> what women can do. In the study, they could not take some roles.'],
               ['Student 1', 'So, <mark>both texts suggest that</mark> empowering women helps — but it is not easy.']
             ]},
             { type: 'language', title: 'Bringing sources together (= synthesising)', tabs: false, groups: [
-              { label: 'Linking sources', phrases: ['Both Clapp et al. (2022) and Oxfam (2022) suggest that…', 'This is supported by Mockshell and Ritter (2024), who found that…', 'Similarly, Oxfam (2022) points out that…', 'In contrast, Mockshell and Ritter (2024) show that…'] },
-              { label: 'Explaining effects', phrases: ['If women had more…, this could improve… because…', 'This would increase access to… as…', 'However, social norms may limit…'] }
+              { label: 'Same or adding support', phrases: ['Both Clapp et al. (2022) and Oxfam (2022) suggest that…', 'This is supported by Mockshell and Ritter (2024), who found that…', 'Similarly, Oxfam (2022) points out that…'] },
+              { label: 'Different', phrases: ['In contrast, Mockshell and Ritter (2024) show that…', '…, whereas Oxfam (2022)…', 'However, social norms may limit…'] }
             ]},
-            { type: 'spinner', id: 'm8sp', title: 'Spin and speak: pillar + source', text: 'Spin. Say how empowering women helps <b>this pillar</b>. Use <b>this source</b> and one phrase above. Then pass the turn.', reels: [
+            { type: 'checklist', id: 'h4-m8k', title: 'Partner check: did your classmate…', items: [
+              'name two sources?',
+              'use two linking phrases (Both… and…, Similarly, This is supported by, In contrast)?',
+              'say which pillar the idea helps?'
+            ]},
+            { type: 'spinner', id: 'm8sp', title: 'Extra round: spin and speak', text: 'Spin. Say how empowering women helps <b>this pillar</b>. Use <b>this source</b> and one phrase above. Then pass the turn.', reels: [
               { label: 'Pillar', start: 'Spin!', items: ['availability', 'access', 'utilization', 'stability', 'agency', 'sustainability'] },
               { label: 'Use this source', start: '…', items: ['Clapp et al. (2022)', 'Oxfam (2022)', 'Mockshell and Ritter (2024)', 'two sources together'] }
             ]},
             { type: 'teacher', ref: 'w5d4-t8' }
           ],
-          answers: { title: 'Some possible ideas', items: [
-            ['Agency', 'Clapp et al. (2022) say agency matters most for vulnerable groups such as women. In the SHG program, women gained solidarity and could decide who to buy from, sell to and give free food to (Mockshell & Ritter, 2024) — but social norms still limited their roles.'],
-            ['Availability and stability', 'More than half of smallholder farmers are women (Oxfam, 2022). Securing their land rights, finance and support to improve farming practices could increase food production and make it more stable.'],
-            ['Access', 'Women’s self-help groups earned income and gave very poor households free vegetables, which increased access (Mockshell & Ritter, 2024). Equal pay for women (Oxfam, 2022) would also help households buy healthy food.']
+          answers: { title: 'Model answers', items: [
+            ['Notice', 'Paragraph B: two sources that <b>agree</b> — SHGs bring good results. Paragraph F: two views that are <b>different</b> — the authors vs. Clapp et al. (2022) (“rather than”).'],
+            ['Part 4 · 1', 'Both Oxfam (2022) and Clapp et al. (2022) suggest that women need more power: women farmers lack land and money, and they need more agency.'],
+            ['Part 4 · 2', 'Mockshell and Ritter (2024) found that the program reduced vegetable waste. Similarly, Clapp et al. (2022) link less food loss with sustainability.'],
+            ['Part 4 · 3', 'Clapp et al. (2022) see sustainability as good farming and less food loss, whereas Mockshell and Ritter (2024) see it as resilience — recovering from problems.'],
+            ['Discussion · Agency', 'Clapp et al. (2022) say agency matters most for vulnerable groups such as women. In the SHG program, women gained solidarity and could decide who to buy from, sell to and give free food to (Mockshell & Ritter, 2024) — but social norms still limited their roles.'],
+            ['Discussion · Availability and stability', 'More than half of smallholder farmers are women (Oxfam, 2022). Securing their land rights, finance and support to improve farming practices could increase food production and make it more stable.'],
+            ['Discussion · Access', 'Women’s self-help groups earned income and gave very poor households free vegetables, which increased access (Mockshell & Ritter, 2024). Equal pay for women (Oxfam, 2022) would also help households buy healthy food.']
           ]}
         }
       ]
@@ -324,8 +393,16 @@ window.DEC15_LESSON = {
               { who: 'group', text: 'Say which pillars your information is about.' },
               { who: 'group', text: 'Choose <b>one or two pillars</b>. Pick the ones with the best evidence.' }
             ]},
+            { type: 'table', id: 'h4-p1t', title: 'Our source notes (keep them for 7A and tomorrow’s presentation)', columns: ['Source (who? when?)', 'Main point', 'Evidence / example', 'Pillar', 'Strength (+) or limitation (–) of our solution?'], rows: 4, extraRows: true },
+            { type: 'model', title: 'Example row (solution: food banks)', rows: [
+              ['Source', 'Mockshell and Ritter (2024)'],
+              ['Main point', 'Free fresh food reached the poorest families.'],
+              ['Evidence', 'Very poor consumers were given free FFV (paragraph C).'],
+              ['Pillar', 'Access'],
+              ['+ or –', '<b>+</b> giving free food can improve access — food banks do this too.']
+            ]},
             { type: 'fields', title: 'Our notes', fields: [
-              { id: 'p1-1', label: 'Useful information from our sources (who wrote it? which pillar?)', placeholder: 'Source 1: … → access, agency…', rows: 5 },
+              { id: 'p1-1', label: 'Other useful information from our sources (optional)', placeholder: 'Source 1: … → access, agency…', rows: 3 },
               { id: 'p1-2', label: 'The pillar(s) we chose and why', placeholder: 'We chose… because…', rows: 3 }
             ]},
             { type: 'language', title: 'Sentence starters', tabs: false, groups: [
@@ -334,14 +411,29 @@ window.DEC15_LESSON = {
             { type: 'sources', ids: ['clapp', 'oxfam', 'mockshell'] },
             { type: 'teacher', ref: 'w5d4-t9' },
 
-            { type: 'cards', title: 'Part 2 · Preparing questions: start from the five general questions', numbered: true, items: [
+            { type: 'cards', title: 'Part 2 · Preparing questions — Notice (2 minutes): which question is more useful?', items: [
+              { label: 'A · general', text: 'Who does the solution help?' },
+              { label: 'B · specific', text: 'Which groups might have <b>difficulty using</b> <b>food-sharing apps</b>?' }
+            ]},
+            { type: 'talk', title: 'Ask yourself', prompts: ['Both questions are about people. Which one helps you judge <b>apps</b> and <b>access</b>? Why?'] },
+            { type: 'key', title: 'Clarify: a good evaluation question', points: [
+              'A good question = <b>your solution</b> + <b>your pillar</b> + a clear question form.',
+              'Why? General questions give general answers. Specific questions give <b>evidence</b> you can present.',
+              'Use <b>different types</b> of question. Start from the five general questions and make them specific.'
+            ], compare: [
+              { label: 'Open', text: '<b>Which</b> groups…? <b>How easily</b>…? <b>What barriers</b>…?', eg: '<b>What barriers</b> stop students from using the library app?' },
+              { label: 'Yes / no', text: '<b>Would</b>… be easy to…? <b>Is</b>… free? <b>Can</b>…?', eg: '<b>Is</b> the campus bus free for all students?' },
+              { label: 'Scale', text: '<b>On a scale</b> (not → very effective), <b>how well</b>…?', eg: '<b>On a scale</b> from 1 to 5, <b>how well</b> does the bus app show times?' }
+            ]},
+            { type: 'tip', text: '<b>Common mistakes:</b> (1) too general: <i>Is food important?</i> (2) word order: <i>Which groups <s>they might have</s>…?</i> → <i>Which groups <b>might have</b>…?</i>' },
+            { type: 'cards', title: 'The five general questions (from 6A)', numbered: true, items: [
               { text: 'What problem/s does the solution improve?' },
               { text: 'Who does the solution help?' },
               { text: 'How extensive is it? Is it limited in place or time?' },
               { text: 'How accessible is the solution for different groups?' },
               { text: 'Are there any limitations or unintended consequences?' }
             ]},
-            { type: 'sort', id: 'p2s', title: 'Game: three types of question', hint: 'Good instruments use <b>different types</b> of question. <b>Drag</b> each question to its type — or tap a card, then tap a box.', buckets: [
+            { type: 'sort', id: 'p2s', title: 'Controlled practice: three types of question', hint: '<b>Drag</b> each question to its type — or tap a card, then tap a box.', buckets: [
               { label: 'Open question', text: 'How…? Which…? What…?' },
               { label: 'Yes / no question', text: 'Would…? Is…? Can…?' },
               { label: 'Scale question', text: 'not effective → very effective' }
@@ -350,23 +442,40 @@ window.DEC15_LESSON = {
               { text: 'Would food banks be easy to find for everyone?', answer: 1 },
               { text: 'How well do food banks help families: not effective, moderately effective or very effective?', answer: 2 },
               { text: 'What barriers stop people from using the app?', answer: 0 },
-              { text: 'Is the app free to use?', answer: 1 }
+              { text: 'Is the app free to use?', answer: 1 },
+              { text: 'On a scale from 1 to 5, how much food does the app save?', answer: 2 }
             ]},
-            { type: 'model', title: 'Example instrument: mobile apps · agency and access', rows: [
+            { type: 'model', title: 'Less controlled practice: make it specific', rows: [
+              ['General', 'How accessible is the solution for different groups?'],
+              ['Specific (apps · access)', 'Would these apps be easy to get for <b>older people</b> without a smartphone?']
+            ], note: 'Add your solution, your pillar and one group of people.' },
+            { type: 'fields', title: 'Your turn: make two general questions specific for YOUR solution', fields: [
+              { id: 'h4-p2-l1', label: 'Who does the solution help? →', placeholder: 'Which groups benefit most from…?', rows: 2 },
+              { id: 'h4-p2-l2', label: 'Are there any limitations? →', placeholder: 'What barriers could stop… from…?', rows: 2 }
+            ]},
+            { type: 'model', title: 'Production · Example instrument: mobile apps · agency and access', rows: [
               ['Main question', 'How well do <b>mobile apps</b> improve <b>agency</b> (help users make good choices) and <b>access</b>?'],
-              ['Question 1', 'Would these apps be easy to get for everyone in the community?'],
-              ['Question 2', 'Which groups might have difficulty using these apps?']
+              ['Question 1 (yes / no)', 'Would these apps be easy to get for everyone in the community?'],
+              ['Question 2 (open)', 'Which groups might have difficulty using these apps?'],
+              ['Question 3 (scale)', 'On a scale (not → very effective), how well could these apps help users use up extra food?']
             ], note: 'Your questions should be about <b>your</b> solution and <b>your</b> pillar(s).' },
-            { type: 'fields', title: 'Our draft questions', fields: [
+            { type: 'fields', title: 'Production (8 minutes): our draft questions', fields: [
               { id: 'p2-0', label: 'Main question: How well does (our solution) improve (our pillar/s)?', placeholder: 'How well do food banks improve access and stability…?', rows: 2 },
               { id: 'p2-1', label: 'Question 1', placeholder: 'Would…? / Which groups…? / How…?', rows: 2 },
               { id: 'p2-2', label: 'Question 2', rows: 2 },
               { id: 'p2-3', label: 'Question 3', rows: 2 },
               { id: 'p2-4', label: 'Question 4 (optional)', rows: 2 }
             ]},
+            { type: 'checklist', id: 'h4-p2k', title: 'Check your questions', items: [
+              'Every question names our solution and is about our pillar(s).',
+              'We used at least two types (open, yes / no, scale).',
+              'At least one question is about a group of people (who? which groups?).'
+            ]},
             { type: 'teacher', ref: 'w5d4-t10' }
           ],
           answers: { title: 'More model questions: mobile apps · agency and access', items: [
+            ['Notice', 'B is more useful: it names the solution (food-sharing apps), the pillar (access) and a problem (difficulty). A is too general.'],
+            ['Make it specific', 'Which groups benefit most from food banks in our city? · What barriers could stop working families from using food banks (e.g. opening hours)?'],
             ['Questions · 3–4', '3. How easily could these apps fit into consumers’ daily routines?<br>4. What barriers could there be to using this technology? (e.g. lack of awareness, not user-friendly, lack of interest, no smartphone or limited internet, language barriers)'],
             ['Questions · 5–7', '5. How easily could the apps be customised (dietary preferences, budget, cooking habits)?<br>6. On a scale (not effective — moderately effective — very effective), how well could these apps help consumers a) manage their food at home, b) use up extra food, c) track progress (e.g. money saved)?<br>7. Overall, would these apps really change consumer behaviour?'],
             ['Why these are good', 'They are about one solution (apps) and two pillars. They use open, yes/no and scale questions. They think about different people.']
@@ -425,6 +534,10 @@ window.DEC15_LESSON = {
           title: 'Applying questions',
           goal: 'Answer your questions with evidence from your sources. Then decide how well your solution works.',
           blocks: [
+            { type: 'key', title: 'Our task (30 minutes, as a group)', points: [
+              '<b>How effective is our solution in reducing food waste, for our chosen pillar(s)?</b>',
+              'Answer: very effective · moderately effective · not very effective — and say why, with sources.'
+            ]},
             { type: 'steps', items: [
               { who: 'group', text: 'Answer each question. Use your homework sources or the class texts.' },
               { who: 'group', text: 'Say <b>who</b> says so: name the source.' },
@@ -436,12 +549,23 @@ window.DEC15_LESSON = {
               ['Response', 'Very poor families. Mockshell and Ritter (2024) found that they got free fruit and vegetables.']
             ], note: 'Answer + evidence + source. Keep it short. (This example uses the class text.)' },
             { type: 'table', id: 'p4t', title: 'Our evaluation', columns: ['Questions', 'Response (with evidence: who says so?)'], fixed: ['Question 1', 'Question 2', 'Question 3', 'Question 4'], extraRows: true },
+            { type: 'model', title: 'Plan for our overall evaluation', rows: [
+              ['Position', 'Overall, food banks are <b>moderately effective</b> in improving access.'],
+              ['Reason 1 + source', 'They give free food to families with low incomes (Mockshell & Ritter, 2024, found free food improved access).'],
+              ['Reason 2 + source', 'However, they are not easy for everyone to reach, e.g. people who work all day.'],
+              ['Conclusion', 'So they help, but longer opening hours would make them more effective.']
+            ], note: 'Position → reason 1 + source → reason 2 + source → conclusion.' },
             { type: 'scale', id: 'p4sc', title: 'Vote: how effective is our solution?', statement: 'Our solution works well for our chosen pillar(s).', ends: ['Not effective', 'Very effective'], mid: 'Moderately effective' },
             { type: 'fields', fields: [
               { id: 'p4-all', label: 'Overall, how effective is our solution for our chosen pillar(s)?', placeholder: 'Overall, we think… is moderately effective because…', rows: 3 }
             ]},
             { type: 'language', title: 'Sentence starters', tabs: false, groups: [
               { label: 'Using evidence', phrases: ['According to…, …', '… found that…', 'This suggests that the solution is (very / moderately / not very) effective.'] }
+            ]},
+            { type: 'checklist', id: 'h4-p4k', title: 'Before you finish, check', items: [
+              'Every answer has evidence and names a source.',
+              'Our overall evaluation says very / moderately / not very effective.',
+              'We give one strength and one limitation.'
             ]},
             { type: 'sources', ids: ['clapp', 'oxfam', 'mockshell'] }
           ]
@@ -473,6 +597,16 @@ window.DEC15_LESSON = {
             { type: 'language', title: 'Moving between speakers', tabs: false, groups: [
               { label: 'Starting and handing over', phrases: ['Our group looked at… because…', 'We chose to focus on… and…', 'Now… will talk about our next two questions.', 'Thanks, … . So, our next question was…'] },
               { label: 'Concluding', phrases: ['Overall, we think that… is (very / moderately / not very) effective in improving…', 'To sum up, the evidence suggests that…', 'Thank you. Are there any questions?'] }
+            ]},
+            { type: 'chat', title: 'Model: handing over to the next speaker', lines: [
+              ['Student 1', 'Our group looked at <b>food banks</b>, and we chose to focus on <b>access</b>. … <mark>Now Mai will talk about our next two questions.</mark>'],
+              ['Student 2', '<mark>Thanks, Leo. So, our next question was</mark> “Which groups find food banks hard to use?” … <mark>Now Sam will finish.</mark>'],
+              ['Student 3', '<mark>Overall, we think that</mark> food banks are moderately effective in improving access. <mark>Thank you. Are there any questions?</mark>']
+            ]},
+            { type: 'checklist', id: 'h4-p5k', title: 'Practice check', items: [
+              'Everyone speaks and we finish in 5–6 minutes.',
+              'We hand over with a phrase (Now… will talk about…).',
+              'We name at least two sources and give our overall evaluation.'
             ]},
             { type: 'tip', text: 'Practise once with a timer. Then practise again. Great job — you’re ready for tomorrow!' },
             { type: 'teacher', ref: 'w5d4-t12' }
