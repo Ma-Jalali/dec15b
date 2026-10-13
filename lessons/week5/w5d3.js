@@ -237,7 +237,7 @@ window.DEC15_LESSON = {
           title: 'Building Understanding + Summarise/paraphrase',
           goal: 'Use your notes to answer questions. Then see how a writer paraphrases the text.',
           blocks: [
-            { type: 'sort', id: 'r5s1', single: true, title: 'Part 1 · Game: match the paragraphs to the topics', hint: 'Use your notes. One topic in each box.', buckets: [
+            { type: 'sort', id: 'r5s1', single: true, title: '1 · Match the paragraphs to the topics', buckets: [
               { label: 'Paragraph B', letter: 'B' }, { label: 'Paragraph C', letter: 'C' }, { label: 'Paragraph D', letter: 'D' }, { label: 'Paragraph E', letter: 'E' }, { label: 'Paragraph G', letter: 'G' }, { label: 'Paragraph I', letter: 'I' }
             ], items: [
               { text: 'i. Producing food in a way that does not harm the environment', answer: 5, why: 'Sustainability.' },
@@ -247,42 +247,43 @@ window.DEC15_LESSON = {
               { text: 'v. Being able to choose what food we want to grow and eat', answer: 4, why: 'Agency.' },
               { text: 'vi. Being able to get food all the time', answer: 3, why: 'Stability.' }
             ]},
-            { type: 'sort', id: 'r5s2', single: true, title: 'Part 2 · Game: which pillar is the problem?', hint: 'Read each problem. Put it in the right pillar.', buckets: [
+            { type: 'sort', id: 'r5s2', single: true, title: '2 · Match each problem to the relevant pillar', buckets: [
               { label: 'Availability' }, { label: 'Access' }, { label: 'Utilization' }, { label: 'Stability' }, { label: 'Agency' }, { label: 'Sustainability' }
             ], items: [
-              { text: 'The shelves at the supermarket are empty. They are always empty.', answer: 0, why: 'There is no food in the place.' },
-              { text: 'There are enough vegetables for sale, but I cannot afford to buy them.', answer: 1, why: 'Food is there, but people cannot get it.' },
-              { text: 'There are only highly processed, unhealthy foods for sale in the supermarket.', answer: 2, why: 'The food is not healthy.' },
-              { text: 'Last week there was enough food at the supermarket. This week, many shelves are empty.', answer: 3, why: 'The supply changes over time.' },
-              { text: 'Poor farmers cannot choose what food to grow or negotiate for a higher price.', answer: 4, why: 'They have no choice or power.' },
-              { text: 'Farming uses many chemicals that reduce the soil quality.', answer: 5, why: 'It harms the land for the future.' }
+              { text: 'The shelves at the supermarket are empty. They are always empty.', answer: 0 },
+              { text: 'There are enough vegetables for sale, but I cannot afford to buy them.', answer: 1 },
+              { text: 'There are only highly processed, unhealthy foods for sale in the supermarket.', answer: 2 },
+              { text: 'Last week there was enough food at the supermarket. This week, many shelves are empty.', answer: 3 },
+              { text: 'Poor farmers cannot choose what food to grow or negotiate for a higher price.', answer: 4 },
+              { text: 'Farming uses many chemicals that reduce the soil quality.', answer: 5 }
             ]},
             { type: 'tip', text: '<b>Hint:</b> Availability = is food there? · Access = can I get it? · Utilization = is it healthy? · Stability = all the time? · Agency = can I choose? · Sustainability = is it OK for the future?' },
-            { type: 'quiz', id: 'r5q', title: 'Part 3 · Six questions (in text order)', items: [
-              { q: '1. Food insecurity can cause obesity. Which pillar is this?', options: ['Access', 'Utilization', 'Stability', 'Agency'], answer: 'Utilization', why: 'Utilization is about nutrition and food quality (D).' },
-              { q: '2. Why do the authors want two more pillars?', options: ['The old model misses inequality and the environment.', 'The old model is 50 years old.', 'Governments asked for them.'], answer: 'The old model misses inequality and the environment.', why: 'A and F: growing inequalities and the links between nature and food systems.' },
-              { q: '3. Week 3: people at food banks cannot choose their food. Which pillar is this?', options: ['Access', 'Availability', 'Stability', 'Agency'], answer: 'Agency', why: 'Agency = control over food choices (G).' },
-              { q: '4. Why is agency important for women and indigenous communities?', options: ['Others often decide for them.', 'They need more money.', 'They live far from shops.'], answer: 'Others often decide for them.', why: 'Agency helps these groups take part in decisions (H).' },
-              { q: '5. Food waste can increase greenhouse gases. Which pillar is this?', options: ['Sustainability', 'Agency', 'Stability', 'Availability'], answer: 'Sustainability', why: 'Greenhouse gases harm the environment and future resources (I).' },
-              { q: '6. What is the main lesson of the text?', options: ['Solutions must look at many connected factors.', 'The four pillars are useless now.', 'Hunger is too complex to understand.'], answer: 'Solutions must look at many connected factors.', why: 'The authors want a holistic approach (= look at the whole system) (F, J).' }
+            { type: 'quiz', id: 'r5q', title: 'Questions 3–10', items: [
+              { q: '3. Which three pillars are <b>directly</b> affected by climate change?', options: ['Availability, Stability, Sustainability', 'Availability, Agency, Sustainability', 'Access, Stability, Agency', 'Access, Utilization, Agency'], answer: 'Availability, Stability, Sustainability', why: 'Access is affected only indirectly, via availability — e.g. climate change may reduce availability, leading to higher prices.' },
+              { q: '4. In Week 3 the listening said a problem with traditional food banks is that people cannot choose what food they receive. Which pillar does this relate to?', options: ['Access', 'Availability', 'Stability', 'Agency'], answer: 'Agency', why: 'Agency = control over food choices.' },
+              { q: '5. A problem with food waste is that it can increase greenhouse gas emissions. Which pillar does this relate to?', options: ['Sustainability', 'Agency', 'Stability', 'Availability'], answer: 'Sustainability', why: 'Emissions harm the environment and future resources.' },
+              { q: '6. Obesity can result from food insecurity. Which pillar does this relate to?', options: ['Access', 'Utilization', 'Stability', 'Agency'], answer: 'Utilization', why: 'Utilization is about nutrition and food quality.' },
+              { q: '7. Why are the authors arguing for the addition of two more pillars?', options: ['The current model does not consider how inequality and environmental problems can cause food insecurity.', 'The current model was created fifty years ago, so it is not relevant in the modern world.', 'The two additional pillars will encourage governments to take food insecurity seriously.', 'Hunger is still a global problem because agency and sustainability have not been taken seriously.'], answer: 'The current model does not consider how inequality and environmental problems can cause food insecurity.', why: 'Paragraph A: growing inequalities and links between ecological and food systems.' },
+              { q: '8. Why is agency important for marginalised groups, such as women and indigenous communities?', options: ['People with power often don’t listen to them when making decisions.', 'They need more support from government agencies.', 'They often live in places that don’t have access to supermarkets.', 'They don’t have enough money to buy healthy food.'], answer: 'People with power often don’t listen to them when making decisions.', why: 'Agency ensures that the marginalized can participate in decision-making (G–H).' },
+              { q: '9. Which is NOT an example of agency?', options: ['Forming a group with other farmers to negotiate higher sale prices.', 'Growing potatoes because your boss told you to.', 'Choosing to grow cabbages because they suit your soil.', 'An indigenous community using land for ceremonies rather than growing food.'], answer: 'Growing potatoes because your boss told you to.', why: 'Someone else made the decision.' },
+              { q: '10. Overall, what can we learn from this text?', options: ['The current four pillars are not very useful anymore.', 'Empowering marginalised groups and improving sustainability will end hunger.', 'Improving food security requires solutions that address different interconnected factors.', 'Food insecurity is too complicated to understand.'], answer: 'Improving food security requires solutions that address different interconnected factors.', why: 'The authors want a more holistic approach.' }
             ]},
             { type: 'tip', text: '<b>Hint:</b> use the pillar hint above for 1, 3 and 5. For 2 and 4, read paragraphs <b>F</b> and <b>H</b> again.' },
             { type: 'sources', ids: ['clapp'] },
             { type: 'teacher', ref: 'w5d3-t8' },
-            { type: 'cloze', id: 'r4c', title: 'Part 4 · Summarise/paraphrase: complete the summary with words from the box', options: ['agency', 'decisions', 'environment', 'food', 'food security', 'generations', 'inequality', 'resources', 'sustainability'],
+            { type: 'cloze', id: 'r4c', title: '1 · Complete the summary with words from the box', options: ['agency', 'decisions', 'environment', 'food', 'food security', 'generations', 'inequality', 'resources', 'sustainability'],
               text: 'Our current understanding of food security includes four interconnected factors: availability, access, utilization and stability. Despite the usefulness of this understanding, it does not account for the relationship between increasing social {{1}} and {{2}}. It also overlooks the importance of environmental {{3}} in the {{4}} system. Therefore, two additional pillars should be added to the current four-pillar model of food security: {{5}} and sustainability. Agency refers to the ability of people to have control over their lives and make their own {{6}}, including decisions related to food. Sustainability is concerned with producing food in a way that does not harm the {{7}} or reduce ecological {{8}} for future {{9}}.',
               answers: ['inequality', 'food security', 'sustainability', 'food', 'agency', 'decisions', 'environment', 'resources', 'generations'] },
             { type: 'passage', id: 'r4p', title: 'The original text (first two sentences). Compare it with the summary above.', text: 'Over the last 50 years, our understanding of food security has grown to include four main areas: availability, access, utilization, and stability (FAO, 2006; Webb et al., 2006; CFS, 2009; Upton et al., 2016). However, the growing inequalities in food systems and the deeper understanding of how closely linked our ecological and food systems are, point to the need for two more dimensions: agency and sustainability.' },
-            { type: 'quiz', id: 'r4q', title: 'How was it paraphrased? Look at key words, linking words and sentences', items: [
-              { q: 'How did the linking word change?', options: ['However → Despite + this', 'However → Therefore', 'It did not change.'], answer: 'However → Despite + this', why: '“Despite the usefulness of this understanding…” — “this” refers back to the sentence before.' },
-              { q: '“four main areas” became…', options: ['four interconnected factors', 'four pillars of policy', 'four new dimensions'], answer: 'four interconnected factors', why: 'New key words with the same meaning (synonyms).' },
+            { type: 'quiz', id: 'r4q', title: 'Look at key words, connecting words and phrases → sentences', items: [
+              { q: 'How did the contrasting connector change?', options: ['However → Despite (+ “this” to refer back to the previous sentence)', 'However → Therefore', 'It did not change.'], answer: 'However → Despite (+ “this” to refer back to the previous sentence)', why: '“Despite the usefulness of this understanding…”' },
+              { q: '“four main areas” became…', options: ['four interconnected factors', 'four pillars of policy', 'four new dimensions'], answer: 'four interconnected factors', why: 'A change of key words (synonyms).' },
               { q: '“growing inequalities” became…', options: ['increasing social inequality', 'more poverty', 'unfair prices'], answer: 'increasing social inequality', why: 'Synonym + word form: growing → increasing.' },
-              { q: 'The second original sentence has two long ideas. What happened to them?', options: ['They became two sentences in the summary.', 'They were deleted.', 'They became one quotation.'], answer: 'They became two sentences in the summary.', why: '“…it does not account for… It also overlooks…”' }
+              { q: 'What happened to the two noun phrases in the second original sentence?', options: ['They became two sentences in the summary.', 'They were deleted.', 'They became one quotation.'], answer: 'They became two sentences in the summary.', why: '“…it does not account for the relationship between social inequality and food security. It also overlooks the importance of environmental sustainability in the food system.”' }
             ]},
             { type: 'teacher', ref: 'w5d3-t7' }
           ],
           answers: { items: [
-            ['Questions 1–6', '1 Utilization · 2 the old model misses inequality and the environment · 3 Agency · 4 others often decide for them · 5 Sustainability · 6 solutions must look at many connected factors'],
             ['Paraphrase · Linking word', 'However → Despite. “this” is added to refer back to the sentence before.'],
             ['Paraphrase · Key words', 'main areas → interconnected factors · growing inequalities → increasing social inequality · ecological and food systems → environmental sustainability in the food system'],
             ['Paraphrase · Phrases → sentences', 'One long sentence with two noun phrases → two short sentences: “it does not account for the relationship between social inequality and food security. It also overlooks the importance of environmental sustainability in the food system.”']
@@ -444,9 +445,11 @@ window.DEC15_LESSON = {
               { who: 'alone', text: 'Listen for the <b>gist</b> (= the main idea). Then answer.' }
             ]},
             { type: 'listening', source: 'Oxfam (2022)', title: 'How much money would it take to end world hunger?', videoId: '', audio: '', clip: 'the opening, then the whole talk', transcripts: [['oxfam', 'Transcript (adapted)']] },
-            { type: 'quiz', id: 'l3q', title: 'Gist questions', items: [
-              { q: '1. What is the talk mainly about?', options: ['What money can and can’t do to end hunger', 'How Elon Musk made his money', 'How the UN works'], answer: 'What money can and can’t do to end hunger', why: '“we’re going to explain what money could accomplish, step by step… and what money can’t solve”.' },
-              { q: '2. Since Musk’s challenge, world hunger has…', options: ['got worse', 'ended', 'stayed the same'], answer: 'got worse', why: '“Since Musk’s challenge, the hunger crisis has worsened.”' }
+            { type: 'quiz', id: 'l3q', items: [
+              { q: '1. What did Elon Musk do?', options: ['He challenged the UN to show him a plan to solve world hunger.', 'He gave $6 billion to Oxfam.', 'He started a food bank.'], answer: 'He challenged the UN to show him a plan to solve world hunger.', why: 'He asked for a $6 billion plan that would end world hunger.' },
+              { q: '2. What has happened since Musk’s challenge?', options: ['The problem has worsened.', 'World hunger has ended.', 'Food prices have fallen.'], answer: 'The problem has worsened.', why: '“Since Musk’s challenge, the hunger crisis has worsened.”' },
+              { q: '3. What does Oxfam do?', options: ['It focuses on food and hunger.', 'It builds farms for companies.', 'It sells technology.'], answer: 'It focuses on food and hunger.', why: '“At Oxfam, we’ve been focused on food and hunger since our founding.”' },
+              { q: '4. What is Oxfam doing in response to Elon Musk?', options: ['Responding to his challenge by explaining what money can (and can’t) do to end world hunger', 'Asking him to work for Oxfam', 'Criticising the UN'], answer: 'Responding to his challenge by explaining what money can (and can’t) do to end world hunger', why: '“we’re going to explain what money could accomplish, step by step”.' }
             ]},
             { type: 'tip', text: '<b>Hint:</b> Musk asked the UN for a <b>$6 billion plan</b> to end world hunger. Listen for <b>“we’re going to explain…”</b>.' },
             { type: 'talk', title: 'Predict what comes next', prompts: [
@@ -476,7 +479,6 @@ window.DEC15_LESSON = {
             { type: 'teacher', ref: 'w5d3-t13' }
           ],
           answers: { title: 'Suggested notes', items: [
-            ['Gist', '1 what money can and can’t do to end hunger · 2 got worse'],
             ['Frame · can money end hunger?', '<b>Main point:</b> money helps but cannot end hunger alone. <b>Evidence:</b> $37bn a year until 2030; money cannot stop war, climate change or the power of big companies. <b>Useful:</b> a solution must also improve agency and sustainability, not only access.'],
             ['Notes · Introduction', 'Musk: asked the UN for a $6 billion plan to end world hunger · since then the problem has worsened · Oxfam focuses on (world) hunger · provided a proposal / explains what money can do to end world hunger.'],
             ['Notes · How close are we?', '150 million more people affected by hunger since the start of the pandemic · 828 million people experienced hunger in 2021.'],
@@ -494,25 +496,27 @@ window.DEC15_LESSON = {
           title: 'Building Understanding',
           goal: 'Use your notes to answer questions about the talk.',
           blocks: [
-            { type: 'sort', id: 'l5s', single: true, title: 'Part 1 · Game: match each number to its meaning', hint: 'Look at the “Cost” row in your notes.', buckets: [
+            { type: 'sort', id: 'l5s', single: true, title: '1 · Complete the table: match each number to its meaning', buckets: [
               { label: 'Money spent now' }, { label: 'Percentage of female smallholder farmers' }, { label: 'Additional money needed compared to military spending' }, { label: 'Additional annual foreign aid needed from wealthy countries' }, { label: 'Additional revenue needed from low- and middle-income countries' }
             ], items: [
-              { text: 'About half what is needed', answer: 0, why: 'World leaders gave only 46%.' },
+              { text: 'About half what is needed', answer: 0, why: 'World leaders contributed only 46%.' },
               { text: 'Over half', answer: 1, why: '“More than 50 percent of the world’s smallholder farmers are women.”' },
               { text: 'Equal to 1%', answer: 2, why: '“…about 1 percent of what the world spends annually on military and arms projects.”' },
-              { text: '$14 billion', answer: 3, why: 'An extra $14 billion in foreign aid every year until 2030.' },
-              { text: '$19 billion', answer: 4, why: 'About $19 billion every year until 2030.' }
+              { text: '$14 billion', answer: 3, why: 'An additional $14 billion in foreign aid every year until 2030.' },
+              { text: '$19 billion', answer: 4, why: 'Around $19 billion every year until 2030.' }
             ]},
-            { type: 'quiz', id: 'l5q', title: 'Part 2 · Six questions (in the order of the talk)', items: [
-              { q: '1. Why does the speaker compare foreign aid to military spending?', options: ['Rich countries can easily pay.', 'Military spending should go up.', 'Wars cause hunger.'], answer: 'Rich countries can easily pay.', why: 'The extra aid is only about 1% of military spending.' },
-              { q: '2. Money cannot solve war, climate change and…', options: ['the power of big food companies', 'food waste', 'pollution'], answer: 'the power of big food companies', why: '“…or take away the power that giant corporations have over agricultural trade”.' },
-              { q: '3. What is the biggest problem for smallholder farmers?', options: ['Climate change', 'Low pay', 'Pests'], answer: 'Climate change', why: '“…struggling to adapt to the climate crisis.”' },
-              { q: '4. What do women smallholder farmers need?', options: ['A voice in decisions about land', 'Bigger farms', 'Better tools'], answer: 'A voice in decisions about land', why: '“…secure their rights to land, raise their voice in decision-making spaces…”' },
-              { q: '5. What can shoppers do?', options: ['Shop sustainably and support farmers', 'Grow all their own food', 'Pay more tax'], answer: 'Shop sustainably and support farmers', why: 'Eat for Good: save food, shop seasonal, eat less meat, support farmers, cook smart.' },
-              { q: '6. What is the speaker’s main message?', options: ['We need more money and a fairer food system.', 'We only need more money.', 'Musk’s idea is a joke.'], answer: 'We need more money and a fairer food system.', why: '“Money is only part of the equation — and we need to transform food systems.”' }
+            { type: 'quiz', id: 'l5q', title: 'Questions 2–3 and 5–10', items: [
+              { q: '2. Why does the speaker compare additional funding for foreign aid to military spending?', options: ['To highlight the importance of military spending.', 'To suggest a way to stop conflicts.', 'To point out that wealthy countries have enough money to end hunger.', 'To point out that military spending should be increased.'], answer: 'To point out that wealthy countries have enough money to end hunger.', why: 'The extra aid is only about 1% of military spending.' },
+              { q: '3. The speaker mentions three causes of hunger that money cannot solve, including war and climate change. What is the third?', options: ['Pollution', 'Food waste', 'Economic shocks', 'Influence of large food companies'], answer: 'Influence of large food companies', why: '“…or take away the power that giant corporations have over agricultural trade”.' },
+              { q: '5. Why does the speaker think local food production is better than large companies?', options: ['It causes less harm to the environment.', 'Locally produced food is cheaper.', 'It empowers women.', 'Local foods are easier to grow.'], answer: 'It causes less harm to the environment.', why: 'Local food can be grown in a “fair and sustainable manner”; large companies must stop prioritising profit over “planetary well-being”.' },
+              { q: '6. What is the main challenge faced by smallholder farmers?', options: ['Low pay', 'Unhealthy food', 'Pests', 'Climate change'], answer: 'Climate change', why: '“…struggling to adapt to the climate crisis.”' },
+              { q: '7. What do female smallholder farmers need?', options: ['Agency to make decisions about their farms.', 'Better tools and equipment.', 'Access to healthy food.', 'Larger farms.'], answer: 'Agency to make decisions about their farms.', why: '“…secure their rights to land, raise their voice in decision-making spaces…”' },
+              { q: '8. Why do female smallholder farmers lack agency?', options: ['Their farms are often controlled by large food companies.', 'They need to make more money.', 'They need access to better farming tools and equipment.', 'They need help to manage climate change.'], answer: 'Their farms are often controlled by large food companies.', why: 'Large companies “wield incredible power over the livelihoods of women, workers, and farmers”.' },
+              { q: '9. What can consumers do to help end hunger?', options: ['Pressure governments to provide more funding.', 'Consume food in a way that is sustainable and that supports farmers.', 'Look for ethical food labels at the supermarket.', 'Grow more food at home.'], answer: 'Consume food in a way that is sustainable and that supports farmers.', why: 'Eat for Good: save food, shop seasonal, eat less meat, support farmers, cook smart.' },
+              { q: '10. What is the speaker’s overall message?', options: ['Ending hunger will require a large amount of money.', 'Ending hunger will require more money and a fairer food system.', 'Middle and low-income countries will need to contribute more money to ending hunger.', 'Elon Musk’s proposal should not be taken seriously.'], answer: 'Ending hunger will require more money and a fairer food system.', why: '“Money is only part of the equation — and we need to transform food systems.”' }
             ]},
             { type: 'tip', text: '<b>Hint:</b> use your notes. Question 2 → “What money cannot solve” row · questions 3–4 → “Local food production” row · question 5 → “Role of consumers” row.' },
-            { type: 'cloze', id: 'l5c', title: 'Part 3 · Complete the summary about big companies', options: ['power', 'equality', 'equal', 'climate', 'crisis', 'well-being', 'profit', 'treatment'],
+            { type: 'cloze', id: 'l5c', title: '4 · Complete the paraphrased summary about big companies (no more than two words from the listening; you may need to change the word form)', options: ['power', 'equality', 'equal', 'climate', 'crisis', 'well-being', 'profit', 'treatment'],
               text: 'Big companies have a lot of {{1}} over their workers. They must ensure pay {{2}} for women, reduce the impacts of {{3}} change and give greater importance to human and environmental {{4}}.',
               answers: ['power', 'equality', 'climate', 'well-being'],
               why: ['“wield incredible power over the livelihoods of women, workers, and farmers”', '“provide equal pay” → pay equality (word form change)', '“mitigate the effects of the climate crisis”', '“human and planetary well-being”'] },
@@ -521,9 +525,8 @@ window.DEC15_LESSON = {
             { type: 'teacher', ref: 'w5d3-t14' }
           ],
           answers: { items: [
-            ['Part 1', '<img src="assets/week5/hunger-funding.svg" alt="The Oxfam numbers: money spent now is about half of what is needed (46%); over half of smallholder farmers are women; the extra money needed equals about 1% of military spending; wealthy countries need to give an extra $14 billion in foreign aid every year; low- and middle-income countries need to raise $19 billion a year.">'],
-            ['Part 2 · Questions 1–6', '1 rich countries can easily pay · 2 the power of big food companies · 3 climate change · 4 a voice in decisions about land · 5 shop sustainably and support farmers · 6 more money and a fairer food system'],
-            ['Part 3', 'Big companies have a lot of <b>power</b> over their workers. They must ensure pay <b>equality</b> for women, reduce the impacts of <b>climate</b> change and give greater importance to human and environmental <b>well-being</b>. Why “equality”? After “pay” we need a noun.']
+            ['Question 1', '<img src="assets/week5/hunger-funding.svg" alt="The Oxfam numbers: money spent now is about half of what is needed (46%); over half of smallholder farmers are women; the extra money needed equals about 1% of military spending; wealthy countries need to give an extra $14 billion in foreign aid every year; low- and middle-income countries need to raise $19 billion a year.">'],
+            ['Question 4', 'Big companies have a lot of <b>power</b> over their workers. They must ensure pay <b>equality</b> for women, reduce the impacts of <b>climate</b> change and give greater importance to human and environmental <b>well-being</b>. Why “equality”? After “pay” we need a noun.']
           ]}
         },
         {
@@ -693,10 +696,7 @@ window.DEC15_LESSON = {
           { text: 'By doing this, food security policies can address immediate food needs, empower individuals and communities and protect the environment.', answer: 1 },
           { text: 'This approach will help create a more comprehensive strategy for long-term food security…', answer: 2 }
         ]},
-        { type: 'quiz', id: 'h4-x3q', title: 'Two harder questions', items: [
-          { q: '1. Climate change <b>directly</b> affects three pillars. Which three?', options: ['Availability, Stability, Sustainability', 'Availability, Agency, Sustainability', 'Access, Stability, Agency'], answer: 'Availability, Stability, Sustainability', why: 'Access is affected only indirectly: less food → higher prices.' },
-          { q: '2. Which one is NOT agency?', options: ['Growing potatoes because your boss told you to', 'Forming a farmers’ group to get better prices', 'Choosing crops that suit your soil'], answer: 'Growing potatoes because your boss told you to', why: 'Someone else made the decision.' }
-        ]},
+        
         { type: 'sources', ids: ['clapp'] }
       ]
     },
@@ -709,10 +709,7 @@ window.DEC15_LESSON = {
         { type: 'key', title: 'Another way to recommend', compare: [
           { label: 'That starts with + verb-ing', text: 'Use it for the first step of a solution.', eg: 'That starts with supporting local food production.' }
         ]},
-        { type: 'quiz', id: 'h4-x4q', title: 'Two harder questions about the talk', items: [
-          { q: '1. Why is local food production better than big companies, says the speaker?', options: ['It harms the environment less.', 'It is cheaper.', 'It is easier to grow.'], answer: 'It harms the environment less.', why: 'Local food can be grown in a “fair and sustainable manner”.' },
-          { q: '2. Why do many women farmers lack agency (= power to choose)?', options: ['Big companies control their work.', 'They need more tools.', 'They need help with climate change.'], answer: 'Big companies control their work.', why: 'Big companies “wield incredible power over the livelihoods of women, workers, and farmers”.' }
-        ]},
+        
         { type: 'sources', ids: ['oxfam'] }
       ]
     }

@@ -255,15 +255,15 @@ window.DEC15_LESSON = {
               { text: 'AI is here, whether we like it or not, let’s try and <b>bring it out of the shadows</b> a bit.' },
               { text: 'It’s with <b>attribution</b>. So, if you have used AI say for research purposes, you would be acknowledging that.' }
             ]},
-            { type: 'sort', id: 'i2s', single: true, title: 'Match each bold expression with its meaning', hint: '<b>Drag</b> each expression to its meaning — or tap an expression, then tap a meaning.', buckets: [
-              { label: 'A sudden, big change that causes problems.' },
-              { label: 'Tried hard to deal with something difficult.' },
-              { label: 'Living or existing together, in peace.' },
+            { type: 'sort', id: 'i2s', single: true, title: 'Match each bold expression with its definition', hint: '<b>Drag</b> each expression to its definition — or tap an expression, then tap a definition.', buckets: [
+              { label: 'A sudden, major change that causes disruption.' },
+              { label: 'Struggled to deal with or understand something difficult.' },
+              { label: 'The state of existing together, especially peacefully.' },
               { label: 'Suddenly became popular or well-known.' },
-              { label: 'Not ready; in a weak position.' },
-              { label: 'Waiting for a messy situation to become calm and clear.' },
-              { label: 'Make something more visible or accepted.' },
-              { label: 'Saying where an idea or information came from (giving credit).' }
+              { label: 'In a defensive or disadvantaged position.' },
+              { label: 'Waiting for a chaotic situation to become clear and calm.' },
+              { label: 'Make something more visible or acceptable.' },
+              { label: 'The act of giving credit to a source of information or an idea.' }
             ], items: [
               { text: 'upheaval', answer: 0 },
               { text: 'grappled with', answer: 1 },
@@ -311,13 +311,13 @@ window.DEC15_LESSON = {
           goal: 'Learn six phrases. Then fill the gaps with the words you hear about how students use AI.',
           blocks: [
             { type: 'talk', title: 'Lead-in (1 minute)', prompts: ['How do university students use AI to study? Guess three ways. Then listen and check.'] },
-            { type: 'sort', id: 'i3s', single: true, title: 'Activity 1 · Useful words: match each phrase with its meaning', hint: '<b>Drag</b> each phrase to its meaning — or tap a phrase, then tap a meaning.', buckets: [
-              { label: 'A big change has happened and we cannot go back.' },
-              { label: 'Saying something quickly, without checking or preparing.' },
-              { label: 'Make something stronger or more united.' },
-              { label: 'A comparison with something familiar, to explain an idea.' },
-              { label: 'Changing teaching to fit each student’s needs.' },
-              { label: 'Putting things into separate groups or boxes.' }
+            { type: 'sort', id: 'i3s', single: true, title: 'Now match each phrase with its definition', hint: '<b>Drag</b> each phrase to its definition — or tap a phrase, then tap a definition.', buckets: [
+              { label: 'Something has been released that cannot be undone, often referring to a major change.' },
+              { label: 'Saying something without preparation or deep thinking.' },
+              { label: 'To strengthen or reinforce knowledge or learning.' },
+              { label: 'A comparison used to explain a concept by relating it to something familiar.' },
+              { label: 'Adjusting teaching methods or materials to fit a student’s individual needs.' },
+              { label: 'Organising thoughts or tasks into separate categories.' }
             ], items: [
               { text: 'the genie is out of the bottle', answer: 0 },
               { text: 'off the top of my head', answer: 1 },
