@@ -3,8 +3,11 @@
    · 8A Academic writing skills 2 (90) · 9A Building rapport (30).
    Texts: Huang et al. (2024) · Gunders (2024) · Castro et al. (2023) — lessons/week4/sources.js.
    Language tables in 8A from the Student booklet (W4 D3 8B). Activity titles use the Teacher’s Book headings.
-   v2 (A2–B1 friendly): related activities are merged into one tab ('Part 1 ·', 'Part 2 ·' block titles keep the
-   Teacher’s Book headings). Long phrase lists are shortened; the full lists are in extras → x3 'Phrase bank'.
+   v2: related activities are merged into one tab ('Part 1 ·', 'Part 2 ·' block titles keep the Teacher’s Book
+   headings). The full phrase lists are in extras → x3 'Phrase bank'.
+   v3 (upper-intermediate, functional): personal lead-ins, 6–7 useful words with a quick check before each text,
+   short gist/detail questions, upgraded speaking language (model → controlled practice → speaking + peer check).
+   The pre-intermediate grammar drills (o2c1, quantifier cards, o2c2, o3c) moved to extras → x4 'Grammar review'.
    Teacher notes live in the database (teacher_notes), refs only here.
    Block types: lessons/_template.js, js/play.js and js/forms.js (form, scale, jeopardy, send: true). */
 
@@ -19,7 +22,7 @@ window.DEC15_LESSON = {
   wordTarget: '',
   image: 'assets/week4/hero-w4d3.svg',
   imageAlt: 'A balance scale, a town-hall table with six chairs, a slice of toast next to a jar of dark spread, and a pen.',
-  journey: 'Tomorrow is your second Research Summary Discussion. Today you practise comparing options and talking about what might happen. You argue the other side and act in a town meeting. Then you learn words that show how sure you are and what you think.',
+  journey: 'Tomorrow is your second Research Summary Discussion, so today is a dress rehearsal. You pitch and vote on the best options, speculate about what might happen, and act out a town meeting with real conflicts. Then you run a stance clinic: make claims stronger, softer and more persuasive.',
   finish: { title: 'Thursday', text: 'Research Summary Discussion 2' },
 
   sections: [
@@ -29,7 +32,7 @@ window.DEC15_LESSON = {
       tone: 'teal', art: 'discussion',
       title: 'Discussion skills 2',
       subtitle: 'Evaluating options and speculating',
-      outcome: 'Use phrases to compare options and to talk about possible results. Think about your last discussion and get ready for tomorrow.',
+      outcome: 'Use phrases to compare options and to talk about possible results. Think about your last discussion and get ready for tomorrow. Story: a dress rehearsal for tomorrow — your group argues for the best way to practise speaking, and the class votes.',
       activities: [
         {
           id: 'o1', short: 'Warmer', minutes: 10, grouping: 'Pairs → groups of 3–4',
@@ -39,9 +42,10 @@ window.DEC15_LESSON = {
             { type: 'cards', title: 'Part 1 · Meet Vegemite', items: [
               { label: 'Vegemite', icon: 'sprout', text: 'A dark, salty spread from Australia. People eat a thin layer on toast. It is one of the first <b>upcycled foods</b> (= food made from things that people usually throw away).' }
             ]},
-            { type: 'talk', title: '1 · Talk with a partner', prompts: [
+            { type: 'talk', title: '1 · Talk with a partner (2 minutes)', prompts: [
               'a) Have you ever tried Vegemite? What does it taste like?',
-              'If not, would you like to try it? Why or why not?'
+              'If not, would you like to try it? Why or why not?',
+              'Would you buy a snack made from food “waste”? What would make you trust it?'
             ]},
             { type: 'quiz', id: 'o1q', title: 'Quick check', items: [
               { q: 'b) Why is Vegemite an example of <b>upcycled food</b>?', options: ['i) The jar is made from recycled glass.', 'ii) Vegemite is made from a waste product of beer making (brewer’s yeast).', 'iii) Vegemite uses vegetables that are close to the “best before” date.'], answer: 'ii) Vegemite is made from a waste product of beer making (brewer’s yeast).', why: 'Upcycled food uses things that people usually throw away. The cookies in Huang et al. (2024) are another example.' }
@@ -51,67 +55,59 @@ window.DEC15_LESSON = {
               'Do you agree? Why or why not?',
               'Give one example from this week’s texts.'
             ]},
-            { type: 'sources', ids: ['huang', 'castro', 'gunders'] },
-            { type: 'language', title: 'Sentence starters for the quote', tabs: false, groups: [
-              { label: 'Explain the quote', phrases: ['I think this quote is saying that…', 'As I understand it, the author means…', 'I don’t really understand what is meant by…'] },
-              { label: 'Give your opinion', phrases: ['Yeah, I agree with that, because…', 'Of course that’s true, but…', 'I don’t really agree with the idea that…'] },
-              { label: 'Link it to the texts', phrases: ['This reminds me of something I read in…', 'If you think about the articles we’ve been reading…', 'In (Kenya), the country I researched, …'] }
+            { type: 'scale', id: 'd3n-o1v', title: 'Where do you stand? Move the X', statement: 'Food businesses should clearly advertise the health benefits of upcycled food.', ends: ['Strongly disagree', 'Strongly agree'], mid: 'Not sure' },
+            { type: 'steps', items: [
+              { who: 'alone', text: '1 minute: move the X. Note one reason or example.' },
+              { who: 'group', text: 'Find people with a <b>different</b> X. Explain your view.' },
+              { who: 'class', text: 'Who moved their X after talking? Why?' }
             ]},
-            { type: 'tip', text: 'Want more phrases? See <b>Extras → Phrase bank</b>.' },
+            { type: 'sources', ids: ['huang', 'castro', 'gunders'] },
+            { type: 'language', title: 'Useful language: responding to a quote', tabs: false, groups: [
+              { label: 'Interpret it', phrases: ['As I read it, Huang is suggesting that…', 'I think “clearly” here implies that…', 'So, in a way, the quote is a call to action.'] },
+              { label: 'Respond', phrases: ['I’d agree with that up to a point, but…', 'That’s a fair point, although I’m not convinced that…', 'I think Huang makes a really good point about…'] },
+              { label: 'Bring in a source', phrases: ['According to Gunders (2024), …', 'This ties in with what Castro et al. (2023) found about…', 'In (Kenya), the country I researched, …'] }
+            ]},
+            { type: 'tip', text: '<b>Challenge:</b> use one phrase from each column. More phrases are in <b>Extras → Phrase bank</b>.' },
             { type: 'teacher', ref: 'w4d3-t1' }
           ]
         },
         {
           id: 'o2', short: 'Comparing', minutes: 15, grouping: 'Pairs',
           title: 'Negotiation language 3: Evaluating different options',
-          goal: 'Compare options and choose the best one, using words like “more… than”, “the most” and “both”.',
+          goal: 'Compare, contrast and prioritise options with confident, natural phrases.',
           blocks: [
             { type: 'key', title: 'Tomorrow’s discussion has two parts', compare: [
               { label: 'Part 1 · Discussion question', text: 'Give your response to a quote. Use examples from your research. (You just practised this!)' },
               { label: 'Part 2 · Negotiation question', text: 'A question with three possible answers. Say which one is best and why. You don’t have to agree in the end.' }
             ]},
-            { type: 'tip', text: '<b>Key words.</b> Comparative (= compares two things): <i>bigger than, more serious than</i>. Superlative (= the top one): <i>the most serious</i>. Quantifier (= says how many): <i>all, each, none</i>.' },
-            { type: 'cloze', id: 'o2c1', title: '1 · Complete the examples from the sample discussion', list: true, options: ['all', 'bigger', 'each', 'more', 'most', 'none', 'than', 'the'],
-              text: '<i>Comparative:</i> (the environmental) consequences are a {{1}} worry {{2}} the (animal welfare) issues.\n<i>Comparative:</i> For me it’s much {{3}} serious {{4}} the other two options.\n<i>Superlative:</i> this is {{5}} {{6}} serious consequence\n<i>Quantifier:</i> (X, Y and Z) are {{7}} critical and interlinked aspects of…\n<i>Quantifier:</i> {{8}} these consequences are serious, but it seems that {{9}} of these…\n<i>Quantifier:</i> {{10}} factor affects the others.\n<i>Quantifier:</i> They are {{11}} really significant, but (I would still go with)…',
-              answers: ['bigger', 'than', 'more', 'than', 'the', 'most', 'all', 'all', 'none', 'each', 'all'] },
-            { type: 'flip', title: '2 · Quantifiers — guess the meaning, then turn the card', hint: 'Say what the word means. Then tap to check.', items: [
-              { front: 'all', back: 'Every one in a group of 3 or more.<br><i>All the cookies were eaten.</i>' },
-              { front: 'each', back: 'Every one, one by one (2 or more). Use a singular noun.<br><i>Each cookie has a different flavour.</i>' },
-              { front: 'both', back: 'The two of them.<br><i>Both the black and white cookies were delicious.</i>' },
-              { front: 'none', back: 'Not any of a group of 3 or more.<br><i>None of my 5 sisters likes cookies.</i>' },
-              { front: 'neither', back: 'Not this one and not that one (of two).<br><i>Neither of my parents likes cookies.</i>' },
-              { front: 'either', back: 'This one or that one (of two). Also used with “not”.<br><i>You can have either the black or the white cookie.</i>' }
+            { type: 'chat', title: '1 · Listen in: the best way to cut food waste on campus. Which option wins — and why?', lines: [
+              ['Student 1', 'So: cooking classes, a food-sharing app or smaller portions in the café. <mark>Whereas</mark> the classes change habits, the app <mark>focuses more on</mark> leftovers.'],
+              ['Student 2', 'True, but classes are <mark>considerably more expensive than</mark> the other two.'],
+              ['Student 3', '<mark>Each option has its merits, but for me the clear choice is</mark> smaller portions. It’s cheap and it works straight away.'],
+              ['Student 1', 'Hmm. <mark>On balance, the most realistic option would be</mark> the portions, yes — <mark>because</mark> nobody has to do anything extra.']
             ]},
-            { type: 'cloze', id: 'o2c2', title: '3 · Choose the correct word to complete the phrases (a–i)', list: true, options: [['option', 'options'], ['good', 'well'], ['worse', 'bad'], ['are', 'is'], ['is', 'are'], ['much', 'many'], ['is', 'are'], ['choice', 'choices'], ['have', 'has']],
-              text: 'I think that either of the first two {{1}} would be effective.\nI don’t think the second option would work as {{2}} in rural areas…\nOption C would be {{3}} for the economy than the others.\nBoth Option A and Option B {{4}} possible long-term solutions.\nNeither of the first 2 options {{5}} as important as Option C.\nOption B would be {{6}} more expensive.\nAll 3 {{7}} good choices, but ultimately I think the best choice would be…\nNone of these {{8}} would be very popular.\nEach option {{9}} its benefits, but for me the clear choice is…',
-              answers: ['options', 'well', 'worse', 'are', 'is', 'much', 'are', 'choices', 'has'] },
-            { type: 'sort', id: 'o2s', title: '4 · What does each phrase (a–i) do?', buckets: [
-              { label: 'Comparing options', text: 'how they are the same' }, { label: 'Contrasting options', text: 'how they are different' }, { label: 'Prioritising options', text: 'choosing the most important' }
-            ], items: [
-              { text: 'a) …either of the first two options would be effective.', answer: 0 },
-              { text: 'b) …the second option wouldn’t work as well in rural areas…', answer: 1 },
-              { text: 'c) Option C would be worse for the economy than the others.', answer: 1 },
-              { text: 'd) Both Option A and Option B are possible long-term solutions.', answer: 0 },
-              { text: 'e) Neither of the first 2 options is as important as Option C.', answer: 2 },
-              { text: 'f) Option B would be much more expensive.', answer: 1 },
-              { text: 'g) All 3 are good choices, but ultimately I think the best choice would be…', answer: 2 },
-              { text: 'h) None of these choices would be very popular.', answer: 0 },
-              { text: 'i) Each option has its benefits, but for me the clear choice is…', answer: 2 }
+            { type: 'language', title: '2 · Upgrade: evaluating options in a discussion', tabs: false, groups: [
+              { label: 'Comparing (same)', phrases: ['Both options share the same weakness: …', 'A and B are equally (realistic) in that…', 'None of these would be very popular with…'] },
+              { label: 'Contrasting (different)', phrases: ['Whereas A tackles…, B focuses more on…', 'B is considerably more (expensive) than…', 'C wouldn’t work nearly as well in…'] },
+              { label: 'Prioritising (the best)', phrases: ['Each option has its merits, but for me the clear choice is…', 'On balance, the most realistic option would be… because…', 'If I had to rank them, I’d put… first, simply because…'] }
             ]},
-            { type: 'steps', title: '5 · Practise evaluating options', items: [
-              { who: 'class', text: 'Spin to get a category (or your teacher gives one).' },
-              { who: 'pair', text: 'Think of <b>three options</b>. Example — <i>delicious fruit</i>: mango, strawberries, apples.' },
-              { who: 'pair', text: 'Compare, contrast and choose the best one. Talk for 1–3 minutes.' },
-              { who: 'pair', text: 'Spin again for a new category.' }
+            { type: 'cloze', id: 'd3n-o2c', title: '3 · Complete the phrases', list: true, options: ['balance', 'considerably', 'merits', 'nearly', 'rank', 'Whereas'],
+              text: '{{1}} Option A tackles the problem at home, Option B focuses on shops.\nOption B is {{2}} more expensive than the other two.\nA food app wouldn’t work {{3}} as well for older people.\nEach option has its {{4}}, but for me the clear choice is C.\nOn {{5}}, the most realistic option would be B, because it is cheap.\nIf I had to {{6}} them, I’d put A first, simply because it lasts.',
+              answers: ['Whereas', 'considerably', 'nearly', 'merits', 'balance', 'rank'] },
+            { type: 'steps', title: '4 · Game: Best of three', items: [
+              { who: 'class', text: 'Spin a category. Every pair names <b>three options</b> (e.g. mango, strawberries, apples).' },
+              { who: 'pair', text: '2 minutes: compare, contrast and choose your winner.' },
+              { who: 'pair', text: 'Pitch your winner to the class in 30 seconds. Use 2 phrases from box 2.' },
+              { who: 'class', text: 'Vote for the most persuasive pitch. Then spin again.' }
             ]},
-            { type: 'spinner', id: 'o2sp', title: 'Spin a category: which is the best?', text: 'Name three options. Then do the job on the second reel. Use the sentence starters below.', reels: [
+            { type: 'spinner', id: 'o2sp', title: 'Spin a category: which is the best?', text: 'Name three options. Then do the job on the second reel. Use the phrases in box 2.', reels: [
               { label: 'Category', start: 'Spin!', items: ['Delicious fruit', 'Ice-cream flavours', 'Good fast-food chains', 'Relaxing holiday places', 'Exciting holiday places', 'Talented singers or musicians', 'Bad excuses for being late', 'Your choice!'] },
               { label: 'Your job', start: '…', items: ['Compare: how are they the same?', 'Contrast: how are they different?', 'Prioritise: which is the best? Why?'] }
             ]},
-            { type: 'language', title: 'Sentence starters: evaluating options', tabs: false, groups: [
-              { label: 'Comparing (same)', phrases: ['Both A and B are…', 'All three are…', 'None of these would be…'] },
-              { label: 'Contrasting (different)', phrases: ['A is much more (expensive) than B.', 'B wouldn’t work as well in…', 'C would be worse for… than the others.'] },
-              { label: 'Prioritising (the best)', phrases: ['This is the most (important)…', 'Each option has its benefits, but for me the clear choice is…', 'They are all good, but I would still go with…'] }
+            { type: 'checklist', id: 'd3n-o2k', title: 'Peer check: did your partner…', items: [
+              'use at least 2 phrases from box 2?',
+              'give a reason for the best option (because…, simply because…)?',
+              'compare or contrast before choosing?'
             ]},
             { type: 'teacher', ref: 'w4d3-t2' }
           ]
@@ -119,7 +115,7 @@ window.DEC15_LESSON = {
         {
           id: 'o3', short: 'Speculating', minutes: 15, grouping: 'Pairs',
           title: 'Negotiation language 3: Speculating (considering implications of different options)',
-          goal: 'Use “if” sentences to talk about what might happen.',
+          goal: 'Talk about likely results, risks and conditions of each option.',
           blocks: [
             { type: 'tip', text: '<b>Key words.</b> Speculate (= guess what might happen). Implication / consequence (= a possible result). Example: <i>If we continue like this, we’ll have no clean water.</i>' },
             { type: 'sort', id: 'o3s', single: true, title: '1a · Match the sentence halves from the sample discussion', hint: '<b>Drag</b> each beginning to its ending — or tap a beginning, then tap an ending.', buckets: [
@@ -138,17 +134,28 @@ window.DEC15_LESSON = {
             { type: 'quiz', id: 'o3q', items: [
               { q: '1b · Which sentence has a <b>different structure</b> from the others? <small>Hint: look for the word “If”.</small>', options: ['1–B', '2–D', '4–E', '5–A'], answer: '4–E', why: 'All the others start with “If”. 4–E starts with “Without”.' }
             ]},
-            { type: 'cloze', id: 'o3c', title: '3 · Unmix the letters in CAPITALS to complete the phrases', list: true, options: [['unless', 'until', 'useless'], ['Even', 'Never', 'Eleven'], ['case', 'ease', 'cause'], ['provided', 'proved', 'divided'], ['Suppose', 'Oppose', 'Purpose']],
-              text: 'The problem is just going to keep getting worse <b>SNEULS</b> → {{1}} we tackle the health problems.\n<b>NEEV</b> → {{2}} if we address ethical concerns, the environmental issues will still remain.\nIn <b>EASC</b> → {{3}} Option B is an unpopular suggestion, the government should offer financial incentives.\nI think that Option C would work the best, <b>DDRPOIVE</b> → {{4}} that the government will enforce these changes.\n<b>OPSPSUE</b> → {{5}} we choose Option A, what will that mean for the economy?',
-              answers: ['unless', 'Even', 'case', 'provided', 'Suppose'] },
-            { type: 'tip', text: 'Meanings: <b>unless</b> = if not · <b>provided that</b> = only if · <b>suppose</b> = imagine · <b>in case</b> = because it might happen.' },
-            { type: 'talk', title: '4 · Discuss: do you agree with this sentence from a sample discussion?', prompts: [
-              '“If we all shifted towards a largely plant-based diet, we’d minimise animal rights violations as well as the negative impacts on the environment.”',
-              'Use “if” sentences and the starters below.'
+            { type: 'language', title: '2 · Useful language: speculating about results', tabs: false, groups: [
+              { label: 'Likely results', phrases: ['If we went with Option A, the most likely outcome would be…', 'This could well lead to…', 'In the long run, this might result in…'] },
+              { label: 'Risks', phrases: ['There’s a real risk that…', 'Unless the government…, this is unlikely to work.', 'Even if we…, we’d still have to deal with…'] },
+              { label: 'Conditions', phrases: ['Option C would work best, provided that…', 'Suppose we chose Option B — what would that mean for…?'] }
             ]},
-            { type: 'language', title: 'Sentence starters: speculating', tabs: false, groups: [
-              { label: 'If…', phrases: ['If we continue like this, we’ll have no…', 'If we don’t prioritise (X), we can’t…', 'Without (X), there won’t be any…'] },
-              { label: 'Other ways', phrases: ['It will keep getting worse unless we…', 'Option C would work best, provided that…', 'Suppose we choose Option A, what will that mean for…?'] }
+            { type: 'tip', text: '<b>unless</b> = if not · <b>provided that</b> = only if · <b>suppose</b> = imagine · <b>could well</b> = will quite probably.' },
+            { type: 'cloze', id: 'd3n-o3c', title: '3 · Complete the speculating phrases', list: true, options: ['Even', 'lead', 'outcome', 'provided', 'risk', 'Unless'],
+              text: 'If we banned plastic packaging, the most likely {{1}} would be higher prices.\nA tax on food waste could well {{2}} to less waste at home.\nThere’s a real {{3}} that small shops will close.\n{{4}} supermarkets cooperate, this plan is unlikely to work.\nA food-sharing app would work best, {{5}} that enough people use it.\n{{6}} if we cut household waste, farms would still lose food.',
+              answers: ['outcome', 'lead', 'risk', 'Unless', 'provided', 'Even'] },
+            { type: 'spinner', id: 'd3n-o3sp', title: '4 · Game: Consequences chain', text: 'Spin. A starts with “If we…”. B adds the next result. Keep the chain going — the first to get stuck loses.', reels: [
+              { label: 'Option', start: 'Spin!', items: ['A four-day university week', 'Free lunch for every student', 'No food delivery apps on campus', 'All exams replaced by presentations', 'A tax on wasted food', 'Your choice!'] },
+              { label: 'Start with', start: '…', items: ['If we went with this, the most likely outcome would be…', 'This could well lead to…', 'There’s a real risk that…', 'In the long run, this might result in…'] }
+            ]},
+            { type: 'talk', title: '5 · Mini-debate (3 minutes), then a class vote', prompts: [
+              '“If we all shifted towards a largely plant-based diet, we’d minimise animal rights violations as well as the negative impacts on the environment.”',
+              'Pairs: A agrees, B disagrees. Speculate about farmers, prices and health.',
+              'Class vote: hands up if you agree. Did anyone change their mind?'
+            ]},
+            { type: 'checklist', id: 'd3n-o3k', title: 'Peer check: did your partner…', items: [
+              'use at least 2 speculating phrases?',
+              'talk about a risk or a condition (unless…, provided that…)?',
+              'give a reason for their opinion?'
             ]},
             { type: 'teacher', ref: 'w4d3-t3' }
           ]
@@ -168,12 +175,13 @@ window.DEC15_LESSON = {
               { who: 'group', text: '<b>Round 1 · 4–5 min.</b> Talk in your group. <b>Agree</b> on the best option.' },
               { who: 'group', text: '<b>Round 2 · 4–5 min.</b> Change groups. Meet people with a different set of options.' },
               { who: 'group', text: 'Tell them your choice. Try to convince them it is the best.' },
-              { who: 'group', text: 'Be <b>flexible</b>: if they have good arguments, you can change your mind.' }
+              { who: 'group', text: 'Be <b>flexible</b>: if they have good arguments, you can change your mind.' },
+              { who: 'alone', text: 'Afterwards, tick the skills you used. Aim for <b>two</b> phrases from each box.' }
             ]},
-            { type: 'language', title: 'Sentence starters', tabs: false, groups: [
-              { label: 'Say your choice', phrases: ['For me, the clear choice is… because…', 'I would still go with… because…'] },
-              { label: 'Disagree politely', phrases: ['I see your point, but…', 'I’m afraid we don’t see eye to eye there.'] },
-              { label: 'Change your mind', phrases: ['Oh yeah… I hadn’t considered that.', 'You make a strong case. Maybe that is the best option.'] }
+            { type: 'language', title: 'Useful language: negotiating', tabs: false, groups: [
+              { label: 'Argue your choice', phrases: ['On balance, the clear choice is… because…', 'I’d still go with…, mainly because…', 'If we went with…, the most likely outcome would be…'] },
+              { label: 'Push back politely', phrases: ['I take your point, but…', 'I’m afraid we don’t see eye to eye there.', 'Sorry to interrupt, but can I just add…?'] },
+              { label: 'Move towards agreement', phrases: ['That’s a fair point — I hadn’t looked at it that way.', 'Could we at least agree that…?', 'You’ve convinced me. I’d be willing to go with…'] }
             ]},
             { type: 'checklist', id: 'o4k', title: 'Skills I used — tick them', items: [
               'Managing the discussion (taking turns, keeping it moving)',
@@ -185,6 +193,10 @@ window.DEC15_LESSON = {
               'Changing my mind after a good argument (flexibility)',
               'Comparing, contrasting and choosing the best option'
             ]},
+            { type: 'steps', title: 'Round 3 · Class vote (3 min)', items: [
+              { who: 'group', text: 'Each group names its winning option and its best reason (20 seconds).' },
+              { who: 'class', text: 'Vote with your hands. Which option wins for the whole class?' }
+            ]},
             { type: 'teacher', ref: 'w4d3-t4' },
             { type: 'steps', title: 'Part 2 · Self-regulation and monitoring (groupwork): Action plan for further improvement', items: [
               { who: 'alone', text: 'Open your self-reflection from your <b>first</b> Research Summary Discussion (Weeks 1–2).' },
@@ -194,6 +206,12 @@ window.DEC15_LESSON = {
             { type: 'fields', fields: [
               { id: 'o5-1', label: 'What did you do well in the discussion last time?', placeholder: 'I gave clear examples from my research…', rows: 2 },
               { id: 'o5-2', label: 'What was difficult? What will you do tomorrow?', placeholder: 'I didn’t disagree. Tomorrow I will…', rows: 3 }
+            ]},
+            { type: 'checklist', id: 'd3n-o4cd', title: 'Can-do check: I can now…', items: [
+              'compare, contrast and prioritise three options',
+              'speculate about results, risks and conditions',
+              'push back politely and change my mind when there is a good argument',
+              'name one thing I will do better in tomorrow’s discussion'
             ]},
             { type: 'key', tone: 'warn', title: 'Reminder', points: ['Tomorrow, bring your <b>laptop or tablet</b> and your <b>headphones</b>. You need them for the task.'] },
             { type: 'teacher', ref: 'w4d3-t5' }
@@ -208,13 +226,17 @@ window.DEC15_LESSON = {
       tone: 'blue', art: 'critical',
       title: 'AST: Criticality: Engaging with sources',
       subtitle: 'Strong opinions, the opposite view and a town meeting',
-      outcome: 'Support your opinion with evidence from the readings. Argue the other side. Use phrases that show you are open to new ideas.',
+      outcome: 'Support your opinion with evidence from the readings. Argue the other side. Use phrases that show you are open to new ideas. Story: Kooringal’s town meeting — six people with real conflicts must decide whether to adopt a food waste plan.',
       activities: [
         {
           id: 'f1', short: 'Warmer', minutes: 15, grouping: 'Pairs',
           title: 'Warmer: Strong opinions and the opposite view',
           goal: 'Write a strong opinion about food waste, support it — then argue the opposite.',
           blocks: [
+            { type: 'talk', title: 'Lead-in · 2 minutes with a partner', prompts: [
+              'Think about last week. Did you throw away any food? What, and why?',
+              'Who do you think wastes more food: you, your family at home, or shops and restaurants?'
+            ]},
             { type: 'cards', title: 'Part 1 · Warmer — choose a strong opinion (or write your own)', items: [
               { text: 'Food waste is a serious issue that needs to be addressed immediately.' },
               { text: 'Food waste is more of a problem in wealthy countries than in poorer ones.' },
@@ -223,7 +245,7 @@ window.DEC15_LESSON = {
             ]},
             { type: 'model', title: 'Example: opinion → evidence → the opposite view', rows: [
               ['Opinion', 'Consumers are the biggest cause of food waste.'],
-              ['Evidence', 'Gunders (2024) says that consumers are the largest source of food waste.'],
+              ['Evidence', 'Gunders (2024) points out that consumers are the largest source of food waste.'],
               ['Opposite view', 'On the other hand, in poorer countries most food is lost on farms and in transport, not at home.']
             ]},
             { type: 'fields', fields: [
@@ -234,11 +256,11 @@ window.DEC15_LESSON = {
             { type: 'steps', items: [
               { who: 'pair', text: 'Tell your partner your opinion. Give reasons and evidence.' },
               { who: 'pair', text: 'Choose one opinion (yours or your partner’s).' },
-              { who: 'pair', text: 'Now argue for the <b>opposite</b> view. Use ideas from the readings if you can.' }
+              { who: 'pair', text: 'Now play <b>devil’s advocate</b>: argue the opposite view. Use ideas from the readings.' }
             ]},
             { type: 'spinner', id: 'f1sp', title: 'Argue the opposite!', text: 'Spin. Read the opinion. Now argue <b>against</b> it for 1 minute. Start with the phrase on the second reel.', reels: [
               { label: 'Opinion', start: 'Spin!', items: ['Food waste must be fixed now.', 'Rich countries waste more food.', 'Consumers cause most food waste.', 'Punish shops that waste food.', 'Your partner’s opinion'] },
-              { label: 'Start with', start: '…', items: ['On the other hand, …', 'Another way to look at it is…', 'Some people argue that…', 'But what about…?'] }
+              { label: 'Start with', start: '…', items: ['On the other hand, …', 'Another way to look at it is…', 'Some people would argue that…', 'That may be true, but what about…?'] }
             ]},
             { type: 'talk', prompts: ['Did the opposite view change your opinion? Did it give you new ideas?'] },
             { type: 'teacher', ref: 'w4d3-t6' }
@@ -253,23 +275,40 @@ window.DEC15_LESSON = {
         {
           id: 'f2', short: 'Language', minutes: 10, grouping: 'Pairs',
           title: 'Useful language: showing flexibility',
-          goal: 'Learn phrases that show you are open to other ideas.',
+          goal: 'Learn phrases that show you are open to other ideas — and still sound clear.',
           blocks: [
             { type: 'key', title: 'Why flexibility (= being open to change) matters', points: [
               'At university you need to listen to different ideas.',
               'In your discussion tomorrow, you will hear many opinions.',
               'Flexibility helps teamwork and problem-solving.'
             ]},
-            { type: 'language', title: 'Phrases for showing flexibility', groups: [
-              { label: 'Another idea', phrases: ['Another way to look at it is…', 'From a different perspective…'] },
-              { label: 'Both sides', phrases: ['I see your point, but at the same time…', 'Although I agree with…, I also think…'] },
-              { label: 'Changing my mind', phrases: ['I used to think that…, but now I see it differently.', 'I’m open to different viewpoints.'] },
+            { type: 'language', title: 'Useful language: showing flexibility', groups: [
+              { label: 'Another idea', phrases: ['Alternatively, …', 'Another way to look at it is…'] },
+              { label: 'Both sides', phrases: ['While it’s true that…, it’s also worth considering…', 'I see your point, but at the same time…'] },
+              { label: 'Changing my mind', phrases: ['I used to think that…, but now I see it differently.', 'My opinion has evolved as I’ve learned more about…'] },
               { label: 'Asking', phrases: ['What if we look at it this way…?', 'Could it be possible that…?'] },
               { label: 'Summing up', phrases: ['In summary, both sides have valid points…', 'Overall, there are several angles to this issue…'] }
             ]},
-            { type: 'talk', prompts: ['Did you use any of these phrases when you argued the opposite view? Which ones?', 'Try again: say one sentence from each group about your opinion from the warmer.'] },
-            { type: 'flash', id: 'f2fl', title: 'Memory game: remember the phrase', text: 'I see your point, but at the same time I think there are other ways to look at it.', seconds: 6 },
-            { type: 'tip', text: 'Nice work! More phrases are in <b>Extras → Phrase bank</b>.' },
+            { type: 'chat', title: 'Listen in: flexible, but still clear', lines: [
+              ['Student 1', 'According to Gunders (2024), consumers are the biggest cause of food waste.'],
+              ['Student 2', '<mark>While it’s true that</mark> households waste a lot, <mark>it’s also worth considering</mark> farms in poorer countries.'],
+              ['Student 1', 'Hmm. <mark>Could it be possible that</mark> it depends on the country?'],
+              ['Student 2', 'Exactly. <mark>I used to think that</mark> shops were the problem, <mark>but now I see it differently.</mark>']
+            ]},
+            { type: 'sort', id: 'd3n-f2s', title: '1 · What does each phrase do?', hint: '<b>Drag</b> each phrase into a box — or tap a phrase, then a box.', buckets: [
+              { label: 'Offer another view' }, { label: 'Balance both sides' }, { label: 'Show you changed your mind' }
+            ], items: [
+              { text: 'Alternatively, …', answer: 0 },
+              { text: 'From a different perspective, …', answer: 0 },
+              { text: 'While it’s true that…, it’s also worth considering…', answer: 1 },
+              { text: 'Although I agree with…, I also think…', answer: 1 },
+              { text: 'I used to think that…, but now I see it differently.', answer: 2 },
+              { text: 'You’ve convinced me — I hadn’t looked at it that way.', answer: 2 }
+            ]},
+            { type: 'talk', title: '2 · Try it (3 minutes)', prompts: [
+              'Go back to your opinion from the warmer. Your partner argues against it.',
+              'Answer with <b>three</b> phrases from different boxes. Your partner counts them.'
+            ]},
             { type: 'teacher', ref: 'w4d3-t7' }
           ]
         },
@@ -278,13 +317,18 @@ window.DEC15_LESSON = {
           title: 'Group discussion: Kooringal town meeting + Reflection',
           goal: 'Act out a town meeting. Try to agree on a plan to reduce food waste.',
           blocks: [
-            { type: 'flip', title: 'Part 1 · Group discussion — key words first', hint: 'Guess the meaning. Then tap the card.', items: [
-              { front: 'initiative', back: 'A new plan to solve a problem.' },
-              { front: 'food rescue', back: 'Collecting good food that shops don’t want and giving it to people.' },
-              { front: 'composting', back: 'Turning food scraps into soil for gardens.' },
-              { front: 'financial incentive', back: 'Money (or lower tax) to make people want to do something.' },
-              { front: 'compromise', back: 'An agreement where each side gets part of what it wants.' }
+            { type: 'flip', title: 'Part 1 · Group discussion — 7 useful words first', hint: 'Guess the meaning. Then tap the card. You will use these words again in your essays.', items: [
+              { front: 'initiative', back: 'A new plan to solve a problem.<br><i>The council launched an initiative to cut food waste.</i>' },
+              { front: 'adopt', back: 'Officially accept and start to use (a plan or idea).<br><i>Should the town adopt the plan?</i>' },
+              { front: 'implement', back: 'Put a plan into action.<br><i>The plan will be difficult to implement in small shops.</i>' },
+              { front: 'incentive', back: 'Something (often money) that encourages people to do something.<br><i>Tax cuts are an incentive for businesses to donate food.</i>' },
+              { front: 'surplus', back: 'More than is needed; extra.<br><i>Restaurants could give surplus food to charities.</i>' },
+              { front: 'feasible', back: 'Possible and practical to do.<br><i>Is a food rescue program feasible in a small town?</i>' },
+              { front: 'compromise', back: 'An agreement where each side gets part of what it wants.<br><i>We reached a compromise: a six-month trial.</i>' }
             ]},
+            { type: 'cloze', id: 'd3n-f3w', title: 'Quick check: complete the sentences', list: true, options: ['adopt', 'compromise', 'feasible', 'implement', 'incentive', 'initiative', 'surplus'],
+              text: 'The new {{1}} aims to halve food waste by 2030.\nWho will pay to {{2}} the plan?\nA lower tax is a good {{3}} for shops to donate food.\nBakeries often have {{4}} bread at the end of the day.\nIs it {{5}} to collect food from every home?\nIf neither side agrees, we need a {{6}}.\nMost residents voted to {{7}} the plan.',
+              answers: ['initiative', 'implement', 'incentive', 'surplus', 'feasible', 'compromise', 'adopt'] },
             { type: 'key', title: 'Scenario: Tackling Food Waste in Kooringal', points: [
               'Kooringal is a historic town with 13,500 people. Many tourists visit.',
               'Restaurants, supermarkets and homes throw away a lot of good food.',
@@ -293,35 +337,57 @@ window.DEC15_LESSON = {
               'Tonight there is a town meeting. <b>Should Kooringal adopt the plan?</b>'
             ]},
             { type: 'cards', title: 'Choose your role (your teacher may give you one)', pick: 'f3-role', items: [
-              { label: '1 · Local Restaurant Owner', icon: 'briefcase', text: 'Your restaurant has extra food. You have <b>mixed feelings</b>. Good: you save money and look good. Bad: more rules and changes to your work.<br><small>Ideas: save money · brand image · new rules · competition</small>' },
+              { label: '1 · Local Restaurant Owner', icon: 'briefcase', text: 'Your restaurant has <b>surplus</b> food. You have <b>mixed feelings</b>. Good: you save money and look good. Bad: more rules and changes to your work.<br><small>Ideas: save money · brand image · new rules · competition</small>' },
               { label: '2 · Local Government Officer', icon: 'flag', text: 'You are <b>for</b> the plan. It will help health, the environment and the local economy. There are problems, but the benefits are bigger.<br><small>Ideas: health · environment · new jobs · problems to solve</small>' },
               { label: '3 · Chairperson of the Community Council', icon: 'users', text: 'You lead the meeting. Make sure everyone speaks and listens. You <b>don’t have an opinion yet</b>.<br><small>Ideas: give turns · balance · compromise · how to decide</small>' },
               { label: '4 · Environmentalist (Keep Kooringal Green)', icon: 'sprout', text: 'You care about nature. You are <b>for</b> the plan. It will cut pollution and protect the environment.<br><small>Ideas: less pollution · composting · wildlife · education</small>' },
               { label: '5 · Local Resident', icon: 'home', text: 'You have lived here a long time. You are <b>against</b> the plan. It may cost too much, cause problems for families, or not work.<br><small>Ideas: cost · paperwork · risks · other solutions</small>' },
-              { label: '6 · Local Shop Owner', icon: 'briefcase', text: 'You have a small shop. You are <b>against</b> the plan. New rules and costs could hurt small businesses.<br><small>Ideas: extra costs · new rules · local trade · will it work?</small>' }
+              { label: '6 · Local Shop Owner', icon: 'briefcase', text: 'You have a small shop. You are <b>against</b> the plan. New rules and costs could hurt small businesses.<br><small>Ideas: extra costs · new rules · local trade · is it feasible?</small>' }
             ]},
+            { type: 'quiz', id: 'd3n-f3q', title: 'Read the scenario. Then answer (you can read twice)', items: [
+              { q: '1. What is the main problem in Kooringal?', options: ['Good food is thrown away, but some people don’t have enough.', 'Tourists leave too much rubbish in the town.', 'Local restaurants are closing.'], answer: 'Good food is thrown away, but some people don’t have enough.', why: 'The scenario says homes and businesses waste food while some people go hungry.' },
+              { q: '2. What is the town meeting for?', options: ['To decide whether to adopt the plan.', 'To choose a new council leader.', 'To raise money for a food bank.'], answer: 'To decide whether to adopt the plan.', why: 'The last line: “Should Kooringal adopt the plan?”' },
+              { q: '3. Which of these is <b>not</b> part of the plan?', options: ['Community composting', 'Money or tax cuts for businesses', 'A new tax on tourists'], answer: 'A new tax on tourists', why: 'The five parts are food rescue, composting, financial incentives, awareness campaigns and green jobs.' },
+              { q: '4. Read the role cards. Who is <b>against</b> the plan?', options: ['The environmentalist and the government officer', 'The local resident and the shop owner', 'The chairperson'], answer: 'The local resident and the shop owner', why: 'Roles 5 and 6 are against. The restaurant owner has mixed feelings; the chair has no opinion yet.' }
+            ]},
+            { type: 'tip', text: 'Question 3: look at the five parts of the plan in <b>bold</b>.' },
             { type: 'fields', title: 'Prepare your role', fields: [
               { id: 'f3-1', label: 'My arguments', placeholder: 'As a local shop owner, I’m worried that…', rows: 3 },
               { id: 'f3-2', label: 'Questions I want to ask the others', placeholder: 'Who will pay for…? What if…?', rows: 2 }
             ]},
             { type: 'steps', items: [
-              { who: 'alone', text: 'Read your role. Write your arguments and questions.' },
+              { who: 'alone', text: 'Keep your role card <b>secret</b>. Write your arguments and questions (5 min).' },
               { who: 'group', text: 'The <b>chairperson</b> opens the meeting and gives everyone a turn.' },
-              { who: 'group', text: 'Discuss the plan. Use the flexibility phrases.' },
-              { who: 'group', text: 'At the end, decide: <b>should Kooringal adopt it?</b>' }
+              { who: 'group', text: 'Discuss the plan. Use the meeting phrases below.' },
+              { who: 'group', text: 'At the end, decide: <b>should Kooringal adopt it?</b> A compromise is fine.' }
             ]},
-            { type: 'language', title: 'Sentence starters for the meeting', tabs: false, groups: [
-              { label: 'Chairperson', phrases: ['Welcome, everyone. Let’s start with…', 'What do you think, (name)?', 'So, can we agree on…?'] },
-              { label: 'Your view', phrases: ['As a (shop owner), I’m worried that…', 'I support this plan because…', 'Who will pay for…?'] },
-              { label: 'Being flexible', phrases: ['I see your point, but at the same time…', 'Maybe we can agree on part of the plan.', 'OK, I hadn’t thought of that.'] }
+            { type: 'language', title: 'Useful language for the meeting', tabs: false, groups: [
+              { label: 'Chairing', phrases: ['Let’s hear from… first.', 'Could you respond to that, (name)?', 'So, where do we stand on…?'] },
+              { label: 'Making your case', phrases: ['Speaking as a (shop owner), my main concern is…', 'Who would actually cover the cost of…?', 'Sorry to interrupt, but…'] },
+              { label: 'Reaching a compromise', phrases: ['What if we started with a trial of…?', 'Would you accept… if…?', 'I could live with that, provided that…'] }
             ]},
             { type: 'choose', id: 'f3c', title: 'Our town’s decision', options: ['Adopt the whole initiative', 'Adopt part of it (a compromise)', 'Don’t adopt it', 'No agreement'] },
+            { type: 'steps', title: 'Results (3 min)', items: [
+              { who: 'group', text: 'Each chairperson reports the decision and the key compromise (30 seconds).' },
+              { who: 'class', text: 'Which town made the smartest decision? Vote.' }
+            ]},
+            { type: 'checklist', id: 'd3n-f3k', title: 'Peer check: choose one person in your group. Did they…', items: [
+              'use at least 2 phrases from the meeting box?',
+              'use one of the 7 useful words (e.g. feasible, incentive)?',
+              'listen and respond to another person’s point?'
+            ]},
             { type: 'teacher', ref: 'w4d3-t8' },
             { type: 'talk', title: 'Part 2 · Reflection', prompts: [
               'Did you change your opinion in the meeting?',
               'Was it easy or hard to change your mind? Why?',
               'How does flexibility help in university discussions?',
               'What will you use from today in future group work?'
+            ]},
+            { type: 'checklist', id: 'd3n-f3cd', title: 'Can-do check: I can now…', items: [
+              'support an opinion with evidence from a source',
+              'argue the opposite view',
+              'show flexibility and still make my position clear',
+              'help a group reach a compromise'
             ]},
             { type: 'teacher', ref: 'w4d3-t9' }
           ]
@@ -335,16 +401,24 @@ window.DEC15_LESSON = {
       tone: 'clay', art: 'writing',
       title: 'Academic writing skills 2',
       subtitle: 'Modality, evaluative language and stance',
-      outcome: 'Use words that show how sure you are (modality) and what you think (stance) in persuasive writing.',
+      outcome: 'Use words that show how sure you are (modality) and what you think (stance) in persuasive writing. Story: a “stance clinic” — turn flat claims into persuasive ones, then say and write your own stance; the class picks the clearest.',
       activities: [
         {
           id: 's1', short: 'How sure?', minutes: 25, grouping: 'Pairs',
           title: 'Warmer + Taking a stance in persuasive writing',
           goal: 'See how writers show how sure they are and what they think.',
           blocks: [
+            { type: 'key', title: 'Today’s challenge', points: [
+              'By the end, you will say your stance on a hot topic in one minute — and write it in two sentences.',
+              'The class will choose the clearest, most persuasive stance.'
+            ]},
             { type: 'key', title: 'Part 1 · Warmer: how sure is the writer?', points: [
               '<b>Modality</b> (= words that show how sure the writer is): <i>perhaps, should, unquestionably</i>.',
               'Look at the words in <b>bold</b>. Is the writer a little sure, quite sure or very sure?'
+            ]},
+            { type: 'steps', items: [
+              { who: 'pair', text: 'Race: put the sentences in order. First pair to check with 7+ right wins.' },
+              { who: 'class', text: 'Which words helped you decide?' }
             ]},
             { type: 'order', id: 's1o', title: 'Put the sentences in order: least certain → most certain', ends: ['Least certain', 'Most certain'], items: [
               '<b>Perhaps</b> if restaurants offered smaller portion sizes, less food would be thrown away.',
@@ -407,6 +481,10 @@ window.DEC15_LESSON = {
               { label: 'Attitude stance', text: 'Is it good or bad? Is it important?', eg: 'vital, troubling, important' }
             ]},
             { type: 'teacher', ref: 'w4d3-t12' },
+            { type: 'steps', title: 'Jigsaw (6 min)', items: [
+              { who: 'alone', text: 'Student A: do sentences 1–8. Student B: do 9–15.' },
+              { who: 'pair', text: 'Teach your partner your answers. Give a reason for each.' }
+            ]},
             { type: 'grid', id: 's4g', title: 'Part 2 · Language Focus: Activity 2 — thinking stance (T) or attitude stance (A)? Look at the words in bold.', columns: ['Stance'], options: ['Thinking (T)', 'Attitude (A)'], rows: [
               '1. <b>Interestingly</b>, the study found that product novelty and the perceived green value have little effect on green actions.',
               '2. Food production and related waste have a <b>significant</b> impact on climate change.',
@@ -469,6 +547,10 @@ window.DEC15_LESSON = {
               '<b>It is likely that</b> the new policy will affect economic growth.',
               '<b>It would seem that</b> further research is required to fully understand the implications of this finding.'
             ]},
+            { type: 'spinner', id: 'd3n-s5sp', title: 'Game: stronger or softer?', text: 'Spin. Say the claim with the change on reel 2. Your partner judges: did it work?', reels: [
+              { label: 'Claim', start: 'Spin!', items: ['Food apps reduce waste.', 'Upcycled food is healthy.', 'Consumers waste the most food.', 'Supermarkets should donate surplus food.', 'Online learning works.', 'Your choice!'] },
+              { label: 'Make it', start: '…', items: ['much stronger (high modality)', 'a little softer (hedging)', 'balanced (Although…, …)', 'negative (evaluative word)'] }
+            ]},
             { type: 'quiz', id: 's5q', title: 'Quick check', items: [
               { q: 'Why is hedging language helpful?', options: ['It shows how sure you are, shows the limits of your evidence, and protects you from criticism.', 'It makes your opinion invisible.', 'It makes every claim sound 100% certain.'], answer: 'It shows how sure you are, shows the limits of your evidence, and protects you from criticism.', why: 'Hedging stops your claims from sounding too strong.' }
             ]},
@@ -511,6 +593,10 @@ window.DEC15_LESSON = {
               { label: 'Attitude markers (show feeling)', phrases: ['Importantly', 'Surprisingly', 'Unfortunately', 'Interestingly', 'Undoubtedly'] }
             ]},
             { type: 'key', tone: 'warn', title: 'Use attitude markers only a little', points: ['Too many can make your writing sound too personal. Use one or two in a paragraph.'] },
+            { type: 'steps', title: 'Team race (5 min)', items: [
+              { who: 'group', text: 'In threes, label the 15 bold words. Then check.' },
+              { who: 'class', text: 'Highest score wins. Explain your trickiest answer.' }
+            ]},
             { type: 'grid', id: 's7g', title: 'Activity 3 · Which of the five ways does the bold word use?', columns: ['Type of stance language'], options: ['Evaluative vocabulary', 'Modal language', 'Hedging language', 'Reporting verb', 'Signalling / attitude marker'], rows: [
               '1. <b>Interestingly</b>, the study found that…',
               '2. …have a <b>significant</b> impact on climate change.',
@@ -542,9 +628,25 @@ window.DEC15_LESSON = {
         {
           id: 's8', short: 'Use it', minutes: 23, grouping: 'Pairs → groups',
           title: 'Activity 4 (Optional) + Language in use',
-          goal: 'Find stance words in a model paragraph. Then use them yourself.',
+          goal: 'Read a model paragraph and find stance words. Then use them when you speak and write.',
           blocks: [
-            { type: 'passage', id: 's8p', title: 'Part 1 · Activity 4 (Optional): IWA Sample 3.1 · body paragraph 2 — highlight the language of stance', text: '¹Addressing the problem of food waste through better management and distribution of resources is also important because it has the potential to directly alleviate hunger. ²Estimates from the FAO reveal that approximately 30% of all food produced worldwide is not consumed (Our Changing Climate, 2020). ³While this food wastage occurs at various points in the supply chain, a large amount of perfectly edible food is thrown away by consumers. ⁴Consumer preference for attractive produce and the tendency to over purchase and let food spoil are some of the behavioural patterns that have led to the unnecessary discarding of food (Tchonkouang et al., 2023; Our Changing Climate, 2020). ⁵However, with the adoption of more sustainable consumption habits and redistribution programs, a significant amount of food could be redirected from waste streams to improve overall food availability in underserved populations (Royer, 2024). ⁶This redistribution could be particularly impactful in developed countries where surplus food from restaurants, retail, and households could be channelled to food banks to provide immediate relief. ⁷In fact, if the food waste generated in Australia were cut by one third, the amount saved could adequately feed 921,000 people for a year (Tchonkouang et al., 2023), demonstrating the importance of food conservation as a means of combating hunger.' },
+            { type: 'flip', title: 'Part 1 · Before you read — 6 useful words', hint: 'Guess the meaning. Then tap the card.', items: [
+              { front: 'alleviate', back: 'Make a problem less serious.<br><i>Food banks can alleviate hunger.</i>' },
+              { front: 'edible', back: 'Safe and fit to eat.<br><i>Much of the food thrown away is still edible.</i>' },
+              { front: 'discard', back: 'Throw away.<br><i>Shops discard fruit that looks “ugly”.</i>' },
+              { front: 'tendency', back: 'Something people usually do.<br><i>Shoppers have a tendency to buy too much.</i>' },
+              { front: 'redistribute', back: 'Move something from where there is too much to where it is needed.<br><i>Apps redistribute surplus food to charities.</i>' },
+              { front: 'surplus', back: 'More than is needed; extra.<br><i>Surplus food from restaurants can go to food banks.</i>' }
+            ]},
+            { type: 'cloze', id: 'd3n-s8w', title: 'Quick check', list: true, options: ['alleviate', 'discard', 'edible', 'redistribute', 'surplus', 'tendency'],
+              text: 'Most of the bread in the bin is still {{1}}.\nPeople have a {{2}} to buy more than they need.\nCharities {{3}} food from shops to families.\nCheaper meals could {{4}} hunger in poor areas.\nSupermarkets {{5}} food that is close to its date.\nThe café gives its {{6}} cakes to students.',
+              answers: ['edible', 'tendency', 'redistribute', 'alleviate', 'discard', 'surplus'] },
+            { type: 'quiz', id: 'd3n-s8q', title: 'Read the paragraph once. Then answer', items: [
+              { q: '1. What is the writer’s main point?', options: ['Reducing food waste could help to reduce hunger.', 'Consumers should only buy attractive food.', 'Food banks do not work in Australia.'], answer: 'Reducing food waste could help to reduce hunger.', why: 'Sentence 1: better distribution “has the potential to directly alleviate hunger”.' },
+              { q: '2. Where could redistribution be <b>particularly</b> useful?', options: ['In developed countries', 'On farms in poorer countries', 'Only in supermarkets'], answer: 'In developed countries', why: 'Sentence 6: “particularly impactful in developed countries”.' },
+              { q: '3. What does sentence 7 do?', options: ['It gives evidence for the main point.', 'It presents the opposite view.', 'It defines food waste.'], answer: 'It gives evidence for the main point.', why: 'The Australian figure shows how much hunger saved food could address.' }
+            ]},
+            { type: 'passage', id: 's8p', title: 'Activity 4 (Optional): IWA Sample 3.1 · body paragraph 2 — read, then highlight the language of stance', text: '¹Addressing the problem of food waste through better management and distribution of resources is also important because it has the potential to directly alleviate hunger. ²Estimates from the FAO reveal that approximately 30% of all food produced worldwide is not consumed (Our Changing Climate, 2020). ³While this food wastage occurs at various points in the supply chain, a large amount of perfectly edible food is thrown away by consumers. ⁴Consumer preference for attractive produce and the tendency to over purchase and let food spoil are some of the behavioural patterns that have led to the unnecessary discarding of food (Tchonkouang et al., 2023; Our Changing Climate, 2020). ⁵However, with the adoption of more sustainable consumption habits and redistribution programs, a significant amount of food could be redirected from waste streams to improve overall food availability in underserved populations (Royer, 2024). ⁶This redistribution could be particularly impactful in developed countries where surplus food from restaurants, retail, and households could be channelled to food banks to provide immediate relief. ⁷In fact, if the food waste generated in Australia were cut by one third, the amount saved could adequately feed 921,000 people for a year (Tchonkouang et al., 2023), demonstrating the importance of food conservation as a means of combating hunger.' },
             { type: 'tip', text: 'Start with the easy ones: find <b>could</b>, <b>However</b> and <b>significant</b>. Then look for more.' },
             { type: 'table', id: 's8t', title: 'Language of stance', columns: ['Sentence', 'Words', 'Type (evaluative · modal · hedging · reporting · signalling/attitude)'], fixed: ['1', '2', '3', '4', '5', '6', '7'] },
             { type: 'teacher', ref: 'w4d3-t17' },
@@ -555,9 +657,22 @@ window.DEC15_LESSON = {
               { text: 'Governments should impose stricter regulations on social media platforms to combat misinformation.' }
             ]},
             { type: 'model', title: 'Example stance (Online learning…)', text: '<b>It is highly likely that</b> online learning is <b>useful</b> for busy students. However, it is <b>somewhat limited</b>, because students <b>often</b> have fewer chances to speak.', note: 'Modal: <i>it is highly likely</i> · hedging: <i>somewhat, often</i> · evaluative: <i>useful, limited</i>.' },
-            { type: 'language', title: 'Sentence starters', tabs: false, groups: [
-              { label: 'Strong', phrases: ['It is evident that…', 'Clearly, …', '… is highly effective because…'] },
-              { label: 'Softer', phrases: ['It is possible that…', '… tends to…', 'This is somewhat limited because…'] }
+            { type: 'language', title: 'Useful language: showing your stance when you speak', tabs: false, groups: [
+              { label: 'Strong', phrases: ['There is clear evidence that…', 'It is evident that…', 'This is arguably the most… because…'] },
+              { label: 'Softer (hedging)', phrases: ['It seems likely that…', 'This tends to…', 'This may suggest that…'] },
+              { label: 'Balanced', phrases: ['While… has some merit, it is somewhat limited because…', 'Research suggests that…, although…'] }
+            ]},
+            { type: 'steps', title: 'Say it, then write it', items: [
+              { who: 'pair', text: 'Tell your partner your stance in 1 minute.' },
+              { who: 'pair', text: 'Use one strong, one softer and one balanced phrase.' },
+              { who: 'pair', text: 'Your partner ticks the checklist. Then swap.' },
+              { who: 'alone', text: 'Write your stance in two sentences below.' },
+              { who: 'class', text: 'Read out the best stance in your group. Vote for the clearest.' }
+            ]},
+            { type: 'checklist', id: 'd3n-s9k', title: 'Peer check: did your partner…', items: [
+              'use a strong phrase and a softer (hedging) phrase?',
+              'use at least one evaluative word (effective, limited, flawed…)?',
+              'make their overall stance clear?'
             ]},
             { type: 'fields', fields: [
               { id: 's9-1', label: 'My stance in two sentences (use a modal, a hedge and an evaluative word)', placeholder: 'It is highly likely that… However, this approach is somewhat limited because…', rows: 3 }
@@ -574,6 +689,12 @@ window.DEC15_LESSON = {
               { q: 'Which word makes a claim <b>softer</b>?', options: ['unquestionably', 'perhaps', 'clearly'], answer: 'perhaps', why: '“Perhaps” shows the writer is not completely sure.' },
               { q: 'Which reporting verb shows the writer <b>disagrees</b> with the source?', options: ['reports', 'refutes', 'observes'], answer: 'refutes', why: 'Refute = say that an idea is wrong.' },
               { q: '“This solution is <b>flawed</b>.” What kind of word is “flawed”?', options: ['Positive evaluation', 'Negative evaluation', 'Hedging'], answer: 'Negative evaluation', why: 'Flawed = has problems or mistakes.' }
+            ]},
+            { type: 'checklist', id: 'd3n-s8cd', title: 'Can-do check: I can now…', items: [
+              'say how sure I am (low, medium, high modality)',
+              'use evaluative words and hedging to show a stance',
+              'choose a reporting verb that shows what I think of a source',
+              'state a clear, balanced stance in speaking and writing'
             ]},
             { type: 'teacher', ref: 'w4d3-t18' }
           ],
@@ -596,7 +717,7 @@ window.DEC15_LESSON = {
       tone: 'amber', art: 'group',
       title: 'Building rapport',
       subtitle: 'Connect with your classmates',
-      outcome: 'Get to know your classmates and help make a friendly, supportive class.',
+      outcome: 'Get to know your classmates and help make a friendly, supportive class. Story: find out something surprising about your classmates and share it.',
       activities: [
         {
           id: 'b1', short: 'Building rapport', minutes: 30, grouping: 'Whole class',
@@ -611,6 +732,18 @@ window.DEC15_LESSON = {
               { who: 'class', text: 'Follow your teacher.' },
               { who: 'group', text: 'Join in and be positive.' },
               { who: 'group', text: 'Help everyone feel welcome.' }
+            ]},
+            { type: 'cards', title: 'Optional game: Find someone who…', items: [
+              { text: '…has tried Vegemite (or another “strange” food).' },
+              { text: '…cooks dinner at least four times a week.' },
+              { text: '…has a food-sharing or delivery app on their phone.' },
+              { text: '…changed their mind about something this week.' },
+              { text: '…knows a great cheap place to eat near campus.' },
+              { text: '…can name a typical dish from three classmates’ countries.' }
+            ]},
+            { type: 'steps', items: [
+              { who: 'class', text: 'Stand up. Ask one question per person. Ask a follow-up question.' },
+              { who: 'class', text: 'Share the most surprising answer you heard.' }
             ]},
             { type: 'spinner', id: 'b1sp', title: 'Optional game: get to know you', text: 'If your teacher chooses this game: spin and answer the question. Then ask your partner the same question.', reels: [
               { label: 'Question', start: 'Spin!', items: ['What is your favourite food from home?', 'What food would you never eat?', 'Where is the best place to eat near campus?', 'What did you do last weekend?', 'What is one thing you love about Sydney?', 'What would you cook for the class?'] }
@@ -686,6 +819,44 @@ window.DEC15_LESSON = {
           { label: 'Attitude markers', phrases: ['Importantly', 'Predictably', 'Significantly', 'Unfortunately', 'Surprisingly', 'Evidently', 'Unquestionably', 'Undoubtedly', 'Interestingly', 'Notably'] }
         ]}
       ]
+    },
+    {
+      id: 'x4', short: 'Grammar review', minutes: 15, grouping: 'Alone', category: 'Grammar review',
+      title: 'Grammar review: comparatives, quantifiers and speculating',
+      goal: 'Check the grammar behind the phrases for evaluating options and speculating.',
+      blocks: [
+            { type: 'cloze', id: 'o2c1', title: '1 · Comparatives, superlatives and quantifiers: complete the examples', list: true, options: ['all', 'bigger', 'each', 'more', 'most', 'none', 'than', 'the'],
+              text: '<i>Comparative:</i> (the environmental) consequences are a {{1}} worry {{2}} the (animal welfare) issues.\n<i>Comparative:</i> For me it’s much {{3}} serious {{4}} the other two options.\n<i>Superlative:</i> this is {{5}} {{6}} serious consequence\n<i>Quantifier:</i> (X, Y and Z) are {{7}} critical and interlinked aspects of…\n<i>Quantifier:</i> {{8}} these consequences are serious, but it seems that {{9}} of these…\n<i>Quantifier:</i> {{10}} factor affects the others.\n<i>Quantifier:</i> They are {{11}} really significant, but (I would still go with)…',
+              answers: ['bigger', 'than', 'more', 'than', 'the', 'most', 'all', 'all', 'none', 'each', 'all'] },
+            { type: 'flip', title: '2 · Quantifiers — guess the meaning, then turn the card', hint: 'Say what the word means. Then tap to check.', items: [
+              { front: 'all', back: 'Every one in a group of 3 or more.<br><i>All the cookies were eaten.</i>' },
+              { front: 'each', back: 'Every one, one by one (2 or more). Use a singular noun.<br><i>Each cookie has a different flavour.</i>' },
+              { front: 'both', back: 'The two of them.<br><i>Both the black and white cookies were delicious.</i>' },
+              { front: 'none', back: 'Not any of a group of 3 or more.<br><i>None of my 5 sisters likes cookies.</i>' },
+              { front: 'neither', back: 'Not this one and not that one (of two).<br><i>Neither of my parents likes cookies.</i>' },
+              { front: 'either', back: 'This one or that one (of two). Also used with “not”.<br><i>You can have either the black or the white cookie.</i>' }
+            ]},
+            { type: 'cloze', id: 'o2c2', title: '3 · Choose the correct word to complete the phrases', list: true, options: [['option', 'options'], ['good', 'well'], ['worse', 'bad'], ['are', 'is'], ['is', 'are'], ['much', 'many'], ['is', 'are'], ['choice', 'choices'], ['have', 'has']],
+              text: 'I think that either of the first two {{1}} would be effective.\nI don’t think the second option would work as {{2}} in rural areas…\nOption C would be {{3}} for the economy than the others.\nBoth Option A and Option B {{4}} possible long-term solutions.\nNeither of the first 2 options {{5}} as important as Option C.\nOption B would be {{6}} more expensive.\nAll 3 {{7}} good choices, but ultimately I think the best choice would be…\nNone of these {{8}} would be very popular.\nEach option {{9}} its benefits, but for me the clear choice is…',
+              answers: ['options', 'well', 'worse', 'are', 'is', 'much', 'are', 'choices', 'has'] },
+            { type: 'cloze', id: 'o3c', title: '4 · Word puzzle: unmix the letters in CAPITALS', list: true, options: [['unless', 'until', 'useless'], ['Even', 'Never', 'Eleven'], ['case', 'ease', 'cause'], ['provided', 'proved', 'divided'], ['Suppose', 'Oppose', 'Purpose']],
+              text: 'The problem is just going to keep getting worse <b>SNEULS</b> → {{1}} we tackle the health problems.\n<b>NEEV</b> → {{2}} if we address ethical concerns, the environmental issues will still remain.\nIn <b>EASC</b> → {{3}} Option B is an unpopular suggestion, the government should offer financial incentives.\nI think that Option C would work the best, <b>DDRPOIVE</b> → {{4}} that the government will enforce these changes.\n<b>OPSPSUE</b> → {{5}} we choose Option A, what will that mean for the economy?',
+              answers: ['unless', 'Even', 'case', 'provided', 'Suppose'] },
+        { type: 'sort', id: 'o2s', title: '2 · What does each phrase do? Sort them.', hint: '<b>Drag</b> each phrase into a box — or tap a phrase, then a box.', buckets: [
+              { label: 'Comparing options', text: 'how they are the same' }, { label: 'Contrasting options', text: 'how they are different' }, { label: 'Prioritising options', text: 'choosing the most important' }
+            ], items: [
+              { text: 'a) …either of the first two options would be effective.', answer: 0 },
+              { text: 'b) …the second option wouldn’t work as well in rural areas…', answer: 1 },
+              { text: 'c) Option C would be worse for the economy than the others.', answer: 1 },
+              { text: 'd) Both Option A and Option B are possible long-term solutions.', answer: 0 },
+              { text: 'e) Neither of the first 2 options is as important as Option C.', answer: 2 },
+              { text: 'f) Option B would be much more expensive.', answer: 1 },
+              { text: 'g) All 3 are good choices, but ultimately I think the best choice would be…', answer: 2 },
+              { text: 'h) None of these choices would be very popular.', answer: 0 },
+              { text: 'i) Each option has its benefits, but for me the clear choice is…', answer: 2 }
+            ]},
+        { type: 'tip', text: 'Meanings: <b>unless</b> = if not · <b>provided that</b> = only if · <b>suppose</b> = imagine · <b>in case</b> = because it might happen.' }
+      ]
     }
   ],
 
@@ -715,6 +886,14 @@ window.DEC15_LESSON = {
     ['reporting verb', 'A verb used to report a source (argues, suggests, refutes).', 'Castro et al. (2023) acknowledge the limitations.'],
     ['attitude marker', 'A word that shows the writer’s feeling about an idea.', 'Interestingly, … · Unfortunately, …'],
     ['refute', 'Say or prove that an idea is wrong.', 'McMichael (2009) refutes the notion that…'],
+    ['adopt', 'Officially accept and start to use a plan or idea.', 'Should the town adopt the plan?'],
+    ['implement', 'Put a plan into action.', 'The plan will be hard to implement.'],
+    ['incentive', 'Something that encourages people to do something.', 'Tax cuts are an incentive to donate food.'],
+    ['surplus', 'More than is needed; extra.', 'Restaurants could donate surplus food.'],
+    ['feasible', 'Possible and practical to do.', 'Is the plan feasible in a small town?'],
+    ['alleviate', 'Make a problem less serious.', 'Redistribution could alleviate hunger.'],
+    ['edible', 'Safe and fit to eat.', 'Much discarded food is still edible.'],
+    ['on balance', 'After thinking about all the points.', 'On balance, Option B is the most realistic.'],
     ['rapport', 'A friendly connection between people.', 'Building rapport helps us work together.']
   ]
 };

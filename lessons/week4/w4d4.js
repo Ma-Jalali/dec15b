@@ -4,7 +4,11 @@
    Activity titles use the Teacher’s Book headings. Teacher notes live in the database (teacher_notes), refs only here.
    v2 (A2–B1 friendly): 12 activities merged into 6 tabs; each Teacher’s Book heading is the title of the first block
    of its part ('Part 1 ·', 'Part 2 ·'). All field / form / table ids are unchanged.
-   Sharing (send: true): peer-feedback form (d6f), teacher’s feedback table (d11t), optional self-evaluation (d10f). */
+   Sharing (send: true): peer-feedback form (d6f), teacher’s feedback table (d11t), optional self-evaluation (d10f).
+   v3 (more functional, upper-intermediate): lead-in (scale + spinner) and upgraded discussion phrases with model,
+   practice and a practice negotiation in the Warm-up; listener language in Step 4; 8 useful words in How it works;
+   realistic questions on the sample negotiation (extras); region info-gap table, golden-moment feedback, class verdict
+   and can-do check. Story: decide, as a class, which strategy wins. New ids start with f3-. Assessment forms unchanged. */
 
 window.DEC15_LESSON = {
   id: 'w4d4',
@@ -17,7 +21,7 @@ window.DEC15_LESSON = {
   wordTarget: '',
   image: 'assets/week4/hero-w4d4.svg',
   imageAlt: 'An inner circle of three chairs with speech bubbles above them, and an outer ring of observers holding clipboards — a fishbowl discussion.',
-  journey: 'Today is your second Research Summary Discussion. First, you revise discussion phrases. Then you present your group’s research to a new group. Next, you discuss in a “fishbowl” while classmates watch and give feedback. Finally, you think about how it went and make a plan.',
+  journey: 'Today is your second Research Summary Discussion. First, you warm up, win a team quiz and try some stronger discussion phrases. Then you present your group’s research to a new group. Next, you discuss in a “fishbowl” while classmates watch and give feedback. Finally, the class votes on the winning strategy and you make a plan.',
   finish: { title: 'Friday', text: 'Feedback on your writing, an essay plan and AI literacy' },
 
   sections: [
@@ -30,11 +34,31 @@ window.DEC15_LESSON = {
       outcome: 'Present your group’s research. Discuss and compare 3 options in a group. Then think about how you did and set goals.',
       activities: [
         {
-          id: 'd1', short: 'Warm-up', minutes: 30, grouping: 'Whole class → research groups',
+          id: 'd1', short: 'Warm-up', minutes: 40, grouping: 'Pairs → whole class → research groups',
           title: 'Warmer: Revision of discussion skills and language + Preparation time',
-          goal: 'Revise discussion phrases. Then get ready to present your group’s research.',
+          goal: 'Warm up, revise and upgrade your discussion phrases. Then get ready to present.',
           blocks: [
-            { type: 'tip', text: 'Today is your <b>2nd Research Summary Discussion</b>. Use these skills and phrases in your discussion today. Can you get 18 out of 18?' },
+            { type: 'steps', title: 'Lead-in · Food waste and you (5 minutes)', items: [
+              { who: 'alone', text: 'Move the slider: how ready do you feel today?' },
+              { who: 'pair', text: 'Spin. Talk for one minute each. Then spin again.' },
+              { who: 'class', text: 'Share one interesting answer from your partner.' }
+            ]},
+            { type: 'scale', id: 'f3-d1s', title: 'How ready are you?', statement: 'I feel ready for today’s discussion.', ends: ['Not ready yet', 'Completely ready'], mid: 'Getting there' },
+            { type: 'spinner', id: 'f3-d1sp', title: 'Spin and talk', text: 'Answer with a reason and a real example.', reels: [
+              { label: 'Talk about…', start: 'Spin!', items: [
+                'The last time you threw food away. What was it, and why?',
+                'Have you used an app like Too Good To Go, or bought “ugly” or upcycled food?',
+                'Are there food banks where you live? Who uses them?',
+                'Your first Research Summary Discussion (Week 2): one thing that went well.',
+                'Your Week 2 Action plan: one thing you want to do better today.',
+                'What is harder for you: starting to speak, disagreeing or changing your mind?'
+              ]}
+            ]},
+            { type: 'steps', title: 'Team race: how much do you remember? (8 minutes)', items: [
+              { who: 'group', text: 'Make teams of 3. One device per team.' },
+              { who: 'group', text: 'Answer fast, but say each phrase aloud first.' },
+              { who: 'class', text: 'Check answers. The team with the highest score wins.' }
+            ]},
             { type: 'quiz', id: 'd1q', title: 'Part 1 · Warmer: Revision of discussion skills and language — choose the best answer', items: [
               { q: '1. Complete the sentence: In an academic discussion, you should…', options: ['…encourage others to speak', '…show interest', '…manage communication breakdowns', '…do all of these things'], answer: '…do all of these things', why: 'A good discussion needs all three: bring others in, show interest and fix misunderstandings.' },
               { q: '2. How can you fix a <b>communication breakdown</b> (= when people don’t understand each other)?', options: ['Ask for clarification', 'Agree', 'Show surprise', 'Move on to a new point'], answer: 'Ask for clarification', why: 'For example: “What do you mean?” or “I’m not sure I get your meaning.”' },
@@ -57,6 +81,51 @@ window.DEC15_LESSON = {
             ]},
             { type: 'teacher', ref: 'w4d4-t1' },
             { type: 'teacher', ref: 'w4d4-t2' },
+            { type: 'language', title: 'Level up: 10 phrases for a stronger discussion today', tabs: false, groups: [
+              { label: 'Explaining the quote', phrases: ['As I understand it, the quote suggests that…', 'This seems to imply that…, although it doesn’t say how.'] },
+              { label: 'Using evidence', phrases: ['Our research on (Kenya) supports this. For example,…', 'This is backed up by (Berti et al., 2021), who found that…'] },
+              { label: 'Building on and partly disagreeing', phrases: ['Building on what (Mai) said,…', 'I agree up to a point, but I’d question whether…'] },
+              { label: 'Comparing and prioritising', phrases: ['Whereas (option A) helps in the short term, (option B) could…', 'If we had to prioritise one, I’d go for… because…'] },
+              { label: 'Conceding and concluding', phrases: ['That’s a fair point. I hadn’t looked at it that way.', 'It seems we agree on…, but not on…'] }
+            ]},
+            { type: 'chat', title: 'Listen in: a practice negotiation (best way to cut food waste at home?)', lines: [
+              ['Ana', '<mark>If we had to prioritise one, I’d go for</mark> shopping lists, <mark>because</mark> Gunders says shopping is where we commit to food.'],
+              ['Ben', '<mark>I agree up to a point, but I’d question whether</mark> people really stick to a list. <mark>Whereas</mark> a list helps before you shop, freezing food <mark>could</mark> save what you already bought.'],
+              ['Chen', '<mark>Building on what Ben said,</mark> lots of people throw food away because of the “best by” date. So learning labels matters too.'],
+              ['Ana', '<mark>That’s a fair point. I hadn’t looked at it that way.</mark> <mark>It seems we agree on</mark> freezing, <mark>but not on</mark> what comes first.']
+            ]},
+            { type: 'sort', id: 'f3-d1srt', title: 'Practice: what does each new phrase do?', hint: 'These phrases are new. Match each one to its job.', buckets: [
+              { label: 'Explain the quote' }, { label: 'Use evidence' }, { label: 'Partly disagree' }, { label: 'Prioritise' }, { label: 'Concede' }
+            ], items: [
+              { text: 'From what I can tell, the authors mean that…', answer: 0 },
+              { text: 'In our region, the data showed that…', answer: 1 },
+              { text: 'I see where you’re coming from, but…', answer: 2 },
+              { text: 'On balance, (B) seems the most realistic option.', answer: 3 },
+              { text: 'OK, you’ve convinced me.', answer: 4 },
+              { text: 'One study from (Italy) found that…', answer: 1 },
+              { text: 'That’s true in cities, but is it true in rural areas?', answer: 2, why: 'A polite question can be a way to partly disagree.' },
+              { text: 'For me, the top priority has to be…', answer: 3 }
+            ]},
+            { type: 'steps', title: 'Use it: a 3-minute practice negotiation', items: [
+              { who: 'group', text: 'Work in threes. Spin for a practice question and a challenge.' },
+              { who: 'group', text: 'Discuss for 3 minutes. Try to choose one option.' },
+              { who: 'group', text: 'Check the boxes below together. Then spin again if there is time.' }
+            ]},
+            { type: 'spinner', id: 'f3-d1rh', title: 'Practice question + challenge', text: 'These are practice questions, not today’s discussion questions.', reels: [
+              { label: 'Question', start: 'Spin!', items: [
+                'Best way to cut food waste at home: shopping lists, freezing food or learning labels?',
+                'Who should do most about food waste: governments, supermarkets or consumers?',
+                'Best way to cut waste in a university canteen: smaller portions, cheap leftovers at closing time or tracking waste?',
+                'Best way to make people care: school lessons, social media campaigns or fees for throwing food away?'
+              ]},
+              { label: 'Everyone must use…', start: 'Spin!', items: ['a phrase to partly disagree', 'a phrase to prioritise', 'a phrase to build on an idea', 'a phrase to concede', 'evidence from a class text'] }
+            ]},
+            { type: 'checklist', id: 'f3-d1ck', title: 'Quick peer check', items: [
+              'Everyone used at least 2 new phrases.',
+              'Someone partly disagreed and gave a reason.',
+              'We compared two options with “whereas” or “on the other hand”.',
+              'We tried to prioritise one option at the end.'
+            ]},
             { type: 'key', title: 'Part 2 · Preparation time: Steps 4 and 5', compare: [
               { label: 'Step 4', text: 'You join a <b>new group</b>. Each person researched a different region. You each talk for <b>5 minutes</b> about your region.' },
               { label: 'Step 5', text: 'A <b>15-minute discussion</b>. ① Respond to a <b>quote</b>. Use examples from your research. ② Choose the best of <b>three options</b>. You don’t have to agree.' }
@@ -72,7 +141,8 @@ window.DEC15_LESSON = {
               'My handwritten notes cover all three articles.',
               'I know the common themes and the best examples.',
               'I can present for about 5 minutes without reading a script.',
-              'I have looked at my notes on the Week 3 and 4 texts.'
+              'I have looked at my notes on the Week 3 and 4 texts.',
+              'I have chosen 3 “Level up” phrases to use today.'
             ]},
             { type: 'sources', ids: ['nicastro', 'berti', 'aboutthat', 'gunders', 'castro', 'huang'] },
             { type: 'teacher', ref: 'w4d4-t3' }
@@ -96,8 +166,16 @@ window.DEC15_LESSON = {
               ['4 · Finish', 'So, the biggest problem in (the UK) is…']
             ]},
             { type: 'language', title: 'Language for summarising a group’s research into a specific region', tabs: false, groups: [
-              { label: 'Introducing your region', phrases: ['The region that our group chose to research was…', '(The UK’s) ambitious goal (= big plan) to…', 'This country’s strict rules greatly influence…'] },
-              { label: 'Bringing in the three sources', phrases: ['In the article which I read, the authors state that…', 'My groupmate’s article points out that…', 'The third article, reviewed by another groupmate, discusses…', 'Significantly, all 3 articles emphasise…'] }
+              { label: 'Introducing your region', phrases: ['The region that our group chose to research was…', 'The main challenge we found in (the UK) was…'] },
+              { label: 'Linking the three sources', phrases: ['In the article which I read, the authors state that…', 'This is supported by my groupmate’s article, which found that…', 'Whereas the first two articles focus on…, the third looks at…', 'Significantly, all 3 articles emphasise…'] },
+              { label: 'Finishing clearly', phrases: ['What stood out most for us was…', 'Overall, the key point is that…'] },
+              { label: 'Listeners: asking a follow-up question', phrases: ['Could you say a bit more about…?', 'So, if I understand correctly, …?'] }
+            ]},
+            { type: 'table', id: 'f3-d3t', title: 'Listen and fill in: compare the regions', columns: ['Region', 'Biggest problem', 'What is working', 'Best strategy for this region?'], rows: 4 },
+            { type: 'steps', title: 'After all the talks (3 minutes)', items: [
+              { who: 'group', text: 'Compare your tables. Which region has the biggest problem?' },
+              { who: 'group', text: 'Agree on one idea a region could “borrow” from another.' },
+              { who: 'class', text: 'One person shares your group’s idea in one sentence.' }
             ]},
             { type: 'fields', title: 'My notes on the other regions', fields: [
               { id: 'd3-1', label: 'Regions, main points and useful examples I can use in the discussion', placeholder: 'Region: … · Main point: … · Example: …', rows: 5 }
@@ -105,11 +183,17 @@ window.DEC15_LESSON = {
             { type: 'spinner', id: 'd3sp', title: 'Finished early? Ask a question', text: 'Spin. Ask the speaker the question about their region. Then swap.', reels: [
               { label: 'Ask about…', start: 'Spin!', items: ['the biggest problem', 'a surprising number', 'who is helping', 'what is working well', 'what is not working', 'one example'] }
             ]},
+            { type: 'checklist', id: 'f3-d3ck', title: 'Listen for it: give each speaker a quick tick', items: [
+              'The speaker linked at least two articles (e.g. “This is supported by…”, “Whereas…”).',
+              'The speaker gave one clear example from their region.',
+              'The speaker finished with the key point (e.g. “Overall, …”).',
+              'I asked one follow-up question.'
+            ]},
             { type: 'teacher', ref: 'w4d4-t4' }
           ]
         },
         {
-          id: 'd4', short: 'How it works', minutes: 20, grouping: 'Whole class → alone',
+          id: 'd4', short: 'How it works', minutes: 25, grouping: 'Whole class → alone',
           title: 'RSD Step 5: Discussion (Instructions) + Preparation time + Setting up the discussion order',
           goal: 'Know your role, your group and the rules for a good discussion.',
           blocks: [
@@ -135,6 +219,17 @@ window.DEC15_LESSON = {
               { who: 'alone', text: 'Use <b>handwritten</b> notes only — no computer or tablet.' },
               { who: 'alone', text: 'Look at your notes, but don’t read them aloud.' }
             ]},
+            { type: 'flip', title: '8 useful words for the discussion', hint: 'Tap a card. Say your own sentence with the word.', items: [
+              { front: 'effective', back: 'Works well; gets the result you want.<br><i>Apps may be effective in cities, but less so in rural areas.</i>' },
+              { front: 'address (a problem)', back: 'Deal with a problem; try to solve it.<br><i>Which strategy best addresses food waste?</i>' },
+              { front: 'prevention', back: 'Stopping something before it happens.<br><i>Gunders says prevention should be the priority.</i>' },
+              { front: 'surplus', back: 'Extra; more than is needed.<br><i>Supermarkets give surplus food to food banks.</i>' },
+              { front: 'food security', back: 'When people always have enough safe, healthy food.<br><i>Less waste could improve food security.</i>' },
+              { front: 'impact', back: 'A strong effect.<br><i>Food waste has a big environmental impact.</i>' },
+              { front: 'scale up', back: 'Make something bigger so it reaches more people.<br><i>Good ideas need money to scale up.</i>' },
+              { front: 'sustainable', back: 'Able to continue for a long time without harm.<br><i>Is a food bank a sustainable solution?</i>' }
+            ]},
+            { type: 'cloze', id: 'f3-d4cz', title: 'Quick check: choose the best word', list: true, text: 'Food banks give {{1}} food to people in need.\nGunders says {{2}} comes first: stop waste before it happens.\nToo Good To Go seems {{3}} in big cities, but maybe not in villages.\nNicastro and Carillo link less waste to better {{4}}.\nUpcycled food reduces the environmental {{5}} of waste.\nColdHubs needs more money to {{6}} across Africa.\nCan food banks run for many years? Are they {{7}}?\nWhich option best {{8}} the problem of food waste?', options: ['surplus', 'prevention', 'effective', 'food security', 'impact', 'scale up', 'sustainable', 'addresses'], answers: ['surplus', 'prevention', 'effective', 'food security', 'impact', 'scale up', 'sustainable', 'addresses'] },
             { type: 'sort', id: 'd5s', title: 'Discussion tips: do or don’t?', buckets: [
               { label: 'Do', text: 'good discussion habits' }, { label: 'Don’t', text: 'avoid these' }
             ], items: [
@@ -157,7 +252,7 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'd6', short: 'Peer feedback', minutes: 50, grouping: 'Feedback group → alone',
+          id: 'd6', short: 'Peer feedback', minutes: 35, grouping: 'Feedback group → alone',
           title: 'Peer-feedback groups + Other Groups (not discussing or giving feedback)',
           goal: 'Watch another group, rate their discussion and give helpful feedback.',
           blocks: [
@@ -167,6 +262,7 @@ window.DEC15_LESSON = {
               { who: 'alone', text: 'While you watch, choose <b>Yes</b>, <b>Mostly</b> or <b>Needs work</b> for each question.' },
               { who: 'alone', text: 'Add a comment with an example.' },
               { who: 'group', text: 'Be <b>constructive</b> (= helpful): show them what they can improve.' },
+              { who: 'alone', text: 'Also note one <b>golden moment</b>: the best phrase or argument you heard.' },
               { who: 'group', text: 'After their self-evaluation, tell the group your feedback. Then send them the form.' }
             ]},
             { type: 'tip', text: 'Key words for the form: <b>fluency</b> (= speaking smoothly) · <b>spontaneous</b> (= natural, not reading notes) · <b>justify</b> (= give reasons) · <b>implications</b> (= possible results).' },
@@ -188,11 +284,17 @@ window.DEC15_LESSON = {
               { label: 'Strengths', phrases: ['The way you… made your point very clear.', '… was good; to make it even better, you might…', 'You’ve made a good point here, but maybe you could…'] },
               { label: 'Areas to improve', phrases: ['I noticed a few times where…', 'It might be helpful to…', 'Don’t forget to… / Remember to…'] }
             ]},
+            { type: 'model', title: 'Giving feedback face to face: an example', rows: [
+              ['Golden moment', 'When Kai said “I agree up to a point, but…”, the discussion really opened up.'],
+              ['Strength', 'The way you used the Kenya example made your point very clear.'],
+              ['To improve', 'It might be helpful to invite quieter members in, e.g. “What do you think, Sara?”']
+            ]},
             { type: 'fields', title: 'Feedback I received', fields: [
               { id: 'd6-r', label: 'What did my observers say? (add these notes to your self-reflection later)', placeholder: 'Strength: … · To improve: …', rows: 3 }
             ]},
             { type: 'teacher', ref: 'w4d4-t6' },
             { type: 'steps', title: 'Part 2 · Other Groups (not discussing or giving feedback)', items: [
+              { who: 'group', text: 'Waiting for your discussion? Do one more <b>practice negotiation</b> (Warm-up tab) quietly.' },
               { who: 'alone', text: 'Not discussing or watching now? Work on the <b>Self-Study module</b>.' },
               { who: 'group', text: 'Already had your discussion? Meet the group you watched <b>quietly</b> (or outside). Share your feedback.' },
               { who: 'alone', text: 'After you give and get feedback, write your <b>Action plan for further improvement</b> (tab “After”).' }
@@ -231,18 +333,19 @@ window.DEC15_LESSON = {
               { label: 'c) Mobile apps', icon: 'layers', text: 'Help homes and shops manage, share or sell food cheaply — e.g. Too Good To Go.' }
             ]},
             { type: 'chat', title: 'Listen in: a short example negotiation', lines: [
-              ['Student 1', 'For me, <mark>the clear choice is</mark> food banks, <mark>because</mark> they help hungry people today.'],
-              ['Student 2', '<mark>I see your point, but</mark> food banks don’t stop the waste. <mark>In our research we learnt that</mark> apps help shops sell food before it goes bad.'],
-              ['Student 3', 'True. But <mark>I don’t think</mark> apps <mark>would work as well</mark> in rural areas.'],
-              ['Student 1', '<mark>Oh yeah… I hadn’t considered that.</mark> <mark>Each option has its benefits, but</mark> I would still go with food banks.']
+              ['Student 1', '<mark>If we had to prioritise one, I’d go for</mark> food banks, <mark>because</mark> they help hungry people today.'],
+              ['Student 2', '<mark>I agree up to a point, but I’d question whether</mark> food banks stop the waste. <mark>This is backed up by</mark> Gunders (2024), <mark>who explains that</mark> apps like Too Good To Go help shops sell food before it goes bad.'],
+              ['Student 3', '<mark>Building on that,</mark> <mark>whereas</mark> apps work well in cities, they <mark>may not be as effective</mark> in rural areas.'],
+              ['Student 1', '<mark>That’s a fair point. I hadn’t looked at it that way.</mark> <mark>It seems we agree on</mark> the problem, <mark>but not on</mark> the solution — and that’s OK.']
             ]},
             { type: 'language', title: 'Negotiation language — quick reminder', groups: [
-              { label: 'Responding to the quote', phrases: ['I think ‘…’ here means…', 'So maybe the quote is saying that…', 'Especially in countries like (Kenya) that I researched…'] },
-              { label: 'Opinions and evidence', phrases: ['For me, … because…', 'In our research we learnt that…', 'Which one do you think we should choose?'] },
-              { label: 'Building on and disagreeing', phrases: ['Like you said before about…', 'I understand that…, but…', 'I’m afraid we don’t see eye to eye there.'] },
-              { label: 'Evaluating options', phrases: ['Option B would be much more expensive.', 'Each option has its benefits, but for me the clear choice is…', 'They are all important, but I would still go with…'] },
-              { label: 'Showing flexibility', phrases: ['Oh yeah… I hadn’t considered that.', 'I suppose you have a point there.', 'You make a strong case. Maybe that is the best option.'] }
+              { label: 'Responding to the quote', phrases: ['As I understand it, the quote suggests that…', 'This seems to imply that…', 'Especially in countries like (Kenya) that I researched…'] },
+              { label: 'Opinions and evidence', phrases: ['Our research on (Kenya) supports this. For example,…', 'This is backed up by (Gunders, 2024), who argues that…', 'Which one do you think we should choose, and why?'] },
+              { label: 'Building on and disagreeing', phrases: ['Building on what (Mai) said,…', 'I agree up to a point, but I’d question whether…', 'I’m afraid we don’t see eye to eye there.'] },
+              { label: 'Comparing and prioritising', phrases: ['Whereas (option A) helps in the short term, (option B) could…', 'The main drawback of (option C) is that…', 'If we had to prioritise one, I’d go for… because…'] },
+              { label: 'Conceding and concluding', phrases: ['That’s a fair point. I hadn’t looked at it that way.', 'You make a strong case. Maybe that is the best option.', 'It seems we agree on…, but not on…'] }
             ]},
+            { type: 'tip', text: 'Personal goal: use at least <b>3 phrases</b> from this list. Your observers will listen for them.' },
             { type: 'sources', ids: ['gunders', 'nicastro', 'berti'] },
             { type: 'teacher', ref: 'w4d4-t8' },
             { type: 'teacher', ref: 'w4d4-t9' }
@@ -292,6 +395,18 @@ window.DEC15_LESSON = {
               'I took notes on my teacher’s feedback.',
               'I wrote my Action plan for further improvement.'
             ]},
+            { type: 'steps', title: 'Class verdict: which strategy won? (5 minutes)', items: [
+              { who: 'group', text: 'Each discussion group: say your choice and your best reason in one sentence.' },
+              { who: 'class', text: 'Your teacher counts the votes on the board: food banks, upcycled food or apps?' },
+              { who: 'class', text: 'Share golden moments: the best phrases and arguments you heard today.' }
+            ]},
+            { type: 'checklist', id: 'f3-d10cd', title: 'Today I can…', meter: ['ticked', 'Great progress today!'], items: [
+              'summarise my group’s research for a new audience.',
+              'explain a quote and support my view with evidence.',
+              'compare and prioritise three options.',
+              'disagree politely and concede when I hear a good argument.',
+              'give and receive constructive feedback.'
+            ]},
             { type: 'tip', text: 'Congratulations on finishing your second Research Summary Discussion! Well done!' },
             { type: 'fields', title: 'Check your Action plan again', fields: [
               { id: 'd12-1', label: 'Can you add anything else to do better next time?', placeholder: 'Next time I will… so that…', rows: 3 }
@@ -309,7 +424,27 @@ window.DEC15_LESSON = {
       title: 'Listen to a negotiation ending again',
       goal: 'Notice how students compare options and change their minds. Compare with your discussion.',
       blocks: [
+        { type: 'steps', items: [
+          { who: 'alone', text: 'Read the question: health, environment or animal rights — which is most serious?' },
+          { who: 'alone', text: 'Predict: will the three students agree in the end?' },
+          { who: 'alone', text: 'Read once for the main idea. Then read again for the details.' }
+        ]},
         { type: 'listening', source: 'DEC15 sample recording', title: 'Research Summary Discussion — the end of the negotiation', videoId: '', transcripts: [['negotiation-ending2', 'Transcript']] },
+        { type: 'quiz', id: 'f3-x1g', title: 'First read: the main idea', items: [
+          { q: 'How does the negotiation end?', options: ['They all choose environmental damage.', 'Two students agree; one still disagrees.', 'They all choose health problems.'], answer: 'Two students agree; one still disagrees.', why: 'Student 5 moves to the environment, but Student 4 still argues for health.' }
+        ]},
+        { type: 'quiz', id: 'f3-x1d', title: 'Second read: details (in order)', items: [
+          { q: 'At the start, Student 1 says the three consequences are…', options: ['not very serious.', 'all connected.', 'mostly about animals.'], answer: 'all connected.', why: '“None of these issues can be viewed in isolation. Each factor affects the other.”' },
+          { q: 'What evidence does Student 4 give first for health problems?', options: ['A UN statistic', 'A personal story', 'A research article'], answer: 'A personal story', why: '“Last year I got really sick…” — a personal story is weaker evidence than research.' },
+          { q: 'How does Student 1 support the environment argument?', options: ['With a statistic from a UN programme', 'With a story about a farm', 'By asking a question'], answer: 'With a statistic from a UN programme', why: 'Student 1 cites the UN Environment Programme on degraded soils.' },
+          { q: 'Why is Student 5 not convinced by the dairy farm example?', options: ['It is only a small-scale example.', 'It comes from Kenya.', 'The farm has no animals.'], answer: 'It is only a small-scale example.', why: '“…a small-scale operation which does not accurately represent this global issue.”' },
+          { q: 'Why does Student 5 change their mind?', options: ['Time is nearly over.', 'Protecting the environment also protects animals.', 'The teacher told them to agree.'], answer: 'Protecting the environment also protects animals.', why: 'Student 5 says this directly before choosing the environment.' }
+        ]},
+        { type: 'tip', text: 'Question 2 is the hardest. Think: is one person’s experience strong evidence for a global issue?' },
+        { type: 'talk', title: 'Think about it', prompts: [
+          'Which student gave the strongest evidence? Why?',
+          'Is it OK that they did not reach an agreement? Why or why not?'
+        ]},
         { type: 'fields', fields: [
           { id: 'x1-1', label: 'Two phrases for evaluating options or showing flexibility that I want to use next time', placeholder: '1. … 2. …', rows: 3 }
         ]}
@@ -360,6 +495,12 @@ window.DEC15_LESSON = {
     ['peer feedback', 'Comments from classmates about your work or performance.', 'We shared our peer feedback after the discussion.'],
     ['constructive', 'Helpful; showing how to improve.', 'Give constructive feedback with examples.'],
     ['self-evaluation', 'Judging your own performance.', 'Complete your self-evaluation before you hear peer feedback.'],
-    ['action plan', 'A list of specific steps you will take to improve.', 'My action plan: use more examples from my research.']
+    ['action plan', 'A list of specific steps you will take to improve.', 'My action plan: use more examples from my research.'],
+    ['prevention', 'Stopping something before it happens.', 'Gunders says prevention should be the priority.'],
+    ['surplus', 'Extra; more than is needed.', 'Supermarkets give surplus food to food banks.'],
+    ['food security', 'When people always have enough safe, healthy food.', 'Less waste could improve food security.'],
+    ['scale up', 'To make something bigger so it reaches more people.', 'Good ideas need money to scale up.'],
+    ['sustainable', 'Able to continue for a long time without harm.', 'Is a food bank a sustainable solution?'],
+    ['concede', 'To accept that someone else’s point is true or good.', '“That’s a fair point” is a polite way to concede.']
   ]
 };
