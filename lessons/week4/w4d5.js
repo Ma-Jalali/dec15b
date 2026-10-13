@@ -80,9 +80,9 @@ window.DEC15_LESSON = {
           goal: 'Language point: giving and responding to feedback. Learn the phrases, practise them, then use them in a real feedback meeting about your partner’s essay.',
           blocks: [
             { type: 'model', title: 'Part 1 · Notice (2 min) · Two sentences from a feedback meeting', list: [
-              '“<b>One thing that works really well is</b> your position. It’s clear from the first paragraph.”',
-              '“<b>It might be worth</b> naming the problem again.”'
-            ], note: 'Mia is giving feedback on Ravi’s essay. Look at the words in bold.' },
+              '“<mark>One thing that works really well is</mark> your position. It’s clear from the first paragraph.”',
+              '“<mark>It might be worth</mark> naming the problem again.”'
+            ], note: 'Mia is giving feedback on Ravi’s essay. Look at the highlighted words.' },
             { type: 'quiz', id: 'h4-f2n', title: 'What is Mia doing?', items: [
               { q: 'Sentence 1: what is Mia doing?', options: ['Praising', 'Suggesting a change', 'Responding'], answer: 'Praising', why: 'She says exactly what is good: the position.' },
               { q: 'Sentence 2: why does Mia say <b>might</b>?', options: ['To make her suggestion soft and polite', 'Because she is not sure about the essay', 'To talk about the future'], answer: 'To make her suggestion soft and polite', why: 'Soft words make feedback kind, so the writer listens.' }
@@ -290,9 +290,9 @@ window.DEC15_LESSON = {
           goal: 'Language point: stating a position. Say clearly what should happen and give one main reason. Then choose your group’s first position.',
           blocks: [
             { type: 'model', title: 'Part 1 · Notice (1 min) · Two sentences from Gunders’ talk', list: [
-              '“We <b>also need</b> policy.” (paragraph M)',
-              '“These laws <b>should be</b> everywhere.” (paragraph M)'
-            ], note: 'Look at the words in bold.' },
+              '“We <mark>also need</mark> policy.” (paragraph M)',
+              '“These laws <mark>should be</mark> everywhere.” (paragraph M)'
+            ], note: 'Look at the highlighted words.' },
             { type: 'quiz', id: 'h4-pn', title: 'What is Gunders doing here?', items: [
               { q: 'In these two sentences, Gunders is…', options: ['giving her position: what should happen', 'describing what happens now', 'telling a story about her son'], answer: 'giving her position: what should happen', why: '<i>need</i> and <i>should</i> show her view about what governments should do.' }
             ]},
@@ -434,8 +434,8 @@ window.DEC15_LESSON = {
           goal: 'Language point: reporting a source. Turn your notes into sentences that say whose idea it is.',
           blocks: [
             { type: 'model', title: 'Part 1 · Notice (1 min) · Two sentences from Gunders’ talk', list: [
-              '“<b>Researchers estimate</b> about 20 percent of that gap could be met by simply wasting less.” (D)',
-              '“At ReFED, <b>we estimate that</b> for the US alone, it could take 18 billion dollars to fully scale solutions.” (L)'
+              '“<mark>Researchers estimate</mark> about 20 percent of that gap could be met by simply wasting less.” (D)',
+              '“At ReFED, <mark>we estimate that</mark> for the US alone, it could take 18 billion dollars to fully scale solutions.” (L)'
             ]},
             { type: 'quiz', id: 'h4-rn', title: 'Whose idea is it?', items: [
               { q: 'How does Gunders show that these numbers come from other people’s work?', options: ['She names who says it + a reporting verb (estimate)', 'She uses a question', 'She gives no source'], answer: 'She names who says it + a reporting verb (estimate)', why: 'Who (researchers, ReFED) + verb (estimate) = reporting a source.' }
@@ -570,7 +570,7 @@ window.DEC15_LESSON = {
       outcome: 'Notice bias in AI answers, check an AI text carefully, and make a checklist for checking AI text.',
       activities: [
         {
-          id: 'i1', short: 'Warm-up', minutes: 15, grouping: 'Groups',
+          id: 'i1', short: 'Warm-up', minutes: 10, grouping: 'Groups',
           title: 'Warmer',
           goal: 'Watch a short video about bias in AI pictures. Then test an image generator yourself.',
           blocks: [
@@ -602,26 +602,87 @@ window.DEC15_LESSON = {
               { who: 'pair', text: 'ChatGPT and Copilot make 1 image at a time. Ask them for a few more.' }
             ]},
             { type: 'tip', text: 'Image generators: <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> · <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Copilot</a> · <a href="https://www.canva.com/ai-image-generator/" target="_blank" rel="noopener">Canva</a> (or any other).' },
-            { type: 'talk', title: '3. Talk in groups', prompts: [
+            { type: 'teacher', ref: 'w4d5-t8' }
+          ]
+        },
+        {
+          id: 'h4-hdg', short: 'Hedging', minutes: 10, grouping: 'Alone → groups',
+          title: 'Talk about AI bias carefully: hedging',
+          goal: 'Language point: hedging. Make a claim softer when you are not 100% sure. Then use it to talk about AI bias.',
+          blocks: [
+            { type: 'model', title: 'Part 1 · Notice (1 min) · Two sentences from Gunders’ talk', list: [
+              '“For the US alone, it <mark>could</mark> take 18 billion dollars to fully scale solutions.” (L)',
+              '“That compost… goes on to improve soils and even sequester carbon, <mark>potentially</mark>.” (M)'
+            ]},
+            { type: 'quiz', id: 'h4-hn', title: 'Why does Gunders say could and potentially?', items: [
+              { q: 'Why does Gunders use <b>could</b> and <b>potentially</b>?', options: ['She is not 100% sure, so she is careful', 'She is talking about the past', 'She wants to sound angry'], answer: 'She is not 100% sure, so she is careful', why: 'These are estimates and possibilities, not facts. This is hedging.' }
+            ]},
+
+            { type: 'key', title: 'Part 2 · Clarify (2 min) · What is hedging?', points: [
+              '<b>Hedging</b> = making a claim softer when you are not 100% sure.',
+              'Why? In academic work, a claim that is too strong (<i>always, all, never</i>) is easy to attack. A careful claim sounds more reliable.'
+            ]},
+            { type: 'model', title: 'Four ways to hedge · with everyday examples', rows: [
+              ['Modal verbs: may, might, could', '<i>Coffee <b>may</b> help you concentrate.</i>'],
+              ['Adverbs: possibly, probably, likely', '<i>It will <b>probably</b> rain tomorrow.</i>'],
+              ['Verbs: seem, appear, suggest, tend to', '<i>Teenagers <b>tend to</b> sleep late.</i>'],
+              ['Softer amounts: some, many, often', '<i><b>Many</b> students work part-time.</i> (not <i>all</i>)']
+            ]},
+            { type: 'tip', text: '<b>Common mistakes:</b> “may <s>to</s> help” → may <b>help</b>. Too many hedges: “It <s>might possibly perhaps</s>…” → one hedge is enough.' },
+
+            { type: 'cloze', id: 'h4-hc', list: true, title: 'Part 3 · Controlled practice (2 min) · Choose the softer, careful word', text: 'Phones {{1}} make it harder to sleep.\nAI image tools {{2}} show doctors as men.\n{{3}} students use AI for homework, but not all of them.\nThe results {{4}} that the data is old.\nIt is {{5}} that AI tools will improve.\nThe pictures {{6}} to be more diverse this year.', options: [
+              ['may', 'always', 'must'],
+              ['tend to', 'always', 'never'],
+              ['Many', 'All', 'Every'],
+              ['suggest', 'prove', 'show clearly'],
+              ['likely', 'certain', 'sure'],
+              ['appear', 'are proved', 'must be']
+            ], answers: ['may', 'tend to', 'Many', 'suggest', 'likely', 'appear'], why: [
+              'may = possible, not certain.',
+              'tend to = usually, not always.',
+              'many = not all.',
+              'suggest is softer than prove.',
+              'likely = probably.',
+              'appear to = seem to.'
+            ]},
+
+            { type: 'model', title: 'Part 4 · Less controlled practice (2 min) · Strong → careful', rows: [
+              ['Too strong', 'AI images are racist.'],
+              ['Careful', 'AI images <b>may</b> reinforce racial stereotypes.']
+            ], note: 'Change the strong words. Use one hedge in each sentence.' },
+            { type: 'fields', title: 'Rewrite each strong claim in a careful way', fields: [
+              { id: 'h4-hl1', label: '1. AI always gives correct answers.', placeholder: 'AI often…', rows: 1, share: false },
+              { id: 'h4-hl2', label: '2. All AI images show CEOs as men.', placeholder: 'Many AI images…', rows: 1, share: false },
+              { id: 'h4-hl3', label: '3. AI text is biased.', placeholder: 'AI text may…', rows: 1, share: false },
+              { id: 'h4-hl4', label: '4. Students who use AI learn nothing.', placeholder: 'Students who… might…', rows: 1, share: false }
+            ]},
+
+            { type: 'talk', title: 'Part 5 · Production (3 min) · Talk in groups: use 2 hedges each', prompts: [
               'AI can show gender, race or age unfairly in pictures. Can it also show <b>facts or arguments</b> unfairly in academic work? How?',
               'What can go wrong if we use AI text in research and don’t check it?'
             ]},
-            { type: 'language', title: 'Useful language for your group talk', tabs: false, groups: [
-              { label: 'Describe what you noticed', phrases: ['The majority of the images showed…', 'What stood out to me was…', 'Only one or two pictures showed…'] },
-              { label: 'Explain and speculate (hedging)', phrases: ['This suggests that the AI…', 'It seems that the data…', 'This might lead to…'] },
+            { type: 'model', title: 'Model answer', text: 'AI text <b>might</b> leave out views from poorer countries, because it <b>seems to</b> use mainly English sources. This <b>could</b> make our essays less balanced.' },
+            { type: 'language', title: 'Phrases for your group talk', tabs: false, groups: [
+              { label: 'Describe what you noticed', phrases: ['The majority of the images showed…', 'Only one or two pictures showed…'] },
+              { label: 'Explain carefully (hedging)', phrases: ['This suggests that the AI…', 'It seems that the data…', 'This might lead to…'] },
               { label: 'Link to academic work', phrases: ['In the same way, AI text could leave out…', 'If we don’t check it, we risk…'] }
             ]},
-            { type: 'teacher', ref: 'w4d5-t8' }
+            { type: 'checklist', id: 'h4-hk', title: 'Partner check · Did your partner…', items: [
+              'use a modal verb (may / might / could)?',
+              'use another hedge (seem / suggest / tend to / many)?',
+              'avoid always / never / all without evidence?'
+            ]}
           ],
           answers: { items: [
+            ['Part 4 · possible answers', '1. AI often gives correct answers, but it can make mistakes. · 2. Many AI images seem to show CEOs as men. · 3. AI text may be biased. · 4. Students who rely on AI for everything might learn less.'],
             ['Misrepresenting in academic contexts', 'AI can make issues too simple, repeat stereotypes and common biases, leave out voices (it uses mainstream sources) and give old information (older data, no new research). Example: AI might explain poverty only by economic mismanagement and ignore historical and systemic factors.'],
             ['Risks', 'Your own ideas — this leads into why we must check AI output.']
           ]}
         },
         {
-          id: 'i2', short: 'Check AI text', minutes: 22, grouping: 'Groups',
+          id: 'i2', short: 'Read AI text', minutes: 10, grouping: 'Groups',
           title: 'Evaluating AI output',
-          goal: 'Use your Week 2 reading skills to judge an AI answer about food waste.',
+          goal: 'Read an AI answer about food waste. Use your Week 2 reading skills to understand it and find its weak points.',
           blocks: [
             { type: 'key', title: 'Week 2 skills that also work for AI text', points: [
               'Is it a <b>fact</b> or an <b>opinion</b>?',
@@ -654,24 +715,60 @@ window.DEC15_LESSON = {
               { q: '5. Does the text name any studies or sources?', options: ['No', 'Yes, one study', 'Yes, several'], answer: 'No', why: 'There are no references, so we cannot check the claims.' }
             ]},
             { type: 'tip', text: '<b>Hint for question 4:</b> find the word <i>Governments</i> in paragraph 2. How many sentences are about them?' },
-            { type: 'language', title: 'Language for evaluating a text (use it in your group answers)', tabs: false, groups: [
-              { label: 'Point out a weakness', phrases: ['The text seems to assume that…', 'It doesn’t take into account…', 'One perspective that is missing is…'] },
-              { label: 'Hedge and balance', phrases: ['This may be true in…, but not in…', 'To be fair, the text does mention…'] },
-              { label: 'Suggest an improvement', phrases: ['A more balanced answer would…', 'It would be more reliable if it…'] }
+            { type: 'teacher', ref: 'w4d5-t9' }
+          ]
+        },
+        {
+          id: 'h4-ev', short: 'Evaluate', minutes: 12, grouping: 'Groups',
+          title: 'Evaluating AI output: language for evaluating a text',
+          goal: 'Language point: evaluating a text. Say what is good and what is weak in a text, with a reason. Then judge the AI text with your group.',
+          blocks: [
+            { type: 'model', title: 'Part 1 · Notice (1 min) · Gunders evaluates the solutions', list: [
+              '“Some are high-tech, some are low, many are win-win — and <mark>they’re starting to work</mark>.” (J)',
+              '“<mark>But it’s not enough, and it’s not fast enough.</mark>” (J)'
             ]},
-            { type: 'steps', title: 'Jigsaw · One lens each (8 min)', items: [
-              { who: 'alone', text: 'In your group, each person takes <b>one</b> question below (Balance, Accuracy, Objectivity or Citations).' },
-              { who: 'alone', text: 'Read the text again with your lens only. Write 1–2 sentences (3 min).' },
-              { who: 'group', text: 'Teach your group what you found (1 min each). Use the language above.' },
+            { type: 'quiz', id: 'h4-en', title: 'What is Gunders doing?', items: [
+              { q: 'Gunders says one good thing and one weak thing. Which is the <b>weakness</b>?', options: ['“it’s not enough, and it’s not fast enough”', '“they’re starting to work”', '“many are win-win”'], answer: '“it’s not enough, and it’s not fast enough”', why: 'First a strength, then <i>But</i> + a weakness. This is evaluating.' }
+            ]},
+
+            { type: 'key', title: 'Part 2 · Clarify (2 min) · What is evaluating?', points: [
+              '<b>Evaluating</b> = saying how good a text or idea is: its strengths and its weaknesses, with a reason.',
+              'Why? In research and in your essay, you must decide which sources to trust.'
+            ]},
+            { type: 'model', title: 'The phrases · with everyday examples', rows: [
+              ['Strength', 'One strength is that… / To be fair, it does… <br><i><b>One strength is that</b> the menu has photos.</i>'],
+              ['Weakness: something missing', 'It doesn’t take into account… <br><i>The timetable <b>doesn’t take into account</b> lunch breaks.</i>'],
+              ['Weakness: a hidden idea', 'It seems to assume that… <br><i>The advert <b>seems to assume that</b> everyone has a car.</i>'],
+              ['Limit', 'This may be true in…, but not in… <br><i>This <b>may be true in</b> big cities, <b>but not in</b> villages.</i>'],
+              ['Improvement', 'It would be more reliable if it… <br><i>The review <b>would be more reliable if it</b> gave the price.</i>']
+            ]},
+            { type: 'tip', text: '<b>Common mistakes:</b> “doesn’t take into account <s>about</s> the cost” → doesn’t take into account <b>the cost</b>. After a weakness, always give a <b>reason</b> or an example.' },
+
+            { type: 'quiz', id: 'h4-ec', title: 'Part 3 · Controlled practice (2 min) · Choose the best phrase', shared: ['One strength is that', 'doesn’t take into account', 'seems to assume that', 'would be more reliable if it'], items: [
+              { q: 'The hotel review ___ gave the date of the visit.', answer: 'would be more reliable if it', why: 'You suggest an improvement.' },
+              { q: 'The bus app ___ some people have no smartphone.', answer: 'doesn’t take into account', why: 'Something important is missing.' },
+              { q: '___ the recipe gives exact amounts.', answer: 'One strength is that', why: 'A good point about the text.' },
+              { q: 'The advert ___ everyone can afford a new phone.', answer: 'seems to assume that', why: 'A hidden idea, not proved.' },
+              { q: 'The AI text ___ composting is available everywhere.', answer: 'seems to assume that', why: 'It thinks this is true without proof.' },
+              { q: 'The AI text ___ named its sources.', answer: 'would be more reliable if it', why: 'You suggest how to improve it.' }
+            ]},
+
+            { type: 'model', title: 'Part 4 · Less controlled practice (3 min) · Model: one spin', rows: [
+              ['Spin', '<b>a diet advert: “Lose 10 kg in one week!”</b> + <b>It seems to assume that…</b>'],
+              ['You say', '“It <b>seems to assume that</b> everyone’s body is the same. It <b>would be more reliable if it</b> gave a study.”']
+            ]},
+            { type: 'spinner', id: 'h4-esp', title: 'Spin and evaluate (in pairs)', text: 'Spin. Evaluate the text with the phrase. Add a reason. Your partner adds one more point.', reels: [
+              { label: 'Text', start: 'Spin!', items: ['a hotel review: “Best hotel ever! 10/10!”', 'a diet advert: “Lose 10 kg in one week!”', 'a headline: “Students hate homework”', 'a school website: “All our students get top marks”', 'a food app: “Never waste food again!”'] },
+              { label: 'Phrase', start: '…', items: ['One strength is that…', 'It doesn’t take into account…', 'It seems to assume that…', 'This may be true for…, but not for…', 'It would be more reliable if it…'] }
+            ]},
+
+            { type: 'steps', title: 'Part 5 · Production (4 min) · Jigsaw: evaluate the AI text (tab 3)', items: [
+              { who: 'alone', text: 'In your group, each person takes <b>one</b> lens: Balance, Accuracy, Objectivity or Citations.' },
+              { who: 'alone', text: 'Read the AI text again with your lens only. Write 1–2 sentences with a phrase from Part 2.' },
+              { who: 'group', text: 'Tell your group what you found (30 seconds each).' },
               { who: 'group', text: 'Group verdict: would you trust this text for your essay? Yes, partly, or no?' }
             ]},
-            { type: 'fields', title: 'Answer with your group', fields: [
-              { id: 'i2-1', label: 'Balance: does it show all sides fairly? Or is there bias (e.g. only Western ideas, stereotypes, missing views)?', placeholder: 'It assumes that…', rows: 3 },
-              { id: 'i2-2', label: 'Accuracy: is anything wrong or misleading (= gives a wrong idea)?', placeholder: 'The statement about… is not true everywhere because…', rows: 3 },
-              { id: 'i2-3', label: 'Objectivity: is it neutral? Or does it use persuasive or emotional words?', placeholder: 'Mostly…, but words like… ', rows: 2 },
-              { id: 'i2-4', label: 'Citations: does it give references? Does it show different views?', placeholder: 'No/Yes, …', rows: 2 }
-            ]},
-            { type: 'sort', id: 'i2s', title: 'Game · Which problem is it?', hint: 'Each card is a problem in the AI text. <b>Drag</b> it into the right box — or <b>tap</b> a card, then tap a box.', buckets: [
+            { type: 'sort', id: 'i2s', title: 'Know your lens · Which problem is it?', hint: 'Each card is a problem in the AI text. <b>Drag</b> it into the right box — or <b>tap</b> a card, then tap a box.', buckets: [
               { label: 'Balance' }, { label: 'Accuracy' }, { label: 'Objectivity' }, { label: 'Citations' }
             ], items: [
               { text: 'It only talks about problems in rich countries.', answer: 0, why: 'Some views are missing, so it is not balanced.' },
@@ -679,7 +776,18 @@ window.DEC15_LESSON = {
               { text: 'It uses strong words like “a critical global challenge”.', answer: 2, why: 'Loaded words are less neutral.' },
               { text: 'It names no studies or sources.', answer: 3, why: 'We cannot check where the information comes from.' }
             ]},
-            { type: 'teacher', ref: 'w4d5-t9' }
+            { type: 'model', title: 'Model sentence (Balance)', text: 'To be fair, the text gives causes at every stage. However, it <b>seems to assume that</b> composting is available everywhere, and it <b>doesn’t take into account</b> places with no cold storage.' },
+            { type: 'fields', title: 'Answer with your group', fields: [
+              { id: 'i2-1', label: 'Balance: does it show all sides fairly? Or is there bias (e.g. only Western ideas, stereotypes, missing views)?', placeholder: 'It seems to assume that…', rows: 3 },
+              { id: 'i2-2', label: 'Accuracy: is anything wrong or misleading (= gives a wrong idea)?', placeholder: 'This may be true in…, but not in…', rows: 3 },
+              { id: 'i2-3', label: 'Objectivity: is it neutral? Or does it use persuasive or emotional words?', placeholder: 'One strength is that… However, words like…', rows: 2 },
+              { id: 'i2-4', label: 'Citations: does it give references? Does it show different views?', placeholder: 'It would be more reliable if it…', rows: 2 }
+            ]},
+            { type: 'checklist', id: 'h4-ek', title: 'Group check · Did we…', items: [
+              'use at least two phrases from Part 2?',
+              'give a reason or an example for each weakness?',
+              'say one strength too, to be fair?'
+            ]}
           ],
           answers: { items: [
             ['Balance', 'It assumes that solutions like better inventory management, food redistribution and composting work everywhere. In some regions, food waste comes more from infrastructure problems (e.g. no refrigeration, poor transport) than from consumer habits or business policies. Views from developing countries or other cultures would make it more global.'],
@@ -689,7 +797,7 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'i3', short: 'Checklist', minutes: 23, grouping: 'Groups', cowrite: true,
+          id: 'i3', short: 'Checklist', minutes: 18, grouping: 'Groups', cowrite: true,
           title: 'Make a checklist',
           goal: 'Write key questions for one part of a checklist for checking AI text.',
           blocks: [
@@ -713,9 +821,9 @@ window.DEC15_LESSON = {
               { who: 'group', text: 'Add them to the table. Press <b>Write together</b> so the class builds one checklist. Or share your questions with the class.' }
             ]},
             { type: 'table', id: 'i3t', title: 'Our checklist for AI-generated text', columns: ['Category', 'Key questions'], fixed: ['Accuracy and Reliability', 'Balance and Bias', 'Objectivity and Language', 'Citation and Supporting evidence'] },
-            { type: 'steps', title: 'Finish (6 min) · Vote and test', items: [
+            { type: 'steps', title: 'Finish (4 min) · Vote and test', items: [
               { who: 'class', text: 'Read all the groups’ questions. Vote for the <b>best question</b> in each category.' },
-              { who: 'group', text: 'Test the four winning questions on the AI text from tab 2. Give it a score out of 4.' },
+              { who: 'group', text: 'Test the four winning questions on the AI text from tab 3. Give it a score out of 4.' },
               { who: 'class', text: 'Compare scores. Would you use this AI text in your essay?' }
             ]},
             { type: 'checklist', id: 'g3-i3k', title: 'Can-do check · I can now…', items: [
@@ -818,6 +926,35 @@ window.DEC15_LESSON = {
           { id: 'x1-1', label: 'What changed when I asked for viewpoints and references? What problems were still there?', placeholder: 'The second answer… but it still…', rows: 4 }
         ]}
       ]
+    },
+    {
+      id: 'h4-x2', short: 'Group decisions', minutes: 10, grouping: 'Groups', category: 'Speaking',
+      title: 'Language for a group decision',
+      goal: 'Partly agree, build on ideas and reach agreement in a group discussion.',
+      blocks: [
+            { type: 'language', title: 'Language for a group decision', tabs: false, groups: [
+              { label: 'Take a position + justify it', phrases: ['My position is that governments need to… The main reason is…', 'I’d argue that…, mainly because…', 'The strongest argument for this is…'] },
+              { label: 'Partly agree or disagree politely', phrases: ['I see your point, but…', 'That’s true to some extent; however,…', 'I’m not sure I agree. What about…?'] },
+              { label: 'Build on ideas + reach agreement', phrases: ['Building on what… said,…', 'So, are we all agreed that…?', 'Shall we go with… as our position?'] }
+            ]},
+            { type: 'chat', title: 'Model · A group chooses a position', right: 'Ben', lines: [
+              ['Ana', '<mark>I’d argue that</mark> governments need to do a lot more, <mark>mainly because</mark> solutions like food waste apps work, but they are not growing fast enough.'],
+              ['Ben', '<mark>I see your point, but</mark> businesses make money from those apps. Why do they need governments?'],
+              ['Chen', '<mark>Building on what</mark> Ana said, charities like food banks can’t grow without funding. So governments still matter.'],
+              ['Ana', '<mark>So, are we all agreed that</mark> governments should do more, but together with businesses?'],
+              ['Ben', 'Yes. <mark>Shall we go with</mark> “all actors should do more” <mark>as our position</mark>?']
+            ]},
+            { type: 'sort', id: 'g3-p1s', title: 'Practice · What does each expression do?', hint: '<b>Drag</b> each card into a box — or <b>tap</b> a card, then tap a box.', buckets: [
+              { label: 'Take a position' }, { label: 'Partly agree / disagree' }, { label: 'Build + agree' }
+            ], items: [
+              { text: 'Personally, I’m convinced that…', answer: 0, why: 'You give your own view strongly.' },
+              { text: 'The key reason I think this is…', answer: 0, why: 'You justify your position.' },
+              { text: 'You have a point. Even so,…', answer: 1, why: 'You accept part of the idea, then disagree.' },
+              { text: 'I’d see it slightly differently.', answer: 1, why: 'A polite way to disagree.' },
+              { text: 'To add to Chen’s idea,…', answer: 2, why: 'You build on a classmate’s point.' },
+              { text: 'Can we agree on…?', answer: 2, why: 'You move the group to a decision.' }
+            ]}
+      ]
     }
   ],
 
@@ -852,6 +989,9 @@ window.DEC15_LESSON = {
     ['surplus', 'More than is needed.', 'Shops can donate surplus food to charities.'],
     ['edible', 'Safe and good enough to eat.', 'Much of the food in bins is still edible.'],
     ['redistribution', 'Moving extra food to people who need it.', 'Food banks are a form of redistribution.'],
-    ['reinforce', 'To make an idea or feeling stronger.', 'Biased images can reinforce stereotypes.']
+    ['reinforce', 'To make an idea or feeling stronger.', 'Biased images can reinforce stereotypes.'],
+    ['hedging', 'Making a claim softer when you are not 100% sure (may, probably, tend to, some).', 'AI text may leave out some views.'],
+    ['reporting verb', 'A verb that says what a source does: argues, points out, estimates, shows.', 'Gunders (2024) argues that governments should invest more.'],
+    ['evaluate', 'To judge how good something is: its strengths and weaknesses.', 'Evaluate the AI text with the checklist.']
   ]
 };

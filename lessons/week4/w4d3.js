@@ -8,6 +8,12 @@
    v3 (upper-intermediate, functional): personal lead-ins, 6–7 useful words with a quick check before each text,
    short gist/detail questions, upgraded speaking language (model → controlled practice → speaking + peer check).
    The pre-intermediate grammar drills (o2c1, quantifier cards, o2c2, o3c) moved to extras → x4 'Grammar review'.
+   v4 (clear language pages): every language tab teaches ONE point in five stages — Part 1 Notice (1–2 quotes),
+   Part 2 Clarify (forms + everyday examples + common mistakes), Part 3 controlled practice, Part 4 less controlled,
+   Part 5 production (model, frame, checklist). o2 options · o3 speculating · f2 flexibility · s1 modality ·
+   s3 evaluative words · s5 hedging · s6 reporting verbs; s8 puts the tools together. Activities 2–3 (15-sentence
+   grids s4g, s7g) moved to extras → x5; o3s/o3q/d3n-o2c to x4; full lists to x3. f1 has a note-taking table
+   for the Week 4 writing task (h4-f1t).
    Teacher notes live in the database (teacher_notes), refs only here.
    Block types: lessons/_template.js, js/play.js and js/forms.js (form, scale, jeopardy, send: true). */
 
@@ -87,7 +93,8 @@ window.DEC15_LESSON = {
             { type: 'key', title: 'Part 2 · Clarify (3 min): compare, contrast, choose', points: [
               'Tomorrow’s <b>negotiation question</b> gives your group three options. You say which one is best and why. You don’t have to agree in the end.',
               'Good speakers do three things: say how the options are the <b>same</b>, say how they are <b>different</b>, then <b>choose</b> one and give a reason.'
-            ], compare: [
+            ]},
+            { type: 'key', title: 'The forms — with everyday examples', compare: [
               { label: 'Compare (the same)', text: '<b>Both</b> A and B are… · <b>All</b> three are… · <b>None</b> of these would…', eg: '<b>Both</b> the bus and the train are cheap.' },
               { label: 'Contrast (different)', text: 'A is <b>much more</b> expensive <b>than</b> B. · <b>Whereas</b> A…, B… · A wouldn’t work <b>as well as</b> B.', eg: 'Cooking at home is <b>much cheaper than</b> buying takeaway.' },
               { label: 'Choose (the best)', text: '<b>Each</b> option has its merits, but for me the clear choice is… · <b>On balance</b>, the best option would be… <b>because</b>…', eg: '<b>On balance</b>, the library is the best place to study <b>because</b> it is quiet.' }
@@ -144,7 +151,8 @@ window.DEC15_LESSON = {
             { type: 'key', title: 'Part 2 · Clarify (3 min): talking about possible results', points: [
               '<b>Speculate</b> = say what might happen if we choose an option.',
               'Why? In a negotiation, the <b>result</b> of an option is often your best reason to choose it — or to reject it.'
-            ], compare: [
+            ]},
+            { type: 'key', title: 'The forms — with everyday examples', compare: [
               { label: 'Likely result: If + present, will', text: 'If we…, we’ll… · This could well lead to…', eg: '<b>If</b> I <b>drink</b> coffee at night, I<b>’ll</b> sleep badly.' },
               { label: 'Imagined result: If + past, would', text: 'If we went with A, the most likely outcome would be…', eg: '<b>If</b> the café <b>closed</b>, students <b>would</b> cook more.' },
               { label: 'unless = if not', text: 'Unless…, this is unlikely to work.', eg: 'I’ll be late <b>unless</b> the bus comes soon.' },
@@ -309,7 +317,8 @@ window.DEC15_LESSON = {
             { type: 'key', title: 'Part 2 · Clarify (2 min): what is flexibility?', points: [
               '<b>Flexibility</b> = showing that you listen and are open to other ideas.',
               'Why? In university discussions you are marked on how you respond to others. You can be open <b>and</b> still clear about your view.'
-            ], compare: [
+            ]},
+            { type: 'key', title: 'The forms — with everyday examples', compare: [
               { label: 'Offer another view', text: 'Alternatively, … · Another way to look at it is…', eg: '<b>Another way to look at it is</b> that online classes save travel time.' },
               { label: 'Balance both sides', text: 'While it’s true that…, it’s also worth considering… · I see your point, but at the same time…', eg: '<b>While it’s true that</b> phones distract us, <b>it’s also worth considering</b> that they help us check words.' },
               { label: 'Change your mind', text: 'I used to think that…, but now I see it differently. · You’ve convinced me.', eg: '<b>I used to think that</b> breakfast wasn’t important, <b>but now I see it differently</b>.' },
@@ -467,7 +476,8 @@ window.DEC15_LESSON = {
             { type: 'key', title: 'Part 2 · Clarify (4 min): modality = how sure are you?', points: [
               '<b>Modality</b> = words that show how sure the writer is.',
               'Why? Your claim should match your evidence. Too strong without evidence sounds careless; too weak sounds unsure.'
-            ], compare: [
+            ]},
+            { type: 'key', title: 'The forms — with everyday examples', compare: [
               { label: 'Low (a little sure)', text: 'perhaps · might · may · could · somewhat · occasionally', eg: 'Coffee <b>might</b> help you concentrate.' },
               { label: 'Medium (quite sure)', text: 'should · probably · often · it is possible / likely that…', eg: 'Coffee <b>often</b> helps people concentrate.' },
               { label: 'High (very sure)', text: 'clearly · will · must · it is evident that… · unquestionably · undoubtedly', eg: 'Coffee <b>clearly</b> helps me concentrate in the morning.' }
@@ -528,7 +538,8 @@ window.DEC15_LESSON = {
               'Your <b>position</b> = your opinion, with evidence. Your <b>stance</b> = how you show it in your words.',
               'You show stance in the thesis statement, topic sentences, comments on evidence and the conclusion. A good stance shows both sides, but makes clear which side you support.',
               '<b>Evaluative words</b> judge something as good, bad or just OK. In academic writing, use them instead of “I think it’s great”.'
-            ], compare: [
+            ]},
+            { type: 'key', title: 'The forms — with everyday examples', compare: [
               { label: 'Positive', text: 'effective · useful · convincing · innovative · crucial', eg: 'The new bus app is <b>useful</b> and <b>effective</b>.' },
               { label: 'Negative', text: 'limited · flawed (= has problems) · short-sighted · misguided', eg: 'The canteen’s recycling plan is <b>flawed</b>.' },
               { label: 'Neutral (just OK)', text: 'adequate · satisfactory · (not) exceptional', eg: 'The Wi-Fi in the library is <b>adequate</b>.' },
@@ -581,7 +592,8 @@ window.DEC15_LESSON = {
             { type: 'key', title: 'Part 2 · Clarify (3 min): hedging', points: [
               '<b>Hedging</b> = making a claim softer, less certain.',
               'Why? It shows you are careful, shows the limits of your evidence, and protects you from criticism.'
-            ], compare: [
+            ]},
+            { type: 'key', title: 'The forms — with everyday examples', compare: [
               { label: 'Modal verbs', text: 'may · might · could · can', eg: 'Coffee <b>may</b> help you concentrate.' },
               { label: 'Adverbs', text: 'possibly · probably · perhaps', eg: 'This is <b>probably</b> the best café on campus.' },
               { label: 'How often', text: 'often · usually · sometimes · generally', eg: 'Students <b>often</b> skip breakfast.' },
@@ -639,7 +651,8 @@ window.DEC15_LESSON = {
             { type: 'key', title: 'Part 2 · Clarify (3 min): what a reporting verb tells the reader', points: [
               'A <b>reporting verb</b> introduces a source: <i>Castro et al. (2023) <b>…</b> that…</i>',
               'Why? The verb quietly shows <b>your</b> view of the source — without writing “I think”.'
-            ], compare: [
+            ]},
+            { type: 'key', title: 'The forms — with everyday examples', compare: [
               { label: 'Agree / disagree', text: 'argues · supports · confirms · questions · refutes (= says it is wrong)', eg: 'Lee (2023) <b>argues</b> that breakfast matters. Kim (2024) <b>questions</b> this.' },
               { label: 'Sure / not sure', text: 'demonstrates · asserts · suggests · speculates', eg: 'The survey <b>suggests</b> that students sleep too little.' },
               { label: 'Neutral (just facts)', text: 'reports · observes · acknowledges · maintains', eg: 'The report <b>observes</b> that bus use has grown.' },
@@ -885,6 +898,18 @@ window.DEC15_LESSON = {
           { label: 'Evaluative adjectives', phrases: ['useful', 'successful', 'relevant', 'effective', 'strong', 'limited', 'crucial', 'inaccurate', 'convincing', 'well-supported', 'innovative', 'flawed', 'short-sighted', 'misguided', 'adequate', 'satisfactory', '(not) exceptional'] },
           { label: 'Evaluative adverbs', phrases: ['convincingly', 'successfully', 'effectively', 'strongly', 'questionably', 'highly', 'poorly', 'skilfully', 'accurately', 'appropriately'] }
         ]},
+            { type: 'language', title: 'Reporting verbs by group — the full list', groups: [
+              { label: 'Agree / disagree', phrases: ['confirms', 'supports', 'doubts', 'argues', 'refutes', 'questions'] },
+              { label: 'Sure / not sure', phrases: ['speculates', 'asserts', 'demonstrates', 'suggests'] },
+              { label: 'Neutral', phrases: ['maintains', 'recognises', 'observes', 'acknowledges', 'reports'] },
+              { label: 'Important', phrases: ['stress', 'insist', 'emphasise', 'highlight'] }
+            ]},
+        { type: 'language', title: 'Hedging language — the full list', groups: [
+          { label: 'Quantity', phrases: ['few', 'many', 'some', 'the majority', 'much', 'a number of'] },
+          { label: 'Frequency', phrases: ['sometimes', 'usually', 'seldom', 'frequently', 'generally', 'often', 'occasionally'] },
+          { label: 'Introductory verbs', phrases: ['appear (to)', 'tend (to)', 'seem (to)'] },
+          { label: '“That” clauses', phrases: ['It might be the case that…', 'There is a possibility that…', 'It is likely that…', 'It would seem that…'] }
+        ]},
         { type: 'language', title: 'Modal language and markers — the full list', groups: [
           { label: 'Modal adverbs', phrases: ['certainly', 'definitely', 'apparently', 'possibly', 'probably', 'clearly', 'potentially', 'perhaps'] },
           { label: 'Modal nouns', phrases: ['probability', 'assumption', 'possibility', 'requirement', 'responsibility', 'likelihood'] },
@@ -928,8 +953,82 @@ window.DEC15_LESSON = {
               { text: 'h) None of these choices would be very popular.', answer: 0 },
               { text: 'i) Each option has its benefits, but for me the clear choice is…', answer: 2 }
             ]},
+            { type: 'cloze', id: 'd3n-o2c', title: '5 · Evaluating options: complete the phrases', list: true, options: ['balance', 'considerably', 'merits', 'nearly', 'rank', 'Whereas'],
+              text: '{{1}} Option A tackles the problem at home, Option B focuses on shops.\nOption B is {{2}} more expensive than the other two.\nA food app wouldn’t work {{3}} as well for older people.\nEach option has its {{4}}, but for me the clear choice is C.\nOn {{5}}, the most realistic option would be B, because it is cheap.\nIf I had to {{6}} them, I’d put A first, simply because it lasts.',
+              answers: ['Whereas', 'considerably', 'nearly', 'merits', 'balance', 'rank'] },
+            { type: 'sort', id: 'o3s', single: true, title: '6a · Match the sentence halves from the sample discussion', hint: '<b>Drag</b> each beginning to its ending — or tap a beginning, then tap an ending.', buckets: [
+              { label: '…how can they fight for animals or the environment?', letter: 'A' },
+              { label: '…then it would be really bad for the business.', letter: 'B' },
+              { label: '…we can’t maintain a functioning society.', letter: 'C' },
+              { label: '…we’ll have no viable land for farming, nor clean water.', letter: 'D' },
+              { label: '…there won’t be any animals to protect.', letter: 'E' }
+            ], items: [
+              { text: '1. If they had to give the animals more space,', answer: 1 },
+              { text: '2. If we continue like this,', answer: 3 },
+              { text: '3. If we don’t prioritize human health,', answer: 2 },
+              { text: '4. Without a healthy environment,', answer: 4 },
+              { text: '5. If people are sick,', answer: 0 }
+            ]},
+            { type: 'quiz', id: 'o3q', items: [
+              { q: '6b · Which sentence has a <b>different structure</b> from the others? <small>Hint: look for the word “If”.</small>', options: ['1–B', '2–D', '4–E', '5–A'], answer: '4–E', why: 'All the others start with “If”. 4–E starts with “Without”.' }
+            ]},
         { type: 'tip', text: 'Meanings: <b>unless</b> = if not · <b>provided that</b> = only if · <b>suppose</b> = imagine · <b>in case</b> = because it might happen.' }
       ]
+    },
+    {
+      id: 'x5', short: 'Stance spotting', minutes: 20, grouping: 'Pairs', category: 'Language Focus: Activities 2–3',
+      title: 'Stance spotting: 15 sentences from the texts (Activities 2 and 3)',
+      goal: 'Find the stance word in each sentence and name the tool the writer uses.',
+      blocks: [
+            { type: 'steps', title: 'Jigsaw', items: [
+              { who: 'alone', text: 'Student A: do sentences 1–8. Student B: do 9–15.' },
+              { who: 'pair', text: 'Teach your partner your answers. Give a reason for each.' }
+            ]},
+            { type: 'grid', id: 's4g', title: 'Activity 2 — thinking stance (T) or attitude stance (A)? Look at the words in bold.', columns: ['Stance'], options: ['Thinking (T)', 'Attitude (A)'], rows: [
+              '1. <b>Interestingly</b>, the study found that product novelty and the perceived green value have little effect on green actions.',
+              '2. Food production and related waste have a <b>significant</b> impact on climate change.',
+              '3. The study <b>highlights</b> the importance of ethical consumption.',
+              '4. Working with nutritionists and health organisations <b>could</b> build trust and credibility.',
+              '5. Health considerations <b>greatly</b> shape consumer attitudes towards upcycled foods.',
+              '6. It is <b>important</b> to focus on giving this food to people who need it.',
+              '7. Food loss <b>typically</b> occurs between production and distribution.',
+              '8. We <b>need to</b> be less accepting as a culture of wasting food.',
+              '9. Reducing food loss is <b>vital</b> for improving food security.',
+              '10. The food paradox is considered <b>highly unethical</b>.',
+              '11. Magazzini Sociali has <b>undoubtedly</b> been successful in supporting the local community.',
+              '12. The presence of both food insecurity and food waste in wealthy areas presents a <b>troubling</b> situation.',
+              '13. Preventing food loss and waste is therefore a <b>potential</b> strategy to improve food security.',
+              '14. Food delivery services reduce the <b>likelihood</b> of over-purchasing in supermarkets.',
+              '15. Urban areas <b>tend to</b> use digital solutions.'
+            ], answers: [['Attitude (A)'], ['Attitude (A)'], ['Thinking (T)'], ['Thinking (T)'], ['Attitude (A)'], ['Attitude (A)'], ['Thinking (T)'], ['Attitude (A)'], ['Attitude (A)'], ['Attitude (A)'], ['Attitude (A)'], ['Attitude (A)'], ['Thinking (T)'], ['Thinking (T)'], ['Thinking (T)']] },
+            { type: 'tip', text: 'Thinking stance = how sure (could, typically, tend to). Attitude stance = good or bad (vital, troubling).' },
+            { type: 'grid', id: 's7g', title: 'Activity 3 · Which of the five ways does the bold word use?', columns: ['Type of stance language'], options: ['Evaluative vocabulary', 'Modal language', 'Hedging language', 'Reporting verb', 'Signalling / attitude marker'], rows: [
+              '1. <b>Interestingly</b>, the study found that…',
+              '2. …have a <b>significant</b> impact on climate change.',
+              '3. The study <b>highlights</b> the importance of ethical consumption.',
+              '4. Working with nutritionists… <b>could</b> build trust and credibility.',
+              '5. Health considerations <b>greatly</b> shape consumer attitudes…',
+              '6. It is <b>important</b> to focus on giving this food to people who need it.',
+              '7. Food loss <b>typically</b> occurs between production and distribution.',
+              '8. We <b>need to</b> be less accepting as a culture of wasting food.',
+              '9. Reducing food loss is <b>vital</b> for improving food security.',
+              '10. The food paradox is considered <b>highly unethical</b>.',
+              '11. Magazzini Sociali has <b>undoubtedly</b> been successful…',
+              '12. …presents a <b>troubling</b> situation.',
+              '13. …is therefore a <b>potential</b> strategy to improve food security.',
+              '14. …reduce the <b>likelihood</b> of over-purchasing in supermarkets.',
+              '15. Urban areas <b>tend to</b> use digital solutions.'
+            ], answers: [['Signalling / attitude marker'], ['Evaluative vocabulary'], ['Reporting verb'], ['Modal language'], ['Evaluative vocabulary'], ['Evaluative vocabulary'], ['Hedging language'], ['Modal language'], ['Evaluative vocabulary'], ['Evaluative vocabulary'], ['Signalling / attitude marker'], ['Evaluative vocabulary'], ['Modal language'], ['Modal language'], ['Hedging language']] },
+            { type: 'tip', text: 'Hint: <i>typically</i> and <i>tend to</i> are about “how often” — that is hedging.' },
+            { type: 'teacher', ref: 'w4d3-t16' }
+      ],
+          answers: { title: 'Activity 3 · more detail', items: [
+            ['Attitude markers', '1 Interestingly · 11 undoubtedly'],
+            ['Evaluative vocabulary', '2 significant (adjective) · 5 greatly (adverb) · 6 important (adjective) · 9 vital (adjective) · 10 highly unethical (adverb + adjective) · 12 troubling (adjective)'],
+            ['Modal language', '4 could (modal verb) · 8 need to (semi-modal) · 13 potential (modal adjective) · 14 likelihood (modal noun)'],
+            ['Hedging', '7 typically (adverb of frequency) · 15 tend to (introductory verb)'],
+            ['Reporting verb', '3 highlights']
+          ]}
     }
   ],
 
