@@ -2,7 +2,11 @@
    Teacher’s Book: W5 D3 · 3A Discussion skills (30) · 4A Reading to write (105) · 5A Listening to write (105).
    Texts: Clapp et al. (2022) reading · Oxfam (2022) listening — lessons/week5/sources.js.
    Activity titles use the Teacher’s Book headings. Teacher notes live in the database (teacher_notes), refs only here.
-   Block types: lessons/_template.js, js/play.js and js/forms.js. */
+   Block types: lessons/_template.js, js/play.js and js/forms.js.
+   v3: each input has a personal lead-in, useful words, 2 gist + ≤6 detail questions in text order with a hint,
+   and a note-taking frame for the Day 4–5 task (how effective is a solution?). Each language focus (arguing for a
+   position · modals of obligation) has five parts: Notice → Clarify → Controlled → Less controlled → Production.
+   Longer text analysis moved to extras (h4-x3, h4-x4); saved-work ids kept. */
 
 window.DEC15_LESSON = {
   id: 'w5d3',
@@ -133,46 +137,59 @@ window.DEC15_LESSON = {
       outcome: 'Understand the six-dimensional food security framework. Read and take notes in your own words. Use the framework to judge solutions.',
       activities: [
         {
-          id: 'r1', short: 'Vocabulary', minutes: 10, grouping: 'Pairs',
-          title: 'Vocabulary',
-          goal: 'Learn 12 key words from the reading. Then use them in sentences.',
+          id: 'r1', short: 'Lead-in + words', minutes: 10, grouping: 'Pairs',
+          title: 'Lead-in + Vocabulary',
+          goal: 'Think about your own food this week. Then learn eight useful words from the reading.',
           blocks: [
-            { type: 'flip', title: 'Part 1 · Key words from the reading', hint: 'Guess the meaning with your partner. Then turn the card.', items: [
-              { front: 'ecological', back: 'About living things and nature (the environment).' },
-              { front: 'utilization', back: 'Using something well for a purpose.' },
-              { front: 'food aid', back: 'Help (food or money) given to people who are hungry.' },
-              { front: 'sufficient', back: 'Enough.' },
-              { front: 'to address', back: 'To deal with a problem.' },
-              { front: 'dietary diversity', back: 'Eating many different foods.' },
-              { front: 'conceptualize', back: 'To form an idea.' },
-              { front: 'climatic events', back: 'Big weather events: floods, droughts, storms.' },
-              { front: 'prone (to)', back: 'Likely to have something bad happen.' },
-              { front: 'holistic', back: 'Looking at the whole thing, not only the parts.' },
-              { front: 'marginalized', back: 'Pushed to the edge of society; with little power.' },
-              { front: 'indigenous', back: 'From a place originally; native.' }
+            { type: 'talk', title: 'Lead-in · Your food this week (3 minutes with a partner)', prompts: [
+              'Think of one meal you ate this week. Was it <b>easy to get</b>? Was it <b>cheap enough</b>?',
+              'Was it <b>healthy</b>? Did <b>you</b> choose it, or did someone else choose it?',
+              'Every question you just asked is one <b>pillar</b> of food security. Today’s reading explains all six.'
             ]},
-            { type: 'cloze', id: 'r1c', list: true, title: 'Part 2 · Choose the right word for each gap', options: ['indigenous', 'climatic', 'prone', 'food aid', 'Marginalized', 'agency', 'Utilization', 'dietary diversity', 'addressed', 'holistic', 'sufficient', 'ecological'],
+            { type: 'flip', title: 'Part 1 · Eight useful words from the reading', hint: 'Guess the meaning with your partner. Then turn the card. You can use these words in your own writing.', items: [
+              { front: 'sufficient (adj)', back: 'Enough. <i>Do students get sufficient sleep before exams?</i>' },
+              { front: 'to address (v)', back: 'To start to deal with a problem. <i>The city wants to address food waste in schools.</i>' },
+              { front: 'food aid (n)', back: 'Food or money given to people who are hungry. <i>After the flood, the town needed food aid.</i>' },
+              { front: 'dietary diversity (n)', back: 'Eating many different kinds of food. <i>Rice every day gives little dietary diversity.</i>' },
+              { front: 'prone to (adj)', back: 'Likely to have something bad happen. <i>This area is prone to floods.</i>' },
+              { front: 'holistic (adj)', back: 'Looking at the whole thing, not only one part. <i>A holistic plan looks at sleep, food and exercise.</i>' },
+              { front: 'marginalized (adj)', back: 'Pushed to the edge of society, with little power. <i>Marginalized groups are often not asked for their opinion.</i>' },
+              { front: 'indigenous (adj)', back: 'From a place originally; native. <i>Indigenous crops often grow well in local weather.</i>' }
+            ]},
+            { type: 'tip', text: '<b>Just recognise these when you read:</b> ecological = about nature · utilization = using something well (here: the body using food) · conceptualize = to form an idea · climatic events = big weather events (floods, droughts, storms) · agency = the power to make your own choices.' },
+            { type: 'cloze', id: 'r1c', list: true, title: 'Part 2 · Quick check: choose the right word for each gap', options: ['indigenous', 'climatic', 'prone', 'food aid', 'Marginalized', 'agency', 'Utilization', 'dietary diversity', 'addressed', 'holistic', 'sufficient', 'ecological'],
               text: 'Crops that are {{1}} to an area can be more resistant to extreme {{2}} events.\nCommunities in areas {{3}} to drought may need {{4}} to fight hunger.\n{{5}} groups often lack enough {{6}} or power to make their own decisions.\n{{7}} of nutritious food and {{8}} is needed to maintain health.\nThe many causes of food insecurity needed to be {{9}} together in a {{10}} way.',
               answers: ['indigenous', 'climatic', 'prone', 'food aid', 'Marginalized', 'agency', 'Utilization', 'dietary diversity', 'addressed', 'holistic'] },
-            { type: 'tip', text: 'Hint: two words in the list are not used. <b>agency</b> (= power to make your own choices) is not on the cards — you will meet it in the reading.' },
+            { type: 'tip', text: 'Hint: two words in the list are not used.' },
             { type: 'teacher', ref: 'w5d3-t4' }
           ]
         },
         {
           id: 'r2', short: 'Read', minutes: 30, grouping: 'Alone → pair',
           title: 'Annotated reading + Reading for detail: Note-taking',
-          goal: 'Find the main argument. Then take notes in your own words.',
+          goal: 'Find the main idea of the abstract. Then take notes in your own words and keep them.',
           blocks: [
-            { type: 'passage', id: 'r2p', title: 'Part 1 · Annotated reading: the abstract (= short summary) · Clapp et al. (2022)', text: 'The definition of food security has evolved and changed over the past 50 years, including the introduction of the four commonly cited pillars of food security: availability, access, utilization, and stability, which have been important in shaping policy. In this article, we make the case that it is time for a formal update to our definition of food security to include two additional dimensions proposed by the High Level Panel of Experts on Food Security and Nutrition: agency and sustainability. We show that the impact of widening food system inequalities and growing awareness of the intricate connections between ecological systems and food systems highlight the importance of these additional dimensions to the concept' },
-            { type: 'tip', text: 'Read the abstract two times. Highlight the <b>four</b> old pillars, the <b>two</b> new pillars and the <b>reason</b> (why).' },
-            { type: 'quiz', id: 'r2q', title: 'Check the abstract', items: [
-              { q: '1. What are the four pillars now?', options: ['availability, access, utilization and stability', 'availability, access, agency and sustainability', 'production, prices, policy and people'], answer: 'availability, access, utilization and stability', why: '“the four commonly cited pillars of food security: availability, access, utilization, and stability”.' },
-              { q: '2. What does <b>pillar</b> mean here?', options: ['A foundation / element / aspect / factor', 'A stone column in a building', 'A government policy'], answer: 'A foundation / element / aspect / factor', why: 'Pillars are the main parts that hold up the idea of food security.' },
-              { q: '3. What are the two new pillars?', options: ['agency and sustainability', 'access and stability', 'policy and nutrition'], answer: 'agency and sustainability', why: '“…two additional dimensions… agency and sustainability.”' },
-              { q: '4. Why do the authors want new pillars?', options: ['Increasing inequality and unsustainable agricultural practices contribute to food insecurity.', 'The four pillars are 50 years old.', 'Governments asked for a new definition.'], answer: 'Increasing inequality and unsustainable agricultural practices contribute to food insecurity.', why: '“widening food system inequalities and growing awareness of the intricate connections between ecological systems and food systems”.' },
-              { q: '5. What is the main purpose of the article?', options: ['a) to explain', 'b) to argue', 'c) to analyse', 'd) to discuss'], answer: 'b) to argue', why: 'The authors give an argument: add agency and sustainability.' },
-              { q: '6. Which words show that the authors give an argument?', options: ['we make the case that', 'has evolved and changed', 'we show that'], answer: 'we make the case that', why: '“make the case” = argue that something is true or needed.' }
+            { type: 'steps', title: 'Part 1 · Reading for gist: the abstract (= short summary)', items: [
+              { who: 'alone', text: '<b>2 minutes.</b> Read the abstract once, quickly.' },
+              { who: 'alone', text: 'Answer the two gist questions.' }
             ]},
+            { type: 'passage', id: 'r2p', title: 'The abstract · Clapp et al. (2022)', text: 'The definition of food security has evolved and changed over the past 50 years, including the introduction of the four commonly cited pillars of food security: availability, access, utilization, and stability, which have been important in shaping policy. In this article, we make the case that it is time for a formal update to our definition of food security to include two additional dimensions proposed by the High Level Panel of Experts on Food Security and Nutrition: agency and sustainability. We show that the impact of widening food system inequalities and growing awareness of the intricate connections between ecological systems and food systems highlight the importance of these additional dimensions to the concept' },
+            { type: 'quiz', id: 'h4-r2g', title: 'Gist questions', items: [
+              { q: '1. What is the main purpose of the article?', options: ['to explain', 'to argue', 'to analyse', 'to discuss'], answer: 'to argue', why: 'The authors give an argument: add agency and sustainability.' },
+              { q: '2. What do the authors want?', options: ['Add two pillars', 'Remove two pillars', 'Stop using pillars'], answer: 'Add two pillars', why: '“…a formal update… to include two additional dimensions”.' }
+            ]},
+            { type: 'steps', title: 'Now read again more carefully', items: [
+              { who: 'alone', text: 'Highlight the <b>four</b> old pillars, the <b>two</b> new pillars and the <b>reason</b> (why).' },
+              { who: 'pair', text: 'Answer questions 1–5. They follow the order of the text. Check with a partner.' }
+            ]},
+            { type: 'quiz', id: 'r2q', title: 'Detail questions (in text order)', items: [
+              { q: '1. What are the four pillars now?', options: ['availability, access, utilization, stability', 'availability, access, agency, sustainability', 'production, prices, policy, people'], answer: 'availability, access, utilization, stability', why: '“the four commonly cited pillars of food security: availability, access, utilization, and stability”.' },
+              { q: '2. What does <b>pillar</b> mean here?', options: ['a main part / factor', 'a stone column', 'a government law'], answer: 'a main part / factor', why: 'Pillars are the main parts that hold up the idea of food security.' },
+              { q: '3. Which words show that the authors give an argument?', options: ['we make the case that', 'has evolved and changed', 'commonly cited'], answer: 'we make the case that', why: '“make the case” = argue that something is true or needed.' },
+              { q: '4. What are the two new pillars?', options: ['agency and sustainability', 'access and stability', 'policy and nutrition'], answer: 'agency and sustainability', why: '“…two additional dimensions… agency and sustainability.”' },
+              { q: '5. Why do the authors want new pillars?', options: ['more inequality + links between nature and food', 'the old pillars are 50 years old', 'governments asked for them'], answer: 'more inequality + links between nature and food', why: '“widening food system inequalities and growing awareness of the intricate connections between ecological systems and food systems”.' }
+            ]},
+            { type: 'tip', text: '<b>Hint:</b> question 3 is in sentence 2 · question 5 is in the last sentence. Look for <b>“inequalities”</b> and <b>“ecological”</b>.' },
             { type: 'teacher', ref: 'w5d3-t5' },
             { type: 'steps', title: 'Part 2 · Reading for detail: Note-taking', items: [
               { who: 'alone', text: 'Read the headings in the table first.' },
@@ -196,10 +213,14 @@ window.DEC15_LESSON = {
               'Sustainability<br><small>meaning · why important</small>',
               'Conclusion'
             ]},
+            { type: 'key', title: 'Part 3 · Keep for Thursday and Friday', points: ['On Day 4 and Day 5 your group judges <b>how effective</b> a solution to food waste is. You will use these pillars and this source.', 'Fill in two rows now: the main argument, and one pillar that could help you judge your solution.'] },
+            { type: 'table', id: 'h4-r2n', title: 'Note-taking frame for the integrated task: Clapp et al. (2022)', columns: ['Source', 'Main point (my words)', 'Evidence / example', 'Useful for judging a solution? (which pillar · how)'], fixed: ['Clapp et al. (2022) · main argument', 'Clapp et al. (2022) · one useful pillar'] },
             { type: 'teacher', ref: 'w5d3-t6' }
           ],
           answers: { title: 'Answers and sample notes', items: [
-            ['Abstract · Q1–6', '1 availability, access, utilization, stability · 2 a foundation / element · 3 agency and sustainability · 4 inequality and harmful farming cause food insecurity · 5 b) to argue · 6 “we make the case that”'],
+            ['Abstract · Gist', '1 to argue · 2 add two pillars (agency and sustainability)'],
+            ['Abstract · Detail 1–5', '1 availability, access, utilization, stability · 2 a main part / factor · 3 “we make the case that” · 4 agency and sustainability · 5 growing inequality and the links between nature (ecological systems) and food systems'],
+            ['Frame · main argument', '<b>Main point:</b> add agency and sustainability to the four pillars. <b>Evidence:</b> nearly 1 in 3 people faced food insecurity in 2020 (F). <b>Useful:</b> gives us six questions to judge any solution.'],
             ['Notes · Introduction', 'Four pillars: availability; access; utilization; stability. 2 additional pillars: agency and sustainability. Why: to address inequalities in the food system; to better manage ecological resources for the long term.'],
             ['Notes · Availability', 'Physical presence of food in a given location. Important: ensures there is enough food to prevent hunger and malnutrition. Factors: farming practices, weather conditions, political stability.'],
             ['Notes · Access', 'Ability to get food — includes availability and resources to buy food. Important: people cannot benefit from available food if they cannot get it. Factors: economic resources, incomes, food distribution, inequality.'],
@@ -212,11 +233,11 @@ window.DEC15_LESSON = {
           ]}
         },
         {
-          id: 'r5', short: 'Check', minutes: 20, grouping: 'Alone → pair',
-          title: 'Building Understanding',
-          goal: 'Use your notes to match and answer questions.',
+          id: 'r5', short: 'Check + summarise', minutes: 30, grouping: 'Alone → pair',
+          title: 'Building Understanding + Summarise/paraphrase',
+          goal: 'Use your notes to answer questions. Then see how a writer paraphrases the text.',
           blocks: [
-            { type: 'sort', id: 'r5s1', single: true, title: 'Part 1 · Game: match the paragraphs to the topics', hint: 'Use your notes. One topic in each box.', buckets: [
+            { type: 'sort', id: 'r5s1', single: true, title: '1 · Match the paragraphs to the topics', buckets: [
               { label: 'Paragraph B', letter: 'B' }, { label: 'Paragraph C', letter: 'C' }, { label: 'Paragraph D', letter: 'D' }, { label: 'Paragraph E', letter: 'E' }, { label: 'Paragraph G', letter: 'G' }, { label: 'Paragraph I', letter: 'I' }
             ], items: [
               { text: 'i. Producing food in a way that does not harm the environment', answer: 5, why: 'Sustainability.' },
@@ -226,82 +247,117 @@ window.DEC15_LESSON = {
               { text: 'v. Being able to choose what food we want to grow and eat', answer: 4, why: 'Agency.' },
               { text: 'vi. Being able to get food all the time', answer: 3, why: 'Stability.' }
             ]},
-            { type: 'sort', id: 'r5s2', single: true, title: 'Part 2 · Game: which pillar is the problem?', hint: 'Read each problem. Put it in the right pillar.', buckets: [
+            { type: 'sort', id: 'r5s2', single: true, title: '2 · Match each problem to the relevant pillar', buckets: [
               { label: 'Availability' }, { label: 'Access' }, { label: 'Utilization' }, { label: 'Stability' }, { label: 'Agency' }, { label: 'Sustainability' }
             ], items: [
-              { text: 'The shelves at the supermarket are empty. They are always empty.', answer: 0, why: 'There is no food in the place.' },
-              { text: 'There are enough vegetables for sale, but I cannot afford to buy them.', answer: 1, why: 'Food is there, but people cannot get it.' },
-              { text: 'There are only highly processed, unhealthy foods for sale in the supermarket.', answer: 2, why: 'The food is not healthy.' },
-              { text: 'Last week there was enough food at the supermarket. This week, many shelves are empty.', answer: 3, why: 'The supply changes over time.' },
-              { text: 'Poor farmers cannot choose what food to grow or negotiate for a higher price.', answer: 4, why: 'They have no choice or power.' },
-              { text: 'Farming uses many chemicals that reduce the soil quality.', answer: 5, why: 'It harms the land for the future.' }
+              { text: 'The shelves at the supermarket are empty. They are always empty.', answer: 0 },
+              { text: 'There are enough vegetables for sale, but I cannot afford to buy them.', answer: 1 },
+              { text: 'There are only highly processed, unhealthy foods for sale in the supermarket.', answer: 2 },
+              { text: 'Last week there was enough food at the supermarket. This week, many shelves are empty.', answer: 3 },
+              { text: 'Poor farmers cannot choose what food to grow or negotiate for a higher price.', answer: 4 },
+              { text: 'Farming uses many chemicals that reduce the soil quality.', answer: 5 }
             ]},
             { type: 'tip', text: '<b>Hint:</b> Availability = is food there? · Access = can I get it? · Utilization = is it healthy? · Stability = all the time? · Agency = can I choose? · Sustainability = is it OK for the future?' },
-            { type: 'quiz', id: 'r5q', title: 'Part 3 · Questions 3–10', items: [
-              { q: '3. Climate change <b>directly</b> affects three pillars. Which three?', options: ['Availability, Stability, Sustainability', 'Availability, Agency, Sustainability', 'Access, Stability, Agency', 'Access, Utilization, Agency'], answer: 'Availability, Stability, Sustainability', why: 'Access is affected only indirectly: less food → higher prices.' },
-              { q: '4. Week 3: people at food banks cannot choose their food. Which pillar is this?', options: ['Access', 'Availability', 'Stability', 'Agency'], answer: 'Agency', why: 'Agency = control over food choices.' },
-              { q: '5. Food waste can increase greenhouse gases. Which pillar is this?', options: ['Sustainability', 'Agency', 'Stability', 'Availability'], answer: 'Sustainability', why: 'Greenhouse gases harm the environment and future resources.' },
-              { q: '6. Food insecurity can cause obesity. Which pillar is this?', options: ['Access', 'Utilization', 'Stability', 'Agency'], answer: 'Utilization', why: 'Utilization is about nutrition and food quality.' },
-              { q: '7. Why do the authors want two more pillars?', options: ['The current model does not consider how inequality and environmental problems can cause food insecurity.', 'The current model was created fifty years ago, so it is not relevant in the modern world.', 'The two additional pillars will encourage governments to take food insecurity seriously.', 'Hunger is still a global problem because agency and sustainability have not been taken seriously.'], answer: 'The current model does not consider how inequality and environmental problems can cause food insecurity.', why: 'Paragraph A: growing inequalities and links between nature and food systems.' },
-              { q: '8. Why is agency important for women and indigenous communities?', options: ['People with power often don’t listen to them when making decisions.', 'They need more support from government agencies.', 'They often live in places that don’t have access to supermarkets.', 'They don’t have enough money to buy healthy food.'], answer: 'People with power often don’t listen to them when making decisions.', why: 'Agency helps these groups take part in decisions (G–H).' },
-              { q: '9. Which one is NOT agency?', options: ['Forming a group with other farmers to negotiate higher sale prices.', 'Growing potatoes because your boss told you to.', 'Choosing to grow cabbages because they suit your soil.', 'An indigenous community using land for ceremonies rather than growing food.'], answer: 'Growing potatoes because your boss told you to.', why: 'Someone else made the decision.' },
-              { q: '10. What is the main lesson of the text?', options: ['The current four pillars are not very useful anymore.', 'Empowering marginalised groups and improving sustainability will end hunger.', 'Improving food security requires solutions that address different interconnected factors.', 'Food insecurity is too complicated to understand.'], answer: 'Improving food security requires solutions that address different interconnected factors.', why: 'The authors want a holistic approach (= look at the whole system).' }
+            { type: 'quiz', id: 'r5q', title: 'Questions 3–10', items: [
+              { q: '3. Which three pillars are <b>directly</b> affected by climate change?', options: ['Availability, Stability, Sustainability', 'Availability, Agency, Sustainability', 'Access, Stability, Agency', 'Access, Utilization, Agency'], answer: 'Availability, Stability, Sustainability', why: 'Access is affected only indirectly, via availability — e.g. climate change may reduce availability, leading to higher prices.' },
+              { q: '4. In Week 3 the listening said a problem with traditional food banks is that people cannot choose what food they receive. Which pillar does this relate to?', options: ['Access', 'Availability', 'Stability', 'Agency'], answer: 'Agency', why: 'Agency = control over food choices.' },
+              { q: '5. A problem with food waste is that it can increase greenhouse gas emissions. Which pillar does this relate to?', options: ['Sustainability', 'Agency', 'Stability', 'Availability'], answer: 'Sustainability', why: 'Emissions harm the environment and future resources.' },
+              { q: '6. Obesity can result from food insecurity. Which pillar does this relate to?', options: ['Access', 'Utilization', 'Stability', 'Agency'], answer: 'Utilization', why: 'Utilization is about nutrition and food quality.' },
+              { q: '7. Why are the authors arguing for the addition of two more pillars?', options: ['The current model does not consider how inequality and environmental problems can cause food insecurity.', 'The current model was created fifty years ago, so it is not relevant in the modern world.', 'The two additional pillars will encourage governments to take food insecurity seriously.', 'Hunger is still a global problem because agency and sustainability have not been taken seriously.'], answer: 'The current model does not consider how inequality and environmental problems can cause food insecurity.', why: 'Paragraph A: growing inequalities and links between ecological and food systems.' },
+              { q: '8. Why is agency important for marginalised groups, such as women and indigenous communities?', options: ['People with power often don’t listen to them when making decisions.', 'They need more support from government agencies.', 'They often live in places that don’t have access to supermarkets.', 'They don’t have enough money to buy healthy food.'], answer: 'People with power often don’t listen to them when making decisions.', why: 'Agency ensures that the marginalized can participate in decision-making (G–H).' },
+              { q: '9. Which is NOT an example of agency?', options: ['Forming a group with other farmers to negotiate higher sale prices.', 'Growing potatoes because your boss told you to.', 'Choosing to grow cabbages because they suit your soil.', 'An indigenous community using land for ceremonies rather than growing food.'], answer: 'Growing potatoes because your boss told you to.', why: 'Someone else made the decision.' },
+              { q: '10. Overall, what can we learn from this text?', options: ['The current four pillars are not very useful anymore.', 'Empowering marginalised groups and improving sustainability will end hunger.', 'Improving food security requires solutions that address different interconnected factors.', 'Food insecurity is too complicated to understand.'], answer: 'Improving food security requires solutions that address different interconnected factors.', why: 'The authors want a more holistic approach.' }
             ]},
+            { type: 'tip', text: '<b>Hint:</b> use the pillar hint above for 1, 3 and 5. For 2 and 4, read paragraphs <b>F</b> and <b>H</b> again.' },
             { type: 'sources', ids: ['clapp'] },
-            { type: 'teacher', ref: 'w5d3-t8' }
-          ]
-        },
-        {
-          id: 'r4', short: 'Language', minutes: 30, grouping: 'Alone → pairs',
-          title: 'Summarise/paraphrase + Language focus: Arguing for a position',
-          goal: 'See how the text was paraphrased. Then find how the authors argue.',
-          blocks: [
-            { type: 'cloze', id: 'r4c', title: 'Part 1 · Summarise/paraphrase: complete the summary with words from the box', options: ['agency', 'decisions', 'environment', 'food', 'food security', 'generations', 'inequality', 'resources', 'sustainability'],
+            { type: 'teacher', ref: 'w5d3-t8' },
+            { type: 'cloze', id: 'r4c', title: '1 · Complete the summary with words from the box', options: ['agency', 'decisions', 'environment', 'food', 'food security', 'generations', 'inequality', 'resources', 'sustainability'],
               text: 'Our current understanding of food security includes four interconnected factors: availability, access, utilization and stability. Despite the usefulness of this understanding, it does not account for the relationship between increasing social {{1}} and {{2}}. It also overlooks the importance of environmental {{3}} in the {{4}} system. Therefore, two additional pillars should be added to the current four-pillar model of food security: {{5}} and sustainability. Agency refers to the ability of people to have control over their lives and make their own {{6}}, including decisions related to food. Sustainability is concerned with producing food in a way that does not harm the {{7}} or reduce ecological {{8}} for future {{9}}.',
               answers: ['inequality', 'food security', 'sustainability', 'food', 'agency', 'decisions', 'environment', 'resources', 'generations'] },
             { type: 'passage', id: 'r4p', title: 'The original text (first two sentences). Compare it with the summary above.', text: 'Over the last 50 years, our understanding of food security has grown to include four main areas: availability, access, utilization, and stability (FAO, 2006; Webb et al., 2006; CFS, 2009; Upton et al., 2016). However, the growing inequalities in food systems and the deeper understanding of how closely linked our ecological and food systems are, point to the need for two more dimensions: agency and sustainability.' },
-            { type: 'quiz', id: 'r4q', title: 'How was it paraphrased? Look at key words, linking words and sentences', items: [
-              { q: 'How did the linking word change?', options: ['However → Despite (+ “this” to refer back to the previous sentence)', 'However → Therefore', 'It did not change.'], answer: 'However → Despite (+ “this” to refer back to the previous sentence)', why: '“Despite the usefulness of this understanding…”' },
-              { q: '“four main areas” became…', options: ['four interconnected factors', 'four pillars of policy', 'four new dimensions'], answer: 'four interconnected factors', why: 'New key words with the same meaning (synonyms).' },
+            { type: 'quiz', id: 'r4q', title: 'Look at key words, connecting words and phrases → sentences', items: [
+              { q: 'How did the contrasting connector change?', options: ['However → Despite (+ “this” to refer back to the previous sentence)', 'However → Therefore', 'It did not change.'], answer: 'However → Despite (+ “this” to refer back to the previous sentence)', why: '“Despite the usefulness of this understanding…”' },
+              { q: '“four main areas” became…', options: ['four interconnected factors', 'four pillars of policy', 'four new dimensions'], answer: 'four interconnected factors', why: 'A change of key words (synonyms).' },
               { q: '“growing inequalities” became…', options: ['increasing social inequality', 'more poverty', 'unfair prices'], answer: 'increasing social inequality', why: 'Synonym + word form: growing → increasing.' },
-              { q: 'The second original sentence has two long noun phrases. What happened to them?', options: ['They became two sentences in the summary.', 'They were deleted.', 'They became one quotation.'], answer: 'They became two sentences in the summary.', why: '“…it does not account for… It also overlooks…”' }
+              { q: 'What happened to the two noun phrases in the second original sentence?', options: ['They became two sentences in the summary.', 'They were deleted.', 'They became one quotation.'], answer: 'They became two sentences in the summary.', why: '“…it does not account for the relationship between social inequality and food security. It also overlooks the importance of environmental sustainability in the food system.”' }
             ]},
-            { type: 'teacher', ref: 'w5d3-t7' },
-            { type: 'passage', id: 'r6p', title: 'Part 2 · Language focus: Arguing for a position — highlight the main argument', text: 'A. Over the last 50 years, our understanding of food security has grown to include four main areas: availability, access, utilization, and stability (FAO, 2006; Webb et al., 2006; CFS, 2009; Upton et al., 2016). However, the growing inequalities in food systems and the deeper understanding of how closely linked our ecological and food systems are, point to the need for two more dimensions: agency and sustainability. Agency and sustainability are becoming increasingly important as we recognize the need for food systems that are not only productive but also equitable and environmentally sustainable. Including these dimensions in the food security framework would help address broader issues such as empowerment of communities and long-term resource management.\n\nJ. In conclusion, effectively resolving food insecurity requires the inclusion of both agency and sustainability in the existing framework of food security. By doing this, food security policies can address immediate food needs, empower individuals and communities and protect the environment. This approach will help create a more comprehensive strategy for long-term food security, ultimately leading to more resilient food systems and healthier communities.' },
-            { type: 'tip', text: '<b>Hint:</b> the main argument says what is <b>needed</b>. Look for “need” and “requires”.' },
-            { type: 'quiz', id: 'r6q', title: 'Quick check', items: [
-              { q: 'a) Where is the main argument?', options: ['Introduction sentence 2 and conclusion sentence 1', 'Introduction sentence 1 and conclusion sentence 3', 'Only in the conclusion'], answer: 'Introduction sentence 2 and conclusion sentence 1', why: '“…point to the need for two more dimensions” · “…requires the inclusion of both agency and sustainability”.' },
-              { q: 'b) Which words present the argument?', options: ['point to the need for · requires the inclusion of', 'over the last 50 years · in conclusion', 'by doing this · ultimately'], answer: 'point to the need for · requires the inclusion of', why: 'These words say what is necessary.' },
-              { q: 'c) How do the authors try to convince the reader?', options: ['By pointing out the limitations of the current model and emphasising the benefits of adding two more pillars', 'By giving personal stories', 'By criticising other researchers'], answer: 'By pointing out the limitations of the current model and emphasising the benefits of adding two more pillars', why: 'Problem with the old model → argument → reason → benefits.' }
-            ]},
-            { type: 'sort', id: 'r6s1', single: true, title: 'Game: what does each part of the introduction do?', hint: 'Limitation = a problem or weak point.', buckets: [
-              { label: 'Background: the current model' }, { label: 'Limitation of the current model' }, { label: 'Main argument: the need for two more pillars' }, { label: 'Reason for two new pillars' }, { label: 'Result / benefit of adding two new pillars' }
-            ], items: [
-              { text: 'Over the last 50 years, our understanding of food security has grown to include four main areas…', answer: 0 },
-              { text: 'However, the growing inequalities in food systems and the deeper understanding of how closely linked our ecological and food systems are,', answer: 1 },
-              { text: '…point to the need for two more dimensions: agency and sustainability.', answer: 2 },
-              { text: 'Agency and sustainability are becoming increasingly important as we recognize the need for food systems that are not only productive but also equitable and environmentally sustainable.', answer: 3 },
-              { text: 'Including these dimensions in the food security framework would help address broader issues such as empowerment of communities and long-term resource management.', answer: 4 }
-            ]},
-            { type: 'sort', id: 'r6s2', single: true, title: 'Game: what does each sentence in the conclusion do?', buckets: [
-              { label: 'Restate main argument' }, { label: 'Present result / benefits' }, { label: 'Future result / benefits' }
-            ], items: [
-              { text: 'In conclusion, effectively resolving food insecurity requires the inclusion of both agency and sustainability…', answer: 0 },
-              { text: 'By doing this, food security policies can address immediate food needs, empower individuals and communities and protect the environment.', answer: 1 },
-              { text: 'This approach will help create a more comprehensive strategy for long-term food security…', answer: 2 }
-            ]},
-            { type: 'key', title: 'Useful for your own writing', compare: [
-              { label: 'State your argument', text: '… point(s) to the need for …', eg: 'These problems point to the need for better food banks.' },
-              { label: 'Say what is necessary', text: '… requires …', eg: 'Ending hunger requires action from governments.' },
-              { label: 'Show the benefit', text: 'By doing this, … can …', eg: 'By doing this, families can save money.' }
-            ]},
-            { type: 'teacher', ref: 'w5d3-t9' }
+            { type: 'teacher', ref: 'w5d3-t7' }
           ],
           answers: { items: [
             ['Paraphrase · Linking word', 'However → Despite. “this” is added to refer back to the sentence before.'],
             ['Paraphrase · Key words', 'main areas → interconnected factors · growing inequalities → increasing social inequality · ecological and food systems → environmental sustainability in the food system'],
-            ['Paraphrase · Phrases → sentences', 'One long sentence with two noun phrases → two short sentences: “it does not account for the relationship between social inequality and food security. It also overlooks the importance of environmental sustainability in the food system.”'],
-            ['Arguing · Main argument', 'Introduction sentence 2 (“point to the need for”) and conclusion sentence 1 (“requires the inclusion of”). Why: these sentences say what is needed.']
+            ['Paraphrase · Phrases → sentences', 'One long sentence with two noun phrases → two short sentences: “it does not account for the relationship between social inequality and food security. It also overlooks the importance of environmental sustainability in the food system.”']
+          ]}
+        },
+        {
+          id: 'r4', short: 'Arguing', minutes: 20, grouping: 'Alone → pairs',
+          title: 'Language focus: Arguing for a position',
+          goal: 'Say clearly what is needed, and why: “… points to the need for…”, “… requires…”, “By doing this, … can…”.',
+          blocks: [
+            { type: 'key', title: 'Part 1 · Notice (2 minutes) — two sentences from Clapp et al. (2022)', points: [
+              '“However, the growing inequalities in food systems… <b>point to the need for</b> two more dimensions: agency and sustainability.” (introduction)',
+              '“In conclusion, effectively resolving food insecurity <b>requires</b> the inclusion of both agency and sustainability…” (conclusion)'
+            ]},
+            { type: 'quiz', id: 'r6q', title: 'What are the writers doing here?', items: [
+              { q: '1. In both sentences, the writers are…', options: ['giving their main argument', 'giving background', 'giving an example'], answer: 'giving their main argument', why: 'Both sentences say what is needed: two more pillars.' },
+              { q: '2. Which words say that something is necessary?', options: ['point to the need for · requires', 'However · In conclusion', 'growing · effectively'], answer: 'point to the need for · requires', why: 'These words tell the reader what we need to do.' }
+            ]},
+            { type: 'key', title: 'Part 2 · Clarify (4 minutes) — what is arguing for a position?', points: [
+              'You say clearly <b>what you think is needed</b>, and you give a <b>reason</b> and a <b>benefit</b>.',
+              'Why it matters: in academic writing the reader must find your position fast. Put it in the <b>introduction</b> and again in the <b>conclusion</b> — like Clapp et al. (2022).'
+            ]},
+            { type: 'key', title: 'How to argue: problem → position → reason → benefit', compare: [
+              { label: '1. Show the problem', text: 'However, … (does not / is not) …', eg: 'However, the canteen does not sell cheap healthy food.' },
+              { label: '2. State your position', text: '… point(s) to the need for + noun', eg: 'Long queues point to the need for a second café.' },
+              { label: '2. State your position', text: '… require(s) + noun', eg: 'Learning a language requires daily practice.' },
+              { label: '3. Give a reason', text: 'This is because …', eg: 'This is because many students live far from campus.' },
+              { label: '4. Show the benefit', text: 'By doing this, … can …', eg: 'By doing this, students can save money.' }
+            ]},
+            { type: 'tip', text: '<b>Common mistakes:</b> the need <b>for</b> + noun (✓ the need for more buses · ✗ the need to more buses) · requires + noun (✓ requires practice · ✗ requires to practise).' },
+            { type: 'cloze', id: 'h4-r4c', list: true, title: 'Part 3 · Controlled practice (5 minutes): choose the best words',
+              options: [['point to the need for', 'require to', 'need for'], ['requires', 'requires to', 'is requiring for'], ['However', 'By doing this', 'This is because'], ['This is because', 'By doing this', 'However'], ['By doing this', 'However', 'This is because'], ['points to the need for', 'points to need', 'requires to']],
+              text: 'The long queues at the canteen {{1}} a second café.\nLearning to cook {{2}} time and practice.\nStudents want a healthy breakfast. {{3}}, the café only sells cakes.\nOur city should add more bike lanes. {{4}} many people want to cycle to work.\nSchools could give students free water bottles. {{5}}, students can save money.\nPoor sleep before exams {{6}} better study plans.',
+              answers: ['point to the need for', 'requires', 'However', 'This is because', 'By doing this', 'points to the need for'],
+              why: ['“the need for” + noun (a second café).', 'requires + noun. No “to”.', 'However shows the problem / limitation.', 'This is because gives the reason.', 'By doing this, … can … shows the benefit.', 'Singular subject (poor sleep) → points.'] },
+            { type: 'order', id: 'h4-r4o', title: 'Put the mini-argument in order: problem → position → benefit', ends: ['First', 'Last'], items: [
+              'Many students in our city eat fast food every day.',
+              'However, the university canteen does not sell cheap healthy meals.',
+              'This points to the need for a low-cost healthy menu.',
+              'By doing this, the university can help students eat better and study better.'
+            ], why: 'Background → problem (However) → position (points to the need for) → benefit (By doing this).' },
+            { type: 'model', title: 'Part 4 · Less controlled practice (4 minutes) — example first', before: 'Our school needs more bins.', text: 'Rubbish on the floor <b>points to the need for</b> more bins.' },
+            { type: 'fields', id: 'h4-r4f', title: 'Rewrite each idea with the phrase in brackets. Then compare with a partner.', fields: [
+              { id: 'h4-r4f-1', label: '1. People in my city need cheaper buses. (point(s) to the need for)', placeholder: 'High bus prices point to the need for…', rows: 2 },
+              { id: 'h4-r4f-2', label: '2. You must practise every day to speak English well. (requires)', placeholder: 'Speaking English well requires…', rows: 2 },
+              { id: 'h4-r4f-3', label: '3. Shops should give old bread to food banks. (By doing this, … can …)', placeholder: 'Shops should give old bread to food banks. By doing this,…', rows: 2 },
+              { id: 'h4-r4f-4', label: '4. Your own idea: one problem at your university → what is needed?', placeholder: 'However, … This points to the need for…', rows: 2 }
+            ]},
+            { type: 'steps', title: 'Part 5 · Production (5 minutes): your mini-argument', items: [
+              { who: 'alone', text: '<b>Question:</b> which pillar should your city or country improve first?' },
+              { who: 'alone', text: 'Write <b>3 sentences</b>: problem → position → benefit. Use one idea from Clapp et al. (2022).' },
+              { who: 'pair', text: 'Read it to a partner. Your partner ticks the checklist.' }
+            ]},
+            { type: 'model', title: 'Example', text: 'In my city, many families cannot afford fresh vegetables. This <b>points to the need for</b> better access to cheap, healthy food. <b>By doing this</b>, the city <b>can</b> improve access and utilization, two pillars in Clapp et al.’s (2022) framework.' },
+            { type: 'language', title: 'Sentence frame', tabs: false, groups: [
+              { label: 'Problem', phrases: ['In my city / country, …', 'However, … does not …'] },
+              { label: 'Position', phrases: ['This points to the need for…', 'Improving food security here requires…'] },
+              { label: 'Benefit', phrases: ['By doing this, … can improve (pillar)…'] }
+            ]},
+            { type: 'fields', id: 'h4-r4p', fields: [
+              { id: 'h4-r4p-1', label: 'My mini-argument (3 sentences)', placeholder: 'In my country, … This points to the need for… By doing this,…', rows: 4 }
+            ]},
+            { type: 'checklist', id: 'h4-r4k', title: 'Partner checklist', items: [
+              'There is a problem first (In my city… / However, …).',
+              'The position uses “points to the need for” or “requires”.',
+              'The benefit uses “By doing this, … can …” and names a pillar.'
+            ]},
+            { type: 'teacher', ref: 'w5d3-t9' }
+          ],
+          answers: { items: [
+            ['Notice', '1 giving their main argument · 2 point to the need for · requires. The main argument is in introduction sentence 2 and conclusion sentence 1.'],
+            ['Controlled', '1 point to the need for · 2 requires · 3 However · 4 This is because · 5 By doing this · 6 points to the need for'],
+            ['Less controlled · examples', '1 High bus prices point to the need for cheaper public transport. · 2 Speaking English well requires daily practice. · 3 Shops should give old bread to food banks. By doing this, they can reduce waste and help hungry families.'],
+            ['Production · example', 'In my country, farmers have little say about prices. This points to the need for more agency for small farmers. By doing this, the government can improve agency and stability.']
           ]}
         },
         {
@@ -352,21 +408,25 @@ window.DEC15_LESSON = {
         {
           id: 'l1', short: 'Warm-up', minutes: 15, grouping: 'Pairs',
           title: 'Warmer + Vocabulary',
-          goal: 'Talk about a famous businessman and a charity. Learn six key words.',
+          goal: 'Talk about giving money to end hunger. Learn six useful words from the talk.',
           blocks: [
             { type: 'cards', title: 'Part 1 · Warmer: a person and an organisation', items: [
               { label: 'Elon Musk', icon: 'users', text: 'Who is he? What do you know about him?' },
               { label: 'Oxfam', icon: 'layers', text: 'Do you know this organisation? If not, look it up quickly. What do they do?' }
             ]},
-            { type: 'talk', prompts: ['Today you will hear about <b>Elon Musk</b> and <b>Oxfam</b>. How are they connected, do you think?'] },
+            { type: 'talk', title: 'Lead-in · Talk with a partner (3 minutes)', prompts: [
+              'Have you ever given money or food to a charity? Why / why not?',
+              'Imagine you have <b>$6 billion</b>. Could it end world hunger? What would you spend it on first?',
+              'Today you will hear Oxfam answer this question. How are Elon Musk and Oxfam connected, do you think?'
+            ]},
             { type: 'teacher', ref: 'w5d3-t11' },
-            { type: 'flip', title: 'Part 2 · Vocabulary: key words from the listening', hint: 'Guess the meaning with your partner. Then turn the card.', items: [
-              { front: 'abysmal', back: 'Very, very bad.' },
-              { front: 'humanitarian needs', back: 'The basic things people need to live: food, water, safety.' },
-              { front: 'organise as a collective', back: 'Make a group with people who want the same thing.' },
-              { front: 'smallholder farmers', back: 'Farmers with a small piece of land.' },
-              { front: 'collective action', back: 'When a group works together for one goal.' },
-              { front: 'entrepreneur', back: 'A person who starts a business.' }
+            { type: 'flip', title: 'Part 2 · Vocabulary: six useful words from the listening', hint: 'Guess the meaning with your partner. Then turn the card.', items: [
+              { front: 'abysmal (adj)', back: 'Very, very bad. <i>The food in that hostel was abysmal.</i>' },
+              { front: 'humanitarian needs (n)', back: 'The basic things people need to live: food, water, safety. <i>After the earthquake, humanitarian needs were huge.</i>' },
+              { front: 'organise as a collective', back: 'Make a group with people who want the same thing. <i>The students organised as a collective to ask for cheaper food.</i>' },
+              { front: 'smallholder farmers (n)', back: 'Farmers with a small piece of land. <i>Smallholder farmers often sell at the local market.</i>' },
+              { front: 'collective action (n)', back: 'When a group works together for one goal. <i>Collective action made the city add more bike lanes.</i>' },
+              { front: 'entrepreneur (n)', back: 'A person who starts a business. <i>A young entrepreneur opened a zero-waste café.</i>' }
             ]},
             { type: 'cloze', id: 'l2c', list: true, title: 'Choose the right word or expression for each gap', options: ['humanitarian needs', 'abysmal', 'smallholder farmers', 'organise as a collective', 'collective action', 'entrepreneur'],
               text: 'The fact that many people still experience severe hunger and don’t have their {{1}} met is {{2}}.\nThe {{3}} decided to {{4}} to sell their crops for better prices.\nWith financial support, some farmers can make their own business and become an {{5}}.',
@@ -377,20 +437,21 @@ window.DEC15_LESSON = {
         {
           id: 'l3', short: 'Listen', minutes: 30, grouping: 'Alone → pair',
           title: 'Listening for gist + Listening for detail: Note-taking',
-          goal: 'Get the main idea of the opening. Then take notes on the whole talk.',
+          goal: 'Get the main idea of the opening. Then take notes on the whole talk and keep them.',
           blocks: [
             { type: 'steps', title: 'Part 1 · Listening for gist', items: [
-              { who: 'alone', text: 'Read questions 1–4 first.' },
+              { who: 'alone', text: 'Read the two gist questions first.' },
               { who: 'class', text: 'Your teacher plays the <b>opening</b> of the talk.' },
               { who: 'alone', text: 'Listen for the <b>gist</b> (= the main idea). Then answer.' }
             ]},
             { type: 'listening', source: 'Oxfam (2022)', title: 'How much money would it take to end world hunger?', videoId: '', audio: '', clip: 'the opening, then the whole talk', transcripts: [['oxfam', 'Transcript (adapted)']] },
-            { type: 'quiz', id: 'l3q', title: 'Gist questions', items: [
-              { q: '1. What did Elon Musk do?', options: ['He challenged the UN to show him a plan to solve world hunger.', 'He gave $6 billion to Oxfam.', 'He started a food bank.'], answer: 'He challenged the UN to show him a plan to solve world hunger.', why: 'He asked for a $6 billion plan to end world hunger.' },
-              { q: '2. What has happened since then?', options: ['The problem has worsened.', 'World hunger has ended.', 'Food prices have fallen.'], answer: 'The problem has worsened.', why: '“Since Musk’s challenge, the hunger crisis has worsened.”' },
+            { type: 'quiz', id: 'l3q', items: [
+              { q: '1. What did Elon Musk do?', options: ['He challenged the UN to show him a plan to solve world hunger.', 'He gave $6 billion to Oxfam.', 'He started a food bank.'], answer: 'He challenged the UN to show him a plan to solve world hunger.', why: 'He asked for a $6 billion plan that would end world hunger.' },
+              { q: '2. What has happened since Musk’s challenge?', options: ['The problem has worsened.', 'World hunger has ended.', 'Food prices have fallen.'], answer: 'The problem has worsened.', why: '“Since Musk’s challenge, the hunger crisis has worsened.”' },
               { q: '3. What does Oxfam do?', options: ['It focuses on food and hunger.', 'It builds farms for companies.', 'It sells technology.'], answer: 'It focuses on food and hunger.', why: '“At Oxfam, we’ve been focused on food and hunger since our founding.”' },
-              { q: '4. What is Oxfam doing in this talk?', options: ['Responding to his challenge by explaining what money can (and can’t) do to end world hunger', 'Asking him to work for Oxfam', 'Criticising the UN'], answer: 'Responding to his challenge by explaining what money can (and can’t) do to end world hunger', why: '“we’re going to explain what money could accomplish, step by step”.' }
+              { q: '4. What is Oxfam doing in response to Elon Musk?', options: ['Responding to his challenge by explaining what money can (and can’t) do to end world hunger', 'Asking him to work for Oxfam', 'Criticising the UN'], answer: 'Responding to his challenge by explaining what money can (and can’t) do to end world hunger', why: '“we’re going to explain what money could accomplish, step by step”.' }
             ]},
+            { type: 'tip', text: '<b>Hint:</b> Musk asked the UN for a <b>$6 billion plan</b> to end world hunger. Listen for <b>“we’re going to explain…”</b>.' },
             { type: 'talk', title: 'Predict what comes next', prompts: [
               'The speaker says: “Let’s begin by examining how close we are to ending world hunger.” How close are we, do you think?',
               'Can <b>money alone</b> end world hunger? Or do we need other things too?'
@@ -413,9 +474,12 @@ window.DEC15_LESSON = {
               'Role of consumers<br><small>Oxfam’s Eat for Good: 5 things shoppers can do</small>',
               'Concluding comment'
             ]},
+            { type: 'key', title: 'Part 3 · Keep for Thursday and Friday', points: ['Your group will judge <b>how effective</b> a solution to food waste is. Oxfam gives numbers and solutions you can use as evidence.', 'Fill in two rows now. Keep these notes with your Clapp et al. (2022) notes.'] },
+            { type: 'table', id: 'h4-l3n', title: 'Note-taking frame for the integrated task: Oxfam (2022)', columns: ['Source', 'Main point (my words)', 'Evidence / example (numbers!)', 'Useful for judging a solution? (which pillar · helps / limits)'], fixed: ['Oxfam (2022) · can money end hunger?', 'Oxfam (2022) · one solution'] },
             { type: 'teacher', ref: 'w5d3-t13' }
           ],
           answers: { title: 'Suggested notes', items: [
+            ['Frame · can money end hunger?', '<b>Main point:</b> money helps but cannot end hunger alone. <b>Evidence:</b> $37bn a year until 2030; money cannot stop war, climate change or the power of big companies. <b>Useful:</b> a solution must also improve agency and sustainability, not only access.'],
             ['Notes · Introduction', 'Musk: asked the UN for a $6 billion plan to end world hunger · since then the problem has worsened · Oxfam focuses on (world) hunger · provided a proposal / explains what money can do to end world hunger.'],
             ['Notes · How close are we?', '150 million more people affected by hunger since the start of the pandemic · 828 million people experienced hunger in 2021.'],
             ['Notes · Two dimensions', '1. Extreme hunger = life-threatening; causes: conflicts, climate change, economic lockdowns. 2. Chronic hunger: mainly women who work small plots of land (smallholdings); causes: lack of access to finance to improve farming practices, extreme weather events.'],
@@ -432,26 +496,27 @@ window.DEC15_LESSON = {
           title: 'Building Understanding',
           goal: 'Use your notes to answer questions about the talk.',
           blocks: [
-            { type: 'sort', id: 'l5s', single: true, title: 'Part 1 · Game: match each number to its meaning', hint: 'Look at the “Cost” row in your notes.', buckets: [
+            { type: 'sort', id: 'l5s', single: true, title: '1 · Complete the table: match each number to its meaning', buckets: [
               { label: 'Money spent now' }, { label: 'Percentage of female smallholder farmers' }, { label: 'Additional money needed compared to military spending' }, { label: 'Additional annual foreign aid needed from wealthy countries' }, { label: 'Additional revenue needed from low- and middle-income countries' }
             ], items: [
-              { text: 'About half what is needed', answer: 0, why: 'World leaders gave only 46%.' },
+              { text: 'About half what is needed', answer: 0, why: 'World leaders contributed only 46%.' },
               { text: 'Over half', answer: 1, why: '“More than 50 percent of the world’s smallholder farmers are women.”' },
               { text: 'Equal to 1%', answer: 2, why: '“…about 1 percent of what the world spends annually on military and arms projects.”' },
-              { text: '$14 billion', answer: 3, why: 'An extra $14 billion in foreign aid every year until 2030.' },
-              { text: '$19 billion', answer: 4, why: 'About $19 billion every year until 2030.' }
+              { text: '$14 billion', answer: 3, why: 'An additional $14 billion in foreign aid every year until 2030.' },
+              { text: '$19 billion', answer: 4, why: 'Around $19 billion every year until 2030.' }
             ]},
-            { type: 'quiz', id: 'l5q', title: 'Part 2 · Questions 2–3 and 5–10', items: [
-              { q: '2. Why does the speaker compare foreign aid to military spending?', options: ['To highlight the importance of military spending.', 'To suggest a way to stop conflicts.', 'To point out that wealthy countries have enough money to end hunger.', 'To point out that military spending should be increased.'], answer: 'To point out that wealthy countries have enough money to end hunger.', why: 'The extra aid is only about 1% of military spending.' },
-              { q: '3. Money cannot solve war, climate change and… what?', options: ['Pollution', 'Food waste', 'Economic shocks', 'Influence of large food companies'], answer: 'Influence of large food companies', why: '“…or take away the power that giant corporations have over agricultural trade”.' },
-              { q: '5. Why is local food production better than big companies, says the speaker?', options: ['It causes less harm to the environment.', 'Locally produced food is cheaper.', 'It empowers women.', 'Local foods are easier to grow.'], answer: 'It causes less harm to the environment.', why: 'Local food can be grown in a “fair and sustainable manner”.' },
-              { q: '6. What is the biggest problem for smallholder farmers?', options: ['Low pay', 'Unhealthy food', 'Pests', 'Climate change'], answer: 'Climate change', why: '“…struggling to adapt to the climate crisis.”' },
-              { q: '7. What do women smallholder farmers need?', options: ['Agency to make decisions about their farms.', 'Better tools and equipment.', 'Access to healthy food.', 'Larger farms.'], answer: 'Agency to make decisions about their farms.', why: '“…secure their rights to land, raise their voice in decision-making spaces…”' },
-              { q: '8. Why do women smallholder farmers lack agency (= power to choose)?', options: ['Their farms are often controlled by large food companies.', 'They need to make more money.', 'They need access to better farming tools and equipment.', 'They need help to manage climate change.'], answer: 'Their farms are often controlled by large food companies.', why: 'Big companies “wield incredible power over the livelihoods of women, workers, and farmers”.' },
-              { q: '9. What can shoppers do to help end hunger?', options: ['Pressure governments to provide more funding.', 'Consume food in a way that is sustainable and that supports farmers.', 'Look for ethical food labels at the supermarket.', 'Grow more food at home.'], answer: 'Consume food in a way that is sustainable and that supports farmers.', why: 'Eat for Good: save food, shop seasonal, eat less meat, support farmers, cook smart.' },
-              { q: '10. What is the speaker’s main message?', options: ['Ending hunger will require a large amount of money.', 'Ending hunger will require more money and a fairer food system.', 'Middle and low-income countries will need to contribute more money to ending hunger.', 'Elon Musk’s proposal should not be taken seriously.'], answer: 'Ending hunger will require more money and a fairer food system.', why: '“Money is only part of the equation — and we need to transform food systems.”' }
+            { type: 'quiz', id: 'l5q', title: 'Questions 2–3 and 5–10', items: [
+              { q: '2. Why does the speaker compare additional funding for foreign aid to military spending?', options: ['To highlight the importance of military spending.', 'To suggest a way to stop conflicts.', 'To point out that wealthy countries have enough money to end hunger.', 'To point out that military spending should be increased.'], answer: 'To point out that wealthy countries have enough money to end hunger.', why: 'The extra aid is only about 1% of military spending.' },
+              { q: '3. The speaker mentions three causes of hunger that money cannot solve, including war and climate change. What is the third?', options: ['Pollution', 'Food waste', 'Economic shocks', 'Influence of large food companies'], answer: 'Influence of large food companies', why: '“…or take away the power that giant corporations have over agricultural trade”.' },
+              { q: '5. Why does the speaker think local food production is better than large companies?', options: ['It causes less harm to the environment.', 'Locally produced food is cheaper.', 'It empowers women.', 'Local foods are easier to grow.'], answer: 'It causes less harm to the environment.', why: 'Local food can be grown in a “fair and sustainable manner”; large companies must stop prioritising profit over “planetary well-being”.' },
+              { q: '6. What is the main challenge faced by smallholder farmers?', options: ['Low pay', 'Unhealthy food', 'Pests', 'Climate change'], answer: 'Climate change', why: '“…struggling to adapt to the climate crisis.”' },
+              { q: '7. What do female smallholder farmers need?', options: ['Agency to make decisions about their farms.', 'Better tools and equipment.', 'Access to healthy food.', 'Larger farms.'], answer: 'Agency to make decisions about their farms.', why: '“…secure their rights to land, raise their voice in decision-making spaces…”' },
+              { q: '8. Why do female smallholder farmers lack agency?', options: ['Their farms are often controlled by large food companies.', 'They need to make more money.', 'They need access to better farming tools and equipment.', 'They need help to manage climate change.'], answer: 'Their farms are often controlled by large food companies.', why: 'Large companies “wield incredible power over the livelihoods of women, workers, and farmers”.' },
+              { q: '9. What can consumers do to help end hunger?', options: ['Pressure governments to provide more funding.', 'Consume food in a way that is sustainable and that supports farmers.', 'Look for ethical food labels at the supermarket.', 'Grow more food at home.'], answer: 'Consume food in a way that is sustainable and that supports farmers.', why: 'Eat for Good: save food, shop seasonal, eat less meat, support farmers, cook smart.' },
+              { q: '10. What is the speaker’s overall message?', options: ['Ending hunger will require a large amount of money.', 'Ending hunger will require more money and a fairer food system.', 'Middle and low-income countries will need to contribute more money to ending hunger.', 'Elon Musk’s proposal should not be taken seriously.'], answer: 'Ending hunger will require more money and a fairer food system.', why: '“Money is only part of the equation — and we need to transform food systems.”' }
             ]},
-            { type: 'cloze', id: 'l5c', title: 'Part 3 · Question 4: complete the summary about big companies', options: ['power', 'equality', 'equal', 'climate', 'crisis', 'well-being', 'profit', 'treatment'],
+            { type: 'tip', text: '<b>Hint:</b> use your notes. Question 2 → “What money cannot solve” row · questions 3–4 → “Local food production” row · question 5 → “Role of consumers” row.' },
+            { type: 'cloze', id: 'l5c', title: '4 · Complete the paraphrased summary about big companies (no more than two words from the listening; you may need to change the word form)', options: ['power', 'equality', 'equal', 'climate', 'crisis', 'well-being', 'profit', 'treatment'],
               text: 'Big companies have a lot of {{1}} over their workers. They must ensure pay {{2}} for women, reduce the impacts of {{3}} change and give greater importance to human and environmental {{4}}.',
               answers: ['power', 'equality', 'climate', 'well-being'],
               why: ['“wield incredible power over the livelihoods of women, workers, and farmers”', '“provide equal pay” → pay equality (word form change)', '“mitigate the effects of the climate crisis”', '“human and planetary well-being”'] },
@@ -467,47 +532,71 @@ window.DEC15_LESSON = {
         {
           id: 'l6', short: 'Modals', minutes: 25, grouping: 'Pairs → groups of 2–3',
           title: 'Language focus: Modals of obligation + Language in use',
-          goal: 'Notice how the speaker uses modals. Then use them to recommend solutions.',
+          goal: 'Use modals of obligation (must, need to, should, ought to, had better) to recommend solutions.',
           blocks: [
-            { type: 'talk', title: 'Part 1 · Language focus: Modals of obligation — remember Week 4?', prompts: ['Last week you learned modals of obligation for strong advice (e.g. <i>must</i>). Which ones can you remember?'] },
-            { type: 'passage', id: 'l6p', title: 'Part of the transcript — highlight the modals of obligation', text: '1. That’s why we need to transform our food systems if we’re serious about ending world hunger. That starts with supporting local food production and thriving local food systems while pushing giant corporations that dominate global food markets to do right by people and the planet.\n\n2. Large global food and beverage companies wield incredible power over the livelihoods of women, workers, and farmers who sustain their operations. They must provide equal pay and treatment for women, mitigate the effects of the climate crisis on food production, and move away from business models that prioritize short-term profit over human and planetary well-being.\n\n3. More than 50 percent of the world’s smallholder farmers are women. We need to secure their rights to land, raise their voice in decision-making spaces on the land issues that affect them, and strengthen leadership for women’s land rights.\n\n4. In conclusion, ending world hunger is the best investment money can buy. By making clear financial commitments to address extreme and chronic hunger, world leaders can bring us closer to Zero Hunger in the years and decades ahead. But money is only part of the equation—and we need to transform food systems to ensure food security for all.' },
-            { type: 'quiz', id: 'l6q', title: 'Quick check', items: [
-              { q: 'Which modals of obligation are in the text?', options: ['need to · must', 'can · could', 'might · may'], answer: 'need to · must', why: 'we need to transform (1, 4) · They must provide (2) · We need to secure (3).' },
-              { q: 'Sections 2 and 3 list many ideas in one sentence. Is there a modal before each verb?', options: ['No — only with the first; the next ones begin with the main verb.', 'Yes — every recommendation has its own modal.', 'No — there are no modals.'], answer: 'No — only with the first; the next ones begin with the main verb.', why: 'They must provide…, mitigate…, and move away… · We need to secure…, raise…, and strengthen…' },
-              { q: 'Section 1: how does the speaker start the first solution?', options: ['That starts with…', 'That’s why…', 'In conclusion…'], answer: 'That starts with…', why: '“That starts with supporting local food production…”' },
-              { q: 'Which verb form comes after “That starts with”?', options: ['verb + -ing', 'to + verb', 'past participle'], answer: 'verb + -ing', why: 'starts with supporting…' }
+            { type: 'key', title: 'Part 1 · Notice (2 minutes) — two sentences from Oxfam (2022)', points: [
+              '“Large global food and beverage companies… <b>must</b> provide equal pay and treatment for women…”',
+              '“More than 50 percent of the world’s smallholder farmers are women. We <b>need to</b> secure their rights to land…”'
             ]},
-            { type: 'key', title: 'How to recommend solutions', compare: [
-              { label: 'Modals of obligation', text: 'need to · should · must · had better · ought to', eg: 'We need to secure their rights to land.' },
-              { label: 'One modal, many verbs', text: 'Say the modal once. The next ideas start with the main verb.', eg: 'They must provide…, mitigate… and move away from…' },
-              { label: 'That starts with + -ing', text: 'Use it for the first step of a solution.', eg: 'That starts with supporting local food production.' }
+            { type: 'quiz', id: 'l6q', title: 'Why does the speaker say must and need to?', items: [
+              { q: '1. The speaker uses <b>must</b> and <b>need to</b> to say that something is…', options: ['necessary', 'possible', 'in the past'], answer: 'necessary', why: 'Oxfam says these actions are necessary to end hunger.' },
+              { q: '2. You remember these from Week 4. What are they called?', options: ['modals of obligation', 'reporting verbs', 'linking words'], answer: 'modals of obligation', why: 'Modals of obligation give strong advice or say what is necessary.' }
+            ]},
+            { type: 'key', title: 'Part 2 · Clarify (4 minutes) — modals of obligation', points: [
+              'We use them to <b>recommend solutions</b>: what people, companies or governments should do.',
+              'Why it matters: in a discussion or an essay, your recommendation must sound clear and confident. Choose a strong or softer modal.'
+            ]},
+            { type: 'key', title: 'Strong → softer (modal + verb)', compare: [
+              { label: 'must', text: 'very strong: it is necessary / a rule', eg: 'You must wear a seatbelt.' },
+              { label: 'need to', text: 'strong: it is necessary', eg: 'I need to buy milk today.' },
+              { label: 'had better (’d better)', text: 'a warning: or something bad happens', eg: 'We’d better leave now, or we’ll miss the bus.' },
+              { label: 'should / ought to', text: 'advice: it is a good idea', eg: 'You should drink more water. · You ought to call your mum.' }
+            ]},
+            { type: 'tip', text: '<b>Common mistakes:</b> (1) no “to” after must, should, had better: ✓ must provide · ✗ must to provide. (2) In a list, say the modal once: ✓ They must provide…, reduce… and move away… · ✗ They must provide, must reduce, must move away…' },
+            { type: 'cloze', id: 'h4-l6c', list: true, title: 'Part 3 · Controlled practice (5 minutes): choose the best word',
+              options: [['must', 'might', 'could'], ['should', 'must not', 'can’t'], ['need to', 'need', 'needing'], ['had better', 'had better to', 'must to'], ['shouldn’t', 'should to', 'not should'], ['ought to', 'ought', 'ought for'], ['reduce', 'to reduce', 'must to reduce']],
+              text: 'It’s the law: drivers {{1}} stop at a red light.\nYou look tired. Maybe you {{2}} go to bed earlier tonight.\nThe fridge is empty. I {{3}} buy some food today.\nIt’s raining hard. You {{4}} take an umbrella, or you’ll get wet.\nStudents {{5}} cook too much rice. It often goes in the bin.\nShops {{6}} give unsold food to food banks.\nSupermarkets must sell cheaper fruit, {{7}} waste and support local farmers.',
+              answers: ['must', 'should', 'need to', 'had better', 'shouldn’t', 'ought to', 'reduce'],
+              why: ['A law → must (very strong).', '“Maybe” → soft advice → should.', 'need + to + verb.', 'A warning (or you’ll get wet) → had better + verb, no “to”.', 'Negative: should + not → shouldn’t.', 'ought + to + verb.', 'In a list, say the modal once: must sell…, reduce… and support…'] },
+            { type: 'model', title: 'Part 4 · Less controlled practice (5 minutes) — example first', text: 'In my city, people <b>need to</b> waste less bread. Bakeries <b>should</b> sell old bread cheaply at the end of the day.' },
+            { type: 'fields', title: 'Finish the sentences about your city or country. Then read them to a partner.', fields: [
+              { id: 'h4-l6f-1', label: '1. In my city, people need to…', placeholder: 'In my city, people need to…', rows: 1 },
+              { id: 'h4-l6f-2', label: '2. Supermarkets in my country should…', placeholder: 'Supermarkets in my country should…', rows: 1 },
+              { id: 'h4-l6f-3', label: '3. The government must…, … and …  (one modal, three verbs)', placeholder: 'The government must…, … and …', rows: 1 },
+              { id: 'h4-l6f-4', label: '4. To waste less food at home, I’d better…', placeholder: 'To waste less food at home, I’d better…', rows: 1 }
             ]},
             { type: 'teacher', ref: 'w5d3-t15' },
-            { type: 'cards', title: 'Part 2 · Language in use: ways to reduce hunger and food waste from the course', numbered: true, items: [
+            { type: 'steps', title: 'Part 5 · Production: Language in use (9 minutes, groups of 2–3)', items: [
+              { who: 'group', text: 'Read the 12 ways to reduce hunger and food waste. Choose your <b>top 3</b>.' },
+              { who: 'group', text: 'Take turns: <b>1 minute each</b>. Recommend your 3 ways with modals. Give a reason for each.' },
+              { who: 'group', text: 'Listeners: tick the checklist and ask <b>two “wh” questions</b> (Why…? How…?).' }
+            ]},
+            { type: 'cards', title: 'Ways to reduce hunger and food waste from the course', numbered: true, items: [
               { text: 'Be aware of cognitive biases' }, { text: 'Empower women' }, { text: 'Use apps to manage food' }, { text: 'Avoid overbuying' },
               { text: 'Use your leftovers' }, { text: 'Freeze your food' }, { text: 'Understand food labels' }, { text: 'Redistribute extra food' },
               { text: 'Buy locally produced food' }, { text: 'Grow food at home' }, { text: 'Invest more money in new technology' }, { text: 'Remove big companies from the food system' }
             ]},
-            { type: 'steps', items: [
-              { who: 'group', text: 'Choose the 4 or 5 <b>best</b> methods.' },
-              { who: 'group', text: 'Explain your ideas. Use <b>modals of obligation</b>.' },
-              { who: 'group', text: 'Listen to your partner. Ask <b>two “wh” questions</b> (Why…? How…?).' }
-            ]},
             { type: 'model', title: 'Example', text: 'I think that we <b>need to</b> avoid overbuying. A lot of food is wasted in the home, so this method can reduce food waste and also help us to save money.' },
             { type: 'language', title: 'Sentence starters', tabs: false, groups: [
-              { label: 'Recommend', phrases: ['I think we need to…', 'Governments must…, … and …', 'That starts with + -ing…'] },
+              { label: 'Recommend', phrases: ['I think we need to… because…', 'Governments must…, … and …', 'Shoppers should…, so…'] },
               { label: 'Ask “wh” questions', phrases: ['Why do you think…?', 'How can we…?', 'Why didn’t you choose…?'] }
             ]},
-            { type: 'spinner', id: 'l6sp', title: 'Game: spin and recommend', text: 'Spin. Make one sentence with the method and the modal. Give a reason. Your partner asks one “wh” question. Then swap.', reels: [
+            { type: 'checklist', id: 'h4-l6k', title: 'Listener checklist', items: [
+              'My partner used at least 3 different modals.',
+              'There was no “to” after must / should / had better.',
+              'My partner gave a reason for each recommendation.'
+            ]},
+            { type: 'spinner', id: 'l6sp', title: 'Extra practice if you finish early: spin and recommend', text: 'Spin. Make one sentence with the method and the modal. Give a reason. Your partner asks one “wh” question. Then swap.', reels: [
               { label: 'Method', start: 'Spin!', items: ['avoid overbuying', 'use your leftovers', 'freeze your food', 'buy local food', 'grow food at home', 'empower women', 'redistribute extra food', 'understand food labels'] },
               { label: 'Modal', start: '…', items: ['need to', 'must', 'should', 'ought to', 'had better'] }
             ]},
             { type: 'teacher', ref: 'w5d3-t16' }
           ],
           answers: { items: [
-            ['Modals · Which modals?', 'need to · must. Why: they say something is necessary.'],
-            ['Modals · Lists', 'The modal comes only once; the next verbs start without it: “They must provide…, mitigate… and move away…”'],
-            ['Modals · That starts with', 'That starts with + verb-ing: “That starts with supporting local food production.”']
+            ['Notice', '1 necessary · 2 modals of obligation'],
+            ['Controlled', '1 must · 2 should · 3 need to · 4 had better · 5 shouldn’t · 6 ought to · 7 reduce'],
+            ['Less controlled · examples', '1 In my city, people need to use their leftovers. · 2 Supermarkets in my country should sell “ugly” fruit cheaply. · 3 The government must support farmers, fund food banks and teach people about labels. · 4 To waste less food at home, I’d better make a shopping list.'],
+            ['Modals · Lists', 'The modal comes only once; the next verbs start without it: “They must provide…, mitigate… and move away…”']
           ]}
         },
         {
@@ -583,6 +672,46 @@ window.DEC15_LESSON = {
           { id: 'x2-4', label: 'What I found — which pillars does it relate to?', placeholder: 'Access: … · Sustainability: …', rows: 5 }
         ]}
       ]
+    },
+    {
+      id: 'h4-x3', short: 'Challenge', minutes: 15, grouping: 'Alone → pair', category: 'Extra reading',
+      title: 'Challenge: how Clapp et al. build their argument',
+      goal: 'See what each sentence of the introduction and conclusion does. Answer two harder questions.',
+      blocks: [
+        { type: 'tip', text: 'Limitation = a problem or weak point. Benefit = a good result.' },
+        { type: 'passage', id: 'r6p', title: 'The introduction (A) and conclusion (J) · Clapp et al. (2022)', text: 'A. Over the last 50 years, our understanding of food security has grown to include four main areas: availability, access, utilization, and stability (FAO, 2006; Webb et al., 2006; CFS, 2009; Upton et al., 2016). However, the growing inequalities in food systems and the deeper understanding of how closely linked our ecological and food systems are, point to the need for two more dimensions: agency and sustainability. Agency and sustainability are becoming increasingly important as we recognize the need for food systems that are not only productive but also equitable and environmentally sustainable. Including these dimensions in the food security framework would help address broader issues such as empowerment of communities and long-term resource management.\n\nJ. In conclusion, effectively resolving food insecurity requires the inclusion of both agency and sustainability in the existing framework of food security. By doing this, food security policies can address immediate food needs, empower individuals and communities and protect the environment. This approach will help create a more comprehensive strategy for long-term food security, ultimately leading to more resilient food systems and healthier communities.' },
+        { type: 'sort', id: 'r6s1', single: true, title: 'Game: what does each part of the introduction do?', hint: 'Limitation = a problem or weak point.', buckets: [
+          { label: 'Background: the current model' }, { label: 'Limitation of the current model' }, { label: 'Main argument: the need for two more pillars' }, { label: 'Reason for two new pillars' }, { label: 'Result / benefit of adding two new pillars' }
+        ], items: [
+          { text: 'Over the last 50 years, our understanding of food security has grown to include four main areas…', answer: 0 },
+          { text: 'However, the growing inequalities in food systems and the deeper understanding of how closely linked our ecological and food systems are,', answer: 1 },
+          { text: '…point to the need for two more dimensions: agency and sustainability.', answer: 2 },
+          { text: 'Agency and sustainability are becoming increasingly important as we recognize the need for food systems that are not only productive but also equitable and environmentally sustainable.', answer: 3 },
+          { text: 'Including these dimensions in the food security framework would help address broader issues such as empowerment of communities and long-term resource management.', answer: 4 }
+        ]},
+        { type: 'sort', id: 'r6s2', single: true, title: 'Game: what does each sentence in the conclusion do?', buckets: [
+          { label: 'Restate main argument' }, { label: 'Present result / benefits' }, { label: 'Future result / benefits' }
+        ], items: [
+          { text: 'In conclusion, effectively resolving food insecurity requires the inclusion of both agency and sustainability…', answer: 0 },
+          { text: 'By doing this, food security policies can address immediate food needs, empower individuals and communities and protect the environment.', answer: 1 },
+          { text: 'This approach will help create a more comprehensive strategy for long-term food security…', answer: 2 }
+        ]},
+        
+        { type: 'sources', ids: ['clapp'] }
+      ]
+    },
+    {
+      id: 'h4-x4', short: 'Challenge', minutes: 15, grouping: 'Alone → pair', category: 'Extra listening',
+      title: 'Challenge: modals in the transcript',
+      goal: 'Find all the modals of obligation in four parts of the talk. Learn “That starts with + -ing”.',
+      blocks: [
+        { type: 'passage', id: 'l6p', title: 'Part of the transcript — highlight the modals of obligation', text: '1. That’s why we need to transform our food systems if we’re serious about ending world hunger. That starts with supporting local food production and thriving local food systems while pushing giant corporations that dominate global food markets to do right by people and the planet.\n\n2. Large global food and beverage companies wield incredible power over the livelihoods of women, workers, and farmers who sustain their operations. They must provide equal pay and treatment for women, mitigate the effects of the climate crisis on food production, and move away from business models that prioritize short-term profit over human and planetary well-being.\n\n3. More than 50 percent of the world’s smallholder farmers are women. We need to secure their rights to land, raise their voice in decision-making spaces on the land issues that affect them, and strengthen leadership for women’s land rights.\n\n4. In conclusion, ending world hunger is the best investment money can buy. By making clear financial commitments to address extreme and chronic hunger, world leaders can bring us closer to Zero Hunger in the years and decades ahead. But money is only part of the equation—and we need to transform food systems to ensure food security for all.' },
+        { type: 'key', title: 'Another way to recommend', compare: [
+          { label: 'That starts with + verb-ing', text: 'Use it for the first step of a solution.', eg: 'That starts with supporting local food production.' }
+        ]},
+        
+        { type: 'sources', ids: ['oxfam'] }
+      ]
     }
   ],
 
@@ -602,6 +731,7 @@ window.DEC15_LESSON = {
     ['dietary diversity', 'Eating a variety of foods.', 'Dietary diversity supports good health.'],
     ['food aid', 'Help (food or money) given to reduce hunger.', 'They need food aid after the flood.'],
     ['make the case', 'Argue that something is true or needed.', 'We make the case that it is time for an update.'],
+    ['point to the need for', 'Show that something is needed (+ noun).', 'Long queues point to the need for a second café.'],
     ['abysmal', 'Extremely bad.', 'It is abysmal that famine still exists.'],
     ['humanitarian needs', 'Basic needs for survival and dignity.', 'Only 46% of humanitarian needs were funded.'],
     ['smallholder farmer', 'A farmer with a small piece of land.', 'Over half of smallholder farmers are women.'],

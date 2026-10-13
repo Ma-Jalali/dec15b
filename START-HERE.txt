@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.46)
+DEC15 — COURSE APP (v2.47)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -514,3 +514,12 @@ v2.46 (Week 4 Days 2–5 redesigned; Day 1 unchanged)
   with a model, practice and a free speaking task (jigsaws, role cards, debates with votes, team races).
 - Texts, videos, writing tasks, objectives, teacher notes and shared forms are unchanged. Some old exercises moved
   to Extra practice; a few old quiz/table blocks were removed, so answers saved in them no longer show.
+
+v2.47 (W4 D3–D5 and W5 D3–D5; W4 D1–D2 and W5 D1–D2 unchanged because they have been taught)
+- Every language/function page now teaches ONE point in five parts: 1 Notice (1–2 quotes from the text) →
+  2 Clarify (what, why, the forms with everyday examples, common mistakes) → 3 Controlled practice (short items,
+  self-check) → 4 Less controlled practice (after a model) → 5 Production (one short, concrete task with a model,
+  a frame and a checklist).
+- Long sentence-matching tasks and unrelated tasks moved to Extra practice; vague writing prompts removed.
+- Every reading/listening has a note-taking table (Source | Main point | Evidence | For/against my position) to keep
+  for the integrated writing. W5 D3–D5 also got lead-ins, useful words and realistic questions.
