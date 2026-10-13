@@ -98,17 +98,17 @@ window.DEC15_LESSON = {
               '<b>Why it matters:</b> in Part 2 of today’s discussion, you choose the best of three options. Your observers check: “Did they compare the options and evaluate their importance?”'
             ]},
             { type: 'model', title: 'The forms: one everyday example each', rows: [
-              ['Compare · <b>Whereas</b> (A)…, (B)…', '<i><b>Whereas</b> buses are cheap, bikes are faster in the city.</i>'],
-              ['Compare · (A) is <b>cheaper / more useful than</b> (B)', '<i>Cooking at home is <b>cheaper than</b> eating out.</i>'],
-              ['Choose first · <b>The top priority is</b>…, <b>because</b>…', '<i>For me, <b>the top priority is</b> sleep, <b>because</b> I can’t study when I’m tired.</i>'],
-              ['Choose first · <b>If I had to choose one, I’d go for</b>…, <b>because</b>…', '<i><b>If I had to choose one</b> app, <b>I’d go for</b> maps, <b>because</b> I use it every day.</i>'],
-              ['Rank the others · (B) <b>comes second</b>, because…', '<i>Price is first for me, and the camera <b>comes second</b>.</i>'],
-              ['Rank the others · (C) is <b>the least effective</b>, because…', '<i>Studying with music on is <b>the least effective</b> for me, because I lose focus.</i>'],
-              ['Conclude · <b>On balance</b>, (A) seems <b>the most realistic</b>.', '<i><b>On balance</b>, the library seems <b>the most realistic</b> place to study.</i>']
+              ['Compare', '<b>Whereas</b> (A)…, (B)…<br>→ <i><b>Whereas</b> buses are cheap, bikes are faster in the city.</i>'],
+              ['Compare', '(A) is <b>cheaper / more useful than</b> (B)<br>→ <i>Cooking at home is <b>cheaper than</b> eating out.</i>'],
+              ['Choose first', '<b>The top priority is</b>…, <b>because</b>…<br>→ <i>For me, <b>the top priority is</b> sleep, <b>because</b> I can’t study when I’m tired.</i>'],
+              ['Choose first', '<b>If I had to choose one, I’d go for</b>…, <b>because</b>…<br>→ <i><b>If I had to choose one</b> app, <b>I’d go for</b> maps, <b>because</b> I use it every day.</i>'],
+              ['Rank the others', '(B) <b>comes second</b>, because…<br>→ <i>Price is first for me, and the camera <b>comes second</b>.</i>'],
+              ['Rank the others', '(C) is <b>the least effective</b>, because…<br>→ <i>Studying with music on is <b>the least effective</b> for me, because I lose focus.</i>'],
+              ['Conclude', '<b>On balance</b>, (A) seems <b>the most realistic</b>.<br>→ <i><b>On balance</b>, the library seems <b>the most realistic</b> place to study.</i>']
             ]},
             { type: 'tip', text: '<b>Common mistakes:</b> ① choosing with no reason — “I’d go for apps.” → “I’d go for apps, <b>because</b> young people use them.” ② double comparatives — not “more cheaper” or “the most best”, but “cheaper” and “the best”.' },
             { type: 'cloze', id: 'h4-d1cz', title: 'Part 3 · Controlled practice (5 minutes): choose the best word', list: true,
-              text: 'If I had to choose one, I’d go {{1}} the train, because it is never late.\nWhereas buses are cheap, bikes are {{2}} in the city.\nFor me, the top {{3}} is sleep, because I can’t study when I’m tired.\nCooking at home is cheaper {{4}} eating out.\nOf the three apps, this one is the {{5}} useful.\nStudying with friends is fun. {{6}}, studying alone is quieter.\nOnline classes are the {{7}} effective option for me: I lose focus at home.\nPrice is first for me, and the camera comes {{8}}.',
+              text: 'If I had to choose one, I’d go {{1}} the train, because it is never late.\nWhereas taxis are comfortable, the metro is {{2}} at rush hour.\nWhen I choose a flat, the top {{3}} is a quiet room, because I need to sleep.\nA water bottle is cheaper {{4}} buying drinks every day.\nOf the three apps, this one is the {{5}} useful.\nStudying with friends is fun. {{6}}, studying alone is quieter.\nOnline classes are the {{7}} effective option for me: I lose focus at home.\nWhen I buy fruit, taste is first for me, and price comes {{8}}.',
               options: [
                 ['for', 'to', 'with'],
                 ['faster', 'fastest', 'more fast'],

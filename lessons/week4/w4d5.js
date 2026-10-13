@@ -118,7 +118,11 @@ window.DEC15_LESSON = {
               ['Mia', '<mark>Have you thought about</mark> adding a second source? Right now the paragraph only uses Berti et al.'],
               ['Ravi', '<mark>Could you show me</mark> where a second source would fit?']
             ]},
-            { type: 'model', title: 'Model · one spin', before: 'Spin: <b>a poster with tiny writing</b> + <b>a soft suggestion</b>', text: 'A: “One thing that works really well is the colours. <b>It might be worth</b> making the writing bigger.”<br>B: “<b>That’s a fair point. I’ll</b> use size 24.”', note: 'A gives feedback with the phrase on the reel. B responds: accept, ask or explain.' },
+            { type: 'model', title: 'Model · one spin', rows: [
+              ['Spin', '<b>a poster with tiny writing</b> + <b>a soft suggestion</b>'],
+              ['A', '“One thing that works really well is the colours. <b>It might be worth</b> making the writing bigger.”'],
+              ['B', '“<b>That’s a fair point. I’ll</b> use size 24.”']
+            ], note: 'A gives feedback with the phrase on the reel. B responds: accept, ask or explain.' },
             { type: 'spinner', id: 'h4-f2sp', title: 'Spin and give feedback (in pairs)', text: 'Spin. Give feedback on the work with the phrase type on reel 2. Your partner responds. Then swap.', reels: [
               { label: 'Your partner’s work', start: 'Spin!', items: ['a poster with tiny writing', 'an email with no greeting', 'a presentation with 25 slides', 'a recipe with no amounts', 'a paragraph with no citation', 'a CV with three spelling mistakes', 'a paragraph where every sentence starts with “This”'] },
               { label: 'Say…', start: '…', items: ['one specific praise', 'a soft suggestion', 'a gentle problem'] }
@@ -166,8 +170,8 @@ window.DEC15_LESSON = {
               { id: 'f2-a4', label: 'Actions for further improvement · Grammar', placeholder: 'Try to include sentences with more than one clause (to improve range of grammatical structure).', rows: 3 }
             ], send: true, sendLabel: 'Send your feedback to your partner', sendHint: 'Choose your partner. They get a read-only copy of the ratings, comments and actions in “Shared with me”. You can also download a PDF.' },
             { type: 'cards', title: 'Feedback meeting (8 min) · Role cards', items: [
-              { label: 'Editor', text: 'Give <b>one</b> specific praise and your <b>two</b> most important suggestions. Point to the essay each time. Help fix one highlighted error together.' },
-              { label: 'Writer', text: 'Listen. For each point, <b>accept</b> it, <b>ask</b> for an example, or <b>explain</b> your choice. Decide which suggestion you will use on Monday.' }
+              { label: 'Editor', text: 'Give <b>one</b> specific praise and your <b>two</b> most important suggestions. Point to the essay each time. Help fix one highlighted error together.<br><i>Start: “One thing that works really well is… It might be worth… I wasn’t quite sure what you meant by…”</i>' },
+              { label: 'Writer', text: 'Listen. For each point, <b>accept</b> it, <b>ask</b> for an example, or <b>explain</b> your choice. Decide which suggestion you will use on Monday.<br><i>Start: “That’s a fair point. I’ll… / Could you show me…? / I see what you mean, but…”</i>' }
             ]},
             { type: 'checklist', id: 'g3-f2k', title: 'Peer check · Did your partner…', items: [
               'start with specific praise?',
@@ -255,16 +259,16 @@ window.DEC15_LESSON = {
       outcome: 'Understand what the essay question asks, choose useful information from the sources and take notes, and take a position and plan your essay.',
       activities: [
         {
-          id: 'p1', short: 'Question', minutes: 25, grouping: 'Pairs → groups',
-          title: 'Analyse the Question + Discuss your position',
-          goal: 'Understand the question. Then choose your first position with your group.',
+          id: 'p1', short: 'Question', minutes: 10, grouping: 'Pairs',
+          title: 'Analyse the Question',
+          goal: 'Understand what the essay question asks you to do.',
           blocks: [
-            { type: 'talk', title: 'Warm-up (3 min) · Food waste where you live', prompts: [
+            { type: 'talk', title: 'Warm-up (2 min) · Food waste where you live', prompts: [
               'In your home city, what happens to food nobody eats: at home, in shops, in restaurants?',
               'Have you seen a government campaign or a law about food waste? What was it?',
               'Who do you think wastes the most food: farms, shops, restaurants or households?'
             ]},
-            { type: 'steps', title: 'Part 1 · Analyse the Question (7 min)', items: [
+            { type: 'steps', title: 'Analyse the Question (8 min)', items: [
               { who: 'pair', text: 'Look at the picture. Read the essay question.' },
               { who: 'pair', text: 'Talk with a partner. Then answer questions a)–d).' }
             ]},
@@ -277,39 +281,59 @@ window.DEC15_LESSON = {
               { q: 'c) What does the question ask you to do?', options: ['Look at what governments do now, say if they should do more, and give reasons', 'Describe all the causes of food waste', 'Compare food waste in two countries'], answer: 'Look at what governments do now, say if they should do more, and give reasons', why: '“Should” and “Discuss your position…” mean: take a position and give reasons for it.' },
               { q: 'd) What is the main purpose of an argument essay?', options: ['To persuade the reader of your position', 'To describe a process', 'To summarise the sources'], answer: 'To persuade the reader of your position', why: 'The Integrated Writing Task is an argument essay. You must take a position.' }
             ]},
-            { type: 'teacher', ref: 'w4d5-t4' },
+            { type: 'teacher', ref: 'w4d5-t4' }
+          ]
+        },
+        {
+          id: 'h4-pos', short: 'Position', minutes: 15, grouping: 'Groups',
+          title: 'Activity 1 Discuss your position',
+          goal: 'Language point: stating a position. Say clearly what should happen and give one main reason. Then choose your group’s first position.',
+          blocks: [
+            { type: 'model', title: 'Part 1 · Notice (1 min) · Two sentences from Gunders’ talk', list: [
+              '“We <b>also need</b> policy.” (paragraph M)',
+              '“These laws <b>should be</b> everywhere.” (paragraph M)'
+            ], note: 'Look at the words in bold.' },
+            { type: 'quiz', id: 'h4-pn', title: 'What is Gunders doing here?', items: [
+              { q: 'In these two sentences, Gunders is…', options: ['giving her position: what should happen', 'describing what happens now', 'telling a story about her son'], answer: 'giving her position: what should happen', why: '<i>need</i> and <i>should</i> show her view about what governments should do.' }
+            ]},
 
-            { type: 'language', title: 'Part 2 · Activity 1 Discuss your position (15 min) — Language for a group decision', tabs: false, groups: [
-              { label: 'Take a position + justify it', phrases: ['My position is that governments need to… The main reason is…', 'I’d argue that…, mainly because…', 'The strongest argument for this is…'] },
-              { label: 'Partly agree or disagree politely', phrases: ['I see your point, but…', 'That’s true to some extent; however,…', 'I’m not sure I agree. What about…?'] },
-              { label: 'Build on ideas + reach agreement', phrases: ['Building on what… said,…', 'So, are we all agreed that…?', 'Shall we go with… as our position?'] }
+            { type: 'key', title: 'Part 2 · Clarify (3 min) · What is a position?', points: [
+              'A <b>position</b> is your answer to the question: <i>yes, no, or partly</i>, and how much.',
+              'In an argument essay and in a discussion, say it <b>early</b> and <b>clearly</b>, then give a <b>reason</b>. A position without a reason does not persuade anyone.'
             ]},
-            { type: 'chat', title: 'Model · A group chooses a position', right: 'Ben', lines: [
-              ['Ana', '<mark>I’d argue that</mark> governments need to do a lot more, <mark>mainly because</mark> solutions like food waste apps work, but they are not growing fast enough.'],
-              ['Ben', '<mark>I see your point, but</mark> businesses make money from those apps. Why do they need governments?'],
-              ['Chen', '<mark>Building on what</mark> Ana said, charities like food banks can’t grow without funding. So governments still matter.'],
-              ['Ana', '<mark>So, are we all agreed that</mark> governments should do more, but together with businesses?'],
-              ['Ben', 'Yes. <mark>Shall we go with</mark> “all actors should do more” <mark>as our position</mark>?']
+            { type: 'model', title: 'How to state a position · with everyday examples', rows: [
+              ['Show it is your view', 'I’d argue that… / My position is that… <br><i><b>I’d argue that</b> schools should start later.</i>'],
+              ['Say what should happen', 'should / need to + verb <br><i>Cities <b>need to</b> build more bike lanes.</i>'],
+              ['Say how much', 'far more / significantly more / already enough <br><i>Shops should do <b>far more</b> to cut plastic.</i>'],
+              ['Add the main reason', '…, mainly because… / The main reason is… <br><i>…, <b>mainly because</b> students are tired in the morning.</i>'],
+              ['A balanced position', 'X should…, but together with Y. <br><i>Parents should help, <b>but together with</b> teachers.</i>']
             ]},
-            { type: 'sort', id: 'g3-p1s', title: 'Practice · What does each expression do?', hint: '<b>Drag</b> each card into a box — or <b>tap</b> a card, then tap a box.', buckets: [
-              { label: 'Take a position' }, { label: 'Partly agree / disagree' }, { label: 'Build + agree' }
-            ], items: [
-              { text: 'Personally, I’m convinced that…', answer: 0, why: 'You give your own view strongly.' },
-              { text: 'The key reason I think this is…', answer: 0, why: 'You justify your position.' },
-              { text: 'You have a point. Even so,…', answer: 1, why: 'You accept part of the idea, then disagree.' },
-              { text: 'I’d see it slightly differently.', answer: 1, why: 'A polite way to disagree.' },
-              { text: 'To add to Chen’s idea,…', answer: 2, why: 'You build on a classmate’s point.' },
-              { text: 'Can we agree on…?', answer: 2, why: 'You move the group to a decision.' }
+            { type: 'tip', text: '<b>Common mistakes:</b> “should <s>to</s> do” → should <b>do</b>. “<s>In my opinion, I think</s>…” → choose one. “Food waste is a big problem” is a topic, <b>not</b> a position: say what <b>should</b> happen.' },
+
+            { type: 'quiz', id: 'h4-pc', title: 'Part 3 · Controlled practice (3 min) · Choose the best word', items: [
+              { q: 'I’d ___ that schools should start at 10 am.', options: ['argue', 'arguing', 'agree'], answer: 'argue', why: 'I’d argue that… = I would argue that…' },
+              { q: 'Supermarkets ___ give unsold food to charities.', options: ['should', 'should to', 'should be'], answer: 'should', why: 'should + verb (no “to”).' },
+              { q: 'Governments need ___ more on public transport.', options: ['to spend', 'spending', 'spend'], answer: 'to spend', why: 'need to + verb.' },
+              { q: 'My position is ___ fast food should be taxed.', options: ['that', 'what', 'because'], answer: 'that', why: 'My position is that + sentence.' },
+              { q: 'Everyone should cook at home more, ___ because it is cheaper.', options: ['mainly', 'main', 'the main'], answer: 'mainly', why: '…, mainly because + reason.' },
+              { q: 'Which sentence is a clear position?', options: ['Food waste is a big problem.', 'Governments should do far more to cut food waste, mainly because progress is too slow.', 'There are many views about food waste.'], answer: 'Governments should do far more to cut food waste, mainly because progress is too slow.', why: 'It says what should happen, how much, and why.' }
             ]},
+
+            { type: 'model', title: 'Part 4 · Less controlled practice (3 min) · Model: one spin', rows: [
+              ['Spin', '<b>food banks</b> + <b>governments</b>'],
+              ['You say', '“<b>I’d argue that</b> governments <b>should</b> fund food banks more, <b>mainly because</b> charities rely on volunteers and donations.”']
+            ], note: 'Then the next person says if they agree, and why.' },
             { type: 'spinner', id: 'p2sp', title: 'Spin and speak', text: 'Spin. Should governments do more about this solution? Use one expression and give a reason. Others respond. Then pass the turn.', reels: [
               { label: 'Solution', start: 'Spin!', items: ['food banks', 'upcycled food', 'food waste apps', 'laws about landfill', 'investment in new ideas', 'education campaigns', 'tax incentives for donations'] },
               { label: 'Who should act?', start: '…', items: ['governments', 'businesses', 'consumers', 'everyone together'] }
             ]},
-            { type: 'steps', title: 'Four corners · Debate and vote (6 min)', items: [
+
+            { type: 'steps', title: 'Part 5 · Production (5 min) · Four corners: choose your first position', items: [
               { who: 'alone', text: 'Read the four positions. Choose yours. Then <b>stand in that corner</b> of the room.' },
               { who: 'group', text: 'In your corner: agree on your best reason (1 min).' },
-              { who: 'class', text: 'Each corner gives its reason in 30 seconds. Other corners may reply once.' },
-              { who: 'class', text: 'Anyone convinced? Move corners now. Count the final vote.' }
+              { who: 'class', text: 'Each corner states its position in one sentence: “We’d argue that…, mainly because…”' },
+              { who: 'class', text: 'Anyone convinced? Move corners now. Count the final vote.' },
+              { who: 'group', text: 'Back in your research group: choose your group position and write it below.' }
             ]},
             { type: 'choose', id: 'p2c', title: 'Our first position', options: [
               'Governments need to significantly increase their efforts.',
@@ -317,17 +341,13 @@ window.DEC15_LESSON = {
               'Businesses and consumers need to do more, not governments.',
               'Governments are already doing enough.'
             ]},
-            { type: 'talk', title: 'Back in your research group: choose your group position', prompts: [
-              'Which solutions from Weeks 3 and 4 need help from governments?',
-              'What did your own research say about governments in your region?'
-            ]},
             { type: 'fields', fields: [
-              { id: 'p2-1', label: 'Our position and the main reason', placeholder: 'We think governments should… because…', rows: 3 }
+              { id: 'p2-1', label: 'Our position and the main reason (frame: We’d argue that governments should… mainly because…)', placeholder: 'We’d argue that governments should do far more to reduce food waste, mainly because…', rows: 3 }
             ]},
-            { type: 'checklist', id: 'g3-p1k', title: 'Group check', items: [
-              'Everyone used at least 2 expressions from the box.',
-              'Someone partly agreed or disagreed politely.',
-              'We agreed on one position and one main reason.'
+            { type: 'checklist', id: 'g3-p1k', title: 'Check your position · Did you…', items: [
+              'use a position phrase (I’d argue that… / My position is that…)?',
+              'say what should happen and how much (should / need to + far more…)?',
+              'give one main reason (mainly because…)?'
             ]},
             { type: 'teacher', ref: 'w4d5-t5' }
           ]
@@ -366,7 +386,7 @@ window.DEC15_LESSON = {
             { type: 'model', title: 'Example: one good note', before: 'Dana Gunders talked about lots of things and food waste is a very big problem in America and other places.', text: 'Gunders (2024): solutions (e.g. apps) work, but progress is too slow → governments need to invest to scale them up (= make them bigger).', note: 'Short, in your own words, and about governments.' },
             { type: 'listening', source: 'Gunders (2024) · TED', title: 'How to turn the tables on food waste', videoId: '6iqXH9RPK1w', start: 0, clip: 'full talk · about 11 minutes', transcripts: [['gunders', 'Transcript (adapted)']] },
             { type: 'steps', items: [
-              { who: 'alone', text: 'Read the two gist questions and the notes below first.' },
+              { who: 'alone', text: 'Read the two gist questions and the note-taking frame below first.' },
               { who: 'alone', text: 'Listen once. Take notes <b>by hand</b>.' },
               { who: 'alone', text: 'Listen for: What do governments do now? What could they do more of?' },
               { who: 'alone', text: 'Then answer. Use the transcript to check a second time.' }
@@ -391,17 +411,20 @@ window.DEC15_LESSON = {
               '“Laws that restrict food from going to landfills… should be everywhere.” (M)'
             ]},
             { type: 'tip', text: '<b>Hint for gap 4:</b> after the examples (ColdHubs, Too Good To Go, Compass Group), listen for <b>“But…”</b>.' },
-            { type: 'fields', fields: [
-              { id: 'p3-1', label: 'Gunders (2024): my notes on governments and food waste, in my own words (type them after listening)', placeholder: 'Progress too slow… investment needed to scale… laws restricting food going to landfill…', rows: 4 }
+            { type: 'table', id: 'h4-p3t', title: 'Note-taking frame · Gunders (2024) — keep these notes for Monday’s essay', columns: ['Gunders (2024)', 'My notes (short, in my own words)', 'For or against “governments should do more”?'], fixed: [
+              'Main point',
+              'The problem now<br><small>Why is progress too slow?</small>',
+              'Government action 1<br><small>money / investment</small>',
+              'Government action 2<br><small>incentives for businesses</small>',
+              'Government action 3<br><small>policy / laws</small>',
+              'Best example or number'
             ]},
-            { type: 'language', title: 'Compare notes with your group · Talk about the source', tabs: false, groups: [
-              { label: 'Report the source', phrases: ['According to Gunders (2024),…', 'Gunders argues / points out that…', 'She gives the example of… to show that…'] },
-              { label: 'Paraphrase + check', phrases: ['In other words,…', 'Did you get the same point about…?', 'I think she meant… rather than…'] },
-              { label: 'Link to the question', phrases: ['This supports the view that governments should…', 'This could be evidence for our reason that…'] }
+            { type: 'fields', fields: [
+              { id: 'p3-1', label: 'Gunders (2024) in one or two sentences, in my own words (for my essay plan)', placeholder: 'Gunders (2024) argues that solutions work but progress is too slow, so governments need to invest, give incentives and make laws on landfill.', rows: 3 }
             ]},
             { type: 'steps', items: [
-              { who: 'group', text: 'Compare your notes. Use 2–3 expressions above.' },
-              { who: 'group', text: 'Add good points to the note-taking table (tab 3).' }
+              { who: 'group', text: 'Compare your notes. Add any point you missed.' },
+              { who: 'group', text: 'Keep the frame. You use it in the note-taking table and the plan (tab 5).' }
             ]}
           ]
         },

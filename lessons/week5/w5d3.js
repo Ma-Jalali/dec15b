@@ -2,7 +2,11 @@
    Teacher’s Book: W5 D3 · 3A Discussion skills (30) · 4A Reading to write (105) · 5A Listening to write (105).
    Texts: Clapp et al. (2022) reading · Oxfam (2022) listening — lessons/week5/sources.js.
    Activity titles use the Teacher’s Book headings. Teacher notes live in the database (teacher_notes), refs only here.
-   Block types: lessons/_template.js, js/play.js and js/forms.js. */
+   Block types: lessons/_template.js, js/play.js and js/forms.js.
+   v3: each input has a personal lead-in, useful words, 2 gist + ≤6 detail questions in text order with a hint,
+   and a note-taking frame for the Day 4–5 task (how effective is a solution?). Each language focus (arguing for a
+   position · modals of obligation) has five parts: Notice → Clarify → Controlled → Less controlled → Production.
+   Longer text analysis moved to extras (h4-x3, h4-x4); saved-work ids kept. */
 
 window.DEC15_LESSON = {
   id: 'w5d3',
@@ -525,47 +529,71 @@ window.DEC15_LESSON = {
         {
           id: 'l6', short: 'Modals', minutes: 25, grouping: 'Pairs → groups of 2–3',
           title: 'Language focus: Modals of obligation + Language in use',
-          goal: 'Notice how the speaker uses modals. Then use them to recommend solutions.',
+          goal: 'Use modals of obligation (must, need to, should, ought to, had better) to recommend solutions.',
           blocks: [
-            { type: 'talk', title: 'Part 1 · Language focus: Modals of obligation — remember Week 4?', prompts: ['Last week you learned modals of obligation for strong advice (e.g. <i>must</i>). Which ones can you remember?'] },
-            { type: 'passage', id: 'l6p', title: 'Part of the transcript — highlight the modals of obligation', text: '1. That’s why we need to transform our food systems if we’re serious about ending world hunger. That starts with supporting local food production and thriving local food systems while pushing giant corporations that dominate global food markets to do right by people and the planet.\n\n2. Large global food and beverage companies wield incredible power over the livelihoods of women, workers, and farmers who sustain their operations. They must provide equal pay and treatment for women, mitigate the effects of the climate crisis on food production, and move away from business models that prioritize short-term profit over human and planetary well-being.\n\n3. More than 50 percent of the world’s smallholder farmers are women. We need to secure their rights to land, raise their voice in decision-making spaces on the land issues that affect them, and strengthen leadership for women’s land rights.\n\n4. In conclusion, ending world hunger is the best investment money can buy. By making clear financial commitments to address extreme and chronic hunger, world leaders can bring us closer to Zero Hunger in the years and decades ahead. But money is only part of the equation—and we need to transform food systems to ensure food security for all.' },
-            { type: 'quiz', id: 'l6q', title: 'Quick check', items: [
-              { q: 'Which modals of obligation are in the text?', options: ['need to · must', 'can · could', 'might · may'], answer: 'need to · must', why: 'we need to transform (1, 4) · They must provide (2) · We need to secure (3).' },
-              { q: 'Sections 2 and 3 list many ideas in one sentence. Is there a modal before each verb?', options: ['No — only with the first; the next ones begin with the main verb.', 'Yes — every recommendation has its own modal.', 'No — there are no modals.'], answer: 'No — only with the first; the next ones begin with the main verb.', why: 'They must provide…, mitigate…, and move away… · We need to secure…, raise…, and strengthen…' },
-              { q: 'Section 1: how does the speaker start the first solution?', options: ['That starts with…', 'That’s why…', 'In conclusion…'], answer: 'That starts with…', why: '“That starts with supporting local food production…”' },
-              { q: 'Which verb form comes after “That starts with”?', options: ['verb + -ing', 'to + verb', 'past participle'], answer: 'verb + -ing', why: 'starts with supporting…' }
+            { type: 'key', title: 'Part 1 · Notice (2 minutes) — two sentences from Oxfam (2022)', points: [
+              '“Large global food and beverage companies… <b>must</b> provide equal pay and treatment for women…”',
+              '“More than 50 percent of the world’s smallholder farmers are women. We <b>need to</b> secure their rights to land…”'
             ]},
-            { type: 'key', title: 'How to recommend solutions', compare: [
-              { label: 'Modals of obligation', text: 'need to · should · must · had better · ought to', eg: 'We need to secure their rights to land.' },
-              { label: 'One modal, many verbs', text: 'Say the modal once. The next ideas start with the main verb.', eg: 'They must provide…, mitigate… and move away from…' },
-              { label: 'That starts with + -ing', text: 'Use it for the first step of a solution.', eg: 'That starts with supporting local food production.' }
+            { type: 'quiz', id: 'l6q', title: 'Why does the speaker say must and need to?', items: [
+              { q: '1. The speaker uses <b>must</b> and <b>need to</b> to say that something is…', options: ['necessary', 'possible', 'in the past'], answer: 'necessary', why: 'Oxfam says these actions are necessary to end hunger.' },
+              { q: '2. You remember these from Week 4. What are they called?', options: ['modals of obligation', 'reporting verbs', 'linking words'], answer: 'modals of obligation', why: 'Modals of obligation give strong advice or say what is necessary.' }
+            ]},
+            { type: 'key', title: 'Part 2 · Clarify (4 minutes) — modals of obligation', points: [
+              'We use them to <b>recommend solutions</b>: what people, companies or governments should do.',
+              'Why it matters: in a discussion or an essay, your recommendation must sound clear and confident. Choose a strong or softer modal.'
+            ]},
+            { type: 'key', title: 'Strong → softer (modal + verb)', compare: [
+              { label: 'must', text: 'very strong: it is necessary / a rule', eg: 'You must wear a seatbelt.' },
+              { label: 'need to', text: 'strong: it is necessary', eg: 'I need to buy milk today.' },
+              { label: 'had better (’d better)', text: 'a warning: or something bad happens', eg: 'We’d better leave now, or we’ll miss the bus.' },
+              { label: 'should / ought to', text: 'advice: it is a good idea', eg: 'You should drink more water. · You ought to call your mum.' }
+            ]},
+            { type: 'tip', text: '<b>Common mistakes:</b> (1) no “to” after must, should, had better: ✓ must provide · ✗ must to provide. (2) In a list, say the modal once: ✓ They must provide…, reduce… and move away… · ✗ They must provide, must reduce, must move away…' },
+            { type: 'cloze', id: 'h4-l6c', list: true, title: 'Part 3 · Controlled practice (5 minutes): choose the best word',
+              options: [['must', 'might', 'could'], ['should', 'must not', 'can’t'], ['need to', 'need', 'needing'], ['had better', 'had better to', 'must to'], ['shouldn’t', 'should to', 'not should'], ['ought to', 'ought', 'ought for'], ['reduce', 'to reduce', 'must to reduce']],
+              text: 'It’s the law: drivers {{1}} stop at a red light.\nYou look tired. Maybe you {{2}} go to bed earlier tonight.\nThe fridge is empty. I {{3}} buy some food today.\nIt’s raining hard. You {{4}} take an umbrella, or you’ll get wet.\nStudents {{5}} cook too much rice. It often goes in the bin.\nShops {{6}} give unsold food to food banks.\nSupermarkets must sell cheaper fruit, {{7}} waste and support local farmers.',
+              answers: ['must', 'should', 'need to', 'had better', 'shouldn’t', 'ought to', 'reduce'],
+              why: ['A law → must (very strong).', '“Maybe” → soft advice → should.', 'need + to + verb.', 'A warning (or you’ll get wet) → had better + verb, no “to”.', 'Negative: should + not → shouldn’t.', 'ought + to + verb.', 'In a list, say the modal once: must sell…, reduce… and support…'] },
+            { type: 'model', title: 'Part 4 · Less controlled practice (5 minutes) — example first', text: 'In my city, people <b>need to</b> waste less bread. Bakeries <b>should</b> sell old bread cheaply at the end of the day.' },
+            { type: 'fields', title: 'Finish the sentences about your city or country. Then read them to a partner.', fields: [
+              { id: 'h4-l6f-1', label: '1. In my city, people need to…', placeholder: 'In my city, people need to…', rows: 1 },
+              { id: 'h4-l6f-2', label: '2. Supermarkets in my country should…', placeholder: 'Supermarkets in my country should…', rows: 1 },
+              { id: 'h4-l6f-3', label: '3. The government must…, … and …  (one modal, three verbs)', placeholder: 'The government must…, … and …', rows: 1 },
+              { id: 'h4-l6f-4', label: '4. To waste less food at home, I’d better…', placeholder: 'To waste less food at home, I’d better…', rows: 1 }
             ]},
             { type: 'teacher', ref: 'w5d3-t15' },
-            { type: 'cards', title: 'Part 2 · Language in use: ways to reduce hunger and food waste from the course', numbered: true, items: [
+            { type: 'steps', title: 'Part 5 · Production: Language in use (9 minutes, groups of 2–3)', items: [
+              { who: 'group', text: 'Read the 12 ways to reduce hunger and food waste. Choose your <b>top 3</b>.' },
+              { who: 'group', text: 'Take turns: <b>1 minute each</b>. Recommend your 3 ways with modals. Give a reason for each.' },
+              { who: 'group', text: 'Listeners: tick the checklist and ask <b>two “wh” questions</b> (Why…? How…?).' }
+            ]},
+            { type: 'cards', title: 'Ways to reduce hunger and food waste from the course', numbered: true, items: [
               { text: 'Be aware of cognitive biases' }, { text: 'Empower women' }, { text: 'Use apps to manage food' }, { text: 'Avoid overbuying' },
               { text: 'Use your leftovers' }, { text: 'Freeze your food' }, { text: 'Understand food labels' }, { text: 'Redistribute extra food' },
               { text: 'Buy locally produced food' }, { text: 'Grow food at home' }, { text: 'Invest more money in new technology' }, { text: 'Remove big companies from the food system' }
             ]},
-            { type: 'steps', items: [
-              { who: 'group', text: 'Choose the 4 or 5 <b>best</b> methods.' },
-              { who: 'group', text: 'Explain your ideas. Use <b>modals of obligation</b>.' },
-              { who: 'group', text: 'Listen to your partner. Ask <b>two “wh” questions</b> (Why…? How…?).' }
-            ]},
             { type: 'model', title: 'Example', text: 'I think that we <b>need to</b> avoid overbuying. A lot of food is wasted in the home, so this method can reduce food waste and also help us to save money.' },
             { type: 'language', title: 'Sentence starters', tabs: false, groups: [
-              { label: 'Recommend', phrases: ['I think we need to…', 'Governments must…, … and …', 'That starts with + -ing…'] },
+              { label: 'Recommend', phrases: ['I think we need to… because…', 'Governments must…, … and …', 'Shoppers should…, so…'] },
               { label: 'Ask “wh” questions', phrases: ['Why do you think…?', 'How can we…?', 'Why didn’t you choose…?'] }
             ]},
-            { type: 'spinner', id: 'l6sp', title: 'Game: spin and recommend', text: 'Spin. Make one sentence with the method and the modal. Give a reason. Your partner asks one “wh” question. Then swap.', reels: [
+            { type: 'checklist', id: 'h4-l6k', title: 'Listener checklist', items: [
+              'My partner used at least 3 different modals.',
+              'There was no “to” after must / should / had better.',
+              'My partner gave a reason for each recommendation.'
+            ]},
+            { type: 'spinner', id: 'l6sp', title: 'Extra practice if you finish early: spin and recommend', text: 'Spin. Make one sentence with the method and the modal. Give a reason. Your partner asks one “wh” question. Then swap.', reels: [
               { label: 'Method', start: 'Spin!', items: ['avoid overbuying', 'use your leftovers', 'freeze your food', 'buy local food', 'grow food at home', 'empower women', 'redistribute extra food', 'understand food labels'] },
               { label: 'Modal', start: '…', items: ['need to', 'must', 'should', 'ought to', 'had better'] }
             ]},
             { type: 'teacher', ref: 'w5d3-t16' }
           ],
           answers: { items: [
-            ['Modals · Which modals?', 'need to · must. Why: they say something is necessary.'],
-            ['Modals · Lists', 'The modal comes only once; the next verbs start without it: “They must provide…, mitigate… and move away…”'],
-            ['Modals · That starts with', 'That starts with + verb-ing: “That starts with supporting local food production.”']
+            ['Notice', '1 necessary · 2 modals of obligation'],
+            ['Controlled', '1 must · 2 should · 3 need to · 4 had better · 5 shouldn’t · 6 ought to · 7 reduce'],
+            ['Less controlled · examples', '1 In my city, people need to use their leftovers. · 2 Supermarkets in my country should sell “ugly” fruit cheaply. · 3 The government must support farmers, fund food banks and teach people about labels. · 4 To waste less food at home, I’d better make a shopping list.'],
+            ['Modals · Lists', 'The modal comes only once; the next verbs start without it: “They must provide…, mitigate… and move away…”']
           ]}
         },
         {
@@ -641,6 +669,52 @@ window.DEC15_LESSON = {
           { id: 'x2-4', label: 'What I found — which pillars does it relate to?', placeholder: 'Access: … · Sustainability: …', rows: 5 }
         ]}
       ]
+    },
+    {
+      id: 'h4-x3', short: 'Challenge', minutes: 15, grouping: 'Alone → pair', category: 'Extra reading',
+      title: 'Challenge: how Clapp et al. build their argument',
+      goal: 'See what each sentence of the introduction and conclusion does. Answer two harder questions.',
+      blocks: [
+        { type: 'tip', text: 'Limitation = a problem or weak point. Benefit = a good result.' },
+        { type: 'passage', id: 'r6p', title: 'The introduction (A) and conclusion (J) · Clapp et al. (2022)', text: 'A. Over the last 50 years, our understanding of food security has grown to include four main areas: availability, access, utilization, and stability (FAO, 2006; Webb et al., 2006; CFS, 2009; Upton et al., 2016). However, the growing inequalities in food systems and the deeper understanding of how closely linked our ecological and food systems are, point to the need for two more dimensions: agency and sustainability. Agency and sustainability are becoming increasingly important as we recognize the need for food systems that are not only productive but also equitable and environmentally sustainable. Including these dimensions in the food security framework would help address broader issues such as empowerment of communities and long-term resource management.\n\nJ. In conclusion, effectively resolving food insecurity requires the inclusion of both agency and sustainability in the existing framework of food security. By doing this, food security policies can address immediate food needs, empower individuals and communities and protect the environment. This approach will help create a more comprehensive strategy for long-term food security, ultimately leading to more resilient food systems and healthier communities.' },
+        { type: 'sort', id: 'r6s1', single: true, title: 'Game: what does each part of the introduction do?', hint: 'Limitation = a problem or weak point.', buckets: [
+          { label: 'Background: the current model' }, { label: 'Limitation of the current model' }, { label: 'Main argument: the need for two more pillars' }, { label: 'Reason for two new pillars' }, { label: 'Result / benefit of adding two new pillars' }
+        ], items: [
+          { text: 'Over the last 50 years, our understanding of food security has grown to include four main areas…', answer: 0 },
+          { text: 'However, the growing inequalities in food systems and the deeper understanding of how closely linked our ecological and food systems are,', answer: 1 },
+          { text: '…point to the need for two more dimensions: agency and sustainability.', answer: 2 },
+          { text: 'Agency and sustainability are becoming increasingly important as we recognize the need for food systems that are not only productive but also equitable and environmentally sustainable.', answer: 3 },
+          { text: 'Including these dimensions in the food security framework would help address broader issues such as empowerment of communities and long-term resource management.', answer: 4 }
+        ]},
+        { type: 'sort', id: 'r6s2', single: true, title: 'Game: what does each sentence in the conclusion do?', buckets: [
+          { label: 'Restate main argument' }, { label: 'Present result / benefits' }, { label: 'Future result / benefits' }
+        ], items: [
+          { text: 'In conclusion, effectively resolving food insecurity requires the inclusion of both agency and sustainability…', answer: 0 },
+          { text: 'By doing this, food security policies can address immediate food needs, empower individuals and communities and protect the environment.', answer: 1 },
+          { text: 'This approach will help create a more comprehensive strategy for long-term food security…', answer: 2 }
+        ]},
+        { type: 'quiz', id: 'h4-x3q', title: 'Two harder questions', items: [
+          { q: '1. Climate change <b>directly</b> affects three pillars. Which three?', options: ['Availability, Stability, Sustainability', 'Availability, Agency, Sustainability', 'Access, Stability, Agency'], answer: 'Availability, Stability, Sustainability', why: 'Access is affected only indirectly: less food → higher prices.' },
+          { q: '2. Which one is NOT agency?', options: ['Growing potatoes because your boss told you to', 'Forming a farmers’ group to get better prices', 'Choosing crops that suit your soil'], answer: 'Growing potatoes because your boss told you to', why: 'Someone else made the decision.' }
+        ]},
+        { type: 'sources', ids: ['clapp'] }
+      ]
+    },
+    {
+      id: 'h4-x4', short: 'Challenge', minutes: 15, grouping: 'Alone → pair', category: 'Extra listening',
+      title: 'Challenge: modals in the transcript',
+      goal: 'Find all the modals of obligation in four parts of the talk. Learn “That starts with + -ing”.',
+      blocks: [
+        { type: 'passage', id: 'l6p', title: 'Part of the transcript — highlight the modals of obligation', text: '1. That’s why we need to transform our food systems if we’re serious about ending world hunger. That starts with supporting local food production and thriving local food systems while pushing giant corporations that dominate global food markets to do right by people and the planet.\n\n2. Large global food and beverage companies wield incredible power over the livelihoods of women, workers, and farmers who sustain their operations. They must provide equal pay and treatment for women, mitigate the effects of the climate crisis on food production, and move away from business models that prioritize short-term profit over human and planetary well-being.\n\n3. More than 50 percent of the world’s smallholder farmers are women. We need to secure their rights to land, raise their voice in decision-making spaces on the land issues that affect them, and strengthen leadership for women’s land rights.\n\n4. In conclusion, ending world hunger is the best investment money can buy. By making clear financial commitments to address extreme and chronic hunger, world leaders can bring us closer to Zero Hunger in the years and decades ahead. But money is only part of the equation—and we need to transform food systems to ensure food security for all.' },
+        { type: 'key', title: 'Another way to recommend', compare: [
+          { label: 'That starts with + verb-ing', text: 'Use it for the first step of a solution.', eg: 'That starts with supporting local food production.' }
+        ]},
+        { type: 'quiz', id: 'h4-x4q', title: 'Two harder questions about the talk', items: [
+          { q: '1. Why is local food production better than big companies, says the speaker?', options: ['It harms the environment less.', 'It is cheaper.', 'It is easier to grow.'], answer: 'It harms the environment less.', why: 'Local food can be grown in a “fair and sustainable manner”.' },
+          { q: '2. Why do many women farmers lack agency (= power to choose)?', options: ['Big companies control their work.', 'They need more tools.', 'They need help with climate change.'], answer: 'Big companies control their work.', why: 'Big companies “wield incredible power over the livelihoods of women, workers, and farmers”.' }
+        ]},
+        { type: 'sources', ids: ['oxfam'] }
+      ]
     }
   ],
 
@@ -660,6 +734,7 @@ window.DEC15_LESSON = {
     ['dietary diversity', 'Eating a variety of foods.', 'Dietary diversity supports good health.'],
     ['food aid', 'Help (food or money) given to reduce hunger.', 'They need food aid after the flood.'],
     ['make the case', 'Argue that something is true or needed.', 'We make the case that it is time for an update.'],
+    ['point to the need for', 'Show that something is needed (+ noun).', 'Long queues point to the need for a second café.'],
     ['abysmal', 'Extremely bad.', 'It is abysmal that famine still exists.'],
     ['humanitarian needs', 'Basic needs for survival and dignity.', 'Only 46% of humanitarian needs were funded.'],
     ['smallholder farmer', 'A farmer with a small piece of land.', 'Over half of smallholder farmers are women.'],
