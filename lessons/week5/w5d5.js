@@ -289,10 +289,10 @@ window.DEC15_LESSON = {
             { type: 'table', id: 'h4-i2n', title: 'My notes for the big question: “AI will help my university studies more than it harms them.”', columns: ['Idea from Part 1', 'Detail or example', 'Helps or harms students?', 'For or against the statement?'], rows: 2, extraRows: true },
             { type: 'tip', text: 'Keep these notes. You will add to them in Parts 2 and 3, and use them for a short talk at the end.' },
             { type: 'talk', title: 'Activity 3 · Critical thinking (groups, 4 minutes)', prompts: [
-              'How has your opinion of AI in education changed over time?',
-              'People moved from fear to careful acceptance of AI. Do you agree with this change? Why?',
-              'Some universities allow AI if you say you used it. They compare it to a calculator. Is this a fair comparison?',
-              'What ethical problems (= questions of right and wrong) can AI cause in university work?'
+              'How have your attitudes toward AI in education evolved over time?',
+              'Do you agree with the shift from fear and restriction to cautious acceptance? Why or why not?',
+              'The podcast mentions that some universities allow AI use with proper attribution, comparing it to using a calculator. Do you think this is a fair comparison?',
+              'What ethical concerns (= questions of right and wrong) might arise from integrating AI into academic work?'
             ]},
             { type: 'language', tabs: false, groups: [
               { label: 'Sentence starters', phrases: ['At first I thought… . Now I think…', 'I agree / don’t agree because…', 'It is (not) like a calculator because…'] }

@@ -181,7 +181,12 @@ window.DEC15_LESSON = {
               { q: '5. Paragraph E: who did the program <b>harm</b>?', options: ['Independent shop owners', 'Very poor families', 'Farmers in the SHGs'], answer: 'Independent shop owners', why: 'Independent retailers had to lower prices or travel further and felt resentful.' },
               { q: '6. Paragraph F: what did two-thirds of sellers report?', options: ['Less fruit and vegetable waste', 'More rotten food', 'Higher prices'], answer: 'Less fruit and vegetable waste', why: '“…the program reduced FFV waste.”' }
             ]},
-            { type: 'tip', text: '<b>Hint:</b> each question has a paragraph letter. Look for numbers and names — they are easy to find.' },
+            { type: 'quiz', id: 'h4-m5q2', title: 'Challenge questions (think across the text)', items: [
+              { q: '7. Paragraph E: why do the authors say the effects on <b>agency</b> were “mixed”?', options: ['The groups felt stronger together, but social norms stopped women doing some jobs', 'Some women joined the groups and some did not', 'The program worked in cities but not in villages'], answer: 'The groups felt stronger together, but social norms stopped women doing some jobs', why: 'Paragraph E gives a positive effect (solidarity) and then “However… women were prevented from… transport and retailing… due to social norms”.' },
+              { q: '8. Paragraph F: how is this study’s idea of <b>sustainability</b> different from Clapp et al. (2022)?', options: ['It focuses on resilience, not mainly on farming practices and food loss', 'It ignores food waste completely', 'It uses only four pillars, not six'], answer: 'It focuses on resilience, not mainly on farming practices and food loss', why: '“…in the sustainability dimension, rather than focusing on sustainable agricultural practices and reduced food loss as in Clapp et al. (2022).”' },
+              { q: '9. Overall (Paragraph G): which statement best matches the authors’ evaluation?', options: ['The program helped all six pillars, but agency and sustainability had mixed results', 'The program failed because of the lockdown', 'The program only improved availability'], answer: 'The program helped all six pillars, but agency and sustainability had mixed results', why: '“…contribute to all six dimensions… albeit with mixed results on agency and sustainability.”' }
+            ]},
+            { type: 'tip', text: '<b>Hint:</b> questions 1–6 have a paragraph letter — look for numbers and names. For 7–9, read the whole paragraph and look for contrast words: <i>however, rather than, albeit</i>.' },
             { type: 'model', title: 'Example: from the text to a note', rows: [
               ['The text says', '“The policy in question was a fresh fruit and vegetable procurement program implemented by self-help groups.”'],
               ['My note', 'program = women’s self-help groups (SHGs) buy + sell fresh fruit & veg (FFV)'],
@@ -544,7 +549,7 @@ window.DEC15_LESSON = {
               { who: 'group', text: 'Answer each question. Use your homework sources or the class texts.' },
               { who: 'group', text: 'Say <b>who</b> says so: name the source.' },
               { who: 'group', text: 'Press <b>Write together</b> to fill in one table with your group.' },
-              { who: 'group', text: 'Finish with your overall evaluation: how well does the solution work?' }
+              { who: 'group', text: 'Finish with your group’s overall evaluation: how effective is the solution?' }
             ]},
             { type: 'model', title: 'Example answer', rows: [
               ['Question', 'Who does the SHG program help?'],

@@ -574,6 +574,7 @@ window.DEC15_LESSON = {
               'It has at least one evaluative word (crucial, effective, limited…).',
               'A reader can put the X on the line: agree or disagree?'
             ]},
+            { type: 'key', title: 'Option B (Teacher’s Book) · Evaluate an image', points: ['Your teacher shows an artwork or an advertising campaign (for example, a public health campaign about sun safety). What is the message? How effective is the image in conveying its message? Use evaluative language.'] },
             { type: 'teacher', ref: 'w4d3-t13' }
           ]
         },
