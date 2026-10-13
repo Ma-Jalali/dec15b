@@ -429,29 +429,106 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'p4', short: 'Notes + plan', minutes: 30, grouping: 'Groups', cowrite: true,
-          title: 'Note-taking table + Making a plan',
-          goal: 'Collect notes from all the sources as a group. Then plan your essay: a position and two reasons.',
+          id: 'h4-rep', short: 'Report a source', minutes: 10, grouping: 'Alone → pairs',
+          title: 'Report a source',
+          goal: 'Language point: reporting a source. Turn your notes into sentences that say whose idea it is.',
           blocks: [
-            { type: 'steps', title: 'Part 1 · Jigsaw note-taking table (12 min)', items: [
-              { who: 'group', text: 'Press <b>Write together</b> to share one page with your group. Add your Gunders notes first.' },
-              { who: 'alone', text: 'Each person takes <b>one</b> other source: Nicastro, Berti et al., About That, or your own research.' },
-              { who: 'alone', text: 'Skim your source (5 min). Find 1–2 points about governments. Add them in one row.' },
-              { who: 'group', text: 'Teach your point to the group in 30 seconds: “According to…, … In other words, …”' }
+            { type: 'model', title: 'Part 1 · Notice (1 min) · Two sentences from Gunders’ talk', list: [
+              '“<b>Researchers estimate</b> about 20 percent of that gap could be met by simply wasting less.” (D)',
+              '“At ReFED, <b>we estimate that</b> for the US alone, it could take 18 billion dollars to fully scale solutions.” (L)'
             ]},
-            { type: 'model', title: 'Example: one row of the table', rows: [
-              ['Gunders (2024)', 'Solutions work (e.g. ColdHubs, apps) but progress too slow → govt investment needed to scale up + incentives for businesses. Laws restricting food in landfill (e.g. France, Japan) → should be everywhere.']
+            { type: 'quiz', id: 'h4-rn', title: 'Whose idea is it?', items: [
+              { q: 'How does Gunders show that these numbers come from other people’s work?', options: ['She names who says it + a reporting verb (estimate)', 'She uses a question', 'She gives no source'], answer: 'She names who says it + a reporting verb (estimate)', why: 'Who (researchers, ReFED) + verb (estimate) = reporting a source.' }
+            ]},
+
+            { type: 'key', title: 'Part 2 · Clarify (2 min) · Why report a source?', points: [
+              'In your essay, every idea from a text needs its <b>source</b>: name + year. Then the reader knows whose idea it is, and your own voice is clear.',
+              'Use the <b>present simple</b>: Gunders (2024) <b>argues</b>, not <s>argued</s>.'
+            ]},
+            { type: 'model', title: 'Four ways to report · with everyday examples', rows: [
+              ['According to + name (year), …', '<i><b>According to Smith (2023)</b>, most students sleep less than seven hours.</i>'],
+              ['Name (year) + verb + that…', '<i>Lee (2022) <b>points out that</b> cycling is cheaper than driving.</i>'],
+              ['Name gives the example of… to show that…', '<i>Park (2021) <b>gives the example of</b> Copenhagen <b>to show that</b> bike lanes work.</i>'],
+              ['(Name, year) at the end', '<i>Coffee may improve focus <b>(Brown, 2020)</b>.</i>'],
+              ['Which verb?', '<b>argues</b> = gives an opinion · <b>points out</b> = gives a fact people forget · <b>estimates</b> = gives a number that is not exact · <b>shows</b> = proves it with evidence']
+            ]},
+            { type: 'tip', text: '<b>Common mistakes:</b> “According to Gunders (2024), <s>she says</s> …” → choose one. “Gunders (2024) <s>argue</s>” → <b>argues</b>. Don’t copy her words: paraphrase.' },
+
+            { type: 'quiz', id: 'h4-rc', title: 'Part 3 · Controlled practice (3 min) · Choose the best reporting verb', shared: ['argues', 'points out', 'estimates', 'gives the example of'], items: [
+              { q: 'Kim (2023) ___ that about 30% of bread in cafés is thrown away.', answer: 'estimates', why: 'A number that is not exact.' },
+              { q: 'Lopez (2022) ___ that schools should teach cooking.', answer: 'argues', why: '“should” = an opinion.' },
+              { q: 'Ali (2021) ___ a school in Sydney to show that shared fridges work.', answer: 'gives the example of', why: 'One real case that shows a bigger point.' },
+              { q: 'Chen (2020) ___ that many people forget food at the back of the fridge.', answer: 'points out', why: 'A fact people often forget.' },
+              { q: 'Gunders (2024) ___ that governments should invest more in solutions.', answer: 'argues', why: 'Her opinion about what should happen.' },
+              { q: 'Gunders (2024) ___ ColdHubs to show that cold rooms save food.', answer: 'gives the example of', why: 'ColdHubs is her example (paragraph G).' }
+            ]},
+
+            { type: 'model', title: 'Part 4 · Less controlled practice (2 min) · Note → sentence', rows: [
+              ['Note', 'Gunders (2024): progress too slow'],
+              ['Sentence', 'Gunders (2024) <b>points out that</b> progress on food waste is too slow.']
+            ], note: 'Name + year + reporting verb + your own words.' },
+            { type: 'fields', title: 'Turn each note into one sentence', fields: [
+              { id: 'h4-rl1', label: 'Note: Gunders (2024): France, Japan → laws: no food in landfill → should be everywhere', placeholder: 'Gunders (2024) argues that…', rows: 2, share: false },
+              { id: 'h4-rl2', label: 'Note: Berti et al. (2021): food banks rely on volunteers + donations → limited reach', placeholder: 'According to Berti et al. (2021),…', rows: 2, share: false }
+            ]},
+
+            { type: 'steps', title: 'Part 5 · Production (2 min) · Two sentences for your essay plan', items: [
+              { who: 'alone', text: 'Choose <b>two</b> notes from your Gunders frame (tab 3): one per reason.' },
+              { who: 'alone', text: 'Write one report sentence for each. Use two different reporting verbs.' },
+              { who: 'pair', text: 'Read them to a partner. Partner ticks the checklist.' }
+            ]},
+            { type: 'fields', fields: [
+              { id: 'h4-rp1', label: 'Report sentence for reason 1', placeholder: 'Gunders (2024) points out that…', rows: 2 },
+              { id: 'h4-rp2', label: 'Report sentence for reason 2', placeholder: 'According to Gunders (2024),…', rows: 2 }
+            ]},
+            { type: 'checklist', id: 'h4-rk', title: 'Partner check · Each sentence has…', items: [
+              'the name and the year of the source',
+              'a reporting verb in the present (argues / points out / estimates…)',
+              'the writer’s own words, not a copy of the talk'
+            ]}
+          ],
+          answers: { items: [
+            ['Gunders note', 'Gunders (2024) argues that laws which stop food going to landfill, like those in France and Japan, should be introduced everywhere.'],
+            ['Berti et al. note', 'According to Berti et al. (2021), food banks depend on volunteers and donations, so they can only help a limited number of people.']
+          ]}
+        },
+        {
+          id: 'p4', short: 'Notes + plan', minutes: 20, grouping: 'Groups', cowrite: true,
+          title: 'Note-taking table + Making a plan',
+          goal: 'Collect notes from the reading and the listening as a group. Then plan your essay: a position and two reasons, each with a source.',
+          blocks: [
+            { type: 'steps', title: 'Part 1 · Jigsaw note-taking table (8 min)', items: [
+              { who: 'group', text: 'Press <b>Write together</b> to share one page with your group. Add your Gunders notes first (row 1).' },
+              { who: 'alone', text: 'Each person takes <b>one</b> reading: Nicastro, Berti et al., About That, or your own research.' },
+              { who: 'alone', text: 'Skim it (4 min). Find 1–2 points about governments. Add them in one row.' },
+              { who: 'group', text: 'Teach your point in 30 seconds: “According to…, … In other words, …”' }
+            ]},
+            { type: 'model', title: 'Example: two rows of the table (one listening, one reading)', rows: [
+              ['Gunders (2024) · listening', '<b>Main point:</b> solutions work, but progress is too slow. <b>Evidence:</b> ColdHubs (Nigeria), Too Good To Go (17 countries); laws on landfill in France, Japan. <b>For / against:</b> FOR — governments should invest, give incentives and make laws.'],
+              ['Berti et al. (2021) · reading', '<b>Main point:</b> food banks can help, but are a “band-aid” solution. <b>Evidence:</b> Magazzini Sociali (Italy); charities rely on volunteers + donations. <b>For / against:</b> FOR — government funding could help them reach more people.']
             ], note: 'Short notes, your own words, only points that help answer the question.' },
-            { type: 'table', id: 'p4t', title: 'Note-taking table', columns: ['Source', 'Relevant points'], rows: 5, extraRows: true },
+            { type: 'table', id: 'p4t', title: 'Note-taking table · Should governments do more?', columns: ['Source', 'Relevant points (main point, own words)', 'Evidence / example', 'For or against more government action?'], rows: 5, extraRows: true },
             { type: 'sources', ids: ['gunders', 'nicastro', 'berti', 'aboutthat', 'castro', 'huang'] },
             { type: 'teacher', ref: 'w4d5-t6' },
             { type: 'teacher', ref: 'w4d5-t7' },
 
-            { type: 'steps', title: 'Part 2 · Making a plan (14 min)', items: [
-              { who: 'group', text: 'Agree on a <b>clear position</b>.' },
+            { type: 'steps', title: 'Part 2 · Making a plan (10 min)', items: [
+              { who: 'group', text: 'Agree on a <b>clear position</b> (your sentence from tab 2).' },
               { who: 'group', text: 'Find <b>TWO main reasons</b> for your position.' },
-              { who: 'group', text: 'Look at your note-taking table. Which notes support each reason?' },
+              { who: 'group', text: 'Give each reason at least one source: Gunders <b>and</b> one reading.' },
               { who: 'group', text: 'Decide the order of your two body paragraphs. Then complete the plan.' }
+            ]},
+            { type: 'key', title: 'The plan frame', numbered: true, points: [
+              '<b>Position:</b> <i>While businesses and consumers have a role, governments should… mainly because… and…</i>',
+              '<b>Reason 1 + source:</b> <i>Firstly, … According to Gunders (2024), …</i>',
+              '<b>Reason 2 + source:</b> <i>Secondly, … Berti et al. (2021) point out that…</i>',
+              '<b>Conclusion:</b> <i>In conclusion, governments should… In the future, …</i>'
+            ]},
+            { type: 'model', title: 'Example plan (one possible position — yours can be different)', rows: [
+              ['Position', 'Governments should do significantly more to reduce food waste, mainly because good solutions exist but are too small, and charities cannot grow alone.'],
+              ['Reason 1 + source', 'Solutions need money to scale up → Gunders (2024): ColdHubs and apps work, but progress is too slow; governments should invest and give incentives.'],
+              ['Reason 2 + source', 'Food banks have limited reach → Berti et al. (2021): they rely on volunteers and donations; About That (2024): they lack funds → government funding could help.'],
+              ['Conclusion', 'Restate the position. Recommendation: funding + laws on landfill, together with businesses and consumers.']
             ]},
             { type: 'language', title: 'Language for planning together', tabs: false, groups: [
               { label: 'Choose reasons', phrases: ['Our strongest reason is probably…', 'Which source best supports this point?'] },
@@ -464,7 +541,12 @@ window.DEC15_LESSON = {
               'Don’t write the essay at the weekend, and don’t use AI to write it. You write it in class.'
             ]},
             { type: 'plan' },
-            { type: 'steps', title: 'Finish (4 min) · 30-second pitch', items: [
+            { type: 'checklist', id: 'h4-p4c', title: 'Plan check · Does your plan…', items: [
+              'have a thesis that answers “should governments do more?” and says how much?',
+              'give each reason at least one source (name + year)?',
+              'use notes from the Gunders listening and at least one reading?'
+            ]},
+            { type: 'steps', title: 'Finish (2 min) · 30-second pitch', items: [
               { who: 'group', text: 'One speaker pitches your plan: position + two reasons + one source each.' },
               { who: 'class', text: 'Listen. Vote for the most convincing plan (you can’t vote for your own).' }
             ]},

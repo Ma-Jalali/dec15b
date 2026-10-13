@@ -290,7 +290,8 @@ window.DEC15_LESSON = {
             { type: 'key', title: 'Part 2 · Clarify: what is synthesising?', points: [
               '<b>Synthesise</b> = put ideas from <b>two or more sources</b> together in one sentence. Show if they say the <b>same</b> thing, <b>add</b> to each other, or are <b>different</b>.',
               'Why? It shows you read widely, and two sources make your point <b>stronger</b> than one. Tomorrow’s presentation and your essays need it.'
-            ], compare: [
+            ]},
+            { type: 'key', title: 'Three ways to link two sources', compare: [
               { label: 'Same idea', text: '<b>Both</b> A <b>and</b> B suggest that… · A <b>and</b> B <b>agree that</b>…', eg: '<b>Both</b> my doctor <b>and</b> my coach <b>say that</b> sleep helps you learn.' },
               { label: 'Adding support', text: 'A says… . <b>Similarly</b>, B… · <b>This is supported by</b> B, who found that…', eg: 'My teacher says reading helps. <b>Similarly</b>, my friend says it improved her English.' },
               { label: 'Different idea', text: 'A says… . <b>In contrast</b>, B… · A…, <b>whereas</b> B…', eg: 'My mum cooks every day, <b>whereas</b> my brother orders food.' }
@@ -416,11 +417,12 @@ window.DEC15_LESSON = {
               { label: 'B · specific', text: 'Which groups might have <b>difficulty using</b> <b>food-sharing apps</b>?' }
             ]},
             { type: 'talk', title: 'Ask yourself', prompts: ['Both questions are about people. Which one helps you judge <b>apps</b> and <b>access</b>? Why?'] },
-            { type: 'key', title: 'Clarify: a good evaluation question', points: [
+            { type: 'key', title: 'Part 2 · Clarify: a good evaluation question', points: [
               'A good question = <b>your solution</b> + <b>your pillar</b> + a clear question form.',
               'Why? General questions give general answers. Specific questions give <b>evidence</b> you can present.',
               'Use <b>different types</b> of question. Start from the five general questions and make them specific.'
-            ], compare: [
+            ]},
+            { type: 'key', title: 'Three types of question', compare: [
               { label: 'Open', text: '<b>Which</b> groups…? <b>How easily</b>…? <b>What barriers</b>…?', eg: '<b>What barriers</b> stop students from using the library app?' },
               { label: 'Yes / no', text: '<b>Would</b>… be easy to…? <b>Is</b>… free? <b>Can</b>…?', eg: '<b>Is</b> the campus bus free for all students?' },
               { label: 'Scale', text: '<b>On a scale</b> (not → very effective), <b>how well</b>…?', eg: '<b>On a scale</b> from 1 to 5, <b>how well</b> does the bus app show times?' }
@@ -433,7 +435,7 @@ window.DEC15_LESSON = {
               { text: 'How accessible is the solution for different groups?' },
               { text: 'Are there any limitations or unintended consequences?' }
             ]},
-            { type: 'sort', id: 'p2s', title: 'Controlled practice: three types of question', hint: '<b>Drag</b> each question to its type — or tap a card, then tap a box.', buckets: [
+            { type: 'sort', id: 'p2s', title: 'Part 2 · Controlled practice: three types of question', hint: '<b>Drag</b> each question to its type — or tap a card, then tap a box.', buckets: [
               { label: 'Open question', text: 'How…? Which…? What…?' },
               { label: 'Yes / no question', text: 'Would…? Is…? Can…?' },
               { label: 'Scale question', text: 'not effective → very effective' }
@@ -445,7 +447,7 @@ window.DEC15_LESSON = {
               { text: 'Is the app free to use?', answer: 1 },
               { text: 'On a scale from 1 to 5, how much food does the app save?', answer: 2 }
             ]},
-            { type: 'model', title: 'Less controlled practice: make it specific', rows: [
+            { type: 'model', title: 'Part 2 · Less controlled practice: make it specific', rows: [
               ['General', 'How accessible is the solution for different groups?'],
               ['Specific (apps · access)', 'Would these apps be easy to get for <b>older people</b> without a smartphone?']
             ], note: 'Add your solution, your pillar and one group of people.' },
@@ -453,7 +455,7 @@ window.DEC15_LESSON = {
               { id: 'h4-p2-l1', label: 'Who does the solution help? →', placeholder: 'Which groups benefit most from…?', rows: 2 },
               { id: 'h4-p2-l2', label: 'Are there any limitations? →', placeholder: 'What barriers could stop… from…?', rows: 2 }
             ]},
-            { type: 'model', title: 'Production · Example instrument: mobile apps · agency and access', rows: [
+            { type: 'model', title: 'Part 2 · Production · Example instrument: mobile apps · agency and access', rows: [
               ['Main question', 'How well do <b>mobile apps</b> improve <b>agency</b> (help users make good choices) and <b>access</b>?'],
               ['Question 1 (yes / no)', 'Would these apps be easy to get for everyone in the community?'],
               ['Question 2 (open)', 'Which groups might have difficulty using these apps?'],
