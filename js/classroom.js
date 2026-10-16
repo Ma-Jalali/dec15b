@@ -114,17 +114,17 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
   async function loadPeople() { const c = db(); if (!c) return; const { data } = await c.rpc('class_people'); people = data || []; byId = new Map(people.map(p => [p.id, p])); paintPanel(); paintCounts(); announce?.paint(); }
   async function loadMessages() {
     const c = db(); if (!c) return;
-    const { data } = await c.from('messages').select('id, sender_id, sender_name, sender_role, recipient_id, body, created_at, read_at').order('created_at', { ascending: false }).limit(400);
+    const { data } = await c.from('messages').select('id, sender_id, sender_name, sender_role, recipient_id, kind, body, created_at, read_at').is('group_id', null).order('created_at', { ascending: false }).limit(400);
     msgs = (data || []).reverse(); paintTop(); paintPanel();
   }
   function onMessage(m) {
-    if (!m?.id || msgs.some(x => x.id === m.id)) return;
+    if (!m?.id || m.group_id || msgs.some(x => x.id === m.id)) return;   // study-group messages live only in Chats (js/chats.js)
     if (m.recipient_id && m.recipient_id !== me() && m.sender_id !== me()) return;   // never show someone else's private message
     msgs.push(m);
     const mine = m.sender_id === me(), key = m.recipient_id ? (mine ? m.recipient_id : m.sender_id) : 'class';
     if (!mine) {
       if (open && tab === 'chat' && thread === key) markRead(key);
-      else toast(m.recipient_id ? `New message from ${m.sender_name}` : m.sender_role === 'teacher' ? `${m.sender_name} (teacher) wrote to the class` : `${m.sender_name} wrote in the class chat`);
+      else if (document.body.dataset.page !== 'chats') toast(m.recipient_id ? `New message from ${m.sender_name}` : m.sender_role === 'teacher' ? `${m.sender_name} (teacher) wrote to the class` : `${m.sender_name} wrote in the class chat`);
     }
     paintTop(); paintPanel(true);
   }
@@ -249,10 +249,12 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
     teachers.forEach(t => { if (!map.has(t.id)) map.set(t.id, null); });
     return [...map].sort((a, b) => (person(b[0]).role === 'teacher') - (person(a[0]).role === 'teacher') || (b[1] ? Date.parse(b[1].created_at) : 0) - (a[1] ? Date.parse(a[1].created_at) : 0));
   }
+  const KIND = { poll: '📊 Poll:', word: '📖 Word:', question: '🙋 Help needed:', link: '🔗' };
   function chatHTML() {
     if (!thread) {
       const cls = msgs.filter(m => !m.recipient_id), lastCls = cls[cls.length - 1], uc = unreadClass();
-      return `<ul class="cm-threads">
+      return `<a class="cm-hub" href="#/chats" data-hub><span class="cm-tico">${icon('chat')}</span><span><b>Open Chats</b><small>Study groups, polls, word cards and help from classmates</small></span><i aria-hidden="true">›</i></a>
+      <ul class="cm-threads">
         <li><button type="button" class="cm-thread is-class" data-thread="class"><span class="cm-tico">${icon('users')}</span><span class="cm-tt"><b>Class chat</b><small>${lastCls ? esc(lastCls.sender_name + ': ' + lastCls.body).slice(0, 70) : 'Everyone in the class can read this'}</small></span>${uc ? `<i>${uc}</i>` : ''}</button></li>
         ${threads().map(([id, last]) => { const p = person(id), u = msgs.filter(m => m.sender_id === id && m.recipient_id === me() && !m.read_at).length;
           return `<li><button type="button" class="cm-thread" data-thread="${id}">${ava(p)}<span class="cm-tt"><b>${esc(p.full_name)}${p.role === 'teacher' ? ' <em>Teacher</em>' : ''}</b><small>${last ? esc((last.sender_id === me() ? 'You: ' : '') + last.body).slice(0, 70) : p.role === 'teacher' ? 'Ask your teacher a question — only they can read it' : ''}</small></span>${u ? `<i>${u}</i>` : last ? `<small class="cm-when">${esc(ago(last.created_at))}</small>` : ''}</button></li>`; }).join('')}
@@ -265,7 +267,7 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
     let lastDay = '';
     return `<div class="cm-view"><div class="cm-top"><button type="button" class="cp-back" data-thread="" aria-label="All conversations">‹</button>${isClass ? `<span class="cm-tico">${icon('users')}</span><b>Class chat</b>` : `${ava(p)}<b>${esc(p.full_name)}${p.role === 'teacher' ? ' <em>Teacher</em>' : ''}</b>${online.has(thread) ? '<small class="cm-online">online</small>' : ''}`}</div>
       <ol class="cm-list" aria-live="polite">${list.map(m => { const mine = m.sender_id === me(), day = new Date(m.created_at).toDateString(), sep = day !== lastDay ? `<li class="cm-day">${esc(new Date(m.created_at).toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long' }))}</li>` : ''; lastDay = day;
-        return `${sep}<li class="cm-msg${mine ? ' mine' : ''}${m.sender_role === 'teacher' ? ' from-teacher' : ''}">${!mine && isClass ? `<span class="cm-who">${ava(person(m.sender_id))}</span>` : ''}<div class="cm-bubble">${!mine && isClass ? `<b>${esc(m.sender_name)}${m.sender_role === 'teacher' ? ' · Teacher' : ''}</b>` : ''}<p>${esc(m.body).replace(/\n/g, '<br>')}</p><small>${esc(when(m.created_at))}${mine && m.read_at ? ' · seen' : ''}</small></div>${mine || (isTeacher() && isClass) ? `<button type="button" class="cm-del" data-del-msg="${m.id}" aria-label="Delete this message">×</button>` : ''}</li>`; }).join('') || `<li class="cm-empty">${isClass ? 'Say hello to your class 👋' : `Start a private conversation with ${esc(p.full_name)}.`}</li>`}</ol>
+        return `${sep}<li class="cm-msg${mine ? ' mine' : ''}${m.sender_role === 'teacher' ? ' from-teacher' : ''}">${!mine && isClass ? `<span class="cm-who">${ava(person(m.sender_id))}</span>` : ''}<div class="cm-bubble">${!mine && isClass ? `<b>${esc(m.sender_name)}${m.sender_role === 'teacher' ? ' · Teacher' : ''}</b>` : ''}<p>${KIND[m.kind] ? `<b class="cm-kind">${KIND[m.kind]}</b> ` : ''}${esc(m.body).replace(/\n/g, '<br>')}</p><small>${esc(when(m.created_at))}${mine && m.read_at ? ' · seen' : ''}</small></div>${mine || (isTeacher() && isClass) ? `<button type="button" class="cm-del" data-del-msg="${m.id}" aria-label="Delete this message">×</button>` : ''}</li>`; }).join('') || `<li class="cm-empty">${isClass ? 'Say hello to your class 👋' : `Start a private conversation with ${esc(p.full_name)}.`}</li>`}</ol>
       <form class="cm-compose"><label class="sr-only" for="cm-input">Message</label><textarea id="cm-input" class="cm-input" rows="2" maxlength="2000" placeholder="${isClass ? 'Write to the whole class…' : `Write to ${esc(p.full_name)}…`}"></textarea><button class="btn btn-sm" type="submit" aria-label="Send">${icon('arrow')}</button></form></div>`;
   }
   function progressHTML() {
@@ -293,6 +295,7 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
   }
   function onPanelClick(e) {
     const t = e.target.closest('button, a, select'); if (!t) return; const d = t.dataset;
+    if (d.hub !== undefined) { toggle(false); return; }
     if (t.classList.contains('cp-close')) { toggle(false); return; }
     if (d.cpTab) { tab = d.cpTab; if (tab === 'chat') thread = null; if (tab === 'progress') loadProgress(); paintPanel(); return; }
     if (d.thread !== undefined) { thread = d.thread || null; tab = 'chat'; if (thread) markRead(thread); paintPanel(); if (thread) panel.querySelector('.cm-input')?.focus(); return; }
@@ -305,6 +308,10 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
     if (d.refreshProgress !== undefined) { loadProgress(); loadCounts(); return; }
     if (d.delMsg) { if (confirm('Delete this message?')) deleteMessage(d.delMsg); return; }
   }
+  /* Chats (js/chats.js) marked a conversation as read: keep the top-bar badge in step */
+  document.addEventListener('dec15:chats-read', e => { const k = e.detail?.key || ''; const now = new Date().toISOString();
+    if (k === 'class') lastSeenClass = Date.now(); else if (k.startsWith('u:')) msgs.forEach(m => { if (m.sender_id === k.slice(2) && m.recipient_id === me() && !m.read_at) m.read_at = now; });
+    paintTop(); });
   document.addEventListener('change', e => { const s = e.target.closest?.('[data-new-dm]'); if (s && s.value) { thread = s.value; tab = 'chat'; paintPanel(); panel.querySelector('.cm-input')?.focus(); } });
   document.addEventListener('click', e => {
     const b = e.target.closest?.('#class-btn'); if (b) { toggle(); return; }

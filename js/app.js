@@ -139,6 +139,8 @@ function whoBadge(w) {
 const findBlock = id => allActivities.flatMap(a => a.blocks).find(x => x.id === id);
 const play = window.createDEC15Play ? window.createDEC15Play({ getState: () => state, save, rerender: () => rerender(), esc, strip, icon, toast, findBlock }) : null;
 /* feedback forms, stance scale, quiz board and "Share with classmates" (js/forms.js) */
+/* Chats: the WhatsApp-style page for the class (js/chats.js) */
+const chats = window.createDEC15Chats ? window.createDEC15Chats({ getCloud: () => cloud, getClass: () => klass, esc, icon: (n, c) => icon(n, c), toast, avatarHTML: (p, e, c) => avatarHTML(p, e, c), signIn: () => accountDialog('signin') }) : null;
 const forms = window.createDEC15Forms ? window.createDEC15Forms({ getState: () => state, save, rerender: () => rerender(), esc, strip, icon, toast, lesson, tableRows: b => tableRows(b), findBlock, getCloud: () => cloud, getClass: () => klass, signIn: () => accountDialog('signin'), avatarHTML: (p, e, c) => avatarHTML(p, e, c), locked: () => locked() }) : null;
 
 /* ───────── label registry (for notebook + export) ───────── */
@@ -763,7 +765,7 @@ let navLessonWeek = null;
 function paintNav(route = navRoute) {
   navRoute = route;
   if (route !== 'home' && lesson.week !== navLessonWeek) { navLessonWeek = lesson.week; navWeekOpen = null; }   // a lesson in another week opens its own week
-  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-notebook', 'notebook'], ['side-board', 'board'], ['side-shared', 'shared']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
+  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-notebook', 'notebook'], ['side-board', 'board'], ['side-chats', 'chats'], ['side-shared', 'shared']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
   paintLessonNav(route);
   $('#side-home').classList.toggle('active', route === 'home');
   $('#side-planner')?.classList.toggle('active', route === 'planner');
@@ -855,6 +857,7 @@ function parseRoute() {
   if (!h || h === '/' || h === '/home') return { home: true };
   if (h === '/planner' || h.startsWith('/planner/')) return { page: 'planner' };
   if (h === '/board') return { page: 'board' };
+  if (h === '/chats' || h.startsWith('/chats/')) return { page: 'chats' };
   if (h === '/shared' || h.startsWith('/shared/')) return { page: 'shared' };
   if (routes.includes(h)) { history.replaceState(null, '', L(h)); return { page: h }; } // old links such as #ai
   const m = h.match(/^\/([\w-]+)(?:\/([\w-]+))?/);
@@ -902,6 +905,16 @@ function render() {
     return;
   }
   if (window.DEC15Board?.mounted) window.DEC15Board.unmount();
+  if (route === 'chats') {   // Chats: class chat, study groups, private chats (js/chats.js); kept open across re-renders
+    document.body.dataset.page = 'chats'; document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg');
+    $('#crumb').innerHTML = `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>Chats</b>`;
+    document.title = `${course.code} · Chats`; paintStatus(); $('#main').dataset.route = 'chats';
+    $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher(); document.body.classList.toggle('is-teacher', isTeacher());
+    klass?.setWhere('chats', 'Chats');
+    if (!$('#chats-root')) { $('#main').innerHTML = '<div id="chats-root"></div>'; chats?.mount($('#chats-root'), location.hash); }
+    return;
+  }
+  if (chats?.mounted) chats.unmount();
   if (route === 'shared') {   // "Shared with me": forms classmates sent to this student (js/forms.js)
     document.body.dataset.page = 'shared'; document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg');
     $('#crumb').innerHTML = `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>Shared with me</b>`;
@@ -926,7 +939,8 @@ function render() {
   if (!isTeacher() && state.teacher) state.teacher = false;
   $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher();
   document.body.classList.toggle('is-teacher', isTeacher()); document.body.classList.toggle('answers-locked', locked());
-  klass?.setWhere(route + (s ? ':' + s.id : ''), route === 'home' ? 'Course map' : route === 'board' ? 'Class board' : `W${lesson.week} D${lesson.day}${route === 'overview' ? ' · Overview' : ' · ' + (s ? code(s) + ' ' + s.title : pageNames[route] || route)}`);
+  const whereLabel = route === 'home' ? 'Course map' : `W${lesson.week} D${lesson.day}${route === 'overview' ? ' · Overview' : ' · ' + (s ? code(s) + ' ' + s.title : pageNames[route] || route)}`;
+  klass?.setWhere(route + (s ? ':' + s.id : ''), whereLabel); if (route !== 'home') chats?.notePage(location.hash, whereLabel);
   setTimeout(() => klass?.paintCounts(), 0);
   $('#teacher-toggle').setAttribute('aria-pressed', String(state.teacher));
   $('#teacher-toggle .tt-state').textContent = state.teacher ? 'On' : 'Off';
@@ -1418,6 +1432,7 @@ cloud = window.createDEC15Cloud({
     if (info.recovery && info.user && !accountDialog.recoveryShown) { accountDialog.recoveryShown = true; setTimeout(() => accountDialog('newpw'), 300); }
     if (wall && info.user?.id !== was) { wall.connect(); rerender(); }
     if (forms && info.user?.id !== was) forms.connect();
+    chats?.connect();
     if (klass && (info.user?.id || '') + ':' + (info.profile?.role || '') !== klass.key) { klass.key = (info.user?.id || '') + ':' + (info.profile?.role || ''); klass.connect(); window.DEC15Board?.reload?.(); if (window.DEC15Board?.mounted) { window.DEC15Board.unmount(); $('#board-root')?.remove(); } rerender(); } if (parseRoute().page === 'notebook' && info.status === 'saved' && info.profile && !paintStatus.named) { paintStatus.named = true; rerender(); } }
 });
 if (wall && cloud.enabled) rerender();   // show the class walls

@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.48)
+DEC15 — COURSE APP (v2.49)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -532,3 +532,20 @@ v2.48 (class messages)
   who has not yet, and the replies — live. "Remove this message" hides it for students who have not seen it yet.
   Database: supabase/migrations/20261016000000_dec15_announcements.sql (applied): tables announcements and
   announcement_reads with Row Level Security (students cannot send messages or see each other's replies).
+
+v2.49 (Chats)
+- New "Chats" page in the side panel (#/chats; js/chats.js, css/chats.css), only for signed-in users. It works like
+  WhatsApp: a list of conversations on the left (class chat, study groups, private chats) with unread badges, online
+  dots and "typing…", and the conversation on the right with replies, emoji reactions, read ticks, pinned messages,
+  search in a chat, emoji and a details panel. On a phone you see the list or one chat at a time.
+- Learning tools under the "+" button: Poll (live bars and who voted), Word card (word, type, meaning, example;
+  classmates "Add to My words" and practise them as flip cards), Ask for help (topic + question; classmates answer
+  with replies; the asker marks it solved — with confetti), Share a page (a card linking to the last lesson page the
+  student opened), Useful phrases (polite academic English for agreeing, asking for help, feedback, checking).
+- Study groups: anyone signed in can create one (name, picture, colour, purpose, members), add classmates, leave;
+  the creator (or the teacher) can rename, remove members, pin and delete it. The teacher can read every group and
+  join it; class-chat messages can be pinned only by the teacher.
+- The top-bar class panel keeps its messages and links to Chats; study-group messages appear only in Chats.
+  Database: supabase/migrations/20261017000000_dec15_chats.sql (applied): tables chat_groups, chat_members,
+  chat_reactions, chat_votes, new columns on messages (group_id, kind, data, reply_to, pinned_at, solved_at) and
+  functions chat_pin / chat_solve, all with Row Level Security (group messages are seen only by members + teacher).
