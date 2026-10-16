@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.50)
+DEC15 — COURSE APP (v2.51)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -554,3 +554,14 @@ v2.50 (calmer side panel + Copy Detector)
 - The side panel now has four main links (Course map, Readings, My notebook, My planner) and one row of small tiles
   under "Class & tools": Board, Chats, Shared, Copy check. Unread numbers sit on the tiles.
 - "Copy check" opens the EAP Copy Detector (https://ma-jalali.github.io/eap-copy-detector/) in a new tab.
+
+v2.51 (week menu bar on top)
+- A horizontal menu bar under the top bar lists every week (Week 1–5, from the course map in lessons/course.js).
+  Click a week (or rest the mouse on it) to open its panel: the week's theme and summary, its days (with progress
+  and "You are here"), and the parts of the day you point at, each linking straight to its stage (plus Overview and
+  Extra practice for the open lesson). Weeks with no lessons yet say "Coming soon". Esc, clicking outside or leaving
+  with the mouse closes it; arrow keys move between weeks. On a phone the panel opens as a sheet from the bottom.
+  The dark "W5 · D3" button on the right jumps back to the current lesson. Code: paintWeekbar() in js/app.js,
+  css/menubar.css. New submenu items for a day come from its `parts`/`stages` in lessons/course.js.
+- The side panel no longer lists the weeks. It now shows tools only, one per row: Course map, Readings, My notebook,
+  My planner, then "Class & tools": Class board, Chats, Shared with me, Copy Detector (opens in a new tab).

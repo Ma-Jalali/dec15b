@@ -771,30 +771,75 @@ function paintNav(route = navRoute) {
   $('#side-planner')?.classList.toggle('active', route === 'planner');
   if (route === 'planner') $('#side-planner')?.setAttribute('aria-current', 'page'); else $('#side-planner')?.removeAttribute('aria-current');
   if (route === 'home') $('#side-home').setAttribute('aria-current', 'page'); else $('#side-home').removeAttribute('aria-current');
-  $('#nav').innerHTML = course.weeks.map(w => {
-    const open = navWeekOpen === null ? (w.n === lesson.week && route !== 'home') : w.n === navWeekOpen, started = w.days.filter(d => dayProgress(d)[0]).length;
-    return `<section class="nav-week${open ? ' open' : ''}">
-      <button type="button" class="nav-week-head" data-nav-week="${w.n}" aria-expanded="${open}" aria-controls="nav-w${w.n}">
-        <span class="nav-week-num"><small>Week</small>${w.n}</span>
-        <span class="nav-week-text">Week ${w.n}<small>${esc(w.theme)}</small></span>
-        ${started ? `<span class="nav-week-count" title="${started} of ${w.days.length} lessons started">${started}/${w.days.length}</span>` : ''}
-        <span class="nav-chev" aria-hidden="true"></span></button>
-      <div class="fold" id="nav-w${w.n}"><div class="fold-inner"${foldAttrs(open)}>
-      <ol class="nav-days">${w.days.map(d => {
-        if (d.status !== 'ready') return `<li class="nav-dayitem is-soon"><div class="nav-day">${ring(0, d.day)}<span class="nav-day-text"><span class="nav-day-eyebrow">Day ${d.day} · Coming soon</span><b>${esc(d.title)}</b></span></div></li>`;
-        const here = d.id === lesson.id, [dn, tot] = dayProgress(d), p = tot ? dn / tot : 0, dopen = navDayOpen[d.id] ?? false;
-        if (here) return `<li class="nav-dayitem here open"><a class="nav-day" href="${L('overview')}"${route === 'overview' ? ' aria-current="page"' : ''}>${ring(p, d.day, tot && p === 1)}<span class="nav-day-text"><span class="nav-day-eyebrow">Day ${d.day}<em class="nav-here">${icon('flag')}You are here</em></span><b>${esc(d.title)}</b><small>${tot ? `${dn} of ${tot} activities done` : 'Not started yet'}</small></span></a>
-          <div class="nav-here-body">${dayContents(d, route)}</div></li>`;
-        return `<li class="nav-dayitem${here ? ' here' : ''}${dopen ? ' open' : ''}">
-          <button type="button" class="nav-day" data-nav-day="${d.id}" aria-expanded="${dopen}" aria-controls="nav-${d.id}">
-            ${ring(p, d.day, tot && p === 1)}
-            <span class="nav-day-text"><span class="nav-day-eyebrow">Day ${d.day}${here ? '<em>You are here</em>' : ''}</span><b>${esc(d.title)}</b><small>${tot ? `${dn} of ${tot} activities done` : 'Not started yet'}</small></span>
-            <span class="nav-chev" aria-hidden="true"></span></button>
-          <div class="fold" id="nav-${d.id}"><div class="fold-inner"${foldAttrs(dopen)}>${dayContents(d, route)}</div></div>
-        </li>`;
-      }).join('')}</ol></div></div></section>`;
-  }).join('');
+  paintWeekbar(route);
 }
+/* ───────── the week menu bar on top of every page ─────────
+   One button per week (from the course map). Clicking (or hovering with a mouse) opens a panel under the bar:
+   the week's days on the left and, on the right, the parts of the day you point at, each linking to its stage. */
+const WB_TONES = ['#e9a23b', '#e0674b', '#2a8a7d', '#4a6fd0', '#8a5cb8', '#5f9356'];
+let wbOpen = null, wbDay = null, wbT = 0, wbHoverAt = 0;
+function paintWeekbar(route = navRoute) {
+  const bar = $('#weekbar'); if (!bar) return;
+  const cur = route === 'home' ? null : lesson.week;
+  bar.innerHTML = `<div class="wb-row" role="menubar" aria-label="Weeks">${course.map.map((m, i) => {
+      const w = course.weeks.find(x => x.n === m.n), n = w ? w.days.filter(d => d.status === 'ready').length : 0;
+      return `<button type="button" class="wb-item${cur === m.n ? ' is-current' : ''}${wbOpen === m.n ? ' open' : ''}${n ? '' : ' is-soon'}" data-wb-week="${m.n}" aria-haspopup="true" aria-expanded="${wbOpen === m.n}" style="--wk:${WB_TONES[i % WB_TONES.length]}">
+        <span class="wb-num">${m.n}</span><span class="wb-tx"><b>Week ${m.n}</b><small>${esc(m.label)}</small></span><span class="wb-chev" aria-hidden="true"></span></button>`; }).join('')}
+      ${route !== 'home' ? `<a class="wb-go" href="${L('overview')}" title="Week ${lesson.week}, Day ${lesson.day}: ${esc(lesson.title)}">${icon('play')}<span>W${lesson.week} · D${lesson.day}</span></a>` : ''}</div>
+    <div class="wb-panel" id="wb-panel" role="region"${wbOpen ? '' : ' hidden'}>${wbOpen ? weekPanel(wbOpen, route) : ''}</div>`;
+}
+function weekPanel(n, route) {
+  const m = course.map.find(x => x.n === n) || { n, label: '', sub: '' }, w = course.weeks.find(x => x.n === n), i = course.map.indexOf(m);
+  const col = WB_TONES[(i < 0 ? 0 : i) % WB_TONES.length];
+  const intro = `<div class="wb-intro" style="--wk:${col}"><span class="wb-big">${n}</span><p class="wb-eyebrow">Week ${n}</p><h2>${esc(w?.theme || m.label)}</h2><p>${esc(w?.summary || m.sub || '')}</p>
+    ${w ? `<p class="wb-meta">${w.days.filter(d => d.status === 'ready').length} lessons · ${w.days.filter(d => dayProgress(d)[0]).length} started</p>` : ''}<a class="wb-maplink" href="#/">${icon('map')} Course map</a></div>`;
+  if (!w || !w.days.length) return `<div class="wb-grid is-empty">${intro}<div class="wb-soon">${icon('sprout')}<b>Coming soon</b><p>The lessons for Week ${n} are not in the app yet.</p></div></div>`;
+  const ready = w.days.filter(d => d.status === 'ready');
+  let sel = w.days.find(d => d.id === wbDay) || w.days.find(d => d.id === lesson.id) || ready[0] || w.days[0]; wbDay = sel.id;
+  const days = `<ol class="wb-days">${w.days.map(d => {
+    const [dn, tot] = dayProgress(d), p = tot ? dn / tot : 0, soon = d.status !== 'ready', here = d.id === lesson.id && route !== 'home';
+    return `<li><button type="button" class="wb-day${d.id === sel.id ? ' sel' : ''}${soon ? ' is-soon' : ''}" data-wb-day="${d.id}" aria-pressed="${d.id === sel.id}">${ring(p, d.day, tot && p === 1)}
+      <span class="wb-dtx"><span class="wb-deb">Day ${d.day}${here ? '<em>You are here</em>' : soon ? ' · coming soon' : ''}</span><b>${esc(d.title)}</b>${soon ? '' : `<small>${tot ? `${dn} of ${tot} activities done` : 'Not started yet'}</small>`}</span><span class="wb-dchev" aria-hidden="true">›</span></button></li>`; }).join('')}</ol>`;
+  return `<div class="wb-grid">${intro}<div class="wb-col"><p class="wb-h">Lessons</p>${days}</div><div class="wb-col wb-parts-col"><p class="wb-h">Day ${sel.day} · ${esc(sel.title)}</p>${dayParts(sel, route)}</div></div>`;
+}
+function dayParts(d, route) {
+  if (d.status !== 'ready') return `<p class="wb-empty">This lesson is coming soon.</p>`;
+  const here = d.id === lesson.id, cur = r => here && route === r ? ' is-cur" aria-current="page' : '';
+  const open = `<li><a class="wb-part wb-open${cur('overview')}" href="${here ? L('overview') : '#/' + d.id}"><span class="wb-pcode">${icon('map')}</span><span><b>${here ? 'Overview' : 'Open Day ' + d.day}</b><small>Start of the day</small></span></a></li>`;
+  const parts = here
+    ? lesson.sections.map(s => { const dn = s.activities.filter(a => state.done[a.id]).length, all = dn === s.activities.length;
+        return `<li><a class="wb-part${all ? ' complete' : ''}${cur(s.id)}" href="${L(s.id)}" style="${tone(s)}"><span class="wb-pcode">${all ? icon('check') : esc(navCode(code(s)))}</span><span><b>${esc(s.title)}</b><small>${dn} of ${s.activities.length} done</small></span></a></li>`; }).join('')
+      + (lesson.extras.length ? `<li><a class="wb-part wb-extra${cur('extra')}" href="${L('extra')}"><span class="wb-pcode">${icon('list')}</span><span><b>Extra practice</b><small>${lesson.extras.length} optional activities</small></span></a></li>` : '')
+    : (d.parts || []).map((pt, k) => { const p = dayPart(d, k); return `<li><a class="wb-part" href="#/${d.id}${d.stages?.[k] ? '/' + d.stages[k] : ''}"${p.tone ? ` style="${tone(p)}"` : ''}><span class="wb-pcode">${esc(p.code)}</span><span><b>${esc(p.name)}</b></span></a></li>`; }).join('');
+  return `<ol class="wb-parts">${open}${parts}</ol>`;
+}
+function wbSet(n) {
+  wbOpen = n; if (!n) wbDay = null;
+  paintWeekbar(); document.body.classList.toggle('wb-is-open', !!n);
+}
+document.addEventListener('click', e => {
+  const t = e.target.closest?.('[data-wb-week], [data-wb-day], .wb-panel a, #weekbar');
+  if (!t) { if (wbOpen) wbSet(null); return; }
+  if (t.dataset?.wbWeek) { const n = +t.dataset.wbWeek; if (wbOpen === n && Date.now() - wbHoverAt < 600) return; wbDay = null; wbSet(wbOpen === n ? null : n); $(`[data-wb-week="${n}"]`)?.focus(); return; }
+  if (t.dataset?.wbDay) { wbDay = t.dataset.wbDay; paintWeekbar(); $(`[data-wb-day="${wbDay}"]`)?.focus(); return; }
+  if (t.matches('.wb-panel a, .wb-go')) wbSet(null);
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && wbOpen) { const n = wbOpen; wbSet(null); $(`[data-wb-week="${n}"]`)?.focus(); }
+  const it = e.target.closest?.('[data-wb-week]');
+  if (it && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) { const all = [...document.querySelectorAll('[data-wb-week]')], k = all.indexOf(it), nx = all[(k + (e.key === 'ArrowRight' ? 1 : -1) + all.length) % all.length]; nx.focus(); if (wbOpen) { wbDay = null; wbSet(+nx.dataset.wbWeek); nx.focus(); } e.preventDefault(); }
+  if (it && e.key === 'ArrowDown') { e.preventDefault(); if (wbOpen !== +it.dataset.wbWeek) wbSet(+it.dataset.wbWeek); setTimeout(() => $('#wb-panel button, #wb-panel a')?.focus(), 0); }
+});
+/* with a mouse, the menu opens when you rest on a week and closes when you leave the bar and the panel */
+document.addEventListener('pointerover', e => {
+  if (e.pointerType !== 'mouse') return;
+  const it = e.target.closest?.('[data-wb-week]'), inBar = e.target.closest?.('#weekbar'), day = e.target.closest?.('[data-wb-day]');
+  clearTimeout(wbT);
+  if (it) { const n = +it.dataset.wbWeek; if (wbOpen !== n) wbT = setTimeout(() => { wbDay = null; wbSet(n); wbHoverAt = Date.now(); }, wbOpen ? 60 : 180); return; }
+  if (day && day.dataset.wbDay !== wbDay) { wbT = setTimeout(() => { wbDay = day.dataset.wbDay; paintWeekbar(); }, 90); return; }
+  if (!inBar && wbOpen) wbT = setTimeout(() => wbSet(null), 320);
+});
+window.addEventListener('hashchange', () => { if (wbOpen) { wbOpen = null; wbDay = null; document.body.classList.remove('wb-is-open'); } });
 /* Slide a fold open or closed (CSS animates the height). */
 function setFold(item, btn, open) {
   item.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open));
@@ -840,7 +885,7 @@ function searchResults(q) {
 }
 function runSearch() {
   const q = $('#side-search').value.trim(), box = $('#side-results');
-  box.hidden = !q; $('#nav').hidden = !!q; $('#side-home').hidden = !!q;
+  box.hidden = !q; $('#side-home').hidden = !!q;
   box.innerHTML = q ? searchResults(q) : '';
 }
 function setSide(open) {
