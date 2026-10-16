@@ -780,13 +780,41 @@ const WB_TONES = ['#e9a23b', '#e0674b', '#2a8a7d', '#4a6fd0', '#8a5cb8', '#5f935
 let wbOpen = null, wbDay = null, wbT = 0, wbHoverAt = 0;
 function paintWeekbar(route = navRoute) {
   const bar = $('#weekbar'); if (!bar) return;
+  if (!bar.querySelector('#wb-panel')) bar.innerHTML = '<div class="wb-row" role="menubar" aria-label="Weeks"></div><div class="wb-panel" id="wb-panel" role="region" hidden></div>';
   const cur = route === 'home' ? null : lesson.week;
-  bar.innerHTML = `<div class="wb-row" role="menubar" aria-label="Weeks">${course.map.map((m, i) => {
+  bar.querySelector('.wb-row').innerHTML = `<i class="wb-line" aria-hidden="true"></i>${course.map.map((m, i) => {
       const w = course.weeks.find(x => x.n === m.n), n = w ? w.days.filter(d => d.status === 'ready').length : 0;
       return `<button type="button" class="wb-item${cur === m.n ? ' is-current' : ''}${wbOpen === m.n ? ' open' : ''}${n ? '' : ' is-soon'}" data-wb-week="${m.n}" aria-haspopup="true" aria-expanded="${wbOpen === m.n}" style="--wk:${WB_TONES[i % WB_TONES.length]}" title="Week ${m.n} · ${esc(m.label)}">
         <span class="wb-num">${m.n}</span><span class="wb-tx">Week ${m.n}</span><span class="wb-chev" aria-hidden="true"></span></button>`; }).join('')}
-      ${route !== 'home' ? `<a class="wb-go" href="${L('overview')}" title="Back to Week ${lesson.week}, Day ${lesson.day}: ${esc(lesson.title)}"><span class="wb-go-dot" aria-hidden="true"></span><span>Week ${lesson.week} · Day ${lesson.day}</span></a>` : ''}</div>
-    <div class="wb-panel" id="wb-panel" role="region"${wbOpen ? '' : ' hidden'}>${wbOpen ? weekPanel(wbOpen, route) : ''}</div>`;
+      ${route !== 'home' ? `<a class="wb-go" href="${L('overview')}" title="Back to Week ${lesson.week}, Day ${lesson.day}: ${esc(lesson.title)}"><span class="wb-go-dot" aria-hidden="true"></span><span>Week ${lesson.week} · Day ${lesson.day}</span></a>` : ''}`;
+  moveLine(bar);
+}
+/* the coloured line under the open (or current) week slides between weeks */
+function moveLine(bar = $('#weekbar')) {
+  const row = bar?.querySelector('.wb-row'), line = row?.querySelector('.wb-line'); if (!line) return;
+  const it = row.querySelector(wbOpen ? `[data-wb-week="${wbOpen}"]` : '.wb-item.is-current');
+  if (!it) { line.style.opacity = '0'; return; }
+  const first = !line.dataset.on; line.dataset.on = '1';
+  if (first) line.classList.add('no-anim');
+  line.style.opacity = '1'; line.style.setProperty('--x', it.offsetLeft + 8 + 'px'); line.style.setProperty('--w', it.offsetWidth - 16 + 'px'); line.style.setProperty('--wk', it.style.getPropertyValue('--wk'));
+  if (first) requestAnimationFrame(() => line.classList.remove('no-anim'));
+}
+/* the panel keeps its node, so opening, switching weeks, switching days and closing each get their own motion */
+let wbCloseT = 0;
+function paintPanel(mode) {
+  const panel = $('#wb-panel'); if (!panel) return;
+  clearTimeout(wbCloseT); panel.classList.remove('out');
+  if (!wbOpen) { if (mode === 'close' && !panel.hidden && !matchMedia('(prefers-reduced-motion: reduce)').matches) { panel.classList.add('out'); wbCloseT = setTimeout(() => { panel.hidden = true; panel.innerHTML = ''; panel.classList.remove('out'); }, 190); } else { panel.hidden = true; panel.innerHTML = ''; } return; }
+  const it = $(`[data-wb-week="${wbOpen}"]`); if (it) { const r = it.getBoundingClientRect(), b = panel.parentElement.getBoundingClientRect(); panel.style.setProperty('--ox', Math.round(r.left - b.left + r.width / 2) + 'px'); }
+  if (mode === 'day') {   // only the parts column changes; the chosen day just moves its highlight
+    const w = course.weeks.find(x => x.n === wbOpen), d = w?.days.find(x => x.id === wbDay), col = panel.querySelector('.wb-parts-col');
+    if (col && d) { col.innerHTML = dayParts(w, d, navRoute); col.classList.remove('swap'); void col.offsetWidth; col.classList.add('swap');
+      panel.querySelectorAll('.wb-day').forEach(b => { const on = b.dataset.wbDay === wbDay; b.classList.toggle('sel', on); b.setAttribute('aria-pressed', String(on)); }); return; }
+  }
+  const was = panel.dataset.week ? +panel.dataset.week : 0;
+  panel.innerHTML = weekPanel(wbOpen, navRoute); panel.dataset.week = wbOpen;
+  if (panel.hidden || mode === 'open') { panel.hidden = false; panel.classList.remove('in'); void panel.offsetWidth; panel.classList.add('in'); }
+  else { panel.classList.remove('in'); const g = panel.querySelector('.wb-grid'); g.style.setProperty('--dir', wbOpen > was ? '1' : '-1'); g.classList.add('swap'); }
 }
 /* a day's picture: the day's own hero drawing where the week has one, otherwise the stage drawing */
 const dayArt = (w, d) => w.image ? `assets/week${w.n}/hero-${d.id}.svg` : artSrc(d.art || 'reading');
@@ -818,15 +846,17 @@ function dayParts(w, d, route) {
     : (d.parts || []).map((pt, k) => { const p = dayPart(d, k); return `<li><a class="wb-part" href="#/${d.id}${d.stages?.[k] ? '/' + d.stages[k] : ''}"${p.tone ? ` style="${tone(p)}"` : ''}><span class="wb-pcode">${esc(p.code)}</span><b>${esc(p.name)}</b></a></li>`; }).join('');
   return head + `<ol class="wb-parts">${open}${parts}</ol>`;
 }
+let wbSkip = 0;   // after closing, the week under the mouse must be left before it can hover-open again
 function wbSet(n) {
-  wbOpen = n; if (!n) wbDay = null;
-  paintWeekbar(); document.body.classList.toggle('wb-is-open', !!n);
+  const was = wbOpen; wbOpen = n; if (!n) { wbDay = null; wbSkip = was; }
+  paintWeekbar(); paintPanel(!n ? 'close' : was ? 'week' : 'open'); document.body.classList.toggle('wb-is-open', !!n);
 }
+function wbPickDay(id) { if (id === wbDay) return; wbDay = id; paintPanel('day'); }
 document.addEventListener('click', e => {
   const t = e.target.closest?.('[data-wb-week], [data-wb-day], .wb-panel a, #weekbar');
   if (!t) { if (wbOpen) wbSet(null); return; }
   if (t.dataset?.wbWeek) { const n = +t.dataset.wbWeek; if (wbOpen === n && Date.now() - wbHoverAt < 600) return; wbDay = null; wbSet(wbOpen === n ? null : n); $(`[data-wb-week="${n}"]`)?.focus(); return; }
-  if (t.dataset?.wbDay) { wbDay = t.dataset.wbDay; paintWeekbar(); $(`[data-wb-day="${wbDay}"]`)?.focus(); return; }
+  if (t.dataset?.wbDay) { wbPickDay(t.dataset.wbDay); $(`[data-wb-day="${wbDay}"]`)?.focus(); return; }
   if (t.matches('.wb-panel a, .wb-go')) wbSet(null);
 });
 document.addEventListener('keydown', e => {
@@ -840,11 +870,15 @@ document.addEventListener('pointerover', e => {
   if (e.pointerType !== 'mouse') return;
   const it = e.target.closest?.('[data-wb-week]'), inBar = e.target.closest?.('#weekbar'), day = e.target.closest?.('[data-wb-day]');
   clearTimeout(wbT);
-  if (it) { const n = +it.dataset.wbWeek; if (wbOpen !== n) wbT = setTimeout(() => { wbDay = null; wbSet(n); wbHoverAt = Date.now(); }, wbOpen ? 60 : 180); return; }
-  if (day && day.dataset.wbDay !== wbDay) { wbT = setTimeout(() => { wbDay = day.dataset.wbDay; paintWeekbar(); }, 90); return; }
+  if (it) { const n = +it.dataset.wbWeek; if (n === wbSkip) return; wbSkip = 0; if (wbOpen !== n) wbT = setTimeout(() => { wbDay = null; wbSet(n); wbHoverAt = Date.now(); }, wbOpen ? 60 : 180); return; }
+  wbSkip = 0;
+  if (day && day.dataset.wbDay !== wbDay) { wbT = setTimeout(() => wbPickDay(day.dataset.wbDay), 90); return; }
   if (!inBar && wbOpen) wbT = setTimeout(() => wbSet(null), 320);
 });
-window.addEventListener('hashchange', () => { if (wbOpen) { wbOpen = null; wbDay = null; document.body.classList.remove('wb-is-open'); } });
+window.addEventListener('hashchange', () => { if (wbOpen) { wbOpen = null; wbDay = null; document.body.classList.remove('wb-is-open'); paintPanel('close'); } });
+window.addEventListener('resize', () => moveLine());
+/* a stronger shadow under the header once the page has scrolled */
+addEventListener('scroll', () => document.body.classList.toggle('is-scrolled', scrollY > 8), { passive: true });
 /* Slide a fold open or closed (CSS animates the height). */
 function setFold(item, btn, open) {
   item.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open));
