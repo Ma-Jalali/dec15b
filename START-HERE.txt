@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.51)
+DEC15 — COURSE APP (v2.53)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -565,3 +565,23 @@ v2.51 (week menu bar on top)
   css/menubar.css. New submenu items for a day come from its `parts`/`stages` in lessons/course.js.
 - The side panel no longer lists the weeks. It now shows tools only, one per row: Course map, Readings, My notebook,
   My planner, then "Class & tools": Class board, Chats, Shared with me, Copy Detector (opens in a new tab).
+
+v2.52 (week menu: calmer, more detailed, made for small laptop screens)
+- Header is now 98px tall (92px on screens under 820px high): top bar 54px, week bar 44px.
+- Week bar: a small coloured numeral + "Week N" per week; the current week is underlined; the week's colour is
+  used only there and in the panel. "Week 5 · Day 3" pill on the right returns to the current lesson.
+- Panel: three calm columns — the week (its illustration from assets/weekN/hero-weekN.svg, theme, summary,
+  a progress bar once a lesson is started), the lessons (number ring, title, "Day N" or "You are here", a count
+  only when something is done), and one lesson's parts with that day's illustration (hero-wNdM.svg, or the stage
+  drawing for weeks without one). Progress inside a lesson is a thin bar, not a sentence.
+- No text smaller than 12px; phone layout stacks the three parts in a bottom sheet.
+
+v2.53 (week menu motion)
+- The coloured line under the weeks slides from one week to the next (and cross-fades colour) instead of jumping.
+- Opening: the panel grows out from the week you chose; its three columns rise in one after another; the week
+  picture settles from a slight zoom; the progress rings draw themselves and the bars grow.
+- Switching weeks while open: the content slides in from the side you moved towards (nothing re-opens).
+  Choosing another day: only the right-hand column changes; the day highlight glides.
+- Closing (Esc, click outside, mouse leaves): a short fade-out instead of vanishing. A week that was just closed
+  does not re-open from the mouse still resting on it. The header shadow deepens once the page is scrolled.
+- Everything is off for people who prefer reduced motion (system setting).
