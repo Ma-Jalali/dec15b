@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.51)
+DEC15 — COURSE APP (v2.52)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -565,3 +565,13 @@ v2.51 (week menu bar on top)
   css/menubar.css. New submenu items for a day come from its `parts`/`stages` in lessons/course.js.
 - The side panel no longer lists the weeks. It now shows tools only, one per row: Course map, Readings, My notebook,
   My planner, then "Class & tools": Class board, Chats, Shared with me, Copy Detector (opens in a new tab).
+
+v2.52 (week menu: calmer, more detailed, made for small laptop screens)
+- Header is now 98px tall (92px on screens under 820px high): top bar 54px, week bar 44px.
+- Week bar: a small coloured numeral + "Week N" per week; the current week is underlined; the week's colour is
+  used only there and in the panel. "Week 5 · Day 3" pill on the right returns to the current lesson.
+- Panel: three calm columns — the week (its illustration from assets/weekN/hero-weekN.svg, theme, summary,
+  a progress bar once a lesson is started), the lessons (number ring, title, "Day N" or "You are here", a count
+  only when something is done), and one lesson's parts with that day's illustration (hero-wNdM.svg, or the stage
+  drawing for weeks without one). Progress inside a lesson is a thin bar, not a sentence.
+- No text smaller than 12px; phone layout stacks the three parts in a bottom sheet.

@@ -783,35 +783,40 @@ function paintWeekbar(route = navRoute) {
   const cur = route === 'home' ? null : lesson.week;
   bar.innerHTML = `<div class="wb-row" role="menubar" aria-label="Weeks">${course.map.map((m, i) => {
       const w = course.weeks.find(x => x.n === m.n), n = w ? w.days.filter(d => d.status === 'ready').length : 0;
-      return `<button type="button" class="wb-item${cur === m.n ? ' is-current' : ''}${wbOpen === m.n ? ' open' : ''}${n ? '' : ' is-soon'}" data-wb-week="${m.n}" aria-haspopup="true" aria-expanded="${wbOpen === m.n}" style="--wk:${WB_TONES[i % WB_TONES.length]}">
-        <span class="wb-num">${m.n}</span><span class="wb-tx"><b>Week ${m.n}</b><small>${esc(m.label)}</small></span><span class="wb-chev" aria-hidden="true"></span></button>`; }).join('')}
-      ${route !== 'home' ? `<a class="wb-go" href="${L('overview')}" title="Week ${lesson.week}, Day ${lesson.day}: ${esc(lesson.title)}">${icon('play')}<span>W${lesson.week} · D${lesson.day}</span></a>` : ''}</div>
+      return `<button type="button" class="wb-item${cur === m.n ? ' is-current' : ''}${wbOpen === m.n ? ' open' : ''}${n ? '' : ' is-soon'}" data-wb-week="${m.n}" aria-haspopup="true" aria-expanded="${wbOpen === m.n}" style="--wk:${WB_TONES[i % WB_TONES.length]}" title="Week ${m.n} · ${esc(m.label)}">
+        <span class="wb-num">${m.n}</span><span class="wb-tx">Week ${m.n}</span><span class="wb-chev" aria-hidden="true"></span></button>`; }).join('')}
+      ${route !== 'home' ? `<a class="wb-go" href="${L('overview')}" title="Back to Week ${lesson.week}, Day ${lesson.day}: ${esc(lesson.title)}"><span class="wb-go-dot" aria-hidden="true"></span><span>Week ${lesson.week} · Day ${lesson.day}</span></a>` : ''}</div>
     <div class="wb-panel" id="wb-panel" role="region"${wbOpen ? '' : ' hidden'}>${wbOpen ? weekPanel(wbOpen, route) : ''}</div>`;
 }
+/* a day's picture: the day's own hero drawing where the week has one, otherwise the stage drawing */
+const dayArt = (w, d) => w.image ? `assets/week${w.n}/hero-${d.id}.svg` : artSrc(d.art || 'reading');
 function weekPanel(n, route) {
   const m = course.map.find(x => x.n === n) || { n, label: '', sub: '' }, w = course.weeks.find(x => x.n === n), i = course.map.indexOf(m);
   const col = WB_TONES[(i < 0 ? 0 : i) % WB_TONES.length];
-  const intro = `<div class="wb-intro" style="--wk:${col}"><span class="wb-big">${n}</span><p class="wb-eyebrow">Week ${n}</p><h2>${esc(w?.theme || m.label)}</h2><p>${esc(w?.summary || m.sub || '')}</p>
-    ${w ? `<p class="wb-meta">${w.days.filter(d => d.status === 'ready').length} lessons · ${w.days.filter(d => dayProgress(d)[0]).length} started</p>` : ''}<a class="wb-maplink" href="#/">${icon('map')} Course map</a></div>`;
-  if (!w || !w.days.length) return `<div class="wb-grid is-empty">${intro}<div class="wb-soon">${icon('sprout')}<b>Coming soon</b><p>The lessons for Week ${n} are not in the app yet.</p></div></div>`;
-  const ready = w.days.filter(d => d.status === 'ready');
+  const started = w ? w.days.filter(d => dayProgress(d)[0]).length : 0, ready = w ? w.days.filter(d => d.status === 'ready') : [];
+  const intro = `<div class="wb-intro" style="--wk:${col}">
+    <figure class="wb-pic">${w?.image ? `<img src="${esc(w.image)}" alt="" width="300" height="200" loading="lazy">` : `<span class="wb-pic-num" aria-hidden="true">${n}</span>`}</figure>
+    <div class="wb-intro-tx"><p class="wb-eyebrow">Week ${n}</p><h2>${esc(w?.theme || m.label)}</h2><p class="wb-sum">${esc(w?.summary || m.sub || '')}</p>
+    ${ready.length ? `<p class="wb-prog">${started ? `<span class="wb-bar" aria-hidden="true"><i style="--p:${(started / ready.length).toFixed(3)}"></i></span>` : ''}<small>${started ? `${started} of ${ready.length} lessons started` : `${ready.length} lessons`}</small></p>` : ''}</div></div>`;
+  if (!w || !w.days.length) return `<div class="wb-grid is-empty">${intro}<div class="wb-soon"><img src="${artSrc('reading')}" alt="" width="120" height="120"><b>Coming soon</b><p>The lessons for Week ${n} will appear here.</p></div></div>`;
   let sel = w.days.find(d => d.id === wbDay) || w.days.find(d => d.id === lesson.id) || ready[0] || w.days[0]; wbDay = sel.id;
   const days = `<ol class="wb-days">${w.days.map(d => {
     const [dn, tot] = dayProgress(d), p = tot ? dn / tot : 0, soon = d.status !== 'ready', here = d.id === lesson.id && route !== 'home';
-    return `<li><button type="button" class="wb-day${d.id === sel.id ? ' sel' : ''}${soon ? ' is-soon' : ''}" data-wb-day="${d.id}" aria-pressed="${d.id === sel.id}">${ring(p, d.day, tot && p === 1)}
-      <span class="wb-dtx"><span class="wb-deb">Day ${d.day}${here ? '<em>You are here</em>' : soon ? ' · coming soon' : ''}</span><b>${esc(d.title)}</b>${soon ? '' : `<small>${tot ? `${dn} of ${tot} activities done` : 'Not started yet'}</small>`}</span><span class="wb-dchev" aria-hidden="true">›</span></button></li>`; }).join('')}</ol>`;
-  return `<div class="wb-grid">${intro}<div class="wb-col"><p class="wb-h">Lessons</p>${days}</div><div class="wb-col wb-parts-col"><p class="wb-h">Day ${sel.day} · ${esc(sel.title)}</p>${dayParts(sel, route)}</div></div>`;
+    return `<li><button type="button" class="wb-day${d.id === sel.id ? ' sel' : ''}${soon ? ' is-soon' : ''}${here ? ' is-here' : ''}" data-wb-day="${d.id}" aria-pressed="${d.id === sel.id}">${ring(p, d.day, tot && p === 1)}
+      <span class="wb-dtx"><b>${esc(d.title)}</b><small>${here ? '<em>You are here</em>' : soon ? 'Coming soon' : `Day ${d.day}`}${!soon && dn ? ` · ${dn} of ${tot} done` : ''}</small></span></button></li>`; }).join('')}</ol>`;
+  return `<div class="wb-grid">${intro}<div class="wb-col"><p class="wb-h">Lessons</p>${days}</div><div class="wb-col wb-parts-col">${dayParts(w, sel, route)}</div></div>`;
 }
-function dayParts(d, route) {
-  if (d.status !== 'ready') return `<p class="wb-empty">This lesson is coming soon.</p>`;
+function dayParts(w, d, route) {
+  const head = `<header class="wb-dhead"><img class="wb-dart" src="${esc(dayArt(w, d))}" data-fallback="${esc(artSrc(d.art || 'reading'))}" alt="" width="96" height="64" loading="lazy" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;delete this.dataset.fallback}"><div><p class="wb-h">Day ${d.day}</p><h3>${esc(d.title)}</h3></div></header>`;
+  if (d.status !== 'ready') return head + `<p class="wb-empty">This lesson is coming soon.</p>`;
   const here = d.id === lesson.id, cur = r => here && route === r ? ' is-cur" aria-current="page' : '';
-  const open = `<li><a class="wb-part wb-open${cur('overview')}" href="${here ? L('overview') : '#/' + d.id}"><span class="wb-pcode">${icon('map')}</span><span><b>${here ? 'Overview' : 'Open Day ' + d.day}</b><small>Start of the day</small></span></a></li>`;
+  const open = `<li><a class="wb-part wb-open${cur('overview')}" href="${here ? L('overview') : '#/' + d.id}"><span class="wb-pcode">${icon('map')}</span><b>${here ? 'Overview' : 'Open the lesson'}</b></a></li>`;
   const parts = here
-    ? lesson.sections.map(s => { const dn = s.activities.filter(a => state.done[a.id]).length, all = dn === s.activities.length;
-        return `<li><a class="wb-part${all ? ' complete' : ''}${cur(s.id)}" href="${L(s.id)}" style="${tone(s)}"><span class="wb-pcode">${all ? icon('check') : esc(navCode(code(s)))}</span><span><b>${esc(s.title)}</b><small>${dn} of ${s.activities.length} done</small></span></a></li>`; }).join('')
-      + (lesson.extras.length ? `<li><a class="wb-part wb-extra${cur('extra')}" href="${L('extra')}"><span class="wb-pcode">${icon('list')}</span><span><b>Extra practice</b><small>${lesson.extras.length} optional activities</small></span></a></li>` : '')
-    : (d.parts || []).map((pt, k) => { const p = dayPart(d, k); return `<li><a class="wb-part" href="#/${d.id}${d.stages?.[k] ? '/' + d.stages[k] : ''}"${p.tone ? ` style="${tone(p)}"` : ''}><span class="wb-pcode">${esc(p.code)}</span><span><b>${esc(p.name)}</b></span></a></li>`; }).join('');
-  return `<ol class="wb-parts">${open}${parts}</ol>`;
+    ? lesson.sections.map(s => { const dn = s.activities.filter(a => state.done[a.id]).length, n = s.activities.length, all = dn === n;
+        return `<li><a class="wb-part${all ? ' complete' : ''}${cur(s.id)}" href="${L(s.id)}" style="${tone(s)}"><span class="wb-pcode">${all ? icon('check') : esc(navCode(code(s)))}</span><b>${esc(s.title)}</b>${dn && !all ? `<span class="wb-mini" title="${dn} of ${n} activities done"><i style="--p:${(dn / n).toFixed(3)}"></i></span>` : ''}</a></li>`; }).join('')
+      + (lesson.extras.length ? `<li><a class="wb-part wb-extra${cur('extra')}" href="${L('extra')}"><span class="wb-pcode">${icon('list')}</span><b>Extra practice</b><small>${lesson.extras.length}</small></a></li>` : '')
+    : (d.parts || []).map((pt, k) => { const p = dayPart(d, k); return `<li><a class="wb-part" href="#/${d.id}${d.stages?.[k] ? '/' + d.stages[k] : ''}"${p.tone ? ` style="${tone(p)}"` : ''}><span class="wb-pcode">${esc(p.code)}</span><b>${esc(p.name)}</b></a></li>`; }).join('');
+  return head + `<ol class="wb-parts">${open}${parts}</ol>`;
 }
 function wbSet(n) {
   wbOpen = n; if (!n) wbDay = null;
