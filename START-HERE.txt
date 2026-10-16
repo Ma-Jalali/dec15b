@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.47)
+DEC15 — COURSE APP (v2.48)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -523,3 +523,12 @@ v2.47 (W4 D3–D5 and W5 D3–D5; W4 D1–D2 and W5 D1–D2 unchanged because th
 - Long sentence-matching tasks and unrelated tasks moved to Extra practice; vague writing prompts removed.
 - Every reading/listening has a note-taking table (Source | Main point | Evidence | For/against my position) to keep
   for the integrated writing. W5 D3–D5 also got lead-ins, useful words and realistic questions.
+
+v2.48 (class messages)
+- js/announce.js: the teacher presses the megaphone "Message" button in the top bar, writes a message (or picks a
+  quick one, e.g. "I'm running about 15 minutes late…") and presses "Send to everyone". It pops up on every
+  signed-in student's screen, on any page, until they press "Got it". If allowed, students can send a short reply
+  (only the teacher sees it). The teacher's panel shows, for each message, "x of y seen", who has seen it (and when),
+  who has not yet, and the replies — live. "Remove this message" hides it for students who have not seen it yet.
+  Database: supabase/migrations/20261016000000_dec15_announcements.sql (applied): tables announcements and
+  announcement_reads with Row Level Security (students cannot send messages or see each other's replies).
