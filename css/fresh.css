@@ -201,3 +201,16 @@ body[data-page="planner"] #save-status { display: none; }
 .lib-week-body .library { margin-top: 16px; }
 .lib-loading { color: var(--muted); padding: 16px 2px 0; }
 @media (max-width: 560px) { .lib-week-head { padding: 12px; gap: 10px; } .lib-week-now { display: none; } .lib-week-body { padding: 0 12px 14px; } }
+
+/* v2.50: a calmer side panel — four main links, then "Class & tools" as a row of small tiles */
+.side-main { gap: 1px; }
+.side-tiles-label { margin: 10px 10px 6px; }
+.side-tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; padding: 0; }
+.side-link.side-tile { height: auto; flex-direction: column; justify-content: center; gap: 5px; padding: 8px 2px 7px; border-radius: 13px; font: 700 .68rem/1.1 var(--sans); text-align: center; }
+.side-tile .side-ic { width: 34px; height: 34px; border-radius: 11px; }
+.side-tile .side-tx { max-width: 100%; white-space: nowrap; overflow: visible; letter-spacing: -.015em; font-size: .66rem; }
+.side-tile .side-badge { position: absolute; top: 3px; right: 6px; margin: 0; min-width: 17px; height: 17px; padding: 0 4px; font-size: .6rem; box-shadow: 0 0 0 2px #14293a; }
+.side-tile.active .side-badge { box-shadow: 0 0 0 2px #fff; }
+.side-ext { position: absolute; top: 6px; right: 7px; width: 10px; height: 10px; opacity: .55; }
+.side-tile:hover .side-ext { opacity: 1; }
+.t-copy { --tc: #f6a7c1; }

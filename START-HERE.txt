@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.49)
+DEC15 — COURSE APP (v2.50)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -549,3 +549,8 @@ v2.49 (Chats)
   Database: supabase/migrations/20261017000000_dec15_chats.sql (applied): tables chat_groups, chat_members,
   chat_reactions, chat_votes, new columns on messages (group_id, kind, data, reply_to, pinned_at, solved_at) and
   functions chat_pin / chat_solve, all with Row Level Security (group messages are seen only by members + teacher).
+
+v2.50 (calmer side panel + Copy Detector)
+- The side panel now has four main links (Course map, Readings, My notebook, My planner) and one row of small tiles
+  under "Class & tools": Board, Chats, Shared, Copy check. Unread numbers sit on the tiles.
+- "Copy check" opens the EAP Copy Detector (https://ma-jalali.github.io/eap-copy-detector/) in a new tab.
