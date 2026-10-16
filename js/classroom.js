@@ -16,6 +16,7 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
 
   let settings = { answers_open: null }, settingsCh = null;
   const timer = window.createDEC15Timer ? window.createDEC15Timer({ getDb: () => db(), isTeacher, esc, toast }) : null;   // js/timer.js
+  const announce = window.createDEC15Announce ? window.createDEC15Announce({ getDb: () => db(), me: () => me(), isTeacher, esc, toast, getPeople: () => people, avatar: p => ava(p, 'avatar an-ava') }) : null;   // js/announce.js
   let people = [], byId = new Map(), online = new Map(), presence = null, joined = false, myHand = false, where = { key: '', label: '' };
   let msgs = [], msgCh = null, counts = {}, students = 0, countsT = 0, notes = null, progress = null, hands = new Set();
   let panel = null, open = false, tab = 'people', thread = null, lastSeenClass = +(LS('dec15-class-seen') || 0), connected = null;
@@ -51,7 +52,7 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
     loadSettings(); watchSettings(); paintTop();
     const c = db(); if (!c) { paintPanel(); return; }
     if (isTeacher()) { loadNotes(); rerender(); }
-    loadPeople(); loadMessages(); loadCounts();
+    loadPeople(); loadMessages(); loadCounts(); announce?.connect();
     try { await c.realtime.setAuth?.(); } catch (e) { /* older client */ }
     presence = c.channel('dec15:class', { config: { private: true, presence: { key: uid } } })
       .on('presence', { event: 'sync' }, readPresence)
@@ -69,6 +70,7 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
     const c = anyDb(); clearInterval(countsT); joined = false;
     [presence, msgCh].forEach(ch => { if (ch) try { c?.removeChannel(ch); } catch (e) { /* ignore */ } });
     presence = msgCh = null; online = new Map(); msgs = []; people = []; byId = new Map(); notes = null; progress = null; hands = new Set(); myHand = false;
+    announce?.disconnect();
     paintTop(); paintPanel();
   }
 
@@ -109,7 +111,7 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
   }
 
   /* ───────── people and messages ───────── */
-  async function loadPeople() { const c = db(); if (!c) return; const { data } = await c.rpc('class_people'); people = data || []; byId = new Map(people.map(p => [p.id, p])); paintPanel(); paintCounts(); }
+  async function loadPeople() { const c = db(); if (!c) return; const { data } = await c.rpc('class_people'); people = data || []; byId = new Map(people.map(p => [p.id, p])); paintPanel(); paintCounts(); announce?.paint(); }
   async function loadMessages() {
     const c = db(); if (!c) return;
     const { data } = await c.from('messages').select('id, sender_id, sender_name, sender_role, recipient_id, body, created_at, read_at').order('created_at', { ascending: false }).limit(400);
