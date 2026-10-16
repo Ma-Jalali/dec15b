@@ -573,3 +573,12 @@ body.present .ct-dock { top: 18px; } body.present .ct:not(.mini) { transform-ori
 .an-ava { width: 24px; height: 24px; flex: none; }
 .an-detail .danger { margin-top: 10px; }
 @media print { .an-scrim, .an-pop, .announce-btn { display: none !important; } }
+
+/* v2.49: link from the class panel to the Chats page */
+.cm-hub { display: flex; align-items: center; gap: 12px; margin: 0 0 12px; padding: 12px 14px; border-radius: 16px; background: linear-gradient(135deg, #e8f6f2, #d6efe8); border: 1px solid #1f8a7833; color: var(--ink); text-decoration: none; transition: transform .2s var(--ease), box-shadow .2s; }
+.cm-hub:hover { transform: translateY(-1px); box-shadow: 0 8px 20px -12px #1f8a78aa; }
+.cm-hub .cm-tico { background: #1f8a78; color: #fff; }
+.cm-hub > span:nth-child(2) { flex: 1; display: grid; gap: 2px; }
+.cm-hub b { font-size: .95rem; } .cm-hub small { color: var(--ink-2); font-size: .8rem; line-height: 1.35; }
+.cm-hub > i { font-style: normal; font-size: 1.4rem; color: #135f53; }
+.cm-kind { color: var(--ink-2); }
