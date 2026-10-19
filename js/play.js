@@ -115,10 +115,13 @@ window.createDEC15Play = function ({ getState, save, rerender, esc, strip, icon,
   /* ───────── flip cards ───────── */
   B.flip = b => `<section class="block play flips${fresh('fp-' + (b.title || b.items[0].front))}">
     ${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}${b.hint ? `<p class="sort-hint">${b.hint}</p>` : ''}
-    <div class="flip-grid">${b.items.map((c, i) => `<button type="button" class="flip" data-flip aria-pressed="false" style="--i:${i}">
+    ${b.items.length >= 6 ? carouselOpen() : ''}<div class="flip-grid${b.items.length >= 6 ? ' lg-track' : ''}">${b.items.map((c, i) => `<button type="button" class="flip" data-flip aria-pressed="false" style="--i:${i}">
       <span class="flip-inner"><span class="flip-face flip-front">${c.art ? `<img src="${esc(c.art)}" alt="" width="160" height="110">` : ''}${c.tag ? `<em>${c.tag}</em>` : ''}<b>${c.front}</b><small>${icon('undo')}Tap to turn over</small></span>
-      <span class="flip-face flip-back">${c.tag ? `<em>${c.tag}</em>` : ''}<b>${c.backTitle || c.front}</b><p>${c.back}</p></span></span></button>`).join('')}</div>
+      <span class="flip-face flip-back">${c.tag ? `<em>${c.tag}</em>` : ''}<b>${c.backTitle || c.front}</b><p>${c.back}</p></span></span></button>`).join('')}</div>${b.items.length >= 6 ? carouselClose(b.items.length) : ''}
   </section>`;
+  /* six or more cards sit in one calm row that slides (arrows, dots, swipe or the keyboard) instead of a tall grid */
+  const carouselOpen = () => '<div class="lg-carousel" data-carousel>';
+  const carouselClose = n => `<div class="lg-car-nav"><button type="button" class="lg-car-btn" data-car="-1" aria-label="Previous">${icon('left')}</button><span class="lg-dots" aria-hidden="true">${Array.from({ length: n }, (_, i) => `<i${i ? '' : ' class="on"'}></i>`).join('')}</span><button type="button" class="lg-car-btn" data-car="1" aria-label="Next">${icon('arrow')}</button></div></div>`;
 
   /* ───────── spinner: a speaking game ───────── */
   B.spinner = b => `<section class="block play spinner${fresh('sp-' + b.id)}" id="spin-${b.id}">

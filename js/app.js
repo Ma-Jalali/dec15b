@@ -255,6 +255,8 @@ B.choose = b => `<section class="block choose">
   <h3 class="block-heading">${b.title}</h3>
   <div class="choose-options" role="radiogroup" aria-label="${esc(b.title)}">${b.options.map((o, i) => `<button type="button" role="radio" class="choose-option${val(b.id) === o ? ' selected' : ''}" aria-checked="${val(b.id) === o}" data-choose="${b.id}" data-opt="${esc(o)}"><span class="choose-letter">${'ABC'[i]}</span>${esc(o)}</button>`).join('')}</div>
 </section>`;
+const colW = id => { try { const w = JSON.parse(localStorage.getItem('dec15-colw') || '{}')[id]; return Array.isArray(w) ? w : null; } catch (e) { return null; } };
+const setColW = (id, w) => { try { const all = JSON.parse(localStorage.getItem('dec15-colw') || '{}'); if (w) all[id] = w; else delete all[id]; localStorage.setItem('dec15-colw', JSON.stringify(all)); } catch (e) { /* private mode */ } };
 B.table = b => {
   const n = tableRows(b);
   let rows = '';
@@ -266,9 +268,23 @@ B.table = b => {
     }).join('') + '</tr>';
   }
   return `<section class="block table-block">${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}
-  <div class="table-scroll" tabindex="0" role="region" aria-label="${esc(b.title || 'Table')}"><table class="work-table cols-${b.columns.length}"><thead><tr>${b.columns.map(c => `<th scope="col">${esc(c)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div>
+  <div class="table-scroll" tabindex="0" role="region" aria-label="${esc(b.title || 'Table')}"><table class="work-table cols-${b.columns.length}${colW(b.id) ? ' has-widths' : ''}" data-colw="${b.id}">${colW(b.id) ? `<colgroup>${colW(b.id).map(w => `<col style="width:${w}%">`).join('')}</colgroup>` : ''}<thead><tr>${b.columns.map((c, ci) => `<th scope="col">${esc(c)}${ci < b.columns.length - 1 ? `<span class="col-grip" data-col-grip="${ci}" title="Drag to change the column width (double-click to reset)" aria-hidden="true"></span>` : ''}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div>
   ${b.extraRows || !b.fixed ? `<button class="btn-quiet" data-add-row="${b.id}">+ Add a row</button>` : ''}</section>`;
 };
+/* ───────── layout blocks (v2.56): tabs, a fold that opens, and a carousel of slides ─────────
+   { type: 'tabs', title?, tabs: [{ label, blocks: [...] }] }
+   { type: 'toggle', title, hint?, open?: true, blocks: [...] }
+   { type: 'carousel', title?, slides: [{ title?, text?, image?, alt?, blocks? }] } */
+let lgSeq = 0;
+const inner = (blocks, a) => blocksHTML({ ...a, blocks: blocks || [] });
+B.tabs = (b, a) => { const uid = 'tb' + (++lgSeq);
+  return `<section class="block lg-tabs-block">${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}
+    <div class="lg-seg" role="tablist" style="--n:${b.tabs.length}"><i class="lg-lens" aria-hidden="true"></i>${b.tabs.map((t, i) => `<button type="button" role="tab" id="${uid}-t${i}" aria-controls="${uid}-p${i}" aria-selected="${!i}" tabindex="${i ? -1 : 0}" data-lg-tab="${i}">${t.label}</button>`).join('')}</div>
+    ${b.tabs.map((t, i) => `<div class="lg-tabpanel" role="tabpanel" id="${uid}-p${i}" aria-labelledby="${uid}-t${i}"${i ? ' hidden' : ''}>${inner(t.blocks, a)}</div>`).join('')}</section>`; };
+B.toggle = (b, a) => `<details class="block lg-fold"${b.open ? ' open' : ''}><summary><span class="lg-fold-t"><b>${b.title}</b>${b.hint ? `<small>${b.hint}</small>` : ''}</span><i class="lg-fold-chev" aria-hidden="true"></i></summary><div class="lg-fold-body">${inner(b.blocks, a)}</div></details>`;
+B.carousel = (b, a) => `<section class="block lg-carousel-block">${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}<div class="lg-carousel" data-carousel>
+    <div class="lg-track lg-slides">${b.slides.map((sl, i) => `<article class="lg-slide" aria-roledescription="slide" aria-label="${i + 1} of ${b.slides.length}">${sl.image ? `<img src="${esc(sl.image)}" alt="${esc(sl.alt || '')}" loading="lazy">` : ''}<div class="lg-slide-tx">${sl.title ? `<h4>${sl.title}</h4>` : ''}${sl.text ? `<p>${sl.text}</p>` : ''}${sl.blocks ? inner(sl.blocks, a) : ''}</div></article>`).join('')}</div>
+    <div class="lg-car-nav"><button type="button" class="lg-car-btn" data-car="-1" aria-label="Previous slide">${icon('left')}</button><span class="lg-dots" aria-hidden="true">${b.slides.map((_, i) => `<i${i ? '' : ' class="on"'}></i>`).join('')}</span><button type="button" class="lg-car-btn" data-car="1" aria-label="Next slide">${icon('arrow')}</button></div></div></section>`;
 B.plan = () => `<section class="block plan">
   <h3 class="block-heading">Essay outline</h3>
   <div class="plan-question"><b>Question:</b> ${esc(lesson.question)}</div>
@@ -789,6 +805,36 @@ function paintWeekbar(route = navRoute) {
       ${route !== 'home' ? `<a class="wb-go" href="${L('overview')}" title="Back to Week ${lesson.week}, Day ${lesson.day}: ${esc(lesson.title)}"><span class="wb-go-dot" aria-hidden="true"></span><span>Week ${lesson.week} · Day ${lesson.day}</span></a>` : ''}`;
   moveLine(bar);
 }
+/* ───────── tabs, carousels and table column widths ───────── */
+function lensTo(seg) { const on = seg.querySelector('[aria-selected="true"]'), lens = seg.querySelector('.lg-lens'); if (!on || !lens) return; lens.style.width = on.offsetWidth + 'px'; lens.style.transform = `translateX(${on.offsetLeft}px)`; }
+document.addEventListener('click', e => {
+  const t = e.target.closest?.('[data-lg-tab]');
+  if (t) { const seg = t.closest('.lg-seg'), box = seg.parentElement, tabs = [...seg.querySelectorAll('[role=tab]')], panels = [...box.querySelectorAll(':scope > .lg-tabpanel')];
+    tabs.forEach((x, i) => { const on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; if (panels[i]) panels[i].hidden = !on; }); lensTo(seg); return; }
+  const c = e.target.closest?.('[data-car]');
+  if (c) { const tr = c.closest('[data-carousel]').querySelector('.lg-track'), step = (tr.firstElementChild?.offsetWidth || tr.clientWidth) + parseFloat(getComputedStyle(tr).columnGap || 16);
+    tr.scrollBy({ left: +c.dataset.car * step * Math.max(1, Math.floor(tr.clientWidth / step)), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); }
+});
+document.addEventListener('keydown', e => { const t = e.target.closest?.('[data-lg-tab]'); if (!t || !['ArrowLeft', 'ArrowRight'].includes(e.key)) return; const all = [...t.parentElement.querySelectorAll('[data-lg-tab]')], n = all[(all.indexOf(t) + (e.key === 'ArrowRight' ? 1 : -1) + all.length) % all.length]; n.focus(); n.click(); e.preventDefault(); });
+document.addEventListener('scroll', e => { const tr = e.target; if (!tr.classList?.contains('lg-track')) return; const car = tr.closest('[data-carousel]'), kids = [...tr.children], dots = car.querySelectorAll('.lg-dots i');
+  const x = tr.scrollLeft, w = kids[0]?.offsetWidth || 1, idx = Math.round(x / (w + 16)); dots.forEach((d, i) => d.classList.toggle('on', i === Math.min(idx, kids.length - 1)));
+  car.querySelector('[data-car="-1"]').disabled = x < 4; car.querySelector('[data-car="1"]').disabled = x + tr.clientWidth >= tr.scrollWidth - 4; }, true);
+function paintLayout(root = document) {
+  root.querySelectorAll('.lg-seg').forEach(seg => { const l = seg.querySelector('.lg-lens'); l?.classList.add('no-anim'); lensTo(seg); requestAnimationFrame(() => l?.classList.remove('no-anim')); });
+  root.querySelectorAll('[data-carousel] .lg-track').forEach(tr => tr.dispatchEvent(new Event('scroll')));
+}
+/* drag the line between two column headings to make a column wider; double-click it to go back to equal columns */
+document.addEventListener('pointerdown', e => {
+  const g = e.target.closest?.('[data-col-grip]'); if (!g) return; e.preventDefault();
+  const table = g.closest('table'), id = table.dataset.colw, ths = [...table.querySelectorAll('thead th')], total = table.offsetWidth, i = +g.dataset.colGrip;
+  let w = ths.map(th => th.offsetWidth / total * 100);
+  let cg = table.querySelector('colgroup'); if (!cg) { cg = document.createElement('colgroup'); cg.innerHTML = w.map(x => `<col style="width:${x}%">`).join(''); table.prepend(cg); table.classList.add('has-widths'); }
+  const cols = [...cg.children], x0 = e.clientX, a0 = w[i], b0 = w[i + 1]; document.body.classList.add('col-dragging'); g.setPointerCapture?.(e.pointerId);
+  const move = ev => { const d = (ev.clientX - x0) / total * 100, a = Math.max(8, Math.min(a0 + b0 - 8, a0 + d)); w[i] = a; w[i + 1] = a0 + b0 - a; cols[i].style.width = w[i] + '%'; cols[i + 1].style.width = w[i + 1] + '%'; };
+  const up = () => { document.removeEventListener('pointermove', move); document.removeEventListener('pointerup', up); document.body.classList.remove('col-dragging'); setColW(id, w.map(x => +x.toFixed(2))); };
+  document.addEventListener('pointermove', move); document.addEventListener('pointerup', up);
+});
+document.addEventListener('dblclick', e => { const g = e.target.closest?.('[data-col-grip]'); if (!g) return; const table = g.closest('table'); setColW(table.dataset.colw, null); table.querySelector('colgroup')?.remove(); table.classList.remove('has-widths'); });
 /* the coloured line under the open (or current) week slides between weeks */
 function moveLine(bar = $('#weekbar')) {
   const row = bar?.querySelector('.wb-row'), line = row?.querySelector('.wb-line'); if (!line) return;
@@ -1048,7 +1094,7 @@ function render() {
   if (cm && here && cm.scrollWidth > cm.clientWidth) { const r = here.getBoundingClientRect(), c = cm.getBoundingClientRect(); cm.scrollLeft += r.left - c.left - c.width / 2 + r.width / 2; }
   const tabs = $('.act-tabs'), cur = $('.act-tabs .current'); if (tabs && cur) tabs.scrollLeft = cur.offsetLeft - tabs.offsetLeft - 12;
   reader.mount();
-  requestAnimationFrame(revealBlocks);
+  requestAnimationFrame(() => { revealBlocks(); paintLayout(); });
 }
 let plannerLoad = null;
 function loadPlanner() {   // the editor is large, so it loads only when the planner is opened
