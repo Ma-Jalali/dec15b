@@ -1,0 +1,141 @@
+/* DEC15 · Write together v2.54: a grouped formatting toolbar (styles, colours, highlight, alignment, links)
+   and teacher comments shown quietly beside the writing, like margin notes. Loaded with js/collab.js. */
+.cw { transition: width .35s var(--ease); }
+.cw.rail-on { width: min(1140px, 100%); }
+
+/* ── toolbar: small groups separated by hairlines ── */
+.cw-bar { gap: 0; padding: 7px 12px; }
+.cw-grp { display: flex; align-items: center; gap: 1px; padding: 0 6px; flex: none; }
+.cw-grp + .cw-grp { border-left: 1px solid var(--glass-line, #14293a14); }
+.cw-grp:first-child { padding-left: 0; }
+.cw-bar button { width: 32px; height: 32px; border-radius: 8px; color: #3d505e; transition: background .15s, color .15s; }
+.cw-bar button svg { width: 17px; height: 17px; }
+.cw-bar button[aria-pressed="true"] { background: #e3efec; color: #1f6b62; }
+.cw-bar [data-cw="undo"] { margin-left: 0; }
+.cw-style { position: relative; display: inline-flex; align-items: center; }
+.cw-style select { appearance: none; -webkit-appearance: none; height: 32px; padding: 0 28px 0 10px; border: 0; border-radius: 8px; background: transparent; font: 700 .8rem/1 var(--sans); color: var(--ink); cursor: pointer; }
+.cw-style select:hover, .cw-style select:focus-visible { background: rgba(118, 118, 128, .1); outline: none; }
+.cw-style svg { position: absolute; right: 8px; width: 13px; height: 13px; pointer-events: none; color: var(--muted); }
+.cw-swatch { position: relative; }
+.cw-swatch svg { margin-top: -4px; }
+.cw-sw-bar { position: absolute; left: 8px; right: 8px; bottom: 6px; height: 3px; border-radius: 2px; background: #14293a; box-shadow: inset 0 0 0 1px #14293a14; }
+.cw-sw-bar[data-cw-markbar] { background: transparent; }
+.cw-addc { display: inline-flex !important; align-items: center; gap: 6px; width: auto !important; padding: 0 11px 0 9px; margin-right: 6px; background: #fdf3df !important; color: #8a5a0b !important; font: 750 .78rem/1 var(--sans); }
+.cw-addc:hover:not(:disabled) { background: #fae7c2 !important; }
+.cw-addc:disabled { background: transparent !important; color: var(--faint, #98a2a9) !important; cursor: default; }
+.cw-ctog { position: relative; display: inline-flex !important; align-items: center; gap: 5px; width: auto !important; padding: 0 9px; margin-right: 6px; color: var(--muted) !important; font: 800 .76rem/1 var(--sans); }
+.cw-ctog[hidden] { display: none !important; }
+.cw-ctog.has { color: #8a5a0b !important; }
+.cw-ctog.has::after { content: ''; position: absolute; top: 5px; left: 22px; width: 7px; height: 7px; border-radius: 50%; background: #e9a23b; box-shadow: 0 0 0 2px #fcfaf6; }
+.cw-ctog[aria-pressed="true"] { background: #fdf3df !important; }
+.cw-ctog.ping { animation: cwPing .9s var(--ease) 2; }
+@keyframes cwPing { 40% { transform: scale(1.12); box-shadow: 0 0 0 6px #e9a23b33; } }
+
+/* ── pickers ── */
+.cw-pop { position: absolute; z-index: 4; padding: 10px; border-radius: 14px; background: #fff; box-shadow: 0 18px 40px -16px rgba(14, 28, 40, .45), inset 0 0 0 1px var(--glass-line, #14293a14); animation: cwPopIn .18s var(--ease); }
+@keyframes cwPopIn { from { opacity: 0; transform: translateY(-4px); } }
+.cw-pop > p { margin: 0 0 8px 2px; font: 800 .64rem/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.cw-dots { display: grid; grid-template-columns: repeat(4, 30px); gap: 6px; }
+.cw-pop-mark .cw-dots { grid-template-columns: repeat(7, 26px); }
+.cw-dots button { width: 30px; height: 30px; border: 0; border-radius: 9px; background: #f6f3ee; cursor: pointer; display: grid; place-items: center; transition: transform .15s var(--ease), box-shadow .15s; }
+.cw-dots button span { font: 800 .95rem/1 var(--serif); color: var(--c); }
+.cw-dots button:hover { transform: scale(1.1); box-shadow: 0 0 0 2px var(--c); }
+.cw-pop-mark .cw-dots button { width: 26px; height: 26px; border-radius: 50%; background: var(--c); box-shadow: inset 0 0 0 1px #14293a1f; }
+.cw-pop-mark .cw-dots button.none { background: linear-gradient(135deg, #fff 45%, #d9473a 45%, #d9473a 55%, #fff 55%); }
+.cw-pop-mark .cw-dots button:hover { box-shadow: inset 0 0 0 1px #14293a1f, 0 0 0 2px #14293a; }
+.cw-pop-align { display: grid; padding: 6px; min-width: 150px; }
+.cw-prow { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border: 0; border-radius: 8px; background: none; font: 600 .86rem var(--sans); color: var(--ink); cursor: pointer; text-align: left; }
+.cw-prow:hover { background: rgba(118, 118, 128, .1); }
+.cw-prow svg { width: 17px; height: 17px; }
+.cw-plink { display: flex; gap: 6px; }
+.cw-plink input { width: 240px; height: 34px; padding: 0 10px; border: 1.5px solid var(--line-2, #14293a29); border-radius: 9px; font: 500 .88rem var(--sans); outline: none; }
+.cw-plink input:focus { border-color: #2b776e; }
+
+/* ── the page with the comment rail ── */
+.cw-page { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: 0; }
+.cw.rail-on .cw-page { grid-template-columns: minmax(0, 1fr) 286px; gap: 28px; padding-right: 22px; }
+.cw-sheet { position: relative; min-width: 0; }
+.cw-rail { position: relative; min-width: 0; }
+.cw-rail:empty { display: none; }
+.cw-rail-in { position: relative; }
+.cw-rail-in .cw-card { position: absolute; left: 0; right: 0; transition: top .35s cubic-bezier(.3, 1.1, .3, 1), box-shadow .2s, transform .2s var(--ease); }
+.cw-rail-in.flow { display: grid; gap: 10px; }
+.cw-rail-in.flow .cw-card { position: relative; top: auto !important; }
+
+/* the text a comment is about: a quiet warm underline, a little stronger when there are more comments */
+.cw-doc .cw-cm { background: linear-gradient(transparent 60%, #fbe3ad 60%); border-bottom: 2px solid #f0c46a; border-radius: 1px; cursor: pointer; transition: background .2s; }
+.cw-doc .cw-cm[data-n="2"] { background: linear-gradient(transparent 45%, #f9d48a 45%); }
+.cw-doc .cw-cm[data-n="3"], .cw-doc .cw-cm[data-n="4"], .cw-doc .cw-cm[data-n="5"] { background: linear-gradient(transparent 30%, #f6c66b 30%); }
+.cw-doc .cw-cm.on { background: #fbd98f; border-bottom-color: #d48e1c; box-shadow: 0 0 0 2px #fbd98f; }
+.cw-doc a { color: #1f5f98; text-decoration: underline; text-underline-offset: 2px; }
+.cw-doc blockquote { margin: .4em 0 .9em; padding: .2em 0 .2em 1em; border-left: 3px solid #c9d6d3; color: #3d505e; font-style: italic; }
+.cw-doc s { color: #6b7680; }
+.cw-doc mark { padding: 0 2px; border-radius: 3px; }
+
+/* the teacher's "Comment" bubble next to a selection */
+.cw-bubble { position: absolute; z-index: 3; display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px 0 9px; border: 0; border-radius: 99px; background: #14293a; color: #fff; font: 750 .76rem/1 var(--sans); cursor: pointer; box-shadow: 0 10px 22px -10px rgba(14, 28, 40, .6); animation: cwPopIn .16s var(--ease); }
+.cw-bubble svg { width: 15px; height: 15px; }
+.cw-bubble:hover { background: #8a5a0b; }
+
+/* ── comment cards ── */
+.cw-card { padding: 12px 13px 11px; border-radius: 14px; background: #fff; box-shadow: 0 1px 2px #14293a14, inset 0 0 0 1px #14293a0f; cursor: pointer; outline: none; animation: cwCard .3s var(--ease) both; }
+@keyframes cwCard { from { opacity: 0; transform: translateX(8px); } }
+.cw-card:hover { box-shadow: 0 6px 18px -10px #14293a55, inset 0 0 0 1px #14293a14; }
+.cw-card.on { transform: translateX(-6px); box-shadow: 0 14px 30px -14px #14293a77, inset 3px 0 0 #e9a23b, inset 0 0 0 1px #e9a23b55; }
+.cw-card:focus-visible { box-shadow: 0 0 0 2px #14293a; }
+.cw-card header { display: flex; align-items: center; gap: 9px; }
+.cw-cav { width: 28px; height: 28px; flex: none; border-radius: 50%; display: grid; place-items: center; background: #fdf3df; color: #8a5a0b; font: 600 .9rem/1 var(--serif); box-shadow: inset 0 0 0 1.5px #f0c46a; }
+.cw-cwho { flex: 1; min-width: 0; display: grid; gap: 1px; }
+.cw-cwho b { font: 750 .8rem/1.2 var(--sans); color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cw-cwho small { font: 600 .68rem/1.2 var(--sans); color: var(--muted); }
+.cw-cicons { display: flex; opacity: 0; transition: opacity .15s; }
+.cw-card:hover .cw-cicons, .cw-card.on .cw-cicons { opacity: 1; }
+.cw-cicons button { width: 26px; height: 26px; border: 0; border-radius: 7px; background: none; color: var(--muted); cursor: pointer; display: grid; place-items: center; }
+.cw-cicons button:hover { background: rgba(118, 118, 128, .12); color: var(--ink); }
+.cw-cicons svg { width: 14px; height: 14px; }
+.cw-cq { display: block; margin: 9px 0 0; padding-left: 9px; border-left: 2px solid #f0c46a; font: italic 500 .76rem/1.4 var(--sans); color: var(--muted); quotes: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cw-ctext { margin: 7px 0 0; font: 500 .86rem/1.5 var(--sans); color: var(--ink); overflow-wrap: anywhere; }
+.cw-cacts { display: flex; justify-content: flex-end; gap: 6px; margin-top: 10px; }
+.cw-cbtn { display: inline-flex; align-items: center; gap: 5px; height: 30px; padding: 0 12px; border: 0; border-radius: 99px; background: rgba(118, 118, 128, .1); color: var(--ink); font: 750 .76rem/1 var(--sans); cursor: pointer; transition: background .15s; }
+.cw-cbtn:hover { background: rgba(118, 118, 128, .2); }
+.cw-cbtn svg { width: 14px; height: 14px; }
+.cw-cbtn.pri { background: #14293a; color: #fff; }
+.cw-cbtn.pri:hover { background: #22405a; }
+.cw-cbtn.ok { background: #e3f1e7; color: #24603f; }
+.cw-cbtn.ok:hover { background: #cfe8d7; }
+.cw-cwait { display: flex; align-items: center; gap: 6px; margin: 9px 0 0; font: 650 .7rem/1 var(--sans); color: var(--muted); }
+.cw-cwait i { width: 6px; height: 6px; border-radius: 50%; background: #e9a23b; }
+.cw-cread { display: flex; align-items: center; gap: 5px; margin: 8px 0 0; font: 650 .7rem/1.2 var(--sans); color: #24603f; }
+.cw-cread svg { width: 13px; height: 13px; }
+.cw-clink { margin-left: auto; border: 0; background: none; color: var(--muted); font: 700 .7rem var(--sans); cursor: pointer; text-decoration: underline; }
+.cw-card.read { opacity: .75; cursor: default; box-shadow: inset 0 0 0 1px #14293a0f; background: #fbfaf7; animation: none; }
+.cw-card.read .cw-cq { border-left-color: #c9d6d3; }
+
+/* new comment */
+.cw-cnew textarea, .cw-cedit textarea { width: 100%; margin-top: 9px; padding: 9px 10px; border: 1.5px solid #f0c46a; border-radius: 10px; background: #fffdf8; font: 500 .86rem/1.45 var(--sans); color: var(--ink); resize: vertical; outline: none; }
+.cw-cnew textarea:focus, .cw-cedit textarea:focus { border-color: #d48e1c; box-shadow: 0 0 0 3px #f0c46a33; }
+.cw-quick { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.cw-quick button { padding: 5px 9px; border: 1px solid #14293a1a; border-radius: 99px; background: #fff; font: 600 .7rem/1.2 var(--sans); color: var(--ink-2, #3d505e); cursor: pointer; transition: background .15s, border-color .15s; }
+.cw-quick button:hover { background: #fdf3df; border-color: #f0c46a; }
+
+/* teacher: comments the students have read */
+.cw-readlist { margin-top: 14px; }
+.cw-readlist summary { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 99px; font: 750 .72rem/1 var(--sans); color: #24603f; background: #e3f1e7; cursor: pointer; list-style: none; }
+.cw-readlist summary::-webkit-details-marker { display: none; }
+.cw-readlist summary svg { width: 13px; height: 13px; }
+.cw-readlist .cw-card { margin-top: 8px; }
+
+.cw-strip { width: 100%; display: flex; align-items: center; gap: 10px; padding: 9px 12px; border: 0; border-radius: 12px; background: #fdf6e6; box-shadow: inset 0 0 0 1px #f0c46a66; text-align: left; cursor: pointer; font-family: var(--sans); color: var(--ink); animation: cwCard .3s var(--ease); }
+.cw-strip .cw-cav svg { width: 15px; height: 15px; }
+.cw-strip > span:nth-child(2) { flex: 1; min-width: 0; display: grid; gap: 1px; }
+.cw-strip b { font: 750 .8rem/1.3 var(--sans); }
+.cw-strip small { color: var(--muted); font-size: .74rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cw-strip em { font: 750 .76rem/1 var(--sans); font-style: normal; color: #8a5a0b; }
+.cw-fold { display: block; margin: 8px 0 0 auto; }
+@media (max-width: 1000px) {
+  .cw.rail-on .cw-page { grid-template-columns: minmax(0, 1fr); padding-right: clamp(18px, 6vw, 64px); }
+  .cw-rail { order: -1; margin-bottom: 16px; }
+  .cw-grp-more { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .cw-card, .cw-rail-in .cw-card, .cw-pop, .cw-bubble, .cw-ctog.ping { animation: none !important; transition: none !important; } }
+.cw-print .cw-doc .cw-cm { background: none; border: 0; box-shadow: none; }

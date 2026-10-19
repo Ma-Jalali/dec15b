@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.53)
+DEC15 — COURSE APP (v2.54)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -585,3 +585,21 @@ v2.53 (week menu motion)
 - Closing (Esc, click outside, mouse leaves): a short fade-out instead of vanishing. A week that was just closed
   does not re-open from the mouse still resting on it. The header shadow deepens once the page is scrolled.
 - Everything is off for people who prefer reduced motion (system setting).
+
+v2.54 (Write together: formatting + teacher comments; week menu detail)
+- Write together toolbar, in small groups: undo/redo · Normal text / Heading / Subheading · bold, italic, underline,
+  strikethrough · text colour (8) and highlight colour (6) · bullets, numbers, checklist · align, quote, link,
+  clear formatting. Styles: css/cowrite.css (loaded with js/collab.js).
+- Teacher comments: as the teacher, select any word, sentence or paragraph and press the small "Comment" bubble
+  (or the Comment button, or Ctrl+Alt+M). Write a note or tap a quick note ("Add an example or evidence." …).
+  Add as many comments as you like to the same words. The text gets a quiet warm underline (stronger with more
+  comments); the notes sit beside the writing like margin notes, next to the words they are about.
+  Students press "Got it": the note goes away and their writing does not change. The teacher sees "Not read yet"
+  on each note and, under "n read by students", who read each one and when. The teacher can edit or delete notes.
+  No pop-ups: students only see a small amber dot on the comments button. On small screens the notes fold into
+  one line ("3 comments from your teacher · Show"). Comments are stored inside the shared document (Yjs), so they
+  are live for everyone in the group.
+- Week menu: a hairline ring around each week numeral shows progress through that week; a small notch on the panel
+  points at the open week and follows it; the week's days appear as a route of dots (done, started, you are here);
+  lessons are joined by a dotted line (solid once a lesson is finished); the highlight glides between lessons;
+  a fine accent line slides in beside a part on hover.

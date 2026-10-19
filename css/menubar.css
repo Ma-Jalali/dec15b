@@ -168,3 +168,51 @@ body[data-page="stage"] .weekbar::after, body[data-page="extra"] .weekbar::after
   .wb-parts-col { border-left: 0; border-top: 1px solid var(--line); border-radius: 0; }
 }
 @media (prefers-reduced-motion: reduce) { #weekbar *, .wb-panel, .wb-grid, .wb-parts-col, .wb-line { animation: none !important; transition: none !important; } }
+
+/* ── v2.54: finer detail ── */
+/* a hairline ring around each week numeral shows how far the student is through that week */
+.wb-num { position: relative; }
+.wb-item.has-prog .wb-num::after { content: ''; position: absolute; inset: -3px; border-radius: 10px; padding: 1.5px; background: conic-gradient(var(--wk) calc(var(--p, 0) * 1turn), color-mix(in srgb, var(--wk) 16%, transparent) 0); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+.wb-tx { letter-spacing: -.005em; }
+/* a small notch on the panel points at the open week, and follows it */
+.wb-panel { overflow: visible; }
+.wb-panel > .wb-grid { border-radius: 20px; overflow: hidden; max-height: calc(100vh - var(--head) - 26px); overflow-y: auto; }
+.wb-panel::before { content: ''; position: absolute; top: -7px; left: var(--nx, 50%); width: 14px; height: 14px; margin-left: -7px; background: color-mix(in srgb, var(--wk-open, #fff) 0%, #fff); border-left: 1px solid var(--line-2); border-top: 1px solid var(--line-2); border-radius: 4px 0 0 0; transform: rotate(45deg); transition: left .4s cubic-bezier(.3, 1.1, .3, 1); z-index: 1; }
+.wb-panel { max-height: none; }
+/* the week's days as a little route of dots */
+.wb-route { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 0; }
+.wb-route li { position: relative; flex: 1; display: flex; justify-content: center; }
+.wb-route li + li::before { content: ''; position: absolute; right: 50%; left: -50%; top: 50%; height: 2px; margin-top: -1px; background: #14293a14; }
+.wb-route li.done + li::before, .wb-route li.done::before { background: color-mix(in srgb, var(--wk) 55%, transparent); }
+.wb-route i { position: relative; z-index: 1; width: 12px; height: 12px; border-radius: 50%; background: #fff; box-shadow: inset 0 0 0 2px #14293a24; }
+.wb-route .some i { background: conic-gradient(var(--wk) calc(var(--p) * 1turn), #fff 0); box-shadow: inset 0 0 0 2px var(--wk); }
+.wb-route .done i { background: var(--wk); box-shadow: none; }
+.wb-route .soon i { box-shadow: inset 0 0 0 2px #14293a12; background: #f6f3ee; }
+.wb-route .here i { box-shadow: inset 0 0 0 2px var(--wk), 0 0 0 4px color-mix(in srgb, var(--wk) 22%, transparent); }
+.wb-panel.in .wb-route li { animation: wbRise .4s var(--ease) both; }
+.wb-panel.in .wb-route li:nth-child(2) { animation-delay: .25s; } .wb-panel.in .wb-route li:nth-child(3) { animation-delay: .3s; } .wb-panel.in .wb-route li:nth-child(4) { animation-delay: .35s; } .wb-panel.in .wb-route li:nth-child(5) { animation-delay: .4s; }
+.wb-prog { gap: 8px; }
+/* the lessons are joined by a quiet dotted line, like stops on a route */
+.wb-days { position: relative; }
+.wb-dli { position: relative; z-index: 1; }
+.wb-dli:not(:last-child)::after { content: ''; position: absolute; left: 24px; top: 41px; height: calc(100% - 32px); border-left: 1.5px dotted #14293a26; pointer-events: none; }
+.wb-dli.is-done:not(:last-child)::after { border-left: 1.5px solid color-mix(in srgb, var(--ok) 55%, transparent); }
+/* the soft highlight behind the chosen lesson glides from row to row */
+.wb-dhl { position: absolute; z-index: 0; left: 0; right: 0; top: 0; height: 48px; border-radius: 12px; background: #fcfaf6; box-shadow: inset 0 0 0 1px var(--line-2), 0 6px 16px -12px #14293a55; opacity: 0; pointer-events: none; transition: transform .38s cubic-bezier(.3, 1.15, .35, 1), height .3s var(--ease), opacity .2s; }
+.wb-dhl.no-anim { transition: none; }
+.wb-day.sel { background: transparent; box-shadow: none; }
+.wb-day:hover { background: #14293a05; }
+.wb-day .wb-dtx b { transition: color .2s; }
+.wb-day.sel .wb-dtx b { color: var(--ink); }
+.wb-day:not(.sel) .wb-dtx b { color: #2b3d4b; }
+/* the lesson picture gets a fine frame */
+.wb-dart { box-shadow: 0 0 0 1px #14293a12, 0 6px 14px -10px #14293a66; }
+/* parts: a fine accent line slides in on hover */
+.wb-part { position: relative; }
+.wb-part::before { content: ''; position: absolute; left: 0; top: 9px; bottom: 9px; width: 2.5px; border-radius: 2px; background: var(--accent, var(--ink)); transform: scaleY(0); transition: transform .22s var(--ease); }
+.wb-part:hover::before { transform: scaleY(1); }
+.wb-part.is-cur::before { display: none; }
+.wb-intro h2, .wb-dhead h3 { text-wrap: balance; }
+.wb-dtx small, .wb-prog small, .wb-go { font-variant-numeric: tabular-nums; }
+@media (max-width: 900px) { .wb-panel::before { display: none; } .wb-panel > .wb-grid { max-height: 76vh; } }
+@media (prefers-reduced-motion: reduce) { .wb-dhl, .wb-panel::before, .wb-part::before { transition: none !important; } }
