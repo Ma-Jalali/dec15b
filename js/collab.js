@@ -73,48 +73,81 @@ window.DEC15Collab = (() => {
 
   /* ───────── the window ───────── */
   const svg = p => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
-  const TOOLS = [
-    ['bold', '<path d="M7 5h6a3.5 3.5 0 0 1 0 7H7zM7 12h7a3.5 3.5 0 0 1 0 7H7z" stroke-width="2.4"/>', 'Bold'],
-    ['italic', '<path d="M14 5h-4M14 19h-4M14 5l-4 14"/>', 'Italic'],
-    ['underline', '<path d="M7 4v7a5 5 0 0 0 10 0V4M5 20h14"/>', 'Underline'],
-    ['highlight', '<path d="m14 4 6 6-9 9H5v-6z"/><path d="M4 21h16" stroke-width="3"/>', 'Highlight'],
-    ['h2', '<path d="M4 6v12M12 6v12M4 12h8M15.5 10c0-1.2 1-2 2.2-2s2.3.8 2.3 2c0 2-4.5 3.4-4.5 6h4.6"/>', 'Heading'],
-    ['bullets', '<circle cx="5" cy="7" r="1.2" fill="currentColor"/><circle cx="5" cy="12" r="1.2" fill="currentColor"/><circle cx="5" cy="17" r="1.2" fill="currentColor"/><path d="M9 7h11M9 12h11M9 17h11"/>', 'Bullet list'],
-    ['numbers', '<path d="M4 5h2v4M4 9h3M4 14.5c0-1 2.5-1.5 2.5 0S4 17 4 18.5h3"/><path d="M10 7h10M10 12h10M10 17h10"/>', 'Numbered list'],
-    ['tasks', '<rect x="3.5" y="4.5" width="6" height="6" rx="1.5"/><path d="m5 7.5 1.3 1.3L8.6 6.4"/><rect x="3.5" y="13.5" width="6" height="6" rx="1.5"/><path d="M13 7.5h7M13 16.5h7"/>', 'Checklist'],
-    ['undo', '<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>', 'Undo my last change'],
-    ['redo', '<path d="m15 14 5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/>', 'Redo'],
-  ];
+  const I = {
+    undo: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>',
+    redo: '<path d="m15 14 5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/>',
+    bold: '<path d="M7 5h6a3.5 3.5 0 0 1 0 7H7zM7 12h7a3.5 3.5 0 0 1 0 7H7z" stroke-width="2.4"/>',
+    italic: '<path d="M14 5h-4M14 19h-4M14 5l-4 14"/>',
+    underline: '<path d="M7 4v7a5 5 0 0 0 10 0V4M5 20h14"/>',
+    strike: '<path d="M4 12h16M16.5 7.5C16 5.6 14.2 4.5 12 4.5c-2.6 0-4.5 1.4-4.5 3.4 0 1.6 1.1 2.6 3 3.1M8 16c.4 2.1 2.3 3.5 4.4 3.5 2.6 0 4.6-1.4 4.6-3.6 0-1-.4-1.8-1.1-2.4"/>',
+    color: '<path d="m6 18 6-14 6 14M8.3 13h7.4"/>',
+    marker: '<path d="m15 4 5 5-8.5 8.5H7v-4.5z"/><path d="m12.5 6.5 5 5"/>',
+    bullets: '<circle cx="5" cy="7" r="1.2" fill="currentColor"/><circle cx="5" cy="12" r="1.2" fill="currentColor"/><circle cx="5" cy="17" r="1.2" fill="currentColor"/><path d="M9 7h11M9 12h11M9 17h11"/>',
+    numbers: '<path d="M4 5h2v4M4 9h3M4 14.5c0-1 2.5-1.5 2.5 0S4 17 4 18.5h3"/><path d="M10 7h10M10 12h10M10 17h10"/>',
+    tasks: '<rect x="3.5" y="4.5" width="6" height="6" rx="1.5"/><path d="m5 7.5 1.3 1.3L8.6 6.4"/><rect x="3.5" y="13.5" width="6" height="6" rx="1.5"/><path d="M13 7.5h7M13 16.5h7"/>',
+    left: '<path d="M4 6h16M4 10h10M4 14h16M4 18h10"/>', center: '<path d="M4 6h16M7 10h10M4 14h16M7 18h10"/>', right: '<path d="M4 6h16M10 10h10M4 14h16M10 18h10"/>',
+    quote: '<path d="M7 8c-1.7 0-3 1.3-3 3v5h5v-5H6c0-1.1.9-2 2-2zM16 8c-1.7 0-3 1.3-3 3v5h5v-5h-3c0-1.1.9-2 2-2z"/>',
+    link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+    clear: '<path d="M6 5h12M12 5l-3 14M15.5 14.5l5 5M20.5 14.5l-5 5"/>',
+    comment: '<path d="M4 5.5h16v10.5H10l-4.5 3.5V16H4z"/><path d="M8.5 9.5h7M8.5 12.5h4.5"/>',
+    check: '<path d="m5 12.5 4.2 4.2L19 7"/>', trash: '<path d="M5 7h14M10 7V4.5h4V7M7 7l1 13h8l1-13"/>', edit: '<path d="m15 4 5 5L9 20H4v-5z"/>', chev: '<path d="m7 10 5 5 5-5"/>',
+  };
+  const TEXT_COLORS = [['', 'Default', '#14293a'], ['#b0322b', 'Red', '#b0322b'], ['#c26412', 'Orange', '#c26412'], ['#2f7a52', 'Green', '#2f7a52'], ['#1f6f8b', 'Teal', '#1f6f8b'], ['#2f55b0', 'Blue', '#2f55b0'], ['#7a4a8c', 'Purple', '#7a4a8c'], ['#6b7680', 'Grey', '#6b7680']];
+  const MARKS = [['', 'None'], ['#fff1a8', 'Yellow'], ['#c9f0d4', 'Green'], ['#cde6fb', 'Blue'], ['#f9d3e2', 'Pink'], ['#ffe0c2', 'Orange'], ['#e6dcf7', 'Lilac']];
+  const STYLES = [['p', 'Normal text'], ['h2', 'Heading'], ['h3', 'Subheading']];
+  const QUICK = ['Good point!', 'Add an example or evidence.', 'Cite the source here.', 'Check the grammar in this sentence.', 'Can you make this clearer?', 'Use a more academic word.'];
   const GROUPS = [['class', 'Whole class'], ...Array.from({ length: 8 }, (_, i) => ['g' + (i + 1), 'Group ' + (i + 1)])];
   const STATUS = { connecting: 'Connecting…', saving: 'Saving…', saved: 'Saved', error: 'Not saved yet · trying again', offline: 'Offline' };
+  const ago = t => { const s = (Date.now() - t) / 1000; return s < 60 ? 'just now' : s < 3600 ? Math.round(s / 60) + ' min ago' : s < 86400 ? Math.round(s / 3600) + ' h ago' : new Date(t).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }); };
+
+  /* a teacher comment is a mark on the text that lists the ids of every comment on that text ("c1 c2"),
+     so one word, sentence or paragraph can carry several comments; the comment itself lives in the Y.Map "comments" */
+  function commentMark(T) {
+    return T.Mark.create({ name: 'comment', inclusive: false, spanning: true,
+      addAttributes() { return { ids: { default: '', parseHTML: el => el.getAttribute('data-ids') || '', renderHTML: a => ({ 'data-ids': a.ids, 'data-n': String((a.ids || '').split(' ').filter(Boolean).length) }) } }; },
+      parseHTML() { return [{ tag: 'span[data-ids]' }]; },
+      renderHTML({ HTMLAttributes }) { return ['span', T.mergeAttributes(HTMLAttributes, { class: 'cw-cm' }), 0]; } });
+  }
 
   async function open(o) {
     /* o: { lessonId, activityId, title, goal, getCloud, esc, icon, toast, signIn, isTeacher } */
     const { esc, toast } = o, cloud = o.getCloud(), c = cloud?.client;
     if (!c || !cloud.user) { toast('Sign in to write together with your class.'); o.signIn?.(); return; }
     if (cur) await cur.close();
+    const teacher = !!o.isTeacher?.();
     const LS = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } };
     const groupKey = 'dec15-cowrite-group:' + o.lessonId;
     let group = LS(groupKey) || '';
     const me = { name: (cloud.profile?.full_name || cloud.user.email?.split('@')[0] || 'Student').trim().split(' ').slice(0, 2).join(' '), color: COLORS[Math.abs([...cloud.user.id].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) | 0, 7)) % COLORS.length] };
     const wrap = document.createElement('div'); wrap.className = 'cw-wrap'; wrap.setAttribute('role', 'dialog'); wrap.setAttribute('aria-modal', 'true'); wrap.setAttribute('aria-labelledby', 'cw-title');
     const back = document.activeElement;
-    wrap.innerHTML = `<div class="cw" tabindex="-1">
+    const btn = (k, label, extra = '') => `<button type="button" data-cw="${k}" title="${label}" aria-label="${label}"${extra}>${svg(I[k])}</button>`;
+    wrap.innerHTML = `<div class="cw${teacher ? ' is-teacher' : ''}" tabindex="-1">
       <div class="cw-head"><span class="cw-badge" aria-hidden="true">${o.icon('users')}</span>
         <div class="cw-titles"><small>Write together</small><h2 id="cw-title">${esc(o.title)}</h2></div>
         <div class="cw-faces" aria-live="polite"></div>
         <button type="button" class="cw-x" data-cw-close aria-label="Close">×</button></div>
       <div class="cw-pick"></div>
       <div class="cw-body" hidden>
-        <div class="cw-bar" role="toolbar" aria-label="Formatting">${TOOLS.map(([k, p, l]) => `<button type="button" data-cw="${k}" title="${l}" aria-label="${l}">${svg(p)}</button>`).join('')}
-          <span class="cw-sp"></span><label class="cw-gsel"><span class="sr-only">Group</span><select data-cw-group aria-label="Group">${GROUPS.map(([k, l]) => `<option value="${k}">${l}</option>`).join('')}</select></label>
+        <div class="cw-bar" role="toolbar" aria-label="Formatting">
+          <div class="cw-grp">${btn('undo', 'Undo my last change')}${btn('redo', 'Redo')}</div>
+          <div class="cw-grp"><label class="cw-style"><span class="sr-only">Text style</span><select data-cw-style aria-label="Text style">${STYLES.map(([k, l]) => `<option value="${k}">${l}</option>`).join('')}</select>${svg(I.chev)}</label></div>
+          <div class="cw-grp">${btn('bold', 'Bold (Ctrl+B)')}${btn('italic', 'Italic (Ctrl+I)')}${btn('underline', 'Underline (Ctrl+U)')}${btn('strike', 'Strikethrough')}</div>
+          <div class="cw-grp"><button type="button" class="cw-swatch" data-cw-pop="color" title="Text colour" aria-label="Text colour" aria-haspopup="true">${svg(I.color)}<i class="cw-sw-bar" data-cw-colorbar></i></button>
+            <button type="button" class="cw-swatch" data-cw-pop="mark" title="Highlight" aria-label="Highlight colour" aria-haspopup="true">${svg(I.marker)}<i class="cw-sw-bar" data-cw-markbar></i></button></div>
+          <div class="cw-grp">${btn('bullets', 'Bullet list')}${btn('numbers', 'Numbered list')}${btn('tasks', 'Checklist')}</div>
+          <div class="cw-grp cw-grp-more"><button type="button" data-cw-pop="align" title="Align" aria-label="Align text" aria-haspopup="true">${svg(I.left)}</button>${btn('quote', 'Quote')}${btn('link', 'Link')}${btn('clear', 'Clear formatting')}</div>
+          <span class="cw-sp"></span>
+          ${teacher ? `<button type="button" class="cw-addc" data-cw-addc disabled title="Select some text, then add a comment">${svg(I.comment)}<span>Comment</span></button>` : ''}
+          <button type="button" class="cw-ctog" data-cw-ctog hidden aria-pressed="true" title="Show or hide comments">${svg(I.comment)}<b>0</b></button>
+          <label class="cw-gsel"><span class="sr-only">Group</span><select data-cw-group aria-label="Group">${GROUPS.map(([k, l]) => `<option value="${k}">${l}</option>`).join('')}</select></label>
           <button type="button" class="cw-more" data-cw-more aria-label="More">⋯</button></div>
-        <div class="cw-page"><div class="cw-goal">${o.goal ? `<b>Task</b> ${esc(o.goal)}` : ''}</div><div class="cw-editor"></div></div>
+        <div class="cw-page"><div class="cw-sheet"><div class="cw-goal">${o.goal ? `<b>Task</b> ${esc(o.goal)}` : ''}</div><div class="cw-editor"></div><button type="button" class="cw-bubble" data-cw-bubble hidden>${svg(I.comment)}Comment</button></div><aside class="cw-rail" aria-label="Teacher comments"></aside></div>
         <footer class="cw-foot"><span class="cw-status" role="status"></span><span class="cw-words"></span><span class="cw-by" aria-live="polite"></span><span class="cw-hint">Changes save by themselves.</span></footer>
       </div></div>`;
     document.body.append(wrap); document.body.classList.add('cw-open');
     const $ = s => wrap.querySelector(s);
-    let editor = null, prov = null, ydoc = null, awareness = null;
+    let editor = null, prov = null, ydoc = null, awareness = null, cmap = null, active = null, draft = null, narrowOpen = false, railOn = LS('dec15-cw-rail') !== '0', showRead = false;
     const status = s => { const el = $('.cw-status'); if (el) { el.dataset.s = s; el.textContent = STATUS[s] || ''; } };
     const faces = () => {
       const seen = new Map(); awareness?.getStates().forEach((st, id) => { if (st.user && !seen.has(st.user.name + st.user.color)) seen.set(st.user.name + st.user.color, { ...st.user, me: id === ydoc.clientID }); });
@@ -122,13 +155,11 @@ window.DEC15Collab = (() => {
       $('.cw-faces').innerHTML = list.slice(0, 6).map(u => `<span class="cw-face" style="--c:${u.color}" title="${esc(u.name)}${u.me ? ' (you)' : ''}">${esc(u.name.slice(0, 1).toUpperCase())}</span>`).join('')
         + (list.length > 6 ? `<span class="cw-face more">+${list.length - 6}</span>` : '') + `<span class="cw-here">${list.length} here</span>`;
     };
-    /* a thin caret with a tiny name tag that fades after a moment (hover the caret to see the name again) */
     function caret(user) {
       const c = document.createElement('span'); c.className = 'collaboration-cursor__caret cw-caret'; c.style.borderColor = user.color;
       const l = document.createElement('span'); l.className = 'collaboration-cursor__label'; l.style.backgroundColor = user.color; l.textContent = (user.name || '').split(' ')[0];
       c.append(l); return c;
     }
-    /* who has written in this document (kept inside the document itself, so it survives) */
     let lastMark = 0;
     const markMe = () => { const now = Date.now(); if (!ydoc || now - lastMark < 4000) return; lastMark = now;
       const who = ydoc.getMap('who'), mine = who.get(cloud.user.id) || {};
@@ -137,33 +168,169 @@ window.DEC15Collab = (() => {
       const list = [...ydoc.getMap('who').values()].sort((a, b) => (b.edits || 0) - (a.edits || 0));
       el.innerHTML = list.length ? `<span class="cw-by-dots">${list.slice(0, 8).map(u => `<i style="--c:${u.color}" title="${esc(u.name)}"></i>`).join('')}</span>Written by ${esc(list.slice(0, 3).map(u => u.name.split(' ')[0]).join(', '))}${list.length > 3 ? ` and ${list.length - 3} more` : ''}` : ''; };
     const words = () => { const n = ((editor?.getText() || '').match(/[\p{L}\p{N}'’-]+/gu) || []).length; const el = $('.cw-words'); if (el) el.textContent = `${n} word${n === 1 ? '' : 's'}`; };
-    const paintBar = () => { if (!editor) return; const on = { bold: editor.isActive('bold'), italic: editor.isActive('italic'), underline: editor.isActive('underline'), highlight: editor.isActive('highlight'), h2: editor.isActive('heading', { level: 2 }), bullets: editor.isActive('bulletList'), numbers: editor.isActive('orderedList'), tasks: editor.isActive('taskList') };
-      wrap.querySelectorAll('[data-cw]').forEach(b => { if (b.dataset.cw in on) b.setAttribute('aria-pressed', String(!!on[b.dataset.cw])); }); };
+    const paintBar = () => { if (!editor) return;
+      const on = { bold: editor.isActive('bold'), italic: editor.isActive('italic'), underline: editor.isActive('underline'), strike: editor.isActive('strike'), bullets: editor.isActive('bulletList'), numbers: editor.isActive('orderedList'), tasks: editor.isActive('taskList'), quote: editor.isActive('blockquote'), link: editor.isActive('link') };
+      wrap.querySelectorAll('[data-cw]').forEach(b => { if (b.dataset.cw in on) b.setAttribute('aria-pressed', String(!!on[b.dataset.cw])); });
+      const st = editor.isActive('heading', { level: 2 }) ? 'h2' : editor.isActive('heading', { level: 3 }) ? 'h3' : 'p'; const sel = $('[data-cw-style]'); if (sel && sel.value !== st) sel.value = st;
+      $('[data-cw-colorbar]').style.background = editor.getAttributes('textStyle').color || '#14293a';
+      const hl = editor.getAttributes('highlight'); $('[data-cw-markbar]').style.background = editor.isActive('highlight') ? (hl.color || '#fff1a8') : 'transparent';
+      const al = ['center', 'right'].find(a => editor.isActive({ textAlign: a })) || 'left'; $('[data-cw-pop="align"]').innerHTML = svg(I[al]);
+      paintSel(); };
+
+    /* ───────── comments ───────── */
+    const comments = () => cmap ? [...cmap.entries()].map(([id, v]) => ({ id, ...v })) : [];
+    const openOnes = () => comments().filter(x => !x.done).sort((a, b) => a.at - b.at);
+    function markIds(fn) {   // walk every piece of text that carries comment ids
+      const type = editor.schema.marks.comment; editor.state.doc.descendants((node, pos) => { if (!node.isText) return; const m = type.isInSet(node.marks); if (m) fn(node, pos, m.attrs.ids.split(' ').filter(Boolean), type); });
+    }
+    function addMark(from, to, id) {
+      const { state } = editor, type = state.schema.marks.comment, tr = state.tr;
+      state.doc.nodesBetween(from, to, (node, pos) => { if (!node.isText) return;
+        const s = Math.max(pos, from), e = Math.min(pos + node.nodeSize, to), m = type.isInSet(node.marks), ids = new Set((m?.attrs.ids || '').split(' ').filter(Boolean)); ids.add(id);
+        tr.addMark(s, e, type.create({ ids: [...ids].join(' ') })); });
+      tr.setMeta('addToHistory', false); editor.view.dispatch(tr);
+    }
+    function dropMark(id) {
+      const tr = editor.state.tr; let hit = false;
+      markIds((node, pos, ids, type) => { if (!ids.includes(id)) return; hit = true; const rest = ids.filter(x => x !== id);
+        if (rest.length) tr.addMark(pos, pos + node.nodeSize, type.create({ ids: rest.join(' ') })); else tr.removeMark(pos, pos + node.nodeSize, type); });
+      if (hit) { tr.setMeta('addToHistory', false); editor.view.dispatch(tr); }
+    }
+    const anchors = () => { const map = new Map(); markIds((node, pos, ids) => ids.forEach(id => { const a = map.get(id); if (!a) map.set(id, { from: pos, to: pos + node.nodeSize }); else a.to = pos + node.nodeSize; })); return map; };
+    function saveDraft() {
+      const ta = $('.cw-cnew textarea'), text = ta?.value.trim(); if (!text || !draft) { ta?.focus(); return; }
+      const id = 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+      const quote = editor.state.doc.textBetween(draft.from, draft.to, ' ').slice(0, 140);
+      cmap.set(id, { by: me.name, byId: cloud.user.id, text: text.slice(0, 1000), quote, at: Date.now(), done: null });
+      addMark(draft.from, draft.to, id); active = id; draft = null; railOn = true; paintRail();
+      toast('Comment added. Students see it beside their writing.');
+    }
+    function resolve(id) {   // "Got it": the comment goes, the writing stays exactly as it is
+      const v = cmap.get(id); if (!v) return;
+      dropMark(id); cmap.set(id, { ...v, done: { by: me.name, at: Date.now() } }); if (active === id) active = null; paintRail();
+    }
+    function remove(id) { dropMark(id); cmap.delete(id); if (active === id) active = null; paintRail(); }
+    function edit(id) { const v = cmap.get(id), card = wrap.querySelector(`.cw-card[data-cid="${id}"]`); if (!v || !card) return;
+      card.querySelector('.cw-ctext').outerHTML = `<div class="cw-cedit"><textarea rows="3" maxlength="1000">${esc(v.text)}</textarea><div class="cw-cacts"><button type="button" class="cw-cbtn" data-cedit-cancel>Cancel</button><button type="button" class="cw-cbtn pri" data-cedit-save="${id}">Save</button></div></div>`;
+      const ta = card.querySelector('textarea'); ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); }
+    const ini = n => esc((n || '?').trim().slice(0, 1).toUpperCase());
+    function cardHTML(x, read) {
+      const mine = x.byId === cloud.user.id;
+      return `<article class="cw-card${active === x.id ? ' on' : ''}${read ? ' read' : ''}" data-cid="${x.id}" tabindex="0">
+        <header><span class="cw-cav" aria-hidden="true">${ini(x.by)}</span><span class="cw-cwho"><b>${esc(x.by)}</b><small>Teacher · ${esc(ago(x.at))}</small></span>
+          ${teacher && !read ? `<span class="cw-cicons">${mine ? `<button type="button" data-cedit="${x.id}" title="Edit" aria-label="Edit comment">${svg(I.edit)}</button>` : ''}<button type="button" data-cdel="${x.id}" title="Delete" aria-label="Delete comment">${svg(I.trash)}</button></span>` : ''}</header>
+        ${x.quote ? `<q class="cw-cq">${esc(x.quote.length > 70 ? x.quote.slice(0, 68) + '…' : x.quote)}</q>` : ''}
+        <p class="cw-ctext">${esc(x.text).replace(/\n/g, '<br>')}</p>
+        ${read ? `<p class="cw-cread">${svg(I.check)} Read by ${esc(x.done.by.split(' ')[0])} · ${esc(ago(x.done.at))}${teacher ? ` <button type="button" class="cw-clink" data-cdel="${x.id}">Delete</button>` : ''}</p>`
+          : teacher ? `<p class="cw-cwait"><i></i>Not read yet</p>`
+          : `<div class="cw-cacts"><button type="button" class="cw-cbtn ok" data-cdone="${x.id}" title="Your writing does not change">${svg(I.check)}Got it</button></div>`}
+      </article>`;
+    }
+    function paintRail() {
+      const rail = $('.cw-rail'); if (!rail || !editor) return;
+      const list = openOnes(), read = comments().filter(x => x.done).sort((a, b) => b.done.at - a.done.at);
+      const tog = $('[data-cw-ctog]'); tog.hidden = !list.length && !draft && !(teacher && read.length); tog.querySelector('b').textContent = list.length; tog.setAttribute('aria-pressed', String(railOn)); tog.classList.toggle('has', list.length > 0);
+      const show = railOn && (list.length || draft || (teacher && read.length));
+      wrap.querySelector('.cw').classList.toggle('rail-on', !!show);
+      paintMarks();
+      if (!show) { rail.innerHTML = ''; return; }
+      if (matchMedia('(max-width: 1000px)').matches && !narrowOpen && !draft) {   // small screens: one quiet line instead of the cards
+        rail.innerHTML = list.length ? `<button type="button" class="cw-strip" data-cw-strip><span class="cw-cav" aria-hidden="true">${svg(I.comment)}</span><span><b>${list.length} comment${list.length === 1 ? '' : 's'} from your teacher</b><small>${esc(list[0].text.slice(0, 60))}${list[0].text.length > 60 ? '…' : ''}</small></span><em>Show</em></button>` : ''; return; }
+      rail.innerHTML = `<div class="cw-rail-in">${draft ? `<article class="cw-card cw-cnew on" data-top="${draft.from}"><header><span class="cw-cav" aria-hidden="true">${ini(me.name)}</span><span class="cw-cwho"><b>${esc(me.name)}</b><small>New comment</small></span></header>
+          <q class="cw-cq">${esc(draft.quote.length > 70 ? draft.quote.slice(0, 68) + '…' : draft.quote)}</q>
+          <textarea rows="3" maxlength="1000" placeholder="Write a comment…" aria-label="Comment"></textarea>
+          <div class="cw-quick">${QUICK.map(q => `<button type="button" data-cquick="${esc(q)}">${esc(q)}</button>`).join('')}</div>
+          <div class="cw-cacts"><button type="button" class="cw-cbtn" data-ccancel>Cancel</button><button type="button" class="cw-cbtn pri" data-csave>Comment</button></div></article>` : ''}
+        ${list.map(x => cardHTML(x, false)).join('')}</div>${narrowOpen ? '<button type="button" class="cw-clink cw-fold" data-cw-fold>Hide comments</button>' : ''}
+        ${teacher && read.length ? `<details class="cw-readlist"${showRead ? ' open' : ''}><summary>${svg(I.check)} ${read.length} read by students</summary>${read.map(x => cardHTML(x, true)).join('')}</details>` : ''}`;
+      place();
+    }
+    function paintMarks() {   // which highlighted text is active
+      wrap.querySelectorAll('.cw-cm').forEach(el => el.classList.toggle('on', !!active && el.dataset.ids.split(' ').includes(active)));
+    }
+    /* each card sits next to its text (like a word processor); cards that would overlap are pushed down */
+    function place() {
+      const rail = $('.cw-rail'), inner = rail?.querySelector('.cw-rail-in'); if (!inner || !editor) return;
+      const narrow = getComputedStyle($('.cw-page')).gridTemplateColumns.split(' ').length < 2; inner.classList.toggle('flow', narrow); if (narrow) { inner.style.height = ''; inner.querySelectorAll('.cw-card').forEach(c => { c.style.top = ''; }); return; }
+      const base = rail.getBoundingClientRect().top, an = anchors();
+      let y = 0; const cards = [...inner.querySelectorAll('.cw-card')];
+      const want = c => { const pos = c.classList.contains('cw-cnew') ? draft?.from : an.get(c.dataset.cid)?.from; if (pos == null) return 0; try { return editor.view.coordsAtPos(Math.min(pos + 1, editor.state.doc.content.size)).top - base - 6; } catch (e) { return 0; } };
+      const tops = cards.map(c => ({ c, t: want(c) })).sort((a, b) => a.t - b.t);
+      const act = tops.find(x => x.c.classList.contains('on'));
+      tops.forEach(x => { const t = Math.max(x.t, y); x.c.style.top = t + 'px'; y = t + x.c.offsetHeight + 10; });
+      if (act) { const shift = act.t - parseFloat(act.c.style.top); if (shift < 0) { let y2 = 0; tops.forEach(x => { const t = Math.max(x.t + (tops.indexOf(x) <= tops.indexOf(act) ? shift : 0), y2, 0); x.c.style.top = t + 'px'; y2 = t + x.c.offsetHeight + 10; }); } }
+      inner.style.height = y + 'px';
+    }
+    function focusComment(id, scroll) {
+      active = id; wrap.querySelectorAll('.cw-card').forEach(c => c.classList.toggle('on', c.dataset.cid === id)); paintMarks(); place();
+      if (scroll) { const el = wrap.querySelector(`.cw-cm[data-ids~="${id}"]`); el?.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
+    }
+    /* the small "Comment" bubble for the teacher, next to the selected text */
+    function paintSel() {
+      if (!teacher || !editor) return; const { from, to, empty } = editor.state.selection, ok = !empty && editor.state.doc.textBetween(from, to, ' ').trim().length > 0;
+      const add = $('[data-cw-addc]'); if (add) add.disabled = !ok;
+      const b = $('[data-cw-bubble]'); if (!b) return; if (!ok || draft || !editor.isFocused) { b.hidden = true; return; }
+      try { const end = editor.view.coordsAtPos(to), sheet = $('.cw-sheet').getBoundingClientRect(); b.hidden = false; b.style.top = (end.bottom - sheet.top + 6) + 'px'; b.style.left = Math.min(end.left - sheet.left - 20, sheet.width - 120) + 'px'; } catch (e) { b.hidden = true; }
+    }
+    function startComment() {
+      const { from, to, empty } = editor.state.selection; if (empty) { toast('Select the words you want to comment on first.'); return; }
+      draft = { from, to, quote: editor.state.doc.textBetween(from, to, ' ').slice(0, 140) }; railOn = true; $('[data-cw-bubble]').hidden = true; paintRail();
+      setTimeout(() => $('.cw-cnew textarea')?.focus(), 30);
+    }
+
+    /* ───────── pop-up pickers: colour, highlight, alignment, link ───────── */
+    function pop(kind, anchor) {
+      wrap.querySelector('.cw-pop')?.remove();
+      const m = document.createElement('div'); m.className = 'cw-pop cw-pop-' + kind; m.setAttribute('role', 'menu');
+      if (kind === 'color') m.innerHTML = `<p>Text colour</p><div class="cw-dots">${TEXT_COLORS.map(([v, l, show]) => `<button type="button" data-pc="${v}" title="${l}" aria-label="${l}" style="--c:${show}"><span>A</span></button>`).join('')}</div>`;
+      if (kind === 'mark') m.innerHTML = `<p>Highlight</p><div class="cw-dots">${MARKS.map(([v, l]) => `<button type="button" data-pm="${v}" title="${l}" aria-label="${l}" class="${v ? '' : 'none'}" style="--c:${v || '#fff'}"></button>`).join('')}</div>`;
+      if (kind === 'align') m.innerHTML = ['left', 'center', 'right'].map(a => `<button type="button" class="cw-prow" data-pa="${a}">${svg(I[a])}${a[0].toUpperCase() + a.slice(1)}</button>`).join('');
+      if (kind === 'link') m.innerHTML = `<p>Link</p><form class="cw-plink"><input type="url" placeholder="https://…" value="${esc(editor.getAttributes('link').href || '')}" aria-label="Web address"><button type="submit" class="cw-cbtn pri">Add</button>${editor.isActive('link') ? '<button type="button" class="cw-cbtn" data-unlink>Remove</button>' : ''}</form>`;
+      wrap.querySelector('.cw').append(m);
+      const r = anchor.getBoundingClientRect(), pr = wrap.querySelector('.cw').getBoundingClientRect();
+      m.style.top = (r.bottom - pr.top + 6) + 'px'; m.style.left = Math.max(8, Math.min(r.left - pr.left - 8, pr.width - m.offsetWidth - 8)) + 'px';
+      (m.querySelector('input') || m.querySelector('button'))?.focus();
+      const off = ev => { if (!m.contains(ev.target) && ev.target !== anchor && !anchor.contains(ev.target)) { m.remove(); document.removeEventListener('pointerdown', off, true); } };
+      setTimeout(() => document.addEventListener('pointerdown', off, true), 0);
+      m.addEventListener('click', ev => { const t = ev.target.closest('button'); if (!t) return; const ch = editor.chain().focus();
+        if (t.dataset.pc !== undefined) { (t.dataset.pc ? ch.setColor(t.dataset.pc) : ch.unsetColor()).run(); m.remove(); }
+        if (t.dataset.pm !== undefined) { (t.dataset.pm ? ch.setHighlight({ color: t.dataset.pm }) : ch.unsetHighlight()).run(); m.remove(); }
+        if (t.dataset.pa) { ch.setTextAlign(t.dataset.pa).run(); m.remove(); }
+        if (t.dataset.unlink !== undefined) { ch.extendMarkRange('link').unsetLink().run(); m.remove(); } });
+      m.addEventListener('submit', ev => { ev.preventDefault(); let v = m.querySelector('input').value.trim(); if (v && !/^https?:\/\//i.test(v)) v = 'https://' + v;
+        const ch = editor.chain().focus().extendMarkRange('link'); (v ? ch.setLink({ href: v }) : ch.unsetLink()).run(); m.remove(); });
+    }
 
     async function start(g) {
       group = g; LS(groupKey, g); $('.cw-pick').hidden = true; $('.cw-body').hidden = false; $('[data-cw-group]').value = g; status('connecting');
       if (editor) { editor.destroy(); editor = null; } if (prov) { await prov.stop(); prov = null; }
-      const T = window.Tiptap; ydoc = new T.Y.Doc(); awareness = new T.Awareness(ydoc);
+      draft = null; active = null;
+      const T = window.Tiptap; ydoc = new T.Y.Doc(); awareness = new T.Awareness(ydoc); cmap = ydoc.getMap('comments');
       awareness.on('change', faces);
       const docId = `${o.lessonId}:${o.activityId}:${g}`.slice(0, 120);
       prov = provider(c, docId, o.lessonId, ydoc, awareness, status, () => { toast('Your teacher cleared this page.'); start(group); });
       const ok = await prov.start(); if (!ok) { status('error'); }
       editor = new T.Editor({ element: $('.cw-editor'),
-        extensions: [T.StarterKit.configure({ history: false, heading: { levels: [2, 3] } }), T.Underline, T.Highlight, T.TaskList, T.TaskItem.configure({ nested: true }),
+        extensions: [T.StarterKit.configure({ history: false, heading: { levels: [2, 3] } }), T.Underline, T.TextStyle, T.Color, T.Highlight.configure({ multicolor: true }),
+          T.TextAlign.configure({ types: ['heading', 'paragraph'] }), T.Link.configure({ openOnClick: false, autolink: true, HTMLAttributes: { rel: 'noopener noreferrer', target: '_blank' } }),
+          T.TaskList, T.TaskItem.configure({ nested: true }), commentMark(T),
           T.Placeholder.configure({ placeholder: 'Start writing together…' }),
           T.Collaboration.configure({ document: ydoc }), T.CollaborationCursor.configure({ provider: { awareness }, user: me, render: caret })],
-        editorProps: { attributes: { class: 'cw-doc', spellcheck: 'true', 'aria-label': 'Shared document', role: 'textbox', 'aria-multiline': 'true' } },
-        onUpdate: words, onSelectionUpdate: paintBar, onTransaction: paintBar });
+        editorProps: { attributes: { class: 'cw-doc', spellcheck: 'true', 'aria-label': 'Shared document', role: 'textbox', 'aria-multiline': 'true' },
+          handleClick: (view, pos, ev) => { const el = ev.target.closest?.('.cw-cm'); if (el) { const ids = el.dataset.ids.split(' ').filter(Boolean); const nx = ids[(ids.indexOf(active) + 1) % ids.length] || ids[0]; railOn = true; if (!narrowOpen && matchMedia('(max-width: 1000px)').matches) { narrowOpen = true; paintRail(); } else if (!wrap.querySelector('.cw').classList.contains('rail-on')) paintRail(); focusComment(nx); } else if (active) { active = null; wrap.querySelectorAll('.cw-card.on').forEach(c => c.classList.remove('on')); paintMarks(); } return false; } },
+        onUpdate: () => { words(); requestAnimationFrame(place); }, onSelectionUpdate: paintBar, onTransaction: paintBar, onFocus: paintSel, onBlur: () => setTimeout(paintSel, 150) });
       ydoc.on('update', (u, origin) => { if (origin !== 'remote' && editor?.isFocused) markMe(); });
       ydoc.getMap('who').observe(paintBy); paintBy();
-      words(); faces(); editor.commands.focus('end');
+      let seen = openOnes().length;
+      cmap.observe(() => { const n = openOnes().length; if (!teacher && n > seen) { const t = $('[data-cw-ctog]'); t?.classList.remove('ping'); void t?.offsetWidth; t?.classList.add('ping'); } seen = n; paintRail(); });
+      words(); faces(); paintRail(); editor.commands.focus('end');
     }
-    const RUN = { bold: e => e.toggleBold(), italic: e => e.toggleItalic(), underline: e => e.toggleUnderline(), highlight: e => e.toggleHighlight(), h2: e => e.toggleHeading({ level: 2 }), bullets: e => e.toggleBulletList(), numbers: e => e.toggleOrderedList(), tasks: e => e.toggleTaskList(), undo: e => e.undo(), redo: e => e.redo() };
+    const RUN = { bold: e => e.toggleBold(), italic: e => e.toggleItalic(), underline: e => e.toggleUnderline(), strike: e => e.toggleStrike(), bullets: e => e.toggleBulletList(), numbers: e => e.toggleOrderedList(), tasks: e => e.toggleTaskList(), quote: e => e.toggleBlockquote(), clear: e => ['bold', 'italic', 'underline', 'strike', 'code', 'textStyle', 'highlight', 'link'].reduce((ch, m) => ch.unsetMark(m), e).clearNodes().setTextAlign('left'), undo: e => e.undo(), redo: e => e.redo() };
     const text = () => editor ? editor.getText({ blockSeparator: '\n' }) : '';
     function menu(anchor) {
       const m = document.createElement('div'); m.className = 'cw-menu'; m.setAttribute('role', 'menu');
       m.innerHTML = `<button type="button" role="menuitem" data-mm="copy">Copy all the text</button><button type="button" role="menuitem" data-mm="txt">Download as a text file</button><button type="button" role="menuitem" data-mm="print">Print, or save as PDF</button>
-        ${o.isTeacher?.() ? '<hr><button type="button" role="menuitem" class="danger" data-mm="clear">Clear this document for everyone</button>' : ''}`;
+        ${teacher ? '<hr><button type="button" role="menuitem" class="danger" data-mm="clear">Clear this document for everyone</button>' : ''}`;
       wrap.querySelector('.cw').append(m); const r = anchor.getBoundingClientRect(), pr = wrap.querySelector('.cw').getBoundingClientRect();
       m.style.top = (r.bottom - pr.top + 6) + 'px'; m.style.right = (pr.right - r.right) + 'px'; m.querySelector('button').focus();
       const off = ev => { if (!m.contains(ev.target)) { m.remove(); document.removeEventListener('pointerdown', off, true); } };
@@ -178,20 +345,47 @@ window.DEC15Collab = (() => {
           if (error) { toast('Could not clear it. Check your internet.'); return; }
           prov.send('cleared', {}); toast('Document cleared.'); start(group); } });
     }
+    wrap.addEventListener('mousedown', e => { if (e.target.closest('[data-cw-bubble], .cw-bar button')) e.preventDefault(); });   // keep the text selected
     wrap.addEventListener('click', e => {
-      const t = e.target.closest('button, [data-cw-pick]'); if (!t) { if (e.target === wrap) close(); return; }
-      if (t.dataset.cwClose !== undefined) { close(); return; }
-      if (t.dataset.cwPick) { start(t.dataset.cwPick); return; }
-      if (t.dataset.cwMore !== undefined) { menu(t); return; }
-      const k = t.dataset.cw; if (k && editor) { RUN[k](editor.chain().focus()).run(); }
+      const card = e.target.closest('.cw-card'), t = e.target.closest('button, [data-cw-pick], summary');
+      if (!t) { if (card && !card.classList.contains('cw-cnew') && !e.target.closest('textarea')) focusComment(card.dataset.cid, true); else if (e.target === wrap) close(); return; }
+      const d = t.dataset;
+      if (d.cwClose !== undefined) { close(); return; }
+      if (d.cwPick) { start(d.cwPick); return; }
+      if (d.cwMore !== undefined) { menu(t); return; }
+      if (d.cwPop) { pop(d.cwPop, t); return; }
+      if (d.cw === 'link') { pop('link', t); return; }
+      if (d.cw && editor) { RUN[d.cw](editor.chain().focus()).run(); return; }
+      if (d.cwAddc !== undefined || d.cwBubble !== undefined) { startComment(); return; }
+      if (d.cwFold !== undefined) { narrowOpen = false; paintRail(); return; }
+      if (d.cwStrip !== undefined) { narrowOpen = true; paintRail(); return; }
+      if (d.cwCtog !== undefined) { railOn = !railOn; LS('dec15-cw-rail', railOn ? '1' : '0'); paintRail(); return; }
+      if (d.cquick) { const ta = $('.cw-cnew textarea'); ta.value = (ta.value.trim() ? ta.value.trim() + ' ' : '') + d.cquick; ta.focus(); return; }
+      if (d.csave !== undefined) { saveDraft(); return; }
+      if (d.ccancel !== undefined) { draft = null; paintRail(); editor.commands.focus(); return; }
+      if (d.cdone) { resolve(d.cdone); toast('Marked as read. Now improve your writing if you want to.'); return; }
+      if (d.cdel) { if (confirm('Delete this comment?')) remove(d.cdel); return; }
+      if (d.cedit) { edit(d.cedit); return; }
+      if (d.ceditCancel !== undefined) { paintRail(); return; }
+      if (d.ceditSave) { const v = cmap.get(d.ceditSave), tv = t.closest('.cw-card').querySelector('textarea').value.trim(); if (v && tv) cmap.set(d.ceditSave, { ...v, text: tv.slice(0, 1000) }); paintRail(); return; }
+      if (t.tagName === 'SUMMARY') { setTimeout(() => { showRead = !!wrap.querySelector('.cw-readlist')?.open; }, 0); }
     });
-    wrap.addEventListener('change', e => { if (e.target.matches('[data-cw-group]')) start(e.target.value); });
-    wrap.addEventListener('keydown', e => { if (e.key === 'Escape' && !wrap.querySelector('.cw-menu')) { e.preventDefault(); close(); } });
+    wrap.addEventListener('change', e => {
+      if (e.target.matches('[data-cw-group]')) start(e.target.value);
+      if (e.target.matches('[data-cw-style]') && editor) { const v = e.target.value, ch = editor.chain().focus(); (v === 'p' ? ch.setParagraph() : ch.setHeading({ level: +v.slice(1) })).run(); }
+    });
+    wrap.addEventListener('keydown', e => {
+      if (e.target.closest('.cw-cnew textarea') && e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); saveDraft(); return; }
+      if (e.key === 'Escape') { if (wrap.querySelector('.cw-pop')) { wrap.querySelector('.cw-pop').remove(); return; } if (draft) { draft = null; paintRail(); return; } if (!wrap.querySelector('.cw-menu')) { e.preventDefault(); close(); } }
+      if (teacher && (e.ctrlKey || e.metaKey) && e.altKey && (e.key === 'm' || e.key === 'M')) { e.preventDefault(); startComment(); }
+    });
+    $('.cw-page').addEventListener('scroll', () => paintSel(), { passive: true });
+    const ro = new ResizeObserver(() => place()); ro.observe($('.cw-page'));
     $('.cw-pick').innerHTML = `<p class="cw-pick-q"><b>Who are you writing with?</b><span>Choose the same group as your partners. Your teacher can open every group's page.</span></p>
       <div class="cw-groups">${GROUPS.map(([k, l]) => `<button type="button" class="cw-g${k === group ? ' last' : ''}" data-cw-pick="${k}">${k === 'class' ? o.icon('users') : `<b>${k.slice(1)}</b>`}<span>${l}</span>${k === group ? '<small>Last time</small>' : ''}</button>`).join('')}</div>`;
     wrap.querySelector('.cw').focus();
     async function close() {
-      if (!wrap.isConnected) return; const p = prov, ed = editor; prov = null; editor = null; cur = null;
+      if (!wrap.isConnected) return; const p = prov, ed = editor; prov = null; editor = null; cur = null; ro.disconnect();
       wrap.classList.add('closing'); document.body.classList.remove('cw-open');
       try { await p?.stop(); } catch (e) { /* ignore */ } ed?.destroy(); wrap.remove(); back?.focus?.();
     }

@@ -783,9 +783,9 @@ function paintWeekbar(route = navRoute) {
   if (!bar.querySelector('#wb-panel')) bar.innerHTML = '<div class="wb-row" role="menubar" aria-label="Weeks"></div><div class="wb-panel" id="wb-panel" role="region" hidden></div>';
   const cur = route === 'home' ? null : lesson.week;
   bar.querySelector('.wb-row').innerHTML = `<i class="wb-line" aria-hidden="true"></i>${course.map.map((m, i) => {
-      const w = course.weeks.find(x => x.n === m.n), n = w ? w.days.filter(d => d.status === 'ready').length : 0;
-      return `<button type="button" class="wb-item${cur === m.n ? ' is-current' : ''}${wbOpen === m.n ? ' open' : ''}${n ? '' : ' is-soon'}" data-wb-week="${m.n}" aria-haspopup="true" aria-expanded="${wbOpen === m.n}" style="--wk:${WB_TONES[i % WB_TONES.length]}" title="Week ${m.n} · ${esc(m.label)}">
-        <span class="wb-num">${m.n}</span><span class="wb-tx">Week ${m.n}</span><span class="wb-chev" aria-hidden="true"></span></button>`; }).join('')}
+      const w = course.weeks.find(x => x.n === m.n), n = w ? w.days.filter(d => d.status === 'ready').length : 0, wp = weekProgress(w);
+      return `<button type="button" class="wb-item${wp ? ' has-prog' : ''}${cur === m.n ? ' is-current' : ''}${wbOpen === m.n ? ' open' : ''}${n ? '' : ' is-soon'}" data-wb-week="${m.n}" aria-haspopup="true" aria-expanded="${wbOpen === m.n}" style="--wk:${WB_TONES[i % WB_TONES.length]}" title="Week ${m.n} · ${esc(m.label)}">
+        <span class="wb-num" style="--p:${wp.toFixed(3)}">${m.n}</span><span class="wb-tx">Week ${m.n}</span><span class="wb-chev" aria-hidden="true"></span></button>`; }).join('')}
       ${route !== 'home' ? `<a class="wb-go" href="${L('overview')}" title="Back to Week ${lesson.week}, Day ${lesson.day}: ${esc(lesson.title)}"><span class="wb-go-dot" aria-hidden="true"></span><span>Week ${lesson.week} · Day ${lesson.day}</span></a>` : ''}`;
   moveLine(bar);
 }
@@ -799,6 +799,16 @@ function moveLine(bar = $('#weekbar')) {
   line.style.opacity = '1'; line.style.setProperty('--x', it.offsetLeft + 8 + 'px'); line.style.setProperty('--w', it.offsetWidth - 16 + 'px'); line.style.setProperty('--wk', it.style.getPropertyValue('--wk'));
   if (first) requestAnimationFrame(() => line.classList.remove('no-anim'));
 }
+/* the soft highlight behind the chosen day glides to it; the little notch on the panel points at the open week */
+function glideDay(panel, instant) {
+  const hl = panel.querySelector('.wb-dhl'), b = panel.querySelector('.wb-day.sel'); if (!hl || !b) { if (hl) hl.style.opacity = '0'; return; }
+  const li = b.parentElement; if (instant) { hl.classList.add('no-anim'); requestAnimationFrame(() => hl.classList.remove('no-anim')); }
+  hl.style.opacity = '1'; hl.style.transform = `translateY(${li.offsetTop}px)`; hl.style.height = li.offsetHeight + 'px';
+}
+function notch(panel) {
+  const it = $(`[data-wb-week="${wbOpen}"]`); if (!it || panel.hidden) return;
+  const r = it.getBoundingClientRect(), p = panel.getBoundingClientRect(); panel.style.setProperty('--nx', Math.max(26, Math.min(p.width - 26, r.left - p.left + r.width / 2)) + 'px');
+}
 /* the panel keeps its node, so opening, switching weeks, switching days and closing each get their own motion */
 let wbCloseT = 0;
 function paintPanel(mode) {
@@ -807,6 +817,7 @@ function paintPanel(mode) {
   if (!wbOpen) { if (mode === 'close' && !panel.hidden && !matchMedia('(prefers-reduced-motion: reduce)').matches) { panel.classList.add('out'); wbCloseT = setTimeout(() => { panel.hidden = true; panel.innerHTML = ''; panel.classList.remove('out'); }, 190); } else { panel.hidden = true; panel.innerHTML = ''; } return; }
   const it = $(`[data-wb-week="${wbOpen}"]`); if (it) { const r = it.getBoundingClientRect(), b = panel.parentElement.getBoundingClientRect(); panel.style.setProperty('--ox', Math.round(r.left - b.left + r.width / 2) + 'px'); }
   if (mode === 'day') {   // only the parts column changes; the chosen day just moves its highlight
+    requestAnimationFrame(() => glideDay(panel));
     const w = course.weeks.find(x => x.n === wbOpen), d = w?.days.find(x => x.id === wbDay), col = panel.querySelector('.wb-parts-col');
     if (col && d) { col.innerHTML = dayParts(w, d, navRoute); col.classList.remove('swap'); void col.offsetWidth; col.classList.add('swap');
       panel.querySelectorAll('.wb-day').forEach(b => { const on = b.dataset.wbDay === wbDay; b.classList.toggle('sel', on); b.setAttribute('aria-pressed', String(on)); }); return; }
@@ -815,7 +826,10 @@ function paintPanel(mode) {
   panel.innerHTML = weekPanel(wbOpen, navRoute); panel.dataset.week = wbOpen;
   if (panel.hidden || mode === 'open') { panel.hidden = false; panel.classList.remove('in'); void panel.offsetWidth; panel.classList.add('in'); }
   else { panel.classList.remove('in'); const g = panel.querySelector('.wb-grid'); g.style.setProperty('--dir', wbOpen > was ? '1' : '-1'); g.classList.add('swap'); }
+  glideDay(panel, true); notch(panel);
 }
+/* how far through a week's activities this student is (0–1), from the saved summaries */
+function weekProgress(w) { if (!w) return 0; let dn = 0, tot = 0; w.days.forEach(d => { if (d.status !== 'ready') return; const [a, b] = dayProgress(d); dn += a; tot += b; }); return tot ? dn / tot : 0; }
 /* a day's picture: the day's own hero drawing where the week has one, otherwise the stage drawing */
 const dayArt = (w, d) => w.image ? `assets/week${w.n}/hero-${d.id}.svg` : artSrc(d.art || 'reading');
 function weekPanel(n, route) {
@@ -825,12 +839,13 @@ function weekPanel(n, route) {
   const intro = `<div class="wb-intro" style="--wk:${col}">
     <figure class="wb-pic">${w?.image ? `<img src="${esc(w.image)}" alt="" width="300" height="200" loading="lazy">` : `<span class="wb-pic-num" aria-hidden="true">${n}</span>`}</figure>
     <div class="wb-intro-tx"><p class="wb-eyebrow">Week ${n}</p><h2>${esc(w?.theme || m.label)}</h2><p class="wb-sum">${esc(w?.summary || m.sub || '')}</p>
-    ${ready.length ? `<p class="wb-prog">${started ? `<span class="wb-bar" aria-hidden="true"><i style="--p:${(started / ready.length).toFixed(3)}"></i></span>` : ''}<small>${started ? `${started} of ${ready.length} lessons started` : `${ready.length} lessons`}</small></p>` : ''}</div></div>`;
+    ${w && w.days.length ? `<div class="wb-prog"><ol class="wb-route" aria-hidden="true">${w.days.map(d => { const [a, b] = dayProgress(d); return `<li class="${d.status !== 'ready' ? 'soon' : b && a === b ? 'done' : a ? 'some' : ''}${d.id === lesson.id && route !== 'home' ? ' here' : ''}" style="--p:${b ? (a / b).toFixed(3) : 0}"><i></i></li>`; }).join('')}</ol><small>${started ? `${started} of ${ready.length} lessons started` : `${ready.length} lessons`}</small></div>` : ''}</div></div>`;
   if (!w || !w.days.length) return `<div class="wb-grid is-empty">${intro}<div class="wb-soon"><img src="${artSrc('reading')}" alt="" width="120" height="120"><b>Coming soon</b><p>The lessons for Week ${n} will appear here.</p></div></div>`;
   let sel = w.days.find(d => d.id === wbDay) || w.days.find(d => d.id === lesson.id) || ready[0] || w.days[0]; wbDay = sel.id;
-  const days = `<ol class="wb-days">${w.days.map(d => {
+  const days = `<ol class="wb-days"><li class="wb-dhl" aria-hidden="true"></li>${w.days.map(d => {
     const [dn, tot] = dayProgress(d), p = tot ? dn / tot : 0, soon = d.status !== 'ready', here = d.id === lesson.id && route !== 'home';
-    return `<li><button type="button" class="wb-day${d.id === sel.id ? ' sel' : ''}${soon ? ' is-soon' : ''}${here ? ' is-here' : ''}" data-wb-day="${d.id}" aria-pressed="${d.id === sel.id}">${ring(p, d.day, tot && p === 1)}
+    const [dn2, tot2] = dayProgress(d);
+    return `<li class="wb-dli${tot2 && dn2 === tot2 ? ' is-done' : ''}"><button type="button" class="wb-day${d.id === sel.id ? ' sel' : ''}${soon ? ' is-soon' : ''}${here ? ' is-here' : ''}" data-wb-day="${d.id}" aria-pressed="${d.id === sel.id}">${ring(p, d.day, tot && p === 1)}
       <span class="wb-dtx"><b>${esc(d.title)}</b><small>${here ? '<em>You are here</em>' : soon ? 'Coming soon' : `Day ${d.day}`}${!soon && dn ? ` · ${dn} of ${tot} done` : ''}</small></span></button></li>`; }).join('')}</ol>`;
   return `<div class="wb-grid">${intro}<div class="wb-col"><p class="wb-h">Lessons</p>${days}</div><div class="wb-col wb-parts-col">${dayParts(w, sel, route)}</div></div>`;
 }
@@ -1057,6 +1072,7 @@ let collabLoad = null;
 function loadCollab() {   // the shared editor loads only when "Write together" is pressed
   const add = (tag, attrs) => new Promise((ok, bad) => { const el = Object.assign(document.createElement(tag), attrs); el.onload = ok; el.onerror = bad; document.head.append(el); });
   return collabLoad || (collabLoad = Promise.all([
+    document.querySelector('link[href^="css/cowrite.css"]') ? null : add('link', { rel: 'stylesheet', href: 'css/cowrite.css?v=' + cfg.version }),
     window.Tiptap ? null : add('script', { src: 'js/vendor/tiptap.bundle.js?v=' + cfg.version }),
   ]).then(() => window.DEC15Collab || add('script', { src: 'js/collab.js?v=' + cfg.version })).catch(e => { collabLoad = null; throw e; }));
 }
