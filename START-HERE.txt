@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.54)
+DEC15 — COURSE APP (v2.55)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -603,3 +603,15 @@ v2.54 (Write together: formatting + teacher comments; week menu detail)
   points at the open week and follows it; the week's days appear as a route of dots (done, started, you are here);
   lessons are joined by a dotted line (solid once a lesson is finished); the highlight glides between lessons;
   a fine accent line slides in beside a part on hover.
+
+v2.55 (urgent fix: a comment could make a paragraph disappear)
+- Cause: v2.54 stored a teacher comment as a mark inside the shared text. A browser still running an older version
+  of the app did not know that mark, and the editor library (y-prosemirror) then DELETED the whole paragraph from
+  the shared document for everyone, instead of just ignoring the mark.
+- Fix 1: comments no longer touch the document at all. Each comment remembers its words (the quote plus a little
+  text before and after) and the highlight is drawn on a layer under the text. Old browsers see nothing new.
+- Fix 2: js/vendor/tiptap.bundle.js is patched (search "e.marks[o]&&t.push" and the two "catch{return") so the
+  editor skips styles it does not know and never deletes shared text it cannot display.
+- Fix 3: documents that already contain v2.54 comment marks are cleaned automatically when opened (the comments stay).
+- New for the teacher: ⋯ → "Earlier versions…" shows the text as it was at each pause in the writing and can bring
+  that version back for the whole group (nothing is lost: every change is kept).

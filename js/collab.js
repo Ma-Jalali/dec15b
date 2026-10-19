@@ -100,13 +100,15 @@ window.DEC15Collab = (() => {
   const STATUS = { connecting: 'Connecting…', saving: 'Saving…', saved: 'Saved', error: 'Not saved yet · trying again', offline: 'Offline' };
   const ago = t => { const s = (Date.now() - t) / 1000; return s < 60 ? 'just now' : s < 3600 ? Math.round(s / 60) + ' min ago' : s < 86400 ? Math.round(s / 3600) + ' h ago' : new Date(t).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }); };
 
-  /* a teacher comment is a mark on the text that lists the ids of every comment on that text ("c1 c2"),
-     so one word, sentence or paragraph can carry several comments; the comment itself lives in the Y.Map "comments" */
+  /* Teacher comments never change the document itself: each comment (Y.Map "comments") remembers the words it is about
+     (quote + a little text before and after), and the highlight is drawn on a layer under the text.
+     v2.54 stored comments as a mark inside the text; browsers still on an older version could not read that mark
+     and dropped the whole paragraph. That mark is kept here only so such documents still open; it is removed on load. */
   function commentMark(T) {
-    return T.Mark.create({ name: 'comment', inclusive: false, spanning: true,
-      addAttributes() { return { ids: { default: '', parseHTML: el => el.getAttribute('data-ids') || '', renderHTML: a => ({ 'data-ids': a.ids, 'data-n': String((a.ids || '').split(' ').filter(Boolean).length) }) } }; },
-      parseHTML() { return [{ tag: 'span[data-ids]' }]; },
-      renderHTML({ HTMLAttributes }) { return ['span', T.mergeAttributes(HTMLAttributes, { class: 'cw-cm' }), 0]; } });
+    return T.Mark.create({ name: 'comment', inclusive: false,
+      addAttributes() { return { ids: { default: '' } }; },
+      parseHTML() { return [{ tag: 'span[data-cw-old]' }]; },
+      renderHTML() { return ['span', { 'data-cw-old': '' }, 0]; } });
   }
 
   async function open(o) {
@@ -142,7 +144,7 @@ window.DEC15Collab = (() => {
           <button type="button" class="cw-ctog" data-cw-ctog hidden aria-pressed="true" title="Show or hide comments">${svg(I.comment)}<b>0</b></button>
           <label class="cw-gsel"><span class="sr-only">Group</span><select data-cw-group aria-label="Group">${GROUPS.map(([k, l]) => `<option value="${k}">${l}</option>`).join('')}</select></label>
           <button type="button" class="cw-more" data-cw-more aria-label="More">⋯</button></div>
-        <div class="cw-page"><div class="cw-sheet"><div class="cw-goal">${o.goal ? `<b>Task</b> ${esc(o.goal)}` : ''}</div><div class="cw-editor"></div><button type="button" class="cw-bubble" data-cw-bubble hidden>${svg(I.comment)}Comment</button></div><aside class="cw-rail" aria-label="Teacher comments"></aside></div>
+        <div class="cw-page"><div class="cw-sheet"><div class="cw-goal">${o.goal ? `<b>Task</b> ${esc(o.goal)}` : ''}</div><div class="cw-hl" aria-hidden="true"></div><div class="cw-editor"></div><button type="button" class="cw-bubble" data-cw-bubble hidden>${svg(I.comment)}Comment</button></div><aside class="cw-rail" aria-label="Teacher comments"></aside></div>
         <footer class="cw-foot"><span class="cw-status" role="status"></span><span class="cw-words"></span><span class="cw-by" aria-live="polite"></span><span class="cw-hint">Changes save by themselves.</span></footer>
       </div></div>`;
     document.body.append(wrap); document.body.classList.add('cw-open');
@@ -180,36 +182,50 @@ window.DEC15Collab = (() => {
     /* ───────── comments ───────── */
     const comments = () => cmap ? [...cmap.entries()].map(([id, v]) => ({ id, ...v })) : [];
     const openOnes = () => comments().filter(x => !x.done).sort((a, b) => a.at - b.at);
-    function markIds(fn) {   // walk every piece of text that carries comment ids
-      const type = editor.schema.marks.comment; editor.state.doc.descendants((node, pos) => { if (!node.isText) return; const m = type.isInSet(node.marks); if (m) fn(node, pos, m.attrs.ids.split(' ').filter(Boolean), type); });
+    /* the document as plain text, with the editor position of every character (blocks are joined with "\n") */
+    let idx = null;
+    function index() {
+      if (idx && idx.doc === editor.state.doc) return idx;
+      let txt = '', map = [];
+      editor.state.doc.descendants((node, pos) => { if (node.isText) { txt += node.text; for (let i = 0; i < node.text.length; i++) map.push(pos + i); } else if (node.isBlock && txt && !txt.endsWith('\n')) { txt += '\n'; map.push(-1); } });
+      return (idx = { doc: editor.state.doc, txt, map });
     }
-    function addMark(from, to, id) {
-      const { state } = editor, type = state.schema.marks.comment, tr = state.tr;
-      state.doc.nodesBetween(from, to, (node, pos) => { if (!node.isText) return;
-        const s = Math.max(pos, from), e = Math.min(pos + node.nodeSize, to), m = type.isInSet(node.marks), ids = new Set((m?.attrs.ids || '').split(' ').filter(Boolean)); ids.add(id);
-        tr.addMark(s, e, type.create({ ids: [...ids].join(' ') })); });
-      tr.setMeta('addToHistory', false); editor.view.dispatch(tr);
+    function anchorOf(from, to) {
+      const { txt, map } = index(); let a = map.findIndex(p => p >= from), b = -1; for (let i = map.length - 1; i >= 0; i--) if (map[i] >= 0 && map[i] < to) { b = i; break; }
+      if (a < 0 || b < a) return null;
+      return { quote: txt.slice(a, b + 1), pre: txt.slice(Math.max(0, a - 32), a), suf: txt.slice(b + 1, b + 33) };
     }
-    function dropMark(id) {
-      const tr = editor.state.tr; let hit = false;
-      markIds((node, pos, ids, type) => { if (!ids.includes(id)) return; hit = true; const rest = ids.filter(x => x !== id);
-        if (rest.length) tr.addMark(pos, pos + node.nodeSize, type.create({ ids: rest.join(' ') })); else tr.removeMark(pos, pos + node.nodeSize, type); });
-      if (hit) { tr.setMeta('addToHistory', false); editor.view.dispatch(tr); }
+    const shared = (x, y, back) => { let n = 0; while (n < x.length && n < y.length && (back ? x[x.length - 1 - n] === y[y.length - 1 - n] : x[n] === y[n])) n++; return n; };
+    function rangeOf(c) {   // where the comment's words are now; null when they have been rewritten
+      const q = c.quote; if (!q) return null; const { txt, map } = index(); let best = null, score = -1;
+      for (let i = txt.indexOf(q); i >= 0; i = txt.indexOf(q, i + 1)) { const sc = shared(c.pre || '', txt.slice(Math.max(0, i - 32), i), true) + shared(c.suf || '', txt.slice(i + q.length, i + q.length + 32)); if (sc > score) { score = sc; best = i; } }
+      if (best === null) return null;
+      let a = best, b = best + q.length - 1; while (a <= b && map[a] < 0) a++; while (b >= a && map[b] < 0) b--; if (a > b) return null;
+      return { from: map[a], to: map[b] + 1 };
     }
-    const anchors = () => { const map = new Map(); markIds((node, pos, ids) => ids.forEach(id => { const a = map.get(id); if (!a) map.set(id, { from: pos, to: pos + node.nodeSize }); else a.to = pos + node.nodeSize; })); return map; };
+    const anchors = () => { const m = new Map(); openOnes().forEach(c => { const r = rangeOf(c); if (r) m.set(c.id, r); }); return m; };
+    /* documents from v2.54: turn the old marks into anchors, then take the marks out of the text */
+    function migrate() {
+      const type = editor.schema.marks.comment; if (!type) return; const spans = new Map(); let any = false;
+      editor.state.doc.descendants((node, pos) => { if (!node.isText) return; const m = type.isInSet(node.marks); if (!m) return; any = true;
+        String(m.attrs.ids || '').split(' ').filter(Boolean).forEach(id => { const r = spans.get(id); if (!r) spans.set(id, { from: pos, to: pos + node.nodeSize }); else r.to = pos + node.nodeSize; }); });
+      if (!any) return;
+      spans.forEach((r, id) => { const v = cmap.get(id); if (v && !v.pre && !v.suf) { const an = anchorOf(r.from, r.to); if (an) cmap.set(id, { ...v, ...an }); } });
+      const tr = editor.state.tr.removeMark(0, editor.state.doc.content.size, type); tr.setMeta('addToHistory', false); editor.view.dispatch(tr);
+    }
     function saveDraft() {
       const ta = $('.cw-cnew textarea'), text = ta?.value.trim(); if (!text || !draft) { ta?.focus(); return; }
       const id = 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
-      const quote = editor.state.doc.textBetween(draft.from, draft.to, ' ').slice(0, 140);
-      cmap.set(id, { by: me.name, byId: cloud.user.id, text: text.slice(0, 1000), quote, at: Date.now(), done: null });
-      addMark(draft.from, draft.to, id); active = id; draft = null; railOn = true; paintRail();
+      const an = anchorOf(draft.from, draft.to) || { quote: draft.quote, pre: '', suf: '' };
+      cmap.set(id, { by: me.name, byId: cloud.user.id, text: text.slice(0, 1000), quote: an.quote.slice(0, 400), pre: an.pre, suf: an.suf, at: Date.now(), done: null });
+      active = id; draft = null; railOn = true; paintRail();
       toast('Comment added. Students see it beside their writing.');
     }
     function resolve(id) {   // "Got it": the comment goes, the writing stays exactly as it is
       const v = cmap.get(id); if (!v) return;
-      dropMark(id); cmap.set(id, { ...v, done: { by: me.name, at: Date.now() } }); if (active === id) active = null; paintRail();
+      cmap.set(id, { ...v, done: { by: me.name, at: Date.now() } }); if (active === id) active = null; paintRail();
     }
-    function remove(id) { dropMark(id); cmap.delete(id); if (active === id) active = null; paintRail(); }
+    function remove(id) { cmap.delete(id); if (active === id) active = null; paintRail(); }
     function edit(id) { const v = cmap.get(id), card = wrap.querySelector(`.cw-card[data-cid="${id}"]`); if (!v || !card) return;
       card.querySelector('.cw-ctext').outerHTML = `<div class="cw-cedit"><textarea rows="3" maxlength="1000">${esc(v.text)}</textarea><div class="cw-cacts"><button type="button" class="cw-cbtn" data-cedit-cancel>Cancel</button><button type="button" class="cw-cbtn pri" data-cedit-save="${id}">Save</button></div></div>`;
       const ta = card.querySelector('textarea'); ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); }
@@ -219,7 +235,7 @@ window.DEC15Collab = (() => {
       return `<article class="cw-card${active === x.id ? ' on' : ''}${read ? ' read' : ''}" data-cid="${x.id}" tabindex="0">
         <header><span class="cw-cav" aria-hidden="true">${ini(x.by)}</span><span class="cw-cwho"><b>${esc(x.by)}</b><small>Teacher · ${esc(ago(x.at))}</small></span>
           ${teacher && !read ? `<span class="cw-cicons">${mine ? `<button type="button" data-cedit="${x.id}" title="Edit" aria-label="Edit comment">${svg(I.edit)}</button>` : ''}<button type="button" data-cdel="${x.id}" title="Delete" aria-label="Delete comment">${svg(I.trash)}</button></span>` : ''}</header>
-        ${x.quote ? `<q class="cw-cq">${esc(x.quote.length > 70 ? x.quote.slice(0, 68) + '…' : x.quote)}</q>` : ''}
+        ${x.quote ? `<q class="cw-cq">${esc(x.quote.length > 70 ? x.quote.slice(0, 68) + '…' : x.quote)}</q>${!read && editor && !rangeOf(x) ? '<small class="cw-cgone">These words have changed since the comment.</small>' : ''}` : ''}
         <p class="cw-ctext">${esc(x.text).replace(/\n/g, '<br>')}</p>
         ${read ? `<p class="cw-cread">${svg(I.check)} Read by ${esc(x.done.by.split(' ')[0])} · ${esc(ago(x.done.at))}${teacher ? ` <button type="button" class="cw-clink" data-cdel="${x.id}">Delete</button>` : ''}</p>`
           : teacher ? `<p class="cw-cwait"><i></i>Not read yet</p>`
@@ -245,8 +261,15 @@ window.DEC15Collab = (() => {
         ${teacher && read.length ? `<details class="cw-readlist"${showRead ? ' open' : ''}><summary>${svg(I.check)} ${read.length} read by students</summary>${read.map(x => cardHTML(x, true)).join('')}</details>` : ''}`;
       place();
     }
-    function paintMarks() {   // which highlighted text is active
-      wrap.querySelectorAll('.cw-cm').forEach(el => el.classList.toggle('on', !!active && el.dataset.ids.split(' ').includes(active)));
+    /* the warm underline under commented words: drawn on a layer below the text, one band per comment */
+    function paintMarks() {
+      const layer = $('.cw-hl'); if (!layer || !editor) return;
+      const sheet = $('.cw-sheet').getBoundingClientRect(), out = [];
+      anchors().forEach((r, id) => { try {
+        const a = editor.view.domAtPos(r.from), b = editor.view.domAtPos(r.to), rg = document.createRange(); rg.setStart(a.node, a.offset); rg.setEnd(b.node, b.offset);
+        [...rg.getClientRects()].forEach(q => { if (q.width < 1) return; out.push(`<i class="${id === active ? 'on' : ''}" style="left:${(q.left - sheet.left).toFixed(1)}px;top:${(q.top - sheet.top).toFixed(1)}px;width:${q.width.toFixed(1)}px;height:${q.height.toFixed(1)}px"></i>`); });
+      } catch (e) { /* the text is changing; next paint */ } });
+      layer.innerHTML = out.join('');
     }
     /* each card sits next to its text (like a word processor); cards that would overlap are pushed down */
     function place() {
@@ -263,7 +286,7 @@ window.DEC15Collab = (() => {
     }
     function focusComment(id, scroll) {
       active = id; wrap.querySelectorAll('.cw-card').forEach(c => c.classList.toggle('on', c.dataset.cid === id)); paintMarks(); place();
-      if (scroll) { const el = wrap.querySelector(`.cw-cm[data-ids~="${id}"]`); el?.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
+      if (scroll) { const el = wrap.querySelector('.cw-hl i.on'); el?.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
     }
     /* the small "Comment" bubble for the teacher, next to the selected text */
     function paintSel() {
@@ -317,20 +340,20 @@ window.DEC15Collab = (() => {
           T.Placeholder.configure({ placeholder: 'Start writing together…' }),
           T.Collaboration.configure({ document: ydoc }), T.CollaborationCursor.configure({ provider: { awareness }, user: me, render: caret })],
         editorProps: { attributes: { class: 'cw-doc', spellcheck: 'true', 'aria-label': 'Shared document', role: 'textbox', 'aria-multiline': 'true' },
-          handleClick: (view, pos, ev) => { const el = ev.target.closest?.('.cw-cm'); if (el) { const ids = el.dataset.ids.split(' ').filter(Boolean); const nx = ids[(ids.indexOf(active) + 1) % ids.length] || ids[0]; railOn = true; if (!narrowOpen && matchMedia('(max-width: 1000px)').matches) { narrowOpen = true; paintRail(); } else if (!wrap.querySelector('.cw').classList.contains('rail-on')) paintRail(); focusComment(nx); } else if (active) { active = null; wrap.querySelectorAll('.cw-card.on').forEach(c => c.classList.remove('on')); paintMarks(); } return false; } },
-        onUpdate: () => { words(); requestAnimationFrame(place); }, onSelectionUpdate: paintBar, onTransaction: paintBar, onFocus: paintSel, onBlur: () => setTimeout(paintSel, 150) });
+          handleClick: (view, pos) => { const ids = [...anchors()].filter(([, r]) => pos >= r.from && pos <= r.to).map(([id]) => id); if (ids.length) { const nx = ids[(ids.indexOf(active) + 1) % ids.length] || ids[0]; railOn = true; if (!narrowOpen && matchMedia('(max-width: 1000px)').matches) { narrowOpen = true; paintRail(); } else if (!wrap.querySelector('.cw').classList.contains('rail-on')) paintRail(); focusComment(nx); } else if (active) { active = null; wrap.querySelectorAll('.cw-card.on').forEach(c => c.classList.remove('on')); paintMarks(); } return false; } },
+        onUpdate: () => { words(); requestAnimationFrame(() => { place(); paintMarks(); }); }, onSelectionUpdate: paintBar, onTransaction: paintBar, onFocus: paintSel, onBlur: () => setTimeout(paintSel, 150) });
       ydoc.on('update', (u, origin) => { if (origin !== 'remote' && editor?.isFocused) markMe(); });
       ydoc.getMap('who').observe(paintBy); paintBy();
       let seen = openOnes().length;
       cmap.observe(() => { const n = openOnes().length; if (!teacher && n > seen) { const t = $('[data-cw-ctog]'); t?.classList.remove('ping'); void t?.offsetWidth; t?.classList.add('ping'); } seen = n; paintRail(); });
-      words(); faces(); paintRail(); editor.commands.focus('end');
+      try { migrate(); } catch (e) { /* keep going */ } words(); faces(); paintRail(); editor.commands.focus('end');
     }
     const RUN = { bold: e => e.toggleBold(), italic: e => e.toggleItalic(), underline: e => e.toggleUnderline(), strike: e => e.toggleStrike(), bullets: e => e.toggleBulletList(), numbers: e => e.toggleOrderedList(), tasks: e => e.toggleTaskList(), quote: e => e.toggleBlockquote(), clear: e => ['bold', 'italic', 'underline', 'strike', 'code', 'textStyle', 'highlight', 'link'].reduce((ch, m) => ch.unsetMark(m), e).clearNodes().setTextAlign('left'), undo: e => e.undo(), redo: e => e.redo() };
     const text = () => editor ? editor.getText({ blockSeparator: '\n' }) : '';
     function menu(anchor) {
       const m = document.createElement('div'); m.className = 'cw-menu'; m.setAttribute('role', 'menu');
       m.innerHTML = `<button type="button" role="menuitem" data-mm="copy">Copy all the text</button><button type="button" role="menuitem" data-mm="txt">Download as a text file</button><button type="button" role="menuitem" data-mm="print">Print, or save as PDF</button>
-        ${teacher ? '<hr><button type="button" role="menuitem" class="danger" data-mm="clear">Clear this document for everyone</button>' : ''}`;
+        ${teacher ? '<hr><button type="button" role="menuitem" data-mm="versions">Earlier versions…</button><button type="button" role="menuitem" class="danger" data-mm="clear">Clear this document for everyone</button>' : ''}`;
       wrap.querySelector('.cw').append(m); const r = anchor.getBoundingClientRect(), pr = wrap.querySelector('.cw').getBoundingClientRect();
       m.style.top = (r.bottom - pr.top + 6) + 'px'; m.style.right = (pr.right - r.right) + 'px'; m.querySelector('button').focus();
       const off = ev => { if (!m.contains(ev.target)) { m.remove(); document.removeEventListener('pointerdown', off, true); } };
@@ -339,11 +362,42 @@ window.DEC15Collab = (() => {
         if (k === 'copy') { try { await navigator.clipboard.writeText(text()); toast('Copied. Paste it wherever you need it.'); } catch (e) { toast('Copy did not work in this browser.'); } }
         if (k === 'txt') { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([o.title + '\n\n' + text()], { type: 'text/plain' })); a.download = (o.title || 'shared').replace(/[^\w -]+/g, '').slice(0, 60) + '.txt'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); }
         if (k === 'print') { document.body.classList.add('cw-print'); window.print(); setTimeout(() => document.body.classList.remove('cw-print'), 500); }
+        if (k === 'versions') { versions(); return; }
         if (k === 'clear') { if (!confirm('Clear this document for everyone in this group? This cannot be undone.')) return;
           const docId = `${o.lessonId}:${o.activityId}:${group}`.slice(0, 120); await prov.flush();
           const { error } = await c.from('shared_doc_updates').delete().eq('doc_id', docId);
           if (error) { toast('Could not clear it. Check your internet.'); return; }
           prov.send('cleared', {}); toast('Document cleared.'); start(group); } });
+    }
+    /* teacher: see the document as it was at an earlier time, and bring that version back.
+       Every change is kept (the table is append-only), so restoring is itself just a new change. */
+    async function versions() {
+      const T = window.Tiptap, docId = `${o.lessonId}:${o.activityId}:${group}`.slice(0, 120); await prov.flush();
+      const { data, error } = await c.from('shared_doc_updates').select('id, update, created_at').eq('doc_id', docId).order('id', { ascending: true }).limit(5000);
+      if (error || !data?.length) { toast(error ? 'Could not load the history. Check your internet.' : 'There is no earlier version yet.'); return; }
+      const pts = [];   // a point after each pause of 20 seconds or more in the writing (newest first)
+      for (let i = data.length - 1; i >= 0; i--) { const t = new Date(data[i].created_at), last = pts[pts.length - 1]; if (last && last.t0 - t < 20000) { last.t0 = t; continue; } pts.push({ i, t, t0: t }); if (pts.length >= 120) break; }
+      const build = upto => { const d = new T.Y.Doc(); for (let k = 0; k <= upto; k++) try { T.Y.applyUpdate(d, unb64(data[k].update)); } catch (e) { /* skip */ } return d; };
+      const toText = j => { const out = []; const walk = n => { if (n.type === 'text') { out.push(n.text); return; } (n.content || []).forEach(walk); if (/paragraph|heading|listItem|taskItem|blockquote/.test(n.type)) out.push('\n'); }; walk(j); return out.join('').replace(/\n{3,}/g, '\n\n').trim(); };
+      const box = document.createElement('div'); box.className = 'cw-ver'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-label', 'Earlier versions');
+      const fmt = t => t.toLocaleString('en-AU', { weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit', second: '2-digit' });
+      box.innerHTML = `<header><b>Earlier versions</b><small>${esc(GROUPS.find(g => g[0] === group)?.[1] || '')} · choose a time to see the text as it was</small><button type="button" class="cw-x" data-ver-x aria-label="Close">×</button></header>
+        <div class="cw-ver-in"><ol>${pts.map((p, k) => `<li><button type="button" data-ver="${k}"${k === 0 ? ' aria-pressed="true"' : ''}><b>${esc(fmt(p.t))}</b>${k === 0 ? '<small>Now</small>' : ''}</button></li>`).join('')}</ol>
+        <div class="cw-ver-doc"><div class="cw-ver-text"></div><footer><span class="cw-ver-n"></span><button type="button" class="cw-cbtn pri" data-ver-restore disabled>Restore this version</button></footer></div></div>`;
+      wrap.querySelector('.cw').append(box);
+      let pick = 0, json = null;
+      const show = k => { pick = k; box.querySelectorAll('[data-ver]').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.ver === k)));
+        const d = build(pts[k].i); json = T.yXmlFragmentToProsemirrorJSON(d.getXmlFragment('default')); const txt = toText(json), now = text().trim();
+        box.querySelector('.cw-ver-text').innerHTML = txt ? esc(txt).replace(/\n/g, '<br>') : '<em>Empty</em>';
+        const n = (txt.match(/[\p{L}\p{N}'’-]+/gu) || []).length; box.querySelector('.cw-ver-n').textContent = `${n} words${txt === now ? ' · same as now' : ''}`;
+        box.querySelector('[data-ver-restore]').disabled = k === 0 || txt === now; };
+      show(Math.min(1, pts.length - 1));
+      box.addEventListener('click', ev => { const b = ev.target.closest('button'); if (!b) return;
+        if (b.dataset.verX !== undefined) { box.remove(); return; }
+        if (b.dataset.ver) { show(+b.dataset.ver); return; }
+        if (b.dataset.verRestore !== undefined && json) { if (!confirm(`Bring back the text from ${fmt(pts[pick].t)} for everyone in this group? What is there now stays in the history.`)) return;
+          const strip = n => { if (n.marks) n.marks = n.marks.filter(m => m.type !== 'comment'); (n.content || []).forEach(strip); return n; };
+          editor.commands.setContent(strip(json), true); box.remove(); toast('The earlier version is back. Everyone in the group sees it now.'); } });
     }
     wrap.addEventListener('mousedown', e => { if (e.target.closest('[data-cw-bubble], .cw-bar button')) e.preventDefault(); });   // keep the text selected
     wrap.addEventListener('click', e => {
@@ -380,7 +434,7 @@ window.DEC15Collab = (() => {
       if (teacher && (e.ctrlKey || e.metaKey) && e.altKey && (e.key === 'm' || e.key === 'M')) { e.preventDefault(); startComment(); }
     });
     $('.cw-page').addEventListener('scroll', () => paintSel(), { passive: true });
-    const ro = new ResizeObserver(() => place()); ro.observe($('.cw-page'));
+    const ro = new ResizeObserver(() => { place(); paintMarks(); }); ro.observe($('.cw-page'));
     $('.cw-pick').innerHTML = `<p class="cw-pick-q"><b>Who are you writing with?</b><span>Choose the same group as your partners. Your teacher can open every group's page.</span></p>
       <div class="cw-groups">${GROUPS.map(([k, l]) => `<button type="button" class="cw-g${k === group ? ' last' : ''}" data-cw-pick="${k}">${k === 'class' ? o.icon('users') : `<b>${k.slice(1)}</b>`}<span>${l}</span>${k === group ? '<small>Last time</small>' : ''}</button>`).join('')}</div>`;
     wrap.querySelector('.cw').focus();
