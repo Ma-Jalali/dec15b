@@ -42,6 +42,10 @@
      grid       { type: 'grid', id, title, rows: [..], columns: [..], options: ['Agree', 'Doesn’t mention'],
                   answers?: [[row 1 answers…], …], given?: { '0-0': 'Agree' } }   a table of drop-down choices
      figure     { type: 'figure', src, alt, caption?, credit?, size?: 'small' | 'wide' }   a picture or diagram
+     tabs       { type: 'tabs', title?, tabs: [{ label, blocks: [...] }] }   one panel at a time under a sliding tab bar
+     toggle     { type: 'toggle', title, hint?, open?: true, blocks: [...] }   a fold that opens (hints, extra help, model answers)
+     carousel   { type: 'carousel', title?, slides: [{ title?, text?, image?, alt?, blocks? }] }   slides in one row (arrows, dots, swipe)
+                (flip cards with 6 or more cards become a carousel by themselves; table columns can be widened by dragging)
      tip        { type: 'tip', text }
      listening  … also url: 'https://…', urlLabel: 'Watch on TED.com' — a button for media that is not on YouTube
      form       { type: 'form', id, title, intro?, observe?: 'Who are you observing?', scale?: ['Yes', 'Mostly', 'Needs work'],

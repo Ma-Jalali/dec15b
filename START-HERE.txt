@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.55)
+DEC15 — COURSE APP (v2.56)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -615,3 +615,18 @@ v2.55 (urgent fix: a comment could make a paragraph disappear)
 - Fix 3: documents that already contain v2.54 comment marks are cleaned automatically when opened (the comments stay).
 - New for the teacher: ⋯ → "Earlier versions…" shows the text as it was at each pause in the writing and can bring
   that version back for the whole group (nothing is lost: every change is kept).
+
+v2.56 (liquid glass design + new layout tools)
+- css/liquid.css (loaded last): one minimal glass system in the spirit of iOS liquid glass.
+  The header is one floating glass slab (top bar + week bar); the chosen week sits under a sliding glass lens.
+  The side panel is a floating sheet of dark glass. Cards are translucent sheets over one soft colour field
+  (no blur on cards, so older laptops stay smooth); depth replaces borders; buttons and chips are capsules;
+  the stage stepper, tab bars, pop-ups, the class panel, Chats and Write together share the same glass.
+  Respects "reduce transparency" and "reduce motion" system settings.
+- New lesson blocks (documented in lessons/_template.js):
+  tabs     { type: 'tabs', title?, tabs: [{ label, blocks }] }  — a segmented tab bar with a sliding lens
+  toggle   { type: 'toggle', title, hint?, open?, blocks }      — a fold that opens (hints, model answers, help)
+  carousel { type: 'carousel', title?, slides: [{ title?, text?, image?, alt?, blocks? }] } — arrows, dots, swipe
+- Flip-card sets with 6 or more cards now sit in one sliding row (carousel) instead of a tall grid.
+- Every lesson table: drag the line between two column headings to resize; double-click it to reset
+  (saved on the device). My planner and Class board tables can also be resized by dragging column edges.

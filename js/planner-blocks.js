@@ -145,7 +145,7 @@ window.DEC15Blocks = (() => {
         setFontSize: size => ({ chain }) => chain().setMark('textStyle', { fontSize: size }).run(),
         unsetFontSize: () => ({ chain }) => chain().setMark('textStyle', { fontSize: null }).removeEmptyTextStyle().run() }; } });
     return [Callout, Toggle, Trailing, Column, Columns, Picture, Bookmark, Indent, DividerStyle, FontSize,
-      T.Table.configure({ resizable: false, HTMLAttributes: { class: 'pl-table' } }), T.TableRow, T.TableHeader, T.TableCell,
+      T.Table.configure({ resizable: true, handleWidth: 6, cellMinWidth: 60, lastColumnResizable: false, HTMLAttributes: { class: 'pl-table' } }), T.TableRow, T.TableHeader, T.TableCell,
       T.Link.configure({ openOnClick: false, autolink: true, linkOnPaste: true, HTMLAttributes: { rel: 'noopener noreferrer', target: '_blank' } })];
   }
 
