@@ -1,8 +1,8 @@
-/* DEC15 · liquid glass (v2.56). Loaded last.
+/* DEC15 · liquid glass (v2.56, refined in v2.57). Loaded last.
    A quiet, minimal layer in the spirit of iOS liquid glass:
    - floating chrome (header, side panel, menus, pop-ups) is real frosted glass that bends light at its rim;
    - cards are translucent sheets over one soft colour field (no blur, so older laptops stay smooth);
-   - controls are capsules; the chosen tab or week sits under a sliding glass "lens";
+   - controls are capsules; the chosen tab sits under a sliding glass "lens" (the week bar marks its week by colour only);
    - fewer lines: separation comes from light and depth, not borders. */
 
 :root {
@@ -32,23 +32,56 @@ body {
 }
 body::before { display: none; }
 
-/* ───────── side panel: a floating sheet of dark glass ───────── */
+/* ───────── side panel: a floating sheet of light glass (v2.57) ─────────
+   Same material as the header, so the chrome reads as one family; ink text, soft colour only in the icons. */
 @media (min-width: 901px) {
   .sidebar {
     top: 10px; height: calc(100vh - 20px); margin: 10px 0 10px 10px; padding: 18px 12px 12px;
-    border-radius: 28px; background: var(--lq-ink-glass) !important;
-    -webkit-backdrop-filter: blur(26px) saturate(170%); backdrop-filter: blur(26px) saturate(170%);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .14), inset 0 0 0 1px rgba(255, 255, 255, .06), 0 20px 50px -24px rgba(10, 22, 32, .7);
+    border-radius: 28px; color: var(--ink);
+    background: linear-gradient(180deg, rgba(255, 255, 255, .78), rgba(252, 250, 246, .66)) !important;
+    -webkit-backdrop-filter: var(--lq-blur); backdrop-filter: var(--lq-blur);
+    box-shadow: var(--lq-rim), var(--lq-edge), var(--lq-depth) !important;
     scrollbar-width: none;
   }
   .sidebar::-webkit-scrollbar { display: none; }
   .workspace { padding-left: 4px; }
 }
-.side-link { border-radius: 14px; }
-.side-link.active { background: rgba(255, 255, 255, .94); box-shadow: inset 0 1px 0 #fff, 0 8px 20px -12px rgba(0, 0, 0, .6); }
-.side-ic { border-radius: 11px; }
-.sidebar .side-search input { background: rgba(255, 255, 255, .07); border-color: rgba(255, 255, 255, .08); border-radius: 13px; }
-.side-group { opacity: .8; }
+@media (max-width: 900px) { .sidebar { background: #fbf9f5 !important; border-right: 0 !important; color: var(--ink); } }
+.sidebar .uni img { content: url("../assets/usyd-logo-dark.svg"); }
+.side-link { height: 40px; border-radius: 13px; color: #3a4d5d; font-weight: 650; }
+.side-link:hover { background: rgba(20, 41, 58, .05); color: var(--ink); }
+.side-ic { width: 30px; height: 30px; border-radius: 10px; background: color-mix(in srgb, var(--tc) 15%, #fff); color: color-mix(in srgb, var(--tc) 70%, #14293a); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), 0 0 0 .5px color-mix(in srgb, var(--tc) 30%, transparent); }
+.side-ic svg { width: 17px; height: 17px; }
+.side-link.active { background: #fff; color: var(--ink); box-shadow: var(--lq-rim), 0 0 0 .5px rgba(20, 41, 58, .08), 0 6px 16px -10px rgba(20, 41, 58, .35); }
+.side-link.active .side-ic { background: var(--tc); color: #fff; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 4px 10px -4px color-mix(in srgb, var(--tc) 70%, transparent); }
+.side-ext { color: var(--faint); }
+.side-group, .sidebar .nav-label { color: #8a98a4; opacity: 1; }
+.sidebar .side-search > .icon { color: #8a98a4; }
+.sidebar .side-search input { background: rgba(20, 41, 58, .045); border: 0; border-radius: 13px; color: var(--ink); box-shadow: inset 0 1px 2px rgba(20, 41, 58, .06); }
+.sidebar .side-search input::placeholder { color: #8a98a4; }
+.sidebar .side-search input:focus { background: #fff; box-shadow: 0 0 0 .5px rgba(20, 41, 58, .15), 0 0 0 4px color-mix(in srgb, var(--gold) 20%, transparent); }
+.sidebar .side-search input::-webkit-search-cancel-button { filter: none; }
+.sidebar .side-search kbd { border-color: rgba(20, 41, 58, .14); color: #8a98a4; }
+.search-hit { color: #3a4d5d; }
+a.search-hit:hover, a.search-hit:focus-visible, .search-hit.first { background: rgba(20, 41, 58, .05); color: var(--ink); }
+.search-ic { background: color-mix(in srgb, var(--gold) 14%, #fff); color: color-mix(in srgb, var(--gold) 70%, #14293a); }
+.search-text small { color: var(--muted); }
+.search-text mark { color: var(--ink); }
+.search-none { color: var(--muted); }
+.side-progress, .side-progress.side-foot { border-top: 0; box-shadow: inset 0 1px 0 rgba(20, 41, 58, .06); }
+.side-prog, .side-progress { color: var(--muted); }
+.side-progress #progress-label b { color: var(--ink); }
+.side-ring circle { stroke: rgba(20, 41, 58, .1); }
+.side-gear { background: rgba(20, 41, 58, .05); color: #52677a; }
+.side-gear:hover, .side-gear[aria-expanded="true"] { background: rgba(20, 41, 58, .09); color: var(--ink); }
+.side-menu { background: rgba(255, 255, 255, .92); box-shadow: var(--lq-rim), var(--lq-edge), 0 22px 44px -18px rgba(20, 41, 58, .45); }
+.side-menu .teacher-toggle { color: #3a4d5d; }
+.side-menu .teacher-toggle:hover { background: rgba(20, 41, 58, .05); }
+.sidebar .teacher-toggle .tt-state { color: var(--ink); }
+.sidebar .tt-switch { background: rgba(20, 41, 58, .16); }
+.sidebar .tt-switch i { box-shadow: 0 1px 3px rgba(20, 41, 58, .3); }
+.side-menu .tt-kbd { border-color: rgba(20, 41, 58, .16); color: var(--muted); }
+.side-menu .tt-aa { color: var(--muted); }
 
 /* ───────── header: one floating glass slab with two rows ───────── */
 .masthead {
@@ -63,15 +96,13 @@ body.is-scrolled .masthead { box-shadow: var(--lq-rim), var(--lq-edge), var(--lq
 :root { --head: 108px; }
 @media (max-height: 820px) { :root { --head: 102px; } }
 
-/* the chosen week sits under a sliding glass lens */
-.wb-line {
-  bottom: auto; top: 50%; height: 34px; margin-top: -17px; border-radius: 12px; z-index: 0;
-  background: rgba(255, 255, 255, .78) !important; box-shadow: var(--lq-rim), 0 0 0 .5px rgba(20, 41, 58, .12), 0 6px 16px -8px rgba(20, 41, 58, .35);
-}
-.wb-line::after { content: ''; position: absolute; left: 10px; right: 10px; bottom: 3px; height: 2px; border-radius: 2px; background: var(--wk, var(--gold)); opacity: .9; }
-.wb-item { position: relative; z-index: 1; }
-.wb-item:hover, .wb-item.open { background: transparent; }
-.wb-item:hover:not(.open):not(.is-current) { background: rgba(255, 255, 255, .35); }
+/* the chosen week: no box, no lens; the filled number and darker label are enough */
+.wb-line { display: none !important; }
+.wb-item, .wb-item:hover, .wb-item.open, .wb-item.is-current { background: transparent !important; box-shadow: none !important; }
+.wb-item { color: #5d6f7e; }
+.wb-item:hover, .wb-item.open, .wb-item.is-current { color: var(--ink); }
+.wb-item.is-current .wb-tx, .wb-item.open .wb-tx { font-weight: 800; }
+.wb-item.is-current .wb-num, .wb-item.open .wb-num { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 4px 10px -4px var(--wk); }
 .wb-go { background: rgba(255, 255, 255, .6); border: 0; box-shadow: inset 0 1px 0 #fff, var(--lq-edge); }
 
 /* drop-down panel: glass */
@@ -161,18 +192,28 @@ input[type="text"], input[type="search"], input[type="email"], input[type="passw
 .lg-slide img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
 .lg-slide-tx { padding: 14px 16px 16px; } .lg-slide-tx h4 { margin: 0 0 6px; font: 600 1.05rem/1.3 var(--serif); } .lg-slide-tx p { margin: 0; font-size: .92rem; line-height: 1.55; color: var(--ink-2); }
 
-/* tables: the column edge can be dragged */
+/* tables: any line between two columns can be dragged; the table keeps its size */
 .work-table.has-widths { table-layout: fixed; }
 .work-table thead th { position: relative; }
-.col-grip { position: absolute; top: 6px; bottom: 6px; right: -5px; width: 10px; z-index: 2; cursor: col-resize; touch-action: none; }
-.col-grip::after { content: ''; position: absolute; left: 4px; top: 0; bottom: 0; width: 2px; border-radius: 2px; background: transparent; transition: background .15s; }
-.work-table thead th:hover .col-grip::after, .col-grip:hover::after { background: rgba(20, 41, 58, .18); }
+.col-grip { position: absolute; top: 0; bottom: 0; right: -6px; width: 12px; z-index: 2; cursor: col-resize; touch-action: none; }
+.col-grip::after { content: ''; position: absolute; left: 5px; top: 50%; height: 16px; margin-top: -8px; width: 3px; border-radius: 3px; background: rgba(20, 41, 58, .16); transition: background .15s, height .2s var(--ease), margin .2s var(--ease); }
+.work-table thead th:hover .col-grip::after, .col-grip:hover::after { background: rgba(20, 41, 58, .32); height: 24px; margin-top: -12px; }
+.work-table.col-edge, .work-table.col-edge * { cursor: col-resize !important; }
 body.col-dragging, body.col-dragging * { cursor: col-resize !important; user-select: none; }
-body.col-dragging .col-grip::after { background: var(--accent, #2b776e); }
+.work-table.col-moving .col-grip::after { background: var(--accent, #2b776e); height: 100%; top: 0; margin-top: 0; }
+.work-table.col-moving th, .work-table.col-moving td { border-left-color: color-mix(in srgb, var(--accent, #2b776e) 35%, transparent) !important; }
 /* planner and board tables (Tiptap) */
-.pl-doc .column-resize-handle { position: absolute; right: -2px; top: 0; bottom: -2px; width: 4px; background: color-mix(in srgb, #2b776e 55%, transparent); pointer-events: none; }
-.pl-doc.resize-cursor, .pl-doc .resize-cursor { cursor: col-resize; }
-.pl-doc table td, .pl-doc table th { position: relative; }
+/* planner and board tables: the table always fills the page; dragging a column edge moves width between the two neighbours */
+.pl-doc table { width: 100% !important; min-width: 0 !important; table-layout: fixed; }
+.pl-doc.col-edge, .pl-doc.col-edge * { cursor: col-resize !important; }
+.pl-doc table td, .pl-doc table th { position: relative; min-width: 0; }
+body.col-dragging .pl-doc table { outline: 2px solid color-mix(in srgb, #2b776e 30%, transparent); outline-offset: 2px; border-radius: 4px; }
+
+/* word cards without pictures need less height */
+.flip.is-text, .flip.is-text .flip-inner { min-height: 216px; }
+/* the "start here" card sits under the course map instead of overlapping it */
+.resume { margin: 18px 0 0 !important; }
+.resume::before { display: none; }
 
 /* ───────── pop-ups and panels: glass ───────── */
 dialog, .class-panel, .an-card, .an-pop, .timer-pop, .ct-pop, .side-menu, .cw-menu, .cw-pop, .ch-float .ch-menu, .ch-modal, .share-notice, .class-invite {
@@ -201,7 +242,6 @@ h1, .hero h1, .page-hero h1 { letter-spacing: -.015em; }
 }
 @media (prefers-reduced-transparency: reduce) {
   .masthead, .wb-panel, dialog, .class-panel, .sidebar, .ch-app { background: #fbf9f5 !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
-  .sidebar { background: #14293a !important; }
 }
 @media (prefers-reduced-motion: reduce) { .lg-lens, .lg-tabpanel, .lg-fold-body, .lg-dots i { transition: none !important; animation: none !important; } }
 
@@ -212,3 +252,11 @@ body[data-page="stage"] .weekbar::after, body[data-page="extra"] .weekbar::after
 .cw-bar { flex-wrap: nowrap; }
 .cw-gsel select { padding: 0 8px; }
 @media (max-width: 1180px) { .cw-grp-more { display: none; } }
+
+/* the reading-progress line gets a faint track, so it reads as progress and not as a mark under a week */
+body[data-page="stage"] .weekbar::before, body[data-page="extra"] .weekbar::before { content: ''; position: absolute; left: 22px; right: 22px; bottom: 0; height: 2px; border-radius: 2px; background: rgba(20, 41, 58, .07); pointer-events: none; }
+
+/* sticky bars stop under the floating header (planner.css loads later, so these need the extra weight) */
+body .pl-toolbar { top: calc(var(--head) + 6px); }
+@media (min-width: 901px) { body:not(.present) .ct-dock { top: calc(var(--head) + 6px); } }
+body .bd-tools { top: calc(var(--head) + 10px); }

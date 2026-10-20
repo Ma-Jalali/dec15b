@@ -798,12 +798,11 @@ function paintWeekbar(route = navRoute) {
   const bar = $('#weekbar'); if (!bar) return;
   if (!bar.querySelector('#wb-panel')) bar.innerHTML = '<div class="wb-row" role="menubar" aria-label="Weeks"></div><div class="wb-panel" id="wb-panel" role="region" hidden></div>';
   const cur = route === 'home' ? null : lesson.week;
-  bar.querySelector('.wb-row').innerHTML = `<i class="wb-line" aria-hidden="true"></i>${course.map.map((m, i) => {
+  bar.querySelector('.wb-row').innerHTML = `${course.map.map((m, i) => {
       const w = course.weeks.find(x => x.n === m.n), n = w ? w.days.filter(d => d.status === 'ready').length : 0, wp = weekProgress(w);
       return `<button type="button" class="wb-item${wp ? ' has-prog' : ''}${cur === m.n ? ' is-current' : ''}${wbOpen === m.n ? ' open' : ''}${n ? '' : ' is-soon'}" data-wb-week="${m.n}" aria-haspopup="true" aria-expanded="${wbOpen === m.n}" style="--wk:${WB_TONES[i % WB_TONES.length]}" title="Week ${m.n} · ${esc(m.label)}">
         <span class="wb-num" style="--p:${wp.toFixed(3)}">${m.n}</span><span class="wb-tx">Week ${m.n}</span><span class="wb-chev" aria-hidden="true"></span></button>`; }).join('')}
       ${route !== 'home' ? `<a class="wb-go" href="${L('overview')}" title="Back to Week ${lesson.week}, Day ${lesson.day}: ${esc(lesson.title)}"><span class="wb-go-dot" aria-hidden="true"></span><span>Week ${lesson.week} · Day ${lesson.day}</span></a>` : ''}`;
-  moveLine(bar);
 }
 /* ───────── tabs, carousels and table column widths ───────── */
 function lensTo(seg) { const on = seg.querySelector('[aria-selected="true"]'), lens = seg.querySelector('.lg-lens'); if (!on || !lens) return; lens.style.width = on.offsetWidth + 'px'; lens.style.transform = `translateX(${on.offsetLeft}px)`; }
@@ -823,28 +822,32 @@ function paintLayout(root = document) {
   root.querySelectorAll('.lg-seg').forEach(seg => { const l = seg.querySelector('.lg-lens'); l?.classList.add('no-anim'); lensTo(seg); requestAnimationFrame(() => l?.classList.remove('no-anim')); });
   root.querySelectorAll('[data-carousel] .lg-track').forEach(tr => tr.dispatchEvent(new Event('scroll')));
 }
-/* drag the line between two column headings to make a column wider; double-click it to go back to equal columns */
+/* drag any line between two columns (in the heading or lower down) to move width from one column to its neighbour;
+   the table keeps its size. Double-click the line to go back to equal columns. */
+const colEdge = e => {
+  const g = e.target.closest?.('[data-col-grip]'); if (g) return { table: g.closest('table'), i: +g.dataset.colGrip };
+  const cell = e.target.closest?.('.work-table[data-colw] th, .work-table[data-colw] td'); if (!cell) return null;
+  const r = cell.getBoundingClientRect(), table = cell.closest('table'), n = table.querySelectorAll('thead th').length, i = cell.cellIndex;
+  if (r.right - e.clientX < 7 && i < n - 1) return { table, i };
+  if (e.clientX - r.left < 7 && i > 0) return { table, i: i - 1 };
+  return null;
+};
+document.addEventListener('pointermove', e => {
+  if (document.body.classList.contains('col-dragging') || e.pointerType === 'touch') return;
+  const t = e.target.closest?.('.work-table[data-colw]'); if (!t) return;
+  t.classList.toggle('col-edge', !!colEdge(e));
+}, { passive: true });
 document.addEventListener('pointerdown', e => {
-  const g = e.target.closest?.('[data-col-grip]'); if (!g) return; e.preventDefault();
-  const table = g.closest('table'), id = table.dataset.colw, ths = [...table.querySelectorAll('thead th')], total = table.offsetWidth, i = +g.dataset.colGrip;
+  const hit = colEdge(e); if (!hit) return; e.preventDefault();
+  const { table, i } = hit, id = table.dataset.colw, ths = [...table.querySelectorAll('thead th')], total = table.offsetWidth;
   let w = ths.map(th => th.offsetWidth / total * 100);
   let cg = table.querySelector('colgroup'); if (!cg) { cg = document.createElement('colgroup'); cg.innerHTML = w.map(x => `<col style="width:${x}%">`).join(''); table.prepend(cg); table.classList.add('has-widths'); }
-  const cols = [...cg.children], x0 = e.clientX, a0 = w[i], b0 = w[i + 1]; document.body.classList.add('col-dragging'); g.setPointerCapture?.(e.pointerId);
+  const cols = [...cg.children], x0 = e.clientX, a0 = w[i], b0 = w[i + 1]; document.body.classList.add('col-dragging'); table.classList.add('col-moving');
   const move = ev => { const d = (ev.clientX - x0) / total * 100, a = Math.max(8, Math.min(a0 + b0 - 8, a0 + d)); w[i] = a; w[i + 1] = a0 + b0 - a; cols[i].style.width = w[i] + '%'; cols[i + 1].style.width = w[i + 1] + '%'; };
-  const up = () => { document.removeEventListener('pointermove', move); document.removeEventListener('pointerup', up); document.body.classList.remove('col-dragging'); setColW(id, w.map(x => +x.toFixed(2))); };
-  document.addEventListener('pointermove', move); document.addEventListener('pointerup', up);
+  const up = () => { document.removeEventListener('pointermove', move); document.removeEventListener('pointerup', up); document.removeEventListener('pointercancel', up); document.body.classList.remove('col-dragging'); table.classList.remove('col-moving', 'col-edge'); setColW(id, w.map(x => +x.toFixed(2))); };
+  document.addEventListener('pointermove', move); document.addEventListener('pointerup', up); document.addEventListener('pointercancel', up);
 });
-document.addEventListener('dblclick', e => { const g = e.target.closest?.('[data-col-grip]'); if (!g) return; const table = g.closest('table'); setColW(table.dataset.colw, null); table.querySelector('colgroup')?.remove(); table.classList.remove('has-widths'); });
-/* the coloured line under the open (or current) week slides between weeks */
-function moveLine(bar = $('#weekbar')) {
-  const row = bar?.querySelector('.wb-row'), line = row?.querySelector('.wb-line'); if (!line) return;
-  const it = row.querySelector(wbOpen ? `[data-wb-week="${wbOpen}"]` : '.wb-item.is-current');
-  if (!it) { line.style.opacity = '0'; return; }
-  const first = !line.dataset.on; line.dataset.on = '1';
-  if (first) line.classList.add('no-anim');
-  line.style.opacity = '1'; line.style.setProperty('--x', it.offsetLeft + 8 + 'px'); line.style.setProperty('--w', it.offsetWidth - 16 + 'px'); line.style.setProperty('--wk', it.style.getPropertyValue('--wk'));
-  if (first) requestAnimationFrame(() => line.classList.remove('no-anim'));
-}
+document.addEventListener('dblclick', e => { const hit = colEdge(e); if (!hit) return; const { table } = hit; setColW(table.dataset.colw, null); table.querySelector('colgroup')?.remove(); table.classList.remove('has-widths'); });
 /* the soft highlight behind the chosen day glides to it; the little notch on the panel points at the open week */
 function glideDay(panel, instant) {
   const hl = panel.querySelector('.wb-dhl'), b = panel.querySelector('.wb-day.sel'); if (!hl || !b) { if (hl) hl.style.opacity = '0'; return; }
@@ -937,7 +940,6 @@ document.addEventListener('pointerover', e => {
   if (!inBar && wbOpen) wbT = setTimeout(() => wbSet(null), 320);
 });
 window.addEventListener('hashchange', () => { if (wbOpen) { wbOpen = null; wbDay = null; document.body.classList.remove('wb-is-open'); paintPanel('close'); } });
-window.addEventListener('resize', () => moveLine());
 /* a stronger shadow under the header once the page has scrolled */
 addEventListener('scroll', () => document.body.classList.toggle('is-scrolled', scrollY > 8), { passive: true });
 /* Slide a fold open or closed (CSS animates the height). */

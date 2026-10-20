@@ -732,7 +732,7 @@ body.pl-resizing, body.pl-resizing * { cursor: ns-resize !important; user-select
 .pl-doc li > ul, .pl-doc li > ol { margin: .15em 0; }
 .pl-doc ul[data-type="taskList"] ul[data-type="taskList"] { padding-left: 0; }   /* sub-to-dos line up under the text above */
 /* the grey hint belongs to a text line only; on a list row it pushed the line in and split the text */
-.pl-doc li.is-empty::before, .pl-doc ul.is-empty::before, .pl-doc ol.is-empty::before, .pl-doc div.is-empty::before, .pl-doc blockquote.is-empty::before { content: none; }
+.pl-doc table.is-empty::before, .pl-doc tr.is-empty::before, .pl-doc th.is-empty::before, .pl-doc td.is-empty::before, .pl-doc li.is-empty::before, .pl-doc ul.is-empty::before, .pl-doc ol.is-empty::before, .pl-doc div.is-empty::before, .pl-doc blockquote.is-empty::before { content: none; }
 
 /* divider styles (--- ___ === *** ~~~ and the menu) */
 .pl-doc hr[data-variant]:not([data-variant="dots"])::before { content: none; }
