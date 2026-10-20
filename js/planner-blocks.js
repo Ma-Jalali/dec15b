@@ -144,8 +144,80 @@ window.DEC15Blocks = (() => {
       addCommands() { return {
         setFontSize: size => ({ chain }) => chain().setMark('textStyle', { fontSize: size }).run(),
         unsetFontSize: () => ({ chain }) => chain().setMark('textStyle', { fontSize: null }).removeEmptyTextStyle().run() }; } });
-    return [Callout, Toggle, Trailing, Column, Columns, Picture, Bookmark, Indent, DividerStyle, FontSize,
-      T.Table.configure({ resizable: true, handleWidth: 6, cellMinWidth: 60, lastColumnResizable: false, HTMLAttributes: { class: 'pl-table' } }), T.TableRow, T.TableHeader, T.TableCell,
+    // drag the line between two columns: one gets wider, its neighbour narrower, and the table keeps its width.
+    // Widths are saved as shares (colwidth numbers that add up to 600) and drawn as percentages, so the table always fills the page.
+    const ColumnShare = T.Extension.create({ name: 'columnShare', addProseMirrorPlugins() {
+      const EDGE = 6, TOTAL = 600, MIN = 0.06;
+      const sharesOf = node => {   // from the first row: one share per column, or null when no widths are saved
+        const w = []; node.firstChild?.forEach(c => { const span = c.attrs.colspan || 1; for (let k = 0; k < span; k++) w.push(c.attrs.colwidth?.[k] || 0); });
+        const sum = w.reduce((a, b) => a + b, 0); return w.length && w.every(x => x > 0) ? w.map(x => x / sum) : null;
+      };
+      // the table's own view: the editor leaves its column sizes alone, so they can change while you drag
+      class TableView {
+        constructor(node) {
+          this.node = node; this.dom = document.createElement('div'); this.dom.className = 'tableWrapper';
+          this.table = this.dom.appendChild(document.createElement('table')); this.table.className = 'pl-table';
+          this.colgroup = this.table.appendChild(document.createElement('colgroup')); this.contentDOM = this.table.appendChild(document.createElement('tbody'));
+          this.draw();
+        }
+        draw() {
+          let n = 0; this.node.firstChild?.forEach(c => { n += c.attrs.colspan || 1; });
+          const w = sharesOf(this.node);
+          while (this.colgroup.children.length < n) this.colgroup.append(document.createElement('col'));
+          while (this.colgroup.children.length > n) this.colgroup.lastChild.remove();
+          [...this.colgroup.children].forEach((c, i) => { c.style.width = w ? (w[i] * 100).toFixed(3) + '%' : ''; });
+          this.table.classList.toggle('has-widths', !!w);
+        }
+        update(node) { if (node.type !== this.node.type) return false; this.node = node; this.draw(); return true; }
+        ignoreMutation(m) { return m.type === 'attributes' && (m.target === this.table || m.target === this.dom || this.colgroup.contains(m.target)); }
+      }
+      const edgeAt = (view, e) => {
+        if (!view.editable) return null;
+        const cell = e.target.closest?.('td, th'), table = cell?.closest('table');
+        if (!cell || !table || !view.dom.contains(table)) return null;
+        const r = cell.getBoundingClientRect();
+        const left = e.clientX - r.left < EDGE && cell.previousElementSibling, right = r.right - e.clientX < EDGE && cell.nextElementSibling;
+        if (!left && !right) return null;
+        let col = 0; for (let c = cell.parentElement.firstElementChild; c && c !== cell; c = c.nextElementSibling) col += c.colSpan || 1;
+        return { table, col: right ? col + (cell.colSpan || 1) - 1 : col - 1 };
+      };
+      const tableAt = (view, table) => {   // the table node and where it starts
+        let pos; try { pos = view.posAtDOM(table.querySelector('td, th'), 0); } catch (e) { return null; }
+        const $p = view.state.doc.resolve(pos); let d = $p.depth; while (d > 0 && $p.node(d).type.name !== 'table') d--;
+        return d ? { start: $p.before(d), node: $p.node(d) } : null;
+      };
+      const measure = table => {
+        const n = table.querySelector('colgroup')?.children.length || 0, row = [...table.rows].find(r => r.cells.length === n);
+        const px = row ? [...row.cells].map(c => c.getBoundingClientRect().width) : Array(n).fill(1), sum = px.reduce((a, b) => a + b, 0) || 1;
+        return px.map(x => x / sum);
+      };
+      const paint = (table, w) => [...table.querySelector('colgroup').children].forEach((c, i) => { c.style.width = (w[i] * 100).toFixed(3) + '%'; });
+      const save = (view, at, w) => {
+        const node = view.state.doc.nodeAt(at.start); if (!node || node.type.name !== 'table') return;
+        const tr = view.state.tr, px = w.map(x => Math.max(1, Math.round(x * TOTAL)));
+        node.forEach((row, rowOff) => { let col = 0; row.forEach((cell, cellOff) => {
+          const span = cell.attrs.colspan || 1; tr.setNodeMarkup(at.start + 1 + rowOff + 1 + cellOff, null, { ...cell.attrs, colwidth: px.slice(col, col + span) }); col += span; }); });
+        view.dispatch(tr);
+      };
+      return [new T.Plugin({ props: { nodeViews: { table: node => new TableView(node) }, handleDOMEvents: {
+        mousemove(view, e) { if (!document.body.classList.contains('col-dragging')) view.dom.classList.toggle('col-edge', !!edgeAt(view, e)); return false; },
+        mouseleave(view) { view.dom.classList.remove('col-edge'); return false; },
+        mousedown(view, e) {
+          const hit = e.button === 0 && edgeAt(view, e), at = hit && tableAt(view, hit.table); if (!at) return false;
+          e.preventDefault();
+          const { table, col } = hit, w = measure(table), total = table.getBoundingClientRect().width || 1, x0 = e.clientX, a0 = w[col], b0 = w[col + 1];
+          if (b0 == null) return false;
+          paint(table, w); table.classList.add('has-widths'); document.body.classList.add('col-dragging');
+          const min = Math.min((a0 + b0) / 2, Math.max(MIN, 48 / total));
+          const move = ev => { const a = Math.max(min, Math.min(a0 + b0 - min, a0 + (ev.clientX - x0) / total)); w[col] = a; w[col + 1] = a0 + b0 - a; paint(table, w); };
+          const up = () => { document.removeEventListener('mousemove', move); document.removeEventListener('mouseup', up); document.body.classList.remove('col-dragging'); view.dom.classList.remove('col-edge'); save(view, at, w); };
+          document.addEventListener('mousemove', move); document.addEventListener('mouseup', up);
+          return true;
+        },
+        dblclick(view, e) { const hit = edgeAt(view, e), at = hit && tableAt(view, hit.table); if (!at) return false; const n = measure(hit.table).length; save(view, at, Array(n).fill(1 / n)); return true; } } } })];
+    } });
+    return [Callout, Toggle, Trailing, Column, Columns, Picture, Bookmark, Indent, DividerStyle, FontSize, ColumnShare,
+      T.Table.configure({ resizable: false, cellMinWidth: 60, HTMLAttributes: { class: 'pl-table' } }), T.TableRow, T.TableHeader, T.TableCell,
       T.Link.configure({ openOnClick: false, autolink: true, linkOnPaste: true, HTMLAttributes: { rel: 'noopener noreferrer', target: '_blank' } })];
   }
 
