@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.67)
+DEC15 — COURSE APP (v2.68)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -735,3 +735,10 @@ v2.67 (third detail pass)
   "Tap to turn over" pill; the back is a soft tinted card (not dark) with the example under a dashed line.
 - Word meanings: index cards with a large faint initial, a gold underline under the word, and the example as a quote.
 - Class board: an eyebrow ("Your class"), the gold swash under the title and more space above it.
+
+v2.68 (new drawings for the discussion and Speak boxes)
+- Class discussion, no posts yet: a new detailed drawing (two chat bubbles with gradients and soft shadows,
+  little avatars, a typing indicator, a question badge, a heart reaction, sparkles), a title "No posts yet — be the
+  first!", a line of help and three hint chips (Ask a question · Share an idea · Reply and react).
+- Speak boxes: a new detailed drawing in the corner — a white and a violet chat bubble with soft shadows,
+  two small avatars, typing dots and a sparkle.
