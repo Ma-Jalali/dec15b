@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.57)
+DEC15 — COURSE APP (v2.58)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -645,3 +645,11 @@ v2.57 (lighter chrome, cleaner week bar, tables that keep their width)
 - Fixes: a new empty planner table no longer shows its heading row shifted one column to the right; the planner
   and class-board toolbars stop under the floating header instead of sliding behind it; word cards without
   pictures are shorter; the "Start here" card no longer overlaps the course map.
+
+v2.58 (week menu titles fit; side panel and header stand apart from the page)
+- Week menu: long lesson and part titles now wrap onto a second line inside the panel instead of running past
+  its right edge (the list items could grow wider than their column).
+- Colour: the side panel and the header (top bar + week bar) are now a cool slate-blue glass, so they stand
+  apart from the warm page and its white cards. Tokens: --lq-chrome, --lq-chrome-rim, --lq-chrome-edge in css/liquid.css.
+- On narrow laptop screens (901–1120px) the "Week · Day" pill on the right of the week bar is hidden, because it
+  was cut off; the breadcrumb shows the lesson.
