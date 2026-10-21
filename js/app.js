@@ -174,8 +174,8 @@ function tableLabel(b, r, c) { return `${b.title || 'Table'} · ${b.fixed?.[r] ?
 /* ───────── blocks ───────── */
 const B = {};
 B.key = b => `<div role="note" class="block key${b.tone === 'warn' ? ' key-warn' : ''}" data-help>
-  <div class="block-label">${icon(b.tone === 'warn' ? 'alert' : 'key')}${b.tone === 'warn' ? 'Remember' : 'Key point'}</div>
-  <h3>${b.title}</h3>
+  <div class="key-head"><span class="key-badge" aria-hidden="true">${icon(b.tone === 'warn' ? 'alert' : 'key')}</span><div class="key-titles"><div class="block-label">${b.tone === 'warn' ? 'Remember' : 'Key point'}</div>
+  <h3>${b.title}</h3></div></div>
   ${b.compare ? `<div class="compare">${b.compare.map(c => `<div><span class="compare-label">${c.label}</span><p>${c.text}</p>${c.eg ? `<p class="compare-eg">e.g. ${c.eg}</p>` : ''}</div>`).join('')}</div>` : ''}
   ${b.points ? `<${b.numbered ? 'ol' : 'ul'} class="key-points">${b.points.map(p => `<li>${p}</li>`).join('')}</${b.numbered ? 'ol' : 'ul'}>` : ''}
   ${b.policy ? `<p class="key-source">Source: <a href="${esc(cfg.policyUrl)}" target="_blank" rel="noopener">University of Sydney — responsible AI use ${icon('open')}</a></p>` : ''}

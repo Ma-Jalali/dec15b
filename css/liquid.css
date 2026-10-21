@@ -333,3 +333,57 @@ body.is-scrolled .masthead { box-shadow: 0 1px 0 rgba(20, 41, 58, .1), 0 10px 24
   /* the side panel sits a touch lower, so the bar shows above it, and casts a clear shadow onto the bar */
   .sidebar { top: 14px; margin-top: 14px; height: calc(100vh - 28px); box-shadow: 0 0 0 1px rgba(20, 41, 58, .07), 0 4px 10px rgba(20, 41, 58, .06), 0 30px 64px -24px rgba(20, 41, 58, .5) !important; }
 }
+
+/* v2.62: key points — a light, warm card that is easy to read (no dark background).
+   A gold badge and label, a large ink title, roomy points with gold markers, and bold words marked with a soft highlighter. */
+.block.key {
+  --kc: #c98a1e; --kc-soft: #fdf3dc; --kc-line: rgba(201, 138, 30, .28);
+  color: #2b3d4b; padding: 26px 32px 26px 34px !important;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 4l3.2 12.8L36 20l-12.8 3.2L20 36l-3.2-12.8L4 20l12.8-3.2z' fill='%23e3a843' opacity='.55'/%3E%3Ccircle cx='35' cy='6' r='2' fill='%23e3a843' opacity='.4'/%3E%3C/svg%3E") no-repeat right 22px top 20px / 20px 20px,
+    radial-gradient(420px 180px at 100% 0%, rgba(227, 168, 67, .14), transparent 70%),
+    linear-gradient(180deg, #fffaf0, #fffdf8) !important;
+  border: 1px solid var(--kc-line) !important; border-radius: var(--lq-r, 22px) !important;
+  box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(20, 41, 58, .04), 0 14px 32px -22px rgba(150, 100, 20, .45) !important;
+}
+.block.key::before { left: 0; top: 22px; bottom: 22px; width: 4px; border-radius: 0 4px 4px 0; background: linear-gradient(180deg, #f0bf5a, var(--kc)); }
+.block.key::after { display: none; }
+.key-head { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; padding-right: 30px; }
+.key-badge { width: 42px; height: 42px; flex: none; display: grid; place-items: center; border-radius: 13px; color: #fff;
+  background: linear-gradient(150deg, #f2c463, var(--kc)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), 0 6px 14px -6px rgba(201, 138, 30, .7); }
+.key-badge .icon, .key-badge svg { width: 21px; height: 21px; stroke-width: 2; }
+.key-titles { min-width: 0; padding-top: 1px; }
+.block.key .block-label { margin: 0 0 3px; color: var(--kc); font-size: .7rem; letter-spacing: .16em; }
+.block.key .block-label .icon { display: none; }
+.block.key h3 { margin: 0; color: var(--ink); font: 600 clamp(1.25rem, 1.8vw, 1.55rem)/1.3 var(--serif); letter-spacing: -.01em; max-width: 46ch; }
+.block.key .key-points { gap: 0; font-size: 1.02rem; line-height: 1.7; max-width: 80ch; margin-left: 56px; }
+.block.key .key-points li { padding: 10px 0 10px 28px; border-top: 1px dashed var(--kc-line); }
+.block.key .key-points li:first-child { border-top: 0; padding-top: 2px; }
+.block.key ul.key-points li::before { left: 4px; top: calc(10px + .62em); width: 8px; height: 8px; border-radius: 2px; transform: rotate(45deg); background: var(--kc); box-shadow: 0 0 0 3px var(--kc-soft); }
+.block.key ul.key-points li:first-child::before { top: calc(2px + .62em); }
+.block.key ol.key-points li { padding-left: 38px; }
+.block.key ol.key-points li::before { top: 11px; width: 25px; height: 25px; background: var(--kc-soft); color: #8a5a0c; box-shadow: inset 0 0 0 1px var(--kc-line); }
+.block.key ol.key-points li:first-child::before { top: 3px; }
+.block.key b, .block.key strong { color: var(--ink); font-weight: 750; background: linear-gradient(transparent 58%, rgba(240, 191, 90, .38) 58%, rgba(240, 191, 90, .38) 92%, transparent 92%); padding: 0 1px; }
+.block.key i { color: #5b6d7b; }
+.block.key a { color: #8a5a0c; }
+.block.key .word-help { text-decoration-color: var(--kc); }
+.block.key .word-help:hover, .block.key .word-help[aria-expanded="true"] { background: var(--kc-soft); }
+.block.key .key-source { margin: 16px 0 0 56px; padding-top: 12px; border-top: 1px solid var(--kc-line); color: #6b7c89; }
+.block.key .compare { margin-left: 56px; }
+.block.key .compare > div { background: #fff; border: 1px solid var(--kc-line); }
+.block.key .compare-label { background: var(--kc-soft); color: #8a5a0c; }
+/* "Remember" (warning) points: the same card in soft coral */
+.block.key.key-warn { --kc: #d9542f; --kc-soft: #fde9e2; --kc-line: rgba(217, 84, 47, .25);
+  background: radial-gradient(420px 180px at 100% 0%, rgba(230, 70, 38, .08), transparent 70%), linear-gradient(180deg, #fff6f2, #fffdfb) !important;
+  box-shadow: inset 0 1px 0 #fff, 0 14px 32px -22px rgba(190, 60, 30, .4) !important; }
+.block.key.key-warn::before { background: linear-gradient(180deg, #f28b6c, var(--kc)); }
+.block.key.key-warn .key-badge { background: linear-gradient(150deg, #f4936f, var(--kc)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 6px 14px -6px rgba(217, 84, 47, .6); }
+.block.key.key-warn b, .block.key.key-warn strong { background: linear-gradient(transparent 58%, rgba(242, 139, 108, .3) 58%, rgba(242, 139, 108, .3) 92%, transparent 92%); }
+.block.key.key-warn ol.key-points li::before, .block.key.key-warn a, .block.key.key-warn .compare-label { color: #a63b1d; }
+@media (max-width: 700px) {
+  .block.key { padding: 20px 18px 20px 22px !important; }
+  .block.key .key-points, .block.key .key-source, .block.key .compare { margin-left: 0; }
+  .key-badge { width: 36px; height: 36px; border-radius: 11px; }
+}
+body.present .block.key h3 { font-size: 2rem; }

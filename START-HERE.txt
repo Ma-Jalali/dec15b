@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.61)
+DEC15 — COURSE APP (v2.62)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -675,3 +675,10 @@ v2.61 (the top menu runs the full width; the side panel floats on top)
   brand-coloured line along its top edge. The side panel floats above it (a little lower, with a clear shadow).
   The menu's text still lines up with the page content. Phones are unchanged.
 - Styles: the "v2.61" block at the end of css/liquid.css (.masthead::before draws the full-width bar).
+
+v2.62 (key points are light and easy to read)
+- "Key point" boxes no longer use a dark background. Each is a light, warm card: a gold badge with the key icon,
+  a gold "KEY POINT" label, a large dark title, roomy points with gold diamond markers and fine dashed lines
+  between them, and bold words marked with a soft gold highlighter. The 3Cs-style comparison cards inside are white.
+- "Remember" boxes use the same design in soft coral.
+- Lesson content is unchanged; only the look (js/app.js B.key adds the badge; css/liquid.css "v2.62").
