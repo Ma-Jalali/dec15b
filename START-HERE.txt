@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.58)
+DEC15 — COURSE APP (v2.59)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -653,3 +653,9 @@ v2.58 (week menu titles fit; side panel and header stand apart from the page)
   apart from the warm page and its white cards. Tokens: --lq-chrome, --lq-chrome-rim, --lq-chrome-edge in css/liquid.css.
 - On narrow laptop screens (901–1120px) the "Week · Day" pill on the right of the week bar is hidden, because it
   was cut off; the breadcrumb shows the lesson.
+
+v2.59 (v2.57 colours back; the side panel stands out)
+- The slate-blue colour from v2.58 is removed: the header (top bar + week bar) and the week menu are back to the
+  v2.57 light glass. The v2.58 fix that lets long titles wrap inside the week menu stays.
+- Side panel: a bright white sheet that floats higher than the page (crisp edge, deeper shadow, a soft gold glow
+  at its foot); the chosen page is a gold-tinted row. See "v2.59" at the end of css/liquid.css.

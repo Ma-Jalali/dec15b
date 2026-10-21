@@ -268,30 +268,21 @@ body .bd-tools { top: calc(var(--head) + 10px); }
 .wb-part .wb-pcode { margin-top: -2px; }
 .wb-part b { padding-top: 4px; }
 
-/* v2.58: the chrome (side panel + header) is a cool slate glass, so it stands apart from the warm page and its white cards */
-:root {
-  --lq-chrome: linear-gradient(180deg, rgba(212, 225, 238, .95), rgba(195, 212, 229, .92));
-  --lq-chrome-rim: inset 0 1px 0 rgba(255, 255, 255, .8), inset 0 0 0 1px rgba(255, 255, 255, .35);
-  --lq-chrome-edge: 0 0 0 .5px rgba(20, 41, 58, .16), 0 18px 44px -22px rgba(20, 41, 58, .45);
-}
-body { background-color: #f4efe7; }
-@media (min-width: 901px) {
-  .sidebar { background: var(--lq-chrome) !important; box-shadow: var(--lq-chrome-rim), var(--lq-chrome-edge) !important; }
-}
-@media (max-width: 900px) { .sidebar { background: #d6e2ee !important; } }
-.masthead { background: var(--lq-chrome); box-shadow: var(--lq-chrome-rim), var(--lq-chrome-edge); }
-body.is-scrolled .masthead { box-shadow: var(--lq-chrome-rim), 0 0 0 .5px rgba(20, 41, 58, .18), 0 22px 50px -22px rgba(20, 41, 58, .55); }
-.masthead .topbar { border-bottom-color: rgba(20, 41, 58, .08); }
-.masthead .tools, .wb-go { background: rgba(255, 255, 255, .62); }
-.side-link { color: #2f4354; }
-.side-link:hover { background: rgba(255, 255, 255, .45); }
-.side-link { color: #253a4c; }
-.side-group, .sidebar .nav-label, .sidebar .side-search > .icon, .sidebar .side-search input::placeholder { color: #6f8293; }
-.sidebar .side-search input { background: rgba(255, 255, 255, .55); box-shadow: inset 0 0 0 .5px rgba(20, 41, 58, .1); }
-.side-ic { background: color-mix(in srgb, var(--tc) 14%, #fff); }
-.side-progress, .side-progress.side-foot { box-shadow: inset 0 1px 0 rgba(20, 41, 58, .08); }
-.side-gear { background: rgba(255, 255, 255, .5); }
-.wb-item { color: #4f6274; }
-.wb-item.is-soon { color: #8496a6; }
 /* on narrow laptop screens the "back to my lesson" pill would be cut off; the breadcrumb already shows the lesson */
 @media (min-width: 901px) and (max-width: 1120px) { .wb-go { display: none; } }
+
+
+/* v2.59: the side panel stands out: a bright white sheet that floats higher than the page, with a crisp edge
+   and a soft coloured glow at its foot; the header keeps the v2.57 glass */
+@media (min-width: 901px) {
+  .sidebar {
+    background: linear-gradient(180deg, rgba(255, 255, 255, .97), rgba(255, 255, 255, .9)) !important;
+    box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(20, 41, 58, .09), 0 2px 6px rgba(20, 41, 58, .06), 0 28px 60px -22px rgba(20, 41, 58, .42) !important;
+  }
+  .sidebar::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 180px; border-radius: 0 0 28px 28px; pointer-events: none;
+    background: radial-gradient(120% 90% at 50% 100%, color-mix(in srgb, var(--gold) 16%, transparent), transparent 70%); }
+  .sidebar > * { position: relative; z-index: 1; }
+}
+.side-link.active { background: color-mix(in srgb, var(--gold) 12%, #fff); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 30%, transparent), 0 6px 16px -10px rgba(20, 41, 58, .35); }
+.side-link:hover { background: rgba(20, 41, 58, .045); }
+.sidebar .side-search input { background: rgba(20, 41, 58, .04); }
