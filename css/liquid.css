@@ -649,3 +649,13 @@ body.present .block.key .key-title { font-size: 2.1rem; }
 .nb-ring circle { stroke: rgba(20, 41, 58, .1) !important; }
 .week-num { background: linear-gradient(150deg, #f4cd74, #c37e14) !important; color: #fff !important; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), 0 10px 20px -10px rgba(195, 126, 20, .7) !important; }
 .week-num small { color: rgba(255, 255, 255, .85) !important; }
+
+/* v2.65 fix: a chosen quiz answer kept white text from the old dark style, so it vanished on the new pale tint */
+.option.selected { color: color-mix(in srgb, var(--accent, #2b776e) 75%, #14293a) !important; font-weight: 700; }
+.option.selected::before { border: 5px solid var(--accent, #2b776e) !important; background: #fff !important; }
+.quiz-item.is-right .option.selected { color: #1f5c3a !important; background: #eef7f1 !important; box-shadow: inset 0 0 0 1.5px #3c9a66 !important; }
+.quiz-item.is-wrong .option.selected { color: #8e2c17 !important; background: #fdf1ec !important; box-shadow: inset 0 0 0 1.5px #d9763f !important; }
+.quiz-item.is-wrong .option.selected::before { border-color: #d9763f !important; }
+/* questions that already start with their own number ("3. Which…") don't get a second counter number */
+.quiz-q.has-num { padding-left: 0 !important; }
+.quiz-q.has-num::before { display: none !important; }

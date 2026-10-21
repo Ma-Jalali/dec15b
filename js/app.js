@@ -252,7 +252,7 @@ B.quiz = b => {
     const opts = q.options || b.shared, chosen = val(b.id + '-' + i), ok = chosen === q.answer, long = opts.some(o => o.length > 60);
     const compact = !long && opts.every(o => o.length <= 14) && opts.length <= 3;
     return `<li class="quiz-item${compact ? ' compact' : ''}${checked ? (ok ? ' is-right' : ' is-wrong') : ''}">
-      <p class="quiz-q" data-help>${q.q}</p>
+      <p class="quiz-q${/^\s*\d+[.)]\s/.test(strip(q.q)) ? ' has-num' : ''}" data-help>${q.q}</p>
       <div class="options${long ? ' options-long' : ''}" role="radiogroup" aria-label="${esc(strip(q.q))}">${opts.map(o => `<button type="button" role="radio" class="option${chosen === o ? ' selected' : ''}${checked && o === q.answer ? ' correct' : ''}" aria-checked="${chosen === o}" data-quiz="${b.id}" data-i="${i}" data-opt="${esc(o)}">${esc(o)}</button>`).join('')}</div>
       ${checked ? `<p class="quiz-why">${ok ? icon('check') + '<b>Correct.</b> ' : `<b>Answer: ${esc(q.answer)}.</b> `}${esc(q.why || '')}</p>` : ''}
     </li>`; }).join('')}</ol>
