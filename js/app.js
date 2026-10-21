@@ -1177,7 +1177,7 @@ function glossary(find = '') {
   reader.closeWord();
   $('#resource-title').textContent = 'Word meanings';
   $('#resource-body').innerHTML = `<div class="glossary-top"><label class="gloss-find">${icon('search')}<input type="search" placeholder="Find a word (${lesson.glossary.length} words)" aria-label="Find a word" data-gloss-find value="${esc(find)}"></label><button class="btn" data-word-game>Play the word game</button></div>
-    <div class="glossary-grid">${[...lesson.glossary].sort((a, b) => a[0].localeCompare(b[0])).map(([w, d, c]) => `<div class="glossary-word" data-g="${esc((w + ' ' + d).toLowerCase())}"><b>${esc(w)}</b><p>${esc(d)}</p>${c ? `<small>${esc(c)}</small>` : ''}</div>`).join('')}</div>
+    <div class="glossary-grid">${[...lesson.glossary].sort((a, b) => a[0].localeCompare(b[0])).map(([w, d, c]) => `<div class="glossary-word" data-g="${esc((w + ' ' + d).toLowerCase())}" data-l="${esc(w.trim().charAt(0).toLowerCase())}"><b>${esc(w)}</b><p>${esc(d)}</p>${c ? `<small>${esc(c)}</small>` : ''}</div>`).join('')}</div>
     <p class="gloss-none" hidden>No word matches. Try the first letters of the word.</p>`;
   filterGlossary(find);
   if (!$('#resource-dialog').open) $('#resource-dialog').showModal();

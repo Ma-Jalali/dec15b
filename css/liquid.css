@@ -688,3 +688,47 @@ body.present .block.key .key-title { font-size: 2.1rem; }
 .answers.open dt:first-of-type, .answers.open dt:first-of-type + dd { border-top: 0; }
 .answers.open dt { color: #24704a !important; }
 .answers.open dd { color: #22384a; }
+
+/* ═══════════ v2.67: third detail pass ═══════════ */
+
+/* top bar: the "where am I" breadcrumb never collapses to a single letter; on narrower laptops the tool buttons
+   become icon-only (their names stay as tooltips) */
+.masthead .crumb { flex: 1 1 auto; min-width: 140px; }
+@media (max-width: 1500px) { body.is-teacher .masthead .tools button span { display: none; } body.is-teacher .masthead .tools button { padding: 0 9px; } }
+
+/* word flip cards: a study-card look — a coloured header band with the word type, the word centred,
+   a fine dotted rule, and a "Tap to turn over" pill; the back is a soft tinted card, not dark */
+.flip-face { overflow: hidden; }
+.flip-front { justify-content: center !important; gap: 12px !important;
+  background: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--accent, #2b776e) 14%, transparent) 1px, transparent 1.5px) 0 0 / 16px 16px, linear-gradient(180deg, #fff, #fcfbf8) !important; }
+.flip-front::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: linear-gradient(90deg, var(--accent, #2b776e), color-mix(in srgb, var(--accent, #2b776e) 40%, #f2c463)); }
+.flip-front b { font-size: 1.22rem !important; color: #16293a; padding-bottom: 10px; border-bottom: 1.5px dotted color-mix(in srgb, var(--accent, #2b776e) 35%, transparent); }
+.flip-front small { padding: 5px 11px 5px 9px; border-radius: 99px; background: color-mix(in srgb, var(--accent, #2b776e) 8%, #fff); color: color-mix(in srgb, var(--accent, #2b776e) 75%, #14293a) !important; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #2b776e) 18%, transparent); }
+.flip:hover .flip-front small { background: var(--accent, #2b776e); color: #fff !important; }
+.flip-back { background: linear-gradient(160deg, color-mix(in srgb, var(--accent, #2b776e) 12%, #fff), color-mix(in srgb, var(--accent, #2b776e) 4%, #fff)) !important; color: #16293a !important;
+  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--accent, #2b776e) 35%, transparent), 0 10px 26px -16px rgba(20, 41, 58, .45) !important; }
+.flip-back b { color: color-mix(in srgb, var(--accent, #2b776e) 80%, #14293a) !important; }
+.flip-back p { color: #2b3d4b !important; }
+.flip-back p i { display: block; margin-top: 8px; padding-top: 8px; border-top: 1px dashed color-mix(in srgb, var(--accent, #2b776e) 30%, transparent); color: #4c5d6a; }
+
+/* word meanings: index cards — a big faint initial, the word with a gold underline, the meaning, and the example as a quote */
+.glossary-word { position: relative; overflow: hidden; padding: 16px 18px 14px !important; border: 0 !important; border-radius: 16px !important;
+  background: linear-gradient(180deg, #fffdf6, #fff) !important; box-shadow: inset 0 0 0 1px rgba(195, 126, 20, .2), 0 6px 14px -12px rgba(120, 80, 10, .45); transition: transform .2s var(--ease), box-shadow .2s; }
+.glossary-word:hover { transform: translateY(-2px); box-shadow: inset 0 0 0 1px rgba(195, 126, 20, .35), 0 12px 22px -14px rgba(120, 80, 10, .5); }
+.glossary-word::before { content: attr(data-l); position: absolute; right: 14px; top: -10px; font: 600 5rem/1 var(--serif); color: rgba(195, 126, 20, .12); pointer-events: none; }
+.glossary-word b { display: inline-block; padding-bottom: 3px; background: linear-gradient(90deg, #e3a843, #f2c463) left bottom / 36px 2px no-repeat; }
+.glossary-word p { color: #2b3d4b; }
+.glossary-word small { display: block; position: relative; margin-top: 8px; padding: 6px 10px 6px 26px; border-radius: 10px; background: #fbf5e6; color: #5d4a2a !important; font-size: .82rem; }
+.glossary-word small::before { content: "\201C"; position: absolute; left: 9px; top: 2px; font: 700 1.3rem/1 var(--serif); color: #d9a13b; }
+.gloss-find input { border-radius: 99px !important; }
+
+/* "How to read each page": each swatch card gets the same treatment as its block, a little more alive */
+.legend-item { transition: transform .2s var(--ease), box-shadow .2s; }
+.legend-item:hover { transform: translateY(-2px); }
+
+/* Class board: the same page rhythm as other pages — a little air above, an eyebrow and the gold swash under the title */
+.bd-root { padding-top: 26px; }
+.bd-head { margin-bottom: 18px; }
+.bd-title h1::after { display: block !important; }
+.bd-title::before { content: "Your class"; display: block; margin-bottom: 6px; font: 800 .72rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: #a86a0e; }
+.bd-empty { padding-top: 40px; }
