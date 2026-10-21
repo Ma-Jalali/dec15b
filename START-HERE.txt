@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.62)
+DEC15 — COURSE APP (v2.63)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -683,3 +683,13 @@ v2.62 (key points: a warm note card that stands apart from the page)
   strip with a numbered gold medallion. Bold words get a gold highlighter stroke; comparison cards (the 3Cs) are white.
 - "Remember" boxes use the same card in rose and coral, with a warning-sign drawing.
 - Lesson content is unchanged; only the look (js/app.js B.key and KEY_ART; css/liquid.css "v2.63" block).
+
+v2.63 (spacing and detail pass)
+- Class discussion: it had no inner padding after it became a card, so its heading, chips and boxes touched the
+  edges. It is now an inner panel with even padding (24–26px), a soft violet tint, a larger icon tile, the status
+  chips aligned under the text, a white compose box and a lighter empty state. It lines up with the activity text.
+- "Writing with a partner or group?" lines up with the activity text and keeps its soft green.
+- Lesson tables: the column-resize handles stay hidden until you point at the heading row (no stray bars).
+- Speaking prompts: the small corner mark now sits exactly on the card's square corner.
+- Today's focus: same inner spacing as the lesson card above it, a warm paper tint, the quote mark inside the card.
+- "How to read each page": the key-point swatch and text match the gold note card.

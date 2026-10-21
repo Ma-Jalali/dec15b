@@ -411,3 +411,49 @@ body.is-scrolled .masthead { box-shadow: 0 1px 0 rgba(20, 41, 58, .1), 0 10px 24
 }
 body.present .block.key .key-title { font-size: 2.1rem; }
 @media print { .key-art, .key-fold { display: none; } }
+
+/* v2.63: class discussion — a proper inner panel with even padding (it had none once it became a card) */
+.activity .wall, .wall {
+  margin: 4px 40px 34px !important; padding: 24px 26px 26px !important; border-top: 0 !important;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--talk, #6d4c9f) 5%, #fff), #fffdfa) !important;
+  box-shadow: inset 0 1px 0 #fff, 0 0 0 1px color-mix(in srgb, var(--talk, #6d4c9f) 14%, transparent), 0 12px 28px -22px rgba(20, 41, 58, .45) !important;
+  border-radius: 22px !important;
+}
+.wall-head { align-items: center; gap: 14px; margin-bottom: 14px; }
+.wall-icon { width: 44px; height: 44px; border-radius: 14px; border: 0; background: linear-gradient(150deg, color-mix(in srgb, var(--talk) 18%, #fff), color-mix(in srgb, var(--talk) 8%, #fff)); box-shadow: inset 0 1px 0 #fff, 0 0 0 1px color-mix(in srgb, var(--talk) 22%, transparent), 0 6px 14px -8px color-mix(in srgb, var(--talk) 60%, transparent); }
+.wall-icon .icon { width: 20px; height: 20px; }
+.wall-head h3 { font-size: 1.22rem; margin-bottom: 3px; }
+.wall-head p { font-size: .9rem; line-height: 1.45; }
+.wall-stats { margin: 0 0 16px 58px; gap: 8px; }
+.wall-compose { padding: 14px 16px 12px; border-radius: 18px; background: #fff; box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .08), 0 4px 12px -8px rgba(20, 41, 58, .25); }
+.wall-compose .wall-form, .wall-form { gap: 14px; margin-bottom: 0; }
+.wall-compose textarea { padding: 10px 2px 6px; min-height: 56px; font-size: .98rem; }
+.wall-form-bar { margin-top: 6px; }
+.wall-list { margin-top: 16px; }
+.wall-empty { display: flex; align-items: center; gap: 16px; padding: 16px 18px !important; border-radius: 16px !important; background: rgba(255, 255, 255, .7) !important; box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .06) !important; border: 0 !important; }
+@media (max-width: 1080px) { .activity .wall, .wall { margin-left: 28px !important; margin-right: 28px !important; } }
+@media (max-width: 640px) { .activity .wall, .wall { margin: 4px 14px 24px !important; padding: 18px 16px 18px !important; } .wall-stats { margin-left: 0; } }
+/* v2.63 detail pass */
+/* the discussion panel lines up with the activity text (44px) */
+.activity .wall, .wall { margin-left: 44px !important; margin-right: 44px !important; }
+/* "Writing with a partner" lines up with the content too, and keeps its soft green */
+.activity .cowrite-card, .cowrite-card { margin: 6px 44px 10px !important; padding: 14px 16px 14px 14px; border-radius: 18px !important;
+  background: linear-gradient(180deg, #f2f9ef, #e9f4e5) !important; box-shadow: inset 0 1px 0 #fff, 0 0 0 1px #cfe3d4, 0 8px 18px -14px rgba(40, 110, 70, .5) !important; }
+@media (max-width: 1080px) { .activity .wall, .wall, .activity .cowrite-card, .cowrite-card { margin-left: 28px !important; margin-right: 28px !important; } }
+@media (max-width: 640px) { .activity .wall, .wall, .activity .cowrite-card, .cowrite-card { margin-left: 14px !important; margin-right: 14px !important; } }
+/* table column handles stay hidden until the heading row is hovered (no stray bars) */
+.col-grip::after { background: transparent; }
+.work-table thead:hover .col-grip::after { background: rgba(20, 41, 58, .16); }
+/* speaking prompts: the corner mark sits exactly on the card's square corner */
+.talk-prompts li { border-radius: 3px 16px 16px 16px !important; }
+.talk-prompts li::before { left: -1px; top: -1px; border-radius: 3px 0 0 0; }
+/* the legend's key-point swatch matches the new gold note card */
+.legend-item .sw-key, .sw-key { background: linear-gradient(135deg, #fff3d6, #ffdcae) !important; color: #a86a0e !important; border: 1px dashed rgba(195, 126, 20, .45) !important; box-shadow: none !important; }
+.legend-item .sw-key::before, .legend-item .sw-key::after { display: none !important; }
+/* today's focus (the essay question): same inner spacing as the lesson hero, a warm paper tint, the quote mark inside the card */
+.essay-q { padding: 32px 44px 32px !important; overflow: hidden;
+  background: radial-gradient(420px 200px at 100% 0%, rgba(227, 168, 67, .14), transparent 70%), linear-gradient(180deg, #fffaf0, #fffdf8) !important;
+  box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(227, 168, 67, .28), var(--lq-depth) !important; }
+.essay-q::before { top: 8px; right: 30px; font-size: 6.5rem; opacity: .3; }
+.essay-q blockquote { max-width: 38ch; }
+@media (max-width: 700px) { .essay-q { padding: 24px 20px !important; } }
