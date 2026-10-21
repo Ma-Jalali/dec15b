@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.65)
+DEC15 — COURSE APP (v2.66)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -720,3 +720,10 @@ v2.65 (fix: chosen quiz answers were invisible)
   The old dark "selected" style still set the text to white. A chosen answer is now bold in the stage colour
   with a ring dot; after "Check my answers" a wrong choice shows in coral and a right one in green.
 - Questions that already start with their own number ("3. Which…") no longer get a second number circle.
+
+v2.66 (calmer colours after checking answers)
+- Quick checks after "Check my answers": the question card stays white. Colour appears only where it means
+  something: a thin green (right) or coral (wrong) strip on the left, a soft tint on the chosen answer, a dashed
+  green outline on the right answer if it was missed, and a small "Correct." / "Answer: …" badge. Untouched options
+  fade back. A wrong choice is struck through.
+- Suggested answers (opened): a white card with a thin green strip and hairlines between items, instead of a green box.

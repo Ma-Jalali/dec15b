@@ -659,3 +659,32 @@ body.present .block.key .key-title { font-size: 2.1rem; }
 /* questions that already start with their own number ("3. Which…") don't get a second counter number */
 .quiz-q.has-num { padding-left: 0 !important; }
 .quiz-q.has-num::before { display: none !important; }
+
+/* v2.66: calmer checked quiz — the card stays white; colour is used only where it carries meaning
+   (a thin strip on the left, the chosen answer, and a small "Correct" / "Answer" badge) */
+.quiz-item.is-right, .quiz-item.is-wrong { background: #fff !important; border-color: transparent !important;
+  box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .08), 0 6px 16px -14px rgba(20, 41, 58, .4) !important; position: relative; overflow: hidden; }
+.quiz-item.is-right::after, .quiz-item.is-wrong::after { content: ""; position: absolute; left: 0; top: 14px; bottom: 14px; width: 4px; border-radius: 0 4px 4px 0; background: #3c9a66; }
+.quiz-item.is-wrong::after { background: #d9763f; }
+/* chosen answer: soft tint, dark text, thin outline */
+.quiz-item.is-right .option.selected { color: #16293a !important; background: #f2f9f4 !important; box-shadow: inset 0 0 0 1px rgba(60, 154, 102, .55) !important; }
+.quiz-item.is-right .option.selected::before { border-color: #3c9a66 !important; }
+.quiz-item.is-wrong .option.selected { color: #16293a !important; background: #fdf4f0 !important; box-shadow: inset 0 0 0 1px rgba(217, 118, 63, .55) !important; text-decoration: line-through; text-decoration-color: rgba(166, 59, 29, .45); }
+/* the right answer when the student missed it: a dashed green outline only */
+.option.correct:not(.selected) { color: #16293a !important; border: 0 !important; background: #fff !important; box-shadow: inset 0 0 0 1.5px rgba(60, 154, 102, .7) !important; outline: 0; }
+/* untouched options fade back so the result is easy to see */
+.quiz-item.is-right .option:not(.selected), .quiz-item.is-wrong .option:not(.selected):not(.correct) { opacity: .6; }
+/* the explanation: neutral text with a small coloured badge */
+.quiz-item .quiz-why { color: #3b4a56 !important; }
+.quiz-item .quiz-why > b { flex: none; padding: 2px 9px; border-radius: 99px; font-size: .78rem; background: #e9f5ee; color: #24704a; }
+.quiz-item.is-wrong .quiz-why > b { background: #fcebe3; color: #a63b1d; }
+.quiz-item .quiz-why > .icon { display: none; }
+/* opened suggested answers: a white card with a thin green strip, items separated by hairlines — not a green box */
+.answers.open { position: relative; overflow: hidden; background: #fff !important; border: 0 !important;
+  box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .09), 0 8px 18px -16px rgba(20, 41, 58, .45) !important; }
+.answers.open::before { content: ""; position: absolute; left: 0; top: 16px; bottom: 16px; width: 4px; border-radius: 0 4px 4px 0; background: #3c9a66; }
+.answers.open dl { gap: 0 22px; }
+.answers.open dt, .answers.open dd { padding: 10px 0; border-top: 1px solid rgba(20, 41, 58, .07); }
+.answers.open dt:first-of-type, .answers.open dt:first-of-type + dd { border-top: 0; }
+.answers.open dt { color: #24704a !important; }
+.answers.open dd { color: #22384a; }
