@@ -318,3 +318,18 @@ body.is-scrolled .masthead { box-shadow: 0 1px 0 rgba(20, 41, 58, .1), 0 10px 24
 .side-progress.side-foot .side-prog { gap: 9px; font-size: .74rem; }
 .side-progress.side-foot #progress-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .side-progress.side-foot .side-gear { width: 32px; height: 32px; }
+
+/* v2.61: the top menu runs the full width of the window, behind the side panel; the side panel floats on top of it */
+@media (min-width: 901px) {
+  .sidebar { z-index: 40; }
+  .masthead { background: transparent !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; box-shadow: none !important; isolation: isolate; }
+  .masthead::before { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; right: 0; left: calc(-1 * (var(--side) + 4px));
+    background: rgba(251, 249, 245, .94); -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px);
+    box-shadow: 0 1px 0 rgba(20, 41, 58, .09); transition: box-shadow .3s; pointer-events: none; }
+  body.is-scrolled .masthead::before { box-shadow: 0 1px 0 rgba(20, 41, 58, .1), 0 10px 24px -18px rgba(20, 41, 58, .35); }
+  /* a whisper of the brand along the very top edge, across the full width */
+  .masthead::after { content: ""; position: absolute; z-index: 1; top: 0; height: 2px; right: 0; left: calc(-1 * (var(--side) + 4px)); pointer-events: none;
+    background: linear-gradient(90deg, var(--brand, #e64626), var(--gold, #e3a843) 45%, #2b776e); opacity: .85; }
+  /* the side panel sits a touch lower, so the bar shows above it, and casts a clear shadow onto the bar */
+  .sidebar { top: 14px; margin-top: 14px; height: calc(100vh - 28px); box-shadow: 0 0 0 1px rgba(20, 41, 58, .07), 0 4px 10px rgba(20, 41, 58, .06), 0 30px 64px -24px rgba(20, 41, 58, .5) !important; }
+}
