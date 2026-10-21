@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.68)
+DEC15 — COURSE APP (v2.69)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -742,3 +742,18 @@ v2.68 (new drawings for the discussion and Speak boxes)
   first!", a line of help and three hint chips (Ask a question · Share an idea · Reply and react).
 - Speak boxes: a new detailed drawing in the corner — a white and a violet chat bubble with soft shadows,
   two small avatars, typing dots and a sparkle.
+
+v2.69 (precision details: course map, Class board, Readings, Word pairs, Chats, notebook)
+- Course map: a redrawn scene — a soft sky with a glowing sun, clouds, three layers of hills with light
+  edges, a shaded road with kerbs and centre dashes, a START signpost, trees with shadows and highlights,
+  bushes, grass tufts and tiny flowers; the week stops now have a soft shadow and the finish flag a highlight.
+- Class board, nothing yet: a new detailed whiteboard drawing (aluminium frame, a heading, a highlighted
+  line, a small bar chart, a sticky note, a magnet, a marker tray with three markers and an eraser, a stand).
+- Course map week tabs: a hairline meter under each tab shows how much of that week is finished.
+- "How to read each page": each tile has its own soft colour gradient and inner light.
+- Word pairs: words are numbered 1–6 and meanings lettered A–F, so partners can say "3 and B"; the pairs
+  meter is a gold bar; the chosen word shows a gold number.
+- Readings: each week row carries its week colour as a thin spine; the week number is a lit tile (gold when open).
+- Chats: avatars get a white ring and a soft sheen; the open chat shows a teal ring.
+- My notebook: the "words written" and "highlights" tiles carry a faint pen and highlighter icon.
+- Stage and lesson art panels, the empty board and empty notebook: a quiet spotlight behind the drawing.
