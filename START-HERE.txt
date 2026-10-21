@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.64)
+DEC15 — COURSE APP (v2.65)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -714,3 +714,9 @@ v2.64 (a detail pass over every lesson block)
 - Course map: week tabs show the week's theme in full (two lines) and the chosen week and the week badge are gold.
 - My notebook: a light paper cover (ruled lines, red margin, gold spiral spine) with white stat cards — no dark block.
 - Styles: the "v2.64" and "v2.65" blocks at the end of css/liquid.css. Lesson content is unchanged.
+
+v2.65 (fix: chosen quiz answers were invisible)
+- Bug: after v2.64 a chosen answer in a quick check had white text on a pale tint, so it could not be read.
+  The old dark "selected" style still set the text to white. A chosen answer is now bold in the stage colour
+  with a ring dot; after "Check my answers" a wrong choice shows in coral and a right one in green.
+- Questions that already start with their own number ("3. Which…") no longer get a second number circle.
