@@ -582,7 +582,7 @@ function overview() {
         <span class="journey-meter" aria-hidden="true"><i style="width:${Math.round(100 * d / s.activities.length)}%"></i></span>
       </span></a></li>`; }).join('')}</ol>
   <details class="legend-wrap"${done ? '' : ' open'}>
-    <summary><span><b>How to read each page</b><small>Each kind of information always looks the same. The dark box is the most important.</small></span>${icon('arrow')}</summary>
+    <summary><span><b>How to read each page</b><small>Each kind of information always looks the same. The gold note card is the most important.</small></span>${icon('arrow')}</summary>
     <div class="legend">
       <div class="legend-item"><span class="sw sw-key">${icon('key')}</span><b>Key point</b><span>The idea to learn and remember.</span></div>
       <div class="legend-item"><span class="sw sw-steps">${icon('list')}</span><b>What to do</b><span>Steps. The badge shows alone / pair / group.</span></div>
