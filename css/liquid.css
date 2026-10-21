@@ -260,3 +260,38 @@ body[data-page="stage"] .weekbar::before, body[data-page="extra"] .weekbar::befo
 body .pl-toolbar { top: calc(var(--head) + 6px); }
 @media (min-width: 901px) { body:not(.present) .ct-dock { top: calc(var(--head) + 6px); } }
 body .bd-tools { top: calc(var(--head) + 10px); }
+
+/* v2.58: week menu: long lesson and part titles wrap inside the panel instead of running past its edge */
+.wb-days > li, .wb-parts > li, .wb-col, .wb-parts-col { min-width: 0; }
+.wb-part b, .wb-dtx b { white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; text-wrap: pretty; }
+.wb-part { align-items: flex-start; padding-block: 7px; }
+.wb-part .wb-pcode { margin-top: -2px; }
+.wb-part b { padding-top: 4px; }
+
+/* v2.58: the chrome (side panel + header) is a cool slate glass, so it stands apart from the warm page and its white cards */
+:root {
+  --lq-chrome: linear-gradient(180deg, rgba(212, 225, 238, .95), rgba(195, 212, 229, .92));
+  --lq-chrome-rim: inset 0 1px 0 rgba(255, 255, 255, .8), inset 0 0 0 1px rgba(255, 255, 255, .35);
+  --lq-chrome-edge: 0 0 0 .5px rgba(20, 41, 58, .16), 0 18px 44px -22px rgba(20, 41, 58, .45);
+}
+body { background-color: #f4efe7; }
+@media (min-width: 901px) {
+  .sidebar { background: var(--lq-chrome) !important; box-shadow: var(--lq-chrome-rim), var(--lq-chrome-edge) !important; }
+}
+@media (max-width: 900px) { .sidebar { background: #d6e2ee !important; } }
+.masthead { background: var(--lq-chrome); box-shadow: var(--lq-chrome-rim), var(--lq-chrome-edge); }
+body.is-scrolled .masthead { box-shadow: var(--lq-chrome-rim), 0 0 0 .5px rgba(20, 41, 58, .18), 0 22px 50px -22px rgba(20, 41, 58, .55); }
+.masthead .topbar { border-bottom-color: rgba(20, 41, 58, .08); }
+.masthead .tools, .wb-go { background: rgba(255, 255, 255, .62); }
+.side-link { color: #2f4354; }
+.side-link:hover { background: rgba(255, 255, 255, .45); }
+.side-link { color: #253a4c; }
+.side-group, .sidebar .nav-label, .sidebar .side-search > .icon, .sidebar .side-search input::placeholder { color: #6f8293; }
+.sidebar .side-search input { background: rgba(255, 255, 255, .55); box-shadow: inset 0 0 0 .5px rgba(20, 41, 58, .1); }
+.side-ic { background: color-mix(in srgb, var(--tc) 14%, #fff); }
+.side-progress, .side-progress.side-foot { box-shadow: inset 0 1px 0 rgba(20, 41, 58, .08); }
+.side-gear { background: rgba(255, 255, 255, .5); }
+.wb-item { color: #4f6274; }
+.wb-item.is-soon { color: #8496a6; }
+/* on narrow laptop screens the "back to my lesson" pill would be cut off; the breadcrumb already shows the lesson */
+@media (min-width: 901px) and (max-width: 1120px) { .wb-go { display: none; } }
