@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.61)
+DEC15 — COURSE APP (v2.62)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -675,3 +675,11 @@ v2.61 (the top menu runs the full width; the side panel floats on top)
   brand-coloured line along its top edge. The side panel floats above it (a little lower, with a clear shadow).
   The menu's text still lines up with the page content. Phones are unchanged.
 - Styles: the "v2.61" block at the end of css/liquid.css (.masthead::before draws the full-width bar).
+
+v2.62 (key points: a warm note card that stands apart from the page)
+- "Key point" boxes are no longer dark. Each is a sunlit amber note card that looks different from the white page
+  cards: a fine dot-grid paper, a stitched inner border, a "KEY POINT" ribbon tab on the top edge, a folded
+  top-right corner, a small light-bulb drawing, a large title with a gold swash, and every point on its own white
+  strip with a numbered gold medallion. Bold words get a gold highlighter stroke; comparison cards (the 3Cs) are white.
+- "Remember" boxes use the same card in rose and coral, with a warning-sign drawing.
+- Lesson content is unchanged; only the look (js/app.js B.key and KEY_ART; css/liquid.css "v2.63" block).
