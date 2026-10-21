@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.59)
+DEC15 — COURSE APP (v2.60)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -659,3 +659,13 @@ v2.59 (v2.57 colours back; the side panel stands out)
   v2.57 light glass. The v2.58 fix that lets long titles wrap inside the week menu stays.
 - Side panel: a bright white sheet that floats higher than the page (crisp edge, deeper shadow, a soft gold glow
   at its foot); the chosen page is a gold-tinted row. See "v2.59" at the end of css/liquid.css.
+
+v2.60 (a simple top menu; a more beautiful side panel)
+- Top menu: no longer a floating rounded glass box. It is one flat bar across the top of the page with a hairline
+  underneath; its buttons (Timer, Message, Word meanings, Readings, Word game, the "Week · Day" link) are quiet text
+  buttons without boxes. The "Answers open/closed" switch keeps its colour because it shows a state.
+- Side panel: a bright white sheet with a soft wash of gold at the top and teal at the foot; a hairline under the
+  logo; coloured icon tiles; the page you are on is a tinted row with a small coloured marker at the panel's edge;
+  "Class & tools" has a fine rule; the progress ring and settings sit in a small card at the foot.
+- Course map: when you are in the last week, "You are here" now sits beside the finish flag instead of under it.
+- Styles: the "v2.60" blocks at the end of css/liquid.css.
