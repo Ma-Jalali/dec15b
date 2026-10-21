@@ -272,17 +272,49 @@ body .bd-tools { top: calc(var(--head) + 10px); }
 @media (min-width: 901px) and (max-width: 1120px) { .wb-go { display: none; } }
 
 
-/* v2.59: the side panel stands out: a bright white sheet that floats higher than the page, with a crisp edge
-   and a soft coloured glow at its foot; the header keeps the v2.57 glass */
+/* v2.60: a gorgeous side panel: a bright white sheet with a soft wash of colour at the top, coloured icon tiles,
+   a clear "you are here" row and a small progress card at the foot */
 @media (min-width: 901px) {
   .sidebar {
-    background: linear-gradient(180deg, rgba(255, 255, 255, .97), rgba(255, 255, 255, .9)) !important;
-    box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(20, 41, 58, .09), 0 2px 6px rgba(20, 41, 58, .06), 0 28px 60px -22px rgba(20, 41, 58, .42) !important;
+    background:
+      radial-gradient(140% 38% at 0% 0%, color-mix(in srgb, var(--gold) 13%, transparent), transparent 70%),
+      radial-gradient(120% 30% at 100% 100%, color-mix(in srgb, #2b776e 9%, transparent), transparent 70%),
+      linear-gradient(180deg, #fff, #fdfbf7) !important;
+    box-shadow: 0 0 0 1px rgba(20, 41, 58, .07), 0 2px 6px rgba(20, 41, 58, .05), 0 30px 64px -26px rgba(20, 41, 58, .45) !important;
   }
-  .sidebar::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 180px; border-radius: 0 0 28px 28px; pointer-events: none;
-    background: radial-gradient(120% 90% at 50% 100%, color-mix(in srgb, var(--gold) 16%, transparent), transparent 70%); }
-  .sidebar > * { position: relative; z-index: 1; }
 }
-.side-link.active { background: color-mix(in srgb, var(--gold) 12%, #fff); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 30%, transparent), 0 6px 16px -10px rgba(20, 41, 58, .35); }
-.side-link:hover { background: rgba(20, 41, 58, .045); }
-.sidebar .side-search input { background: rgba(20, 41, 58, .04); }
+.sidebar .uni { padding: 2px 10px 14px; margin: 0 2px 4px; border-bottom: 1px solid rgba(20, 41, 58, .07); }
+.sidebar .side-search input { background: #f6f3ee; border: 0; box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .06); }
+.sidebar .side-search input:focus { background: #fff; }
+.side-link { position: relative; height: 42px; gap: 12px; padding: 0 10px 0 6px; border-radius: 12px; color: #2c4052; font-weight: 650; transition: background .2s var(--ease), color .2s, transform .25s var(--ease); }
+.side-link:hover { background: color-mix(in srgb, var(--tc) 9%, #fff); color: var(--ink); transform: translateX(2px); }
+.side-ic { width: 32px; height: 32px; border-radius: 10px; background: linear-gradient(160deg, color-mix(in srgb, var(--tc) 30%, #fff), color-mix(in srgb, var(--tc) 12%, #fff)); color: color-mix(in srgb, var(--tc) 55%, #14293a); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), 0 0 0 .5px color-mix(in srgb, var(--tc) 45%, transparent), 0 3px 8px -5px color-mix(in srgb, var(--tc) 80%, transparent); }
+.side-link:hover .side-ic { transform: scale(1.06) rotate(-4deg); }
+.side-link.active { background: linear-gradient(90deg, color-mix(in srgb, var(--tc) 22%, #fff), color-mix(in srgb, var(--tc) 6%, #fff)); color: var(--ink); font-weight: 750; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--tc) 32%, transparent); transform: none; }
+.side-link.active::before { content: ""; position: absolute; left: -12px; top: 10px; bottom: 10px; width: 4px; border-radius: 0 4px 4px 0; background: color-mix(in srgb, var(--tc) 75%, #14293a); }
+.side-link.active .side-ic { background: linear-gradient(160deg, color-mix(in srgb, var(--tc) 85%, #fff), color-mix(in srgb, var(--tc) 100%, #14293a 12%)); color: #14293a; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), 0 6px 14px -6px color-mix(in srgb, var(--tc) 90%, transparent); }
+.side-group { display: flex; align-items: center; gap: 10px; margin: 16px 10px 6px !important; color: #8796a3 !important; }
+.side-group::after { content: ""; flex: 1; height: 1px; background: rgba(20, 41, 58, .08); }
+.side-progress.side-foot { margin: auto 2px 0; padding: 10px 8px 10px 12px; border-radius: 16px; background: linear-gradient(160deg, color-mix(in srgb, var(--gold) 12%, #fff), #fbf8f2); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 22%, transparent) !important; border-top: 0; }
+.side-ring { width: 28px; height: 28px; }
+.side-gear { background: #fff; box-shadow: 0 0 0 1px rgba(20, 41, 58, .08), 0 2px 6px -3px rgba(20, 41, 58, .3); }
+.side-badge { box-shadow: 0 0 0 2px #fff; }
+
+/* v2.60: a simple top menu: one flat bar across the top (no floating rounded box), hairline underneath */
+.masthead { margin: 0 !important; top: 0 !important; border-radius: 0 !important; background: rgba(251, 249, 245, .94) !important;
+  -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px); box-shadow: 0 1px 0 rgba(20, 41, 58, .09) !important; }
+body.is-scrolled .masthead { box-shadow: 0 1px 0 rgba(20, 41, 58, .1), 0 10px 24px -18px rgba(20, 41, 58, .35) !important; }
+.masthead .topbar, .weekbar { border-radius: 0 !important; }
+.masthead .topbar { border-bottom: 1px solid rgba(20, 41, 58, .06); }
+/* the controls in the bar are quiet text buttons, not boxes */
+.masthead .tools { background: transparent !important; box-shadow: none !important; border: 0 !important; }
+.masthead .tools button, .masthead .timer-btn, .masthead .class-btn, .masthead .account-btn, .masthead #save-status + .account-btn { background: transparent !important; border: 0 !important; box-shadow: none !important; border-radius: 10px; }
+.masthead .tools button:hover, .masthead .timer-btn:hover, .masthead .class-btn:hover { background: rgba(20, 41, 58, .05) !important; }
+.wb-go { background: transparent !important; box-shadow: none !important; border: 0 !important; }
+.wb-go:hover { background: rgba(20, 41, 58, .05) !important; }
+:root { --head: 98px; }
+@media (max-height: 820px) { :root { --head: 92px; } }
+@media (max-width: 900px) { :root { --head: 156px; } .sidebar::before, .sidebar .side-link.active::before { display: none; } }
+.side-progress.side-foot .side-prog { gap: 9px; font-size: .74rem; }
+.side-progress.side-foot #progress-label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.side-progress.side-foot .side-gear { width: 32px; height: 32px; }
