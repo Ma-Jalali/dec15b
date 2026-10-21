@@ -573,3 +573,79 @@ body.present .block.key .key-title { font-size: 2.1rem; }
 .block.language li::before { content: "\201C"; position: absolute; left: 9px; top: 50%; transform: translateY(-46%); font: 700 1.2rem/1 var(--serif); color: #8fb0e0; }
 .block.language li:hover { transform: translateY(-1px); box-shadow: inset 0 0 0 1px rgba(60, 110, 190, .35), 0 8px 14px -10px rgba(40, 80, 150, .6) !important; }
 @media (max-width: 640px) { .block.talk::after { display: none; } .block.talk h3 { padding-right: 0; } }
+
+/* ═══════════ v2.65: second detail pass ═══════════ */
+
+/* activity cards: a fine stage-colour band along the top, and a large faint activity number behind the title */
+.activity { position: relative; }
+.activity::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; z-index: 2; pointer-events: none; border-radius: var(--lq-r, 26px) var(--lq-r, 26px) 0 0;
+  background: linear-gradient(90deg, var(--accent, #2b776e), color-mix(in srgb, var(--accent, #2b776e) 40%, #f2c463) 70%, transparent); }
+.act-head { position: relative; }
+.act-head h2 { position: relative; }
+.act-goal { display: inline-flex !important; align-items: flex-start; gap: 10px; padding: 9px 16px 9px 12px; border-radius: 14px; background: color-mix(in srgb, var(--accent, #2b776e) 6%, #fff); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #2b776e) 16%, transparent); }
+.act-goal .icon { margin-top: 2px; }
+.act-count { font-variant-numeric: tabular-nums; }
+
+/* the stage stepper: the finished part of the line glows; the current step has a soft halo and a label underline */
+.act-tabs::after { height: 3px !important; top: 24.5px !important; background: linear-gradient(90deg, var(--ok, #2f7a55), color-mix(in srgb, var(--ok, #2f7a55) 60%, #9ad3b0)) !important; box-shadow: 0 0 8px rgba(47, 122, 85, .35); }
+.act-tabs button.current .tab-num { box-shadow: 0 0 0 5px #fff, 0 0 0 8px color-mix(in srgb, var(--accent) 18%, transparent), 0 8px 18px -6px color-mix(in srgb, var(--accent) 70%, transparent) !important; }
+.act-tabs button.current > span:not(.tab-num) b, .act-tabs button.current .tab-name { color: var(--ink); }
+.act-tabs button .tab-num { transition: transform .25s var(--ease), box-shadow .25s; }
+.act-tabs button:hover:not(.current) .tab-num { transform: translateY(-2px); }
+
+/* picture cards: an icon tile with depth, a full-width colour cap and a gentle lift */
+.cards .card { border: 0 !important; border-radius: 18px !important; padding: 20px 20px 18px !important; background: linear-gradient(180deg, #fff, #fcfbf8) !important;
+  box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .07), 0 10px 22px -18px rgba(20, 41, 58, .45) !important; }
+.cards .card::before { left: 0 !important; right: 0 !important; top: 0 !important; height: 4px !important; border-radius: 18px 18px 0 0 !important;
+  background: linear-gradient(90deg, var(--accent, #2b776e), color-mix(in srgb, var(--accent, #2b776e) 40%, #fff)) !important; }
+.cards .card:hover { transform: translateY(-2px); box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .08), 0 16px 28px -18px rgba(20, 41, 58, .5) !important; }
+.cards .card-ico { background: linear-gradient(150deg, color-mix(in srgb, var(--accent, #2b776e) 16%, #fff), color-mix(in srgb, var(--accent, #2b776e) 6%, #fff)) !important;
+  box-shadow: inset 0 1px 0 #fff, 0 0 0 1px color-mix(in srgb, var(--accent, #2b776e) 18%, transparent), 0 6px 12px -8px color-mix(in srgb, var(--accent, #2b776e) 70%, transparent); }
+
+/* choose one: answer cards with a lettered medallion and a tick when chosen */
+.choose-option { border: 0 !important; border-radius: 16px !important; padding: 14px 18px !important; background: #fff !important;
+  box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .08), 0 6px 14px -12px rgba(20, 41, 58, .4) !important; }
+.choose-option:hover { transform: translateY(-1px); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent), 0 10px 18px -12px rgba(20, 41, 58, .45) !important; }
+.choose-letter { background: linear-gradient(150deg, color-mix(in srgb, var(--accent) 16%, #fff), color-mix(in srgb, var(--accent) 6%, #fff)) !important; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent); }
+.choose-option.selected { background: color-mix(in srgb, var(--accent) 6%, #fff) !important; box-shadow: inset 0 0 0 1.5px var(--accent), 0 0 0 4px color-mix(in srgb, var(--accent) 12%, transparent) !important; }
+.choose-option.selected .choose-letter { background: var(--accent) !important; color: #fff !important; }
+
+/* tables: a tinted heading row with a fine accent line, soft zebra rows, rounded frame */
+.table-block .table-scroll { border: 0 !important; border-radius: 18px !important; box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .08), 0 10px 22px -20px rgba(20, 41, 58, .5) !important; background: #fff !important; }
+.work-table thead th { background: linear-gradient(180deg, color-mix(in srgb, var(--accent, #2b776e) 9%, #fff), color-mix(in srgb, var(--accent, #2b776e) 4%, #fff)) !important;
+  color: color-mix(in srgb, var(--accent, #2b776e) 70%, #14293a) !important; border-bottom: 2px solid color-mix(in srgb, var(--accent, #2b776e) 30%, transparent) !important; }
+.work-table tbody tr:nth-child(even) > td { background: rgba(20, 41, 58, .018); }
+.work-table tbody th { color: #22384a !important; }
+.work-table textarea { border-radius: 10px !important; }
+.btn-quiet[data-add-row] { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #2b776e) 25%, transparent), 0 4px 10px -8px rgba(20, 41, 58, .4); color: color-mix(in srgb, var(--accent, #2b776e) 75%, #14293a); }
+
+/* gap-fill: the paragraph sits on soft ruled paper */
+.cloze-text { background: repeating-linear-gradient(180deg, transparent 0 calc(2.35em - 1px), rgba(20, 41, 58, .045) calc(2.35em - 1px) 2.35em), linear-gradient(180deg, #fffdf7, #fbf8ef) !important;
+  border: 0 !important; border-radius: 18px !important; box-shadow: inset 0 0 0 1px #e9e0cd, 0 10px 22px -20px rgba(80, 60, 20, .5) !important; }
+
+/* sorting: the card tray reads as a tray; drop zones get a dashed inner target */
+.sort-pool, .sort-tray { border-radius: 18px !important; background: repeating-linear-gradient(135deg, rgba(20, 41, 58, .018) 0 8px, transparent 8px 16px), #fbfaf7 !important; }
+.sort-chip, .sort-card { box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .1), 0 4px 10px -8px rgba(20, 41, 58, .5) !important; border: 0 !important; border-radius: 12px !important; transition: transform .15s var(--ease), box-shadow .15s; }
+.sort-chip:hover, .sort-card:hover { transform: translateY(-2px) rotate(-.4deg); }
+
+/* course map week tabs: the week's theme shows in full (two lines) instead of being cut off */
+.week-tab-text small { white-space: normal !important; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 1.3; }
+.week-tab { align-items: center; }
+.week-tab[aria-selected="true"] .week-tab-num { background: linear-gradient(150deg, #f2c463, #c37e14) !important; color: #fff !important; box-shadow: 0 6px 12px -6px rgba(195, 126, 20, .7) !important; }
+
+/* My notebook: a light paper notebook cover (no dark block) — ruled lines, a gold spine, white stat cards */
+.nb-cover { color: #2b3d4b !important;
+  background: repeating-linear-gradient(180deg, transparent 0 29px, rgba(60, 110, 190, .09) 29px 30px),
+    radial-gradient(600px 260px at 100% 0%, rgba(227, 168, 67, .16), transparent 65%), linear-gradient(160deg, #fffdf8, #fbf6ea) !important;
+  box-shadow: inset 0 0 0 1px rgba(195, 126, 20, .22), 0 20px 40px -28px rgba(120, 80, 10, .5) !important; }
+.nb-cover::before { background: linear-gradient(90deg, transparent 58px, rgba(214, 96, 80, .3) 58px 59.5px, transparent 59.5px) !important; }
+.nb-cover::after { width: 10px !important; background: repeating-linear-gradient(180deg, #e3a843 0 18px, #c98a2a 18px 20px) !important; box-shadow: 2px 0 4px rgba(120, 80, 10, .2); }
+.nb-cover .eyebrow { color: #a86a0e !important; }
+.nb-cover h1 { color: #16293a !important; }
+.nb-who { color: #5b6d7b !important; } .nb-who b { color: #16293a !important; }
+.nb-q { color: #22384a !important; } .nb-q span { color: #a86a0e !important; }
+.nb-stat { background: #fff !important; border: 0 !important; box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .08), 0 8px 18px -14px rgba(20, 41, 58, .5) !important; border-radius: 16px !important; }
+.nb-stat b { color: #16293a !important; } .nb-stat b small { color: #8a98a4 !important; } .nb-stat span { color: #6b7c89 !important; }
+.nb-ring circle { stroke: rgba(20, 41, 58, .1) !important; }
+.week-num { background: linear-gradient(150deg, #f4cd74, #c37e14) !important; color: #fff !important; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), 0 10px 20px -10px rgba(195, 126, 20, .7) !important; }
+.week-num small { color: rgba(255, 255, 255, .85) !important; }

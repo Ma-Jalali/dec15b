@@ -706,4 +706,11 @@ v2.64 (a detail pass over every lesson block)
 - Suggested answers: a dashed "sealed" card before opening. Activity footer: "I have finished" is a pill toggle.
 - Speak: a violet card with a speech-bubble drawing; prompts are chat bubbles with tails.
 - Language bank: a blue phrasebook — a label tab, numbered column headings, phrases as quotable chips.
-- Styles: the "v2.64" blocks at the end of css/liquid.css. Lesson content is unchanged.
+- Second pass: activity cards get a stage-colour band along the top and the goal in a soft pill; the stage stepper's
+  finished line glows and the current step has a halo; picture cards get a full-width colour cap and an icon tile with
+  depth; "choose one" answers are cards with lettered medallions (filled when chosen); tables get a tinted heading row
+  with an accent line and soft zebra rows; the gap-fill paragraph sits on ruled paper; sorting cards lift and the tray
+  has a fine pattern.
+- Course map: week tabs show the week's theme in full (two lines) and the chosen week and the week badge are gold.
+- My notebook: a light paper cover (ruled lines, red margin, gold spiral spine) with white stat cards — no dark block.
+- Styles: the "v2.64" and "v2.65" blocks at the end of css/liquid.css. Lesson content is unchanged.
