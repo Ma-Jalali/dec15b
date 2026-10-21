@@ -746,3 +746,57 @@ body.present .block.key .key-title { font-size: 2.1rem; }
 .wall-first-tips i::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
 .wall-first-tips .t-q { color: #3a58a0; background: #ebf0fa; } .wall-first-tips .t-i { color: #985c0e; background: #fbf1dc; } .wall-first-tips .t-c { color: #6e4caa; background: #f2ecfb; }
 @media (max-width: 640px) { .wall-first .wall-art { width: 120px; height: 80px; } .wall-first-tips { justify-content: center; } }
+
+/* ───────── v2.69 · precision details: course map, board, tabs, word game, readings, chats, notebook ───────── */
+/* Week tabs: a hairline progress meter under each tab (set by --p in the markup). */
+.week-tab { position: relative; overflow: hidden; }
+.week-tab::after { content: ''; position: absolute; left: 14px; right: 14px; bottom: 7px; height: 3px; border-radius: 3px; background: rgba(20, 41, 58, .07); }
+.week-tab::before { content: ''; position: absolute; left: 14px; bottom: 7px; height: 3px; width: calc((100% - 28px) * var(--p, 0) / 100%); border-radius: 3px; background: linear-gradient(90deg, #e3a843, #f2c86c); z-index: 1; }
+.week-tab[style*="--p:0%"]::before { display: none; }
+.week-tab { padding-bottom: 16px !important; }
+/* Legend tiles: soft gradient + inner light, one colour per kind. */
+.legend-item .sw { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .7), 0 1px 2px rgba(20, 41, 58, .06); }
+.legend-item .sw-steps { background: linear-gradient(160deg, #fff, #e9eef2) !important; border: 1px solid rgba(20, 41, 58, .1); }
+.legend-item .sw-talk { background: linear-gradient(160deg, #f7f0ff, #e8dcf8) !important; }
+.legend-item .sw-lang { background: linear-gradient(160deg, #f1f6ff, #dde8fb) !important; }
+.legend-item .sw-model { background: linear-gradient(160deg, #f1faf4, #dcf0e3) !important; }
+.legend-item .sw-ans { background: linear-gradient(160deg, #eefaf3, #d5efe0) !important; }
+/* Art panels: a soft light behind each illustration. */
+.day-art, .stage-art-wrap, .lib-card figure, .lib-art { background-image: radial-gradient(circle at 50% 42%, rgba(255, 255, 255, .75) 0, rgba(255, 255, 255, 0) 62%); }
+/* Word pairs: numbered words and lettered meanings, so partners can say "3 and B". */
+.game-board > div { counter-reset: gw; }
+.game-board > div button { position: relative; padding-left: 44px !important; counter-increment: gw; }
+.game-board > div button::before { content: counter(gw); position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 22px; height: 22px; border-radius: 7px; display: grid; place-items: center; font: 800 .68rem/1 var(--sans); letter-spacing: .02em; background: #f3eee3; color: #6b7882; box-shadow: inset 0 1px 0 #fff; }
+.game-board > div:last-child button::before { content: counter(gw, upper-alpha); background: #eaf2f1; color: #2a7369; }
+.game-board > div button[aria-pressed="true"]::before { background: var(--gold); color: var(--ink); }
+.game-board > div button:disabled::before { background: #dcebe2; color: #2a8a7d; }
+.game-board button { box-shadow: 0 1px 2px rgba(20, 41, 58, .05); }
+.game-board button:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 14px -8px rgba(20, 41, 58, .3); }
+.game-meter { background: linear-gradient(180deg, #fffaea, #fff3d2) !important; box-shadow: inset 0 1px 0 #fff; }
+.game-meter progress { height: 8px; border-radius: 99px; overflow: hidden; }
+.game-meter progress::-webkit-progress-bar { background: #ecdfb6; border-radius: 99px; }
+.game-meter progress::-webkit-progress-value { background: linear-gradient(90deg, #e3a843, #f2c86c); border-radius: 99px; }
+/* Readings page: each week row carries its week colour as a spine. */
+.lib-week { position: relative; overflow: hidden; }
+.lib-week::before { content: ''; position: absolute; left: 0; top: 14px; bottom: 14px; width: 4px; border-radius: 0 4px 4px 0; background: var(--wk, #e3a843); opacity: .9; }
+.lib-week:nth-child(1) { --wk: #d0442a; } .lib-week:nth-child(2) { --wk: #2a8a7d; } .lib-week:nth-child(3) { --wk: #3b6fb6; } .lib-week:nth-child(4) { --wk: #7a4fb0; } .lib-week:nth-child(5) { --wk: #c47d16; }
+.lib-week-num { background: linear-gradient(160deg, #fff, #efe9dc) !important; box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(20, 41, 58, .08); }
+.lib-week.open .lib-week-num { background: linear-gradient(160deg, #f2c86c, #e3a843) !important; }
+/* Chats: avatars get a light ring and a sheen; bubbles a softer lift. */
+.ch-av { background-image: linear-gradient(160deg, rgba(255, 255, 255, .28), rgba(255, 255, 255, 0) 55%); box-shadow: 0 0 0 2px #fff, 0 2px 6px -2px rgba(20, 41, 58, .35) !important; }
+.ch-row.on .ch-av { box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px rgba(42, 138, 125, .45), 0 2px 6px -2px rgba(20, 41, 58, .35) !important; }
+.ch-row { border-radius: 16px; }
+.ch-row.on::before { background: linear-gradient(180deg, #2a8a7d, #58b3a6); }
+/* Notebook stats: a faint icon in the corner of each tile. */
+.nb-stat { position: relative; overflow: hidden; }
+.nb-stat::after { content: ''; position: absolute; right: 12px; top: 12px; width: 22px; height: 22px; opacity: .28; background: no-repeat center / contain; }
+.nb-stat:nth-child(2)::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314293a' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z'/%3E%3C/svg%3E"); }
+.nb-stat:nth-child(3)::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314293a' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 11l-6 6v3h3l6-6M22 12l-4.5 4.5L13 12l4.5-4.5z'/%3E%3C/svg%3E"); }
+/* Class board + notebook empty states: a quiet spotlight behind the drawing. */
+.bd-art { width: 230px !important; filter: drop-shadow(0 10px 18px rgba(20, 41, 58, .08)); }
+.bd-empty, .nb-empty { background-image: radial-gradient(ellipse at 50% 30%, rgba(255, 255, 255, .9) 0, rgba(255, 255, 255, 0) 55%); }
+/* Planner: today tile and calendar get a little depth. */
+.pl-today-tile { box-shadow: 0 1px 2px rgba(20, 41, 58, .08), 0 6px 14px -10px rgba(20, 41, 58, .4) !important; }
+/* Mobile menu button: a small lift. */
+.menu-btn { background: linear-gradient(160deg, #1b3449, #14293a) !important; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 6px 14px -8px rgba(20, 41, 58, .6); }
+@media (max-width: 900px) { .week-tab::before, .week-tab::after { display: none; } .week-tab { padding-bottom: 10px !important; } }

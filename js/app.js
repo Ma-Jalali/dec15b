@@ -598,24 +598,47 @@ function overview() {
 function courseMap(current) {
   const pts = [[120, 168], [320, 116], [530, 136], [740, 96], [900, 76]];
   const road = 'M-10 190C60 186 80 168 120 168S250 116 320 116 470 138 530 136 670 96 740 96 850 78 900 76';
-  const tree = (x, y, k = 1) => `<g transform="translate(${x} ${y}) scale(${k})"><rect x="-1.6" y="-4" width="3.2" height="12" rx="1" fill="#8a6f4e"/><circle cy="-12" r="10" fill="#8fb47a"/><circle cx="5" cy="-8" r="7" fill="#6f9d5c"/></g>`;
+  const tree = (x, y, k = 1) => `<g transform="translate(${x} ${y}) scale(${k})"><ellipse cy="9" rx="11" ry="2.4" fill="#14293a" opacity=".07"/><rect x="-1.6" y="-4" width="3.2" height="12" rx="1" fill="#8a6f4e"/><path d="M-.4 -2v9" stroke="#6b5438" stroke-width=".8"/><circle cy="-12" r="10" fill="#8fb47a"/><circle cx="5" cy="-8" r="7" fill="#6f9d5c"/><circle cx="-4" cy="-15" r="4" fill="#a7c791" opacity=".9"/></g>`;
+  const bush = (x, y, k = 1) => `<g transform="translate(${x} ${y}) scale(${k})"><ellipse cy="3" rx="12" ry="2" fill="#14293a" opacity=".06"/><circle cx="-5" r="5" fill="#9cc086"/><circle cx="3" cy="-1" r="6" fill="#86b170"/><circle cx="8" cy="1" r="4" fill="#9cc086"/></g>`;
+  const cloud = (x, y, k = 1) => `<g transform="translate(${x} ${y}) scale(${k})" fill="#fff" opacity=".85"><ellipse cx="0" cy="0" rx="22" ry="8"/><circle cx="-6" cy="-5" r="8"/><circle cx="6" cy="-7" r="10"/><circle cx="16" cy="-3" r="7"/></g>`;
+  const flowers = [[22, 244], [196, 250], [380, 236], [455, 250], [560, 230], [790, 240], [860, 228], [700, 254]].map(([x, y], i) => `<g transform="translate(${x} ${y})"><path d="M0 0v-6" stroke="#7fa36a" stroke-width="1.2"/><circle cy="-7" r="2.2" fill="${['#e9a23b', '#e0674b', '#fff', '#e9a23b'][i % 4]}"/></g>`).join('');
+  const grass = [[200, 258], [250, 226], [330, 250], [500, 238], [640, 226], [730, 246], [940, 236]].map(([x, y]) => `<path d="M${x} ${y}c-1-4-3-7-3-9m3 9c1-4 1-8 2-10m-2 10c2-3 4-5 6-6" stroke="#9fbf8a" stroke-width="1.3" fill="none" stroke-linecap="round"/>`).join('');
   return `<svg class="course-map-svg" viewBox="0 0 1000 262" role="group" aria-label="Course map: ${course.map.map(w => `Week ${w.n}, ${w.label}`).join('; ')}. You are in Week ${current}.">
-    
-    <rect width="1000" height="290" fill="#f7f1e3"/>
-    <circle cx="620" cy="52" r="26" fill="#f6dfae"/><circle cx="620" cy="52" r="40" fill="#f6dfae" opacity=".35"/>
+    <defs>
+      <linearGradient id="cm-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbf7ec"/><stop offset="1" stop-color="#f6efdf"/></linearGradient>
+      <radialGradient id="cm-sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#f9d98f" stop-opacity=".9"/><stop offset=".55" stop-color="#f6dfae" stop-opacity=".35"/><stop offset="1" stop-color="#f6dfae" stop-opacity="0"/></radialGradient>
+      <linearGradient id="cm-far" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1e9d7"/><stop offset="1" stop-color="#ebe2cd"/></linearGradient>
+      <linearGradient id="cm-near" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6eedb"/><stop offset="1" stop-color="#d9e5c9"/></linearGradient>
+      <filter id="cm-sh" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".18"/></filter>
+      <pattern id="cm-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".9" fill="#14293a" opacity=".06"/></pattern>
+    </defs>
+    <rect width="1000" height="290" fill="url(#cm-sky)"/>
+    <rect width="1000" height="150" fill="url(#cm-dots)"/>
+    <circle cx="620" cy="52" r="70" fill="url(#cm-sun)"/><circle cx="620" cy="52" r="26" fill="#f6dfae"/><circle cx="612" cy="44" r="8" fill="#fff" opacity=".35"/>
+    ${cloud(150, 50, .9)}${cloud(470, 34, .7)}${cloud(840, 44, 1)}
     <path d="M120 52q6-6 12 0q6-6 12 0M168 74q4-4 8 0q4-4 8 0M560 40q5-5 10 0q5-5 10 0" stroke="#7d8b95" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-    <path d="M0 150C120 108 230 130 340 116S560 72 700 92 880 52 1000 66V290H0Z" fill="#ece3cf"/>
-    <path d="M0 200C150 176 300 208 470 188S760 158 1000 172V290H0Z" fill="#e2ebd8"/>
-    <path d="M40 262c90-10 190-6 300-14m140 22c120-12 260-18 420-30M600 252c90-6 180-14 300-18" stroke="#cfdcc2" stroke-width="2" fill="none" stroke-linecap="round"/>
-    ${tree(200, 132)}${tree(220, 138, .8)}${tree(420, 120, .9)}${tree(640, 100)}${tree(662, 106, .75)}${tree(964, 214, .9)}${tree(40, 160, .8)}${tree(984, 220, .7)}
+    <path d="M0 130C140 100 260 124 380 104S600 60 720 84 880 44 1000 56V290H0Z" fill="#f3ecdb" opacity=".8"/>
+    <path d="M0 150C120 108 230 130 340 116S560 72 700 92 880 52 1000 66V290H0Z" fill="url(#cm-far)"/>
+    <path d="M0 150C120 108 230 130 340 116S560 72 700 92 880 52 1000 66" stroke="#fff" stroke-opacity=".6" stroke-width="1.5" fill="none"/>
+    <path d="M0 200C150 176 300 208 470 188S760 158 1000 172V290H0Z" fill="url(#cm-near)"/>
+    <path d="M0 200C150 176 300 208 470 188S760 158 1000 172" stroke="#fff" stroke-opacity=".7" stroke-width="1.5" fill="none"/>
+    <path d="M40 262c90-10 190-6 300-14m140 22c120-12 260-18 420-30M600 252c90-6 180-14 300-18M20 236c70-8 140-6 210-10" stroke="#cfdcc2" stroke-width="2" fill="none" stroke-linecap="round"/>
+    ${grass}${flowers}
+    ${tree(200, 132)}${tree(220, 138, .8)}${tree(420, 120, .9)}${tree(640, 100)}${tree(662, 106, .75)}${tree(964, 214, .9)}${tree(30, 174, .8)}${tree(984, 220, .7)}
+    ${bush(300, 216, .8)}${bush(600, 206, .7)}${bush(880, 196, .9)}${bush(130, 222, .7)}
+    <path d="${road}" stroke="#14293a" stroke-opacity=".07" stroke-width="22" fill="none" stroke-linecap="round" transform="translate(0 4)"/>
+    <path d="${road}" stroke="#eadfc8" stroke-width="19" fill="none" stroke-linecap="round"/>
     <path d="${road}" stroke="#fffdf5" stroke-width="16" fill="none" stroke-linecap="round"/>
     <path d="${road}" stroke="#14293a" stroke-opacity=".35" stroke-width="2.4" stroke-dasharray="2 9" fill="none" stroke-linecap="round"/>
+    <g transform="translate(74 152)"><rect x="-1.5" y="-26" width="3" height="30" rx="1" fill="#8a6f4e"/><rect x="-2" y="-34" width="30" height="13" rx="3" fill="#fffdf5" stroke="#c9bfae" stroke-width="1.2"/><path d="M28 -34l5 6.5-5 6.5" fill="#fffdf5" stroke="#c9bfae" stroke-width="1.2"/><text x="12" y="-24.5" text-anchor="middle" font-size="7.5" font-weight="800" font-family="Manrope, sans-serif" fill="#8b969e" letter-spacing=".06em">START</text></g>
     ${course.map.map((w, i) => { const [x, y] = pts[i] || pts[pts.length - 1], st = w.n < current ? 'past' : w.n === current ? 'now' : 'next', last = i === course.map.length - 1;
       const has = course.weeks.some(cw => cw.n === w.n);
       return `<g class="cm-stop cm-${st}${has ? ' cm-link' : ''}" transform="translate(${x} ${y})"${has ? ` data-week-tab="${w.n}" role="button" tabindex="0" aria-label="Show Week ${w.n} lessons"` : ''}>
         ${st === 'now' ? `<circle r="30" fill="#e3a843" opacity=".22"/><g transform="translate(${last ? -66 : 0} ${last ? -40 : -52})"><rect x="-50" y="-15" width="100" height="26" rx="13" fill="#14293a"/>${last ? '' : '<path d="M-6 11h12l-6 8z" fill="#14293a"/>'}<text y="3" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="Manrope, sans-serif">You are here</text></g>` : ''}
-        ${last ? '<path d="M0 -20V-62" stroke="#14293a" stroke-width="3" stroke-linecap="round"/><path d="M0 -62h30l-7 9 7 9H0z" fill="#e64626"/>' : ''}
-        <circle r="19" fill="${st === 'past' ? '#14293a' : st === 'now' ? '#e3a843' : '#fffdf5'}" stroke="${st === 'next' ? '#c9bfae' : '#fffdf5'}" stroke-width="3"/>
+        ${last ? '<path d="M2 -18V-60" stroke="#14293a" stroke-opacity=".12" stroke-width="3" stroke-linecap="round"/><path d="M0 -20V-62" stroke="#14293a" stroke-width="3" stroke-linecap="round"/><path d="M0 -62h30l-7 9 7 9H0z" fill="#e64626"/><path d="M0 -62h30l-7 9H0z" fill="#fff" opacity=".18"/>' : ''}
+        <ellipse cy="22" rx="16" ry="3.5" fill="#14293a" opacity=".1"/>
+        <circle r="19" fill="${st === 'past' ? '#14293a' : st === 'now' ? '#e3a843' : '#fffdf5'}" stroke="${st === 'next' ? '#c9bfae' : '#fffdf5'}" stroke-width="3" filter="url(#cm-sh)"/>
+        ${st === 'now' ? '<path d="M-12 -6a13 13 0 0 1 10-10" stroke="#fff" stroke-opacity=".55" stroke-width="2.5" fill="none" stroke-linecap="round"/>' : ''}
         ${st === 'past' ? '<path d="m-7 0 5 5 9-10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>' : `<text y="5" text-anchor="middle" font-size="15" font-weight="700" font-family="Manrope, sans-serif" fill="${st === 'now' ? '#14293a' : '#8b969e'}">${w.n}</text>`}
         <text y="42" text-anchor="middle" font-size="13" font-weight="700" font-family="Manrope, sans-serif" fill="#14293a">Week ${w.n} · ${esc(w.label)}</text>
         <text y="60" text-anchor="middle" font-size="12" font-family="Manrope, sans-serif" fill="#6b7882">${esc(w.sub)}</text>
@@ -649,7 +672,7 @@ function weekTabs() {
   if (!ws.some(w => w.n === homeWeek)) homeWeek = (ws.find(w => w.n === lesson.week) || ws[ws.length - 1]).n;
   const w = ws.find(x => x.n === homeWeek);
   const tabs = ws.length > 1 ? `<div class="week-tabs" role="tablist" aria-label="Weeks">${ws.map(x => { const st = x.days.filter(d => d.status === 'ready').length, done = x.days.filter(d => { const [a, b] = dayProgress(d); return b && a === b; }).length;
-    return `<button type="button" role="tab" id="tab-week-${x.n}" aria-controls="panel-week" aria-selected="${x.n === homeWeek}" tabindex="${x.n === homeWeek ? 0 : -1}" class="week-tab" data-week-tab="${x.n}"><span class="week-tab-num">${x.n}</span><span class="week-tab-text"><b>Week ${x.n}</b><small>${esc(x.theme)}</small></span><span class="week-tab-meta">${done ? `${done}/${st} done` : `${st} lesson${st === 1 ? '' : 's'}`}</span></button>`; }).join('')}</div>` : '';
+    return `<button type="button" role="tab" id="tab-week-${x.n}" aria-controls="panel-week" aria-selected="${x.n === homeWeek}" tabindex="${x.n === homeWeek ? 0 : -1}" class="week-tab" data-week-tab="${x.n}" style="--p:${st ? Math.round(100 * done / st) : 0}%"><span class="week-tab-num">${x.n}</span><span class="week-tab-text"><b>Week ${x.n}</b><small>${esc(x.theme)}</small></span><span class="week-tab-meta">${done ? `${done}/${st} done` : `${st} lesson${st === 1 ? '' : 's'}`}</span></button>`; }).join('')}</div>` : '';
   return `<section class="week" aria-label="Lessons by week">${tabs}
     <div class="week-panel" id="panel-week" role="tabpanel" aria-labelledby="tab-week-${w.n}">
       <header class="week-head"><span class="week-num"><small>Week</small>${w.n}</span><div><h2>${esc(w.theme)}</h2><p>${esc(w.summary || '')}</p></div></header>
