@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.66)
+DEC15 — COURSE APP (v2.67)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -727,3 +727,11 @@ v2.66 (calmer colours after checking answers)
   green outline on the right answer if it was missed, and a small "Correct." / "Answer: …" badge. Untouched options
   fade back. A wrong choice is struck through.
 - Suggested answers (opened): a white card with a thin green strip and hairlines between items, instead of a green box.
+
+v2.67 (third detail pass)
+- Top bar (Teacher view): the "where am I" path no longer shrinks to a single letter; on laptops up to 1500px wide
+  the teacher's tool buttons (Word meanings, Readings, Word game) show icons only, with their names as tooltips.
+- Word flip cards: a study-card look — a colour band on top, a faint dot grid, the word over a dotted rule and a
+  "Tap to turn over" pill; the back is a soft tinted card (not dark) with the example under a dashed line.
+- Word meanings: index cards with a large faint initial, a gold underline under the word, and the example as a quote.
+- Class board: an eyebrow ("Your class"), the gold swash under the title and more space above it.
