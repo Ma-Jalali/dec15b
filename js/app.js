@@ -173,13 +173,21 @@ function tableLabel(b, r, c) { return `${b.title || 'Table'} · ${b.fixed?.[r] ?
 
 /* ───────── blocks ───────── */
 const B = {};
-B.key = b => `<div role="note" class="block key${b.tone === 'warn' ? ' key-warn' : ''}" data-help>
-  <div class="key-head"><span class="key-badge" aria-hidden="true">${icon(b.tone === 'warn' ? 'alert' : 'key')}</span><div class="key-titles"><div class="block-label">${b.tone === 'warn' ? 'Remember' : 'Key point'}</div>
-  <h3>${b.title}</h3></div></div>
+/* a key point: a warm note card with a ribbon tab, a folded corner and a small drawing; "warn" is the coral "Remember" card */
+const KEY_ART = {
+  key: '<circle cx="60" cy="52" r="36" fill="currentColor" fill-opacity=".09" stroke="none"/><path d="M60 8v8M22 24l6 6M98 24l-6 6M10 52h8M102 52h8"/><path d="M46 70c-6-5-10-12-10-20a24 24 0 0 1 48 0c0 8-4 15-10 20-3 3-4 6-4 9H50c0-3-1-6-4-9z" fill="#fff" fill-opacity=".75"/><path d="M50 86h20M52 93h16M56 100h8"/><path d="M60 79V63m-7-6 7 6 7-6"/>',
+  warn: '<circle cx="60" cy="58" r="36" fill="currentColor" fill-opacity=".09" stroke="none"/><path d="M60 8v8M24 22l6 6M96 22l-6 6"/><path d="M60 26 98 92H22z" fill="#fff" fill-opacity=".75"/><path d="M60 50v20M60 80v.5"/>'
+};
+B.key = b => { const warn = b.tone === 'warn';
+  return `<div role="note" class="block key${warn ? ' key-warn' : ''}" data-help>
+  <span class="key-fold" aria-hidden="true"></span>
+  <svg class="key-art" viewBox="0 0 120 112" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${KEY_ART[warn ? 'warn' : 'key']}</svg>
+  <div class="key-ribbon"><span class="key-badge" aria-hidden="true">${icon(warn ? 'alert' : 'key')}</span>${warn ? 'Remember' : 'Key point'}</div>
+  <h3 class="key-title">${b.title}</h3>
   ${b.compare ? `<div class="compare">${b.compare.map(c => `<div><span class="compare-label">${c.label}</span><p>${c.text}</p>${c.eg ? `<p class="compare-eg">e.g. ${c.eg}</p>` : ''}</div>`).join('')}</div>` : ''}
   ${b.points ? `<${b.numbered ? 'ol' : 'ul'} class="key-points">${b.points.map(p => `<li>${p}</li>`).join('')}</${b.numbered ? 'ol' : 'ul'}>` : ''}
   ${b.policy ? `<p class="key-source">Source: <a href="${esc(cfg.policyUrl)}" target="_blank" rel="noopener">University of Sydney — responsible AI use ${icon('open')}</a></p>` : ''}
-</div>`;
+</div>`; };
 B.steps = b => `<section class="block steps-block" data-help>
   <h3 class="block-heading">${icon('list')}${b.title || 'What to do'}</h3>
   <ol class="steps">${b.items.map(s => `<li><span class="step-who">${whoBadge(s.who)}</span><p>${s.text}</p></li>`).join('')}</ol>

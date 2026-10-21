@@ -676,9 +676,10 @@ v2.61 (the top menu runs the full width; the side panel floats on top)
   The menu's text still lines up with the page content. Phones are unchanged.
 - Styles: the "v2.61" block at the end of css/liquid.css (.masthead::before draws the full-width bar).
 
-v2.62 (key points are light and easy to read)
-- "Key point" boxes no longer use a dark background. Each is a light, warm card: a gold badge with the key icon,
-  a gold "KEY POINT" label, a large dark title, roomy points with gold diamond markers and fine dashed lines
-  between them, and bold words marked with a soft gold highlighter. The 3Cs-style comparison cards inside are white.
-- "Remember" boxes use the same design in soft coral.
-- Lesson content is unchanged; only the look (js/app.js B.key adds the badge; css/liquid.css "v2.62").
+v2.62 (key points: a warm note card that stands apart from the page)
+- "Key point" boxes are no longer dark. Each is a sunlit amber note card that looks different from the white page
+  cards: a fine dot-grid paper, a stitched inner border, a "KEY POINT" ribbon tab on the top edge, a folded
+  top-right corner, a small light-bulb drawing, a large title with a gold swash, and every point on its own white
+  strip with a numbered gold medallion. Bold words get a gold highlighter stroke; comparison cards (the 3Cs) are white.
+- "Remember" boxes use the same card in rose and coral, with a warning-sign drawing.
+- Lesson content is unchanged; only the look (js/app.js B.key and KEY_ART; css/liquid.css "v2.63" block).

@@ -334,56 +334,80 @@ body.is-scrolled .masthead { box-shadow: 0 1px 0 rgba(20, 41, 58, .1), 0 10px 24
   .sidebar { top: 14px; margin-top: 14px; height: calc(100vh - 28px); box-shadow: 0 0 0 1px rgba(20, 41, 58, .07), 0 4px 10px rgba(20, 41, 58, .06), 0 30px 64px -24px rgba(20, 41, 58, .5) !important; }
 }
 
-/* v2.62: key points — a light, warm card that is easy to read (no dark background).
-   A gold badge and label, a large ink title, roomy points with gold markers, and bold words marked with a soft highlighter. */
+/* v2.63: key points — a warm note card that stands apart from the white page cards (never dark):
+   a sunlit amber paper with a fine dot grid, a stitched inner border, a ribbon tab that sits on the top edge,
+   a folded corner, a small line drawing (a light bulb; a warning sign for "Remember"), a title with a gold swash,
+   and each point on its own white strip with a numbered gold medallion. */
 .block.key {
-  --kc: #c98a1e; --kc-soft: #fdf3dc; --kc-line: rgba(201, 138, 30, .28);
-  color: #2b3d4b; padding: 26px 32px 26px 34px !important;
+  --k1: #fff6dd; --k2: #ffe9bf; --k3: #ffdcae; --kc: #c37e14; --kc-deep: #8a560a; --kc-soft: #fff1d2; --kc-line: rgba(195, 126, 20, .3);
+  position: relative; overflow: visible !important; isolation: isolate; color: #2b3d4b;
+  margin-top: 30px; padding: 40px 40px 30px !important;
   background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 4l3.2 12.8L36 20l-12.8 3.2L20 36l-3.2-12.8L4 20l12.8-3.2z' fill='%23e3a843' opacity='.55'/%3E%3Ccircle cx='35' cy='6' r='2' fill='%23e3a843' opacity='.4'/%3E%3C/svg%3E") no-repeat right 22px top 20px / 20px 20px,
-    radial-gradient(420px 180px at 100% 0%, rgba(227, 168, 67, .14), transparent 70%),
-    linear-gradient(180deg, #fffaf0, #fffdf8) !important;
-  border: 1px solid var(--kc-line) !important; border-radius: var(--lq-r, 22px) !important;
-  box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(20, 41, 58, .04), 0 14px 32px -22px rgba(150, 100, 20, .45) !important;
+    radial-gradient(circle at 1px 1px, rgba(170, 110, 20, .13) 1px, transparent 1.4px) 0 0 / 18px 18px,
+    radial-gradient(520px 240px at 0% 0%, rgba(255, 255, 255, .85), transparent 65%),
+    linear-gradient(135deg, var(--k1) 0%, var(--k2) 55%, var(--k3) 100%) !important;
+  border: 1px solid var(--kc-line) !important; border-radius: 26px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), 0 2px 4px rgba(150, 95, 10, .06), 0 26px 50px -28px rgba(160, 100, 10, .65) !important;
 }
-.block.key::before { left: 0; top: 22px; bottom: 22px; width: 4px; border-radius: 0 4px 4px 0; background: linear-gradient(180deg, #f0bf5a, var(--kc)); }
-.block.key::after { display: none; }
-.key-head { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; padding-right: 30px; }
-.key-badge { width: 42px; height: 42px; flex: none; display: grid; place-items: center; border-radius: 13px; color: #fff;
-  background: linear-gradient(150deg, #f2c463, var(--kc)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), 0 6px 14px -6px rgba(201, 138, 30, .7); }
-.key-badge .icon, .key-badge svg { width: 21px; height: 21px; stroke-width: 2; }
-.key-titles { min-width: 0; padding-top: 1px; }
-.block.key .block-label { margin: 0 0 3px; color: var(--kc); font-size: .7rem; letter-spacing: .16em; }
-.block.key .block-label .icon { display: none; }
-.block.key h3 { margin: 0; color: var(--ink); font: 600 clamp(1.25rem, 1.8vw, 1.55rem)/1.3 var(--serif); letter-spacing: -.01em; max-width: 46ch; }
-.block.key .key-points { gap: 0; font-size: 1.02rem; line-height: 1.7; max-width: 80ch; margin-left: 56px; }
-.block.key .key-points li { padding: 10px 0 10px 28px; border-top: 1px dashed var(--kc-line); }
-.block.key .key-points li:first-child { border-top: 0; padding-top: 2px; }
-.block.key ul.key-points li::before { left: 4px; top: calc(10px + .62em); width: 8px; height: 8px; border-radius: 2px; transform: rotate(45deg); background: var(--kc); box-shadow: 0 0 0 3px var(--kc-soft); }
-.block.key ul.key-points li:first-child::before { top: calc(2px + .62em); }
-.block.key ol.key-points li { padding-left: 38px; }
-.block.key ol.key-points li::before { top: 11px; width: 25px; height: 25px; background: var(--kc-soft); color: #8a5a0c; box-shadow: inset 0 0 0 1px var(--kc-line); }
-.block.key ol.key-points li:first-child::before { top: 3px; }
-.block.key b, .block.key strong { color: var(--ink); font-weight: 750; background: linear-gradient(transparent 58%, rgba(240, 191, 90, .38) 58%, rgba(240, 191, 90, .38) 92%, transparent 92%); padding: 0 1px; }
+/* stitched inner border */
+.block.key::after { content: ""; display: block !important; position: absolute; inset: 9px; z-index: -1; border-radius: 19px; border: 1.5px dashed rgba(195, 126, 20, .32); pointer-events: none; }
+/* no side bar any more */
+.block.key::before { display: none !important; }
+/* folded top-right corner */
+.key-fold { position: absolute; top: -1px; right: -1px; width: 46px; height: 46px; border-radius: 0 26px 0 14px; pointer-events: none;
+  background: linear-gradient(225deg, #fbf8f2 0 50%, transparent 50%), linear-gradient(225deg, transparent 50%, #f0c56f 50%, #e2a443 100%);
+  box-shadow: -4px 4px 8px -3px rgba(140, 90, 10, .35); }
+/* the drawing */
+.key-art { position: absolute; z-index: -1; right: 40px; top: 30px; width: 112px; height: 104px; color: var(--kc); opacity: .55; transform: rotate(6deg); pointer-events: none; }
+/* the ribbon tab on the top edge */
+.key-ribbon { position: absolute; top: -17px; left: 30px; display: inline-flex; align-items: center; gap: 8px; height: 34px; padding: 0 16px 0 5px; border-radius: 12px 12px 12px 4px;
+  color: #fff; font: 800 .74rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase;
+  background: linear-gradient(135deg, #e7a83a, var(--kc) 60%, #a86a0e); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 8px 16px -8px rgba(140, 85, 5, .8); }
+.key-ribbon::after { content: ""; position: absolute; left: 0; bottom: -7px; border-top: 7px solid #7a4a06; border-left: 8px solid transparent; }
+.key-ribbon .key-badge { width: 26px; height: 26px; display: grid; place-items: center; border-radius: 8px; background: rgba(255, 255, 255, .22); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .3); }
+.key-ribbon .key-badge .icon, .key-ribbon .key-badge svg { width: 15px; height: 15px; stroke-width: 2.2; color: #fff; }
+/* title with a gold swash */
+.block.key .key-title { margin: 0 150px 20px 0; color: #16293a; font: 600 clamp(1.35rem, 2vw, 1.75rem)/1.28 var(--serif); letter-spacing: -.012em; max-width: 40ch; }
+.block.key .key-title::after { content: ""; display: block; width: 120px; height: 10px; margin-top: 10px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10'%3E%3Cpath d='M2 7C30 2 70 1 118 4' fill='none' stroke='%23c37e14' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M18 9c25-2 55-3 80-2' fill='none' stroke='%23c37e14' stroke-width='1.3' stroke-linecap='round' opacity='.5'/%3E%3C/svg%3E") no-repeat left center / contain; }
+/* each point on its own strip with a numbered medallion */
+.block.key .key-points { counter-reset: kp; display: grid; gap: 10px; margin: 0; padding: 0; max-width: none; font-size: 1.04rem; line-height: 1.65; }
+.block.key .key-points li { counter-increment: kp; position: relative; padding: 13px 18px 13px 60px; border: 0; border-radius: 16px;
+  background: rgba(255, 255, 255, .78); box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(195, 126, 20, .14), 0 6px 14px -10px rgba(140, 90, 10, .45); }
+.block.key .key-points li::before, .block.key ul.key-points li::before, .block.key ol.key-points li::before {
+  content: counter(kp); position: absolute; left: 14px; top: 12px; width: 30px; height: 30px; padding: 0; margin: 0; display: grid; place-items: center; text-align: center; border-radius: 50%; transform: none;
+  color: #fff; font: 800 .82rem/1 var(--sans); background: radial-gradient(circle at 35% 30%, #f6c860, var(--kc) 70%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), 0 0 0 3px #fff, 0 4px 8px -3px rgba(140, 85, 5, .6); }
+.block.key b, .block.key strong { color: #16293a; font-weight: 800; background: linear-gradient(transparent 55%, rgba(245, 185, 70, .45) 55%, rgba(245, 185, 70, .45) 90%, transparent 90%); padding: 0 2px; border-radius: 2px; }
 .block.key i { color: #5b6d7b; }
-.block.key a { color: #8a5a0c; }
+.block.key a { color: var(--kc-deep); }
 .block.key .word-help { text-decoration-color: var(--kc); }
-.block.key .word-help:hover, .block.key .word-help[aria-expanded="true"] { background: var(--kc-soft); }
-.block.key .key-source { margin: 16px 0 0 56px; padding-top: 12px; border-top: 1px solid var(--kc-line); color: #6b7c89; }
-.block.key .compare { margin-left: 56px; }
-.block.key .compare > div { background: #fff; border: 1px solid var(--kc-line); }
-.block.key .compare-label { background: var(--kc-soft); color: #8a5a0c; }
-/* "Remember" (warning) points: the same card in soft coral */
-.block.key.key-warn { --kc: #d9542f; --kc-soft: #fde9e2; --kc-line: rgba(217, 84, 47, .25);
-  background: radial-gradient(420px 180px at 100% 0%, rgba(230, 70, 38, .08), transparent 70%), linear-gradient(180deg, #fff6f2, #fffdfb) !important;
-  box-shadow: inset 0 1px 0 #fff, 0 14px 32px -22px rgba(190, 60, 30, .4) !important; }
-.block.key.key-warn::before { background: linear-gradient(180deg, #f28b6c, var(--kc)); }
-.block.key.key-warn .key-badge { background: linear-gradient(150deg, #f4936f, var(--kc)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 6px 14px -6px rgba(217, 84, 47, .6); }
-.block.key.key-warn b, .block.key.key-warn strong { background: linear-gradient(transparent 58%, rgba(242, 139, 108, .3) 58%, rgba(242, 139, 108, .3) 92%, transparent 92%); }
-.block.key.key-warn ol.key-points li::before, .block.key.key-warn a, .block.key.key-warn .compare-label { color: #a63b1d; }
+.block.key .word-help:hover, .block.key .word-help[aria-expanded="true"] { background: rgba(255, 255, 255, .9); }
+.block.key .key-source { margin: 16px 0 0; padding: 10px 16px; border: 0; border-radius: 12px; background: rgba(255, 255, 255, .55); color: #6b5a3a; }
+.block.key .compare { margin: 0; gap: 12px; }
+.block.key .compare > div { background: rgba(255, 255, 255, .82); border: 0; border-radius: 16px; box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(195, 126, 20, .14), 0 8px 16px -12px rgba(140, 90, 10, .5); }
+.block.key .compare-label { background: linear-gradient(135deg, #e7a83a, var(--kc)); color: #fff; }
+/* "Remember": the same card in rose and coral */
+.block.key.key-warn { --k1: #fff1ec; --k2: #ffe0d6; --k3: #ffcfc2; --kc: #d4502c; --kc-deep: #9c3418; --kc-soft: #ffe7df; --kc-line: rgba(212, 80, 44, .28);
+  background:
+    radial-gradient(circle at 1px 1px, rgba(190, 70, 40, .12) 1px, transparent 1.4px) 0 0 / 18px 18px,
+    radial-gradient(520px 240px at 0% 0%, rgba(255, 255, 255, .85), transparent 65%),
+    linear-gradient(135deg, var(--k1) 0%, var(--k2) 55%, var(--k3) 100%) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), 0 26px 50px -28px rgba(190, 70, 40, .6) !important; }
+.block.key.key-warn::after { border-color: rgba(212, 80, 44, .3); }
+.key-warn .key-fold { background: linear-gradient(225deg, #fbf8f2 0 50%, transparent 50%), linear-gradient(225deg, transparent 50%, #f6a088 50%, #e2694a 100%); }
+.key-warn .key-ribbon { background: linear-gradient(135deg, #f0855f, var(--kc) 60%, #a83a1c); }
+.key-warn .key-ribbon::after { border-top-color: #7e2a12; }
+.block.key.key-warn .key-title::after { filter: hue-rotate(-30deg) saturate(1.3); }
+.block.key.key-warn .key-points li::before { background: radial-gradient(circle at 35% 30%, #f6957a, var(--kc) 70%); }
+.block.key.key-warn b, .block.key.key-warn strong { background: linear-gradient(transparent 55%, rgba(242, 130, 100, .35) 55%, rgba(242, 130, 100, .35) 90%, transparent 90%); }
+.block.key.key-warn .compare-label { background: linear-gradient(135deg, #f0855f, var(--kc)); }
 @media (max-width: 700px) {
-  .block.key { padding: 20px 18px 20px 22px !important; }
-  .block.key .key-points, .block.key .key-source, .block.key .compare { margin-left: 0; }
-  .key-badge { width: 36px; height: 36px; border-radius: 11px; }
+  .block.key { padding: 34px 18px 20px !important; }
+  .block.key .key-title { margin-right: 40px; }
+  .key-art { width: 70px; height: 66px; right: 14px; top: 26px; opacity: .35; }
+  .key-ribbon { left: 18px; }
+  .block.key .key-points li { padding-left: 52px; }
 }
-body.present .block.key h3 { font-size: 2rem; }
+body.present .block.key .key-title { font-size: 2.1rem; }
+@media print { .key-art, .key-fold { display: none; } }
