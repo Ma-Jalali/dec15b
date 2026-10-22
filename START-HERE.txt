@@ -1,4 +1,4 @@
-DEC15 — COURSE APP (v2.69)
+DEC15 — COURSE APP (v2.70)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
@@ -757,3 +757,17 @@ v2.69 (precision details: course map, Class board, Readings, Word pairs, Chats, 
 - Chats: avatars get a white ring and a soft sheen; the open chat shows a teal ring.
 - My notebook: the "words written" and "highlights" tiles carry a faint pen and highlighter icon.
 - Stage and lesson art panels, the empty board and empty notebook: a quiet spotlight behind the drawing.
+
+v2.70 (precision details: planner, Shared with me, Chats, notebook, focus card)
+- Shared with me: a new detailed drawing in the header — two stacked forms with soft shadows, a heading,
+  a highlighted line, three coloured answer dots with a tick, two small avatars, a green share arrow and sparkles.
+- Chats, empty study group: a new drawing — two chat bubbles with gradients and shadows, typing dots, a tick
+  badge, a small avatar and a sparkle.
+- My planner, empty note and empty to-dos: new drawings — a ruled page with a tick list and a pencil; a to-do
+  card with a clip, ticked items, a gold plus badge and a small avatar.
+- Calendar: weekend columns a touch warmer, today's column lit with a red top rule, week-number chips, a gold
+  rule under the month name, a mark under today's weekday, hairlines around to-do chips.
+- To-dos: the Late / Today / Next 7 days / No date tiles each carry their own colour strip and tint.
+- My notebook: the PDF / Google Docs / Word / Print tiles get an inner highlight and tilt a little on hover.
+- Today's focus card: faint ruled-paper lines behind the question.
+- Empty states (shared, planner, chats): a quiet spotlight behind each drawing.
