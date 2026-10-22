@@ -800,3 +800,34 @@ body.present .block.key .key-title { font-size: 2.1rem; }
 /* Mobile menu button: a small lift. */
 .menu-btn { background: linear-gradient(160deg, #1b3449, #14293a) !important; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 6px 14px -8px rgba(20, 41, 58, .6); }
 @media (max-width: 900px) { .week-tab::before, .week-tab::after { display: none; } .week-tab { padding-bottom: 10px !important; } }
+
+/* ───────── v2.70 · precision details: planner calendar & to-dos, Shared with me, Chats, notebook exports ───────── */
+/* Calendar: weekend columns a touch warmer, today's column lit, week-number chips, day numbers as soft tiles. */
+.pl-cell.wk { background: rgba(227, 168, 67, .05) !important; }
+.pl-cell.today { background: linear-gradient(180deg, rgba(208, 68, 42, .07), rgba(208, 68, 42, .02)) !important; box-shadow: inset 0 2px 0 #d0442a; }
+.pl-cell:hover { background: rgba(20, 41, 58, .025); }
+.pl-wkno { background: rgba(20, 41, 58, .05) !important; color: #6b7882 !important; border-radius: 99px !important; padding: 3px 7px !important; }
+.pl-dows span.now { position: relative; }
+.pl-dows span.now::after { content: ''; position: absolute; left: 50%; bottom: -2px; width: 18px; height: 2px; margin-left: -9px; border-radius: 2px; background: #d0442a; }
+.pl-ev { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 22%, transparent); }
+.pl-ev:hover { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 40%, transparent), 0 2px 6px -3px rgba(20, 41, 58, .3); }
+.pl-calhead h2 { position: relative; }
+.pl-calhead h2::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 44px; height: 3px; border-radius: 3px; background: linear-gradient(90deg, #e3a843, #f2c86c); }
+/* To-dos: each count tile carries its own colour strip and tint. */
+.pl-tsum { background: linear-gradient(180deg, #fff, #fbf8f1) !important; }
+.pl-tstat { position: relative; overflow: hidden; background: #fff !important; box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .07), 0 1px 2px rgba(20, 41, 58, .04); }
+.pl-tstat::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 3px; background: #c9bfae; }
+.pl-tstat.late::before { background: #d0442a; } .pl-tstat.today::before { background: #e3a843; } .pl-tstat.soon::before { background: #2a8a7d; } .pl-tstat.nodate::before { background: #9fb1bd; }
+.pl-tstat.late { background: #fff6f3 !important; } .pl-tstat.today { background: #fffaea !important; } .pl-tstat.soon { background: #f1faf7 !important; }
+/* My notebook: export tiles get an inner highlight and lift on hover. */
+.nb-ext { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 3px 8px -4px rgba(20, 41, 58, .4); background-image: linear-gradient(160deg, rgba(255, 255, 255, .18), rgba(255, 255, 255, 0) 60%); }
+.nb-export-btn:hover .nb-ext { transform: translateY(-1px) rotate(-2deg); }
+.nb-ext { transition: transform .2s var(--ease); }
+/* Empty states: a quiet spotlight behind each drawing. */
+.sh-pick, .pl-empty, .ch-empty { background-image: radial-gradient(ellipse at 50% 32%, rgba(255, 255, 255, .95) 0, rgba(255, 255, 255, 0) 58%); }
+.sh-art { width: 210px !important; }
+.pl-art { filter: drop-shadow(0 8px 14px rgba(20, 41, 58, .06)); }
+/* Today's focus card: a faint ruled-paper texture and a small gold corner stitch. */
+.essay-q-hero { overflow: hidden; }
+.essay-q-hero::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(180deg, transparent 0 33px, rgba(20, 41, 58, .04) 33px 34px); pointer-events: none; }
+.essay-q-hero > * { position: relative; z-index: 1; }
