@@ -31,7 +31,7 @@ window.createDEC15Cloud = function ({ cfg, lessonId, getState, applyState, onCha
     if (data) { profile = data; await claimTeacher(); return; }
     // First sign-in: create the student's profile from the details given at sign-up.
     const fresh = { id: user.id, full_name: user.user_metadata?.full_name || '', student_id: user.user_metadata?.student_id || '' };
-    await client.from('profiles').insert(fresh);
+    await client.from('profiles').insert({ ...fresh, course: window.DEC15_CLASS.id });   // the course whose page they signed up on
     profile = { ...fresh, role: 'student' }; await claimTeacher();
   }
   /* Teachers are listed by email in the database. The role is given only after the person proves they own

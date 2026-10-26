@@ -4,6 +4,7 @@
    Data: tables announcements (teacher writes, class reads) and announcement_reads (each student writes their own row;
    the teacher reads all). Row Level Security: supabase/migrations/20261016000000_dec15_announcements.sql. */
 window.createDEC15Announce = function ({ getDb, me, isTeacher, esc, toast, getPeople, avatar }) {
+  const CLS = window.DEC15_CLASS;   // announcements go to this page's course only (js/config.js)
   let list = [], reads = new Map(), ch = null, popEl = null, cardEl = null, shownId = null, openId = null, lastSeenReply = '';
   const LS = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } };
   const TEMPLATES = [
@@ -23,16 +24,16 @@ window.createDEC15Announce = function ({ getDb, me, isTeacher, esc, toast, getPe
     disconnect(); const c = getDb(); if (!c) return;
     const since = new Date(Date.now() - 14 * 864e5).toISOString();
     const [{ data: a }, { data: r }] = await Promise.all([
-      c.from('announcements').select('id, body, allow_reply, active, created_at').gte('created_at', since).order('created_at', { ascending: false }).limit(20),
+      c.from('announcements').select('id, body, allow_reply, active, created_at').eq('course', CLS.id).gte('created_at', since).order('created_at', { ascending: false }).limit(20),
       c.from('announcement_reads').select('announcement_id, user_id, seen_at, reply, replied_at').gte('seen_at', since)]);
     list = a || []; reads = new Map((r || []).map(x => [key(x.announcement_id, x.user_id), x]));
     ch = c.channel('dec15-announce-' + (me() || 'x'))
       .on('postgres_changes', { event: '*', schema: 'public', table: 'announcements' }, p => {
-        const row = p.new; if (!row?.id) return; const i = list.findIndex(x => x.id === row.id);
+        const row = p.new; if (!row?.id || !CLS.mine(row)) return; const i = list.findIndex(x => x.id === row.id);
         if (i >= 0) list[i] = { ...list[i], ...row }; else list.unshift(row);
         paint(); })
       .on('postgres_changes', { event: '*', schema: 'public', table: 'announcement_reads' }, p => {
-        const row = p.new; if (!row?.announcement_id) return; reads.set(key(row.announcement_id, row.user_id), row);
+        const row = p.new; if (!row?.announcement_id || !list.some(x => x.id === row.announcement_id)) return;   // another course's announcement reads.set(key(row.announcement_id, row.user_id), row);
         if (isTeacher() && row.reply && row.user_id !== me()) { const n = (getPeople() || []).find(x => x.id === row.user_id); toast(`${n?.full_name || 'A student'} replied: “${row.reply.slice(0, 80)}”`); }
         paint(); })
       .subscribe();
@@ -42,7 +43,7 @@ window.createDEC15Announce = function ({ getDb, me, isTeacher, esc, toast, getPe
 
   async function send(body, allowReply) {
     const c = getDb(); if (!c || !isTeacher()) return false;
-    const { data, error } = await c.from('announcements').insert({ body, allow_reply: allowReply }).select('id, body, allow_reply, active, created_at').single();
+    const { data, error } = await c.from('announcements').insert({ body, allow_reply: allowReply, course: CLS.id }).select('id, body, allow_reply, active, created_at').single();
     if (error) { toast('The message could not be sent. Check your internet.'); return false; }
     if (!list.some(x => x.id === data.id)) list.unshift(data);
     toast('Sent. Every student sees it now.'); paint(); return true;
@@ -106,7 +107,7 @@ window.createDEC15Announce = function ({ getDb, me, isTeacher, esc, toast, getPe
     const btn = document.getElementById('announce-btn'); if (!btn) return;
     btn.hidden = !isTeacher() || !getDb(); if (btn.hidden) return;
     const replies = list.flatMap(a => readsFor(a.id)).filter(r => r.reply).map(r => r.replied_at || '').sort().pop() || '';
-    const fresh = replies && replies > (LS('dec15-an-replies-seen') || '');
+    const fresh = replies && replies > (LS(CLS.id + '-an-replies-seen') || '');
     btn.innerHTML = `${I.mega}<span class="ab-tx">Message</span>${fresh ? '<i class="ab-dot" aria-label="New replies"></i>' : ''}`;
     btn.setAttribute('aria-label', fresh ? 'Message the class (new replies)' : 'Message the class');
     lastSeenReply = replies;
@@ -118,7 +119,7 @@ window.createDEC15Announce = function ({ getDb, me, isTeacher, esc, toast, getPe
     document.body.append(popEl); paintPanel(true);
     const r = btn.getBoundingClientRect(); popEl.style.top = (r.bottom + 8) + 'px'; popEl.style.left = Math.max(8, Math.min(r.left + r.width / 2 - popEl.offsetWidth / 2, innerWidth - popEl.offsetWidth - 8)) + 'px';
     btn.setAttribute('aria-expanded', 'true');
-    LS('dec15-an-replies-seen', lastSeenReply || new Date().toISOString()); paintButton();
+    LS(CLS.id + '-an-replies-seen', lastSeenReply || new Date().toISOString()); paintButton();
     setTimeout(() => popEl?.querySelector('textarea')?.focus(), 0);
   }
   function paintPanel(first) {

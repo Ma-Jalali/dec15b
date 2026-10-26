@@ -1,8 +1,28 @@
-DEC15 — COURSE APP (v2.69)
+DEC15 + DEC10 — COURSE APP (v2.70)
 
 OPEN
 Open index.html in a current browser (or publish the folder with GitHub Pages).
 Internet is needed only for the YouTube video and the university policy link.
+
+DEC15 AND DEC10 (v2.70) — TWO COURSES, ONE APP, ONE DATABASE
+Links to give students:
+  DEC15  https://ma-jalali.github.io/dec15b/          (unchanged)
+  DEC10  https://ma-jalali.github.io/dec15b/dec10/    (opens dec10.html)
+Folders:
+  js/ css/ assets/        the app itself — side panel, notebook, chats, board … — shared by both courses
+  lessons/                DEC15 lessons and course map (lessons/course.js)
+  dec10/lessons/          DEC10 lessons and course map (dec10/lessons/course.js) — 10 weeks
+  dec10/assets/           DEC10 pictures (write paths from the top: 'dec10/assets/week1/….svg')
+  dec10.html              DEC10's page. Made from index.html by  node tools/build-sw.js  — never edit it by hand.
+Adding a DEC10 lesson: copy lessons/_template.js to dec10/lessons/weekN/d10wNdM.js, then follow the steps at the top of
+dec10/lessons/course.js. DEC10 lesson ids ALWAYS start with "d10" (d10w3d1) so they never clash with DEC15 ids (w3d1).
+On each release: raise the version in js/config.js and index.html (?v=), then run  node tools/build-sw.js .
+Supabase: one project for both. Logins work on both sites. Saved work, class walls and teacher notes are per lesson.
+The class around the lessons is per course (supabase/migrations/20261026000000_dec10_courses.sql, already applied):
+class list, class chat and private messages, study groups, announcements, class board, answers switch and timer.
+A new account belongs to the course whose site it was created on. Teachers see both classes (on each course's site).
+A student who already has a DEC15 account and joins DEC10: run the UPDATE at the end of that migration (SQL editor).
+My planner is personal and the same on both sites.
 
 FILES
 index.html                 the single entry page

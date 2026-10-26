@@ -10,9 +10,15 @@
       show each lesson code in its colour before the day is opened.
    The id (e.g. 'w3d1') is used to save students' work: never change it after students start. */
 window.DEC15_COURSE = {
+  // id keeps this course's class (class list, chat, announcements, boards, class switches) apart from other
+  // courses in the same Supabase project, e.g. DEC10 (dec10/lessons/course.js). Never change it.
+  id: 'dec15',
   code: 'DEC15',
   title: 'Direct Entry Course · 5 weeks',
   topic: 'Food insecurity',
+  intro: 'Five weeks, one big question: how can the world feed everyone? Pick up where you left off, or open any lesson below.',
+  heroImage: 'assets/food-editorial.webp',
+  heroAlt: 'An imperfect tomato, a carrot, a cut orange and grains on a plate — edible food that is often thrown away.',
   defaultLesson: 'w2d5',
   // The five weeks shown on the course map (home page). Only weeks listed in `weeks` below have lessons in the app.
   map: [

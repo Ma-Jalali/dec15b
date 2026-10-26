@@ -14,7 +14,7 @@
     id = course.defaultLesson;
     history.replaceState(null, '', '#/' + id + (hash === 'overview' ? '' : '/' + hash));
   }
-  if (!ready(id)) { try { id = localStorage.getItem('dec15-last-lesson'); } catch (e) { id = null; } }
+  if (!ready(id)) { try { id = localStorage.getItem(window.DEC15_CLASS.id + '-last-lesson'); } catch (e) { id = null; } }
   if (!ready(id)) id = course.defaultLesson;
   window.DEC15_DAYS = days;
   window.DEC15_LESSON_META = ready(id);

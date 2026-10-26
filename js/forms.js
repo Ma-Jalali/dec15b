@@ -153,7 +153,7 @@ window.createDEC15Forms = function ({ getState, save, rerender, esc, strip, icon
     const uid = me(); if (uid === connectedAs) return; disconnect(); connectedAs = uid;
     const c = db(); if (!c) { paintBadge(); return; }
     try {
-      const [pp, rows] = await Promise.all([c.rpc('class_people'), c.from('form_shares').select('id, sender_id, sender_name, sender_role, recipient_id, lesson_id, block_id, title, place, note, body, created_at, updated_at, read_at').or(`recipient_id.eq.${uid},sender_id.eq.${uid}`).order('updated_at', { ascending: false }).limit(400)]);
+      const [pp, rows] = await Promise.all([c.rpc('class_people', { p_course: window.DEC15_CLASS.id }), c.from('form_shares').select('id, sender_id, sender_name, sender_role, recipient_id, lesson_id, block_id, title, place, note, body, created_at, updated_at, read_at').or(`recipient_id.eq.${uid},sender_id.eq.${uid}`).order('updated_at', { ascending: false }).limit(400)]);
       people = pp.data || []; setRows(rows.data || []); loaded = true;
     } catch (e) { loaded = true; }
     paintBadge(); refresh(true);
