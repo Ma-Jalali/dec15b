@@ -1608,6 +1608,8 @@ $('#glossary-open').onclick = () => glossary();
 $('#source-open').onclick = () => openSource();
 $('#dialog-close').onclick = () => { reader.closeWord(); $('#resource-dialog').close(); };
 $('#text-toggle').onclick = e => { const on = document.body.classList.toggle('large-text'); e.currentTarget.setAttribute('aria-pressed', String(on)); };
+/* The course card under the logo (DEC10): the course code as a chip, then its name. */
+if (course.sideCard) $('#sidebar .uni').insertAdjacentHTML('afterend', `<div class="side-course"><b class="sc-code">${esc(course.code)}</b><span class="sc-name">${esc(course.sideCard.name)}<small>${esc(course.sideCard.note || '')}</small></span></div>`);
 /* Side panel colour (Settings): only for a course whose map lists sideColours (DEC10). Saved on this device. */
 if (course.sideColours?.length) {
   const root = document.documentElement, key = CLS.id + '-side';

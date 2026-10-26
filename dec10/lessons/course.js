@@ -17,6 +17,8 @@ window.DEC15_COURSE = {
   intro: 'Ten weeks of academic English. Pick up where you left off, or open any lesson below.',
   heroImage: 'assets/art/stage-reading.svg',
   heroAlt: '',
+  // The course card under the logo in the side panel.
+  sideCard: { name: 'Direct Entry Course', note: '10 weeks' },
   // Settings (gear at the foot of the side panel) → Side panel colour. The first one is the default.
   // Names match css/courses.css; each student's choice is kept on their device.
   sideColours: [['light', 'Light', '#ffffff'], ['charcoal', 'Charcoal', '#424242'], ['black', 'Black', '#000000'], ['navy', 'Navy', '#1a355e'], ['eucalypt', 'Eucalypt', '#4f7d74']],
