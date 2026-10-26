@@ -138,9 +138,7 @@
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-gear[aria-expanded="true"] { color: var(--ochre); box-shadow: 0 0 0 1px rgba(230, 70, 38, .35), 0 4px 10px -4px rgba(230, 70, 38, .5); }
 
 /* ───────── DEC10 light panel: details (v2.74) ─────────
-   The course card, liquid-glass icon tiles in University of Sydney colours, and glass "you are here" and
-   progress cards. Liquid glass here = a translucent tile with a bright specular sheen on top, a soft caustic
-   glow underneath, a white inner rim and a shadow tinted with the tile's own colour. */
+   The course card, icon tiles in University of Sydney colours, and frosted-glass "you are here" and progress cards. */
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar {
   /* each link's colour, from the University palette (Ochre, Jacaranda, Heritage Rose, Eucalypt, Navy …) */
   --dec-map: #e64626; --dec-read: #4f68b8; --dec-note: #8a4f9e; --dec-planner: #3f8f7f;
@@ -164,60 +162,32 @@
   box-shadow: inset 0 1px 0 #fff, inset 0 0 0 1px rgba(255, 255, 255, .6), 0 0 0 1px rgba(230, 70, 38, .14), 0 8px 18px -12px rgba(230, 70, 38, .55);
 }
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .sc-code {
-  position: relative; overflow: hidden; padding: 6px 9px; border-radius: 9px; color: #fff; font: 800 .74rem/1 var(--sans, Manrope, sans-serif); letter-spacing: .06em;
-  background: linear-gradient(160deg, #f0613f, #e64626 45%, #c4361b);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), inset 0 -2px 4px rgba(120, 20, 0, .25), 0 4px 10px -4px rgba(230, 70, 38, .8);
-  text-shadow: 0 1px 1px rgba(120, 20, 0, .35);
-}
-:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .sc-code::before {
-  content: ""; position: absolute; inset: 1px 1px 52% 1px; border-radius: 8px 8px 5px 5px; background: linear-gradient(180deg, rgba(255, 255, 255, .45), rgba(255, 255, 255, 0));
+  padding: 6px 9px; border-radius: 8px; color: #fff; font: 800 .74rem/1 var(--sans, Manrope, sans-serif); letter-spacing: .06em;
+  background: linear-gradient(160deg, #ee5a3a, #e64626); box-shadow: 0 4px 10px -5px rgba(230, 70, 38, .8);
 }
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .sc-name {
   display: grid; gap: 2px; color: var(--ink-2); font: 750 .82rem/1.15 var(--sans, Manrope, sans-serif);
 }
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .sc-name small { color: var(--faint-2); font-weight: 650; font-size: .7rem; letter-spacing: .02em; }
 
-/* liquid-glass icon tiles */
+/* icon tiles: clean and modern, like iOS app icons — a soft tint of the link's colour, a thin icon in the full colour,
+   a hairline edge and a whisper of shadow; no gloss or bevel. The open page fills the tile with the colour. */
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ic {
-  position: relative; isolation: isolate; overflow: hidden; width: 34px; height: 34px; border-radius: 11px;
-  color: color-mix(in srgb, var(--tc) 82%, #0d1a26);
-  background:
-    radial-gradient(90% 60% at 50% 115%, color-mix(in srgb, var(--tc) 38%, transparent), transparent 70%),
-    linear-gradient(155deg, color-mix(in srgb, var(--tc) 10%, #fff), color-mix(in srgb, var(--tc) 30%, #fff));
-  -webkit-backdrop-filter: blur(8px) saturate(1.6); backdrop-filter: blur(8px) saturate(1.6);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .95), inset 0 0 0 1px rgba(255, 255, 255, .55), inset 0 -2px 5px -2px color-mix(in srgb, var(--tc) 55%, transparent),
-    0 0 0 1px color-mix(in srgb, var(--tc) 24%, transparent), 0 5px 12px -6px color-mix(in srgb, var(--tc) 75%, transparent);
-  transition: transform .3s cubic-bezier(.2, .8, .2, 1.2), box-shadow .3s, background .3s;
+  width: 32px; height: 32px; border-radius: 10px;
+  color: var(--tc);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--tc) 20%, #fff), color-mix(in srgb, var(--tc) 9%, #fff));
+  box-shadow: inset 0 0 0 .5px color-mix(in srgb, var(--tc) 30%, transparent), 0 2px 6px -4px color-mix(in srgb, var(--tc) 70%, transparent);
+  transition: transform .25s cubic-bezier(.2, .8, .2, 1), background .25s, box-shadow .25s, color .25s;
 }
-/* the sheen: a bright curved highlight across the top half */
-:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ic::before {
-  content: ""; position: absolute; z-index: -1; left: 2px; right: 2px; top: 1px; height: 52%; border-radius: 10px 10px 50% 50% / 10px 10px 6px 6px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, .9), rgba(255, 255, 255, .15)); transition: opacity .3s;
-}
-/* a small caustic glint at the lower right */
-:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ic::after {
-  content: ""; position: absolute; z-index: -1; right: 4px; bottom: 3px; width: 9px; height: 4px; border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0)); opacity: .8;
-}
-:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ic svg {
-  width: 18px; height: 18px; stroke-width: 1.9; filter: drop-shadow(0 1px 0 rgba(255, 255, 255, .75));
-}
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ic svg { width: 18px; height: 18px; stroke-width: 1.7; }
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link:hover .side-ic {
-  transform: translateY(-1px) scale(1.07) rotate(-4deg);
-  box-shadow: inset 0 1px 0 #fff, inset 0 0 0 1px rgba(255, 255, 255, .6), inset 0 -2px 5px -2px color-mix(in srgb, var(--tc) 60%, transparent),
-    0 0 0 1px color-mix(in srgb, var(--tc) 32%, transparent), 0 9px 16px -7px color-mix(in srgb, var(--tc) 85%, transparent);
+  transform: scale(1.06);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--tc) 26%, #fff), color-mix(in srgb, var(--tc) 13%, #fff));
 }
-/* the open page: a deep, saturated tile with a white icon */
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active .side-ic {
-  color: #fff;
-  background:
-    radial-gradient(90% 60% at 50% 120%, color-mix(in srgb, var(--tc) 60%, #fff 40%), transparent 70%),
-    linear-gradient(155deg, color-mix(in srgb, var(--tc) 80%, #fff), var(--tc) 55%, color-mix(in srgb, var(--tc) 78%, #000));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .55), inset 0 0 0 1px rgba(255, 255, 255, .22), inset 0 -3px 6px -2px rgba(0, 0, 0, .22),
-    0 0 0 3px color-mix(in srgb, var(--tc) 16%, transparent), 0 8px 16px -6px color-mix(in srgb, var(--tc) 90%, transparent);
+  color: #fff; background: linear-gradient(160deg, color-mix(in srgb, var(--tc) 82%, #fff), var(--tc));
+  box-shadow: 0 4px 10px -4px color-mix(in srgb, var(--tc) 85%, transparent);
 }
-:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active .side-ic::before { opacity: .45; }
-:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active .side-ic svg { filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .25)); }
 
 /* rows: the hover and the open page take a whisper of the link's own colour, on glass */
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link { height: 44px; }
