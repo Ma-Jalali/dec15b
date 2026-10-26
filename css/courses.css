@@ -1,47 +1,64 @@
 /* Looks that belong to one course only. dec10.html starts with <html data-course="dec10"> (added by tools/build-sw.js);
    DEC15 (index.html) has no data-course, so nothing here can change it.
-   Colours: University of Sydney palette — Charcoal #424242, Ochre #e64626, Light grey #f1f1f1, Sandstone #fcede2. */
+   Colours: University of Sydney palette — Charcoal #424242, Ochre #e64626, Light grey #f1f1f1, Sandstone #fcede2,
+   Navy #1a355e, Eucalypt (darkened for white text) #4f7d74.
 
-/* ───────── DEC10: a dark charcoal side panel ───────── */
-[data-course="dec10"] .sidebar {
-  --side-bg: #424242; --side-text: #f1f1f1; --side-soft: #c9c9c9; --side-faint: #a3a3a3; --side-line: rgba(255, 255, 255, .1);
+   ───────── DEC10: a dark side panel ─────────
+   Charcoal by default. Students can choose another colour in Settings (data-side on <html>, js/app.js);
+   "light" brings back the white side panel that DEC15 has. */
+[data-course="dec10"] { --side-bg: #424242; --side-top: #4a4a4a; --side-end: #3a3a3a; }
+[data-course="dec10"][data-side="black"] { --side-bg: #000; --side-top: #161616; --side-end: #000; }
+[data-course="dec10"][data-side="navy"] { --side-bg: #1a355e; --side-top: #22406d; --side-end: #152c4f; }
+[data-course="dec10"][data-side="eucalypt"] { --side-bg: #4f7d74; --side-top: #588a80; --side-end: #456e66; }
+[data-course="dec10"]:not([data-side="light"]) .sidebar {
+  --side-text: #f1f1f1; --side-soft: #cfcfcf; --side-faint: #a8a8a8; --side-line: rgba(255, 255, 255, .1);
   color: var(--side-text);
   background:
     radial-gradient(140% 34% at 0% 0%, rgba(230, 70, 38, .16), transparent 70%),
-    linear-gradient(180deg, #4a4a4a, var(--side-bg) 40%, #3a3a3a) !important;
+    linear-gradient(180deg, var(--side-top), var(--side-bg) 40%, var(--side-end)) !important;
 }
 @media (min-width: 901px) {
-  [data-course="dec10"] .sidebar { box-shadow: 0 0 0 1px rgba(0, 0, 0, .25), 0 4px 10px rgba(0, 0, 0, .12), 0 30px 64px -24px rgba(0, 0, 0, .55) !important; }
+  [data-course="dec10"]:not([data-side="light"]) .sidebar { box-shadow: 0 0 0 1px rgba(0, 0, 0, .25), 0 4px 10px rgba(0, 0, 0, .12), 0 30px 64px -24px rgba(0, 0, 0, .55) !important; }
 }
-@media (max-width: 900px) { [data-course="dec10"] .sidebar { background: var(--side-bg) !important; color: var(--side-text); } }
-[data-course="dec10"] .sidebar .uni { border-bottom-color: var(--side-line); }
-[data-course="dec10"] .sidebar .uni img { content: url("../assets/usyd-logo-white.svg"); }
+@media (max-width: 900px) { [data-course="dec10"]:not([data-side="light"]) .sidebar { background: var(--side-bg) !important; color: var(--side-text); } }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .uni { border-bottom-color: var(--side-line); }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .uni img { content: url("../assets/usyd-logo-white.svg"); }
 
 /* search */
-[data-course="dec10"] .sidebar .side-search > .icon, [data-course="dec10"] .sidebar .side-search kbd { color: var(--side-faint); }
-[data-course="dec10"] .sidebar .side-search kbd { border-color: rgba(255, 255, 255, .2); }
-[data-course="dec10"] .sidebar .side-search input { background: rgba(255, 255, 255, .08); color: var(--side-text); box-shadow: inset 0 0 0 1px var(--side-line); }
-[data-course="dec10"] .sidebar .side-search input::placeholder { color: var(--side-faint); }
-[data-course="dec10"] .sidebar .side-search input:focus { background: rgba(255, 255, 255, .13); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .25), 0 0 0 4px rgba(230, 70, 38, .3); }
-[data-course="dec10"] .sidebar .search-hit { color: var(--side-soft); }
-[data-course="dec10"] .sidebar a.search-hit:hover, [data-course="dec10"] .sidebar a.search-hit:focus-visible,
-[data-course="dec10"] .sidebar .search-hit.first, [data-course="dec10"] .sidebar button.search-hit:hover { background: rgba(255, 255, 255, .09); color: #fff; }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-search > .icon, [data-course="dec10"]:not([data-side="light"]) .sidebar .side-search kbd { color: var(--side-faint); }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-search kbd { border-color: rgba(255, 255, 255, .2); }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-search input { background: rgba(255, 255, 255, .08); color: var(--side-text); box-shadow: inset 0 0 0 1px var(--side-line); }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-search input::placeholder { color: var(--side-faint); }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-search input:focus { background: rgba(255, 255, 255, .13); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .25), 0 0 0 4px rgba(230, 70, 38, .3); }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .search-hit { color: var(--side-soft); }
+[data-course="dec10"]:not([data-side="light"]) .sidebar a.search-hit:hover, [data-course="dec10"]:not([data-side="light"]) .sidebar a.search-hit:focus-visible,
+[data-course="dec10"]:not([data-side="light"]) .sidebar .search-hit.first, [data-course="dec10"]:not([data-side="light"]) .sidebar button.search-hit:hover { background: rgba(255, 255, 255, .09); color: #fff; }
 
 /* links: light text; the coloured icon tiles stay; the open page is a lighter row with an ochre edge */
-[data-course="dec10"] .sidebar .side-link { color: var(--side-text); }
-[data-course="dec10"] .sidebar .side-link:hover { background: rgba(255, 255, 255, .08); color: #fff; }
-[data-course="dec10"] .sidebar .side-ic { box-shadow: 0 0 0 .5px rgba(0, 0, 0, .2); }
-[data-course="dec10"] .sidebar .side-link.active { background: rgba(255, 255, 255, .13); color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12); }
-[data-course="dec10"] .sidebar .side-link.active::before { background: #e64626; }
-[data-course="dec10"] .sidebar .side-ext { color: var(--side-faint); }
-[data-course="dec10"] .sidebar .side-group, [data-course="dec10"] .sidebar .nav-label { color: var(--side-faint) !important; }
-[data-course="dec10"] .sidebar .side-group::after { background: var(--side-line); }
-[data-course="dec10"] .sidebar .side-badge { box-shadow: 0 0 0 2px var(--side-bg); }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-link { color: var(--side-text); }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-link:hover { background: rgba(255, 255, 255, .08); color: #fff; }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-ic { box-shadow: 0 0 0 .5px rgba(0, 0, 0, .2); }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-link.active { background: rgba(255, 255, 255, .13); color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12); }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-link.active::before { background: #e64626; }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-ext { color: var(--side-faint); }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-group, [data-course="dec10"]:not([data-side="light"]) .sidebar .nav-label { color: var(--side-faint) !important; }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-group::after { background: var(--side-line); }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-badge { box-shadow: 0 0 0 2px var(--side-bg); }
 
 /* progress card and settings button at the foot */
-[data-course="dec10"] .sidebar .side-progress.side-foot { background: rgba(255, 255, 255, .07); box-shadow: inset 0 0 0 1px var(--side-line) !important; }
-[data-course="dec10"] .sidebar .side-prog, [data-course="dec10"] .sidebar .side-progress { color: var(--side-soft); }
-[data-course="dec10"] .sidebar .side-progress #progress-label b { color: #fff; }
-[data-course="dec10"] .sidebar .side-ring circle { stroke: rgba(255, 255, 255, .15); }
-[data-course="dec10"] .sidebar .side-gear { background: rgba(255, 255, 255, .1); color: var(--side-text); box-shadow: inset 0 0 0 1px var(--side-line); }
-[data-course="dec10"] .sidebar .side-gear:hover, [data-course="dec10"] .sidebar .side-gear[aria-expanded="true"] { background: rgba(255, 255, 255, .18); color: #fff; }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-progress.side-foot { background: rgba(255, 255, 255, .07); box-shadow: inset 0 0 0 1px var(--side-line) !important; }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-prog, [data-course="dec10"]:not([data-side="light"]) .sidebar .side-progress { color: var(--side-soft); }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-progress #progress-label b { color: #fff; }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-ring circle { stroke: rgba(255, 255, 255, .15); }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-gear { background: rgba(255, 255, 255, .1); color: var(--side-text); box-shadow: inset 0 0 0 1px var(--side-line); }
+[data-course="dec10"]:not([data-side="light"]) .sidebar .side-gear:hover, [data-course="dec10"]:not([data-side="light"]) .sidebar .side-gear[aria-expanded="true"] { background: rgba(255, 255, 255, .18); color: #fff; }
+
+/* Settings → Side panel colour: a row of round swatches (the settings menu itself stays white) */
+.side-colours { display: grid; gap: 8px; margin-top: 4px; padding: 10px 8px 6px; border-top: 1px solid rgba(20, 41, 58, .08); }
+.side-colours .sc-label { font-size: .84rem; font-weight: 600; color: #3a4d5d; }
+.side-colours .sc-row { display: flex; gap: 8px; }
+.side-colours button { width: 26px; height: 26px; padding: 0; border-radius: 50%; border: 0; cursor: pointer; background: var(--sc);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .18); transition: transform .15s; }
+.side-colours button:hover { transform: scale(1.1); }
+.side-colours button[aria-checked="true"] { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .18), 0 0 0 2px #fff, 0 0 0 4px #e64626; }
+.side-colours button:focus-visible { outline: 2px solid #e64626; outline-offset: 3px; }
