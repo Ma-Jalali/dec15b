@@ -11,6 +11,7 @@ const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 if (!index.includes('?v=' + version)) throw new Error('index.html does not load ?v=' + version + ' — raise the version there first.');
 COURSES.forEach(c => fs.writeFileSync(path.join(root, c.id + '.html'), index
   .replace('<!doctype html>', `<!doctype html>\n<!-- ${c.code}: made from index.html by tools/build-sw.js — do not edit by hand. -->`)
+  .replace('<html lang="en">', `<html lang="en" data-course="${c.id}">`)   // css/courses.css: looks for this course only
   .replace(/DEC15/g, c.code)
   .replace('src="lessons/course.js', `src="${c.id}/lessons/course.js`)));
 const walk = d => fs.readdirSync(path.join(root, d), { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
