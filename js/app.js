@@ -1608,6 +1608,21 @@ $('#glossary-open').onclick = () => glossary();
 $('#source-open').onclick = () => openSource();
 $('#dialog-close').onclick = () => { reader.closeWord(); $('#resource-dialog').close(); };
 $('#text-toggle').onclick = e => { const on = document.body.classList.toggle('large-text'); e.currentTarget.setAttribute('aria-pressed', String(on)); };
+/* Side panel colour (Settings): only for a course whose map lists sideColours (DEC10). Saved on this device. */
+if (course.sideColours?.length) {
+  const root = document.documentElement, key = CLS.id + '-side';
+  const now = () => root.dataset.side || course.sideColours[0][0];
+  const pick = $('#side-menu').appendChild(document.createElement('div'));
+  pick.className = 'side-colours';
+  const paint = () => { pick.innerHTML = `<span class="sc-label">Side panel colour</span><span class="sc-row" role="radiogroup" aria-label="Side panel colour">${course.sideColours.map(([id, name, hex]) =>
+    `<button type="button" role="radio" aria-checked="${now() === id}" data-side-colour="${id}" title="${name}" aria-label="${name}" style="--sc:${hex}"></button>`).join('')}</span>`; };
+  paint();
+  pick.onclick = e => {
+    const b = e.target.closest('[data-side-colour]'); if (!b) return;
+    root.dataset.side = b.dataset.sideColour; try { localStorage.setItem(key, b.dataset.sideColour); } catch (err) { /* this visit only */ }
+    paint(); pick.querySelector('[aria-checked="true"]')?.focus();
+  };
+}
 window.addEventListener('hashchange', () => { render(); window.scrollTo(0, 0); $('#main').focus({ preventScroll: true }); });
 render(); save(false);
 cloud = window.createDEC15Cloud({
