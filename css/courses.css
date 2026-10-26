@@ -3,14 +3,14 @@
    Colours: University of Sydney palette — Charcoal #424242, Ochre #e64626, Light grey #f1f1f1, Sandstone #fcede2,
    Navy #1a355e, Eucalypt (darkened for white text) #4f7d74.
 
-   ───────── DEC10: a dark side panel ─────────
-   Charcoal by default. Students can choose another colour in Settings (data-side on <html>, js/app.js);
-   "light" brings back the white side panel that DEC15 has. */
-[data-course="dec10"] { --side-bg: #424242; --side-top: #4a4a4a; --side-end: #3a3a3a; }
+   ───────── DEC10: a dark side panel (when chosen) ─────────
+   Light by default (see the end of this file). Students can choose a dark colour in Settings
+   (data-side on <html>, js/app.js): charcoal, black, navy or eucalypt. */
+[data-course="dec10"][data-side="charcoal"] { --side-bg: #424242; --side-top: #4a4a4a; --side-end: #3a3a3a; }
 [data-course="dec10"][data-side="black"] { --side-bg: #000; --side-top: #161616; --side-end: #000; }
 [data-course="dec10"][data-side="navy"] { --side-bg: #1a355e; --side-top: #22406d; --side-end: #152c4f; }
 [data-course="dec10"][data-side="eucalypt"] { --side-bg: #4f7d74; --side-top: #588a80; --side-end: #456e66; }
-[data-course="dec10"]:not([data-side="light"]) .sidebar {
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar {
   --side-text: #f1f1f1; --side-soft: #cfcfcf; --side-faint: #a8a8a8; --side-line: rgba(255, 255, 255, .1);
   color: var(--side-text);
   background:
@@ -18,40 +18,40 @@
     linear-gradient(180deg, var(--side-top), var(--side-bg) 40%, var(--side-end)) !important;
 }
 @media (min-width: 901px) {
-  [data-course="dec10"]:not([data-side="light"]) .sidebar { box-shadow: 0 0 0 1px rgba(0, 0, 0, .25), 0 4px 10px rgba(0, 0, 0, .12), 0 30px 64px -24px rgba(0, 0, 0, .55) !important; }
+  [data-course="dec10"][data-side]:not([data-side="light"]) .sidebar { box-shadow: 0 0 0 1px rgba(0, 0, 0, .25), 0 4px 10px rgba(0, 0, 0, .12), 0 30px 64px -24px rgba(0, 0, 0, .55) !important; }
 }
-@media (max-width: 900px) { [data-course="dec10"]:not([data-side="light"]) .sidebar { background: var(--side-bg) !important; color: var(--side-text); } }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .uni { border-bottom-color: var(--side-line); }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .uni img { content: url("../assets/usyd-logo-white.svg"); }
+@media (max-width: 900px) { [data-course="dec10"][data-side]:not([data-side="light"]) .sidebar { background: var(--side-bg) !important; color: var(--side-text); } }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .uni { border-bottom-color: var(--side-line); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .uni img { content: url("../assets/usyd-logo-white.svg"); }
 
 /* search */
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-search > .icon, [data-course="dec10"]:not([data-side="light"]) .sidebar .side-search kbd { color: var(--side-faint); }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-search kbd { border-color: rgba(255, 255, 255, .2); }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-search input { background: rgba(255, 255, 255, .08); color: var(--side-text); box-shadow: inset 0 0 0 1px var(--side-line); }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-search input::placeholder { color: var(--side-faint); }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-search input:focus { background: rgba(255, 255, 255, .13); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .25), 0 0 0 4px rgba(230, 70, 38, .3); }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .search-hit { color: var(--side-soft); }
-[data-course="dec10"]:not([data-side="light"]) .sidebar a.search-hit:hover, [data-course="dec10"]:not([data-side="light"]) .sidebar a.search-hit:focus-visible,
-[data-course="dec10"]:not([data-side="light"]) .sidebar .search-hit.first, [data-course="dec10"]:not([data-side="light"]) .sidebar button.search-hit:hover { background: rgba(255, 255, 255, .09); color: #fff; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-search > .icon, [data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-search kbd { color: var(--side-faint); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-search kbd { border-color: rgba(255, 255, 255, .2); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-search input { background: rgba(255, 255, 255, .08); color: var(--side-text); box-shadow: inset 0 0 0 1px var(--side-line); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-search input::placeholder { color: var(--side-faint); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-search input:focus { background: rgba(255, 255, 255, .13); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .25), 0 0 0 4px rgba(230, 70, 38, .3); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .search-hit { color: var(--side-soft); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar a.search-hit:hover, [data-course="dec10"][data-side]:not([data-side="light"]) .sidebar a.search-hit:focus-visible,
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .search-hit.first, [data-course="dec10"][data-side]:not([data-side="light"]) .sidebar button.search-hit:hover { background: rgba(255, 255, 255, .09); color: #fff; }
 
 /* links: light text; the coloured icon tiles stay; the open page is a lighter row with an ochre edge */
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-link { color: var(--side-text); }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-link:hover { background: rgba(255, 255, 255, .08); color: #fff; }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-ic { box-shadow: 0 0 0 .5px rgba(0, 0, 0, .2); }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-link.active { background: rgba(255, 255, 255, .13); color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12); }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-link.active::before { background: #e64626; }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-ext { color: var(--side-faint); }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-group, [data-course="dec10"]:not([data-side="light"]) .sidebar .nav-label { color: var(--side-faint) !important; }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-group::after { background: var(--side-line); }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-badge { box-shadow: 0 0 0 2px var(--side-bg); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-link { color: var(--side-text); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-link:hover { background: rgba(255, 255, 255, .08); color: #fff; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-ic { box-shadow: 0 0 0 .5px rgba(0, 0, 0, .2); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-link.active { background: rgba(255, 255, 255, .13); color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-link.active::before { background: #e64626; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-ext { color: var(--side-faint); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-group, [data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .nav-label { color: var(--side-faint) !important; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-group::after { background: var(--side-line); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-badge { box-shadow: 0 0 0 2px var(--side-bg); }
 
 /* progress card and settings button at the foot */
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-progress.side-foot { background: rgba(255, 255, 255, .07); box-shadow: inset 0 0 0 1px var(--side-line) !important; }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-prog, [data-course="dec10"]:not([data-side="light"]) .sidebar .side-progress { color: var(--side-soft); }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-progress #progress-label b { color: #fff; }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-ring circle { stroke: rgba(255, 255, 255, .15); }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-gear { background: rgba(255, 255, 255, .1); color: var(--side-text); box-shadow: inset 0 0 0 1px var(--side-line); }
-[data-course="dec10"]:not([data-side="light"]) .sidebar .side-gear:hover, [data-course="dec10"]:not([data-side="light"]) .sidebar .side-gear[aria-expanded="true"] { background: rgba(255, 255, 255, .18); color: #fff; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-progress.side-foot { background: rgba(255, 255, 255, .07); box-shadow: inset 0 0 0 1px var(--side-line) !important; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-prog, [data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-progress { color: var(--side-soft); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-progress #progress-label b { color: #fff; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-ring circle { stroke: rgba(255, 255, 255, .15); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-gear { background: rgba(255, 255, 255, .1); color: var(--side-text); box-shadow: inset 0 0 0 1px var(--side-line); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-gear:hover, [data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-gear[aria-expanded="true"] { background: rgba(255, 255, 255, .18); color: #fff; }
 
 /* Settings → Side panel colour: a row of round swatches (the settings menu itself stays white) */
 .side-colours { display: grid; gap: 8px; margin-top: 4px; padding: 10px 8px 6px; border-top: 1px solid rgba(20, 41, 58, .08); }
@@ -62,3 +62,82 @@
 .side-colours button:hover { transform: scale(1.1); }
 .side-colours button[aria-checked="true"] { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .18), 0 0 0 2px #fff, 0 0 0 4px #e64626; }
 .side-colours button:focus-visible { outline: 2px solid #e64626; outline-offset: 3px; }
+
+/* ───────── DEC10: the light side panel (the default) ─────────
+   A crisp white sheet that floats clearly above the page: a hairline edge and a deep soft shadow, an Ochre rule along
+   the top, a Sandstone header with a fine dot pattern behind the logo, a course badge, Sandstone hover rows, a white
+   "you are here" card with an Ochre edge, and a warm progress card at the foot. */
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar {
+  --ochre: #e64626; --sand: #fcede2; --ink-2: #1f2d3a; --soft-2: #5b6874; --faint-2: #8d97a0; --line-2: rgba(20, 41, 58, .08);
+  color: var(--ink-2);
+  /* the dot pattern only behind the header: a white veil fades it out below the logo */
+  /* the dot pattern also rises softly from the foot, so the sheet reads as one designed panel */
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, .55) 60px, #fff 150px, #fff calc(100% - 190px), rgba(255, 255, 255, .5) calc(100% - 90px), rgba(255, 255, 255, .15) 100%),
+    radial-gradient(circle at 1px 1px, rgba(230, 70, 38, .18) 1px, transparent 1.5px) 0 0 / 14px 14px,
+    linear-gradient(180deg, var(--sand), #fff 150px, #fff calc(100% - 160px), var(--sand)) !important;
+}
+@media (min-width: 901px) {
+  :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar {
+    box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(20, 41, 58, .09), 0 1px 2px rgba(20, 41, 58, .06),
+      0 10px 22px -10px rgba(20, 41, 58, .22), 0 34px 70px -22px rgba(20, 41, 58, .45) !important;
+  }
+  /* a fine frame a few pixels outside the sheet: it reads as a separate panel, not another card on the page */
+  :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar { outline: 1px solid rgba(20, 41, 58, .1); outline-offset: 5px; }
+  /* an Ochre rule along the top edge of the sheet */
+  :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar::before {
+    content: ""; position: absolute; top: 0; left: 24px; right: 24px; height: 3px; border-radius: 0 0 3px 3px;
+    background: linear-gradient(90deg, transparent, var(--ochre) 18%, var(--ochre) 82%, transparent); pointer-events: none;
+  }
+}
+
+/* header: the logo, then a small course badge */
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .uni { padding: 8px 10px 16px; border-bottom: 0; position: relative; }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .uni::after {
+  content: "DEC10 · Academic English"; display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; padding: 4px 10px 4px 9px;
+  border-radius: 99px; background: #fff; color: var(--ochre); font: 800 .66rem/1.2 var(--sans, Manrope, sans-serif); letter-spacing: .1em; text-transform: uppercase;
+  box-shadow: 0 0 0 1px rgba(230, 70, 38, .22), 0 3px 8px -4px rgba(230, 70, 38, .45);
+}
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .uni + .side-search { position: relative; }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .uni + .side-search::before {
+  content: ""; position: absolute; left: 6px; right: 6px; top: -9px; height: 1px; background: linear-gradient(90deg, transparent, var(--line-2) 15%, var(--line-2) 85%, transparent);
+}
+
+/* search */
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-search input {
+  background: #f4f4f4; border: 0; border-radius: 12px; color: var(--ink-2); box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .06), inset 0 1px 2px rgba(20, 41, 58, .05);
+}
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-search input:focus {
+  background: #fff; box-shadow: inset 0 0 0 1px rgba(230, 70, 38, .5), 0 0 0 4px rgba(230, 70, 38, .14);
+}
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-search kbd { background: #fff; border-color: rgba(20, 41, 58, .12); color: var(--faint-2); box-shadow: 0 1px 0 rgba(20, 41, 58, .12); }
+
+/* section label: small caps with an Ochre diamond */
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-group { color: var(--faint-2) !important; letter-spacing: .14em; }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-group::before {
+  content: ""; width: 5px; height: 5px; flex: none; transform: rotate(45deg); border-radius: 1px; background: var(--ochre); opacity: .8;
+}
+
+/* links */
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link { color: #33414e; }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link:hover { background: color-mix(in srgb, var(--sand) 75%, #fff); color: var(--ink-2); }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active {
+  background: #fff; color: var(--ink-2); font-weight: 750;
+  box-shadow: 0 0 0 1px rgba(20, 41, 58, .07), 0 2px 4px rgba(20, 41, 58, .05), 0 10px 20px -12px rgba(20, 41, 58, .4);
+}
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active::before { background: var(--ochre); }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active::after {
+  content: ""; margin-left: auto; width: 6px; height: 6px; border-radius: 50%; background: var(--ochre); box-shadow: 0 0 0 3px rgba(230, 70, 38, .15);
+}
+
+/* progress card and settings at the foot: warm Sandstone, an Ochre progress ring */
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-progress.side-foot {
+  background: linear-gradient(160deg, var(--sand), #fff 85%); box-shadow: inset 0 0 0 1px rgba(230, 70, 38, .14), 0 6px 14px -10px rgba(230, 70, 38, .5) !important;
+}
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-prog { color: var(--soft-2); }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ring circle { stroke: rgba(230, 70, 38, .14); }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ring circle + circle { stroke: var(--ochre); }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ring.is-done circle + circle { stroke: #3f7a3a; }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-gear { background: #fff; color: var(--soft-2); }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-gear:hover,
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-gear[aria-expanded="true"] { color: var(--ochre); box-shadow: 0 0 0 1px rgba(230, 70, 38, .35), 0 4px 10px -4px rgba(230, 70, 38, .5); }

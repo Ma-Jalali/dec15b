@@ -19,7 +19,7 @@ window.DEC15_COURSE = {
   heroAlt: '',
   // Settings (gear at the foot of the side panel) → Side panel colour. The first one is the default.
   // Names match css/courses.css; each student's choice is kept on their device.
-  sideColours: [['charcoal', 'Charcoal', '#424242'], ['black', 'Black', '#000000'], ['navy', 'Navy', '#1a355e'], ['eucalypt', 'Eucalypt', '#4f7d74'], ['light', 'Light', '#ffffff']],
+  sideColours: [['light', 'Light', '#ffffff'], ['charcoal', 'Charcoal', '#424242'], ['black', 'Black', '#000000'], ['navy', 'Navy', '#1a355e'], ['eucalypt', 'Eucalypt', '#4f7d74']],
   defaultLesson: 'd10w1d1',
   // The ten weeks shown on the course map (home page). Change label (short!) and sub when the course outline is final.
   map: [
