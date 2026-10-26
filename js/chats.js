@@ -63,7 +63,8 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
 
   /* ───────── data ───────── */
   let people = [], byId = new Map(), groups = [], msgs = [], reacts = new Map(), votes = new Map(), ch = null, loaded = false, connectedAs = null;
-  let lastSeenClass = +(LS('dec15-class-seen') || 0), lastPage = LSJ('dec15-chat-lastpage') || null;
+  const CLS = window.DEC15_CLASS;   // this page's course (js/config.js): chats and study groups are per course
+  let lastSeenClass = +(LS(CLS.id + '-class-seen') || 0), lastPage = LSJ(CLS.id + '-chat-lastpage') || null;
   const typingNow = new Map();   // conversation key -> Map(name -> until)
 
   async function connect() {
@@ -90,8 +91,8 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
     const c = db(); if (!c) return;
     try {
       const [pp, mm, rr, vv] = await Promise.all([
-        c.rpc('class_people'),
-        c.from('messages').select(MSG_COLS).order('created_at', { ascending: false }).limit(900),
+        c.rpc('class_people', { p_course: CLS.id }),
+        c.from('messages').select(MSG_COLS).eq('course', CLS.id).order('created_at', { ascending: false }).limit(900),
         c.from('chat_reactions').select('message_id, user_id, emoji').order('created_at').limit(6000),
         c.from('chat_votes').select('message_id, user_id, choice').limit(6000),
         loadGroups(true),
@@ -105,13 +106,13 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
   }
   async function loadGroups(quiet) {
     const c = db(); if (!c) return;
-    const { data } = await c.from('chat_groups').select('id, name, emoji, color, about, created_by, created_at, chat_members(user_id, last_read_at, joined_at)').order('created_at');
+    const { data } = await c.from('chat_groups').select('id, name, emoji, color, about, created_by, created_at, chat_members(user_id, last_read_at, joined_at)').eq('course', CLS.id).order('created_at');
     if (data) groups = data.map(g => ({ ...g, members: g.chat_members || [] }));
     if (!quiet) { if (loaded && cur.startsWith('g:') && !group(cur.slice(2))) cur = 'class'; paint(); }
   }
   async function loadMessages() {
     const c = db(); if (!c) return;
-    const { data } = await c.from('messages').select(MSG_COLS).order('created_at', { ascending: false }).limit(900);
+    const { data } = await c.from('messages').select(MSG_COLS).eq('course', CLS.id).order('created_at', { ascending: false }).limit(900);
     if (data) { msgs = sortMsgs(data); paint(); }
   }
   const sortMsgs = list => list.slice().sort((x, y) => Date.parse(x.created_at) - Date.parse(y.created_at));
@@ -121,7 +122,7 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
   /* ───────── live changes ───────── */
   function onMsgChange(p) {
     if (p.eventType === 'DELETE') { const id = p.old?.id; if (!id) return; msgs = msgs.filter(m => m.id !== id); paintConvSoft(); paintList(); paintBadge(); return; }
-    const m = p.new; if (!m?.id) return;
+    const m = p.new; if (!m?.id || !CLS.mine(m)) return;
     if (m.recipient_id && m.recipient_id !== me() && m.sender_id !== me()) return;   // never show someone else's private chat
     const was = msgs.find(x => x.id === m.id);
     if (was) { Object.assign(was, m); paintConvSoft(); paintList(); return; }
@@ -187,7 +188,7 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
   let readT = {};
   async function markRead(k) {
     const c = db(), uid = me(); if (!c) return;
-    if (k === 'class') { lastSeenClass = Date.now(); LS('dec15-class-seen', String(lastSeenClass)); }
+    if (k === 'class') { lastSeenClass = Date.now(); LS(CLS.id + '-class-seen', String(lastSeenClass)); }
     else if (k.startsWith('u:')) {
       const ids = msgs.filter(m => m.sender_id === k.slice(2) && m.recipient_id === uid && !m.read_at).map(m => m.id);
       if (ids.length) { const now = new Date().toISOString(); msgs.forEach(m => { if (ids.includes(m.id)) m.read_at = now; }); c.from('messages').update({ read_at: now }).in('id', ids).then(() => {}, () => {}); }
@@ -240,7 +241,7 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
   async function send(row) {
     const c = db(); if (!c) return null;
     const target = cur === 'class' ? {} : cur.startsWith('g:') ? { group_id: cur.slice(2) } : { recipient_id: cur.slice(2) };
-    const { data, error } = await c.from('messages').insert({ ...row, ...target, body: String(row.body || '').slice(0, 2000) }).select(MSG_COLS).single();
+    const { data, error } = await c.from('messages').insert({ ...row, ...target, body: String(row.body || '').slice(0, 2000), course: CLS.id }).select(MSG_COLS).single();
     if (error) { toast('Sorry — the message was not sent. Check your internet.'); return null; }
     if (!msgs.some(m => m.id === data.id)) { msgs.push(data); onNew(data); }
     return data;
@@ -295,7 +296,7 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
   /* ───────── page state ───────── */
   let root = null, mounted = false, cur = 'class', filter = 'all', q = '', replyTo = null, sheet = null, info = false, infoTab = 'about', find = null, mobileConv = false;
   const drafts = {};
-  function notePage(hash, label) { if (!hash || /^#\/(chats|shared|board|planner)?$/.test(hash) || hash.startsWith('#/chats')) return; lastPage = { hash, label }; LSJ('dec15-chat-lastpage', lastPage); }
+  function notePage(hash, label) { if (!hash || /^#\/(chats|shared|board|planner)?$/.test(hash) || hash.startsWith('#/chats')) return; lastPage = { hash, label }; LSJ(CLS.id + '-chat-lastpage', lastPage); }
 
   function mount(el, hash) {
     root = el; mounted = true; hookTyping();
@@ -488,7 +489,7 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
     }
     if (m.kind === 'link') {
       const href = /^#\/[\w\-/:]{0,120}$/.test(d.href || '') ? d.href : '#/';
-      return `<a class="ch-card ch-link" href="${esc(href)}"><span class="ch-lico" aria-hidden="true">${ic('link')}</span><span><span class="ch-k">Lesson page</span><b>${esc(d.title || 'A page in DEC15')}</b>${d.note ? `<small>${esc(d.note)}</small>` : ''}</span><span class="ch-lgo" aria-hidden="true">Open ›</span></a>${m.body && m.body !== d.title ? `<p class="ch-tx">${rich(m.body, find)}</p>` : ''}`;
+      return `<a class="ch-card ch-link" href="${esc(href)}"><span class="ch-lico" aria-hidden="true">${ic('link')}</span><span><span class="ch-k">Lesson page</span><b>${esc(d.title || 'A page in ' + (window.DEC15_COURSE?.code || 'DEC15'))}</b>${d.note ? `<small>${esc(d.note)}</small>` : ''}</span><span class="ch-lgo" aria-hidden="true">Open ›</span></a>${m.body && m.body !== d.title ? `<p class="ch-tx">${rich(m.body, find)}</p>` : ''}`;
     }
     return `<p class="ch-tx">${rich(m.body, find)}</p>`;
   }
@@ -605,7 +606,7 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
     const n = x => x ? ` <i>${x}</i>` : '', tabs = [['about', c.kind === 'dm' ? 'Person' : 'People'], ['words', 'Words' + n(words.length)], ['polls', 'Polls' + n(polls.length + qs.length)], ['pins', 'Pins' + n(pins.length)]];
     let body = '';
     if (infoTab === 'about') {
-      body = `<div class="ch-ihero">${tile(c, on, 'ch-tile-lg')}<b>${esc(c.name)}</b><small>${c.kind === 'class' ? 'Everyone in DEC15' : c.kind === 'group' ? esc(c.g.about || 'Study group') : c.p.role === 'teacher' ? 'Your teacher' : 'Classmate'}</small>
+      body = `<div class="ch-ihero">${tile(c, on, 'ch-tile-lg')}<b>${esc(c.name)}</b><small>${c.kind === 'class' ? 'Everyone in ' + (window.DEC15_COURSE?.code || 'DEC15') : c.kind === 'group' ? esc(c.g.about || 'Study group') : c.p.role === 'teacher' ? 'Your teacher' : 'Classmate'}</small>
         ${c.kind === 'group' ? `<div class="ch-iacts">${c.g.created_by === me() || isTeacher() ? `<button type="button" data-edit-group>${ic('edit')} Edit</button>` : ''}${isMember(c.g) ? `<button type="button" data-add-people>${ic('group')} Add people</button><button type="button" data-leave>${ic('door')} Leave</button>` : ''}${c.g.created_by === me() || isTeacher() ? `<button type="button" class="danger" data-del-group>${ic('trash')} Delete</button>` : ''}</div>` : ''}</div>
         <h3 class="ch-ih">${c.kind === 'dm' ? 'In this chat' : `${members.length} ${members.length === 1 ? 'member' : 'members'}`}</h3>
         <ul class="ch-people">${members.map(id => person(id)).sort((a, b) => (on.has(b.id) - on.has(a.id)) || (b.role === 'teacher') - (a.role === 'teacher')).map(p => `<li><span class="ch-pava">${ava(p)}${on.has(p.id) ? '<i class="ch-on"></i>' : ''}</span><span><b>${esc(p.id === me() ? 'You' : p.full_name)}</b><small>${p.role === 'teacher' ? 'Teacher' : on.has(p.id) ? 'online' : 'Student'}${c.kind === 'group' && c.g.created_by === p.id ? ' · created the group' : ''}</small></span>${p.id !== me() ? `<button type="button" class="ch-ghost" data-dm="${p.id}" title="Private chat" aria-label="Private chat with ${esc(p.full_name)}">${ic('chat')}</button>` : ''}${c.kind === 'group' && p.id !== me() && (c.g.created_by === me() || isTeacher()) ? `<button type="button" class="ch-ghost" data-kick="${p.id}" title="Remove from the group" aria-label="Remove ${esc(p.full_name)}">${ic('x')}</button>` : ''}</li>`).join('')}</ul>`;
@@ -656,7 +657,7 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
       const row = { name, emoji: el.querySelector('[name=emoji]:checked')?.value || '📚', color: el.querySelector('[name=color]:checked')?.value || 'teal', about: el.querySelector('[name=about]').value.trim() || null };
       e.target.disabled = true; const c = db();
       if (g) { const { error } = await c.from('chat_groups').update(row).eq('id', g.id); if (error) { toast('The group was not saved.'); e.target.disabled = false; return; } Object.assign(g, row); closeModal(); paint(); return; }
-      const { data, error } = await c.from('chat_groups').insert(row).select('id').single();
+      const { data, error } = await c.from('chat_groups').insert({ ...row, course: CLS.id }).select('id').single();
       if (error) { toast('The group could not be created. Check your internet.'); e.target.disabled = false; return; }
       const add = [...el.querySelectorAll('.ch-pick input:checked')].map(i => ({ group_id: data.id, user_id: i.value }));
       if (add.length) await c.from('chat_members').insert(add);

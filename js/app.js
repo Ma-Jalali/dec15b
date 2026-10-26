@@ -8,6 +8,8 @@
 const lesson = window.DEC15_LESSON, sources = window.DEC15_SOURCES || [], cfg = window.DEC15_CONFIG;
 const course = window.DEC15_COURSE, days = window.DEC15_DAYS || [];
 const KEY = 'dec15-' + lesson.id + '-v2';
+/* Files of this course: DEC15 lives at the top of the site, other courses in their own folder (course.root, e.g. 'dec10/'). */
+const ROOT = course.root || '', CLS = window.DEC15_CLASS;
 lesson.extras = lesson.extras || []; lesson.glossary = lesson.glossary || [];
 /* Colour + illustration for each stage. A lesson can set tone: 'amber' | 'teal' | 'blue' | 'clay' | 'plum' | 'green'
    and art: 'ai' | 'feedback' | 'critical' | 'writing' | 'reading' | 'listening' | 'discussion' | 'research' | 'assessment' | 'group'. */
@@ -559,7 +561,7 @@ function overview() {
       <p class="hero-lead">${esc(lesson.journey)}</p>
       <div class="hero-actions">${continueButton(true)}${done && n ? `<span class="hero-progress"><b>${done} of ${coreActivities.length}</b> activities finished · next: ${esc(stageName(n.s))}</span>` : ''}</div>
     </div>
-    ${(() => { const wk = course.weeks.find(w => w.n === lesson.week) || {}; return `<figure class="hero-img"><img src="${esc(lesson.image || wk.image || 'assets/food-editorial.webp')}" width="1400" height="933" alt="${esc(lesson.imageAlt || wk.imageAlt || 'An imperfect tomato, a carrot, a cut orange and grains on a plate — edible food that is often thrown away.')}"></figure>`; })()}
+    ${(() => { const wk = course.weeks.find(w => w.n === lesson.week) || {}; return `<figure class="hero-img"><img src="${esc(lesson.image || wk.image || course.heroImage || 'assets/food-editorial.webp')}" width="1400" height="933" alt="${esc(lesson.imageAlt || wk.imageAlt || course.heroAlt || '')}"></figure>`; })()}
   </section>
   <section class="essay-q essay-q-hero">
     <span class="essay-q-label">${esc(lesson.questionLabel || 'This week’s essay question · you write it on Monday')}</span>
@@ -596,8 +598,12 @@ function overview() {
 
 /* ───────── course home: all weeks ───────── */
 function courseMap(current) {
-  const pts = [[120, 168], [320, 116], [530, 136], [740, 96], [900, 76]];
-  const road = 'M-10 190C60 186 80 168 120 168S250 116 320 116 470 138 530 136 670 96 740 96 850 78 900 76';
+  /* five stops for DEC15; a longer course (DEC10) spreads its stops along a road that climbs gently to the flag */
+  const N = course.map.length, many = N > 6;
+  const pts = N === 5 ? [[120, 168], [320, 116], [530, 136], [740, 96], [900, 76]]
+    : course.map.map((_, i) => { const k = N > 1 ? i / (N - 1) : 0; return [Math.round(150 + 760 * k), Math.round(160 - 84 * k + (i % 2 ? -10 : 8))]; });
+  const road = N === 5 ? 'M-10 190C60 186 80 168 120 168S250 116 320 116 470 138 530 136 670 96 740 96 850 78 900 76'
+    : `M-10 190C40 186 ${pts[0][0] - 40} ${pts[0][1]} ${pts[0][0]} ${pts[0][1]}` + pts.slice(1).map(([x, y], i) => `S${x - Math.round((x - pts[i][0]) / 2)} ${y} ${x} ${y}`).join('');
   const tree = (x, y, k = 1) => `<g transform="translate(${x} ${y}) scale(${k})"><ellipse cy="9" rx="11" ry="2.4" fill="#14293a" opacity=".07"/><rect x="-1.6" y="-4" width="3.2" height="12" rx="1" fill="#8a6f4e"/><path d="M-.4 -2v9" stroke="#6b5438" stroke-width=".8"/><circle cy="-12" r="10" fill="#8fb47a"/><circle cx="5" cy="-8" r="7" fill="#6f9d5c"/><circle cx="-4" cy="-15" r="4" fill="#a7c791" opacity=".9"/></g>`;
   const bush = (x, y, k = 1) => `<g transform="translate(${x} ${y}) scale(${k})"><ellipse cy="3" rx="12" ry="2" fill="#14293a" opacity=".06"/><circle cx="-5" r="5" fill="#9cc086"/><circle cx="3" cy="-1" r="6" fill="#86b170"/><circle cx="8" cy="1" r="4" fill="#9cc086"/></g>`;
   const cloud = (x, y, k = 1) => `<g transform="translate(${x} ${y}) scale(${k})" fill="#fff" opacity=".85"><ellipse cx="0" cy="0" rx="22" ry="8"/><circle cx="-6" cy="-5" r="8"/><circle cx="6" cy="-7" r="10"/><circle cx="16" cy="-3" r="7"/></g>`;
@@ -640,8 +646,9 @@ function courseMap(current) {
         <circle r="19" fill="${st === 'past' ? '#14293a' : st === 'now' ? '#e3a843' : '#fffdf5'}" stroke="${st === 'next' ? '#c9bfae' : '#fffdf5'}" stroke-width="3" filter="url(#cm-sh)"/>
         ${st === 'now' ? '<path d="M-12 -6a13 13 0 0 1 10-10" stroke="#fff" stroke-opacity=".55" stroke-width="2.5" fill="none" stroke-linecap="round"/>' : ''}
         ${st === 'past' ? '<path d="m-7 0 5 5 9-10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>' : `<text y="5" text-anchor="middle" font-size="15" font-weight="700" font-family="Manrope, sans-serif" fill="${st === 'now' ? '#14293a' : '#8b969e'}">${w.n}</text>`}
-        <text y="42" text-anchor="middle" font-size="13" font-weight="700" font-family="Manrope, sans-serif" fill="#14293a">Week ${w.n} · ${esc(w.label)}</text>
-        <text y="60" text-anchor="middle" font-size="12" font-family="Manrope, sans-serif" fill="#6b7882">${esc(w.sub)}</text>
+        ${many ? `<text y="${i % 2 ? 54 : 40}" text-anchor="middle" font-size="11.5" font-weight="700" font-family="Manrope, sans-serif" fill="#14293a">${esc(w.label)}</text>`
+          : `<text y="42" text-anchor="middle" font-size="13" font-weight="700" font-family="Manrope, sans-serif" fill="#14293a">Week ${w.n} · ${esc(w.label)}</text>
+        <text y="60" text-anchor="middle" font-size="12" font-family="Manrope, sans-serif" fill="#6b7882">${esc(w.sub)}</text>`}
       </g>`; }).join('')}
   </svg>`;
 }
@@ -684,7 +691,7 @@ function courseHome() {
   return `<header class="home-head">
       <span class="eyebrow">${esc(course.code)} · ${esc(course.topic)}</span>
       <h1>Your course map</h1>
-      <p>Five weeks, one big question: how can the world feed everyone? Pick up where you left off, or open any lesson below.</p>
+      <p>${esc(course.intro || 'Pick up where you left off, or open any lesson below.')}</p>
     </header>
     <section class="course-map" aria-label="Course map">${courseMap(lesson.week)}</section>
     <section class="resume" style="${tone(n ? n.s : lesson.sections[lesson.sections.length - 1])}">
@@ -710,7 +717,7 @@ function srcLook(s) {   // the picture, colour and reading time of a course text
 /* Readings: every week's course texts, one fold per week. Each week's text files are read on demand
    (from the course map) into their own list, so a week shows only its own texts. */
 const libWeeks = course.weeks.map(w => ({ n: w.n, theme: w.theme,
-  files: [...new Set(w.days.filter(d => d.status === 'ready').flatMap(d => d.scripts || []).filter(f => f.startsWith(`lessons/week${w.n}/`) && !/\/w\d+d\d+\.js$/.test(f)))]
+  files: [...new Set(w.days.filter(d => d.status === 'ready').flatMap(d => d.scripts || []).filter(f => f.startsWith(`${ROOT}lessons/week${w.n}/`) && !/\/w\d+d\d+\.js$/.test(f)))]
     .sort((a, b) => (b.endsWith('/sources.js') ? 1 : 0) - (a.endsWith('/sources.js') ? 1 : 0)) })).filter(w => w.files.length);
 const library = {}, libLoading = {};
 let libOpen = null;
@@ -765,7 +772,7 @@ function notebook() {
    One week is open at a time (opening a week folds the others). The search box finds lessons, parts
    of lessons, and the stages and activities of the open lesson. */
 // one week open at a time: the week number, 0 = all closed, null = follow the current lesson
-let navWeekOpen = (() => { try { const v = JSON.parse(localStorage.getItem('dec15-nav-week')); return typeof v === 'number' ? v : null; } catch (e) { return null; } })();
+let navWeekOpen = (() => { try { const v = JSON.parse(localStorage.getItem(CLS.id + '-nav-week')); return typeof v === 'number' ? v : null; } catch (e) { return null; } })();
 let navRoute = 'home';
 /* Progress ring around a day number. */
 function ring(p, n, done) {
@@ -911,7 +918,7 @@ function paintPanel(mode) {
 /* how far through a week's activities this student is (0–1), from the saved summaries */
 function weekProgress(w) { if (!w) return 0; let dn = 0, tot = 0; w.days.forEach(d => { if (d.status !== 'ready') return; const [a, b] = dayProgress(d); dn += a; tot += b; }); return tot ? dn / tot : 0; }
 /* a day's picture: the day's own hero drawing where the week has one, otherwise the stage drawing */
-const dayArt = (w, d) => w.image ? `assets/week${w.n}/hero-${d.id}.svg` : artSrc(d.art || 'reading');
+const dayArt = (w, d) => w.image ? `${ROOT}assets/week${w.n}/hero-${d.id}.svg` : artSrc(d.art || 'reading');
 function weekPanel(n, route) {
   const m = course.map.find(x => x.n === n) || { n, label: '', sub: '' }, w = course.weeks.find(x => x.n === n), i = course.map.indexOf(m);
   const col = WB_TONES[(i < 0 ? 0 : i) % WB_TONES.length];
@@ -1010,7 +1017,7 @@ function searchResults(q) {
     .sort((x, y) => y.rank - x.rank).slice(0, 16);
   const mark = t => { let h = esc(t); words.forEach(w => { h = h.replace(new RegExp('(' + reEsc(esc(w)) + ')', 'gi'), '<mark>$1</mark>'); }); return h; };
   const snip = t => { const i = t.toLowerCase().indexOf(words[0]); const a = Math.max(0, i - 34); return (a ? '…' : '') + t.slice(a, i + 70).trim() + '…'; };
-  if (!hits.length) return `<p class="search-none">Nothing matches “${esc(q)}”. Try one word, for example <i>essay</i>, <i>listening</i> or <i>food banks</i>.</p>`;
+  if (!hits.length) return `<p class="search-none">Nothing matches “${esc(q)}”. Try one word, for example <i>essay</i>, <i>listening</i> or <i>summary</i>.</p>`;
   return `<ul class="search-list" aria-label="Search results">${hits.map(({ it, rank }, i) => {
     const sub = rank === 1 ? `<small class="search-snip">${mark(snip(it.body))}</small><small>${esc(it.kind)} · ${esc(it.title)}</small>` : `<small>${esc(it.kind)} · ${esc(it.gloss ? it.sub.slice(0, 70) + (it.sub.length > 70 ? '…' : '') : it.sub)}</small>`;
     const inner = `<span class="search-ic">${icon(it.ic)}</span><span class="search-text"><b>${mark(rank === 1 ? it.title : it.title)}</b>${sub}</span>`;
@@ -1052,7 +1059,7 @@ function render() {
     history.replaceState(null, '', '#/'); return render();
   }
   const route = r.home ? 'home' : r.page;
-  if (!r.home) try { localStorage.setItem('dec15-last-lesson', lesson.id); } catch (e) { /* ignore */ }
+  if (!r.home) try { localStorage.setItem(CLS.id + '-last-lesson', lesson.id); } catch (e) { /* ignore */ }
   const done = coreActivities.filter(a => state.done[a.id]).length;
   paintNav(route);
   $('#progress').value = done; $('#progress').max = coreActivities.length;
@@ -1533,7 +1540,7 @@ document.addEventListener('click', e => {
   if (d.weekTab) { homeWeek = Number(d.weekTab); rerender(); $(`#tab-week-${homeWeek}`)?.focus({ preventScroll: !t.classList.contains('week-tab') }); if (!t.classList.contains('week-tab')) $('.week')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
   if (d.navWeek) {   // one week open at a time: opening a week folds the others
     const w = Number(d.navWeek), wk = t.closest('.nav-week'), open = !wk.classList.contains('open'); navWeekOpen = open ? w : 0;
-    try { localStorage.setItem('dec15-nav-week', JSON.stringify(navWeekOpen)); } catch (e) { /* ignore */ }
+    try { localStorage.setItem(CLS.id + '-nav-week', JSON.stringify(navWeekOpen)); } catch (e) { /* ignore */ }
     if (open) document.querySelectorAll('.nav-week.open').forEach(o => { if (o !== wk) setFold(o, o.querySelector('[data-nav-week]'), false); });
     setFold(wk, t, open);
     if (open) setTimeout(() => wk.scrollIntoView({ block: 'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }), 340);

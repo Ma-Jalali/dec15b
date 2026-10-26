@@ -8,14 +8,15 @@ window.DEC15Board = (() => {
   let boards = [], cur = null, live = null, mode = 'write', pen = { c: '#14293a', w: 4 }, saveT = 0, dirty = false, follow = true, wb = null, wbFor = null, myView = {};
   const PENS = [['#14293a', 'Ink'], ['#c0392b', 'Red'], ['#2a8a7d', 'Teal'], ['#3a58a0', 'Blue'], ['#e9a23b', 'Gold'], ['#7a4a8c', 'Plum']];
   const esc = s => ctx.esc(s), icon = (n, c) => ctx.icon(n, c);
+  const CLS = window.DEC15_CLASS;   // boards belong to this page's course (js/config.js)
   const cloud = () => ctx.getCloud(), db = () => (cloud()?.user && cloud().client) || null, teacher = () => cloud()?.profile?.role === 'teacher';
   const ago = iso => { const s = (Date.now() - Date.parse(iso)) / 1000; return s < 60 ? 'just now' : s < 3600 ? Math.round(s / 60) + ' min ago' : s < 86400 ? Math.round(s / 3600) + ' h ago' : new Date(iso).toLocaleDateString('en-AU', { day: 'numeric', month: 'short' }); };
 
   async function load() {
     const c = db(); if (!c) return paint();
     const [{ data: b }, { data: s }] = await Promise.all([
-      c.from('boards').select('id, title, content, sketch, wb_open, view, created_at, updated_at').order('updated_at', { ascending: false }).limit(60),
-      c.from('class_settings').select('key, value').eq('key', 'board_live')]);
+      c.from('boards').select('id, title, content, sketch, wb_open, view, created_at, updated_at').eq('course', CLS.id).order('updated_at', { ascending: false }).limit(60),
+      c.from('class_settings').select('key, value').eq('key', CLS.key('board_live'))]);
     boards = b || []; live = s?.[0]?.value || null;
     if (!cur || !boards.some(x => x.id === cur)) cur = (live && boards.some(x => x.id === live) ? live : boards[0]?.id) || null;
     paint();
@@ -24,13 +25,13 @@ window.DEC15Board = (() => {
     const c = db(); if (!c || ch) return;
     ch = c.channel('dec15-boards').on('postgres_changes', { event: '*', schema: 'public', table: 'boards' }, p => {
       if (p.eventType === 'DELETE') { boards = boards.filter(x => x.id !== p.old?.id); if (cur === p.old?.id) cur = boards[0]?.id || null; paint(); return; }
-      const row = p.new; if (!row?.id) return; const i = boards.findIndex(x => x.id === row.id), prev = i >= 0 ? { ...boards[i] } : null;
+      const row = p.new; if (!row?.id || !CLS.mine(row)) return; const i = boards.findIndex(x => x.id === row.id), prev = i >= 0 ? { ...boards[i] } : null;
       if (i >= 0) boards[i] = { ...boards[i], ...row }; else boards.unshift(row);
       boards.sort((a, b) => Date.parse(b.updated_at) - Date.parse(a.updated_at));
       if (!teacher() && follow && row.id === live) cur = row.id;
       if (row.id === cur && !teacher()) refresh(prev); else paintList();
     }).on('postgres_changes', { event: '*', schema: 'public', table: 'class_settings' }, p => {
-      if (p.new?.key !== 'board_live') return; live = p.new.value;
+      if (p.new?.key !== CLS.key('board_live')) return; live = p.new.value;
       if (!teacher() && follow && live && boards.some(x => x.id === live)) { const had = cur; cur = live; paint(); if (had !== live) ctx.toast(had ? 'Your teacher is showing a different board.' : 'Your teacher started a new board.'); } else paintList();
     }).subscribe();
   }
@@ -178,12 +179,12 @@ window.DEC15Board = (() => {
   async function newBoard() {
     const c = db(); if (!c || !teacher()) return;
     const n = boards.length + 1, title = `Board ${n} · ${new Date().toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short' })}`;
-    const { data, error } = await c.from('boards').insert({ title, content: { type: 'doc', content: [{ type: 'paragraph' }] }, sketch: [] }).select().single();
+    const { data, error } = await c.from('boards').insert({ title, content: { type: 'doc', content: [{ type: 'paragraph' }] }, sketch: [], course: CLS.id }).select().single();
     if (error) { ctx.toast('A new board could not be made.'); return; }
     boards.unshift(data); cur = data.id; mode = 'write'; await showLive(data.id); paint();
   }
   async function showLive(id) {
-    live = id; const { error } = await db().from('class_settings').upsert({ key: 'board_live', value: id, updated_at: new Date().toISOString() });
+    live = id; const { error } = await db().from('class_settings').upsert({ key: CLS.key('board_live'), value: id, updated_at: new Date().toISOString() });
     if (error) ctx.toast('Could not show this board to the class.'); else ctx.toast('The class now sees this board.');
   }
 

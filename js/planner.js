@@ -534,7 +534,7 @@ window.DEC15Planner = (() => {
         const cls = f.cls.checked, ok = await applyShare(id, cls, [...cur.who]); btn.disabled = false;
         if (ok) { closePop(); ctx.toast(cls ? 'Shared with the whole class.' : cur.who.size ? `Shared with ${cur.who.size} classmate${cur.who.size > 1 ? 's' : ''}.` : 'Not shared any more.'); }
         else state.textContent = 'Could not share. Check your connection.'; });
-      if (!shared.people) { const { data } = await c.rpc('class_people'); shared.people = (data || []).filter(x => x.id !== uid); }
+      if (!shared.people) { const { data } = await c.rpc('class_people', { p_course: window.DEC15_CLASS.id }); shared.people = (data || []).filter(x => x.id !== uid); }
       paintPeople();
     });
   }

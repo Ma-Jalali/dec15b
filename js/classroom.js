@@ -14,25 +14,26 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
   const isTeacher = () => prof().role === 'teacher';
   const LS = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } };
 
+  const CLS = window.DEC15_CLASS;   // this page's course (js/config.js): the class list, messages and switches are per course
   let settings = { answers_open: null }, settingsCh = null;
   const timer = window.createDEC15Timer ? window.createDEC15Timer({ getDb: () => db(), isTeacher, esc, toast }) : null;   // js/timer.js
   const announce = window.createDEC15Announce ? window.createDEC15Announce({ getDb: () => db(), me: () => me(), isTeacher, esc, toast, getPeople: () => people, avatar: p => ava(p, 'avatar an-ava') }) : null;   // js/announce.js
   let people = [], byId = new Map(), online = new Map(), presence = null, joined = false, myHand = false, where = { key: '', label: '' };
   let msgs = [], msgCh = null, counts = {}, students = 0, countsT = 0, notes = null, progress = null, hands = new Set();
-  let panel = null, open = false, tab = 'people', thread = null, lastSeenClass = +(LS('dec15-class-seen') || 0), connected = null;
+  let panel = null, open = false, tab = 'people', thread = null, lastSeenClass = +(LS(CLS.id + '-class-seen') || 0), connected = null;
 
   /* ───────── answers switch (everyone follows it, also when signed out) ───────── */
   async function loadSettings() {
     const c = anyDb(); if (!c) return;
-    try { const { data } = await c.from('class_settings').select('key, value'); (data || []).forEach(r => { settings[r.key] = r.value; }); } catch (e) { return; }
+    try { const { data } = await c.from('class_settings').select('key, value'); (data || []).forEach(r => { const k = CLS.unkey(r.key); if (k) settings[k] = r.value; }); } catch (e) { return; }
     timer?.set(settings.class_timer); rerender(); paintTop();
   }
   function watchSettings() {
     const c = anyDb(); if (!c || settingsCh || typeof c.channel !== 'function') return;
     settingsCh = c.channel('dec15-settings').on('postgres_changes', { event: '*', schema: 'public', table: 'class_settings' }, p => {
-      const r = p.new; if (!r?.key) return; const was = settings[r.key]; settings[r.key] = r.value;
-      if (r.key === 'class_timer') { timer?.set(r.value); return; }
-      if (r.key === 'answers_open' && was !== r.value && !isTeacher()) toast(r.value ? 'Your teacher opened the suggested answers.' : 'Your teacher closed the answers for now.');
+      const r = p.new, k = r?.key && CLS.unkey(r.key); if (!k) return; const was = settings[k]; settings[k] = r.value;
+      if (k === 'class_timer') { timer?.set(r.value); return; }
+      if (k === 'answers_open' && was !== r.value && !isTeacher()) toast(r.value ? 'Your teacher opened the suggested answers.' : 'Your teacher closed the answers for now.');
       rerender(); paintTop(); paintPanel();
     }).subscribe();
   }
@@ -40,7 +41,7 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
   async function setAnswers(openIt) {
     const c = db(); if (!c || !isTeacher()) return;
     settings.answers_open = openIt; rerender(); paintTop(); paintPanel();
-    const { error } = await c.from('class_settings').upsert({ key: 'answers_open', value: openIt, updated_at: new Date().toISOString() });
+    const { error } = await c.from('class_settings').upsert({ key: CLS.key('answers_open'), value: openIt, updated_at: new Date().toISOString() });
     if (error) { toast('The switch could not be saved. Check your internet.'); settings.answers_open = !openIt; rerender(); paintTop(); paintPanel(); }
     else toast(openIt ? 'Answers are open: students can check and see suggested answers.' : 'Answers are closed: students cannot check or see answers.');
   }
@@ -54,14 +55,14 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
     if (isTeacher()) { loadNotes(); rerender(); }
     loadPeople(); loadMessages(); loadCounts(); announce?.connect();
     try { await c.realtime.setAuth?.(); } catch (e) { /* older client */ }
-    presence = c.channel('dec15:class', { config: { private: true, presence: { key: uid } } })
+    presence = c.channel(CLS.id === 'dec15' ? 'dec15:class' : 'dec15:class:' + CLS.id, { config: { private: true, presence: { key: uid } } })
       .on('presence', { event: 'sync' }, readPresence)
       .on('broadcast', { event: 'hand-down' }, ({ payload }) => { if (payload?.id === uid || payload?.id === '*') { if (myHand) toast('Your teacher has seen your raised hand.'); myHand = false; track(); paintPanel(); } })
       .on('broadcast', { event: 'goto' }, ({ payload }) => { if (!isTeacher() && payload?.hash) invite(payload); })
       .on('broadcast', { event: 'typing' }, ({ payload }) => { if (payload?.thread && payload.id !== uid) typingFns.forEach(fn => fn(payload)); })
       .subscribe(st => { if (st === 'SUBSCRIBED') { joined = true; track(); } });
     msgCh = c.channel('dec15-messages-' + uid)
-      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, p => onMessage(p.new))
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, p => CLS.mine(p.new) && onMessage(p.new))
       .on('postgres_changes', { event: 'DELETE', schema: 'public', table: 'messages' }, p => { msgs = msgs.filter(m => m.id !== p.old?.id); paintTop(); paintPanel(); })
       .subscribe();
     countsT = setInterval(() => { if (document.visibilityState === 'visible') { loadCounts(); if (isTeacher() && open && tab === 'progress') loadProgress(); } }, 45000);
@@ -111,10 +112,10 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
   }
 
   /* ───────── people and messages ───────── */
-  async function loadPeople() { const c = db(); if (!c) return; const { data } = await c.rpc('class_people'); people = data || []; byId = new Map(people.map(p => [p.id, p])); paintPanel(); paintCounts(); announce?.paint(); }
+  async function loadPeople() { const c = db(); if (!c) return; const { data } = await c.rpc('class_people', { p_course: CLS.id }); people = data || []; byId = new Map(people.map(p => [p.id, p])); paintPanel(); paintCounts(); announce?.paint(); }
   async function loadMessages() {
     const c = db(); if (!c) return;
-    const { data } = await c.from('messages').select('id, sender_id, sender_name, sender_role, recipient_id, kind, body, created_at, read_at').is('group_id', null).order('created_at', { ascending: false }).limit(400);
+    const { data } = await c.from('messages').select('id, sender_id, sender_name, sender_role, recipient_id, kind, body, created_at, read_at').is('group_id', null).eq('course', CLS.id).order('created_at', { ascending: false }).limit(400);
     msgs = (data || []).reverse(); paintTop(); paintPanel();
   }
   function onMessage(m) {
@@ -130,7 +131,7 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
   }
   async function send(body) {
     const c = db(); body = String(body || '').trim(); if (!c || !body || !thread) return false;
-    const { data, error } = await c.from('messages').insert({ body: body.slice(0, 2000), recipient_id: thread === 'class' ? null : thread }).select().single();
+    const { data, error } = await c.from('messages').insert({ body: body.slice(0, 2000), recipient_id: thread === 'class' ? null : thread, course: CLS.id }).select().single();
     if (error) { toast('Sorry — the message was not sent. Check your internet.'); return false; }
     onMessage(data); return true;
   }
@@ -138,7 +139,7 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
   const unreadDM = () => msgs.filter(m => m.recipient_id === me() && !m.read_at).length;
   const unreadClass = () => msgs.filter(m => !m.recipient_id && m.sender_id !== me() && Date.parse(m.created_at) > lastSeenClass).length;
   async function markRead(key) {
-    if (key === 'class') { lastSeenClass = Date.now(); LS('dec15-class-seen', String(lastSeenClass)); paintTop(); return; }
+    if (key === 'class') { lastSeenClass = Date.now(); LS(CLS.id + '-class-seen', String(lastSeenClass)); paintTop(); return; }
     const ids = msgs.filter(m => m.sender_id === key && m.recipient_id === me() && !m.read_at).map(m => m.id); if (!ids.length) return;
     const now = new Date().toISOString(); msgs.forEach(m => { if (ids.includes(m.id)) m.read_at = now; }); paintTop();
     try { await db()?.from('messages').update({ read_at: now }).in('id', ids); } catch (e) { /* not important */ }
@@ -147,7 +148,7 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
   /* ───────── progress ───────── */
   async function loadCounts() {
     const c = db(); if (!c) return;
-    try { const { data } = await c.rpc('class_counts', { p_lesson: lesson.id }); counts = {}; students = 0; (data || []).forEach(r => { counts[r.activity_id] = r.done_count; students = r.students; }); } catch (e) { return; }
+    try { const { data } = await c.rpc('class_counts', { p_lesson: lesson.id, p_course: CLS.id }); counts = {}; students = 0; (data || []).forEach(r => { counts[r.activity_id] = r.done_count; students = r.students; }); } catch (e) { return; }
     paintCounts();
   }
   function paintCounts() {

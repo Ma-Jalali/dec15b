@@ -27,7 +27,7 @@ window.createDEC15Timer = function ({ getDb, isTeacher, esc, toast }) {
   async function save(v) {
     const c = getDb(); if (!c || !isTeacher()) return false;
     const before = t; t = norm(v); render();
-    const { error } = await c.from('class_settings').upsert({ key: 'class_timer', value: v, updated_at: new Date().toISOString() });
+    const { error } = await c.from('class_settings').upsert({ key: window.DEC15_CLASS.key('class_timer'), value: v, updated_at: new Date().toISOString() });
     if (error) { t = before; render(); toast('The timer could not be shared. Check your internet.'); return false; }
     return true;
   }
