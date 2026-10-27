@@ -49,7 +49,7 @@ window.DEC15_COURSE = {
           parts: ['1A Orientation', '2A Building rapport', '3A Listening and note-taking', '4A Reading and note-taking homework', '5A Listening assessment preparation homework'],
           stages: ['orientation', 'rapport', 'listening', 'reading', 'testlab'], tones: ['blue', 'clay', 'teal', 'amber', 'plum'],
           scripts: ['dec10/lessons/week1/sources.js', 'dec10/lessons/week1/d10w1d1.js'] },
-        { id: 'd10w1d2', day: 2, status: 'ready', title: 'Teach it, plan it, argue it', art: 'discussion',
+        { id: 'd10w1d2', day: 2, status: 'ready', title: 'Solve it, plan it, argue it', art: 'discussion',
           parts: ['6A Reading and listening to speak', '7A Introduction to Seminar and Interactive Presentation', '8A Academic writing skills: Introduction to rhetorical functions', '9A AST: Digital literacy and online tools homework'],
           stages: ['frameworks', 'seminar', 'functions', 'digital'], tones: ['teal', 'clay', 'plum', 'blue'],
           scripts: ['dec10/lessons/week1/sources.js', 'dec10/lessons/week1/d10w1d2.js'] },
