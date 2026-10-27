@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="A starting-line flag with three badges: listening, reading and writing">
+<style>
+  .fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; }
+  .tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; }
+  @keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+  .flag { animation: flag 2.6s ease-in-out infinite; transform-box: fill-box; transform-origin: left center; } @keyframes flag { 50% { transform: skewY(-4deg) scaleX(.96); } } @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+</defs>
+<ellipse cx="222" cy="300" rx="150" ry="12" fill="#14293a" opacity=".07"/>
+<circle cx="220" cy="165" r="138" fill="#e4ebf7"/>
+<circle cx="220" cy="165" r="152" stroke="#3a58a0" stroke-opacity=".25" stroke-dasharray="2 6" stroke-linecap="round"/>
+<rect x="326" y="30" width="72" height="60" fill="url(#d)"/><rect x="36" y="238" width="60" height="48" fill="url(#d)"/>
+<path class="tw" d="M50 106h22m-11-11v22" stroke="#3a58a0" stroke-width="2.4" stroke-linecap="round"/>
+<path class="tw tw2" d="M372 236h20m-10-10v20" stroke="#3a58a0" stroke-width="2.4" stroke-linecap="round"/>
+
+<path d="M70 262h290" stroke="#14293a" stroke-width="6" stroke-linecap="round"/>
+<g fill="#14293a"><rect x="80" y="252" width="14" height="10"/><rect x="136" y="252" width="14" height="10"/><rect x="192" y="252" width="14" height="10"/><rect x="248" y="252" width="14" height="10"/><rect x="304" y="252" width="14" height="10"/></g>
+<path d="M150 262V78" stroke="#14293a" stroke-width="7" stroke-linecap="round"/>
+<g class="flag"><path d="M154 82c30-12 58 12 92 0v70c-34 12-62-12-92 0z" fill="#3a58a0"/>
+<g fill="#fff" opacity=".9"><rect x="166" y="94" width="14" height="14"/><rect x="194" y="104" width="14" height="14"/><rect x="222" y="98" width="14" height="14"/><rect x="180" y="122" width="14" height="14"/><rect x="208" y="128" width="14" height="14"/></g></g>
+<text x="152" y="296" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" letter-spacing="2" fill="#3a58a0">START</text>
+<g class="fl " filter="url(#s2)"><circle cx="296" cy="110" r="24" fill="#2d8a9a"/><text x="296" y="118" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="22" fill="#fff">L</text></g><g class="fl fl2" filter="url(#s2)"><circle cx="336" cy="172" r="24" fill="#d99a1e"/><text x="336" y="180" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="22" fill="#fff">R</text></g><g class="fl fl3" filter="url(#s2)"><circle cx="300" cy="234" r="24" fill="#b0512a"/><text x="300" y="242" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="22" fill="#fff">W</text></g>
+</svg>

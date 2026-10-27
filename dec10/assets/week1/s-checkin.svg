@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="A clipboard checklist next to a calendar page saying “Next week: Group 1”">
+<style>
+  .fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; }
+  .tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; }
+  @keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+  .rv { animation: rv 3.6s ease-in-out infinite both; } @keyframes rv { 0% { opacity: 0; } 15%, 85% { opacity: 1; } 100% { opacity: 0; } } @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+</defs>
+<ellipse cx="222" cy="300" rx="150" ry="12" fill="#14293a" opacity=".07"/>
+<circle cx="220" cy="165" r="138" fill="#fbe6dc"/>
+<circle cx="220" cy="165" r="152" stroke="#b0512a" stroke-opacity=".25" stroke-dasharray="2 6" stroke-linecap="round"/>
+<rect x="326" y="30" width="72" height="60" fill="url(#d)"/><rect x="36" y="238" width="60" height="48" fill="url(#d)"/>
+<path class="tw" d="M50 106h22m-11-11v22" stroke="#b0512a" stroke-width="2.4" stroke-linecap="round"/>
+<path class="tw tw2" d="M372 236h20m-10-10v20" stroke="#b0512a" stroke-width="2.4" stroke-linecap="round"/>
+
+<g filter="url(#s)" transform="rotate(-4 170 170)"><rect x="96" y="70" width="150" height="200" rx="14" fill="#fff"/><rect x="140" y="58" width="62" height="24" rx="8" fill="#b0512a"/>
+<g class="rv"><rect x="114" y="104" width="18" height="18" rx="4" fill="#2f9a63"/><path d="M118 113l4 4 7-8" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M142 113h84" stroke="#14293a" stroke-opacity=".2" stroke-width="7" stroke-linecap="round"/></g>
+<g class="rv" style="animation-delay:.4s"><rect x="114" y="140" width="18" height="18" rx="4" fill="#2f9a63"/><path d="M118 149l4 4 7-8" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M142 149h70" stroke="#14293a" stroke-opacity=".2" stroke-width="7" stroke-linecap="round"/></g>
+<g class="rv" style="animation-delay:.8s"><rect x="114" y="176" width="18" height="18" rx="4" fill="#2f9a63"/><path d="M118 185l4 4 7-8" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M142 185h80" stroke="#14293a" stroke-opacity=".2" stroke-width="7" stroke-linecap="round"/></g>
+<rect x="114" y="212" width="18" height="18" rx="4" stroke="#b0512a" stroke-width="2.4"/><path d="M142 221h60" stroke="#14293a" stroke-opacity=".2" stroke-width="7" stroke-linecap="round"/></g>
+<g class="fl" filter="url(#s)"><rect x="262" y="104" width="120" height="128" rx="14" fill="#fff"/><path d="M262 118a14 14 0 0 1 14-14h92a14 14 0 0 1 14 14v22H262z" fill="#14293a"/>
+<text x="322" y="128" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="11" letter-spacing="1.4" fill="#fff">NEXT WEEK</text>
+<text x="322" y="186" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="40" fill="#b0512a">G1</text><text x="322" y="214" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="12" fill="#5d6a74">Opening Remarks</text></g>
+
+</svg>

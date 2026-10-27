@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="A long article goes into a funnel and comes out as a short summary card">
+<style>
+  .fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; }
+  .tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; }
+  @keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+  .drop { animation: drop 1.6s ease-in infinite; } @keyframes drop { 0% { transform: translateY(-14px); opacity: 0; } 30% { opacity: 1; } 100% { transform: translateY(14px); opacity: 0; } } @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+</defs>
+<ellipse cx="222" cy="300" rx="150" ry="12" fill="#14293a" opacity=".07"/>
+<circle cx="220" cy="165" r="138" fill="#f6e8cc"/>
+<circle cx="220" cy="165" r="152" stroke="#985c0e" stroke-opacity=".25" stroke-dasharray="2 6" stroke-linecap="round"/>
+<rect x="326" y="30" width="72" height="60" fill="url(#d)"/><rect x="36" y="238" width="60" height="48" fill="url(#d)"/>
+<path class="tw" d="M50 106h22m-11-11v22" stroke="#985c0e" stroke-width="2.4" stroke-linecap="round"/>
+<path class="tw tw2" d="M372 236h20m-10-10v20" stroke="#985c0e" stroke-width="2.4" stroke-linecap="round"/>
+
+<g filter="url(#s2)"><rect x="140" y="40" width="160" height="96" rx="10" fill="#fff"/></g>
+<path d="M156 60h128M156 74h112M156 88h128M156 102h96M156 116h120" stroke="#14293a" stroke-opacity=".18" stroke-width="6" stroke-linecap="round"/>
+<path d="M118 146h204l-70 62v34h-64v-34z" fill="#d99a1e" filter="url(#s2)"/><path d="M134 156h172" stroke="#fff" stroke-opacity=".5" stroke-width="4" stroke-linecap="round"/>
+<g class="drop"><circle cx="220" cy="228" r="6" fill="#985c0e"/></g>
+<g class="fl" filter="url(#s)"><rect x="160" y="250" width="120" height="50" rx="10" fill="#fff"/><rect x="160" y="250" width="120" height="50" rx="10" stroke="#985c0e" stroke-width="3"/>
+<path d="M176 268h88M176 284h60" stroke="#985c0e" stroke-opacity=".5" stroke-width="6" stroke-linecap="round"/></g>
+<g class="fl fl2" filter="url(#s2)"><rect x="318" y="244" width="78" height="34" rx="17" fill="#14293a"/><text x="357" y="266" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" fill="#fff">≤ 3 sent.</text></g>
+
+</svg>

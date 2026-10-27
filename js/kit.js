@@ -11,12 +11,15 @@
      limit    { type: 'limit', id, title?, rule?: 'NO MORE THAN THREE WORDS', max: 3,
                 items: [{ q, accept: ['71%', '71 per cent'] | { need: 2, any: ['customer', 'employee', 'communit'] }, model, why? }] }
               short answers with a live word counter — over the limit scores zero, as in the test.
-     bet      { type: 'bet', id, title?, coins?: 10, items: [{ q, options, answer, why? }] }
+     bet      { type: 'bet', id, title?, proof?, coins?: 10, items: [{ q, options, answer, why? }] }
               multiple choice with a confidence bet (1–3 coins per answer): win the coins if right, lose them if wrong.
      bingo    { type: 'bingo', id, title?, hint?, squares: [{ text, ask? }] }   16 squares (4 × 4)
               find-someone-who: write a classmate's name in a square; four in a row is BINGO.
      squeeze  { type: 'squeeze', id, title?, hint?, items: [{ text, max, model }] }
               turn a sentence into notes in a few characters (symbols, abbreviations), then compare with a model.
+     para     { type: 'para', id, title?, hint?, label?, placeholder?, items: [{ text, strategy?, keep?: ['IPAT'], sentences?: 3, model }] }
+              paraphrase a sentence; a live “copy meter” shows how many of the original’s content words you reused,
+              and warns if a technical term that must stay (keep) is missing. Then compare with a model.
 
    Every answer is saved in the normal lesson state (state.values / state.checked), so it syncs online,
    appears in My notebook and is included in exports. */
@@ -157,7 +160,7 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
     const bank = start + (checked ? res.reduce((t, r) => t + (r.ok ? r.s : -r.s), 0) : 0);
     return `<section class="block kit bet${fresh('bt-' + b.id)}" id="bet-${b.id}">
       <div class="bt-head"><div><div class="block-label">${icon('target')}Confidence bet</div>${b.title ? `<h3>${b.title}</h3>` : ''}
-        <p class="kit-hint">Choose an answer, then bet <b>1</b>, <b>2</b> or <b>3</b> coins on it. Right: win the coins. Wrong: lose them. Bet big only when the recording gives you proof.</p></div>
+        <p class="kit-hint">Choose an answer, then bet <b>1</b>, <b>2</b> or <b>3</b> coins on it. Right: win the coins. Wrong: lose them. ${b.proof || 'Bet big only when the recording gives you proof.'}</p></div>
         <div class="bt-bank${checked ? (bank >= start ? ' is-up' : ' is-down') : ''}" aria-live="polite">${COIN}<b>${bank}</b><small>${checked ? (bank >= start ? `+${bank - start} coins` : `${bank - start} coins`) : 'coins to start'}</small></div></div>
       <ol class="quiz-items">${b.items.map((q, i) => { const r = res[i];
         return `<li class="quiz-item${checked ? (r.ok ? ' is-right' : ' is-wrong') : ''}">
@@ -210,6 +213,36 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
       </li>`; }).join('')}</ol>
   </section>`;
 
+  /* ───────── para (paraphrase with a copy meter) ───────── */
+  const STOP = new Set('the a an and or but of to in on for with by from at as is are was were be been being that this these those it its their there they them can could may might will would should has have had do does did not no than then so such into about also more most some any all both each other which who whom whose what when where while because'.split(' '));
+  const content = s => norm(s).split(' ').filter(w => w.length > 2 && !STOP.has(w));
+  function overlap(src, mine) {
+    const a = content(src), b = new Set(content(mine)); if (!a.length || !b.size) return 0;
+    return Math.round(100 * a.filter(w => b.has(w)).length / a.length);
+  }
+  function paraMeter(it, v) {
+    const p = overlap(it.text, v), n = words(v).length, miss = (it.keep || []).filter(k => !norm(v).includes(norm(k)));
+    const level = !n ? '' : p > 60 ? 'is-high' : p > 35 ? 'is-mid' : 'is-low';
+    const say = !n ? 'Start writing — the meter shows how much of the original you reused.' : p > 60 ? 'Too close to the original — change more words and the structure.' : p > 35 ? 'Getting there — try another strategy.' : 'Good distance from the original. Now check the meaning is the same.';
+    return `<span class="pa-bar ${level}" style="--p:${p / 100}"><i></i></span><span class="pa-txt"><b>${n ? p + '%' : '—'}</b> of the original’s key words reused · ${say}</span>${miss.length && n ? `<span class="pa-keep">${icon('alert')}Keep the term${miss.length > 1 ? 's' : ''}: <b>${miss.map(esc).join(', ')}</b></span>` : ''}${it.sentences && n ? sentCount(it.sentences, v) : ''}`;
+  }
+  /* sentence counter for summaries: a sentence ends in . ! or ? (a final unfinished sentence counts too) */
+  function sentCount(max, v) {
+    const k = (String(v).replace(/\b(e\.g|i\.e)\.?/gi, 'eg').replace(/\b(et al|etc)\./gi, '$1').match(/[^.!?]*[A-Za-z][^.!?]*([.!?]+|$)/g) || []).filter(x => /[A-Za-z]/.test(x)).length;
+    return `<span class="pa-keep${k > max ? '' : ' is-ok'}">${icon(k > max ? 'alert' : 'check')}<b>${k}</b> / ${max} sentences${k > max ? ' — too long: cut a detail or combine two ideas' : ''}</span>`;
+  }
+  B.para = b => `<section class="block kit para${fresh('pa-' + b.id)}" id="para-${b.id}">
+    <div class="block-label">${icon('pen')}${b.label || 'Paraphrase it'}</div>
+    ${b.title ? `<h3>${b.title}</h3>` : ''}${b.hint ? `<p class="kit-hint">${b.hint}</p>` : ''}
+    <ol class="pa-items">${b.items.map((it, i) => { const k = `${b.id}-${i}`, v = String(val(k)), shown = st().checked[k];
+      return `<li class="pa-item">
+        <p class="pa-src"><span class="pa-num">${i + 1}</span>${esc(it.text)}${it.strategy ? `<em class="pa-strat">${esc(it.strategy)}</em>` : ''}</p>
+        <textarea rows="3" data-save="${k}" data-para="${b.id}" data-i="${i}" placeholder="${esc(b.placeholder || 'Your paraphrase…')}">${esc(v)}</textarea>
+        <div class="pa-meter" data-pa-meter="${k}">${paraMeter(it, v)}</div>
+        ${shown ? `<p class="pa-model"><span>A possible answer</span>${esc(it.model)}</p>` : `<button class="btn-quiet btn-sm" data-pa-show="${k}">${icon('check')}Compare with a possible answer</button>`}
+      </li>`; }).join('')}</ol>
+  </section>`;
+
   /* ───────── registry ───────── */
   function register(b, reg) {
     if (b.type === 'match') reg(b.id, strip(b.title || 'Match up'));
@@ -219,6 +252,7 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
     if (b.type === 'bet') b.items.forEach((it, i) => { reg(`${b.id}-${i}`, strip(it.q)); reg(`${b.id}-${i}-s`, 'Bet'); });
     if (b.type === 'bingo') b.squares.forEach((s, i) => reg(`${b.id}-${i}`, 'Find someone who: ' + strip(s.text)));
     if (b.type === 'squeeze') b.items.forEach((it, i) => reg(`${b.id}-${i}`, 'Notes: ' + it.text));
+    if (b.type === 'para') b.items.forEach((it, i) => reg(`${b.id}-${i}`, 'Paraphrase: ' + it.text));
   }
   function notebookItems(b) {
     const filled = v => String(v ?? '').trim() !== '', out = [];
@@ -233,6 +267,7 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
     if (b.type === 'bet') b.items.forEach((it, i) => filled(val(`${b.id}-${i}`)) && out.push({ t: 'qa', label: strip(it.q), value: `${val(`${b.id}-${i}`)}${val(`${b.id}-${i}-s`) ? ` (bet ${val(`${b.id}-${i}-s`)})` : ''}` }));
     if (b.type === 'bingo') { const rows = b.squares.map((s, i) => [strip(s.text), String(val(`${b.id}-${i}`))]).filter(r => r[1].trim()); if (rows.length) out.push({ t: 'table', title: strip(b.title || 'Find someone who'), head: ['Find someone who…', 'Classmate'], rows, widths: [65, 35] }); }
     if (b.type === 'squeeze') b.items.forEach((it, i) => filled(val(`${b.id}-${i}`)) && out.push({ t: 'qa', label: 'Notes for: ' + it.text, value: val(`${b.id}-${i}`) }));
+    if (b.type === 'para') b.items.forEach((it, i) => filled(val(`${b.id}-${i}`)) && out.push({ t: 'qa', label: 'Paraphrase of: ' + it.text, value: val(`${b.id}-${i}`) }));
     return out;
   }
 
@@ -273,6 +308,7 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
       if (b.items.every((q, i) => val(`${b.id}-${i}`) === q.answer)) celebrate(b.id, 'bet-', 'Every bet won — a perfect round!'); return true; }
     if (d.betReset) { const b = findBlock(d.betReset); delete st().checked[b.id]; b.items.forEach((_, i) => { delete st().values[`${b.id}-${i}`]; delete st().values[`${b.id}-${i}-s`]; }); save(); rerender(); return true; }
 
+    if (d.paShow) { if (!String(val(d.paShow)).trim()) { toast('Write your paraphrase first, then compare.'); return true; } st().checked[d.paShow] = true; save(); rerender(); return true; }
     if (d.sqShow) { if (!String(val(d.sqShow)).trim()) { toast('Write your notes first, then compare.'); return true; } st().checked[d.sqShow] = true; save(); rerender(); return true; }
     return false;
   }
@@ -281,6 +317,7 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
       if (c) { c.textContent = `${n} / ${max}`; c.className = 'lm-count' + (n > max ? ' is-over' : n ? ' is-in' : ''); }
       if (st().checked[t.dataset.limit]) { delete st().checked[t.dataset.limit]; save(); } }
     if (t.dataset.bingo) bingoRefresh(t.dataset.bingo);
+    if (t.dataset.para) { const b = findBlock(t.dataset.para), m = document.querySelector(`[data-pa-meter="${CSS.escape(t.dataset.save)}"]`); if (b && m) m.innerHTML = paraMeter(b.items[Number(t.dataset.i)], t.value); }
     if (t.dataset.squeeze) { const n = t.value.length, max = Number(t.dataset.squeeze), g = document.querySelector(`[data-sq-gauge="${CSS.escape(t.dataset.save)}"]`);
       if (g) { g.innerHTML = `<b>${n}</b>/${max}`; g.style.setProperty('--p', Math.min(1, n / max)); g.className = 'sq-gauge' + (n > max ? ' is-over' : n ? ' is-in' : ''); } }
   }

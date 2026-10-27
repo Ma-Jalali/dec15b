@@ -49,10 +49,22 @@ window.DEC15_COURSE = {
           parts: ['1A Orientation', '2A Building rapport', '3A Listening and note-taking', '4A Reading and note-taking homework', '5A Listening assessment preparation homework'],
           stages: ['orientation', 'rapport', 'listening', 'reading', 'testlab'], tones: ['blue', 'clay', 'teal', 'amber', 'plum'],
           scripts: ['dec10/lessons/week1/sources.js', 'dec10/lessons/week1/d10w1d1.js'] },
-        { id: 'd10w1d2', day: 2, status: 'soon', title: 'Frameworks, seminars and rhetorical functions' },
-        { id: 'd10w1d3', day: 3, status: 'soon', title: 'Paraphrasing, the AST and feedback literacy' },
-        { id: 'd10w1d4', day: 4, status: 'soon', title: 'Voices in writing, the Portfolio and research skills' },
-        { id: 'd10w1d5', day: 5, status: 'soon', title: 'Diagnostic and summarising' }
+        { id: 'd10w1d2', day: 2, status: 'ready', title: 'Teach it, plan it, argue it', art: 'discussion',
+          parts: ['6A Reading and listening to speak', '7A Introduction to Seminar and Interactive Presentation', '8A Academic writing skills: Introduction to rhetorical functions', '9A AST: Digital literacy and online tools homework'],
+          stages: ['frameworks', 'seminar', 'functions', 'digital'], tones: ['teal', 'clay', 'plum', 'blue'],
+          scripts: ['dec10/lessons/week1/sources.js', 'dec10/lessons/week1/d10w1d2.js'] },
+        { id: 'd10w1d3', day: 3, status: 'ready', title: 'Your words, your skills, your feedback', art: 'feedback',
+          parts: ['10A Academic writing skills: Paraphrasing', '11A Introducing the AST framework', '12A AST: Introduction to Feedback Literacy', '13A AST: AI use in DEC homework'],
+          stages: ['paraphrase', 'ast', 'feedback', 'ai'], tones: ['clay', 'green', 'teal', 'amber'],
+          scripts: ['dec10/lessons/week1/sources.js', 'dec10/lessons/week1/d10w1d3.js'] },
+        { id: 'd10w1d4', day: 4, status: 'ready', title: 'Voices, video and research', art: 'research',
+          parts: ['14A Academic writing skills: rhetorical functions', '15A Responding-to-feedback video', '16A Seminar: opening remarks check-in', '17A AST: Research skills'],
+          stages: ['voices', 'video', 'checkin', 'research'], tones: ['plum', 'teal', 'clay', 'green'],
+          scripts: ['dec10/lessons/week1/sources.js', 'dec10/lessons/week1/d10w1d4.js'] },
+        { id: 'd10w1d5', day: 5, status: 'ready', title: 'Diagnostic and summarising', art: 'writing',
+          parts: ['18A Diagnostic assessment', '19A Academic writing skills: Summarising', '20A AST: Homework follow-up: AI use in DEC'],
+          stages: ['diagnostic', 'summary', 'aitalk'], tones: ['blue', 'amber', 'teal'],
+          scripts: ['dec10/lessons/week1/sources.js', 'dec10/lessons/week1/d10w1d5.js'] }
       ]
     }
   ]

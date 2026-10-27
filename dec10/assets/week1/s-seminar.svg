@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="A seminar group around a table with a presentation screen and a calendar">
+<style>
+  .fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; }
+  .tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; }
+  @keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+   @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+</defs>
+<ellipse cx="222" cy="300" rx="150" ry="12" fill="#14293a" opacity=".07"/>
+<circle cx="220" cy="165" r="138" fill="#fbe6dc"/>
+<circle cx="220" cy="165" r="152" stroke="#d4583a" stroke-opacity=".25" stroke-dasharray="2 6" stroke-linecap="round"/>
+<rect x="326" y="30" width="72" height="60" fill="url(#d)"/><rect x="36" y="238" width="60" height="48" fill="url(#d)"/>
+<path class="tw" d="M50 106h22m-11-11v22" stroke="#d4583a" stroke-width="2.4" stroke-linecap="round"/>
+<path class="tw tw2" d="M372 236h20m-10-10v20" stroke="#d4583a" stroke-width="2.4" stroke-linecap="round"/>
+
+<g filter="url(#s)"><rect x="132" y="50" width="180" height="104" rx="12" fill="#14293a"/><rect x="142" y="60" width="160" height="80" rx="6" fill="#fffaf2"/></g>
+<text x="222" y="86" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="11" letter-spacing="1.5" fill="#d4583a">OPENING REMARKS</text>
+<path d="M162 102h70M162 116h110M162 128h60" stroke="#14293a" stroke-opacity=".18" stroke-width="5" stroke-linecap="round"/>
+<ellipse cx="222" cy="232" rx="118" ry="30" fill="#c98a5a"/><ellipse cx="222" cy="226" rx="118" ry="30" fill="#e6b289"/>
+<g class="fl "><circle cx="118" cy="196" r="17" fill="#2f7d6b"/><circle cx="118" cy="188" r="7" fill="#ffe6d9"/><path d="M107 206c2-9 20-9 22 0" fill="#ffe6d9"/></g><g class="fl fl2"><circle cx="176" cy="176" r="17" fill="#4f68b8"/><circle cx="176" cy="168" r="7" fill="#ffe6d9"/><path d="M165 186c2-9 20-9 22 0" fill="#ffe6d9"/></g><g class="fl fl3"><circle cx="268" cy="176" r="17" fill="#8a4f9e"/><circle cx="268" cy="168" r="7" fill="#ffe6d9"/><path d="M257 186c2-9 20-9 22 0" fill="#ffe6d9"/></g><g class="fl "><circle cx="326" cy="196" r="17" fill="#d4583a"/><circle cx="326" cy="188" r="7" fill="#ffe6d9"/><path d="M315 206c2-9 20-9 22 0" fill="#ffe6d9"/></g>
+<g class="fl fl3" filter="url(#s2)"><rect x="330" y="96" width="70" height="64" rx="10" fill="#fff"/><rect x="330" y="96" width="70" height="18" rx="9" fill="#d4583a"/><rect x="330" y="106" width="70" height="8" fill="#d4583a"/><text x="365" y="146" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="22" fill="#14293a">W2</text></g>
+
+</svg>

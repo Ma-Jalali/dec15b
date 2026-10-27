@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 933" role="img" aria-labelledby="t">
+<title id="t">Day 3: an original sentence card passes through four strategy gears — synonyms, word forms, order and linking words — and comes out as a new card in your own words. Around it: a ring of six coloured skill dots for the Academic Success Toolkit, and a feedback note with a heart, a lightbulb and a star.</title>
+<style>
+  .float { animation: float 6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .f2 { animation-duration: 7.4s; animation-delay: -2s; } .f3 { animation-duration: 8.2s; animation-delay: -4s; }
+  .spin { animation: spin 10s linear infinite; transform-box: fill-box; transform-origin: center; } .rev { animation-direction: reverse; animation-duration: 8s; }
+  .flow { stroke-dasharray: 10 14; animation: flow 1.6s linear infinite; }
+  .orbit { animation: spin 40s linear infinite; transform-box: view-box; transform-origin: 1150px 250px; }
+  .twinkle { animation: twinkle 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .k2 { animation-delay: -1s; } .k3 { animation-delay: -2s; }
+  .beat { animation: beat 2.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-14px) rotate(1.5deg); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes flow { to { stroke-dashoffset: -48; } }
+  @keyframes twinkle { 0%, 100% { opacity: .25; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.1); } }
+  @keyframes beat { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.15); } 30% { transform: scale(1); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+  <filter id="paper" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" seed="31"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .43  0 0 0 0 .32  0 0 0 .06 0"/><feComposite in2="SourceGraphic" operator="in"/><feBlend in="SourceGraphic" mode="multiply"/></filter>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#14293a" flood-opacity=".2"/></filter>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#14293a" flood-opacity=".2"/></filter>
+  <radialGradient id="glow" cx="50%" cy="45%" r="55%"><stop offset="0" stop-color="#f8efe1"/><stop offset="1" stop-color="#ead9c0"/></radialGradient>
+  <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="#8c6a2e" opacity=".25"/></pattern>
+  <path id="gear" d="M-6-44h12l4 13 11 5 12-7 9 9-7 12 5 11 13 4v12l-13 4-5 11 7 12-9 9-12-7-11 5-4 13h-12l-4-13-11-5-12 7-9-9 7-12-5-11-13-4v-12l13-4 5-11-7-12 9-9 12 7 11-5z"/>
+</defs>
+<rect width="1400" height="933" fill="#f0e7d9"/><rect width="1400" height="933" fill="#f0e7d9" filter="url(#paper)"/>
+<circle cx="700" cy="470" r="420" fill="url(#glow)"/>
+<circle cx="700" cy="470" r="458" fill="none" stroke="#8c6a2e" stroke-opacity=".2" stroke-width="2" stroke-dasharray="2 12" stroke-linecap="round"/>
+<rect x="90" y="700" width="160" height="130" fill="url(#dots)"/><rect x="1180" y="80" width="140" height="110" fill="url(#dots)"/>
+
+<!-- original card -->
+<g class="float"><g transform="translate(120 330) rotate(-6)" filter="url(#soft)">
+  <rect width="330" height="200" rx="22" fill="#fff"/>
+  <text x="28" y="44" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="16" letter-spacing="3" fill="#98a2a9">ORIGINAL</text>
+  <text x="28" y="88" font-family="Georgia, serif" font-style="italic" font-size="21" fill="#14293a">“While such companies have</text>
+  <text x="28" y="118" font-family="Georgia, serif" font-style="italic" font-size="21" fill="#14293a">contributed to climate change,</text>
+  <text x="28" y="148" font-family="Georgia, serif" font-style="italic" font-size="21" fill="#14293a">they also have the means</text>
+  <text x="28" y="178" font-family="Georgia, serif" font-style="italic" font-size="21" fill="#14293a">to combat it.”</text>
+</g></g>
+
+<!-- gears -->
+<path class="flow" d="M460 440C540 420 560 440 600 450M820 470C880 480 900 470 950 460" stroke="#b0512a" stroke-opacity=".5" stroke-width="5" fill="none" stroke-linecap="round"/>
+<g transform="translate(640 400)"><g class="spin"><use href="#gear" fill="#b0512a" transform="scale(1.6)"/></g><circle r="40" fill="#fbe6dc"/><text y="5" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="11" fill="#b0512a">SYNONYMS</text></g>
+<g transform="translate(770 520)"><g class="spin rev"><use href="#gear" fill="#d99a1e" transform="scale(1.3)"/></g><circle r="28" fill="#fdf1d8"/><text y="5" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="11" fill="#8a5f0c">ORDER</text></g>
+<g transform="translate(640 590)"><g class="spin"><use href="#gear" fill="#2f7d6b" transform="scale(1.1)"/></g><circle r="24" fill="#e2f1ea"/><text y="4" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="9.5" fill="#145946">FORMS</text></g>
+<g transform="translate(790 340)"><g class="spin rev"><use href="#gear" fill="#4f68b8" transform="scale(1.05)"/></g><circle r="23" fill="#e9edf8"/><text y="4" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="9.5" fill="#2c3f80">LINKS</text></g>
+
+<!-- your words card -->
+<g class="float f2"><g transform="translate(950 380) rotate(4)" filter="url(#soft)">
+  <rect width="330" height="200" rx="22" fill="#fff"/><rect width="330" height="200" rx="22" fill="none" stroke="#2f7d6b" stroke-width="4"/>
+  <text x="28" y="44" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="16" letter-spacing="3" fill="#2f7d6b">YOUR WORDS</text>
+  <text x="28" y="88" font-family="Georgia, serif" font-style="italic" font-size="21" fill="#14293a">Companies such as these are</text>
+  <text x="28" y="118" font-family="Georgia, serif" font-style="italic" font-size="21" fill="#14293a">among the contributors, but</text>
+  <text x="28" y="148" font-family="Georgia, serif" font-style="italic" font-size="21" fill="#14293a">they can also contribute</text>
+  <text x="28" y="178" font-family="Georgia, serif" font-style="italic" font-size="21" fill="#14293a">to the solution.</text>
+  <g transform="translate(296 -14)"><circle r="24" fill="#2f9a63"/><path d="M-11 0l7 8 15-15" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g>
+</g></g>
+
+<!-- AST ring -->
+<g class="orbit">
+  <circle cx="1150" cy="250" r="70" fill="none" stroke="#14293a" stroke-opacity=".15" stroke-width="3" stroke-dasharray="3 9"/>
+  <circle cx="1150" cy="180" r="15" fill="#a3416a"/><circle cx="1211" cy="215" r="15" fill="#6a4fb0"/><circle cx="1211" cy="285" r="15" fill="#3a58a0"/>
+  <circle cx="1150" cy="320" r="15" fill="#2d8a9a"/><circle cx="1089" cy="285" r="15" fill="#2f9a63"/><circle cx="1089" cy="215" r="15" fill="#5f9a2a"/>
+</g>
+<circle cx="1150" cy="250" r="34" fill="#fff" filter="url(#lift)"/><text x="1150" y="258" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="22" fill="#14293a">AST</text>
+
+<!-- feedback note -->
+<g class="float f3"><g transform="translate(200 640) rotate(-4)" filter="url(#lift)">
+  <rect width="300" height="150" rx="18" fill="#fffaf0"/><rect width="300" height="150" rx="18" fill="none" stroke="#e3c08a" stroke-width="2"/>
+  <text x="24" y="38" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="14" letter-spacing="2.5" fill="#2b776e">PEER FEEDBACK</text>
+  <text x="24" y="70" font-family="Georgia, serif" font-style="italic" font-size="18" fill="#14293a">Good examples! To make it</text>
+  <text x="24" y="96" font-family="Georgia, serif" font-style="italic" font-size="18" fill="#14293a">even better, slow down.</text>
+  <g transform="translate(40 124)"><g class="beat"><path d="M0 10c-10-8-18-14-18-22a9 9 0 0 1 18-4 9 9 0 0 1 18 4c0 8-8 14-18 22z" fill="#d4583a"/></g></g>
+  <g transform="translate(90 116)"><circle r="11" fill="#f2c14e"/><rect x="-5" y="10" width="10" height="7" rx="2" fill="#14293a"/></g>
+  <g transform="translate(140 116)"><path d="M0-13l4 8 9 1-6 6 1 9-8-4-8 4 1-9-6-6 9-1z" fill="#2f9a63"/></g>
+</g></g>
+
+<g class="twinkle"><path d="M560 180l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" fill="#e3a843"/></g>
+<g class="twinkle k2"><path d="M960 760l5 11 11 5-11 5-5 11-5-11-11-5 11-5z" fill="#2f7d6b"/></g>
+<g class="twinkle k3"><path d="M120 220l5 11 11 5-11 5-5 11-5-11-11-5 11-5z" fill="#b0512a"/></g>
+</svg>
