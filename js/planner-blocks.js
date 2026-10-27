@@ -526,6 +526,11 @@ window.DEC15Blocks = (() => {
       const d = blockDom(e.target); if (d) { clearTimeout(hideT); place(d); } };
     const onLeave = () => { clearTimeout(hideT); hideT = setTimeout(() => { h.hidden = true; cur = null; }, 350); };
     host.addEventListener('mousemove', onMove); host.addEventListener('mouseleave', onLeave);
+    /* the handle also follows the line being written on (click, arrows, typing), so it never waits beside another line */
+    const atCaret = () => { if (!editor.isEditable || !editor.isFocused || matchMedia('(hover: none)').matches) return;
+      const b = selectedBlock(), dom = b && view.nodeDOM(b.start); if (dom?.nodeType === 1) { clearTimeout(hideT); place(dom); } };
+    const onBlur = () => setTimeout(() => { if (!editor.isFocused && !host.matches(':hover')) { h.hidden = true; cur = null; } }, 150);
+    editor.on('selectionUpdate', atCaret); editor.on('update', atCaret); editor.on('blur', onBlur);
     h.querySelector('.pl-bh-add').addEventListener('click', () => {
       if (!cur) return; const { start, node } = cur, at = start + node.nodeSize, li = /^(listItem|taskItem)$/.test(node.type.name);
       const json = li ? { type: node.type.name, content: [{ type: 'paragraph' }] } : { type: 'paragraph' };
@@ -599,7 +604,7 @@ window.DEC15Blocks = (() => {
         editor.chain().focus().insertContentAt(at, li ? { type: b.node.type.name, content: [{ type: 'paragraph' }] } : { type: 'paragraph' }).setTextSelection(at + (li ? 2 : 1)).insertContent('/').run(); }
     }
     return { keydown, openInsert, close,
-      destroy() { editor.off('transaction', onTr); menu.remove(); h.remove(); host.removeEventListener('mousemove', onMove); host.removeEventListener('mouseleave', onLeave); host.classList.remove('pl-has-handle'); } };
+      destroy() { editor.off('transaction', onTr); editor.off('selectionUpdate', atCaret); editor.off('update', atCaret); editor.off('blur', onBlur); menu.remove(); h.remove(); host.removeEventListener('mousemove', onMove); host.removeEventListener('mouseleave', onLeave); host.classList.remove('pl-has-handle'); } };
   }
   /* a note opens with an empty last line already there (no edit needed to add it) */
   function withTrailingLine(content) {
