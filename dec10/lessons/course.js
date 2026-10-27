@@ -23,18 +23,20 @@ window.DEC15_COURSE = {
   // Names match css/courses.css; each student's choice is kept on their device.
   sideColours: [['light', 'Light', '#ffffff'], ['charcoal', 'Charcoal', '#424242'], ['black', 'Black', '#000000'], ['navy', 'Navy', '#1a355e'], ['eucalypt', 'Eucalypt', '#4f7d74']],
   defaultLesson: 'd10w1d1',
+  // loaded before every lesson: the Course calendar and Assessments pages (side panel)
+  scripts: ['dec10/lessons/guide.js'],
   // The ten weeks shown on the course map (home page). Change label (short!) and sub when the course outline is final.
   map: [
     { n: 1, label: 'Foundation', sub: 'Sustainability frameworks' },
-    { n: 2, label: 'Week 2', sub: '' },
-    { n: 3, label: 'Week 3', sub: '' },
-    { n: 4, label: 'Week 4', sub: '' },
-    { n: 5, label: 'Week 5', sub: '' },
-    { n: 6, label: 'Week 6', sub: '' },
-    { n: 7, label: 'Week 7', sub: '' },
-    { n: 8, label: 'Week 8', sub: '' },
-    { n: 9, label: 'Week 9', sub: '' },
-    { n: 10, label: 'Assessment', sub: '' }
+    { n: 2, label: 'Digital footprint', sub: 'Our digital carbon footprint' },
+    { n: 3, label: 'Future work', sub: 'The workforce of the future' },
+    { n: 4, label: 'Eco-tourism', sub: 'Practice writing assessment' },
+    { n: 5, label: 'Globalisation', sub: 'LRW Assessment 1' },
+    { n: 6, label: 'Green chemistry', sub: 'Final seminar' },
+    { n: 7, label: 'Fashion', sub: 'Interactive Presentation' },
+    { n: 8, label: 'Circular economy', sub: 'Integrated writing' },
+    { n: 9, label: 'Frameworks', sub: 'LRW Assessment 2' },
+    { n: 10, label: 'Consolidation', sub: 'Interactive Discussion' }
   ],
   weeks: [
     {

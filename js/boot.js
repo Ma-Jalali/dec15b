@@ -20,7 +20,7 @@
   window.DEC15_LESSON_META = ready(id);
 
   // all files download at the same time; async = false keeps them running in order
-  [...ready(id).scripts, 'js/app.js'].forEach(src => {
+  [...(course.scripts || []), ...ready(id).scripts, 'js/app.js'].forEach(src => {
     const s = document.createElement('script');
     s.src = src + '?v=' + cfg.version; s.async = false;
     s.onerror = () => window.dispatchEvent(new ErrorEvent('error', { message: 'Could not load ' + src }));

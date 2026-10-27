@@ -23,7 +23,7 @@
 .side-ic { width: 32px; height: 32px; flex: none; border-radius: 10px; display: grid; place-items: center; background: color-mix(in srgb, var(--tc) 18%, transparent); color: var(--tc); transition: background .25s var(--ease), color .25s, transform .3s var(--ease); }
 .side-ic svg { width: 18px; height: 18px; }
 .side-link:hover .side-ic { transform: scale(1.07) rotate(-3deg); }
-.t-map { --tc: var(--s-saffron); } .t-lesson { --tc: var(--s-coral); } .t-planner { --tc: var(--s-teal); } .t-read { --tc: var(--s-blue); } .t-note { --tc: var(--s-plum); }
+.t-cal { --tc: var(--s-coral); } .t-assess { --tc: var(--s-plum); } .t-map { --tc: var(--s-saffron); } .t-lesson { --tc: var(--s-coral); } .t-planner { --tc: var(--s-teal); } .t-read { --tc: var(--s-blue); } .t-note { --tc: var(--s-plum); }
 .side-link.active { background: #fff; color: var(--ink); box-shadow: 0 8px 20px -10px rgba(0, 0, 0, .55); }
 .side-link.active .side-ic { background: var(--tc); color: var(--ink); }
 .side-tx { overflow: hidden; text-overflow: ellipsis; }

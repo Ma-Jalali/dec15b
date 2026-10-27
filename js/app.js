@@ -140,6 +140,8 @@ function whoBadge(w) {
 
 const findBlock = id => allActivities.flatMap(a => a.blocks).find(x => x.id === id);
 const play = window.createDEC15Play ? window.createDEC15Play({ getState: () => state, save, rerender: () => rerender(), esc, strip, icon, toast, findBlock }) : null;
+const guide = window.createDEC15Guide ? window.createDEC15Guide({ esc, icon, days, toast }) : null;   // DEC10: Course calendar + Assessments pages
+if (guide) ['side-calendar', 'side-assess'].forEach(id => { const el = document.getElementById(id); if (el) el.hidden = false; });
 const kit = window.createDEC10Kit ? window.createDEC10Kit({ getState: () => state, save, rerender: () => rerender(), esc, strip, icon, toast, findBlock, confetti: el => play?.confetti(el) }) : null;
 /* feedback forms, stance scale, quiz board and "Share with classmates" (js/forms.js) */
 /* Chats: the WhatsApp-style page for the class (js/chats.js) */
@@ -822,7 +824,7 @@ let navLessonWeek = null;
 function paintNav(route = navRoute) {
   navRoute = route;
   if (route !== 'home' && lesson.week !== navLessonWeek) { navLessonWeek = lesson.week; navWeekOpen = null; }   // a lesson in another week opens its own week
-  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-notebook', 'notebook'], ['side-board', 'board'], ['side-chats', 'chats'], ['side-shared', 'shared']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
+  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-notebook', 'notebook'], ['side-board', 'board'], ['side-chats', 'chats'], ['side-shared', 'shared'], ['side-calendar', 'calendar'], ['side-assess', 'assessments']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
   paintLessonNav(route);
   $('#side-home').classList.toggle('active', route === 'home');
   $('#side-planner')?.classList.toggle('active', route === 'planner');
@@ -1047,6 +1049,7 @@ function parseRoute() {
   if (h === '/board') return { page: 'board' };
   if (h === '/chats' || h.startsWith('/chats/')) return { page: 'chats' };
   if (h === '/shared' || h.startsWith('/shared/')) return { page: 'shared' };
+  if (guide && (h === '/calendar' || h === '/assessments')) return { page: h.slice(1) };
   if (routes.includes(h)) { history.replaceState(null, '', L(h)); return { page: h }; } // old links such as #ai
   const m = h.match(/^\/([\w-]+)(?:\/([\w-]+))?/);
   if (!m) return { page: 'overview' };
@@ -1112,6 +1115,19 @@ function render() {
     if (changed && !matchMedia('(prefers-reduced-motion: reduce)').matches) { main.classList.remove('route-in'); void main.offsetWidth; main.classList.add('route-in'); }
     $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher(); document.body.classList.toggle('is-teacher', isTeacher());
     klass?.setWhere('shared', 'Shared with me'); forms?.paintBadge();
+    return;
+  }
+  if (route === 'calendar' || route === 'assessments') {   // DEC10 course guide (js/guide.js)
+    const name = route === 'calendar' ? 'Course calendar' : 'Assessments';
+    document.body.dataset.page = 'guide'; document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg');
+    $('#crumb').innerHTML = `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>${name}</b>`;
+    document.title = `${course.code} · ${name}`; paintStatus();
+    const main = $('#main'), changed = main.dataset.route !== route; main.dataset.route = route;
+    main.innerHTML = `<div class="gd-page">${route === 'calendar' ? guide.calendarHTML() : guide.assessmentsHTML()}</div>`;
+    if (changed && !matchMedia('(prefers-reduced-motion: reduce)').matches) { main.classList.remove('route-in'); void main.offsetWidth; main.classList.add('route-in'); }
+    if (changed) { window.scrollTo(0, 0); guide.centerNow(); }
+    $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher(); document.body.classList.toggle('is-teacher', isTeacher());
+    klass?.setWhere(route, name);
     return;
   }
   const main = $('#main'), changed = main.dataset.route !== route; main.dataset.route = route;
@@ -1490,6 +1506,7 @@ document.addEventListener('input', e => {
 document.addEventListener('change', e => {
   const t = e.target;
   if (forms && forms.onChange(t)) return;
+  if (guide && guide.onChange(t, () => rerender())) return;
   if (t.dataset.done) {
     state.done[t.dataset.done] = t.checked; save(); rerender(); clearTimeout(klass?._ct); if (klass) klass._ct = setTimeout(() => klass.loadCounts(), 4000);
     if (t.checked) {
@@ -1505,6 +1522,7 @@ document.addEventListener('click', e => {
   const d = t.dataset;
   if (play && play.onClick(t, d)) return;
   if (kit && kit.onClick(t, d)) return;
+  if (guide && guide.onClick(t, d, () => rerender())) return;
   if (forms && forms.onClick(t, d)) return;
   if (d.langTab) { const box = t.closest('.language'); box.querySelectorAll('[role=tab]').forEach((x, i) => { const on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; box.querySelectorAll('[role=tabpanel]')[i].hidden = !on; }); return; }
   if (d.quiz) { const k = d.quiz + '-' + d.i; state.values[k] = d.opt; delete state.checked[d.quiz]; save(); rerender(); return; }
