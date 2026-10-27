@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 933" role="img" aria-labelledby="t">
+<title id="t">Day 2: a whiteboard shows three sustainability frameworks — the triple bottom line circles, the equation I = P × A × T and four population pyramids for the DTM. Speech bubbles float around it: because…, as a result…, should…, while…. A calendar card reads “Seminar · Week 2–6”.</title>
+<style>
+  .float { animation: float 6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  .f2 { animation-duration: 7.2s; animation-delay: -2s; } .f3 { animation-duration: 8s; animation-delay: -4s; } .f4 { animation-duration: 6.6s; animation-delay: -1s; }
+  .breathe { animation: breathe 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .b2 { animation-delay: -1.6s; } .b3 { animation-delay: -3.2s; }
+  .times { animation: pop 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .t2 { animation-delay: -1.6s; }
+  .bar { animation: grow 6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  .twinkle { animation: twinkle 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .k2 { animation-delay: -1s; } .k3 { animation-delay: -2s; }
+  .pen { animation: pen 5s ease-in-out infinite; transform-box: fill-box; transform-origin: 0 100%; }
+  @keyframes float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-14px) rotate(2deg); } }
+  @keyframes breathe { 50% { transform: scale(1.05); } }
+  @keyframes pop { 0%, 70%, 100% { transform: scale(1); } 80% { transform: scale(1.35); } }
+  @keyframes grow { 0%, 100% { transform: scaleX(1); } 50% { transform: scaleX(1.12); } }
+  @keyframes twinkle { 0%, 100% { opacity: .25; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.1); } }
+  @keyframes pen { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-8deg); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+  <filter id="paper" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" seed="21"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .43  0 0 0 0 .32  0 0 0 .06 0"/><feComposite in2="SourceGraphic" operator="in"/><feBlend in="SourceGraphic" mode="multiply"/></filter>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="22" stdDeviation="20" flood-color="#14293a" flood-opacity=".2"/></filter>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#14293a" flood-opacity=".2"/></filter>
+  <radialGradient id="glow" cx="50%" cy="45%" r="55%"><stop offset="0" stop-color="#f7efe0"/><stop offset="1" stop-color="#e9dcc4"/></radialGradient>
+  <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="#8c6a2e" opacity=".25"/></pattern>
+</defs>
+<rect width="1400" height="933" fill="#efe7da"/><rect width="1400" height="933" fill="#efe7da" filter="url(#paper)"/>
+<circle cx="700" cy="470" r="420" fill="url(#glow)"/>
+<circle cx="700" cy="470" r="458" fill="none" stroke="#8c6a2e" stroke-opacity=".2" stroke-width="2" stroke-dasharray="2 12" stroke-linecap="round"/>
+<rect x="80" y="90" width="150" height="130" fill="url(#dots)"/><rect x="1170" y="700" width="160" height="120" fill="url(#dots)"/>
+
+<!-- whiteboard -->
+<ellipse cx="700" cy="760" rx="380" ry="24" fill="#14293a" opacity=".1"/>
+<g filter="url(#soft)"><rect x="300" y="190" width="800" height="520" rx="30" fill="#fff"/></g>
+<rect x="300" y="190" width="800" height="520" rx="30" fill="none" stroke="#14293a" stroke-opacity=".1" stroke-width="3"/>
+<rect x="300" y="190" width="800" height="70" rx="30" fill="#14293a"/><rect x="300" y="230" width="800" height="30" fill="#14293a"/>
+<text x="340" y="236" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="20" letter-spacing="4" fill="#f2c14e">THREE FRAMEWORKS</text>
+<g fill="#e64626"><circle cx="1032" cy="226" r="7"/></g><g fill="#f2c14e"><circle cx="1054" cy="226" r="7"/></g><g fill="#5fb393"><circle cx="1076" cy="226" r="7"/></g>
+<!-- panel 1: TBL -->
+<g transform="translate(340 300)">
+  <rect width="220" height="250" rx="18" fill="#fbf7ef"/>
+  <g style="mix-blend-mode:multiply"><circle class="breathe" cx="84" cy="96" r="50" fill="#f2c14e" opacity=".9"/><circle class="breathe b2" cx="136" cy="96" r="50" fill="#ef8a6d" opacity=".85"/><circle class="breathe b3" cx="110" cy="140" r="50" fill="#5fb393" opacity=".85"/></g>
+  <text x="110" y="230" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="20" fill="#14293a">Triple bottom line</text>
+</g>
+<!-- panel 2: IPAT -->
+<g transform="translate(590 300)">
+  <rect width="220" height="250" rx="18" fill="#fbf7ef"/>
+  <text x="110" y="128" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="40" fill="#14293a">I=P<tspan class="times" fill="#d4583a">×</tspan>A<tspan class="times t2" fill="#d4583a">×</tspan>T</text>
+  <path d="M40 160h140" stroke="#d4583a" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 10"/>
+  <text x="110" y="230" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="20" fill="#14293a">IPAT</text>
+</g>
+<!-- panel 3: DTM -->
+<g transform="translate(840 300)">
+  <rect width="220" height="250" rx="18" fill="#fbf7ef"/>
+  <g fill="#4f68b8">
+    <g transform="translate(30 60)" opacity="1.00"><rect x="14.0" y="0" width="8" height="10" rx="2"/><rect x="10.0" y="13" width="16" height="10" rx="2"/><rect x="6.0" y="26" width="24" height="10" rx="2"/><rect x="2.0" y="39" width="32" height="10" rx="2"/></g>
+    <text x="48" y="130" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" fill="#98a2a9">1</text>
+    <g transform="translate(74 60)" opacity="0.88"><rect x="13.0" y="0" width="10" height="10" rx="2"/><rect x="9.0" y="13" width="18" height="10" rx="2"/><rect x="5.0" y="26" width="26" height="10" rx="2"/><rect class="bar" x="1.0" y="39" width="34" height="10" rx="2"/></g>
+    <text x="92" y="130" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" fill="#98a2a9">2</text>
+    <g transform="translate(118 60)" opacity="0.76"><rect x="9.0" y="0" width="18" height="10" rx="2"/><rect x="7.0" y="13" width="22" height="10" rx="2"/><rect x="5.0" y="26" width="26" height="10" rx="2"/><rect x="3.0" y="39" width="30" height="10" rx="2"/></g>
+    <text x="136" y="130" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" fill="#98a2a9">3</text>
+    <g transform="translate(162 60)" opacity="0.64"><rect x="6.0" y="0" width="24" height="10" rx="2"/><rect x="5.5" y="13" width="25" height="10" rx="2"/><rect x="5.0" y="26" width="26" height="10" rx="2"/><rect x="4.5" y="39" width="27" height="10" rx="2"/></g>
+    <text x="180" y="130" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" fill="#98a2a9">4</text>
+  </g>
+  <path d="M40 160c40-40 100-40 140 0" stroke="#14293a" stroke-opacity=".3" stroke-width="3" fill="none" stroke-dasharray="3 7"/>
+  <text x="110" y="230" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="20" fill="#14293a">DTM</text>
+</g>
+<path d="M360 610h300M360 640h460M360 670h220" stroke="#14293a" stroke-opacity=".1" stroke-width="10" stroke-linecap="round"/>
+<g class="pen"><g transform="translate(1040 650) rotate(-35)"><rect x="-8" y="-90" width="16" height="80" rx="7" fill="#d4583a"/><rect x="-8" y="-90" width="16" height="18" rx="7" fill="#14293a"/><path d="M-8 -12h16l-8 18z" fill="#e3c08a"/></g></g>
+
+<!-- speech bubbles: rhetorical functions -->
+<g class="float"><g transform="translate(110 300)" filter="url(#lift)"><path d="M0 0h200a24 24 0 0 1 24 24v50a24 24 0 0 1-24 24H70l-26 22v-22H24A24 24 0 0 1 0 74V24A24 24 0 0 1 24 0z" fill="#d4583a" transform="translate(-24 0)"/><text x="88" y="58" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="30" fill="#fff">because…</text></g></g>
+<g class="float f2"><g transform="translate(1090 330)" filter="url(#lift)"><path d="M0 0h190a24 24 0 0 1 24 24v50a24 24 0 0 1-24 24h-40l-22 22v-22H24A24 24 0 0 1 0 74V24A24 24 0 0 1 24 0z" fill="#2f7d6b"/><text x="107" y="58" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="30" fill="#fff">should…</text></g></g>
+<g class="float f3"><g transform="translate(70 560)" filter="url(#lift)"><path d="M0 0h230a24 24 0 0 1 24 24v50a24 24 0 0 1-24 24H70l-26 22v-22H24A24 24 0 0 1 0 74V24A24 24 0 0 1 24 0z" fill="#4f68b8"/><text x="127" y="58" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="30" fill="#fff">as a result…</text></g></g>
+<g class="float f4"><g transform="translate(1120 560)" filter="url(#lift)"><path d="M0 0h180a24 24 0 0 1 24 24v50a24 24 0 0 1-24 24h-40l-22 22v-22H24A24 24 0 0 1 0 74V24A24 24 0 0 1 24 0z" fill="#b07d12"/><text x="102" y="58" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="30" fill="#fff">while…</text></g></g>
+
+<!-- seminar calendar card -->
+<g class="float f3"><g transform="translate(560 64) rotate(-3)" filter="url(#lift)"><rect width="280" height="96" rx="18" fill="#fff"/><rect width="80" height="96" rx="18" fill="#e64626"/><rect x="60" width="20" height="96" fill="#e64626"/>
+  <text x="40" y="44" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="14" letter-spacing="2" fill="#fff">WEEK</text><text x="40" y="76" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="28" fill="#fff">2–6</text>
+  <text x="104" y="42" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="14" letter-spacing="2" fill="#d4583a">YOUR SEMINAR</text><text x="104" y="72" font-family="Georgia, serif" font-weight="700" font-size="22" fill="#14293a">Pick a country</text></g></g>
+
+<g class="twinkle"><path d="M250 180l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" fill="#e3a843"/></g>
+<g class="twinkle k2"><path d="M1190 200l5 11 11 5-11 5-5 11-5-11-11-5 11-5z" fill="#2f7d6b"/></g>
+<g class="twinkle k3"><path d="M200 800l5 11 11 5-11 5-5 11-5-11-11-5 11-5z" fill="#d4583a"/></g>
+</svg>
