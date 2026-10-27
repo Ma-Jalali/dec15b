@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="A video player showing three overlapping circles, with headphones and sound waves">
+<style>
+  .fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; }
+  .tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; }
+  @keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+  .br { animation: br 4.5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .b2 { animation-delay: -1.5s; } .b3 { animation-delay: -3s; } @keyframes br { 0%,100% { transform: scale(1); } 50% { transform: scale(1.07); } } .wv { animation: wv 2.7s ease-out infinite; opacity: 0; transform-box: view-box; transform-origin: 300px 150px; } .w2 { animation-delay: .9s; } .w3 { animation-delay: 1.8s; } @keyframes wv { 0% { opacity: 0; transform: scale(.5); } 25% { opacity: .9; } 100% { opacity: 0; transform: scale(1.5); } } .pb { animation: pb 9s linear infinite; transform-box: fill-box; transform-origin: left; } @keyframes pb { from { transform: scaleX(.05); } to { transform: scaleX(1); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+</defs>
+<ellipse cx="222" cy="300" rx="150" ry="12" fill="#14293a" opacity=".07"/>
+<circle cx="220" cy="165" r="138" fill="#dfeee8"/>
+<circle cx="220" cy="165" r="152" stroke="#2f7d6b" stroke-opacity=".25" stroke-dasharray="2 6" stroke-linecap="round"/>
+<rect x="326" y="30" width="72" height="60" fill="url(#d)"/><rect x="36" y="238" width="60" height="48" fill="url(#d)"/>
+<path class="tw" d="M50 106h22m-11-11v22" stroke="#2f7d6b" stroke-width="2.4" stroke-linecap="round"/>
+<path class="tw tw2" d="M372 236h20m-10-10v20" stroke="#2f7d6b" stroke-width="2.4" stroke-linecap="round"/>
+
+<g filter="url(#s)"><rect x="62" y="70" width="230" height="160" rx="18" fill="#14293a"/><rect x="72" y="80" width="210" height="128" rx="9" fill="#fbf6ec"/></g>
+<g style="mix-blend-mode:multiply"><circle class="br" cx="158" cy="132" r="32" fill="#f2c14e" opacity=".9"/><circle class="br b2" cx="196" cy="132" r="32" fill="#ef8a6d" opacity=".85"/><circle class="br b3" cx="177" cy="164" r="32" fill="#5fb393" opacity=".85"/></g>
+<rect x="84" y="216" width="186" height="5" rx="2.5" fill="#fff" opacity=".25"/><rect x="84" y="216" width="186" height="5" rx="2.5" fill="#d4583a" class="pb"/>
+<g fill="none" stroke-linecap="round" stroke-width="5"><path class="wv" d="M300 120a34 34 0 0 1 0 60" stroke="#d4583a"/><path class="wv w2" d="M300 120a34 34 0 0 1 0 60" stroke="#e3a843"/><path class="wv w3" d="M300 120a34 34 0 0 1 0 60" stroke="#2f7d6b"/></g>
+<g class="fl" filter="url(#s2)"><path d="M318 236v-22a42 42 0 0 1 84 0v22" stroke="#14293a" stroke-width="9" stroke-linecap="round"/><rect x="306" y="222" width="26" height="46" rx="11" fill="#d4583a"/><rect x="388" y="222" width="26" height="46" rx="11" fill="#d4583a"/></g>
+
+</svg>

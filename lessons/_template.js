@@ -53,6 +53,15 @@
                   fields?: [{ id, label, rows?, placeholder? }], send?: true }   rating form (feedback / self-reflection)
      scale      { type: 'scale', id, title?, statement, ends: ['Strongly disagree', 'Strongly agree'], mid?, answer?: 0–100, why? }
      jeopardy   { type: 'jeopardy', id, title?, teams?: 4, seconds?: 20, cols: [{ title, clues: [{ pts, clue, answer }] }] }
+     DEC10 learning kit (js/kit.js — see the top of that file for every option):
+     match      { type: 'match', id, title?, hint?, left: [..], right: [..] }          tap-to-pair matching (right[i] goes with left[i])
+     spot       { type: 'spot', id, title?, hint?, label?, paras: ['… [[a phrase]] … [[*a right one]] …'] }   tap the phrases that do a job
+     outline    { type: 'outline', id, title?, hint?, items: [[level 0-2, text], …] }   indent notes into an outline
+     limit      { type: 'limit', id, title?, rule?, max, items: [{ q, accept: [..] | { need, any: [..] }, model, why? }] }   word-limit answers
+     bet        { type: 'bet', id, title?, coins?, items: [{ q, options, answer, why? }] }   multiple choice with a confidence bet
+     bingo      { type: 'bingo', id, title?, hint?, squares: [16 × { text, ask? }] }     find-someone-who bingo
+     squeeze    { type: 'squeeze', id, title?, hint?, items: [{ text, max, model }] }   sentence → notes under a character limit
+     Put these at the top level of an activity's blocks (not inside tabs or toggle), like quiz and order.
      send: true on a form, table or fields block (the block needs an id) adds “Share with classmates” + PDF.
                 Use it only where students observe / give feedback to a classmate or group, or swap work.
                 Optional sendLabel and sendHint change the text. Recipients read it in “Shared with me” (#/shared).
