@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="A magnifying glass moving over five cards spelling CRAAP">
+<style>
+  .fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; }
+  .tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; }
+  @keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+  .mag { animation: mag 7s ease-in-out infinite; } @keyframes mag { 0%, 100% { transform: translate(130px, 150px); } 50% { transform: translate(300px, 150px); } } @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+</defs>
+<ellipse cx="222" cy="300" rx="150" ry="12" fill="#14293a" opacity=".07"/>
+<circle cx="220" cy="165" r="138" fill="#e6f1e6"/>
+<circle cx="220" cy="165" r="152" stroke="#3f7a3a" stroke-opacity=".25" stroke-dasharray="2 6" stroke-linecap="round"/>
+<rect x="326" y="30" width="72" height="60" fill="url(#d)"/><rect x="36" y="238" width="60" height="48" fill="url(#d)"/>
+<path class="tw" d="M50 106h22m-11-11v22" stroke="#3f7a3a" stroke-width="2.4" stroke-linecap="round"/>
+<path class="tw tw2" d="M372 236h20m-10-10v20" stroke="#3f7a3a" stroke-width="2.4" stroke-linecap="round"/>
+
+<g class="fl " filter="url(#s2)"><rect x="92" y="176" width="46" height="62" rx="9" fill="#3a58a0"/><text x="115" y="216" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="26" fill="#fff">C</text></g><g class="fl fl2" filter="url(#s2)"><rect x="146" y="190" width="46" height="62" rx="9" fill="#2d8a9a"/><text x="169" y="230" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="26" fill="#fff">R</text></g><g class="fl fl3" filter="url(#s2)"><rect x="200" y="176" width="46" height="62" rx="9" fill="#2f9a63"/><text x="223" y="216" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="26" fill="#fff">A</text></g><g class="fl " filter="url(#s2)"><rect x="254" y="190" width="46" height="62" rx="9" fill="#5f9a2a"/><text x="277" y="230" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="26" fill="#fff">A</text></g><g class="fl fl2" filter="url(#s2)"><rect x="308" y="176" width="46" height="62" rx="9" fill="#d99a1e"/><text x="331" y="216" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="26" fill="#fff">P</text></g>
+<g class="mag"><g filter="url(#s)"><circle cx="0" cy="0" r="44" fill="#fff" fill-opacity=".35" stroke="#14293a" stroke-width="10"/><path d="M32 32l38 38" stroke="#14293a" stroke-width="16" stroke-linecap="round"/><path d="M-22-16a28 28 0 0 1 20-14" stroke="#fff" stroke-width="6" stroke-linecap="round"/></g></g>
+<g class="fl fl2" filter="url(#s2)"><rect x="250" y="62" width="130" height="40" rx="20" fill="#14293a"/><text x="315" y="87" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" fill="#fff">AND · OR · “ ”</text></g>
+
+</svg>

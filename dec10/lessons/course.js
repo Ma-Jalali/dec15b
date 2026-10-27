@@ -57,8 +57,14 @@ window.DEC15_COURSE = {
           parts: ['10A Academic writing skills: Paraphrasing', '11A Introducing the AST framework', '12A AST: Introduction to Feedback Literacy', '13A AST: AI use in DEC homework'],
           stages: ['paraphrase', 'ast', 'feedback', 'ai'], tones: ['clay', 'green', 'teal', 'amber'],
           scripts: ['dec10/lessons/week1/sources.js', 'dec10/lessons/week1/d10w1d3.js'] },
-        { id: 'd10w1d4', day: 4, status: 'soon', title: 'Voices in writing, the Portfolio and research skills' },
-        { id: 'd10w1d5', day: 5, status: 'soon', title: 'Diagnostic and summarising' }
+        { id: 'd10w1d4', day: 4, status: 'ready', title: 'Voices, video and research', art: 'research',
+          parts: ['14A Academic writing skills: rhetorical functions', '15A Responding-to-feedback video', '16A Seminar: opening remarks check-in', '17A AST: Research skills'],
+          stages: ['voices', 'video', 'checkin', 'research'], tones: ['plum', 'teal', 'clay', 'green'],
+          scripts: ['dec10/lessons/week1/sources.js', 'dec10/lessons/week1/d10w1d4.js'] },
+        { id: 'd10w1d5', day: 5, status: 'ready', title: 'Diagnostic and summarising', art: 'writing',
+          parts: ['18A Diagnostic assessment', '19A Academic writing skills: Summarising', '20A AST: Homework follow-up: AI use in DEC'],
+          stages: ['diagnostic', 'summary', 'aitalk'], tones: ['blue', 'amber', 'teal'],
+          scripts: ['dec10/lessons/week1/sources.js', 'dec10/lessons/week1/d10w1d5.js'] }
       ]
     }
   ]

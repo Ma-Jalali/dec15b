@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="Four speech bubbles in different colours: the writer’s voice and three authors’ voices">
+<style>
+  .fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; }
+  .tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; }
+  @keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+   @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+</defs>
+<ellipse cx="222" cy="300" rx="150" ry="12" fill="#14293a" opacity=".07"/>
+<circle cx="220" cy="165" r="138" fill="#f1e8f5"/>
+<circle cx="220" cy="165" r="152" stroke="#7a4a8c" stroke-opacity=".25" stroke-dasharray="2 6" stroke-linecap="round"/>
+<rect x="326" y="30" width="72" height="60" fill="url(#d)"/><rect x="36" y="238" width="60" height="48" fill="url(#d)"/>
+<path class="tw" d="M50 106h22m-11-11v22" stroke="#7a4a8c" stroke-width="2.4" stroke-linecap="round"/>
+<path class="tw tw2" d="M372 236h20m-10-10v20" stroke="#7a4a8c" stroke-width="2.4" stroke-linecap="round"/>
+
+<g class="fl" filter="url(#s)"><path d="M92 92h150a18 18 0 0 1 18 18v52a18 18 0 0 1-18 18h-96l-26 22 4-22h-32a18 18 0 0 1-18-18v-52a18 18 0 0 1 18-18z" fill="#7a4a8c"/>
+<text x="96" y="122" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="11" letter-spacing="1.6" fill="#fff" opacity=".8">THE WRITER</text>
+<text x="96" y="150" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="17" fill="#fff">It has many benefits…</text></g>
+<g class="fl fl2" filter="url(#s2)"><rect x="244" y="62" width="150" height="58" rx="16" fill="#fff"/><rect x="244" y="62" width="150" height="58" rx="16" stroke="#2f7d6b" stroke-width="3"/>
+<text x="260" y="85" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="10" letter-spacing="1.2" fill="#2f7d6b">SMITH &amp; ANDERSON</text><text x="260" y="106" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#14293a">…claim that…</text></g>
+<g class="fl fl3" filter="url(#s2)"><rect x="262" y="160" width="138" height="58" rx="16" fill="#fff"/><rect x="262" y="160" width="138" height="58" rx="16" stroke="#b0512a" stroke-width="3"/>
+<text x="278" y="183" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="10" letter-spacing="1.2" fill="#b0512a">JONES (2024)</text><text x="278" y="204" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#14293a">However…asserts</text></g>
+<g class="fl fl2" filter="url(#s2)"><rect x="110" y="226" width="150" height="58" rx="16" fill="#fff"/><rect x="110" y="226" width="150" height="58" rx="16" stroke="#3a58a0" stroke-width="3"/>
+<text x="126" y="249" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="10" letter-spacing="1.2" fill="#3a58a0">THOMPSON (2023)</text><text x="126" y="270" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#14293a">…found that…</text></g>
+
+</svg>

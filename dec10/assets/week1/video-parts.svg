@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" role="img" aria-label="The 8-minute video in two parts. Part 1, 4 minutes, a must: feedback literacy — you choose how: interview, acting or discussion. Part 2, 4 minutes: a panel discussion with all members about ONE other skill: criticality, self-regulation and monitoring, group work, research, or digital literacy and AI.">
+<style>.rv { animation: rv .6s cubic-bezier(.2,.7,.2,1) both; } @keyframes rv { from { opacity: 0; transform: translateY(12px); } } .pl { animation: pl 8s linear infinite; } @keyframes pl { from { transform: translateX(0); } to { transform: translateX(840px); } } @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv { opacity: 1 !important; } }</style><defs><filter id="sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#14293a" flood-opacity=".14"/></filter></defs>
+<rect width="960" height="300" rx="28" fill="#f3f8f6"/>
+<rect x="60" y="250" width="840" height="10" rx="5" fill="#14293a" opacity=".12"/><g class="pl"><circle cx="60" cy="255" r="11" fill="#e04b3a"/></g>
+<text x="60" y="240" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" fill="#5d6a74">0:00</text><text x="480" y="240" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" fill="#5d6a74">4:00</text><text x="900" y="240" text-anchor="end" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" fill="#5d6a74">8:00</text>
+<g class="rv"><rect x="60" y="34" width="408" height="180" rx="20" fill="#a3416a" filter="url(#sh)"/>
+<text x="86" y="72" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="14" letter-spacing="1.6" fill="#fff" opacity=".85">PART 1 · 4 MIN · MUST</text>
+<text x="86" y="112" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="30" fill="#fff">Feedback literacy</text>
+<text x="86" y="150" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="16" fill="#fff">You choose how:</text>
+<text x="86" y="180" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="18" fill="#fff">interview · acting · discussion</text></g>
+<g class="rv" style="animation-delay:.3s"><rect x="492" y="34" width="408" height="180" rx="20" fill="#2d8a9a" filter="url(#sh)"/>
+<text x="518" y="72" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="14" letter-spacing="1.6" fill="#fff" opacity=".85">PART 2 · 4 MIN · PANEL</text>
+<text x="518" y="112" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="30" fill="#fff">ONE other skill</text>
+<text x="518" y="150" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="15" fill="#fff">criticality · self-regulation · group work</text>
+<text x="518" y="176" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="15" fill="#fff">research · digital literacy and AI</text>
+<text x="518" y="200" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="14" fill="#fff" opacity=".9">all members together</text></g>
+</svg>

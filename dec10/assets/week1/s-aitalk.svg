@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="Two students’ speech bubbles comparing summaries, with a small robot in the middle">
+<style>
+  .fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; }
+  .tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; }
+  @keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+   @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+</defs>
+<ellipse cx="222" cy="300" rx="150" ry="12" fill="#14293a" opacity=".07"/>
+<circle cx="220" cy="165" r="138" fill="#dfeee8"/>
+<circle cx="220" cy="165" r="152" stroke="#2b776e" stroke-opacity=".25" stroke-dasharray="2 6" stroke-linecap="round"/>
+<rect x="326" y="30" width="72" height="60" fill="url(#d)"/><rect x="36" y="238" width="60" height="48" fill="url(#d)"/>
+<path class="tw" d="M50 106h22m-11-11v22" stroke="#2b776e" stroke-width="2.4" stroke-linecap="round"/>
+<path class="tw tw2" d="M372 236h20m-10-10v20" stroke="#2b776e" stroke-width="2.4" stroke-linecap="round"/>
+
+<g class="fl" filter="url(#s)"><path d="M70 80h130a16 16 0 0 1 16 16v54a16 16 0 0 1-16 16h-84l-22 20 4-20h-28a16 16 0 0 1-16-16V96a16 16 0 0 1 16-16z" fill="#2b776e"/>
+<text x="84" y="110" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="10.5" letter-spacing="1.4" fill="#fff" opacity=".8">MY MAIN IDEA</text><path d="M84 130h100M84 148h70" stroke="#fff" stroke-opacity=".6" stroke-width="6" stroke-linecap="round"/></g>
+<g class="fl fl2" filter="url(#s)"><path d="M240 150h130a16 16 0 0 1 16 16v54a16 16 0 0 1-16 16h-28l4 20-22-20h-84a16 16 0 0 1-16-16v-54a16 16 0 0 1 16-16z" fill="#fff"/>
+<path d="M240 150h130a16 16 0 0 1 16 16v54a16 16 0 0 1-16 16h-28l4 20-22-20h-84a16 16 0 0 1-16-16v-54a16 16 0 0 1 16-16z" stroke="#2b776e" stroke-width="3"/>
+<text x="254" y="180" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="10.5" letter-spacing="1.4" fill="#2b776e">SAME? DIFFERENT?</text><path d="M254 200h100M254 218h76" stroke="#14293a" stroke-opacity=".2" stroke-width="6" stroke-linecap="round"/></g>
+<g class="fl fl3" filter="url(#s2)"><rect x="112" y="216" width="72" height="60" rx="16" fill="#fff"/><circle cx="134" cy="244" r="7" fill="#14293a"/><circle cx="162" cy="244" r="7" fill="#14293a"/><path d="M134 262c8 5 20 5 28 0" stroke="#14293a" stroke-width="3.5" stroke-linecap="round"/><path d="M148 216v-12" stroke="#14293a" stroke-width="3.5"/><circle cx="148" cy="200" r="6" fill="#e3a843"/></g>
+
+</svg>
