@@ -137,7 +137,7 @@ window.DEC15Planner = (() => {
   }
 
   /* ───────── the editor (TipTap) ───────── */
-  const ui = { tab: 'notes', openNoteId: null, month: null, calView: 'month', week: null, wkScroll: null, openFolders: {}, renaming: null, renameDraft: null, fresh: null, search: '', showTree: false, sharedOpen: null };
+  const ui = { tab: 'calendar', openNoteId: null, month: null, calView: 'week', week: null, wkScroll: null, openFolders: {}, renaming: null, renameDraft: null, fresh: null, search: '', showTree: false, sharedOpen: null };
   let saveTimer = 0, reconcileTimer = 0;
   function makeExtensions() {
     const T = window.Tiptap;
@@ -616,6 +616,29 @@ window.DEC15Planner = (() => {
   }
 
   /* ───────── calendar view ───────── */
+  /* Course calendar events (window.DEC15_GUIDE, DEC10): read-only, all-day (times can change, so none are placed on the hours),
+     drawn straight from the guide data every time, so the planner always matches the Course calendar page. */
+  let courseEv = null;
+  function courseEvents() {
+    if (courseEv) return courseEv; courseEv = {}; const g = window.DEC15_GUIDE; if (!g || !Array.isArray(g.weeks)) return courseEv;
+    g.weeks.forEach(w => { if (w.brk || !w.start || !w.days) return;
+      w.days.forEach((d, i) => { const day = addDays(w.start, i);
+        (d.events || []).forEach((e, k) => { const ty = (g.eventTypes || {})[e.type] || ['Course event', '#5d6a74'];
+          (courseEv[day] = courseEv[day] || []).push({ ...e, id: `${day}-${k}`, day, week: w.n, label: ty[0], color: ty[1] }); }); }); });
+    return courseEv; }
+  const hasCourse = () => !!window.DEC15_GUIDE;
+  const courseOn = day => (hidden.course ? [] : courseEvents()[day] || []);
+  const cevHTML = e => `<div class="pl-ev pl-cev${e.type === 'assess' ? ' is-assess' : ''}" style="--c:${e.color}"><button type="button" data-cev="${e.id}" title="${esc(e.title)} · ${esc(e.label)} · all day"><i class="pl-cev-dot" aria-hidden="true"></i><span>${esc(e.title)}</span></button></div>`;
+  function cevPopover(id, anchor) {
+    const day = id.slice(0, 10), e = (courseEvents()[day] || []).find(x => x.id === id); if (!e) return; const g = window.DEC15_GUIDE;
+    const times = e.times ? e.times.map(([k, v]) => `<li><b>${esc((g.shifts || {})[k] || k)}:</b> ${esc(v)}</li>`).join('') : e.time ? `<li>${esc(e.time)}</li>` : '';
+    popover(anchor, `<div class="pl-menu pl-cevpop" style="--c:${e.color}"><span class="pl-cevtag">${esc(e.label)}</span><b class="pl-cevtitle">${esc(e.title)}</b>
+      <span class="pl-cevday">${esc(longDay(day))} · Week ${e.week} · all day</span>
+      ${times ? `<ul class="pl-cevtimes">${times}</ul><small>Times can change: check Canvas on the day.</small>` : ''}
+      ${e.where ? `<span class="pl-cevwhere">${esc(e.where)}</span>` : ''}${e.note ? `<span class="pl-cevwhere">${esc(e.note)}</span>` : ''}
+      ${e.must ? '<span class="pl-cevmust">Everyone must attend</span>' : ''}${e.reg ? `<span class="pl-cevwhere">${esc(e.reg === true ? 'Register on Canvas' : e.reg)}</span>` : ''}
+      <a class="pl-btn ghost" href="#/calendar">Open the Course calendar</a></div>`);
+  }
   const tasksOn = day => list('task').filter(t => t.data.date === day && (t.data.title || '').trim() && !hiddenCal(t))
     .sort((a, b) => (a.data.done - b.data.done) || (a.data.time || '99').localeCompare(b.data.time || '99'));
   const hidden = (() => { try { return JSON.parse(localStorage.getItem('dec15-planner-hidden') || '{}'); } catch (e) { return {}; } })();
@@ -655,7 +678,8 @@ window.DEC15Planner = (() => {
           ${openOn(c.id) ? `<small class="pl-calcount" title="Open to-dos">${openOn(c.id)}</small>` : ''}
           <button type="button" class="pl-swatch" data-cal-color="${c.id}" style="--c:${COLORS[c.data.color]}" aria-label="Change colour of ${esc(c.data.name)}"></button>
           <button type="button" class="pl-more" data-cal-del="${c.id}" aria-label="Delete calendar ${esc(c.data.name)}">×</button></div>`).join('')}
-        <div class="pl-calrow none"><label><input type="checkbox" data-cal-show="none"${hidden.none ? '' : ' checked'} style="--c:var(--pl-muted)"><span class="sr-only">Show </span></label><span>No calendar</span>${openOn('none') ? `<small class="pl-calcount">${openOn('none')}</small>` : ''}</div></div>
+        <div class="pl-calrow none"><label><input type="checkbox" data-cal-show="none"${hidden.none ? '' : ' checked'} style="--c:var(--pl-muted)"><span class="sr-only">Show </span></label><span>No calendar</span>${openOn('none') ? `<small class="pl-calcount">${openOn('none')}</small>` : ''}</div>
+        ${hasCourse() ? `<div class="pl-calrow course"><label><input type="checkbox" data-cal-show="course"${hidden.course ? '' : ' checked'} style="--c:#1a355e"><span class="sr-only">Show </span></label><a href="#/calendar" title="Open the Course calendar">Course calendar</a><span class="pl-callock" title="Synced with the Course calendar. Events are all day: check the time on Canvas." aria-label="Synced with the Course calendar"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.2 6.4A5.3 5.3 0 0 0 3.6 4.6M2.8 9.6a5.3 5.3 0 0 0 9.6 1.8"/><path d="M3.4 2v2.8h2.8M12.6 14v-2.8H9.8"/></svg></span></div>` : ''}</div>
       ${cals.length < MAX_CAL ? `<button type="button" class="pl-btn ghost" data-new-cal>＋ New calendar <small>${cals.length} of ${MAX_CAL}</small></button>` : `<p class="pl-limit">${MAX_CAL} of ${MAX_CAL} calendars. Rename or delete one to make a different one.</p>`}</aside>`;
     let body, title;
     if (view === 'year') {
@@ -670,7 +694,7 @@ window.DEC15Planner = (() => {
       body = `<div class="pl-week" style="--hr:46px">
         <div class="pl-wk-head"><span class="pl-wk-gut" title="Week of the year">W${isoWeek(ws)}</span>${cols.map(c => { const d = parseYmd(c.s);
           return `<div class="pl-wk-day${c.s === t ? ' today' : ''}${c.wk ? ' wk' : ''}"><button type="button" class="pl-wk-dow" data-open-day="${c.s}" aria-label="Open ${longDay(c.s)}" title="Open this day">${DOW[(d.getDay() + 6) % 7]}</button><button type="button" class="pl-wk-num" data-add-on="${c.s}" aria-label="Add a to-do on ${longDay(c.s)}">${d.getDate()}</button></div>`; }).join('')}</div>
-        <div class="pl-wk-all"><span class="pl-wk-gut">all-day</span>${cols.map(c => `<div class="pl-wk-allcell${c.wk ? ' wk' : ''}${c.s === t ? ' today' : ''}" role="group" aria-label="${longDay(c.s)}, no time" data-drop-day="${c.s}" data-drop-time="">${c.untimed.map(x => evHTML(x)).join('')}</div>`).join('')}</div>
+        <div class="pl-wk-all"><span class="pl-wk-gut">all-day</span>${cols.map(c => `<div class="pl-wk-allcell${c.wk ? ' wk' : ''}${c.s === t ? ' today' : ''}" role="group" aria-label="${longDay(c.s)}, no time" data-drop-day="${c.s}" data-drop-time="">${courseOn(c.s).map(cevHTML).join('')}${c.untimed.map(x => evHTML(x)).join('')}</div>`).join('')}</div>
         <div class="pl-wk-scroll" tabindex="0" aria-label="Hours"><div class="pl-wk-grid">${hoursCol()}${cols.map(c => dayColumn(c.s, c.placed, c.wk ? 'wk' : '', false)).join('')}</div></div></div>`;
     } else if (view === 'day') {
       const ds = ui.day || t, d = parseYmd(ds), { untimed, placed } = placeDay(ds), all = list('task').filter(x => x.data.date === ds && (x.data.title || '').trim()), doneN = all.filter(x => x.data.done).length;
@@ -680,7 +704,7 @@ window.DEC15Planner = (() => {
       const chip = x => `<div class="pl-dchip" draggable="true" data-drag-task="${x.id}" style="--c:${calColor(x)}">${checkbox(x)}<button type="button" data-task-open="${x.id}">${esc(x.data.title)}</button>${x.data.date ? `<small>${esc(niceDate(x.data.date))}</small>` : ''}<span class="pl-grip" aria-hidden="true">⋮⋮</span></div>`;
       body = `<div class="pl-dayv">
         <div class="pl-day-main pl-week" style="--hr:56px">
-          <div class="pl-wk-all pl-day-all"><span class="pl-wk-gut">all-day</span><div class="pl-wk-allcell${ds === t ? ' today' : ''}" role="group" aria-label="${longDay(ds)}, no time" data-drop-day="${ds}" data-drop-time="">${untimed.map(x => evHTML(x)).join('') || '<span class="pl-day-hint">Drop a to-do here to give it this day with no time</span>'}</div></div>
+          <div class="pl-wk-all pl-day-all"><span class="pl-wk-gut">all-day</span><div class="pl-wk-allcell${ds === t ? ' today' : ''}" role="group" aria-label="${longDay(ds)}, no time" data-drop-day="${ds}" data-drop-time="">${courseOn(ds).map(cevHTML).join('')}${untimed.map(x => evHTML(x)).join('') || (courseOn(ds).length ? '' : '<span class="pl-day-hint">Drop a to-do here to give it this day with no time</span>')}</div></div>
           <div class="pl-wk-scroll" tabindex="0" aria-label="Hours"><div class="pl-wk-grid pl-day-grid">${hoursCol()}${dayColumn(ds, placed, '', true)}</div></div></div>
         <aside class="pl-day-side" aria-label="This day">
           <div class="pl-day-card"><span class="pl-today-tile big" aria-hidden="true"><small>${d.toLocaleDateString('en-AU', { weekday: 'short' })}</small><b>${d.getDate()}</b></span>
@@ -702,8 +726,8 @@ window.DEC15Planner = (() => {
         <div class="pl-grid">${cells.map((d, i) => { const s = ymd(d), ts = tasksOn(s), out = d.getMonth() !== mo, wk = d.getDay() === 0 || d.getDay() === 6;
           return `<div class="pl-cell${out ? ' out' : ''}${wk ? ' wk' : ''}${s === t ? ' today' : ''}" role="group" data-day="${s}" data-drop-day="${s}" aria-label="${d.toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long' })}${ts.length ? `, ${ts.length} to-do${ts.length > 1 ? 's' : ''}` : ''}">
             <div class="pl-cellhead">${i % 7 === 0 ? `<button type="button" class="pl-wkno" data-goto-week="${s}" aria-label="Open week ${isoWeek(s)}" title="Open this week">W${isoWeek(s)}</button>` : ''}<button type="button" class="pl-daynum" data-add-on="${s}" aria-label="Add a to-do on ${d.toLocaleDateString('en-AU', { day: 'numeric', month: 'long' })}">${d.getDate() === 1 ? `<i>${MONTHS[d.getMonth()].slice(0, 3)}</i> ` : ''}${d.getDate()}</button></div>
-            ${ts.slice(0, 3).map(x => evHTML(x)).join('')}
-            ${ts.length > 3 ? `<button type="button" class="pl-more-ev" data-day-list="${s}">+${ts.length - 3} more</button>` : ''}</div>`; }).join('')}</div>`;
+            ${(() => { const ce = courseOn(s), room = Math.max(0, 3 - ce.length), extra = ts.length - room;
+              return ce.map(cevHTML).join('') + ts.slice(0, room).map(x => evHTML(x)).join('') + (extra > 0 ? `<button type="button" class="pl-more-ev" data-day-list="${s}">+${extra} more</button>` : ''); })()}</div>`; }).join('')}</div>`;
     }
     return `<div class="pl-cal" data-view="${view}">${side}<section class="pl-calmain">
       <div class="pl-calhead"><h2>${title}</h2>
@@ -811,6 +835,7 @@ window.DEC15Planner = (() => {
       ui.calView = d.calView; paintPanel(); return; }
     if (d.newTask !== undefined) { newTask(todayStr(), t); return; }
     if (d.addOn) { newTask(d.addOn, t); return; }
+    if (d.cev) { cevPopover(d.cev, t); return; }
     if (d.dayList) { const ts = tasksOn(d.dayList); popover(t, `<div class="pl-menu daylist"><b>${esc(niceDate(d.dayList))}</b>${ts.map(x => `<div class="pl-ev${x.data.done ? ' done' : ''}" style="--c:${calColor(x)}">${checkbox(x)}<button type="button" data-task-open="${x.id}">${x.data.time ? `<b>${esc(x.data.time)}</b> ` : ''}${esc(x.data.title)}</button></div>`).join('')}</div>`, p => {
       p.addEventListener('click', ev => { const b = ev.target.closest('[data-task-open]'); if (b) taskPopover(b.dataset.taskOpen, b); });
       p.addEventListener('change', ev => { const c = ev.target.closest('[data-toggle-task]'); if (c) put(c.dataset.toggleTask, 'task', { done: c.checked, doneAt: c.checked ? nowIso() : null }); }); }); return; }
