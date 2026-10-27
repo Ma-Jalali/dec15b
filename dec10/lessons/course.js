@@ -53,7 +53,10 @@ window.DEC15_COURSE = {
           parts: ['6A Reading and listening to speak', '7A Introduction to Seminar and Interactive Presentation', '8A Academic writing skills: Introduction to rhetorical functions', '9A AST: Digital literacy and online tools homework'],
           stages: ['frameworks', 'seminar', 'functions', 'digital'], tones: ['teal', 'clay', 'plum', 'blue'],
           scripts: ['dec10/lessons/week1/sources.js', 'dec10/lessons/week1/d10w1d2.js'] },
-        { id: 'd10w1d3', day: 3, status: 'soon', title: 'Paraphrasing, the AST and feedback literacy' },
+        { id: 'd10w1d3', day: 3, status: 'ready', title: 'Your words, your skills, your feedback', art: 'feedback',
+          parts: ['10A Academic writing skills: Paraphrasing', '11A Introducing the AST framework', '12A AST: Introduction to Feedback Literacy', '13A AST: AI use in DEC homework'],
+          stages: ['paraphrase', 'ast', 'feedback', 'ai'], tones: ['clay', 'green', 'teal', 'amber'],
+          scripts: ['dec10/lessons/week1/sources.js', 'dec10/lessons/week1/d10w1d3.js'] },
         { id: 'd10w1d4', day: 4, status: 'soon', title: 'Voices in writing, the Portfolio and research skills' },
         { id: 'd10w1d5', day: 5, status: 'soon', title: 'Diagnostic and summarising' }
       ]

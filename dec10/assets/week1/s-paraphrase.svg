@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="An original sentence card turns into a new card through a gear">
+<style>
+  .fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; }
+  .tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; }
+  @keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+  .gear { animation: gear 8s linear infinite; transform-box: fill-box; transform-origin: center; } @keyframes gear { to { transform: translate(220px,190px) rotate(360deg); } } @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+</defs>
+<ellipse cx="222" cy="300" rx="150" ry="12" fill="#14293a" opacity=".07"/>
+<circle cx="220" cy="165" r="138" fill="#fbe6dc"/>
+<circle cx="220" cy="165" r="152" stroke="#b0512a" stroke-opacity=".25" stroke-dasharray="2 6" stroke-linecap="round"/>
+<rect x="326" y="30" width="72" height="60" fill="url(#d)"/><rect x="36" y="238" width="60" height="48" fill="url(#d)"/>
+<path class="tw" d="M50 106h22m-11-11v22" stroke="#b0512a" stroke-width="2.4" stroke-linecap="round"/>
+<path class="tw tw2" d="M372 236h20m-10-10v20" stroke="#b0512a" stroke-width="2.4" stroke-linecap="round"/>
+
+<g filter="url(#s)" transform="rotate(-6 140 120)"><rect x="60" y="70" width="160" height="104" rx="12" fill="#fff"/><text x="78" y="96" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="11" letter-spacing="1.5" fill="#98a2a9">ORIGINAL</text><path d="M78 116h120M78 134h96M78 152h110" stroke="#14293a" stroke-opacity=".2" stroke-width="7" stroke-linecap="round"/></g>
+<g class="gear" transform="translate(220 190)"><path d="M0-34l7 0 3 10 9 4 9-6 6 6-6 9 4 9 10 3v8l-10 3-4 9 6 9-6 6-9-6-9 4-3 10h-8l-3-10-9-4-9 6-6-6 6-9-4-9-10-3v-8l10-3 4-9-6-9 6-6 9 6 9-4 3-10z" fill="#b0512a" transform="translate(-4 0)"/><circle r="12" fill="#fbe6dc"/></g>
+<g filter="url(#s)" transform="rotate(5 300 230)" class="fl"><rect x="232" y="176" width="160" height="104" rx="12" fill="#fff"/><text x="250" y="202" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="11" letter-spacing="1.5" fill="#2f7d6b">YOUR WORDS</text><path d="M250 222h96M250 240h120M250 258h80" stroke="#2f7d6b" stroke-opacity=".35" stroke-width="7" stroke-linecap="round"/></g>
+
+</svg>
