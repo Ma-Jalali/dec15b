@@ -142,7 +142,7 @@
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar {
   /* each link's colour, from the University palette (Ochre, Jacaranda, Heritage Rose, Eucalypt, Navy …) */
   --dec-map: #e64626; --dec-read: #4f68b8; --dec-note: #8a4f9e; --dec-planner: #3f8f7f;
-  --dec-board: #d9902a; --dec-chats: #2f9a63; --dec-shared: #1a355e; --dec-copy: #c0727a; --dec-cal: #b8331a; --dec-assess: #5b4f9e;
+  --dec-board: #d9902a; --dec-chats: #2f9a63; --dec-shared: #1a355e; --dec-copy: #c0727a; --dec-cal: #b8331a; --dec-assess: #5b4f9e; --dec-pebble: #1f7f86;
 }
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .t-map { --tc: var(--dec-map); }
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .t-read { --tc: var(--dec-read); }
@@ -154,6 +154,7 @@
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .t-copy { --tc: var(--dec-copy); }
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .t-cal { --tc: var(--dec-cal); }
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .t-assess { --tc: var(--dec-assess); }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .t-pebble { --tc: var(--dec-pebble); }
 
 /* the course card: a glass strip with an Ochre code chip */
 .side-course { display: none; }
