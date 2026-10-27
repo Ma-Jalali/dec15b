@@ -15,8 +15,8 @@ window.DEC15_COURSE = {
   title: 'Direct Entry Course · 10 weeks',
   topic: 'Academic English',
   intro: 'Ten weeks of academic English. Pick up where you left off, or open any lesson below.',
-  heroImage: 'assets/art/stage-reading.svg',
-  heroAlt: '',
+  heroImage: 'dec10/assets/week1/hero-d10w1d1.svg',
+  heroAlt: 'Illustration: profit, people and planet as three overlapping circles on a tablet, with outline notes in a notebook.',
   // The course card under the logo in the side panel.
   sideCard: { name: 'Direct Entry Course', note: '10 weeks' },
   // Settings (gear at the foot of the side panel) → Side panel colour. The first one is the default.
@@ -25,7 +25,7 @@ window.DEC15_COURSE = {
   defaultLesson: 'd10w1d1',
   // The ten weeks shown on the course map (home page). Change label (short!) and sub when the course outline is final.
   map: [
-    { n: 1, label: 'Getting started', sub: '' },
+    { n: 1, label: 'Foundation', sub: 'Sustainability frameworks' },
     { n: 2, label: 'Week 2', sub: '' },
     { n: 3, label: 'Week 3', sub: '' },
     { n: 4, label: 'Week 4', sub: '' },
@@ -38,17 +38,19 @@ window.DEC15_COURSE = {
   ],
   weeks: [
     {
-      n: 1, theme: 'Getting started',
-      summary: 'Meet your class, learn how the course works and set your goals for the next ten weeks.',
+      n: 1, theme: 'Foundation: sustainability frameworks',
+      summary: 'Three frameworks for thinking about sustainability — the triple bottom line, IPAT and the DTM — and the skills to learn from them: note-taking, paraphrasing, summarising and the Academic Success Toolkit.',
+      image: 'dec10/assets/week1/hero-d10w1d1.svg',
+      imageAlt: 'Illustration: profit, people and planet as three overlapping circles on a tablet, with outline notes in a notebook.',
       days: [
-        { id: 'd10w1d1', day: 1, status: 'ready', title: 'Welcome to DEC10', art: 'group',
-          parts: ['Meet your class', 'How DEC10 works'],
-          stages: ['meet', 'course'], tones: ['teal', 'amber'],
-          scripts: ['dec10/lessons/week1/d10w1d1.js'] },
-        { id: 'd10w1d2', day: 2, status: 'soon', title: 'Coming soon' },
-        { id: 'd10w1d3', day: 3, status: 'soon', title: 'Coming soon' },
-        { id: 'd10w1d4', day: 4, status: 'soon', title: 'Coming soon' },
-        { id: 'd10w1d5', day: 5, status: 'soon', title: 'Coming soon' }
+        { id: 'd10w1d1', day: 1, status: 'ready', title: 'Listen, note, think', art: 'listening',
+          parts: ['1A Orientation', '2A Building rapport', '3A Listening and note-taking', '4A Reading and note-taking homework', '5A Listening assessment preparation homework'],
+          stages: ['orientation', 'rapport', 'listening', 'reading', 'testlab'], tones: ['blue', 'clay', 'teal', 'amber', 'plum'],
+          scripts: ['dec10/lessons/week1/sources.js', 'dec10/lessons/week1/d10w1d1.js'] },
+        { id: 'd10w1d2', day: 2, status: 'soon', title: 'Frameworks, seminars and rhetorical functions' },
+        { id: 'd10w1d3', day: 3, status: 'soon', title: 'Paraphrasing, the AST and feedback literacy' },
+        { id: 'd10w1d4', day: 4, status: 'soon', title: 'Voices in writing, the Portfolio and research skills' },
+        { id: 'd10w1d5', day: 5, status: 'soon', title: 'Diagnostic and summarising' }
       ]
     }
   ]

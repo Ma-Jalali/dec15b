@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="An answer sheet with short-answer boxes, a stopwatch and a “3 words” tag">
+<style>
+  .fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; }
+  .tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; }
+  @keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+  .hand { animation: hand 6s linear infinite; transform-box: view-box; transform-origin: 330px 176px; } @keyframes hand { to { transform: rotate(360deg); } } .tick { stroke-dasharray: 40; animation: tick 4s ease-in-out infinite; } @keyframes tick { 0%, 15% { stroke-dashoffset: 40; } 35%, 90% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 40; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+</defs>
+<ellipse cx="222" cy="300" rx="150" ry="12" fill="#14293a" opacity=".07"/>
+<circle cx="220" cy="165" r="138" fill="#e6e4f3"/>
+<circle cx="220" cy="165" r="152" stroke="#5b4f9e" stroke-opacity=".25" stroke-dasharray="2 6" stroke-linecap="round"/>
+<rect x="326" y="30" width="72" height="60" fill="url(#d)"/><rect x="36" y="238" width="60" height="48" fill="url(#d)"/>
+<path class="tw" d="M50 106h22m-11-11v22" stroke="#5b4f9e" stroke-width="2.4" stroke-linecap="round"/>
+<path class="tw tw2" d="M372 236h20m-10-10v20" stroke="#5b4f9e" stroke-width="2.4" stroke-linecap="round"/>
+
+<g filter="url(#s)" transform="rotate(-3 190 180)"><rect x="80" y="62" width="200" height="236" rx="14" fill="#fff"/>
+<text x="102" y="96" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" letter-spacing="2" fill="#5b4f9e">LISTENING · PART 1</text>
+<g font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="14" fill="#14293a"><text x="102" y="134">1</text><text x="102" y="180">2</text><text x="102" y="226">3</text><text x="102" y="272">4</text></g>
+<g fill="#f3f1fa" stroke="#5b4f9e" stroke-opacity=".35" stroke-width="2"><rect x="120" y="116" width="140" height="28" rx="7"/><rect x="120" y="162" width="140" height="28" rx="7"/><rect x="120" y="208" width="140" height="28" rx="7"/><rect x="120" y="254" width="140" height="28" rx="7"/></g>
+<g font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="15" fill="#14293a"><text x="130" y="135">customers</text><text x="130" y="181">71%</text></g>
+<path class="tick" d="M240 124l6 7 11-12M240 170l6 7 11-12" stroke="#2f7d6b" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g class="fl" filter="url(#s2)"><circle cx="330" cy="176" r="54" fill="#14293a"/><circle cx="330" cy="176" r="44" fill="#fff"/><rect x="320" y="110" width="20" height="14" rx="4" fill="#14293a"/>
+<path d="M330 176V144" stroke="#d4583a" stroke-width="5" stroke-linecap="round" class="hand"/><circle cx="330" cy="176" r="5" fill="#14293a"/>
+<g stroke="#14293a" stroke-width="3" stroke-linecap="round"><path d="M330 138v6M368 176h-6M330 214v-6M292 176h6"/></g></g>
+<g class="fl fl2" filter="url(#s2)"><path d="M300 248h92l14 16-14 16h-92z" fill="#e3a843"/><circle cx="312" cy="264" r="4" fill="#fff"/><text x="358" y="270" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="15" fill="#14293a">≤ 3 words</text></g>
+
+</svg>

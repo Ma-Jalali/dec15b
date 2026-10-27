@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 933" role="img" aria-labelledby="t">
+<title id="t">Day 1: a tablet plays a video about the triple bottom line — three overlapping circles for profit, people and planet. Sound waves travel to an open notebook where outline notes appear line by line. Road signs reading First, Next and Finally stand in the corner.</title>
+<style>
+  .float { animation: float 6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  .f2 { animation-duration: 7.5s; animation-delay: -2s; } .f3 { animation-duration: 8.5s; animation-delay: -4s; }
+  .breathe { animation: breathe 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  .b2 { animation-delay: -1.6s; } .b3 { animation-delay: -3.2s; }
+  .wave { animation: wave 3.2s ease-out infinite; opacity: 0; transform-box: view-box; transform-origin: 752px 430px; }
+  .w2 { animation-delay: 1.05s; } .w3 { animation-delay: 2.1s; }
+  .line { animation: write 14s ease-in-out infinite; opacity: 0; }
+  .l1 { animation-delay: .5s; } .l2 { animation-delay: 1.3s; } .l3 { animation-delay: 2.1s; } .l4 { animation-delay: 3.1s; } .l5 { animation-delay: 3.9s; }
+  .l6 { animation-delay: 4.9s; } .l7 { animation-delay: 5.9s; } .l8 { animation-delay: 6.9s; }
+  .pen { animation: pen 14s ease-in-out infinite; transform-box: view-box; }
+  .sway { animation: sway 5s ease-in-out infinite; transform-box: view-box; transform-origin: 196px 880px; }
+  .bar { animation: bar 14s linear infinite; transform-box: fill-box; transform-origin: left center; }
+  .twinkle { animation: twinkle 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  .t2 { animation-delay: -1s; } .t3 { animation-delay: -2s; }
+  @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-14px) rotate(4deg); } }
+  @keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.045); } }
+  @keyframes wave { 0% { opacity: 0; transform: scale(.55); } 20% { opacity: .9; } 100% { opacity: 0; transform: scale(1.35); } }
+  @keyframes write { 0% { opacity: 0; transform: translateX(-10px); } 6%, 88% { opacity: 1; transform: none; } 95%, 100% { opacity: 0; } }
+  @keyframes pen { 0%, 100% { transform: translate(0, 0); } 5% { transform: translate(-200px, -368px); } 11% { transform: translate(-70px, -328px); } 17% { transform: translate(-190px, -278px); } 24% { transform: translate(0, -238px); }
+    30% { transform: translate(-190px, -188px); } 37% { transform: translate(-10px, -148px); } 44% { transform: translate(-10px, -108px); } 51% { transform: translate(-54px, -48px); } 58%, 92% { transform: translate(0, 0); } }
+  @keyframes sway { 0%, 100% { transform: rotate(-1.4deg); } 50% { transform: rotate(1.4deg); } }
+  @keyframes bar { 0% { transform: scaleX(.02); } 100% { transform: scaleX(1); } }
+  @keyframes twinkle { 0%, 100% { opacity: .25; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.1); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .line, .wave { opacity: 1 !important; } .wave { opacity: .5 !important; } .bar { transform: scaleX(.62); } }
+</style>
+<defs>
+  <filter id="paper" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" seed="11"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .43  0 0 0 0 .32  0 0 0 .06 0"/><feComposite in2="SourceGraphic" operator="in"/><feBlend in="SourceGraphic" mode="multiply"/></filter>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="22" stdDeviation="20" flood-color="#14293a" flood-opacity=".22"/></filter>
+  <filter id="lift" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#14293a" flood-opacity=".2"/></filter>
+  <radialGradient id="glow" cx="50%" cy="45%" r="55%"><stop offset="0" stop-color="#fbf3e2"/><stop offset="1" stop-color="#ecdcc0"/></radialGradient>
+  <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#f6efe2"/></linearGradient>
+  <linearGradient id="device" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#21405a"/><stop offset="1" stop-color="#0f2232"/></linearGradient>
+  <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.4" fill="#8c6a2e" opacity=".25"/></pattern>
+  <pattern id="rule" width="420" height="40" patternUnits="userSpaceOnUse"><path d="M0 39.5h420" stroke="#9cc3d5" stroke-width="1.2" opacity=".55"/></pattern>
+  <clipPath id="scr"><rect x="22" y="22" width="516" height="336" rx="16"/></clipPath>
+</defs>
+
+<!-- backdrop -->
+<rect width="1400" height="933" fill="#f3ead9"/>
+<rect width="1400" height="933" fill="#f3ead9" filter="url(#paper)"/>
+<circle cx="720" cy="470" r="410" fill="url(#glow)"/>
+<circle cx="720" cy="470" r="448" fill="none" stroke="#8c6a2e" stroke-opacity=".22" stroke-width="2" stroke-dasharray="2 12" stroke-linecap="round"/>
+<rect x="1150" y="80" width="170" height="120" fill="url(#dots)"/>
+<rect x="70" y="120" width="130" height="150" fill="url(#dots)"/>
+<path d="M1060 760c90 30 170 20 250-30" stroke="#2f7d6b" stroke-opacity=".25" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="1 12"/>
+
+<!-- floating symbols: coin (profit), leaf (planet), people -->
+<g class="float"><g transform="translate(300 140)" filter="url(#lift)"><circle r="34" fill="#f2c14e"/><circle r="34" fill="none" stroke="#b07d12" stroke-width="4"/><circle r="22" fill="none" stroke="#b07d12" stroke-width="2.5" opacity=".55"/><text y="11" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="32" fill="#8a5f0c">$</text></g></g>
+<g class="float f2"><g transform="translate(660 112) rotate(-18)" filter="url(#lift)"><path d="M0 -38C30 -30 40 0 26 30C10 38 -20 34 -28 6C-34 -18 -18 -36 0 -38Z" fill="#3f9a7c"/><path d="M-20 26C-4 6 8 -10 18 -30" stroke="#e8f5ee" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M-4 10l14 2M2 -4l12 0" stroke="#e8f5ee" stroke-width="2.5" stroke-linecap="round"/></g></g>
+<g class="float f3"><g transform="translate(1260 150)" filter="url(#lift)"><circle r="38" fill="#e9785a"/><circle cx="-11" cy="-8" r="8" fill="#fff4ee"/><path d="M-25 20c0-11 6-17 14-17s14 6 14 17" fill="#fff4ee"/><circle cx="12" cy="-4" r="7" fill="#ffd9cb"/><path d="M0 22c0-9 5-15 12-15s12 6 12 15" fill="#ffd9cb"/></g></g>
+<g class="twinkle"><path d="M560 210l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" fill="#e3a843"/></g>
+<g class="twinkle t2"><path d="M1180 520l5 11 11 5-11 5-5 11-5-11-11-5 11-5z" fill="#2f7d6b"/></g>
+<g class="twinkle t3"><path d="M110 470l5 11 11 5-11 5-5 11-5-11-11-5 11-5z" fill="#d4583a"/></g>
+
+<!-- tablet playing the video -->
+<ellipse cx="456" cy="646" rx="250" ry="16" fill="#14293a" opacity=".10"/>
+<g transform="translate(176 248)">
+  <g filter="url(#soft)"><rect width="560" height="380" rx="36" fill="url(#device)"/></g>
+  <rect x="6" y="6" width="548" height="368" rx="31" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-width="2"/>
+  <circle cx="280" cy="12" r="3.5" fill="#3b5a73"/>
+  <rect x="22" y="22" width="516" height="336" rx="16" fill="url(#screen)"/>
+  <g clip-path="url(#scr)">
+    <rect x="22" y="22" width="516" height="44" fill="#14293a" opacity=".05"/>
+    <circle cx="48" cy="44" r="9" fill="#d4583a"/><path d="M45 39.5v9l8-4.5z" fill="#fff"/>
+    <text x="66" y="50" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#14293a">What is the Triple Bottom Line?</text>
+    <!-- the triple bottom line Venn -->
+    <g style="mix-blend-mode:multiply">
+      <circle class="breathe" cx="226" cy="158" r="80" fill="#f2c14e" opacity=".88"/>
+      <circle class="breathe b2" cx="334" cy="158" r="80" fill="#ef8a6d" opacity=".85"/>
+      <circle class="breathe b3" cx="280" cy="246" r="80" fill="#5fb393" opacity=".85"/>
+    </g>
+    <g font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="15" letter-spacing="2" text-anchor="middle">
+      <text x="200" y="138" fill="#7a530a">PROFIT</text>
+      <text x="360" y="138" fill="#8f2f17">PEOPLE</text>
+      <text x="280" y="290" fill="#145946">PLANET</text>
+    </g>
+    <circle cx="280" cy="187" r="15" fill="#fff" opacity=".92"/><path d="M274 180v14l12-7z" fill="#14293a"/>
+    <!-- player bar -->
+    <rect x="44" y="330" width="472" height="7" rx="3.5" fill="#14293a" opacity=".12"/>
+    <rect class="bar" x="44" y="330" width="472" height="7" rx="3.5" fill="#d4583a"/>
+    <text x="44" y="322" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#5d6a74">HBS Online · 2022</text>
+    <text x="516" y="322" text-anchor="end" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="700" fill="#5d6a74">2:46</text>
+  </g>
+</g>
+
+<!-- sound waves -->
+<g fill="none" stroke-linecap="round" stroke-width="7">
+  <path class="wave" d="M752 380a60 60 0 0 1 0 100" stroke="#d4583a"/>
+  <path class="wave w2" d="M752 380a60 60 0 0 1 0 100" stroke="#e3a843"/>
+  <path class="wave w3" d="M752 380a60 60 0 0 1 0 100" stroke="#2f7d6b"/>
+</g>
+
+<!-- notebook with outline notes -->
+<g transform="translate(818 196) rotate(3.5)">
+  <g filter="url(#soft)"><rect width="430" height="536" rx="20" fill="#fffdf8"/></g>
+  <rect x="0" y="0" width="430" height="536" rx="20" fill="none" stroke="#14293a" stroke-opacity=".08" stroke-width="2"/>
+  <rect x="34" y="96" width="380" height="420" fill="url(#rule)"/>
+  <path d="M78 26v494" stroke="#e9785a" stroke-opacity=".45" stroke-width="2"/>
+  <g fill="#14293a">
+    <g><circle cx="22" cy="70" r="7" fill="#d9cfbf"/><path d="M14 70h-20" stroke="#8b96a0" stroke-width="5" stroke-linecap="round"/></g>
+    <g><circle cx="22" cy="150" r="7" fill="#d9cfbf"/><path d="M14 150h-20" stroke="#8b96a0" stroke-width="5" stroke-linecap="round"/></g>
+    <g><circle cx="22" cy="230" r="7" fill="#d9cfbf"/><path d="M14 230h-20" stroke="#8b96a0" stroke-width="5" stroke-linecap="round"/></g>
+    <g><circle cx="22" cy="310" r="7" fill="#d9cfbf"/><path d="M14 310h-20" stroke="#8b96a0" stroke-width="5" stroke-linecap="round"/></g>
+    <g><circle cx="22" cy="390" r="7" fill="#d9cfbf"/><path d="M14 390h-20" stroke="#8b96a0" stroke-width="5" stroke-linecap="round"/></g>
+    <g><circle cx="22" cy="470" r="7" fill="#d9cfbf"/><path d="M14 470h-20" stroke="#8b96a0" stroke-width="5" stroke-linecap="round"/></g>
+  </g>
+  <text x="96" y="74" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700" fill="#14293a">Triple bottom line</text>
+  <path d="M96 86c60 6 140 2 210-4" stroke="#e3a843" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <g font-family="Georgia, 'Times New Roman', serif" font-style="italic" fill="#14293a">
+    <text class="line l1" x="96" y="132" font-size="24" font-weight="700"><tspan fill="#b07d12">1.</tspan> Profit</text>
+    <text class="line l2" x="136" y="172" font-size="19" fill="#3d505e">a. $ for shareholders</text>
+    <text class="line l3" x="96" y="222" font-size="24" font-weight="700"><tspan fill="#c4562f">2.</tspan> People</text>
+    <text class="line l4" x="136" y="262" font-size="19" fill="#3d505e">a. stakeholders ≠ shareholders</text>
+    <text class="line l5" x="96" y="312" font-size="24" font-weight="700"><tspan fill="#2f7d6b">3.</tspan> Planet</text>
+    <text class="line l6" x="136" y="352" font-size="19" fill="#3d505e">a. 100 producers → 71% GHG</text>
+    <text class="line l7" x="136" y="392" font-size="19" fill="#3d505e">b. ↓ energy · ethical materials</text>
+    <text class="line l8" x="96" y="452" font-size="21" font-weight="700" fill="#14293a">∴ do well by doing good?</text>
+  </g>
+  <!-- pen -->
+  <g class="pen"><g transform="translate(400 500) rotate(38)">
+    <rect x="-9" y="-112" width="18" height="96" rx="8" fill="#14293a"/>
+    <rect x="-9" y="-112" width="18" height="22" rx="8" fill="#d4583a"/>
+    <rect x="6" y="-104" width="4" height="46" rx="2" fill="#e3a843"/>
+    <path d="M-9 -18h18l-9 22z" fill="#e3c08a"/><path d="M-2.5 -2h5l-2.5 6z" fill="#14293a"/>
+  </g></g>
+</g>
+
+<!-- signposts -->
+<g class="sway">
+  <rect x="190" y="664" width="12" height="220" rx="5" fill="#6b4b2a"/>
+  <g filter="url(#lift)">
+    <path d="M98 676h160l26 22-26 22H98z" fill="#d4583a"/>
+    <text x="176" y="706" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="22" letter-spacing="2" fill="#fff">FIRST</text>
+    <path d="M300 734H138l-26 22 26 22h162z" fill="#e3a843"/>
+    <text x="218" y="764" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="22" letter-spacing="2" fill="#14293a">NEXT</text>
+    <path d="M90 792h184l26 22-26 22H90z" fill="#2f7d6b"/>
+    <text x="186" y="822" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="22" letter-spacing="2" fill="#fff">FINALLY</text>
+  </g>
+</g>
+<ellipse cx="196" cy="884" rx="80" ry="10" fill="#14293a" opacity=".12"/>
+
+<!-- headphones -->
+<g transform="translate(610 744)" filter="url(#lift)">
+  <path d="M0 70V40a70 70 0 0 1 140 0v30" fill="none" stroke="#14293a" stroke-width="12" stroke-linecap="round"/>
+  <rect x="-16" y="56" width="34" height="62" rx="14" fill="#d4583a"/>
+  <rect x="122" y="56" width="34" height="62" rx="14" fill="#d4583a"/>
+  <rect x="-8" y="66" width="18" height="42" rx="8" fill="#ef8a6d"/>
+  <rect x="130" y="66" width="18" height="42" rx="8" fill="#ef8a6d"/>
+</g>
+</svg>

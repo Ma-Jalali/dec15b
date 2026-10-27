@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="A find-someone-who bingo card with stamped squares and two speech bubbles">
+<style>
+  .fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; }
+  .tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; }
+  @keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+  .stamp { animation: stamp 4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } @keyframes stamp { 0%, 70%, 100% { transform: scale(1); } 80% { transform: scale(1.25); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+</defs>
+<ellipse cx="222" cy="300" rx="150" ry="12" fill="#14293a" opacity=".07"/>
+<circle cx="220" cy="165" r="138" fill="#fbe6dc"/>
+<circle cx="220" cy="165" r="152" stroke="#d4583a" stroke-opacity=".25" stroke-dasharray="2 6" stroke-linecap="round"/>
+<rect x="326" y="30" width="72" height="60" fill="url(#d)"/><rect x="36" y="238" width="60" height="48" fill="url(#d)"/>
+<path class="tw" d="M50 106h22m-11-11v22" stroke="#d4583a" stroke-width="2.4" stroke-linecap="round"/>
+<path class="tw tw2" d="M372 236h20m-10-10v20" stroke="#d4583a" stroke-width="2.4" stroke-linecap="round"/>
+
+<g transform="rotate(-4 220 180)" filter="url(#s)"><rect x="104" y="68" width="210" height="232" rx="18" fill="#fff"/>
+<text x="209" y="98" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="17" letter-spacing="5" fill="#14293a">BINGO</text><rect x="118" y="112" width="40" height="36" rx="7" fill="#f6f1e8"/><rect x="164" y="112" width="40" height="36" rx="7" fill="#fde3d9"/><g class="stamp" style="animation-delay:0.25s"><circle cx="184" cy="130" r="12" fill="none" stroke="#d4583a" stroke-width="3"/><path d="M178 130l4 5 9-10" stroke="#d4583a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g><rect x="210" y="112" width="40" height="36" rx="7" fill="#f6f1e8"/><rect x="256" y="112" width="40" height="36" rx="7" fill="#f6f1e8"/><rect x="118" y="154" width="40" height="36" rx="7" fill="#fde3d9"/><g class="stamp" style="animation-delay:1.0s"><circle cx="138" cy="172" r="12" fill="none" stroke="#d4583a" stroke-width="3"/><path d="M132 172l4 5 9-10" stroke="#d4583a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g><rect x="164" y="154" width="40" height="36" rx="7" fill="#fde3d9"/><g class="stamp" style="animation-delay:0.0s"><circle cx="184" cy="172" r="12" fill="none" stroke="#d4583a" stroke-width="3"/><path d="M178 172l4 5 9-10" stroke="#d4583a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g><rect x="210" y="154" width="40" height="36" rx="7" fill="#fde3d9"/><g class="stamp" style="animation-delay:0.25s"><circle cx="230" cy="172" r="12" fill="none" stroke="#d4583a" stroke-width="3"/><path d="M224 172l4 5 9-10" stroke="#d4583a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g><rect x="256" y="154" width="40" height="36" rx="7" fill="#fde3d9"/><g class="stamp" style="animation-delay:0.5s"><circle cx="276" cy="172" r="12" fill="none" stroke="#d4583a" stroke-width="3"/><path d="M270 172l4 5 9-10" stroke="#d4583a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g><rect x="118" y="196" width="40" height="36" rx="7" fill="#f6f1e8"/><rect x="164" y="196" width="40" height="36" rx="7" fill="#f6f1e8"/><rect x="210" y="196" width="40" height="36" rx="7" fill="#f6f1e8"/><rect x="256" y="196" width="40" height="36" rx="7" fill="#fde3d9"/><g class="stamp" style="animation-delay:0.25s"><circle cx="276" cy="214" r="12" fill="none" stroke="#d4583a" stroke-width="3"/><path d="M270 214l4 5 9-10" stroke="#d4583a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g><rect x="118" y="238" width="40" height="36" rx="7" fill="#f6f1e8"/><rect x="164" y="238" width="40" height="36" rx="7" fill="#f6f1e8"/><rect x="210" y="238" width="40" height="36" rx="7" fill="#f6f1e8"/><rect x="256" y="238" width="40" height="36" rx="7" fill="#f6f1e8"/>
+<path d="M140 130l146 0" stroke="#e3a843" stroke-width="6" stroke-linecap="round" opacity=".0"/></g>
+<g class="fl" filter="url(#s2)"><path d="M300 54h96a14 14 0 0 1 14 14v34a14 14 0 0 1-14 14h-60l-16 14v-14h-20a14 14 0 0 1-14-14V68a14 14 0 0 1 14-14z" fill="#2f7d6b"/><text x="348" y="91" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="15" fill="#fff">Me too!</text></g>
+<g class="fl fl2" filter="url(#s2)"><path d="M22 196h92a14 14 0 0 1 14 14v34a14 14 0 0 1-14 14H56l-16 14v-14H22a14 14 0 0 1-14-14v-34a14 14 0 0 1 14-14z" fill="#14293a"/><text x="68" y="233" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="15" fill="#fff">Hi, I’m…</text></g>
+
+</svg>

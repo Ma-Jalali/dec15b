@@ -28,7 +28,7 @@ const navCode = c => String(c).replace(/^(\d+)A$/, '$1');
 const stageName = s => `${s.code ? navCode(s.code) + ' ' : ''}${s.title}`;
 /* A day's part from course.js, e.g. '15A Discussion skills' → { code: '15A', name: 'Discussion skills', tone } */
 const dayPart = (d, k) => { const m = String(d.parts[k]).match(/^(\d+[A-Z])\s+(.*)$/); return { code: m ? navCode(m[1]) : String(k + 1), name: m ? m[2] : d.parts[k], tone: TONES[d.tones?.[k]] ? d.tones[k] : null }; };
-const artSrc = name => `assets/art/stage-${name}.svg`;
+const artSrc = name => /[/.]/.test(name) ? name : `assets/art/stage-${name}.svg`;   // a name ('reading') or a picture's path ('dec10/assets/week1/….svg')
 /* Addresses inside this lesson: L('ai') → #/w2d5/ai */
 const L = p => '#/' + lesson.id + (p && p !== 'overview' ? '/' + p : '');
 const coreActivities = lesson.sections.flatMap(s => s.activities);
@@ -140,6 +140,7 @@ function whoBadge(w) {
 
 const findBlock = id => allActivities.flatMap(a => a.blocks).find(x => x.id === id);
 const play = window.createDEC15Play ? window.createDEC15Play({ getState: () => state, save, rerender: () => rerender(), esc, strip, icon, toast, findBlock }) : null;
+const kit = window.createDEC10Kit ? window.createDEC10Kit({ getState: () => state, save, rerender: () => rerender(), esc, strip, icon, toast, findBlock, confetti: el => play?.confetti(el) }) : null;
 /* feedback forms, stance scale, quiz board and "Share with classmates" (js/forms.js) */
 /* Chats: the WhatsApp-style page for the class (js/chats.js) */
 const chats = window.createDEC15Chats ? window.createDEC15Chats({ getCloud: () => cloud, getClass: () => klass, esc, icon: (n, c) => icon(n, c), toast, avatarHTML: (p, e, c) => avatarHTML(p, e, c), signIn: () => accountDialog('signin') }) : null;
@@ -157,6 +158,7 @@ function register(a) {
   const reg = (k, l) => { labels[k] = l; owner[k] = a.id; };
   for (const b of a.blocks) {
     play?.register(b, reg);
+    kit?.register(b, reg);
     forms?.register(b, reg);
     if (b.type === 'fields') b.fields.forEach(f => reg(f.id, f.label));
     if (b.type === 'quiz') b.items.forEach((q, i) => reg(b.id + '-' + i, strip(q.q)));
@@ -227,6 +229,7 @@ B.cards = b => `<section class="block cards-block${b.pick ? ' cards-pick' : ''}"
 </section>`;
 /* games and interactive blocks (js/play.js): flash, sort, flip, spinner, chat, promptbuilder, contract */
 if (play) Object.assign(B, play.B);
+if (kit) Object.assign(B, kit.B);
 B.tip = b => `<p class="block tip" data-help>${icon('bulb')}<span>${b.text}</span></p>`;
 B.teacher = b => { if (!state.teacher) return ''; const body = b.ref ? klass?.note(b.ref) : b.text; if (body === '') return '';
   return `<div role="note" aria-label="Teacher note" class="block teacher"><div class="block-label">${icon('teacher')}Teacher note</div>${body == null ? '<p class="tn-loading">Loading the teacher note…</p>' : `<p>${body}</p>`}</div>`; };
@@ -717,7 +720,7 @@ function srcLook(s) {   // the picture, colour and reading time of a course text
 /* Readings: every week's course texts, one fold per week. Each week's text files are read on demand
    (from the course map) into their own list, so a week shows only its own texts. */
 const libWeeks = course.weeks.map(w => ({ n: w.n, theme: w.theme,
-  files: [...new Set(w.days.filter(d => d.status === 'ready').flatMap(d => d.scripts || []).filter(f => f.startsWith(`${ROOT}lessons/week${w.n}/`) && !/\/w\d+d\d+\.js$/.test(f)))]
+  files: [...new Set(w.days.filter(d => d.status === 'ready').flatMap(d => d.scripts || []).filter(f => f.startsWith(`${ROOT}lessons/week${w.n}/`) && !/\/(d\d+)?w\d+d\d+\.js$/.test(f)))]
     .sort((a, b) => (b.endsWith('/sources.js') ? 1 : 0) - (a.endsWith('/sources.js') ? 1 : 0)) })).filter(w => w.files.length);
 const library = {}, libLoading = {};
 let libOpen = null;
@@ -1214,7 +1217,7 @@ function glossary(find = '') {
 }
 
 /* ───────── notebook exports ───────── */
-const nb = window.createDEC15Notebook({ lesson, getState: () => state, planParts, tableRows, reader, esc, strip, toast, person: () => cloudInfo.profile?.full_name || '', extraItems: b => [...(play ? play.notebookItems(b) : []), ...(forms ? forms.notebookItems(b) : [])] });
+const nb = window.createDEC15Notebook({ lesson, getState: () => state, planParts, tableRows, reader, esc, strip, toast, person: () => cloudInfo.profile?.full_name || '', extraItems: b => [...(play ? play.notebookItems(b) : []), ...(kit ? kit.notebookItems(b) : []), ...(forms ? forms.notebookItems(b) : [])] });
 async function runExport(kind, btn) {
   if (kind === 'gdocs') {
     const copied = await nb.gdocs();
@@ -1480,6 +1483,7 @@ document.addEventListener('input', e => {
   const t = e.target; if (!t.dataset.save) return;
   state.values[t.dataset.save] = t.type === 'checkbox' ? t.checked : t.value; save();
   play?.onInput(t);
+  kit?.onInput(t);
   forms?.onInput(t);
   if (t.type === 'checkbox' && t.closest('.checklist')?.querySelector('.check-meter')) rerender();
 });
@@ -1500,6 +1504,7 @@ document.addEventListener('click', e => {
   const t = e.target.closest('button,a,[data-week-tab]'); if (!t) return;
   const d = t.dataset;
   if (play && play.onClick(t, d)) return;
+  if (kit && kit.onClick(t, d)) return;
   if (forms && forms.onClick(t, d)) return;
   if (d.langTab) { const box = t.closest('.language'); box.querySelectorAll('[role=tab]').forEach((x, i) => { const on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; box.querySelectorAll('[role=tabpanel]')[i].hidden = !on; }); return; }
   if (d.quiz) { const k = d.quiz + '-' + d.i; state.values[k] = d.opt; delete state.checked[d.quiz]; save(); rerender(); return; }
