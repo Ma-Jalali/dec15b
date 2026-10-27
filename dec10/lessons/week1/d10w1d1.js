@@ -35,12 +35,12 @@ window.DEC15_LESSON = {
               { who: 'class', text: 'Your teacher shows you Canvas and the DEC10 course page. Follow on your own device.' },
               { who: 'alone', text: 'Study the map below for one minute. Then play <b>Course detective</b> — you have 2 minutes.' }
             ] },
-            { type: 'figure', src: 'dec10/assets/week1/roadmap.svg', size: 'wide', alt: 'Your DEC10 journey: Week 1 foundation; Week 2 seminars begin; Week 3 integrated writing; Week 4 writing workshops; Week 5 the listening, reading and writing (LRW) assessment; Week 6 final seminar; Week 7 the Interactive Presentation, about Australia; weeks 8 to 10 still to come.', caption: 'Your DEC10 journey.', credit: 'Full dates and weightings: Canvas › Assessment overview.' },
+            { type: 'figure', src: 'dec10/assets/week1/roadmap.svg', size: 'wide', alt: 'Your DEC10 journey: Week 1 foundation and diagnostic; Week 2 seminars begin; Week 3 listening and reading practice; Week 4 writing practice; Week 5 LRW Assessment 1; Week 6 final seminar; Week 7 Interactive Presentation; Week 8 circular economy; Week 9 LRW Assessment 2; Week 10 Interactive Discussion.', caption: 'Your DEC10 journey.', credit: 'Day-by-day: Course calendar · what each assessment involves: Assessments (both in the side panel).' },
             { type: 'quiz', id: 'o1-q', title: 'Course detective', items: [
               { q: 'In which week do you give your Interactive Presentation?', options: ['Week 5', 'Week 6', 'Week 7'], answer: 'Week 7', why: 'It is a final assessment and forms 40% of your speaking score.' },
               { q: 'Which country is your Interactive Presentation about?', options: ['Your own country', 'A country your group chooses', 'Australia'], answer: 'Australia', why: 'For the Seminar your group chooses a country (not Australia, not your own). The Interactive Presentation is always about Australia.' },
               { q: 'The Seminar is practice (an open assessment) for…', options: ['the LRW test', 'the Interactive Presentation', 'the diagnostic'], answer: 'the Interactive Presentation', why: 'Same group, same sustainability topic, same skills: research, presenting and answering questions.' },
-              { q: 'When is the listening, reading and writing (LRW) assessment?', options: ['Week 3', 'Week 5', 'Week 7'], answer: 'Week 5', why: 'Today’s listening and note-taking skills are your first step towards it.' }
+              { q: 'When is your FIRST listening, reading and writing (LRW) assessment?', options: ['Week 3', 'Week 5', 'Week 7'], answer: 'Week 5', why: 'LRW 1 is in Week 5 and LRW 2 in Week 9 — together they are 70% of your score. Today’s listening and note-taking skills are your first step.' }
             ] },
             { type: 'key', title: 'Why today matters', points: [
               '<b>Listening test:</b> you will follow a talk by its signposts and answer in a strict word limit — you practise both today.',
