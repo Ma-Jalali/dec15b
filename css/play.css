@@ -88,9 +88,9 @@
 /* ───────── flip cards ───────── */
 .flip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
 .flip { perspective: 900px; background: none; border: 0; padding: 0; text-align: center; min-height: 284px; font: inherit; color: inherit; cursor: pointer; }
-.flip-inner { position: relative; display: block; height: 100%; min-height: 284px; transform-style: preserve-3d; transition: transform .6s cubic-bezier(.3,.7,.2,1); }
+.flip-inner { position: relative; display: grid; height: 100%; min-height: 284px; transform-style: preserve-3d; transition: transform .6s cubic-bezier(.3,.7,.2,1); }
 .flip.is-flipped .flip-inner { transform: rotateY(180deg); }
-.flip-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: var(--r-lg); padding: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; border: 1px solid var(--line-2); box-shadow: var(--shadow); }
+.flip-face { grid-area: 1 / 1; position: relative; min-height: 100%; box-sizing: border-box; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: var(--r-lg); padding: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; border: 1px solid var(--line-2); box-shadow: var(--shadow); }
 .flip-front { background: #fff; }
 .flip:hover .flip-front { box-shadow: var(--shadow-lift); }
 .flip-front img { width: 150px; height: auto; max-height: 104px; object-fit: contain; }
