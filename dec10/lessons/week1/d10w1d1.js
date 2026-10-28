@@ -31,11 +31,10 @@ window.DEC15_LESSON = {
           title: 'Your ten weeks on one page',
           goal: 'Find the key milestones of DEC10 and see why today matters.',
           blocks: [
-            { type: 'steps', items: [
-              { who: 'class', text: 'Your teacher shows you Canvas and the DEC10 course page. Follow on your own device.' },
-              { who: 'alone', text: 'Study the map below for one minute. Then play <b>Course detective</b> — you have 2 minutes.' }
-            ] },
+            { type: 'do', n: 1, who: 'class', text: "Your teacher shows you Canvas and the DEC10 course page. Follow on your own device." },
+            { type: 'do', n: 2, who: 'alone', text: "Study the map below for one minute." },
             { type: 'figure', src: 'dec10/assets/week1/roadmap.svg', size: 'wide', alt: 'Your DEC10 journey: Week 1 foundation and diagnostic; Week 2 seminars begin; Week 3 listening and reading practice; Week 4 writing practice; Week 5 LRW Assessment 1; Week 6 final seminar; Week 7 Interactive Presentation; Week 8 circular economy; Week 9 LRW Assessment 2; Week 10 Interactive Discussion.', caption: 'Your DEC10 journey.', credit: 'Day-by-day: Course calendar · what each assessment involves: Assessments (both in the side panel).' },
+            { type: 'do', n: 3, who: 'alone', text: "Now play <b>Course detective</b> — you have 2 minutes." },
             { type: 'quiz', id: 'o1-q', title: 'Course detective', items: [
               { q: 'In which week do you give your Interactive Presentation?', options: ['Week 5', 'Week 6', 'Week 7'], answer: 'Week 7', why: 'It is a final assessment and forms 40% of your speaking score.' },
               { q: 'Which country is your Interactive Presentation about?', options: ['Your own country', 'A country your group chooses', 'Australia'], answer: 'Australia', why: 'For the Seminar your group chooses a country (not Australia, not your own). The Interactive Presentation is always about Australia.' },
@@ -164,16 +163,14 @@ window.DEC15_LESSON = {
           title: 'Listening for gist',
           goal: 'Get the big picture on the first listen — purpose and structure, not details.',
           blocks: [
-            { type: 'steps', items: [
-              { who: 'alone', text: 'Watch the whole video <b>once</b>. Do not write yet — just listen for the big picture.' },
-              { who: 'alone', text: 'Answer the two gist questions below. Then check your prediction from the warmer.' },
-              { who: 'pair', text: 'Compare with a partner: which of the warmer questions did the video answer?' }
-            ] },
+            { type: 'do', n: 1, who: 'alone', text: "Watch the whole video <b>once</b>. Do not write yet — just listen for the big picture." },
             { type: 'listening', source: 'Harvard Business School Online (2022)', title: 'What is the Triple Bottom Line?', videoId: '1-Ct_53XKYY', start: 0, clip: 'the whole video · about 3 min', transcripts: [['tbl', 'Transcript (open after listening)']] },
+            { type: 'do', n: 2, who: 'alone', text: "Answer the two gist questions. Then check your prediction from the warmer." },
             { type: 'quiz', id: 'l3-q', title: 'Gist check', items: [
               { q: 'What is the speaker’s main purpose?', options: ['To explain a way of measuring business success beyond profit', 'To criticise fossil fuel companies', 'To compare shareholders and stakeholders', 'To teach viewers how to start a business'], answer: 'To explain a way of measuring business success beyond profit', why: 'The other options are details inside the talk, not its purpose.' }
             ] },
-            { type: 'order', id: 'l3-order', title: 'Put the three components in the order the speaker presents them', items: ['Profit', 'People', 'Planet'], ends: ['First', 'Last'], why: 'Profit (“The first component”), people (“the second component”), planet (“the third and final component”).' }
+            { type: 'order', id: 'l3-order', title: 'Put the three components in the order the speaker presents them', items: ['Profit', 'People', 'Planet'], ends: ['First', 'Last'], why: 'Profit (“The first component”), people (“the second component”), planet (“the third and final component”).' },
+            { type: 'do', n: 3, who: 'pair', text: "Compare with a partner: which of the warmer questions did the video answer?" }
           ],
           answers: { title: 'Warmer questions — what the video says', items: [
             ['Biggest challenges', 'Climate change, poverty and inequality.'],
@@ -199,10 +196,8 @@ window.DEC15_LESSON = {
               { label: 'Sequencing', phrases: ['Firstly, … Secondly, … Thirdly, …', 'Next, let’s consider …', 'The first / second / final component …'] },
               { label: 'Looking back · examples · rephrasing', phrases: ['As I mentioned earlier, …', 'Let me show you an example of …', 'In other words, …', 'For instance, …'] }
             ] },
-            { type: 'steps', items: [
-              { who: 'pair', text: 'Listen again. Say <b>“stop!”</b> (or tap the table) every time the speaker moves to a new section.' },
-              { who: 'pair', text: 'Then do <b>Signpost spotter</b>: in the transcript, tap the phrases that open a new section. There are six.' }
-            ] },
+            { type: 'do', n: 1, who: 'pair', text: "Listen again. Say <b>“stop!”</b> (or tap the table) every time the speaker moves to a new section." },
+            { type: 'do', n: 2, who: 'pair', text: "Now do <b>Signpost spotter</b>: in the transcript, tap the phrases that open a new section. There are six." },
             { type: 'spot', id: 'l4-spot', label: 'Signpost spotter', title: 'Where does each new section start?', hint: 'Tap the phrases that move the talk to a new section. Careful — some highlighted phrases only give an example or add detail.', paras: [
               'The world is full of uncertainty. Monumental challenges such as climate change, poverty and inequality are at the forefront of daily life and becoming increasingly urgent. [[One thing that isn\'t uncertain]] is the need for change.',
               'Business leaders are realizing the power of using sustainable strategies to address the world\'s most pressing issues while driving organizational success. [[*One way to understand]] a business\'s sustainability efforts is by using the triple bottom line, a concept that posits firms should commit to measuring their social and environmental impact in addition to financial performance, [[rather than solely focusing on]] profit or the standard bottom line. The triple bottom line comprises three P\'s, profit, people and the planet.',
@@ -237,14 +232,12 @@ window.DEC15_LESSON = {
               { label: 'Planning', text: 'Planning a presentation, project or essay.' },
               { label: 'Recaps', text: 'Summaries or recaps of a lecture; jotting information down quickly.' }
             ] },
-            { type: 'steps', items: [
-              { who: 'pair', text: 'Listen again. With your partner, write the <b>main ideas only</b> — use the signposts you found. (Hint: four.)' },
-              { who: 'pair', text: 'Listen once more and add the <b>details</b> under each main idea, one step to the right.' },
-              { who: 'pair', text: 'Then build the model outline below and compare it with yours.' }
-            ] },
+            { type: 'do', n: 1, who: 'pair', text: "Listen again. With your partner, write the <b>main ideas only</b> — use the signposts you found. (Hint: four.)" },
+            { type: 'do', n: 2, who: 'pair', text: "Listen once more and add the <b>details</b> under each main idea, one step to the right." },
             { type: 'fields', fields: [
               { id: 'l5-notes', label: 'Our outline notes', rows: 10, placeholder: '1. Intro and the triple bottom line\n     a. …\n2. …' }
             ] },
+            { type: 'do', n: 3, who: 'pair', text: "Now build the model outline and compare it with yours." },
             { type: 'outline', id: 'l5-ol', title: 'Build the model outline', hint: 'These are the sample notes, in order — but every line is on the left. Use the arrows to move each line to the right level.', items: [
               [0, 'Intro and the triple bottom line'], [1, 'challenges the world is facing today'], [1, '3 components'],
               [0, 'The first component – profit'], [1, 'Financial performance is the key.'], [1, 'Traditional focus: maximise profits.'], [1, 'Now: use business to affect positive changes.'],
@@ -444,10 +437,8 @@ window.DEC15_LESSON = {
               { front: 'Count your words', back: 'No more than three words means three. 71% is one word. Over the limit = zero.' },
               { front: 'Hear the attitude', back: 'Strong words (monumental, staggering, urgent) and contrasts (while…, also…) show how the speaker feels.' }
             ] },
-            { type: 'steps', items: [
-              { who: 'alone', text: 'Open <b>Canvas › DEC10 › Week 1 › Listening assessment preparation</b> and do the quiz in one sitting, without pausing.' },
-              { who: 'alone', text: 'Then rate yourself below. Bring your weakest tactic to class — your teacher will ask.' }
-            ] },
+            { type: 'do', n: 1, who: 'alone', text: "Open <b>Canvas › DEC10 › Week 1 › Listening assessment preparation</b> and do the quiz in one sitting, without pausing." },
+            { type: 'do', n: 2, who: 'alone', text: "Then rate yourself. Bring your weakest tactic to class — your teacher will ask." },
             { type: 'scale', id: 't1-sig', title: 'After the quiz', statement: 'I could hear where each new section of the talk started.', ends: ['Not at all', 'Every time'] },
             { type: 'scale', id: 't1-lim', statement: 'I kept every short answer inside the word limit.', ends: ['Not at all', 'Every time'] },
             { type: 'fields', fields: [

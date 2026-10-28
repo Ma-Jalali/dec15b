@@ -35,11 +35,7 @@ window.DEC15_LESSON = {
           title: 'Say it another way',
           goal: 'A quick game: change the words, keep the meaning.',
           blocks: [
-            { type: 'steps', items: [
-              { who: 'pair', text: 'Spin a sentence. You have <b>45 seconds</b> to say it in <b>two different ways</b> — same meaning, different words.' },
-              { who: 'pair', text: 'Your partner is the judge: <b>1 point</b> for each version with the same meaning. <b>+1 bonus</b> if you changed the order of the sentence too.' },
-              { who: 'pair', text: 'Swap roles. Play three rounds each.' }
-            ] },
+            { type: 'do', n: 1, who: 'pair', text: "Spin a sentence. You have <b>45 seconds</b> to say it in <b>two different ways</b> — same meaning, different words." },
             { type: 'spinner', id: 'p1-spin', title: 'Spin a sentence', text: 'Read it aloud. Then say it another way — twice!', reels: [
               { label: 'Sentence', start: 'Spin!', items: [
                 'My phone died because I forgot to charge it.',
@@ -52,6 +48,7 @@ window.DEC15_LESSON = {
                 'I cannot find a cheap room near the university.'
               ] }
             ] },
+            { type: 'do', n: 2, who: 'pair', text: "Your partner is the judge: <b>1 point</b> for each version with the same meaning, <b>+1</b> if you changed the order too. Swap roles — three rounds each. Then write your best version." },
             { type: 'fields', fields: [{ id: 'p1-best', label: 'Your best version of one sentence', rows: 2, placeholder: 'Original: … → My version: …' }] },
             { type: 'key', title: 'You just paraphrased', points: [
               'Saying the same idea in different words is called <b>paraphrasing</b>.',
@@ -82,11 +79,7 @@ window.DEC15_LESSON = {
           title: 'What changed?',
           goal: 'Look at ten simple paraphrases. Work out HOW each one was changed.',
           blocks: [
-            { type: 'steps', items: [
-              { who: 'pair', text: 'Read each pair. The <mark>highlighted</mark> words show what is different.' },
-              { who: 'pair', text: 'Before you open “What changed?”, say what the writer did. Give it a name in your own words.' },
-              { who: 'pair', text: 'Count: how many <b>different</b> ways of changing a sentence can you find?' }
-            ] },
+            { type: 'do', n: 1, who: 'pair', text: "Read each pair. The <mark>highlighted</mark> words show what is different. Before you open “What changed?”, say what the writer did — give it a name in your own words." },
             { type: 'pairs', title: 'Ten paraphrases', items: [
               { from: 'The [[test]] was [[very difficult]].', to: 'The [[exam]] was [[extremely hard]].', tag: 'Synonyms', note: 'words with the same meaning' },
               { from: 'The [[teacher]] checked [[our essays]].', to: '[[Our essays]] were checked [[by the teacher]].', tag: 'Active → passive', note: 'the object (our essays) becomes the subject' },
@@ -99,6 +92,7 @@ window.DEC15_LESSON = {
               { from: '[[In Sydney]], many students rent a room.', to: 'Many students rent a room [[in Sydney]].', tag: 'Order of information', note: 'the place moves to the end' },
               { from: 'The phone is cheap. [[However,]] it is slow.', to: '[[Although]] the phone is cheap, it is slow.', tag: 'Linking words', note: 'however → although (two sentences become one)' }
             ] },
+            { type: 'do', n: 2, who: 'pair', text: "Count: how many <b>different</b> ways of changing a sentence did you find?" },
             { type: 'talk', title: 'With your partner', prompts: ['How many different techniques did you find?', 'Which technique was the easiest to notice? Which was the hardest?'] }
           ]
         },
@@ -198,41 +192,45 @@ window.DEC15_LESSON = {
         }
       ]
     },
-    /* ───────────────────────── 11A · Introducing the AST framework ───────────────────────── */
+    /* ───────────────────────── 11A · Introducing the AST framework ─────────────────────────
+       Redesigned for students with little university experience: every question comes with options or an example,
+       the six skills are linked to real graduate job ads, and the case study is an advice column with a model reply.
+       Instructions come one at a time, right above the task they belong to. */
     {
       id: 'ast', number: '02', code: '11A', minutes: 60,
       tone: 'green', art: 'dec10/assets/week1/s-ast.svg',
       title: 'Introducing the AST framework',
-      subtitle: 'Six skills for university life',
-      outcome: 'You can identify the six elements of the Academic Success Toolkit, explain how they help you, and set your own goals for them.',
+      subtitle: 'Six skills for university — and for your first job',
+      outcome: 'You can name the six skills of the Academic Success Toolkit, see where they appear in real life and in job ads, give practical advice using them, and set your own goal.',
       activities: [
         {
-          id: 'a1', short: 'What would you do?', minutes: 15, grouping: 'Alone → Pair',
-          title: 'Warmer: have you ever been here?',
-          goal: 'Think about six real university problems — and match each one with a skill.',
+          id: 'a1', short: 'Smart move?', minutes: 15, grouping: 'Alone → Pair',
+          title: 'Uni life: what is the smartest move?',
+          goal: 'Six real problems that first-year students have. Choose what you would do.',
           blocks: [
-            { type: 'steps', items: [
-              { who: 'alone', text: 'Read the six situations. Make a quick note: what did you do (or what would you do)?' },
-              { who: 'pair', text: 'Compare with a partner. Did you react in the same way?' },
-              { who: 'pair', text: 'Then match each situation with the skill it needs.' }
+            { type: 'do', n: 1, who: 'alone', text: 'Read each situation and choose the <b>smartest move</b>. Be honest — then check.' },
+            { type: 'quiz', id: 'a1-q', items: [
+              { q: '<b>Feedback.</b> Your essay comes back with one comment: “needs improvement on analysis”. No explanation.', options: ['Ignore it. The mark is what matters.', 'Ask your teacher: “Could you show me an example of better analysis?”', 'Copy the structure of a friend’s essay next time.'], answer: 'Ask your teacher: “Could you show me an example of better analysis?”', why: 'Understanding feedback — and asking when you don’t — is <b>feedback literacy</b>.' },
+              { q: '<b>Deadlines.</b> Two essays and a presentation are due next week. You haven’t started any of them.', options: ['Make a plan tonight: list the tasks, the deadlines and small steps for each day.', 'Stay up all night before each deadline.', 'Ask for an extension on all three.'], answer: 'Make a plan tonight: list the tasks, the deadlines and small steps for each day.', why: 'Planning your time and checking your progress is <b>self-regulation and monitoring</b>.' },
+              { q: '<b>Group work.</b> One member never answers the group chat. The presentation is on Friday.', options: ['Do his part yourself and say nothing — it is faster.', 'Complain about him in the group chat.', 'Talk to him early, agree on tasks and deadlines — and tell your teacher if nothing changes.'], answer: 'Talk to him early, agree on tasks and deadlines — and tell your teacher if nothing changes.', why: 'Communicating clearly and sharing work fairly are <b>group work skills</b>.' },
+              { q: '<b>Sources.</b> You found 20 websites for your essay. Some have no author and no date.', options: ['Use the first three results on Google.', 'Check who wrote each one, when, and why — and use the reliable ones.', 'Use Wikipedia only, because everyone uses it.'], answer: 'Check who wrote each one, when, and why — and use the reliable ones.', why: 'Finding and judging credible sources is a <b>research skill</b>. (You will learn a test for this tomorrow.)' },
+              { q: '<b>AI.</b> Your essay is worth 50%. A friend says ChatGPT can write it in five minutes.', options: ['Use it, then change a few words so that it sounds like you.', 'Ask ChatGPT for the essay, then change some words.', 'Write it yourself. Use AI only in the ways your course allows, and say when you used it.'], answer: 'Write it yourself. Use AI only in the ways your course allows, and say when you used it.', why: 'Using digital tools honestly and well is <b>digital literacy and AI</b>.' },
+              { q: '<b>Opinions.</b> Your two readings say opposite things about the same problem.', options: ['Choose the one you agree with — it is your opinion, after all.', 'Wait until the teacher tells you the answer.', 'Compare their evidence and decide which argument is stronger.'], answer: 'Compare their evidence and decide which argument is stronger.', why: 'Comparing points of view and forming your own position is <b>criticality</b>.' }
             ] },
-            { type: 'match', id: 'a1-m', title: 'Which skill does each situation need?', left: [
-              'After submitting an assignment, you get feedback that is difficult to understand, like “needs improvement on analysis” with no explanation.',
-              'You have multiple assignments due at the same time, so you need to manage your time and prioritise without getting overwhelmed.',
-              'In a group assignment, one member is not contributing equally, causing tension and possibly affecting the group’s grade.',
-              'You must write a research paper on an unfamiliar topic, using credible sources only — and you are unsure which sources to use.',
-              'An essay is worth 50% of your final mark. You don’t want to fail, so you use ChatGPT to write it for you.',
-              'Your readings present different points of view. You don’t know which is “right” and wish your teacher would tell you.'
-            ], right: ['Feedback literacy', 'Self-regulation and monitoring', 'Group work skills', 'Research skills', 'Digital literacy and AI', 'Criticality'] }
+            { type: 'do', n: 2, who: 'pair', text: 'Has one of these situations happened to you (or a friend)? Tell your partner what happened.' },
+            { type: 'language', groups: [{ label: 'Telling a short story', phrases: ['Once, in high school, I …', 'The problem was that …', 'In the end, I …', 'Now I would …'] }] },
+            { type: 'do', n: 3, who: 'pair', text: 'Each smart move used a different skill. Match each situation with its skill.' },
+            { type: 'match', id: 'a1-m', title: 'Which skill does each situation need?', left: ['Feedback you don’t understand', 'Three deadlines at once', 'A group member who does nothing', '20 websites — which can I trust?', 'The ChatGPT essay', 'Two readings that disagree'], right: ['Feedback literacy', 'Self-regulation and monitoring', 'Group work skills', 'Research skills', 'Digital literacy and AI', 'Criticality'] }
           ]
         },
         {
           id: 'a2', short: 'Six skills', minutes: 15, grouping: 'Class → Groups',
-          title: 'The Academic Success Toolkit (AST)',
-          goal: 'Know the six skills and why they matter at university and at work.',
+          title: 'The six skills — and your future job',
+          goal: 'Learn the six skills, then find them in real graduate job ads.',
           blocks: [
-            { type: 'figure', src: 'dec10/assets/week1/ast-wheel.svg', size: 'wide', alt: 'The Academic Success Toolkit: six skills in a ring — feedback literacy, self-regulation and monitoring, group work skills, research skills, digital literacy and AI, and criticality.', caption: 'The Academic Success Toolkit: designed by CET for DEC students.' },
-            { type: 'flip', title: 'What does each skill mean for you?', hint: 'Guess, then turn the card.', items: [
+            { type: 'figure', src: 'dec10/assets/week1/ast-wheel.svg', size: 'wide', alt: 'The Academic Success Toolkit: six skills in a ring — feedback literacy, self-regulation and monitoring, group work skills, research skills, digital literacy and AI, and criticality.', caption: 'The Academic Success Toolkit (AST): designed by CET for DEC students.' },
+            { type: 'do', n: 1, who: 'pair', text: 'Guess what each skill means. Then turn the card.' },
+            { type: 'flip', title: 'What does each skill mean for you?', items: [
               { front: 'Feedback literacy', back: 'Understanding feedback, judging your own work against the criteria, and acting on feedback.' },
               { front: 'Self-regulation and monitoring', back: 'Setting goals, planning your time, and checking your own progress.' },
               { front: 'Group work skills', back: 'Sharing work fairly, communicating clearly, and solving problems in a team.' },
@@ -240,29 +238,65 @@ window.DEC15_LESSON = {
               { front: 'Digital literacy and AI', back: 'Using digital tools — including AI — effectively, honestly and critically.' },
               { front: 'Criticality', back: 'Questioning ideas, comparing points of view, and forming your own position.' }
             ] },
-            { type: 'talk', title: 'Discuss in groups', prompts: ['How does each of these skills help you succeed at university — and prepare for your career?', 'Is there one skill that is more important than the others? Why?'] }
+            { type: 'do', n: 2, who: 'pair', text: 'Employers want these skills too. Here are lines from typical graduate job ads. Which AST skill is each employer asking for?' },
+            { type: 'sort', id: 'a2-jobs', title: 'Decode the job ads', buckets: [
+              { label: 'Feedback literacy', letter: 'F' }, { label: 'Self-regulation', letter: 'S' }, { label: 'Group work', letter: 'G' },
+              { label: 'Research', letter: 'R' }, { label: 'Digital + AI', letter: 'D' }, { label: 'Criticality', letter: 'C' }
+            ], items: [
+              { text: '“Open to feedback from managers and quick to act on it”', answer: 0 },
+              { text: '“Manages own workload and meets tight deadlines”', answer: 1 },
+              { text: '“Works well in a team with people from different departments”', answer: 2 },
+              { text: '“Can find, check and summarise market information”', answer: 3 },
+              { text: '“Confident with digital tools, including AI, and uses them responsibly”', answer: 4 },
+              { text: '“Questions assumptions and solves problems independently”', answer: 5 },
+              { text: '“Resolves disagreements calmly and professionally”', answer: 2 },
+              { text: '“Sets priorities and tracks progress towards goals”', answer: 1 }
+            ] },
+            { type: 'do', n: 3, who: 'group', text: 'Spin a question. Answer it — the example helps you start. Spin until everyone has answered twice.' },
+            { type: 'spinner', id: 'a2-spin', title: 'Talk about the skills', text: 'Spin, read the question and answer it.', reels: [
+              { label: 'Question', start: 'Spin!', items: [
+                'Which skill have you already used this week? (e.g. “Group work: we chose our seminar country together.”)',
+                'Which skill did high school NOT teach you? (e.g. “Research: we just used the textbook.”)',
+                'Which skill would an employer check first in a job interview? Why?',
+                'Which skill is the hardest to practise alone? (e.g. “Group work — you need other people!”)',
+                'If you could be excellent at only ONE skill, which would you choose? Why?',
+                'Which skill will help you most in the Week 7 Interactive Presentation?'
+              ] }
+            ] },
+            { type: 'language', groups: [{ label: 'Giving your opinion', phrases: ['I’d say … is the most important, because …', 'For example, …', 'That’s true, but …'] }] }
           ]
         },
         {
-          id: 'a3', short: 'Case study', minutes: 20, grouping: 'Groups',
-          title: 'Case studies: solve it with the AST',
-          goal: 'Plan practical steps to deal with one situation.',
+          id: 'a3', short: 'Advice column', minutes: 20, grouping: 'Groups',
+          title: 'The AST advice column',
+          goal: 'Students have written to “Ask the AST Team”. Write a reply with practical advice.',
           blocks: [
-            { type: 'spinner', id: 'a3-spin', title: 'Get your case', text: 'Spin to get one situation from the warmer. Plan how you would handle it, then present your plan to the class.', reels: [
-              { label: 'Your case', start: 'Spin!', items: ['Confusing feedback', 'Three deadlines at once', 'A group member who does nothing', 'Which sources can I trust?', 'The ChatGPT essay', 'Which view is “right”?'] }
+            { type: 'do', n: 1, who: 'group', text: 'Read the six letters below.' },
+            { type: 'cards', title: 'This week’s letters', numbered: true, items: [
+              { label: 'Ji-woo', text: '“My teacher wrote ‘needs more analysis’ on my essay. What does that even mean? I don’t want to ask — it’s embarrassing.”' },
+              { label: 'Omar', text: '“I have two essays and a presentation due next week, and I haven’t started any of them. I keep watching videos instead. Help!”' },
+              { label: 'Mei', text: '“One person in my group never answers our messages. The presentation is on Friday. Should we just do his part?”' },
+              { label: 'Arjun', text: '“I found 20 websites about my topic. Some have no author. How do I know which ones I can use?”' },
+              { label: 'Lucas', text: '“My essay is worth 50%. My friend says ChatGPT can write it in five minutes and nobody will know. Should I?”' },
+              { label: 'Sofia', text: '“My two readings say opposite things about the same problem. Which one is right? I wish the teacher would just tell me.”' }
             ] },
-            { type: 'fields', fields: [
-              { id: 'a3-skill', label: 'The AST skill(s) we need', rows: 1 },
-              { id: 'a3-steps', label: 'Three practical steps we would take', rows: 4, placeholder: '1. First, we would …\n2. Then …\n3. If that doesn’t work, …' }
+            { type: 'do', n: 2, who: 'group', text: 'Read the model reply to Omar. Notice its three parts: the skill, three practical steps, an encouraging end.' },
+            { type: 'model', title: 'Model reply · to Omar', text: '<b>Dear Omar,</b> this is a <b>self-regulation</b> problem — and it is very common! <b>First</b>, tonight, write the three tasks and their due dates in your planner. <b>Then</b> break each task into small steps (for example, “find three sources” = 45 minutes) and put them in your calendar. <b>Finally</b>, use a timer: 25 minutes of work, 5 minutes of break — with your phone in another room. You can do this! <i>— The AST Advice Team</i>' },
+            { type: 'do', n: 3, who: 'group', text: 'Spin to get your letter (not Omar). Write your reply in the same way.' },
+            { type: 'spinner', id: 'a3-spin', title: 'Get your letter', text: 'Spin once for your group.', reels: [
+              { label: 'Your letter', start: 'Spin!', items: ['Ji-woo · confusing feedback', 'Mei · the silent group member', 'Arjun · which websites?', 'Lucas · the ChatGPT essay', 'Sofia · which view is right?'] }
             ] },
-            { type: 'language', groups: [{ label: 'Presenting your plan', phrases: ['The first thing we would do is …', 'After that, …', 'If that doesn’t work, …'] }] }
+            { type: 'fields', fields: [{ id: 'a3-reply', label: 'Our reply', rows: 6, placeholder: 'Dear …, this is a … problem. First, … Then … Finally, … — The AST Advice Team' }] },
+            { type: 'language', groups: [{ label: 'Giving practical advice', phrases: ['First, … Then … Finally, …', 'Try … / Don’t …', 'If that doesn’t work, …', 'You can do this!'] }] },
+            { type: 'do', n: 4, who: 'class', text: 'Read your reply to the class. The class votes for the most practical advice.' }
           ]
         },
         {
-          id: 'a4', short: 'My goals', minutes: 10, grouping: 'Alone',
-          title: 'Self-assessment and goal setting',
-          goal: 'Rate yourself honestly and choose one goal.',
+          id: 'a4', short: 'My goal', minutes: 10, grouping: 'Alone',
+          title: 'Rate yourself — and set one goal',
+          goal: 'Be honest. Then choose ONE skill to work on.',
           blocks: [
+            { type: 'do', n: 1, who: 'alone', text: 'Rate yourself for each skill.' },
             { type: 'grid', id: 'a4-grid', title: 'How would you assess yourself?', columns: ['Me now'], options: ['I am very good at this', 'I need further learning and practice', 'I am currently struggling with this skill'], rows: [
               'I can use feedback effectively to improve my work',
               'I can set and maintain goals, tracking my progress consistently',
@@ -271,135 +305,198 @@ window.DEC15_LESSON = {
               'I can use digital tools effectively and ethically (AI included)',
               'I can use arguments from sources to effectively support my arguments/ideas'
             ] },
+            { type: 'do', n: 2, who: 'alone', text: 'Choose one skill. Write a goal that says WHAT you will do and WHEN — like the example.' },
+            { type: 'model', title: 'A weak goal and a strong goal', before: 'I want to be better at group work.', text: 'By Week 5, I will reply to my seminar group’s messages within 24 hours, and I will suggest a task list at our first meeting.' },
             { type: 'fields', fields: [
-              { id: 'a4-goal', label: 'My AST goal for the next five weeks', rows: 2, placeholder: 'By Week 5, I want to … To do this, I will …' }
+              { id: 'a4-goal', label: 'My AST goal for the next five weeks', rows: 2, placeholder: 'By Week 5, I will … To do this, I will …' }
             ] }
           ]
         }
       ]
     },
-
-    /* ───────────────────────── 12A · Introduction to feedback literacy ───────────────────────── */
+    /* ───────────────────────── 12A · Introduction to feedback literacy ─────────────────────────
+       Redesigned so students learn from examples, not from open questions they cannot answer yet:
+       two teachers' feedback → what makes it effective; four students' reactions → what feedback literacy is;
+       the presentation criteria decoded with the Teacher's Book's criteria-specific feedback examples.
+       The Teacher's Book feedback comments, the four criterion samples and the peer-feedback frames are kept. */
     {
       id: 'feedback', number: '03', code: '12A', minutes: 90,
       tone: 'teal', art: 'dec10/assets/week1/s-feedback.svg',
       title: 'AST: Introduction to Feedback Literacy',
       subtitle: 'Give feedback that helps — and use the feedback you get',
-      outcome: 'You understand why feedback matters for your learning, and you have the knowledge and language to give effective peer feedback.',
+      outcome: 'You know what effective feedback looks like, what feedback literacy means, what the presentation criteria ask for, and how to give peer feedback that helps.',
       activities: [
         {
           id: 'b1', short: 'Symbols', minutes: 5, grouping: 'Pair',
           title: 'Warmer: what do these symbols mean?',
           goal: 'Guess what a heart, a lightbulb and a star have to do with feedback.',
           blocks: [
-            { type: 'figure', src: 'dec10/assets/week1/feedback-literacy.svg', size: 'wide', alt: 'Feedback literacy in three parts: a heart for appreciating feedback (you value it), a lightbulb for making judgements (you understand it), and a star for taking action (you get it right next time).', caption: 'Feedback literacy: value it, understand it, use it.' },
+            { type: 'figure', src: 'dec10/assets/week1/feedback-literacy.svg', size: 'wide', alt: 'Feedback literacy in three parts: a heart for appreciating feedback (you value it), a lightbulb for making judgements (you understand it), and a star for taking action (you get it right next time).', caption: 'Three symbols, one idea. Keep them in mind — you will need them in 15 minutes.' },
+            { type: 'do', n: 1, who: 'pair', text: 'Guess: what does a student do when they <b>♥</b> feedback? <b>💡</b> it? <b>★</b> it? Then match.' },
             { type: 'match', id: 'b1-m', title: 'Match the symbol with what the student does', left: ['♥ Heart', '💡 Lightbulb', '★ Star'], right: ['The student values the feedback.', 'The student understands the feedback.', 'The student gets it right next time.'] }
           ]
         },
         {
-          id: 'b2', short: 'Discuss', minutes: 10, grouping: 'Groups',
-          title: 'Discussion: you and feedback',
-          goal: 'Share your experiences — and write your own definition of effective feedback.',
+          id: 'b2', short: 'Two teachers', minutes: 10, grouping: 'Pair',
+          title: 'Two teachers, one presentation',
+          goal: 'Compare two pieces of feedback and discover what makes feedback effective.',
           blocks: [
-            { type: 'spinner', id: 'b2-spin', title: 'Spin a question', text: 'Each person spins and answers. Then everyone answers the last question together.', reels: [
-              { label: 'Question', start: 'Spin!', items: [
-                'What do you think is the purpose of feedback from your teachers?',
-                'What experiences (positive or negative) have you had with receiving feedback on your academic work?',
-                'Why do you think feedback is important in academic and professional settings?',
-                'Can you think of a time when feedback helped you improve a piece of work or develop a skill?',
-                'What challenges have you faced when giving or receiving feedback?',
-                'How comfortable do you feel about giving feedback to your peers?',
-                'What are the benefits and challenges of giving peer feedback — and of receiving it?',
-                'What does a “good” piece of feedback look like to you?'
-              ] }
+            { type: 'do', n: 1, who: 'alone', text: 'Lena gave a presentation. Two teachers watched it. Read their feedback.' },
+            { type: 'model', title: 'Feedback on Lena’s presentation', rows: [
+              ['Teacher A', '“Good presentation. 7/10.”'],
+              ['Teacher B', '“Your examples were clear and easy to follow — well done. Your slides had too much text, so the audience read instead of listening. Next time, use 3–4 key words per slide and a picture. Also, try to pause after each main point.”']
             ] },
-            { type: 'fields', fields: [
-              { id: 'b2-def', label: 'Our definition: “Effective feedback should …”', rows: 2, placeholder: 'Effective feedback should …' }
+            { type: 'do', n: 2, who: 'pair', text: 'Which feedback helps Lena more? Bet on it.' },
+            { type: 'bet', id: 'b2-bet', title: 'Which teacher helped more?', proof: 'Bet big only if you can say why.', coins: 6, items: [
+              { q: 'Which feedback will help Lena do better next time?', options: ['Teacher A', 'Teacher B'], answer: 'Teacher B', why: 'B says what was good, what was not, WHY it matters, and exactly what to do next time.' }
+            ] },
+            { type: 'do', n: 3, who: 'pair', text: 'Sort these features: which teacher’s feedback has them?' },
+            { type: 'sort', id: 'b2-sort', title: 'Teacher A or Teacher B?', buckets: [{ label: 'Teacher A', letter: 'A' }, { label: 'Teacher B', letter: 'B' }], items: [
+              { text: 'only a mark and one general word', answer: 0 },
+              { text: 'specific: says WHICH part was good or weak', answer: 1 },
+              { text: 'explains why it matters (“the audience read instead of listening”)', answer: 1 },
+              { text: 'tells you what to do next time (feed forward)', answer: 1 },
+              { text: 'starts with something positive', answer: 1 },
+              { text: 'quick to write, but Lena learns nothing', answer: 0 }
+            ] },
+            { type: 'sticky', title: 'Effective feedback is…', color: 'green', text: '<p><b>specific</b> · <b>clear</b> · linked to the <b>criteria</b> · <b>kind</b> · and it <b>feeds forward</b>: it tells you what to do next time.</p>' }
+          ]
+        },
+        {
+          id: 'b3', short: 'Four students', minutes: 10, grouping: 'Pair',
+          title: 'Same feedback, four reactions',
+          goal: 'See what feedback literacy looks like — in real students.',
+          blocks: [
+            { type: 'do', n: 1, who: 'alone', text: 'Four students got Teacher B’s feedback. Read how each one reacted.' },
+            { type: 'cards', numbered: true, items: [
+              { label: 'Ali', text: 'Looks at the mark, closes the email. “7/10 is fine.”' },
+              { label: 'Bella', text: '“My teacher doesn’t like me.” She feels upset all evening.' },
+              { label: 'Chen', text: 'Reads every comment. Asks: “What is a key word?” Writes a to-do list for the next presentation.' },
+              { label: 'Dana', text: 'Says “Thank you!” — and changes nothing.' }
+            ] },
+            { type: 'quiz', id: 'b3-q', items: [
+              { q: 'Which student is <b>feedback literate</b>?', options: ['Ali', 'Bella', 'Chen', 'Dana'], answer: 'Chen', why: 'Chen values the feedback (♥), understands it — and asks when he doesn’t (💡), and acts on it (★).' }
+            ] },
+            { type: 'do', n: 2, who: 'pair', text: 'Chen did all three things. Sort what a feedback-literate student does into ♥ 💡 ★.' },
+            { type: 'sort', id: 'b3-sort', title: '♥ value it · 💡 understand it · ★ use it', buckets: [
+              { label: 'Appreciating feedback', letter: '♥' }, { label: 'Making judgements', letter: '💡' }, { label: 'Taking action', letter: '★' }
+            ], items: [
+              { text: 'I read all the comments, not only the mark.', answer: 0 },
+              { text: 'I thank my classmates for their comments.', answer: 0 },
+              { text: 'I see feedback as help, not as an attack.', answer: 0 },
+              { text: 'I compare my work with the criteria to see why I got this mark.', answer: 1 },
+              { text: 'I ask what a comment means if I am not sure.', answer: 1 },
+              { text: 'I look at an example of a top presentation and compare.', answer: 1 },
+              { text: 'I write a to-do list for my next presentation.', answer: 2 },
+              { text: 'I practise the words I mispronounced before the next seminar.', answer: 2 }
+            ] },
+            { type: 'sticky', title: 'Feedback literacy', text: '<p>Being able to <b>value</b> feedback ♥, <b>understand</b> it 💡 and <b>use</b> it ★ to improve your next piece of work.</p><p>It also means giving your classmates feedback that helps <i>them</i>.</p>' }
+          ]
+        },
+        {
+          id: 'b4', short: 'The criteria', minutes: 20, grouping: 'Seminar groups',
+          title: 'Decode the presentation criteria',
+          goal: 'Know exactly what your presentations are marked on — so you can understand your feedback.',
+          blocks: [
+            { type: 'key', title: 'Why now?', points: [
+              'You will give and get feedback on your Research Summary presentations (Weeks 2, 3, 6) and your Seminar presentations (Weeks 3–6). All of it prepares you for the <b>Interactive Presentation</b> in Week 7 (40% of your speaking score).',
+              'Teachers write feedback using the <b>criteria</b>. If you know the criteria, you understand the feedback.'
+            ] },
+            { type: 'do', n: 1, who: 'pair', text: 'Turn each card. What does the teacher listen and look for?' },
+            { type: 'flip', title: 'The four criteria of the Interactive Presentation', items: [
+              { front: '1 · Content development and argumentation', back: 'WHAT you say: your key points are clear, you give evidence for the problem, and you evaluate the solution (say why it is good or not).' },
+              { front: '2 · Coherence, engagement and visual coordination', back: 'HOW you organise and present: ideas connect logically, each speaker’s turn links to the next, slides are clear and consistent, and you engage the audience (eye contact, not reading).' },
+              { front: '3 · Pronunciation and phonological proficiency', back: 'HOW you sound: clear pronunciation, chunking, pausing and stress on key words, so the audience understands you easily.' },
+              { front: '4 · Grammatical and lexical proficiency', back: 'Your grammar and vocabulary: accurate, appropriate and varied — including functional language (evaluating, cause and effect, citing sources).' }
+            ] },
+            { type: 'do', n: 2, who: 'pair', text: 'Here is real feedback written with these criteria. Which criterion is each comment about?' },
+            { type: 'sort', id: 'b4-sort', title: 'Which criterion?', buckets: [
+              { label: 'Content and argument', letter: '1' }, { label: 'Coherence, engagement, visuals', letter: '2' }, { label: 'Pronunciation', letter: '3' }, { label: 'Grammar and vocabulary', letter: '4' }
+            ], items: [
+              { text: '“To strengthen your evaluation, use evaluative adjectives like effective / ineffective.”', answer: 0 },
+              { text: '“To make it clearer that you were giving evidence, refer to sources: ‘As explained by …’”', answer: 0 },
+              { text: '“For better flow, use handover phrases: ‘And now Sam is going to explain …’”', answer: 1 },
+              { text: '“Be careful of reading from notes, so you can make more eye contact. Try palm cards with dot points.”', answer: 1 },
+              { text: '“Remember to stress key words by saying them more slowly and loudly.”', answer: 2 },
+              { text: '“I recommend slowing down, so you have time to pronounce words more clearly.”', answer: 2 },
+              { text: '“We heard ‘important’ a lot. For variety, try ‘crucial’ or ‘significant’.”', answer: 3 },
+              { text: '“Use more variety than ‘therefore’, e.g. ‘as a result’ or ‘as a consequence’.”', answer: 3 }
+            ] },
+            { type: 'do', n: 3, who: 'pair', text: 'The rubric uses small differences in wording to show different levels. Put these three descriptions in order, from the weakest to the strongest.' },
+            { type: 'order', id: 'b4-order', title: 'Content: from weakest to strongest', items: ['Key points are addressed. (They are there — but hard to follow.)', 'Key points are clear. (The audience understands them easily.)', 'Key points are effectively conveyed. (Clear AND convincing: well explained, with evidence and examples.)'], ends: ['Weakest', 'Strongest'] },
+            { type: 'do', n: 4, who: 'pair', text: 'Three more questions about the rubric. Choose the best answer.' },
+            { type: 'quiz', id: 'b4-q', items: [
+              { q: 'Which slide is <b>presented effectively</b>?', options: ['A slide with 120 words of text that the speaker reads aloud', 'A slide with a title, one clear graph and three key words', 'A slide with six photos and no title'], answer: 'A slide with a title, one clear graph and three key words' },
+              { q: 'Why do <b>mispronunciations</b> matter in a presentation?', options: ['They make the audience work harder to understand you — or misunderstand you.', 'They only matter if the teacher notices them.', 'They do not matter if the content is good.'], answer: 'They make the audience work harder to understand you — or misunderstand you.' },
+              { q: 'What does “using language <b>accurately and appropriately</b>” mean?', options: ['Using long, difficult words in every sentence', 'Correct grammar and words, at the right level of formality for an academic audience', 'Speaking without any mistakes at all'], answer: 'Correct grammar and words, at the right level of formality for an academic audience' }
+            ] },
+            { type: 'do', n: 5, who: 'alone', text: 'Which criterion will be hardest for YOU? Choose it and write why.' },
+            { type: 'cards', pick: 'b4-pick', items: [{ label: 'Content and argument', text: 'what I say' }, { label: 'Coherence, engagement, visuals', text: 'how I organise and present' }, { label: 'Pronunciation', text: 'how I sound' }, { label: 'Grammar and vocabulary', text: 'my language' }] },
+            { type: 'fields', fields: [{ id: 'b4-goal', label: 'This will be hardest for me because …', rows: 2 }] },
+            { type: 'tip', text: 'The full rubric is on Canvas: <b>Assessments</b> (side panel) → Interactive Presentation → Rubric. Read it before every presentation.' }
+          ]
+        },
+        {
+          id: 'b5', short: 'Judge it', minutes: 12, grouping: 'Pair',
+          title: 'Judge real feedback',
+          goal: 'Rate real comments from past DEC10 presentations.',
+          blocks: [
+            { type: 'do', n: 1, who: 'pair', text: 'Look at the model first: one comment, judged with two questions.' },
+            { type: 'model', title: 'Model · comment 1', before: '“You spoke well and engagingly and had good skills in engaging with the audience, and this was supported by good intonation and fluency.”', rows: [
+              ['Specific?', 'Partly. It names engagement, intonation and fluency — but what exactly was good?'],
+              ['Feeds forward?', 'No. It doesn’t say what to do next time.']
+            ] },
+            { type: 'do', n: 2, who: 'pair', text: 'Now you: judge comments 2–6 in the same way.' },
+            { type: 'grid', id: 'b5-grid', title: 'How effective is each comment?', columns: ['Specific?', 'Feeds forward?'], options: ['Yes', 'Partly', 'No'], rows: [
+              '2 · Your final section of the presentation was structured well, but more careful cohesion was needed overall.',
+              '3 · Your ideas were often relevant, and content demonstrated adequate critical understanding of the topic. However, try not to read directly from the notes.',
+              '4 · Some of the ideas that you explained weren’t necessarily relevant, but you had good skills in explaining them in an engaging way. In future, use graphs on PPTs rather than data, and avoid having too much info on slides.',
+              '5 · Your volume was good, but intonation a bit monotonous making your speech unnatural. Work on sentence stress. Don’t read from notes… look up and make eye contact. Build a connection with your audience.',
+              '6 · The area that needed work was the slides. The visuals needed editing to make them look more professional and neater. Also, ideas from sources on the slides should always include a reference.'
+            ] },
+            { type: 'toggle', title: 'Check: which comments feed forward best?', hint: 'Open after you finish', blocks: [
+              { type: 'key', points: ['<b>4, 5 and 6</b> tell the speaker what to do next time (use graphs, work on sentence stress, add references).', '<b>2</b> is too general: what is “more careful cohesion”? How?', '<b>3</b> gives one clear action: don’t read from notes.'] }
             ] }
           ]
         },
         {
-          id: 'b3', short: 'Feedback literacy', minutes: 10, grouping: 'Pair',
-          title: 'What is feedback literacy?',
-          goal: 'Explain the idea in your own words.',
-          blocks: [
-            { type: 'language', title: 'Explain the diagram to your partner', groups: [
-              { label: 'Sentence frames', phrases: ['Feedback literacy is about …', 'Feedback literacy consists of three …', '“Appreciating feedback” refers to …', '“Making judgements” is all about …', '“Taking action” means that …'] }
-            ] },
-            { type: 'fields', fields: [{ id: 'b3-why', label: 'Why is feedback literacy important? Write your reasons.', rows: 3 }] }
-          ],
-          answers: { title: 'Possible answer', items: [['Why it matters', 'Feedback helps you improve the quality of your work. But to use it, you need feedback literacy: understanding feedback in relation to the assessment criteria; acting on it; giving classmates useful feedback; and critically comparing your work with exemplars and other people’s work.']] }
-        },
-        {
-          id: 'b4', short: 'The rubric', minutes: 15, grouping: 'Seminar groups',
-          title: 'Appreciating feedback starts with the rubric',
-          goal: 'Understand the presentation criteria — and choose what to work on.',
-          blocks: [
-            { type: 'key', title: 'Start with the criteria', points: [
-              'You will give and get peer feedback on your Research Summary presentations (Weeks 2, 3, 6) and your Seminar presentations (Weeks 3–6).',
-              'All of it prepares you for the <b>Interactive Presentation</b> in Week 7. Open its rubric: <b>Assessments</b> (side panel) → Interactive Presentation.'
-            ] },
-            { type: 'talk', title: 'Read the Presentation rubric and discuss', prompts: [
-              'How many criteria does the rubric address? Do you understand what they all refer to?',
-              'In content development, what is the difference between “key points are effectively conveyed”, “key points are clear” and “key points are addressed”?',
-              'What might be examples of visuals that are underdeveloped — and visuals that are presented effectively?',
-              'What impact do mispronunciations have on an audience’s understanding, according to the rubric?',
-              'What does “using language accurately and appropriately” mean?'
-            ] },
-            { type: 'fields', fields: [{ id: 'b4-goal', label: 'Goal setting: which criterion will I focus on first, and why?', rows: 2 }] }
-          ]
-        },
-        {
-          id: 'b5', short: 'Judge feedback', minutes: 15, grouping: 'Pair',
-          title: 'What makes feedback effective?',
-          goal: 'Use the criteria to judge real feedback comments.',
-          blocks: [
-            { type: 'checklist', id: 'b5-def', title: 'Effective feedback should … (tick the ones that were in YOUR definition)', items: ['directly address the task assessment criteria (rubric)', 'be specific, not general', 'be clear', 'be useful and actionable', 'be timely', 'advise how to improve something (feed forward)', 'be sensitive and encouraging', 'not be a criticism', 'use appropriate language'] },
-            { type: 'grid', id: 'b5-grid', title: 'Real feedback from past DEC10 presentations: how effective is each comment?', columns: ['Specific?', 'Feeds forward?', 'Sensitive?'], options: ['Yes', 'Partly', 'No'], rows: [
-              'You spoke well and engagingly and had good skills in engaging with the audience, and this was supported by good intonation and fluency.',
-              'Your final section of the presentation was structured well, but more careful cohesion was needed overall.',
-              'Your ideas were often relevant, and content demonstrated adequate critical understanding of the topic. However, try not to read directly from the notes.',
-              'Some of the ideas that you explained weren’t necessarily relevant, but you had good skills in explaining them in an engaging way. In future, use graphs on PPTs rather than data, and avoid having too much info on slides.',
-              'Your volume was good, but intonation a bit monotonous making your speech unnatural. Work on sentence stress. Don’t read from notes… look up and make eye contact. Build a connection with your audience.',
-              'The area that needed work was the slides. The visuals needed editing to make them look more professional and neater. Also, ideas from sources on the slides should always include a reference.'
-            ] },
-            { type: 'toggle', title: 'A model analysis of comment 1', hint: 'Open after you try', blocks: [
-              { type: 'model', title: 'Comment 1', rows: [
-                ['Addresses the rubric', 'Yes — engaging the audience, intonation and fluency are criteria.'],
-                ['Specific', 'Not really — what makes it “good”?'],
-                ['Clear', 'Mostly. Do you know what “engagingly” means?'],
-                ['Useful / feed forward', 'No — nothing to improve.'],
-                ['Sensitive and encouraging', 'Yes — it focuses on the positive.']
-              ] }
-            ] }
-          ]
-        },
-        {
-          id: 'b6', short: 'Use feedback', minutes: 15, grouping: 'Groups',
+          id: 'b6', short: 'Use it', minutes: 13, grouping: 'Groups',
           title: 'From feedback to action',
-          goal: 'Turn one piece of feedback into a plan — and a question for your teacher.',
+          goal: 'Turn one piece of teacher feedback into a plan — and a question.',
           blocks: [
-            { type: 'tabs', title: 'Imagine you got this feedback. Your group takes one criterion.', tabs: [
+            { type: 'do', n: 1, who: 'group', text: 'Read the example: a short comment becomes a plan and a question.' },
+            { type: 'model', title: 'Example', rows: [
+              ['Feedback', '“You spoke too fast.”'],
+              ['Our plan', 'I will time my part with my phone. I will mark a pause (/) after each key point in my notes and practise twice.'],
+              ['Our question', '“How many words per minute is a good speed?”']
+            ] },
+            { type: 'do', n: 2, who: 'group', text: 'Your teacher gives your group ONE criterion. Read that feedback.' },
+            { type: 'tabs', title: 'Four pieces of feedback, one for each criterion', tabs: [
               { label: 'Content & argument', blocks: [{ type: 'model', title: 'Content Development and Argumentation', text: 'Your content was relevant and well developed, but you just needed to persuade your audience more about your ideas (i.e. your solution to the problem) through strong argumentation. EG say why your solution is an important and good one, or why a different solution won’t work, or what will happen without a solution. Remember also to use a range of functional language to clearly express your argument and try and persuade the audience; this language is a very effective and powerful tool!' }] },
               { label: 'Coherence & visuals', blocks: [{ type: 'model', title: 'Coherence, Engagement and Visual Coordination', text: 'Well done to convey some complex ideas during your presentation, although you needed to establish stronger cohesion between the different speakers because the overall structure and flow of ideas was sometimes fragmented. You can achieve stronger cohesion through more careful planning and frequent check-ins with each other. Make sure you map out your group’s entire presentation message/argument before you start preparing the presentation, and remember that cohesive devices (EG linking words) are vital in presenting a clear and logical flow of ideas. I’m sure you’ll do even better in your future presentations!' }] },
               { label: 'Pronunciation', blocks: [{ type: 'model', title: 'Pronunciation and Phonological Proficiency', text: 'You presented well-researched and relevant content, but it could have been more effectively communicated by using more stress, pausing and chunking to break up your flow of speech. Remember the class activities we have done to practise these important features. I suggest you spend a few minutes every day using CET speaking resources and also recording yourself. Consistent practice will make a big difference and help make you an effective communicator!' }] },
               { label: 'Grammar & vocabulary', blocks: [{ type: 'model', title: 'Grammatical and Lexical Proficiency', text: 'Your accurate sentence structures and grammar such as verb tenses were impressive. However, we detected several instances of incorrect word forms, mixing up adverbs-adjectives-nouns EG It has become scarcity* | healthy* problems | a significantly* challenge. These errors can be distracting for the audience, so please try to avoid them! Why don’t you record yourself speaking, and then listen back, or get your classmates to listen, to check you used correct word forms.' }] }
             ] },
+            { type: 'do', n: 3, who: 'group', text: 'Write your plan and your question, like the example.' },
             { type: 'fields', fields: [
               { id: 'b6-plan', label: 'Our plan: what will we do to improve this criterion?', rows: 3, placeholder: 'Next time we will …' },
-              { id: 'b6-ask', label: 'One question we could ask our teacher about this feedback', rows: 2, placeholder: 'What do you mean by …? / Could you show us an example of …?' }
+              { id: 'b6-ask', label: 'One question we could ask our teacher', rows: 2, placeholder: 'What do you mean by …? / Could you show us an example of …?' }
             ] }
-          ],
-          answers: { title: 'Examples (for the first comment)', items: [['A plan', 'Go back to my presentation and add why my solution is a good one — and what will happen without it.'], ['A question', 'What do you mean by “functional language”? Could you give an example?']] }
+          ]
         },
         {
-          id: 'b7', short: 'Emotions', minutes: 10, grouping: 'Groups',
-          title: 'Managing affect: feedback is not an attack',
-          goal: 'Stay calm and open when you get feedback.',
+          id: 'b7', short: 'Stay calm', minutes: 10, grouping: 'Pair',
+          title: 'Feedback is not an attack',
+          goal: 'Choose the most professional reaction — and learn what to say.',
           blocks: [
+            { type: 'do', n: 1, who: 'alone', text: 'Be honest first.' },
             { type: 'scale', id: 'b7-scale', title: 'Be honest', statement: 'When I get negative feedback, I feel defensive.', ends: ['Never', 'Always'] },
-            { type: 'talk', prompts: ['What is the difference between feedback and criticism? How can you tell one from the other?', 'How can we keep our “emotional balance” when giving or receiving feedback?', 'What can we do to overcome defensiveness?'] },
-            { type: 'key', title: 'At university', points: ['Find the rubric for every assessment and make sure you understand it before you start.', 'If you don’t understand some feedback, ask: “What can I do to improve next time?”'] }
+            { type: 'do', n: 2, who: 'pair', text: 'A classmate tells you: “Your slides had too many words.” Which reply is the most professional?' },
+            { type: 'quiz', id: 'b7-q', items: [
+              { q: 'Your classmate says: “Your slides had too many words.”', options: ['“Well, your slides weren’t perfect either.”', '“Thanks — that’s useful. Which slide was the worst?”', '“Everyone puts a lot of words on slides.”'], answer: '“Thanks — that’s useful. Which slide was the worst?”', why: 'Thank them, then ask a question to understand. You don’t have to agree with every comment — but listen first.' }
+            ] },
+            { type: 'language', title: 'What to say when you get feedback', groups: [{ label: 'Receiving feedback', phrases: ['Thanks, that’s useful.', 'Could you give me an example?', 'So you mean I should …?', 'What can I do to improve next time?'] }] },
+            { type: 'do', n: 3, who: 'pair', text: 'Role play (1 minute each): A gives B one piece of feedback about today’s warm-up. B replies using a phrase from the box. Swap.' }
           ]
         },
         {
@@ -410,7 +507,8 @@ window.DEC15_LESSON = {
             { type: 'language', title: 'Four frames are enough', groups: [
               { label: 'Peer feedback', phrases: ['… was good. To make it even better, you could …', 'I suggest you …', 'Try … so (that) …', 'Remember to …'] }
             ] },
-            { type: 'para', id: 'b8-fix', title: 'Fix the feedback', hint: 'Rewrite each weak comment so that it is specific, encouraging, and tells the speaker what to do next. Use a frame.', items: [
+            { type: 'do', n: 1, who: 'pair', text: 'Rewrite each weak comment so that it is specific, kind and tells the speaker what to do next. Use a frame.' },
+            { type: 'para', id: 'b8-fix', title: 'Fix the feedback', label: 'Fix it', placeholder: 'Your better feedback…', hint: 'Compare with a possible answer when you finish.', items: [
               { text: 'Your presentation was bad.', model: 'Your research was relevant. To make it even better, you could look up from your notes more often and make eye contact.' },
               { text: 'Good job!', model: 'Your examples were clear and engaging. Remember to cite the source on the slide, e.g. “(Smith, 2024)”.' },
               { text: 'Too fast.', model: 'I suggest you slow down and pause after each key point, so the audience has time to follow.' }
@@ -419,7 +517,6 @@ window.DEC15_LESSON = {
         }
       ]
     },
-
     /* ───────────────────────── 13A · AST: AI use in DEC homework ───────────────────────── */
     {
       id: 'ai', number: '04', code: '13A', minutes: 60,

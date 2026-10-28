@@ -221,11 +221,9 @@ window.DEC15_LESSON = {
           title: 'Same topic, same main idea?',
           goal: 'Read your summaries and find any differences in understanding.',
           blocks: [
-            { type: 'steps', items: [
-              { who: 'group', text: 'Sit with students who wrote about the <b>same</b> topic.' },
-              { who: 'group', text: 'Take turns reading your summary to the group.' },
-              { who: 'group', text: 'Do you have the same main idea? Discuss any differences — and decide who is right, or check the homework page.' }
-            ] },
+            { type: 'do', n: 1, who: 'group', text: 'Sit with students who wrote about the <b>same</b> topic. Take turns reading your summary to the group.' },
+            { type: 'do', n: 2, who: 'group', text: 'Do you have the same main idea? Discuss any differences — and decide who is right, or check the homework page.' },
+            { type: 'do', n: 3, who: 'group', text: 'Now check together: does everyone agree on these four answers?' },
             { type: 'quiz', id: 'k2-q', title: 'Group check: does everyone agree?', items: [
               { q: 'Most DEC assessments are <b>secure</b> assessments. What does that mean?', options: ['AI use is prohibited or controlled.', 'AI is allowed if you acknowledge it.', 'You can use AI to prepare answers to memorise.'], answer: 'AI use is prohibited or controlled.', why: 'DEC tests whether you reach the threshold level of English without AI or digital tools.' },
               { q: 'You used AI to check the grammar of a draft you wrote yourself. What must you do?', options: ['Nothing — grammar checks don’t count.', 'Acknowledge your use of AI.', 'Delete the draft and start again.'], answer: 'Acknowledge your use of AI.' },

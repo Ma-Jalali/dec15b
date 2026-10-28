@@ -407,15 +407,11 @@ window.DEC15_LESSON = {
           title: 'The 2-minute source hunt',
           goal: 'Find something online — then ask how reliable it is.',
           blocks: [
-            { type: 'steps', items: [
-              { who: 'alone', text: 'Think of an example of environmental damage: e.g. the 2010 Deepwater Horizon oil spill, loss of polar ice due to global heating, or soil erosion in Australia or China.' },
-              { who: 'alone', text: 'You have <b>2 minutes</b>. Find one source online that looks useful.' },
-              { who: 'pair', text: 'Show your partner. How reliable is it? Do they agree?' }
-            ] },
-            { type: 'fields', fields: [
-              { id: 'x2-src', label: 'My source (title + website)', rows: 1 },
-              { id: 'x2-rel', label: 'How reliable is it — and where could I find something more reliable?', rows: 2 }
-            ] }
+            { type: 'do', n: 1, who: 'alone', text: 'Think of an example of environmental damage: e.g. the 2010 Deepwater Horizon oil spill, loss of polar ice due to global heating, or soil erosion in Australia or China.' },
+            { type: 'do', n: 2, who: 'alone', text: 'You have <b>2 minutes</b>. Find one source online that looks useful.' },
+            { type: 'fields', fields: [{ id: 'x2-src', label: 'My source (title + website)', rows: 1 }] },
+            { type: 'do', n: 3, who: 'pair', text: 'Show your partner. How reliable is it? Do they agree?' },
+            { type: 'fields', fields: [{ id: 'x2-rel', label: 'How reliable is it — and where could I find something more reliable?', rows: 2 }] }
           ],
           answers: { items: [['More reliable information', 'Recent research, or reports by governments and other respected organisations — found through the library databases.']] }
         },

@@ -198,6 +198,9 @@ B.steps = b => `<section class="block steps-block" data-help>
   <h3 class="block-heading">${icon('list')}${b.title || 'What to do'}</h3>
   <ol class="steps">${b.items.map(s => `<li><span class="step-who">${whoBadge(s.who)}</span><p>${s.text}</p></li>`).join('')}</ol>
 </section>`;
+/* do: ONE instruction, placed right above the task it belongs to (the next instruction comes after the task).
+   { type: 'do', n?: 2, who: 'alone' | 'pair' | 'group' | 'class', text } */
+B.do = b => `<div class="block do-step">${b.n ? `<span class="do-n">${b.n}</span>` : ''}<span class="step-who">${whoBadge(b.who)}</span><p>${b.text}</p></div>`;
 B.talk = b => `<section class="block talk" data-help>
   <div class="block-label">${icon('chat')}Speak</div>
   <h3>${b.title || 'Talk together'}</h3>
