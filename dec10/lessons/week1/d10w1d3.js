@@ -11,130 +11,193 @@ window.DEC15_LESSON = {
   question: 'How do you use other people’s ideas — and other people’s feedback — without losing your own voice?',
   questionKind: 'Big question',
   questionLabel: 'Today’s big question',
-  journey: 'Learn to paraphrase like a university student (and catch an AI getting it wrong), meet the six skills of the Academic Success Toolkit, and learn to give and use feedback that actually helps.',
+  journey: 'Learn to paraphrase step by step — from simple sentences to academic ones, meet the six skills of the Academic Success Toolkit, and learn to give and use feedback that actually helps.',
   image: 'dec10/assets/week1/hero-d10w1d3.svg',
   imageAlt: 'Illustration: an original sentence card turns into a new paraphrased card through four strategy gears, next to a ring of six coloured skills and a feedback card with a heart, a lightbulb and a star.',
   finish: { title: 'Day 4', text: 'Voices, video and research' },
   goalShort: 'your integrated writing and your Seminar Portfolio',
 
   sections: [
-    /* ───────────────────────── 10A · Paraphrasing ───────────────────────── */
+    /* ───────────────────────── 10A · Paraphrasing ─────────────────────────
+       Redesigned as: a game (you already paraphrase) → the copycat case (what plagiarism is, on a sticky note) →
+       many SIMPLE examples, students work out what changed → the five techniques as rules → controlled practice,
+       one technique at a time, with easy sentences → judge good and bad paraphrases → combine techniques.
+       Academic sentences come only at the end, as an optional challenge. The Teacher's Book video is kept. */
     {
       id: 'paraphrase', number: '01', code: '10A', minutes: 90,
       tone: 'clay', art: 'dec10/assets/week1/s-paraphrase.svg',
       title: 'Academic writing skills: Paraphrasing',
       subtitle: 'Same idea, your words',
-      outcome: 'You understand what paraphrasing is and why we do it, you can evaluate sample paraphrases, and you can write and check your own.',
+      outcome: 'You know what plagiarism is, you can use five paraphrasing techniques on simple sentences, and you can combine them to write a good paraphrase.',
       activities: [
         {
-          id: 'p1', short: 'Warm-up', minutes: 10, grouping: 'Pair',
-          title: 'Preliminary discussion',
-          goal: 'Find out what you already know.',
+          id: 'p1', short: 'Warm-up', minutes: 8, grouping: 'Pair',
+          title: 'Say it another way',
+          goal: 'A quick game: change the words, keep the meaning.',
           blocks: [
-            { type: 'talk', title: 'With a partner, discuss', prompts: [
-              'What are paraphrasing and summarising? How are they similar? How are they different?',
-              'Why do you think paraphrasing and summarising are important in academic writing?',
-              'Do you know any strategies for paraphrasing and summarising?'
-            ] }
-          ],
-          answers: { items: [['Paraphrasing vs summarising', 'Both restate an idea from a source in the writer’s own words. Paraphrasing is used for short pieces of text (a phrase or a sentence) and the result is about the same length. Summarising expresses the main ideas of a longer text (a paragraph, a section or a whole article) in fewer words.']] }
-        },
-        {
-          id: 'p2', short: 'Why?', minutes: 10, grouping: 'Pair',
-          title: 'Why do we paraphrase in academic writing?',
-          goal: 'Know the three reasons — and what counts as plagiarism.',
-          blocks: [
-            { type: 'flip', title: 'Three reasons', hint: 'Turn each card.', items: [
-              { front: '1 · To avoid plagiarism', back: 'Using ideas from a source without a reference — or copying a sentence (even with a reference) without quotation marks — is plagiarism.' },
-              { front: '2 · To show you understand', back: 'If you can express an idea in your own words, you truly understand what you read or heard.' },
-              { front: '3 · To make it fit YOUR text', back: 'The original sentence was written for another paragraph. Your words connect it to your ideas — and show your attitude to it.' }
+            { type: 'steps', items: [
+              { who: 'pair', text: 'Spin a sentence. You have <b>45 seconds</b> to say it in <b>two different ways</b> — same meaning, different words.' },
+              { who: 'pair', text: 'Your partner is the judge: <b>1 point</b> for each version with the same meaning. <b>+1 bonus</b> if you changed the order of the sentence too.' },
+              { who: 'pair', text: 'Swap roles. Play three rounds each.' }
             ] },
-            { type: 'sort', id: 'p2-sort', title: 'Plagiarism or OK?', hint: 'So why not just use quotes all the time? First, check you know where the line is.', buckets: [
-              { label: 'Plagiarism', letter: '✗' }, { label: 'OK', letter: '✓' }
-            ], items: [
-              { text: 'You use an idea from a source but give no reference.', answer: 0 },
-              { text: 'You copy a sentence exactly and add a reference — but no quotation marks.', answer: 0 },
-              { text: 'You write the idea in your own words and add a reference.', answer: 1 },
-              { text: 'You copy a short phrase exactly, in “quotation marks”, with a reference.', answer: 1 },
-              { text: 'You change two or three words of a sentence and add a reference.', answer: 0, why: 'Still too close to the original — this is called “patchwriting”.' }
+            { type: 'spinner', id: 'p1-spin', title: 'Spin a sentence', text: 'Read it aloud. Then say it another way — twice!', reels: [
+              { label: 'Sentence', start: 'Spin!', items: [
+                'My phone died because I forgot to charge it.',
+                'Sydney is more expensive than my hometown.',
+                'The bus was late again this morning.',
+                'My flatmate never washes the dishes.',
+                'I watched three episodes instead of studying.',
+                'It is too cold to go to the beach today.',
+                'Coffee is the only reason I am awake.',
+                'I cannot find a cheap room near the university.'
+              ] }
+            ] },
+            { type: 'fields', fields: [{ id: 'p1-best', label: 'Your best version of one sentence', rows: 2, placeholder: 'Original: … → My version: …' }] },
+            { type: 'key', title: 'You just paraphrased', points: [
+              'Saying the same idea in different words is called <b>paraphrasing</b>.',
+              'You do it every day. Today you learn to do it in <b>academic writing</b> — where it really matters.'
             ] }
           ]
         },
         {
-          id: 'p3', short: '4 steps', minutes: 10, grouping: 'Alone → Pair',
-          title: 'How do we paraphrase?',
+          id: 'p2', short: 'Copycat', minutes: 10, grouping: 'Pair',
+          title: 'The copycat case',
+          goal: 'Find out what plagiarism is — and why paraphrasing protects you.',
+          blocks: [
+            { type: 'model', title: 'The source', text: '“Many businesses now measure their impact on people and the planet, not just their profit.” — from an article by Lee (2023)' },
+            { type: 'sort', id: 'p2-cc', title: 'Four students used this sentence in their essays. Who is in trouble?', hint: 'Decide first. Then read the sticky note to check.', buckets: [
+              { label: 'In trouble: plagiarism', letter: '✗' }, { label: 'OK', letter: '✓' }
+            ], items: [
+              { text: '<b>Mina:</b> Many companies now measure their impact on people and the planet, not just their profit.', answer: 0, why: 'She changed one word and gave no reference. These are Lee’s words and Lee’s idea.' },
+              { text: '<b>Leo:</b> Many businesses now measure their impact on people and the planet, not just their profit (Lee, 2023).', answer: 0, why: 'A reference is good — but he copied every word without quotation marks.' },
+              { text: '<b>Sara:</b> According to Lee (2023), companies today look beyond profit and also consider how they affect society and the environment.', answer: 1, why: 'Her own words, the same meaning, and a reference. This is a paraphrase.' },
+              { text: '<b>Tom:</b> Lee (2023) notes that businesses now measure “their impact on people and the planet”.', answer: 1, why: 'A short quotation in quotation marks, with a reference. OK — but use quotations only sometimes.' }
+            ] },
+            { type: 'sticky', title: 'Plagiarism', text: '<p>Using someone else’s <b>words</b> or <b>ideas</b> as if they were yours.</p><p>✗ copying words without “quotation marks”<br>✗ using an idea without a reference<br>✗ changing only a few words (this is called <b>patchwriting</b>)</p><p>At university, plagiarism is serious: you can <b>fail the assessment</b>.</p>' },
+            { type: 'sticky', title: 'So, why paraphrase?', color: 'green', tilt: 1.5, text: '<p>1 · To <b>avoid plagiarism</b>.<br>2 · To <b>show you understand</b> the idea.<br>3 · To make the idea <b>fit your own writing</b>.</p><p>Paraphrase = the same meaning + your words + a reference.</p>' }
+          ]
+        },
+        {
+          id: 'p3', short: 'Examples', minutes: 15, grouping: 'Pair',
+          title: 'What changed?',
+          goal: 'Look at ten simple paraphrases. Work out HOW each one was changed.',
+          blocks: [
+            { type: 'steps', items: [
+              { who: 'pair', text: 'Read each pair. The <mark>highlighted</mark> words show what is different.' },
+              { who: 'pair', text: 'Before you open “What changed?”, say what the writer did. Give it a name in your own words.' },
+              { who: 'pair', text: 'Count: how many <b>different</b> ways of changing a sentence can you find?' }
+            ] },
+            { type: 'pairs', title: 'Ten paraphrases', items: [
+              { from: 'The [[test]] was [[very difficult]].', to: 'The [[exam]] was [[extremely hard]].', tag: 'Synonyms', note: 'words with the same meaning' },
+              { from: 'The [[teacher]] checked [[our essays]].', to: '[[Our essays]] were checked [[by the teacher]].', tag: 'Active → passive', note: 'the object (our essays) becomes the subject' },
+              { from: 'Prices [[increased quickly]] last year.', to: 'There was a [[quick increase]] in prices last year.', tag: 'Word forms', note: 'verb → noun (increase), adverb → adjective (quickly → quick)' },
+              { from: '[[Because the bus was late]], I missed my class.', to: 'I missed my class [[because the bus was late]].', tag: 'Order of information', note: 'the reason moves to the end' },
+              { from: 'It was raining, [[so]] we stayed at home.', to: 'It was raining; [[therefore,]] we stayed at home.', tag: 'Linking words', note: 'so → therefore' },
+              { from: 'Many people [[use cars]] [[every day]].', to: 'Many people [[drive]] [[daily]].', tag: 'Synonyms', note: 'use cars → drive, every day → daily' },
+              { from: '[[Farmers grow]] rice in this region.', to: 'Rice [[is grown by farmers]] in this region.', tag: 'Active → passive', note: 'grow → is grown' },
+              { from: 'The city [[is growing]] fast.', to: 'The city’s [[growth]] is fast.', tag: 'Word forms', note: 'verb (grow) → noun (growth)' },
+              { from: '[[In Sydney]], many students rent a room.', to: 'Many students rent a room [[in Sydney]].', tag: 'Order of information', note: 'the place moves to the end' },
+              { from: 'The phone is cheap. [[However,]] it is slow.', to: '[[Although]] the phone is cheap, it is slow.', tag: 'Linking words', note: 'however → although (two sentences become one)' }
+            ] },
+            { type: 'talk', title: 'With your partner', prompts: ['How many different techniques did you find?', 'Which technique was the easiest to notice? Which was the hardest?'] }
+          ]
+        },
+        {
+          id: 'p3r', short: 'The rules', minutes: 5, grouping: 'Class',
+          title: 'The five techniques',
+          goal: 'Now name the techniques you found — and learn the one rule for each.',
+          blocks: [
+            { type: 'flip', title: 'Five ways to change a sentence', hint: 'Say the rule first, then turn the card.', items: [
+              { front: '1 · Synonyms', back: 'Use a word with the same meaning: difficult → hard, many → a lot of. Keep the same level of formality.' },
+              { front: '2 · Word forms', back: 'Change the word class: increase (verb) → an increase (noun), grow → growth, decide → decision.' },
+              { front: '3 · Order of information', back: 'Move the reason, the time or the place: Because…, I… → I… because…' },
+              { front: '4 · Active → passive', back: 'The object becomes the subject: X checked the essays → The essays were checked (by X). Use be + past participle.' },
+              { front: '5 · Linking words', back: 'Change the linker — but keep the meaning: so → therefore, but → although, because → as / since.' }
+            ] },
+            { type: 'key', tone: 'warn', title: 'Two golden rules', points: [
+              '<b>Keep the meaning.</b> A paraphrase with a different meaning is wrong, however good the English is.',
+              '<b>Keep key terms.</b> Words like <i>climate change</i>, <i>shareholders</i> or <i>IPAT</i> stay the same.'
+            ] }
+          ]
+        },
+        {
+          id: 'p4', short: 'Practise', minutes: 20, grouping: 'Alone → Pair',
+          title: 'One technique at a time',
+          goal: 'Practise each technique on easy sentences.',
+          blocks: [
+            { type: 'quiz', id: 'p4-q', title: 'Choose the correct paraphrase', items: [
+              { q: '<b>Active → passive</b> · “Students write three essays.”', options: ['Three essays are written by students.', 'Three essays write students.', 'Students are written three essays.'], answer: 'Three essays are written by students.' },
+              { q: '<b>Word forms</b> · “The number of tourists grew.”', options: ['There was grow in the number of tourists.', 'There was growth in the number of tourists.', 'The number of tourists was growthed.'], answer: 'There was growth in the number of tourists.' },
+              { q: '<b>Synonyms</b> · “The company made a big profit.”', options: ['The company did a big profit.', 'The company made a big money.', 'The company made a large profit.'], answer: 'The company made a large profit.' },
+              { q: '<b>Linking words</b> · “The flat was expensive, but we rented it.”', options: ['Because the flat was expensive, we rented it.', 'Although the flat was expensive, we rented it.', 'The flat was expensive, so we rented it.'], answer: 'Although the flat was expensive, we rented it.', why: 'The other two change the meaning: “because” and “so” say the price was the REASON we rented it.' },
+              { q: '<b>Order of information</b> · “In the morning, the library is quiet.”', options: ['The library is quiet in the morning.', 'The morning is quiet in the library.', 'Quiet the library is in the morning.'], answer: 'The library is quiet in the morning.' }
+            ] },
+            { type: 'fields', fields: [
+              { id: 'p4-w1', label: '1 · Active → passive: “People recycle millions of bottles every year.”', rows: 1, placeholder: 'Millions of bottles …' },
+              { id: 'p4-w2', label: '2 · Word forms: “Unemployment rose sharply in 2020.”', rows: 1, placeholder: 'There was a …' },
+              { id: 'p4-w3', label: '3 · Synonyms: “Cities produce a lot of waste.”', rows: 1 },
+              { id: 'p4-w4', label: '4 · Linking words: “Electric cars are expensive. However, they are cheaper to run.”', rows: 1, placeholder: 'Although …' },
+              { id: 'p4-w5', label: '5 · Order of information: “Because of the heat, many people stayed indoors.”', rows: 1 }
+            ] },
+            { type: 'toggle', title: 'Check: possible answers', hint: 'Open after you write all five', blocks: [
+              { type: 'model', title: 'Possible answers', list: [
+                'Millions of bottles are recycled every year.',
+                'There was a sharp rise in unemployment in 2020.',
+                'Urban areas generate large amounts of waste.',
+                'Although electric cars are expensive, they are cheaper to run.',
+                'Many people stayed indoors because of the heat.'
+              ], note: 'Other answers can be correct too — check the meaning with your partner.' }
+            ] }
+          ]
+        },
+        {
+          id: 'p5', short: 'Good or bad?', minutes: 10, grouping: 'Pair',
+          title: 'Good paraphrase or bad paraphrase?',
+          goal: 'Judge three paraphrases of the same sentence.',
+          blocks: [
+            { type: 'model', title: 'Three students paraphrased this sentence', before: '“Many young people in Australia live with their parents because rent is very expensive.”', rows: [
+              ['A', 'Many young people in Australia live with their parents because rent is extremely expensive.'],
+              ['B', 'Because renting is so costly, a large number of young Australians still live in their family home.'],
+              ['C', 'Young Australians live with their parents because they do not want to pay rent.']
+            ] },
+            { type: 'quiz', id: 'p5-q', items: [
+              { q: 'Which one is <b>patchwriting</b> (too close to the original)?', options: ['A', 'B', 'C'], answer: 'A', why: 'Only one word changed: very → extremely.' },
+              { q: 'Which one <b>changes the meaning</b>?', options: ['A', 'B', 'C'], answer: 'C', why: 'The original says rent is too expensive, not that they do not want to pay.' },
+              { q: 'Which one is a <b>good paraphrase</b>? Which techniques did the writer use?', options: ['B · synonyms + word forms + order of information', 'A · synonyms', 'C · linking words'], answer: 'B · synonyms + word forms + order of information', why: 'expensive → costly, rent → renting, the reason moved to the front.' }
+            ] },
+            { type: 'key', title: 'A good paraphrase', points: ['changes <b>enough</b> — usually two or more techniques', 'keeps the <b>meaning</b>', 'keeps the <b>key terms</b>', 'has a <b>reference</b>'] }
+          ]
+        },
+        {
+          id: 'p6', short: '4 steps', minutes: 7, grouping: 'Alone',
+          title: 'How the experts do it',
           goal: 'Watch a short video and put the four steps in order.',
           blocks: [
             { type: 'listening', source: 'YouTube', title: 'Four steps to paraphrase effectively', videoId: 'jpE_DwnNc_s', start: 0, clip: 'short video', transcripts: [], mode: 'video' },
             { type: 'order', id: 'p3-order', title: 'Put the four steps in order', items: ['Read and understand the original sentence', 'Identify any key words or phrases', 'Create a new sentence', 'Compare your paraphrase to the original text'], ends: ['First', 'Last'] },
-            { type: 'talk', title: 'Discuss', prompts: [
-              'Are there any other steps that you would add to those four?',
-              'The speaker says: “First, read the original sentence over and over until you completely understand it.” Is reading only that sentence enough to understand the idea?'
-            ] }
-          ],
-          answers: { items: [
-            ['Another step', 'Make sure the paraphrase fits into your paragraph, e.g. link it to the previous sentence.'],
-            ['Only the sentence?', 'No. You often need to read the sentences around it — and know how it fits the paragraph and the article.']
-          ] }
-        },
-        {
-          id: 'p4', short: 'Strategies', minutes: 15, grouping: 'Pair',
-          title: 'Four paraphrasing strategies',
-          goal: 'Learn the four strategies and use them together.',
-          blocks: [
-            { type: 'cards', numbered: true, items: [
-              { label: 'Use synonyms', text: 'Replace key words — but check the meaning and the formality.' },
-              { label: 'Change word forms', text: '<i>When the economy grew, more jobs were created.</i> → <i>Economic growth resulted in more jobs.</i> (noun → adjective, verb → noun — and the structure changes too)' },
-              { label: 'Change the order of information', text: '<i>There are several benefits for local economies that can come from developing ecotourism.</i> → <i>Ecotourism can have several benefits for local economies.</i>' },
-              { label: 'Change the linking words', text: '<i>People don’t want to change their lifestyle, <b>so</b> it is difficult to convince them to consume less.</i> → <i>It is difficult to convince people to consume less <b>because</b> they don’t want to change their lifestyle.</i>' }
-            ] },
-            { type: 'match', id: 'p4-m', title: 'Strategy 1 · Find a more formal synonym', hint: 'Some of these words are informal. Match each one with a better academic choice.', left: ['huge', 'increase', 'effects', 'good', 'bad'], right: ['substantial', 'rise', 'impacts', 'beneficial', 'detrimental'] },
-            { type: 'key', tone: 'warn', title: 'Do NOT change technical terms', points: [
-              'Words like <b>climate change</b>, <b>stakeholders</b> or <b>affluence</b> (in IPAT) are terms. A “synonym” can change the meaning.',
-              'Synonyms are a starting point — not enough on their own. The most important step is to understand the idea.'
-            ] }
+            { type: 'tip', text: 'Step 1 is the most important: <b>understand it first</b>. You cannot paraphrase what you do not understand.' }
           ]
         },
         {
-          id: 'p5', short: 'Judge it', minutes: 15, grouping: 'Pair',
-          title: 'Strategies in use — and one AI mistake',
-          goal: 'Identify the strategies in four paraphrases, and decide which ones are good enough.',
+          id: 'p7', short: 'Your turn', minutes: 15, grouping: 'Alone → Pair',
+          title: 'Put the techniques together',
+          goal: 'Use two or more techniques in each paraphrase. Watch the copy meter go down.',
           blocks: [
-            { type: 'quiz', id: 'p5-q', title: 'Which strategy did the writer use?', items: [
-              { q: '<b>Example 1.</b> Original: “The Demographic Transition Model outlines four key stages of population change based on historical trends in developed nations.” Paraphrase: “The Demographic Transition Model lists four important stages of population change based on historical trends in wealthy nations.”', options: ['Using synonyms only', 'Changing the order of information', 'All four strategies'], answer: 'Using synonyms only', why: 'Only three words changed — still far too close to the original.' },
-              { q: '<b>Example 2.</b> Original: “In the first stage, known as the ‘preindustrial’ stage, both birth and death rates are high, leading to minimal population growth.” Paraphrase: “In the first stage, known as the ‘preindustrial’ stage, there is minimal population growth due to high birth and death rates.”', options: ['Using synonyms only', 'Changing the order of information', 'All four strategies'], answer: 'Changing the order of information', why: 'Only one strategy — still too similar.' },
-              { q: '<b>Example 3.</b> Original: “Even though technology might reduce some negative impacts, it can’t solve all environmental problems and might just delay them.” Paraphrase: “Technology is insufficient as a solution to the world’s environmental challenges, and despite its potential to mitigate these issues, and may merely delay them.”', options: ['Using synonyms only', 'Changing the order of information', 'All four strategies'], answer: 'All four strategies', why: 'Synonyms (mitigate), word forms (solve → solution), new order, new linking word (despite). This one changes enough.' }
+            { type: 'para', id: 'p7-a', title: 'Use at least TWO techniques', hint: 'The meter shows how many of the original’s key words you reused. Aim for the green zone — and keep the meaning.', items: [
+              { text: 'The government built a new bridge because traffic was getting worse.', strategy: 'Try: passive + linking words', model: 'As traffic was becoming heavier, a new bridge was built by the government.' },
+              { text: 'Many students find it difficult to save money in Sydney.', strategy: 'Try: word forms + synonyms', model: 'Saving money is a challenge for a lot of students in Sydney.' },
+              { text: 'Online shopping has increased, so more packaging waste is produced.', strategy: 'Try: word forms + linking words', model: 'The rise in online shopping has led to more packaging waste.' },
+              { text: 'Companies should measure their impact on people and the planet.', strategy: 'Try: passive + order', model: 'The impact of companies on people and the planet should be measured.' }
             ] },
-            { type: 'model', title: 'Example 4 — written by AI', before: 'Original: “In the early 1970s Ehrlich and Holdren devised a simple equation in dialogue with Commoner identifying three factors that created environmental impact. Thus, impact (I) was expressed as the product of (1) population, (P); (2) affluence, (A), which represents consumption using GDP per capita as a measurement; and (3) technology, or more specifically, the efficiency of technology, e.g. carbon emissions per unit of GDP (T).”', text: 'Paraphrase: “Developed in 1970, this equation shows that the environment is affected by three things: how many people there are (population), how much money they have (wealth), and the kind of technology they use.”' },
-            { type: 'quiz', id: 'p5-ai', title: 'Spot the AI’s mistakes', items: [
-              { q: 'What is wrong with Example 4? Choose the BEST answer.', options: ['Nothing — it is very different from the original', 'It is informal (“things”) and it changes a technical term: affluence ≠ how much money people have', 'It is too similar to the original'], answer: 'It is informal (“things”) and it changes a technical term: affluence ≠ how much money people have', why: 'In IPAT, affluence is a measure of consumption (GDP per capita), not wealth. The AI “translated” instead of understanding the context.' }
-            ] },
-            { type: 'key', title: 'The lesson', points: ['A good paraphrase changes <b>enough</b>, keeps the <b>meaning</b> and the <b>technical terms</b>, and stays <b>formal</b>.', 'AI can change words fast — but it cannot check meaning for you. That is your job.'] }
-          ]
-        },
-        {
-          id: 'p6', short: 'Your turn', minutes: 30, grouping: 'Alone → Pair',
-          title: 'Skills in practice',
-          goal: 'Write your own paraphrases and watch the copy meter go down.',
-          blocks: [
-            { type: 'para', id: 'p6-a', title: 'Activity 1 · Use the strategy in brackets', hint: 'The meter shows how many of the original’s key words you reused. Aim for the green zone — and keep the meaning.', items: [
-              { text: 'The IPAT model helps us see how increases in population, economic growth, and technology use can hurt the environment.', strategy: 'Use synonyms', keep: ['IPAT'], model: 'The IPAT model aids us in seeing how rising population, economic growth, and advances in technology can harm the environment.' },
-              { text: 'At first, the IPAT equation highlighted that population growth has a big impact on the environment.', strategy: 'Change word forms', keep: ['IPAT'], model: 'The first highlight of the IPAT equation was that a growing population greatly impacts the environment.' },
-              { text: 'In his 1971 book, “The Closing Circle,” he argued that the way we make things causes more pollution than how many people there are or how rich they are.', strategy: 'Change the order of information', keep: ['The Closing Circle'], model: 'The fact that more pollution is caused by the way we make things than how many people there are or how rich they are was argued in his book, “The Closing Circle” from 1971.' },
-              { text: 'Ausubel believes that technology alone can’t solve environmental problems. He suggests a mix of technology, economic methods, and cultural changes might work better.', strategy: 'Use different linking words', keep: ['Ausubel'], model: 'Ausubel believes that technology alone can’t solve environmental problems, so he suggests a mix of technology, economic methods, and cultural changes might work better.' }
-            ] },
-            { type: 'para', id: 'p6-b', title: 'Activity 2 · With a partner: use as many strategies as you can', hint: 'These are hard! Break each sentence into pieces first, find the key words, then rebuild it. Terms like climate change, poverty and inequality can stay.', items: [
-              { text: 'Monumental challenges such as climate change, poverty and inequality are at the forefront of daily life and becoming increasingly urgent. One thing that isn’t uncertain is the need for change.', keep: ['climate change'], model: 'With the growing urgency and presence of enormous challenges such as climate change, poverty, and inequality, the need for change is clear.' },
-              { text: 'One way to understand a business’s sustainability efforts is by using the triple bottom line, a concept that posits firms should commit to measuring their social and environmental impact in addition to financial performance, rather than solely focusing on profit or the standard bottom line.', keep: ['triple bottom line'], model: 'The concept of the triple bottom line helps to measure the sustainability of a business. This concept urges a commitment by companies to extend their focus beyond profit to include consideration of their impact on society and the environment.' },
-              { text: 'Businesses have traditionally strived to generate value for their shareholders. As they’ve increasingly embraced sustainability, that focus has broadened to include all stakeholders impacted by business decisions, such as customers, employees and members of the communities in which they operate.', keep: ['shareholders', 'stakeholders'], model: 'Increasing acceptance of the importance of sustainability has shifted business priorities from a focus on value generation purely for shareholders to value generation for all stakeholders, including customers, employees, and local communities as well.' },
+            { type: 'para', id: 'p7-b', title: 'Challenge (optional) · two sentences from this week’s texts', hint: 'Only if you finish early. Break the sentence into pieces, find the key terms, then rebuild it.', items: [
+              { text: 'At first, the IPAT equation highlighted that population growth has a big impact on the environment.', keep: ['IPAT'], model: 'The first highlight of the IPAT equation was that a growing population greatly impacts the environment.' },
               { text: 'While such companies have contributed to climate change, they also have the means to combat it.', keep: ['climate change'], model: 'Companies such as these are among the contributors to climate change, but they are also in a position to contribute to the solution.' }
             ] },
-            { type: 'checklist', id: 'p6-check', title: 'Before you share: check your best paraphrase', meter: ['checked', 'A strong paraphrase!'], items: ['It has the same meaning as the original.', 'I changed both the words AND the structure.', 'I kept the technical terms.', 'It is formal (no “things”, “huge”, “bad”).', 'I would add a reference, e.g. (Harvard Business School Online, 2022).'] }
+            { type: 'checklist', id: 'p6-check', title: 'Before you share: check your best paraphrase', meter: ['checked', 'A strong paraphrase!'], items: ['It has the same meaning as the original.', 'I used two or more techniques.', 'I kept the key terms.', 'It is formal (no “things”, “huge”, “bad”).', 'In an essay, I would add a reference.'] }
           ]
         }
       ]
     },
-
     /* ───────────────────────── 11A · Introducing the AST framework ───────────────────────── */
     {
       id: 'ast', number: '02', code: '11A', minutes: 60,
