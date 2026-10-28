@@ -800,3 +800,7 @@ body.present .block.key .key-title { font-size: 2.1rem; }
 /* Mobile menu button: a small lift. */
 .menu-btn { background: linear-gradient(160deg, #1b3449, #14293a) !important; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 6px 14px -8px rgba(20, 41, 58, .6); }
 @media (max-width: 900px) { .week-tab::before, .week-tab::after { display: none; } .week-tab { padding-bottom: 10px !important; } }
+/* one slide at a time, full picture (used for step-by-step diagrams) */
+.lg-single .lg-slides, .lg-single .lg-track { grid-auto-columns: 100%; }
+.lg-single .lg-slide img { aspect-ratio: auto; object-fit: contain; background: #f3efe8; }
+@media (max-width: 700px) { .lg-single .lg-slides, .lg-single .lg-track { grid-auto-columns: 100%; } }

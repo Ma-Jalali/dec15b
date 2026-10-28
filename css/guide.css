@@ -230,3 +230,9 @@
 @media (prefers-reduced-motion: reduce) {
   .gd-pulse, .gd-tw, .gd-tick, .gd-week, .gd-day, .gd-bar span, .gd-tl li, .gd-tab, .gd-fold-body, .gd-break-art .icon { animation: none !important; }
 }
+
+/* Seminar + Portfolio figures (DEC10) */
+.gd-fig { margin: 0 0 20px; }
+.gd-fig a { display: block; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 24px rgba(20, 41, 58, .1); }
+.gd-fig img { display: block; width: 100%; height: auto; }
+.gd-fig figcaption { margin-top: 8px; font: 700 .85rem/1.4 var(--sans); color: var(--ink-2, #5d6a74); }
