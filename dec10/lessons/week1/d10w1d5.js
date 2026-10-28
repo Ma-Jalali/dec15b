@@ -27,6 +27,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 'g1', short: 'Before', minutes: 5, grouping: 'Alone',
+          art: 'dec10/assets/week1/v/v-d10w1d5-g1.svg',
           title: 'Before you start',
           goal: 'Arrive ready — then relax.',
           blocks: [
@@ -45,6 +46,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'g2', short: 'Diagnostic', minutes: 110, grouping: 'Alone',
+          art: 'dec10/assets/week1/v/v-d10w1d5-g2.svg',
           title: 'Do the diagnostic',
           goal: 'Follow the instructions on Canvas.',
           blocks: [
@@ -58,6 +60,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'g3', short: 'After', minutes: 5, grouping: 'Alone',
+          art: 'dec10/assets/week1/v/v-d10w1d5-g3.svg',
           title: 'How did it go?',
           goal: 'Notice your strongest and weakest skill — while you still remember.',
           blocks: [
@@ -78,6 +81,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 'm1', short: 'Warm-up', minutes: 5, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d5-m1.svg',
           title: 'You already summarise',
           goal: 'Notice what you include — and what you leave out.',
           blocks: [
@@ -100,6 +104,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'm2', short: '6 steps', minutes: 7, grouping: 'Alone → Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d5-m2.svg',
           title: 'Six steps to summarise an academic article',
           goal: 'Know the method before you use it.',
           blocks: [
@@ -117,6 +122,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'm3', short: 'Abstracts', minutes: 8, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d5-m3.svg',
           title: 'Step 1 · Is this article worth reading?',
           goal: 'Use the abstract to decide — in under two minutes.',
           blocks: [
@@ -137,6 +143,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'm4', short: 'Main ideas', minutes: 12, grouping: 'Alone → Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d5-m4.svg',
           title: 'Steps 1–4 · Find the main ideas in Chertow',
           goal: 'Scan the text, compare the start and the end, and find each topic sentence.',
           blocks: [
@@ -155,6 +162,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'm5', short: 'Notes', minutes: 10, grouping: 'Alone → Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d5-m5.svg',
           title: 'Step 5 · Turn the highlights into notes',
           goal: 'Complete the outlines of paragraphs A and B. Two words in each list are not needed.',
           blocks: [
@@ -169,6 +177,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'm6', short: 'Write it', minutes: 18, grouping: 'Alone → Class',
+          art: 'dec10/assets/week1/v/v-d10w1d5-m6.svg',
           title: 'Step 6 · Write a three-sentence summary',
           goal: 'Summarise paragraph B: main ideas only, your own words, three sentences maximum.',
           blocks: [
@@ -200,6 +209,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 'k1', short: 'Prepare', minutes: 12, grouping: 'Alone',
+          art: 'dec10/assets/week1/v/v-d10w1d5-k1.svg',
           title: 'Summarise your understanding',
           goal: 'Turn your homework notes into a short summary you can read aloud.',
           blocks: [
@@ -218,6 +228,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'k2', short: 'Discuss', minutes: 18, grouping: 'Group',
+          art: 'dec10/assets/week1/v/v-d10w1d5-k2.svg',
           title: 'Same topic, same main idea?',
           goal: 'Read your summaries and find any differences in understanding.',
           blocks: [

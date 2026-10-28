@@ -28,6 +28,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 'v1', short: 'Warm-up', minutes: 10, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d4-v1.svg',
           title: 'Phrase points',
           goal: 'Score points for every linking phrase you use.',
           blocks: [
@@ -48,6 +49,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'v2', short: 'Revision', minutes: 10, grouping: 'Class → Group',
+          art: 'dec10/assets/week1/v/v-d10w1d4-v2.svg',
           title: 'Four functions you know — and four new ones',
           goal: 'Match the four DEC10 functions, then guess what four new ones do.',
           blocks: [
@@ -70,6 +72,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'v3', short: 'Support', minutes: 8, grouping: 'Alone → Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d4-v3.svg',
           title: '1 · Providing support',
           goal: 'Make a claim stronger with details, examples and evidence.',
           blocks: [
@@ -89,6 +92,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'v4', short: 'Research', minutes: 10, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d4-v4.svg',
           title: '2 · Using previous research',
           goal: 'Present, compare and evaluate other writers.',
           blocks: [
@@ -110,6 +114,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'v5', short: 'Evaluate', minutes: 8, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d4-v5.svg',
           title: '3 · Evaluating points of view',
           goal: 'Give the positive side, then the negative side.',
           blocks: [
@@ -129,6 +134,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'v5x', short: 'Extension', minutes: 6, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d4-v5x.svg',
           title: 'Extension · Try it on a different topic',
           goal: 'Find the same pattern in a paragraph about health.',
           blocks: [
@@ -145,6 +151,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'v6', short: 'Voices', minutes: 10, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d4-v6.svg',
           title: '4 · Working with different voices',
           goal: 'Show your opinion without “I think” — and let other voices support it.',
           blocks: [
@@ -164,6 +171,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'v7', short: 'Build it', minutes: 15, grouping: 'Pair → Class',
+          art: 'dec10/assets/week1/v/v-d10w1d4-v7.svg',
           title: 'Revision · Build a paragraph with four voices',
           goal: 'Order the ideas, fill in the phrases, then find the writer’s voice.',
           blocks: [
@@ -197,6 +205,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'v8', short: 'Reflect', minutes: 5, grouping: 'Group',
+          art: 'dec10/assets/week1/v/v-d10w1d4-v8.svg',
           title: 'Reflection',
           goal: 'Be honest about the hard part.',
           blocks: [
@@ -220,6 +229,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 'f1', short: 'Timeline', minutes: 8, grouping: 'Group',
+          art: 'dec10/assets/week1/v/v-d10w1d4-f1.svg',
           title: 'Before, on the day, after: who does what?',
           goal: 'See how the Seminar and the Portfolio fit together.',
           blocks: [
@@ -239,6 +249,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'f2', short: 'Portfolio', minutes: 10, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d4-f2.svg',
           title: 'Six Portfolio submissions',
           goal: 'Know what goes in your Portfolio — and which one is marked.',
           blocks: [
@@ -265,6 +276,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'f3', short: 'Video spec', minutes: 8, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d4-f3.svg',
           title: 'The video: rules you cannot break',
           goal: 'Catch the traps before your group records.',
           blocks: [
@@ -285,6 +297,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'f4', short: 'AST parts', minutes: 18, grouping: 'Group',
+          art: 'dec10/assets/week1/v/v-d10w1d4-f4.svg',
           title: 'Two parts, four minutes each',
           goal: 'Choose how you will do each part of your video.',
           blocks: [
@@ -310,6 +323,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'f5', short: 'Check', minutes: 12, grouping: 'Group',
+          art: 'dec10/assets/week1/v/v-d10w1d4-f5.svg',
           title: 'Do you really understand the task?',
           goal: 'Answer the five questions every group should be able to answer.',
           blocks: [
@@ -337,6 +351,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 'c1', short: 'Next week', minutes: 5, grouping: 'Class',
+          art: 'dec10/assets/week1/v/v-d10w1d4-c1.svg',
           title: 'Next week: Group 1’s Opening Remarks',
           goal: 'Know what Group 1 presents — and what everyone else does.',
           blocks: [
@@ -357,6 +372,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'c2', short: 'Checklist', minutes: 5, grouping: 'Group',
+          art: 'dec10/assets/week1/v/v-d10w1d4-c2.svg',
           title: 'Group 1’s checklist',
           goal: 'Group 1: tick it off before next week.',
           blocks: [
@@ -386,6 +402,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 'x1', short: 'Lead-in', minutes: 5, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d4-x1.svg',
           title: 'What is research — really?',
           goal: 'Know where to look and what researching involves.',
           blocks: [
@@ -404,6 +421,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'x2', short: '2-min hunt', minutes: 8, grouping: 'Alone → Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d4-x2.svg',
           title: 'The 2-minute source hunt',
           goal: 'Find something online — then ask how reliable it is.',
           blocks: [
@@ -417,6 +435,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'x3', short: 'CRAAP', minutes: 12, grouping: 'Alone → Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d4-x3.svg',
           title: 'The CRAAP test',
           goal: 'Five questions that tell you if a source is good enough.',
           blocks: [
@@ -433,6 +452,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'x4', short: 'Judge', minutes: 10, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d4-x4.svg',
           title: 'CRAAP judge: five links',
           goal: 'Scan each page fast. Is it good enough for an academic assignment?',
           blocks: [
@@ -454,6 +474,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'x5', short: 'Keywords', minutes: 10, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d4-x5.svg',
           title: 'Search like a researcher',
           goal: 'Pick keywords, expand them, and combine them.',
           blocks: [
@@ -477,6 +498,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'x6', short: 'Library', minutes: 15, grouping: 'Alone → Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d4-x6.svg',
           title: 'Find two real sources',
           goal: 'One from the Library home page, one from a database. Both must pass CRAAP.',
           blocks: [

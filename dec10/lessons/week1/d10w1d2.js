@@ -32,6 +32,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 'f1', short: 'Mysteries', minutes: 8, grouping: 'Groups of 3–4',
+          art: 'dec10/assets/week1/v/v-d10w1d2-f1.svg',
           title: 'Three mysteries',
           goal: 'Guess the answers now. By the end of this hour, you will be able to explain them.',
           blocks: [
@@ -47,6 +48,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'f2', short: 'Brief', minutes: 10, grouping: 'Alone',
+          art: 'dec10/assets/week1/v/v-d10w1d2-f2.svg',
           title: 'Prepare your expert briefing',
           goal: 'Turn your homework notes into a 90-second briefing that solves one mystery.',
           blocks: [
@@ -74,6 +76,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'f3', short: 'Solve', minutes: 12, grouping: 'Pair (DTM + IPAT)',
+          art: 'dec10/assets/week1/v/v-d10w1d2-f3.svg',
           title: 'Brief your partner — then solve the mysteries',
           goal: 'Listen to your partner’s briefing carefully: you need it to solve their mystery.',
           blocks: [
@@ -93,6 +96,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'f4', short: 'The case', minutes: 15, grouping: 'Groups of 3',
+          art: 'dec10/assets/week1/v/v-d10w1d2-f4.svg',
           title: 'The case: Corvania',
           goal: 'Use your framework to diagnose a country’s problem — then compare lenses.',
           blocks: [
@@ -116,6 +120,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'f5', short: 'On trial', minutes: 15, grouping: 'Groups of 3',
+          art: 'dec10/assets/week1/v/v-d10w1d2-f5.svg',
           title: 'Put the frameworks on trial',
           goal: 'You found their limits in the case. Now judge the critics.',
           blocks: [
@@ -152,6 +157,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 's1', short: 'Two tasks', minutes: 15, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d2-s1.svg',
           title: 'Seminar or Interactive Presentation?',
           goal: 'See how the two tasks connect — and how they are different.',
           blocks: [
@@ -183,6 +189,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 's2', short: 'How it works', minutes: 20, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d2-s2.svg',
           title: 'How a seminar works',
           goal: 'Know what happens the week before, the day of, and after your seminar.',
           blocks: [
@@ -204,6 +211,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 's3', short: 'Frameworks', minutes: 10, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d2-s3.svg',
           title: 'Using a framework in your seminar',
           goal: 'Know how to use one framework well.',
           blocks: [
@@ -222,6 +230,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 's4', short: 'Our country', minutes: 30, grouping: 'Seminar group',
+          art: 'dec10/assets/week1/v/v-d10w1d2-s4.svg',
           title: 'Choose your country',
           goal: 'Agree on your Seminar country as a group — and tell your teacher before class ends.',
           blocks: [
@@ -243,6 +252,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 's5', short: 'Start preparing', minutes: 15, grouping: 'Seminar group',
+          art: 'dec10/assets/week1/v/v-d10w1d2-s5.svg',
           title: 'Start preparing',
           goal: 'Read your two questions and plan your first research steps.',
           blocks: [
@@ -291,6 +301,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 'r1', short: 'Town hall', minutes: 20, grouping: 'Groups of 4–5',
+          art: 'dec10/assets/week1/v/v-d10w1d2-r1.svg',
           title: 'The Corvania town hall',
           goal: 'Argue about the new mine — before we name the language you use.',
           blocks: [
@@ -312,6 +323,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'r2', short: 'Jobs', minutes: 10, grouping: 'Group',
+          art: 'dec10/assets/week1/v/v-d10w1d2-r2.svg',
           title: 'Every speaker had a job',
           goal: 'Notice that each role used language for a different purpose.',
           blocks: [
@@ -331,6 +343,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'r3', short: 'Four texts', minutes: 25, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d2-r3.svg',
           title: 'The story in four texts',
           goal: 'Read four texts about the mine, decide the job of each, and find the language that does it.',
           blocks: [
@@ -358,6 +371,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'r4', short: 'because / due to', minutes: 12, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d2-r4.svg',
           title: 'The grammar inside the news report',
           goal: 'Work out the rule yourself from text A — then use it.',
           blocks: [
@@ -378,6 +392,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'r5', short: 'Who said it?', minutes: 8, grouping: 'Alone',
+          art: 'dec10/assets/week1/v/v-d10w1d2-r5.svg',
           title: 'Overheard at the town hall',
           goal: 'Check that you can recognise all four functions.',
           blocks: [
@@ -403,6 +418,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'r6', short: 'Memo', minutes: 15, grouping: 'Pair → Alone',
+          art: 'dec10/assets/week1/v/v-d10w1d2-r6.svg',
           title: 'Your memo to the Minister',
           goal: 'Advise the government in four sentences — one for each function.',
           blocks: [
@@ -435,6 +451,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 'd1', short: 'Tech words', minutes: 8, grouping: 'Homework',
+          art: 'dec10/assets/week1/v/v-d10w1d2-d1.svg',
           title: 'Tech words at CET',
           goal: 'Know the words you will see when you log in.',
           blocks: [
@@ -444,6 +461,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'd2', short: 'Stay secure', minutes: 12, grouping: 'Homework',
+          art: 'dec10/assets/week1/v/v-d10w1d2-d2.svg',
           title: 'Keep your account safe',
           goal: 'Set up MFA and understand how you log in.',
           blocks: [
@@ -461,6 +479,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'd3', short: 'Canvas', minutes: 10, grouping: 'Homework',
+          art: 'dec10/assets/week1/v/v-d10w1d2-d3.svg',
           title: 'Find it on Canvas',
           goal: 'Know where to go on the DEC10 Canvas page when you need help.',
           blocks: [
@@ -473,6 +492,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'd4', short: 'Toolbox', minutes: 10, grouping: 'Homework',
+          art: 'dec10/assets/week1/v/v-d10w1d2-d4.svg',
           title: 'Your digital toolbox',
           goal: 'Know which tool you need for which job in DEC10.',
           blocks: [

@@ -28,6 +28,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 'o1', short: 'Course map', minutes: 20, grouping: 'Class',
+          art: 'dec10/assets/week1/v/v-d10w1d1-o1.svg',
           title: 'Your ten weeks on one page',
           goal: 'Find the key milestones of DEC10 and see why today matters.',
           blocks: [
@@ -61,6 +62,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 'r1', short: 'Bingo', minutes: 20, grouping: 'Class',
+          art: 'dec10/assets/week1/v/v-d10w1d1-r1.svg',
           title: 'Find someone who… (sustainability bingo)',
           goal: 'Talk to as many classmates as you can — and ask a real follow-up question every time.',
           blocks: [
@@ -91,6 +93,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'r2', short: 'Class snapshot', minutes: 10, grouping: 'Groups of 3–4',
+          art: 'dec10/assets/week1/v/v-d10w1d1-r2.svg',
           title: 'Class snapshot',
           goal: 'Report what you found out, using language for groups and numbers.',
           blocks: [
@@ -128,6 +131,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 'l1', short: 'Hook', minutes: 10, grouping: 'Groups of 2–3',
+          art: 'dec10/assets/week1/v/v-d10w1d1-l1.svg',
           title: 'Warmer: is profit enough?',
           goal: 'Wake up what you already know — and make a prediction you will check while listening.',
           blocks: [
@@ -149,6 +153,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'l2', short: 'Words', minutes: 8, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d1-l2.svg',
           title: 'Vocabulary: words you will hear',
           goal: 'Match ten words and phrases from the video with their meanings.',
           blocks: [
@@ -160,6 +165,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'l3', short: 'Gist', minutes: 10, grouping: 'Alone → Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d1-l3.svg',
           title: 'Listening for gist',
           goal: 'Get the big picture on the first listen — purpose and structure, not details.',
           blocks: [
@@ -183,6 +189,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'l4', short: 'Signposts', minutes: 20, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d1-l4.svg',
           title: 'Signposting language: the road signs of a lecture',
           goal: 'Hear where a talk moves to a new section — the moment to start a new main idea in your notes.',
           blocks: [
@@ -217,6 +224,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'l5', short: 'Outline method', minutes: 20, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d1-l5.svg',
           title: 'The Outline Method for note-taking',
           goal: 'Turn the talk into notes that show which ideas are main ideas and which are details.',
           blocks: [
@@ -248,6 +256,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'l6', short: 'Test practice', minutes: 10, grouping: 'Alone',
+          art: 'dec10/assets/week1/v/v-d10w1d1-l6.svg',
           title: 'Building understanding: test-style questions',
           goal: 'Answer test-style questions from your notes — inside the word limit, and with the confidence your evidence deserves.',
           blocks: [
@@ -269,6 +278,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'l7', short: 'Criticality', minutes: 12, grouping: 'Groups of 3–4',
+          art: 'dec10/assets/week1/v/v-d10w1d1-l7.svg',
           title: 'Criticality: do well by doing good?',
           goal: 'Question the framework — then answer today’s big question with a reason.',
           blocks: [
@@ -311,6 +321,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 'h1', short: 'Short forms', minutes: 15, grouping: 'Homework',
+          art: 'dec10/assets/week1/v/v-d10w1d1-h1.svg',
           title: 'Short forms to help with note-taking',
           goal: 'Write notes faster with symbols and abbreviations.',
           blocks: [
@@ -339,6 +350,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'h2', short: 'Choose a method', minutes: 15, grouping: 'Homework',
+          art: 'dec10/assets/week1/v/v-d10w1d1-h2.svg',
           title: 'Different note-taking styles',
           goal: 'Find the method that fits the situation — and the one that works for you.',
           blocks: [
@@ -359,6 +371,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'h3', short: 'Your reading', minutes: 30, grouping: 'Homework',
+          art: 'dec10/assets/week1/v/v-d10w1d1-h3.svg',
           title: 'Note-taking for discussion: your reading',
           goal: 'Understand your reading, then make notes good enough to teach it tomorrow — from memory.',
           blocks: [
@@ -391,6 +404,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'h4', short: 'Summarise', minutes: 15, grouping: 'Homework',
+          art: 'dec10/assets/week1/v/v-d10w1d1-h4.svg',
           title: 'Summarising, then rehearsing',
           goal: 'Write a summary from your notes only, then practise saying it aloud.',
           blocks: [
@@ -428,6 +442,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 't1', short: 'Test Lab', minutes: 30, grouping: 'Homework',
+          art: 'dec10/assets/week1/v/v-d10w1d1-t1.svg',
           title: 'Test Lab: the listening quiz on Canvas',
           goal: 'Use four tactics from today in a real practice quiz.',
           blocks: [
