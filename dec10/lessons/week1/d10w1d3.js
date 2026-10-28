@@ -32,6 +32,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 'p1', short: 'Warm-up', minutes: 8, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d3-p1.svg',
           title: 'Say it another way',
           goal: 'A quick game: change the words, keep the meaning.',
           blocks: [
@@ -58,6 +59,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'p2', short: 'Copycat', minutes: 10, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d3-p2.svg',
           title: 'The copycat case',
           goal: 'Find out what plagiarism is — and why paraphrasing protects you.',
           blocks: [
@@ -76,6 +78,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'p3', short: 'Examples', minutes: 15, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d3-p3.svg',
           title: 'What changed?',
           goal: 'Look at ten simple paraphrases. Work out HOW each one was changed.',
           blocks: [
@@ -98,6 +101,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'p3r', short: 'The rules', minutes: 5, grouping: 'Class',
+          art: 'dec10/assets/week1/v/v-d10w1d3-p3r.svg',
           title: 'The five techniques',
           goal: 'Now name the techniques you found — and learn the one rule for each.',
           blocks: [
@@ -116,6 +120,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'p4', short: 'Practise', minutes: 20, grouping: 'Alone → Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d3-p4.svg',
           title: 'One technique at a time',
           goal: 'Practise each technique on easy sentences.',
           blocks: [
@@ -146,6 +151,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'p5', short: 'Good or bad?', minutes: 10, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d3-p5.svg',
           title: 'Good paraphrase or bad paraphrase?',
           goal: 'Judge three paraphrases of the same sentence.',
           blocks: [
@@ -164,6 +170,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'p6', short: '4 steps', minutes: 7, grouping: 'Alone',
+          art: 'dec10/assets/week1/v/v-d10w1d3-p6.svg',
           title: 'How the experts do it',
           goal: 'Watch a short video and put the four steps in order.',
           blocks: [
@@ -174,6 +181,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'p7', short: 'Your turn', minutes: 15, grouping: 'Alone → Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d3-p7.svg',
           title: 'Put the techniques together',
           goal: 'Use two or more techniques in each paraphrase. Watch the copy meter go down.',
           blocks: [
@@ -205,6 +213,7 @@ window.DEC15_LESSON = {
       activities: [
         {
           id: 'a1', short: 'Smart move?', minutes: 15, grouping: 'Alone → Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d3-a1.svg',
           title: 'Uni life: what is the smartest move?',
           goal: 'Six real problems that first-year students have. Choose what you would do.',
           blocks: [
@@ -225,6 +234,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'a2', short: 'Six skills', minutes: 15, grouping: 'Class → Groups',
+          art: 'dec10/assets/week1/v/v-d10w1d3-a2.svg',
           title: 'The six skills — and your future job',
           goal: 'Learn the six skills, then find them in real graduate job ads.',
           blocks: [
@@ -268,6 +278,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'a3', short: 'Advice column', minutes: 20, grouping: 'Groups',
+          art: 'dec10/assets/week1/v/v-d10w1d3-a3.svg',
           title: 'The AST advice column',
           goal: 'Students have written to “Ask the AST Team”. Write a reply with practical advice.',
           blocks: [
@@ -293,6 +304,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'a4', short: 'My goal', minutes: 10, grouping: 'Alone',
+          art: 'dec10/assets/week1/v/v-d10w1d3-a4.svg',
           title: 'Rate yourself — and set one goal',
           goal: 'Be honest. Then choose ONE skill to work on.',
           blocks: [
@@ -315,42 +327,46 @@ window.DEC15_LESSON = {
       ]
     },
     /* ───────────────────────── 12A · Introduction to feedback literacy ─────────────────────────
-       Redesigned so students learn from examples, not from open questions they cannot answer yet:
-       two teachers' feedback → what makes it effective; four students' reactions → what feedback literacy is;
-       the presentation criteria decoded with the Teacher's Book's criteria-specific feedback examples.
-       The Teacher's Book feedback comments, the four criterion samples and the peer-feedback frames are kept. */
+       One story runs through the lesson: Lena's presentation. Students give her feedback BEFORE they learn anything,
+       then meet two teachers, four students, the criteria, a feedback recipe — and finally rewrite their own first
+       feedback. Every task starts from an example. The Teacher's Book feedback comments, the four criterion samples
+       and the peer-feedback frames are kept. */
     {
       id: 'feedback', number: '03', code: '12A', minutes: 90,
       tone: 'teal', art: 'dec10/assets/week1/s-feedback.svg',
       title: 'AST: Introduction to Feedback Literacy',
       subtitle: 'Give feedback that helps — and use the feedback you get',
-      outcome: 'You know what effective feedback looks like, what feedback literacy means, what the presentation criteria ask for, and how to give peer feedback that helps.',
+      outcome: 'You know what effective feedback looks like, what feedback literacy means, what the presentation criteria ask for, and you can give peer feedback that really helps.',
       activities: [
         {
-          id: 'b1', short: 'Symbols', minutes: 5, grouping: 'Pair',
-          title: 'Warmer: what do these symbols mean?',
-          goal: 'Guess what a heart, a lightbulb and a star have to do with feedback.',
+          id: 'b1', short: 'Lena', minutes: 6, grouping: 'Alone',
+          art: 'dec10/assets/week1/v/v-d10w1d3-b1.svg',
+          title: 'Lena’s presentation',
+          goal: 'Meet Lena. Give her one line of feedback — before you learn anything about feedback.',
           blocks: [
-            { type: 'figure', src: 'dec10/assets/week1/feedback-literacy.svg', size: 'wide', alt: 'Feedback literacy in three parts: a heart for appreciating feedback (you value it), a lightbulb for making judgements (you understand it), and a star for taking action (you get it right next time).', caption: 'Three symbols, one idea. Keep them in mind — you will need them in 15 minutes.' },
-            { type: 'do', n: 1, who: 'pair', text: 'Guess: what does a student do when they <b>♥</b> feedback? <b>💡</b> it? <b>★</b> it? Then match.' },
-            { type: 'match', id: 'b1-m', title: 'Match the symbol with what the student does', left: ['♥ Heart', '💡 Lightbulb', '★ Star'], right: ['The student values the feedback.', 'The student understands the feedback.', 'The student gets it right next time.'] }
+            { type: 'key', title: 'The story', points: ['Lena is a DEC10 student. Last week she gave a 3-minute presentation on plastic waste. Here are her three slides — and how she spoke.'] },
+            { type: 'figure', src: 'dec10/assets/week1/lena-slides.svg', size: 'wide', alt: 'Lena’s three slides: slide 1, a title and 120 words of text; slide 2, one photo with no title and no source; slide 3, a graph with three key words.', caption: 'Lena’s slides.' },
+            { type: 'cards', title: 'How she spoke', items: [
+              { label: 'Slide 1', text: 'She read all 120 words from the slide, very fast, looking at the screen.' },
+              { label: 'Slide 2', text: 'She said: “This is, um, a beach. Lots of plastic. It’s bad.” Then she moved on.' },
+              { label: 'Slide 3', text: 'Clear and slow. She pointed at the graph and said why recycling is not enough.' }
+            ] },
+            { type: 'do', n: 1, who: 'alone', text: 'Write ONE line of feedback for Lena — anything you like. You will see it again at the end of the lesson.' },
+            { type: 'fields', fields: [{ id: 'b1-first', label: 'My first feedback for Lena', rows: 2, placeholder: 'Lena, …' }] }
           ]
         },
         {
           id: 'b2', short: 'Two teachers', minutes: 10, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d3-b2.svg',
           title: 'Two teachers, one presentation',
-          goal: 'Compare two pieces of feedback and discover what makes feedback effective.',
+          goal: 'Two teachers watched Lena. Find out what makes feedback effective.',
           blocks: [
-            { type: 'do', n: 1, who: 'alone', text: 'Lena gave a presentation. Two teachers watched it. Read their feedback.' },
-            { type: 'model', title: 'Feedback on Lena’s presentation', rows: [
-              ['Teacher A', '“Good presentation. 7/10.”'],
-              ['Teacher B', '“Your examples were clear and easy to follow — well done. Your slides had too much text, so the audience read instead of listening. Next time, use 3–4 key words per slide and a picture. Also, try to pause after each main point.”']
-            ] },
-            { type: 'do', n: 2, who: 'pair', text: 'Which feedback helps Lena more? Bet on it.' },
+            { type: 'figure', src: 'dec10/assets/week1/fb-two-teachers.svg', size: 'wide', alt: 'Two teachers’ notes. Teacher A: Good presentation, 7 out of 10. Teacher B: your examples were clear, well done; your slides had too much text so the audience read instead of listening; next time use 3 to 4 key words per slide and a picture, and pause after each main point.', caption: 'Two teachers, two notes.' },
+            { type: 'do', n: 1, who: 'pair', text: 'Which note will help Lena more next time? Bet on it.' },
             { type: 'bet', id: 'b2-bet', title: 'Which teacher helped more?', proof: 'Bet big only if you can say why.', coins: 6, items: [
               { q: 'Which feedback will help Lena do better next time?', options: ['Teacher A', 'Teacher B'], answer: 'Teacher B', why: 'B says what was good, what was not, WHY it matters, and exactly what to do next time.' }
             ] },
-            { type: 'do', n: 3, who: 'pair', text: 'Sort these features: which teacher’s feedback has them?' },
+            { type: 'do', n: 2, who: 'pair', text: 'Sort these features: which teacher’s note has them?' },
             { type: 'sort', id: 'b2-sort', title: 'Teacher A or Teacher B?', buckets: [{ label: 'Teacher A', letter: 'A' }, { label: 'Teacher B', letter: 'B' }], items: [
               { text: 'only a mark and one general word', answer: 0 },
               { text: 'specific: says WHICH part was good or weak', answer: 1 },
@@ -363,23 +379,40 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'b3', short: 'Four students', minutes: 10, grouping: 'Pair',
+          id: 'b3', short: 'Help or hurt?', minutes: 7, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d3-b3.svg',
+          title: 'Feedback or criticism?',
+          goal: 'Quick game: does each comment help Lena — or just hurt?',
+          blocks: [
+            { type: 'do', n: 1, who: 'pair', text: 'Eight comments about Lena’s presentation. Sort them: <b>feedback</b> (it helps her improve) or <b>criticism</b> (it only says something is bad).' },
+            { type: 'sort', id: 'b3-sort', title: 'Feedback or criticism?', buckets: [{ label: 'Feedback — it helps', letter: '✓' }, { label: 'Criticism — it only hurts', letter: '✗' }], items: [
+              { text: '“Slide 1 had too much text. Try 3–4 key words.”', answer: 0 },
+              { text: '“Slide 1 was boring.”', answer: 1 },
+              { text: '“Your graph on slide 3 was clear — keep doing that.”', answer: 0 },
+              { text: '“You are not a confident speaker.”', answer: 1 },
+              { text: '“On slide 2, add a title and the source of the photo.”', answer: 0 },
+              { text: '“Everyone could see you were nervous.”', answer: 1 },
+              { text: '“Try pausing after each main point, so we can follow.”', answer: 0 },
+              { text: '“Honestly, I didn’t learn anything.”', answer: 1, why: 'It says nothing about WHAT to change.' }
+            ] },
+            { type: 'key', title: 'The difference', points: ['<b>Criticism</b> is about the person or the past: “You were boring.”', '<b>Feedback</b> is about the work and the future: “Try …, so that …”.', 'A feedback-literate student can tell the difference — and uses the feedback.'] }
+          ]
+        },
+        {
+          id: 'b4', short: 'Four students', minutes: 10, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d3-b4.svg',
           title: 'Same feedback, four reactions',
           goal: 'See what feedback literacy looks like — in real students.',
           blocks: [
-            { type: 'do', n: 1, who: 'alone', text: 'Four students got Teacher B’s feedback. Read how each one reacted.' },
-            { type: 'cards', numbered: true, items: [
-              { label: 'Ali', text: 'Looks at the mark, closes the email. “7/10 is fine.”' },
-              { label: 'Bella', text: '“My teacher doesn’t like me.” She feels upset all evening.' },
-              { label: 'Chen', text: 'Reads every comment. Asks: “What is a key word?” Writes a to-do list for the next presentation.' },
-              { label: 'Dana', text: 'Says “Thank you!” — and changes nothing.' }
+            { type: 'figure', src: 'dec10/assets/week1/fb-four.svg', size: 'wide', alt: 'Four students react to the same feedback. Ali: 7 out of 10 is fine, closes the email. Bella: my teacher hates me, upset all evening. Chen: what is a key word? writes a to-do list. Dana: thanks! changes nothing.', caption: 'Four students got Teacher B’s feedback.' },
+            { type: 'do', n: 1, who: 'pair', text: 'Which student is <b>feedback literate</b>?' },
+            { type: 'quiz', id: 'b4-q', items: [
+              { q: 'Who will do better next time?', options: ['Ali', 'Bella', 'Chen', 'Dana'], answer: 'Chen', why: 'Chen values the feedback (♥), understands it — and asks when he doesn’t (💡), and acts on it (★).' }
             ] },
-            { type: 'quiz', id: 'b3-q', items: [
-              { q: 'Which student is <b>feedback literate</b>?', options: ['Ali', 'Bella', 'Chen', 'Dana'], answer: 'Chen', why: 'Chen values the feedback (♥), understands it — and asks when he doesn’t (💡), and acts on it (★).' }
-            ] },
+            { type: 'figure', src: 'dec10/assets/week1/fb-loop.svg', size: 'wide', alt: 'The feedback loop: value it (read it all, say thanks), understand it (check the criteria, ask), use it (make a plan, do it next time), and around again.', caption: 'Feedback literacy: value it, understand it, use it — and around again.' },
             { type: 'do', n: 2, who: 'pair', text: 'Chen did all three things. Sort what a feedback-literate student does into ♥ 💡 ★.' },
-            { type: 'sort', id: 'b3-sort', title: '♥ value it · 💡 understand it · ★ use it', buckets: [
-              { label: 'Appreciating feedback', letter: '♥' }, { label: 'Making judgements', letter: '💡' }, { label: 'Taking action', letter: '★' }
+            { type: 'sort', id: 'b4-sort', title: '♥ value it · 💡 understand it · ★ use it', buckets: [
+              { label: 'Value it', letter: '♥' }, { label: 'Understand it', letter: '💡' }, { label: 'Use it', letter: '★' }
             ], items: [
               { text: 'I read all the comments, not only the mark.', answer: 0 },
               { text: 'I thank my classmates for their comments.', answer: 0 },
@@ -394,14 +427,16 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'b4', short: 'The criteria', minutes: 20, grouping: 'Seminar groups',
+          id: 'b5', short: 'The criteria', minutes: 17, grouping: 'Seminar groups',
+          art: 'dec10/assets/week1/v/v-d10w1d3-b5.svg',
           title: 'Decode the presentation criteria',
-          goal: 'Know exactly what your presentations are marked on — so you can understand your feedback.',
+          goal: 'Know what your presentations are marked on — then mark Lena.',
           blocks: [
             { type: 'key', title: 'Why now?', points: [
               'You will give and get feedback on your Research Summary presentations (Weeks 2, 3, 6) and your Seminar presentations (Weeks 3–6). All of it prepares you for the <b>Interactive Presentation</b> in Week 7 (40% of your speaking score).',
               'Teachers write feedback using the <b>criteria</b>. If you know the criteria, you understand the feedback.'
             ] },
+            { type: 'figure', src: 'dec10/assets/week1/fb-criteria.svg', size: 'wide', alt: 'A presenter on a stage under four spotlights: content (what you say), coherence (how it flows), pronunciation (how you sound) and language (your grammar and words).', caption: 'Four spotlights on every presenter.' },
             { type: 'do', n: 1, who: 'pair', text: 'Turn each card. What does the teacher listen and look for?' },
             { type: 'flip', title: 'The four criteria of the Interactive Presentation', items: [
               { front: '1 · Content development and argumentation', back: 'WHAT you say: your key points are clear, you give evidence for the problem, and you evaluate the solution (say why it is good or not).' },
@@ -410,7 +445,7 @@ window.DEC15_LESSON = {
               { front: '4 · Grammatical and lexical proficiency', back: 'Your grammar and vocabulary: accurate, appropriate and varied — including functional language (evaluating, cause and effect, citing sources).' }
             ] },
             { type: 'do', n: 2, who: 'pair', text: 'Here is real feedback written with these criteria. Which criterion is each comment about?' },
-            { type: 'sort', id: 'b4-sort', title: 'Which criterion?', buckets: [
+            { type: 'sort', id: 'b5-sort', title: 'Which criterion?', buckets: [
               { label: 'Content and argument', letter: '1' }, { label: 'Coherence, engagement, visuals', letter: '2' }, { label: 'Pronunciation', letter: '3' }, { label: 'Grammar and vocabulary', letter: '4' }
             ], items: [
               { text: '“To strengthen your evaluation, use evaluative adjectives like effective / ineffective.”', answer: 0 },
@@ -422,47 +457,57 @@ window.DEC15_LESSON = {
               { text: '“We heard ‘important’ a lot. For variety, try ‘crucial’ or ‘significant’.”', answer: 3 },
               { text: '“Use more variety than ‘therefore’, e.g. ‘as a result’ or ‘as a consequence’.”', answer: 3 }
             ] },
-            { type: 'do', n: 3, who: 'pair', text: 'The rubric uses small differences in wording to show different levels. Put these three descriptions in order, from the weakest to the strongest.' },
-            { type: 'order', id: 'b4-order', title: 'Content: from weakest to strongest', items: ['Key points are addressed. (They are there — but hard to follow.)', 'Key points are clear. (The audience understands them easily.)', 'Key points are effectively conveyed. (Clear AND convincing: well explained, with evidence and examples.)'], ends: ['Weakest', 'Strongest'] },
-            { type: 'do', n: 4, who: 'pair', text: 'Three more questions about the rubric. Choose the best answer.' },
-            { type: 'quiz', id: 'b4-q', items: [
-              { q: 'Which slide is <b>presented effectively</b>?', options: ['A slide with 120 words of text that the speaker reads aloud', 'A slide with a title, one clear graph and three key words', 'A slide with six photos and no title'], answer: 'A slide with a title, one clear graph and three key words' },
-              { q: 'Why do <b>mispronunciations</b> matter in a presentation?', options: ['They make the audience work harder to understand you — or misunderstand you.', 'They only matter if the teacher notices them.', 'They do not matter if the content is good.'], answer: 'They make the audience work harder to understand you — or misunderstand you.' },
-              { q: 'What does “using language <b>accurately and appropriately</b>” mean?', options: ['Using long, difficult words in every sentence', 'Correct grammar and words, at the right level of formality for an academic audience', 'Speaking without any mistakes at all'], answer: 'Correct grammar and words, at the right level of formality for an academic audience' }
+            { type: 'do', n: 3, who: 'pair', text: 'The rubric uses small differences in wording to show levels. Put these three in order, from weakest to strongest.' },
+            { type: 'order', id: 'b5-order', title: 'Content: from weakest to strongest', items: ['Key points are addressed. (They are there — but hard to follow.)', 'Key points are clear. (The audience understands them easily.)', 'Key points are effectively conveyed. (Clear AND convincing: well explained, with evidence and examples.)'], ends: ['Weakest', 'Strongest'] },
+            { type: 'do', n: 4, who: 'pair', text: 'Now be the teacher: mark Lena’s presentation on each criterion. Use her slides and how she spoke (Activity 1).' },
+            { type: 'grid', id: 'b5-lena', title: 'Mark Lena', columns: ['Lena'], options: ['Strong', 'OK', 'Needs work'], rows: ['Content and argument (slide 3 explained why recycling is not enough; slide 2 explained nothing)', 'Coherence, engagement and visuals (read slide 1; slide 2 had no title or source; slide 3 was clear)', 'Pronunciation (very fast on slide 1; clear and slow on slide 3)', 'Grammar and vocabulary (“It’s bad” on slide 2; “um”)'] },
+            { type: 'toggle', title: 'Compare with the teacher', hint: 'Open after you mark', blocks: [
+              { type: 'model', title: 'Teacher B’s marks', rows: [['Content', 'OK — strong on slide 3, nothing on slide 2.'], ['Coherence and visuals', 'Needs work — reading, too much text, no title or source.'], ['Pronunciation', 'OK — too fast at the start, clear at the end.'], ['Grammar and vocabulary', 'Needs work — “It’s bad” is too informal; try “This has a serious impact on …”.']] }
             ] },
-            { type: 'do', n: 5, who: 'alone', text: 'Which criterion will be hardest for YOU? Choose it and write why.' },
-            { type: 'cards', pick: 'b4-pick', items: [{ label: 'Content and argument', text: 'what I say' }, { label: 'Coherence, engagement, visuals', text: 'how I organise and present' }, { label: 'Pronunciation', text: 'how I sound' }, { label: 'Grammar and vocabulary', text: 'my language' }] },
-            { type: 'fields', fields: [{ id: 'b4-goal', label: 'This will be hardest for me because …', rows: 2 }] },
             { type: 'tip', text: 'The full rubric is on Canvas: <b>Assessments</b> (side panel) → Interactive Presentation → Rubric. Read it before every presentation.' }
           ]
         },
         {
-          id: 'b5', short: 'Judge it', minutes: 12, grouping: 'Pair',
-          title: 'Judge real feedback',
-          goal: 'Rate real comments from past DEC10 presentations.',
+          id: 'b6', short: 'Teacher-speak', minutes: 7, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d3-b6.svg',
+          title: 'The teacher-speak decoder',
+          goal: 'Teachers write short comments. Learn what each one really asks you to do.',
           blocks: [
-            { type: 'do', n: 1, who: 'pair', text: 'Look at the model first: one comment, judged with two questions.' },
-            { type: 'model', title: 'Model · comment 1', before: '“You spoke well and engagingly and had good skills in engaging with the audience, and this was supported by good intonation and fluency.”', rows: [
-              ['Specific?', 'Partly. It names engagement, intonation and fluency — but what exactly was good?'],
-              ['Feeds forward?', 'No. It doesn’t say what to do next time.']
-            ] },
-            { type: 'do', n: 2, who: 'pair', text: 'Now you: judge comments 2–6 in the same way.' },
-            { type: 'grid', id: 'b5-grid', title: 'How effective is each comment?', columns: ['Specific?', 'Feeds forward?'], options: ['Yes', 'Partly', 'No'], rows: [
-              '2 · Your final section of the presentation was structured well, but more careful cohesion was needed overall.',
-              '3 · Your ideas were often relevant, and content demonstrated adequate critical understanding of the topic. However, try not to read directly from the notes.',
-              '4 · Some of the ideas that you explained weren’t necessarily relevant, but you had good skills in explaining them in an engaging way. In future, use graphs on PPTs rather than data, and avoid having too much info on slides.',
-              '5 · Your volume was good, but intonation a bit monotonous making your speech unnatural. Work on sentence stress. Don’t read from notes… look up and make eye contact. Build a connection with your audience.',
-              '6 · The area that needed work was the slides. The visuals needed editing to make them look more professional and neater. Also, ideas from sources on the slides should always include a reference.'
-            ] },
-            { type: 'toggle', title: 'Check: which comments feed forward best?', hint: 'Open after you finish', blocks: [
-              { type: 'key', points: ['<b>4, 5 and 6</b> tell the speaker what to do next time (use graphs, work on sentence stress, add references).', '<b>2</b> is too general: what is “more careful cohesion”? How?', '<b>3</b> gives one clear action: don’t read from notes.'] }
+            { type: 'do', n: 1, who: 'pair', text: 'Match each comment with the action it really means.' },
+            { type: 'match', id: 'b6-m', title: 'What does the teacher want?', hint: 'Tap a comment, then the action.', left: ['“More cohesion needed.”', '“Needs more analysis.”', '“Work on sentence stress.”', '“Cite your sources.”', '“Too much on the slides.”', '“Develop your argument.”'],
+              right: ['Link your ideas: use linking words and handover phrases between speakers.', 'Don’t just describe — explain WHY, compare, and evaluate.', 'Say the key words more slowly and loudly; pause between chunks.', 'Say where your information comes from: “According to Smith (2024), …”.', 'Cut to 3–4 key words and one picture per slide.', 'Give evidence, say why your solution is good, and what happens without it.'] },
+            { type: 'tip', text: 'Still not sure what a comment means? Ask: <b>“Could you show me an example?”</b> Teachers like this question.' }
+          ]
+        },
+        {
+          id: 'b7', short: 'Build it', minutes: 12, grouping: 'Alone → Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d3-b7.svg',
+          title: 'Build the feedback',
+          goal: 'Learn the four-part recipe, then build feedback for Lena from the parts.',
+          blocks: [
+            { type: 'figure', src: 'dec10/assets/week1/fb-recipe.svg', size: 'wide', alt: 'The feedback recipe in four parts: 1 something good, 2 one thing to change, 3 why it matters, 4 what to do next time.', caption: 'The feedback recipe: good → change → why → next time.' },
+            { type: 'do', n: 1, who: 'alone', text: 'Build feedback on Lena’s <b>slide 2</b> (the photo with no title and no source). Choose one phrase for each part.' },
+            { type: 'cloze', id: 'b7-build', title: 'Feedback builder · Lena, slide 2', list: true, options: [
+              ['Your photo of the beach was a strong image,', 'Your slide 2 was bad,', 'I liked slide 2,'],
+              ['but it had no title and no source,', 'but you were nervous,', 'but it was boring,'],
+              ['so the audience didn’t know what it showed or where it came from.', 'so you lost marks.', 'so I stopped listening.'],
+              ['Next time, add a short title and the source under the photo.', 'Next time, try harder.', 'Next time, don’t use photos.']
+            ], text: 'Something good: {{1}}\nOne thing to change: {{2}}\nWhy it matters: {{3}}\nNext time: {{4}}', answers: ['Your photo of the beach was a strong image,', 'but it had no title and no source,', 'so the audience didn’t know what it showed or where it came from.', 'Next time, add a short title and the source under the photo.'],
+              why: ['Specific and positive: it names WHAT was good.', 'One clear thing to change — about the work, not about Lena.', 'Why it matters for the audience.', 'A concrete action for next time.'] },
+            { type: 'language', title: 'Four frames are enough', groups: [{ label: 'Peer feedback', phrases: ['… was good. To make it even better, you could …', 'I suggest you …', 'Try … so (that) …', 'Remember to …'] }] },
+            { type: 'do', n: 2, who: 'pair', text: 'Now fix these three weak comments. Use the recipe and a frame.' },
+            { type: 'para', id: 'b8-fix', title: 'Fix the feedback', label: 'Fix it', placeholder: 'Your better feedback…', hint: 'Compare with a possible answer when you finish.', items: [
+              { text: 'Your presentation was bad.', model: 'Your research was relevant. To make it even better, you could look up from your notes more often and make eye contact.' },
+              { text: 'Good job!', model: 'Your examples were clear and engaging. Remember to cite the source on the slide, e.g. “(Smith, 2024)”.' },
+              { text: 'Too fast.', model: 'I suggest you slow down and pause after each key point, so the audience has time to follow.' }
             ] }
           ]
         },
         {
-          id: 'b6', short: 'Use it', minutes: 13, grouping: 'Groups',
+          id: 'b8', short: 'Act on it', minutes: 10, grouping: 'Groups',
+          art: 'dec10/assets/week1/v/v-d10w1d3-b8.svg',
           title: 'From feedback to action',
-          goal: 'Turn one piece of teacher feedback into a plan — and a question.',
+          goal: 'Turn one piece of real teacher feedback into a plan — and a question.',
           blocks: [
             { type: 'do', n: 1, who: 'group', text: 'Read the example: a short comment becomes a plan and a question.' },
             { type: 'model', title: 'Example', rows: [
@@ -470,7 +515,7 @@ window.DEC15_LESSON = {
               ['Our plan', 'I will time my part with my phone. I will mark a pause (/) after each key point in my notes and practise twice.'],
               ['Our question', '“How many words per minute is a good speed?”']
             ] },
-            { type: 'do', n: 2, who: 'group', text: 'Your teacher gives your group ONE criterion. Read that feedback.' },
+            { type: 'do', n: 2, who: 'group', text: 'Your teacher gives your group ONE criterion. Read that feedback — it is real feedback from past DEC10 presentations.' },
             { type: 'tabs', title: 'Four pieces of feedback, one for each criterion', tabs: [
               { label: 'Content & argument', blocks: [{ type: 'model', title: 'Content Development and Argumentation', text: 'Your content was relevant and well developed, but you just needed to persuade your audience more about your ideas (i.e. your solution to the problem) through strong argumentation. EG say why your solution is an important and good one, or why a different solution won’t work, or what will happen without a solution. Remember also to use a range of functional language to clearly express your argument and try and persuade the audience; this language is a very effective and powerful tool!' }] },
               { label: 'Coherence & visuals', blocks: [{ type: 'model', title: 'Coherence, Engagement and Visual Coordination', text: 'Well done to convey some complex ideas during your presentation, although you needed to establish stronger cohesion between the different speakers because the overall structure and flow of ideas was sometimes fragmented. You can achieve stronger cohesion through more careful planning and frequent check-ins with each other. Make sure you map out your group’s entire presentation message/argument before you start preparing the presentation, and remember that cohesive devices (EG linking words) are vital in presenting a clear and logical flow of ideas. I’m sure you’ll do even better in your future presentations!' }] },
@@ -485,7 +530,8 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: 'b7', short: 'Stay calm', minutes: 10, grouping: 'Pair',
+          id: 'b9', short: 'Stay calm', minutes: 6, grouping: 'Pair',
+          art: 'dec10/assets/week1/v/v-d10w1d3-b9.svg',
           title: 'Feedback is not an attack',
           goal: 'Choose the most professional reaction — and learn what to say.',
           blocks: [
@@ -496,23 +542,19 @@ window.DEC15_LESSON = {
               { q: 'Your classmate says: “Your slides had too many words.”', options: ['“Well, your slides weren’t perfect either.”', '“Thanks — that’s useful. Which slide was the worst?”', '“Everyone puts a lot of words on slides.”'], answer: '“Thanks — that’s useful. Which slide was the worst?”', why: 'Thank them, then ask a question to understand. You don’t have to agree with every comment — but listen first.' }
             ] },
             { type: 'language', title: 'What to say when you get feedback', groups: [{ label: 'Receiving feedback', phrases: ['Thanks, that’s useful.', 'Could you give me an example?', 'So you mean I should …?', 'What can I do to improve next time?'] }] },
-            { type: 'do', n: 3, who: 'pair', text: 'Role play (1 minute each): A gives B one piece of feedback about today’s warm-up. B replies using a phrase from the box. Swap.' }
+            { type: 'do', n: 3, who: 'pair', text: 'Role play (1 minute each): A is Lena. B gives Lena the feedback you built in Activity 7. Lena replies with a phrase from the box. Swap.' }
           ]
         },
         {
-          id: 'b8', short: 'Say it well', minutes: 10, grouping: 'Pair',
-          title: 'Language for giving peer feedback',
-          goal: 'Learn four frames — and use them to fix bad feedback.',
+          id: 'b10', short: 'Before / after', minutes: 5, grouping: 'Alone',
+          art: 'dec10/assets/week1/v/v-d10w1d3-b10.svg',
+          title: 'Your feedback: before and after',
+          goal: 'Rewrite the first feedback you gave Lena — with everything you learned today.',
           blocks: [
-            { type: 'language', title: 'Four frames are enough', groups: [
-              { label: 'Peer feedback', phrases: ['… was good. To make it even better, you could …', 'I suggest you …', 'Try … so (that) …', 'Remember to …'] }
-            ] },
-            { type: 'do', n: 1, who: 'pair', text: 'Rewrite each weak comment so that it is specific, kind and tells the speaker what to do next. Use a frame.' },
-            { type: 'para', id: 'b8-fix', title: 'Fix the feedback', label: 'Fix it', placeholder: 'Your better feedback…', hint: 'Compare with a possible answer when you finish.', items: [
-              { text: 'Your presentation was bad.', model: 'Your research was relevant. To make it even better, you could look up from your notes more often and make eye contact.' },
-              { text: 'Good job!', model: 'Your examples were clear and engaging. Remember to cite the source on the slide, e.g. “(Smith, 2024)”.' },
-              { text: 'Too fast.', model: 'I suggest you slow down and pause after each key point, so the audience has time to follow.' }
-            ] }
+            { type: 'do', n: 1, who: 'alone', text: 'Open your notebook and find your first feedback for Lena (Activity 1). Now write it again, using the recipe and a frame.' },
+            { type: 'fields', fields: [{ id: 'b10-after', label: 'My feedback for Lena — version 2', rows: 3, placeholder: 'Lena, your … was good. To make it even better, you could … so that …' }] },
+            { type: 'checklist', id: 'b10-check', title: 'Version 2 …', meter: ['ticked', 'Feedback literate!'], items: ['says something specific that was good', 'names ONE thing to change — about the work, not about Lena', 'says why it matters', 'says what to do next time', 'is something I would be happy to receive'] },
+            { type: 'key', title: 'This week', points: ['Before your next presentation: find the rubric and read it.', 'After it: read all the feedback, ask one question, write one to-do.'] }
           ]
         }
       ]
@@ -588,6 +630,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'h5', short: 'Acknowledge', minutes: 10, grouping: 'Homework',
+          art: 'dec10/assets/week1/v/v-d10w1d3-h5.svg',
           title: 'Acknowledging AI',
           goal: 'Write a clear acknowledgement and an APA reference.',
           blocks: [
@@ -604,6 +647,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'h6', short: 'Scenarios', minutes: 12, grouping: 'Homework',
+          art: 'dec10/assets/week1/v/v-d10w1d3-h6.svg',
           title: 'Test your knowledge: how can I use AI ethically?',
           goal: 'Decide what three students should think about.',
           blocks: [
@@ -625,6 +669,7 @@ window.DEC15_LESSON = {
         },
         {
           id: 'h7', short: 'For Friday', minutes: 4, grouping: 'Homework',
+          art: 'dec10/assets/week1/v/v-d10w1d3-h7.svg',
           title: 'Prepare for class',
           goal: 'Make notes you will use on Friday.',
           blocks: [

@@ -486,7 +486,7 @@ function cowriteCard(a) {
 }
 function activity(a, i, list, section) {
   return `<article class="activity" id="${a.id}" tabindex="-1" aria-labelledby="h-${a.id}">
-    <header class="act-head">
+    <header class="act-head${a.art ? ' has-art' : ''}">${a.art ? `<img class="act-art" src="${esc(a.art)}" alt="" width="240" height="180" loading="lazy">` : ''}
       <div class="act-meta"><span class="act-count">Activity ${i + 1}<span> / ${list.length}</span></span><span class="chip chip-soft">${groupIcon(a.grouping)}${esc(a.grouping)}</span>${a.category ? `<span class="chip chip-soft">${esc(a.category)}</span>` : ''}<button class="timer-btn" data-timer="${a.minutes}" aria-label="Start a ${a.minutes}-minute timer">${icon('clock')}<span>${a.minutes} min</span><small>Start timer</small></button></div>
       <h2 id="h-${a.id}">${esc(a.title)}</h2>
       <p class="act-goal">${icon('target')}<span><b>Goal:</b> ${esc(a.goal)}</span></p>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Using AI honestly">
+<style>.fl{animation:fl 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.f2{animation-delay:-1.7s}.f3{animation-delay:-3.3s}
+.tw{animation:tw 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.t2{animation-delay:-1.4s}
+.sp{animation:sp 9s linear infinite;transform-box:fill-box;transform-origin:center}.pu{animation:pu 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.dr{stroke-dasharray:6 8;animation:dr 1.6s linear infinite}.bl{animation:bl 4s infinite;transform-box:fill-box;transform-origin:center}
+.sw{animation:sw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:top center}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes tw{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes sp{to{transform:rotate(360deg)}}@keyframes pu{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}}
+@keyframes dr{to{stroke-dashoffset:-28}}@keyframes bl{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}@keyframes sw{50%{transform:rotate(6deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style><defs><filter id="s" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#14293a" flood-opacity=".16"/></filter></defs>
+<path d="M44 38c22-30 78-34 118-14 34 17 50 54 36 88-14 34-56 50-98 44C54 150 18 118 22 82c2-18 10-32 22-44z" fill="#f6e8cc"/>
+<path class="tw" d="M28 30h12m-6-6v12" stroke="#985c0e" stroke-width="2.4" stroke-linecap="round"/><path class="tw t2" d="M204 150h12m-6-6v12" stroke="#2d8a9a" stroke-width="2.4" stroke-linecap="round"/>
+<circle class="tw t2" cx="208" cy="40" r="3" fill="#2d8a9a"/><circle class="tw" cx="34" cy="146" r="3" fill="#985c0e"/>
+<g class="fl" filter="url(#s)"><rect x="76" y="58" width="88" height="76" rx="18" fill="#fff"/><circle cx="104" cy="92" r="8" fill="#14293a"/><circle cx="136" cy="92" r="8" fill="#14293a"/><circle class="bl" cx="106" cy="90" r="3" fill="#fff"/><circle class="bl" cx="138" cy="90" r="3" fill="#fff"/><path d="M104 112c10 6 22 6 32 0" stroke="#14293a" stroke-width="4" stroke-linecap="round"/><path d="M120 58V44" stroke="#14293a" stroke-width="4"/><circle cx="120" cy="40" r="6" fill="#2d8a9a"/></g><g transform="translate(180 60)" filter="url(#s)"><g class="pu"><circle r="20" fill="#2f9a63"/><path d="M-9 0l6 7 13-14" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g></g><g transform="translate(60 120)" filter="url(#s)"><g class="pu"><circle r="20" fill="#d4583a"/><path d="M-8-8l16 16M8-8l-16 16" stroke="#fff" stroke-width="5" stroke-linecap="round"/></g></g></svg>

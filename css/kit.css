@@ -224,3 +224,9 @@
 .do-step .step-who { flex: none; }
 .do-step p { margin: 0; font-size: 1.02rem; line-height: 1.5; color: var(--ink); }
 @media (max-width: 640px) { .do-step { flex-wrap: wrap; } .do-step p { flex-basis: 100%; } }
+
+/* ───────── activity art: a small vignette in the activity header ───────── */
+.act-head.has-art { padding-right: 300px; }
+.act-art { position: absolute; right: 36px; top: 50%; width: 230px; height: 172px; transform: translateY(-50%); pointer-events: none; filter: drop-shadow(0 14px 18px rgba(20, 41, 58, .14)); }
+@media (max-width: 980px) { .act-head.has-art { padding-right: 220px; } .act-art { width: 170px; height: 128px; right: 24px; } }
+@media (max-width: 640px) { .act-head.has-art { padding-right: 18px; padding-top: 150px; } .act-art { width: 180px; height: 135px; right: 50%; top: 14px; transform: translateX(50%); } }
