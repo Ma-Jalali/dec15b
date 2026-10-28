@@ -36,10 +36,8 @@ window.DEC15_LESSON = {
           goal: 'Guess the answers now. By the end of this hour, you will be able to explain them.',
           blocks: [
             { type: 'figure', src: 'dec10/assets/week1/mysteries.svg', size: 'wide', alt: 'Three mystery cards. Mystery 1: Japan — people live longer than almost anywhere, but the population has been shrinking since about 2010; Niger — women have about six or seven children on average, and the population is growing fast. Why? Mystery 2: a new car today uses far less fuel per kilometre than a new car in 1970, but the world’s cars and trucks produce several times more CO2 than in 1970. How? Mystery 3: since 1988, 100 fossil fuel producers have been responsible for 71% of global industrial greenhouse gases, and many made huge profits. Were they successful companies?', caption: 'Three real mysteries.', credit: 'Mystery 3: Harvard Business School Online (2022), the video from Day 1.' },
-            { type: 'steps', items: [
-              { who: 'group', text: 'Read the three mysteries. For each one, agree on your group’s best <b>guess</b>. Don’t check online!' },
-              { who: 'group', text: 'Decide: which framework from Day 1 (the triple bottom line, IPAT or the DTM) do you think explains each mystery?' }
-            ] },
+            { type: 'do', n: 1, who: 'group', text: "Read the three mysteries. For each one, agree on your group’s best <b>guess</b>. Don’t check online!" },
+            { type: 'do', n: 2, who: 'group', text: "Which framework from Day 1 (the triple bottom line, IPAT or the DTM) might explain each mystery? Add it to your guess." },
             { type: 'fields', fields: [
               { id: 'f1-m1', label: 'Mystery 1 · Japan and Niger — our guess', rows: 2, placeholder: 'Maybe because …' },
               { id: 'f1-m2', label: 'Mystery 2 · Better cars, more CO₂ — our guess', rows: 2, placeholder: 'Maybe because …' },
@@ -79,14 +77,12 @@ window.DEC15_LESSON = {
           title: 'Brief your partner — then solve the mysteries',
           goal: 'Listen to your partner’s briefing carefully: you need it to solve their mystery.',
           blocks: [
-            { type: 'steps', items: [
-              { who: 'pair', text: 'DTM expert: 90 seconds. Your partner listens, then asks <b>one</b> question.' },
-              { who: 'pair', text: 'IPAT expert: 90 seconds. Your partner listens, then asks <b>one</b> question.' },
-              { who: 'pair', text: 'Together, solve Mystery 3 with the triple bottom line from Day 1. Then bet below.' }
-            ] },
+            { type: 'do', n: 1, who: 'pair', text: "DTM expert: brief your partner (90 seconds). Your partner listens, then asks <b>one</b> question." },
+            { type: 'do', n: 2, who: 'pair', text: "IPAT expert: brief your partner (90 seconds). Your partner listens, then asks <b>one</b> question." },
             { type: 'language', groups: [
               { label: 'Asking your expert', phrases: ['Sorry, what do you mean by …?', 'So, is it because …?', 'Could you give an example?'] }
             ] },
+            { type: 'do', n: 3, who: 'pair', text: "Together, solve Mystery 3 with the triple bottom line from Day 1. Then bet on all three answers." },
             { type: 'bet', id: 'f3-bet', title: 'Solve the mysteries', proof: 'Bet big only if your partner’s briefing gave you proof.', coins: 10, items: [
               { q: '<b>Mystery 1</b> · Why is Japan’s population shrinking while Niger’s is growing fast?', options: ['Japan’s government limits family size, while Niger’s government pays families to have more children.', 'They are at different DTM stages: Niger’s birth rate is still high, while Japan’s birth rate has fallen below its death rate.', 'Many young Japanese people emigrate, while Niger receives many immigrants from richer countries.'], answer: 'They are at different DTM stages: Niger’s birth rate is still high, while Japan’s birth rate has fallen below its death rate.', why: 'Hanks (2019): the model “overlooks the emerging trend of population decline in some advanced nations, suggesting a possible fifth stage.” Japan may be in that fifth stage.' },
               { q: '<b>Mystery 2</b> · Why do cars produce more CO₂ than in 1970 if each car uses less fuel?', options: ['Cars became more efficient, but modern fuel is dirtier, so each litre now produces more CO₂.', 'Technology (T) improved, but population (P) and affluence (A) — more cars, more driving — grew much faster.', 'Most cars on the road today are still old models that were built before the 1990s.'], answer: 'Technology (T) improved, but population (P) and affluence (A) — more cars, more driving — grew much faster.', why: 'I = P × A × T. Chertow (2001): technology “might reduce some negative impacts” but “can’t solve all environmental problems and might just delay them.”' },
@@ -114,10 +110,8 @@ window.DEC15_LESSON = {
               { id: 'f4-diag', label: 'My diagnosis: through my lens, Corvania’s main problem is … because …', rows: 3 },
               { id: 'f4-miss', label: 'What my lens CANNOT see in this case', rows: 2, placeholder: 'My framework doesn’t tell us anything about …' }
             ] },
-            { type: 'steps', items: [
-              { who: 'group', text: 'Each adviser gives their diagnosis in one minute.' },
-              { who: 'group', text: 'Agree: which lens explains the most? Should the government approve the mine — yes, no, or yes with conditions?' }
-            ] }
+            { type: 'do', n: 1, who: 'group', text: "Each adviser gives their diagnosis in one minute." },
+            { type: 'do', n: 2, who: 'group', text: "Agree: which lens explains the most? Should the government approve the mine — yes, no, or yes with conditions?" }
           ]
         },
         {
@@ -231,15 +225,13 @@ window.DEC15_LESSON = {
           title: 'Choose your country',
           goal: 'Agree on your Seminar country as a group — and tell your teacher before class ends.',
           blocks: [
-            { type: 'steps', items: [
-              { who: 'class', text: 'Sit in your Seminar group. Your teacher gives you your group number, topic and seminar week.' },
-              { who: 'group', text: 'Each person suggests one country and one reason. <b>Not Australia</b> (that is for Week 7) and <b>not your own country</b>.' },
-              { who: 'group', text: 'Check each idea: is there enough information in English? Is the problem real and current there?' },
-              { who: 'group', text: 'Decide together, then sign your group agreement and give your country to your teacher.' }
-            ] },
+            { type: 'do', n: 1, who: 'class', text: "Sit in your Seminar group. Your teacher gives you your group number, topic and seminar week." },
+            { type: 'do', n: 2, who: 'group', text: "Each person suggests one country and one reason. <b>Not Australia</b> (that is for Week 7) and <b>not your own country</b>." },
             { type: 'language', groups: [
               { label: 'Deciding together', phrases: ['What about …? It has …', 'I like that idea, but …', 'Shall we go with …?', 'OK, so we agree on …'] }
             ] },
+            { type: 'do', n: 3, who: 'group', text: "Check each idea: is there enough information in English? Is the problem real and current there?" },
+            { type: 'do', n: 4, who: 'group', text: "Decide together. Then fill in and sign your group agreement, and tell your teacher your country." },
             { type: 'contract', id: 's4-c', kicker: 'DEC10 · Seminar + Portfolio', title: 'Our seminar group', intro: 'We agree to research and present this together.', stamp: 'Seminar group', fields: [
               { id: 's4-group', label: 'Group number and topic', placeholder: 'Group … · …' },
               { id: 's4-country', label: 'Our country', placeholder: 'Not Australia, not our own country' },
@@ -313,10 +305,8 @@ window.DEC15_LESSON = {
             { type: 'spinner', id: 'r1-spin', title: 'Get your role', text: 'Spin until everyone in your group has a different role. Take 3 minutes to prepare using the Corvania case file from this morning.', reels: [
               { label: 'Role', start: 'Spin!', items: ['The mayor', 'Kestrel Mining CEO', 'A fisher', 'A scientist', 'Youth climate leader'] }
             ] },
-            { type: 'steps', items: [
-              { who: 'alone', text: 'Prepare: your position, two arguments, and what the others will say against you.' },
-              { who: 'group', text: 'Hold the meeting for 8 minutes. The mayor ends with a vote.' }
-            ] },
+            { type: 'do', n: 1, who: 'alone', text: "Prepare: your position, two arguments, and what the others will say against you." },
+            { type: 'do', n: 2, who: 'group', text: "Hold the meeting for 8 minutes. The mayor ends with a vote." },
             { type: 'fields', fields: [{ id: 'r1-vote', label: 'Our town hall vote', rows: 1, placeholder: 'YES / NO / YES with conditions: …' }] }
           ]
         },
@@ -416,10 +406,8 @@ window.DEC15_LESSON = {
           title: 'Your memo to the Minister',
           goal: 'Advise the government in four sentences — one for each function.',
           blocks: [
-            { type: 'steps', items: [
-              { who: 'pair', text: 'Town hall, round 2 (4 minutes): swap roles with your partner and argue again. This time, use at least <b>two</b> phrases from the bank on purpose.' },
-              { who: 'alone', text: 'Write your advice to the Minister: one sentence for each function. Use the case file and the four texts.' }
-            ] },
+            { type: 'do', n: 1, who: 'pair', text: "Town hall, round 2 (4 minutes): swap roles with your partner and argue again. This time, use at least <b>two</b> phrases from the bank on purpose." },
+            { type: 'do', n: 2, who: 'alone', text: "Write your advice to the Minister: one sentence for each function. Use the case file and the four texts." },
             { type: 'fields', fields: [
               { id: 'r6-ce', label: '1 · Cause and effect: what is happening in the Tavi Valley, and why?', rows: 2, placeholder: 'Due to … , … / … because … / As a result, …' },
               { id: 'r6-ev', label: '2 · Evaluating: how strong is Kestrel’s case?', rows: 2, placeholder: 'Kestrel’s promise of … is convincing, but …' },
