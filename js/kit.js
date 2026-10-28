@@ -19,6 +19,8 @@
               turn a sentence into notes in a few characters (symbols, abbreviations), then compare with a model.
      sticky   { type: 'sticky', title?, text, color? }   a pinned note for one key idea
      pairs    { type: 'pairs', items: [{ from, to, tag?, note? }] }   before → after examples, [[changed words]] highlighted
+     hotspot  { type: 'hotspot', src, alt, caption?, title?, hint?, size?, spots: [{ x, y, label?, title, text, color? }] }
+              a picture with numbered markers (x, y in % of the picture); tapping one opens a pop-up with more detail
      para     { type: 'para', id, title?, hint?, label?, placeholder?, items: [{ text, strategy?, keep?: ['IPAT'], sentences?: 3, model }] }
               paraphrase a sentence; a live “copy meter” shows how many of the original’s content words you reused,
               and warns if a technical term that must stay (keep) is missing. Then compare with a model.
@@ -260,6 +262,30 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
       ${it.tag ? `<details class="pr-tag"><summary>${b.ask || 'What changed?'}</summary><b>${it.tag}</b>${it.note ? ` <span>${it.note}</span>` : ''}</details>` : ''}</li>`).join('')}</ol>
   </section>`;
 
+  /* ───────── hotspot: a picture you can tap for more detail ───────── */
+  let hsSeq = 0;
+  B.hotspot = b => { const uid = 'hs' + (++hsSeq);
+    return `<section class="block kit hotspot figure${b.size ? ' figure-' + b.size : ''}" data-hs="${uid}">
+    ${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}<p class="kit-hint hs-hint">${icon('tap')}${b.hint || 'Tap a marker on the picture for more detail.'}</p>
+    <div class="hs-stage"><img src="${esc(b.src)}" alt="${esc(b.alt || '')}" loading="lazy">
+      ${b.spots.map((sp, i) => `<button type="button" class="hs-pin" style="left:${sp.x}%;top:${sp.y}%${sp.color ? `;--c:${sp.color}` : ''}" data-hs-pin="${uid}" data-i="${i}" data-x="${sp.x}" data-y="${sp.y}" aria-expanded="false" aria-label="${esc(strip(sp.title))}"><i></i><span>${sp.label || i + 1}</span></button>`).join('')}
+      <div class="hs-pop" hidden>${b.spots.map((sp, i) => `<div class="hs-card" data-card="${i}" hidden${sp.color ? ` style="--c:${sp.color}"` : ''}><em>${sp.label || i + 1}</em><b>${sp.title}</b><div class="hs-text">${sp.text}</div><button type="button" class="hs-close" data-hs-close aria-label="Close">×</button></div>`).join('')}</div>
+    </div>
+    ${b.caption || b.credit ? `<figcaption>${b.caption ? `<b>${b.caption}</b>` : ''}${b.credit ? ` <span>${esc(b.credit)}</span>` : ''}</figcaption>` : ''}
+  </section>`; };
+  function hsOpen(pin) {
+    const sec = pin.closest('.hotspot'), pop = sec.querySelector('.hs-pop'), i = pin.dataset.i, x = +pin.dataset.x, y = +pin.dataset.y, open = pin.getAttribute('aria-expanded') === 'true';
+    sec.querySelectorAll('.hs-pin').forEach(p => p.setAttribute('aria-expanded', 'false'));
+    sec.querySelectorAll('.hs-card').forEach(c => { c.hidden = true; });
+    if (open) { pop.hidden = true; return; }
+    pin.setAttribute('aria-expanded', 'true'); pop.querySelector(`[data-card="${i}"]`).hidden = false; pop.hidden = false;
+    pop.style.left = x + '%'; pop.style.top = y + '%';
+    pop.style.setProperty('--tx', x > 62 ? 'calc(-100% + 20px)' : x < 38 ? '-20px' : '-50%');
+    pop.style.setProperty('--ty', y > 58 ? 'calc(-100% - 26px)' : '26px');
+    pop.querySelector(`[data-card="${i}"] b`).setAttribute('tabindex', '-1');
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.hotspot .hs-pop:not([hidden])').forEach(p => { p.hidden = true; p.closest('.hotspot').querySelectorAll('.hs-pin').forEach(x => x.setAttribute('aria-expanded', 'false')); }); });
+
   /* ───────── registry ───────── */
   function register(b, reg) {
     if (b.type === 'match') reg(b.id, strip(b.title || 'Match up'));
@@ -291,6 +317,8 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
   /* ───────── events ───────── */
   function celebrate(id, prefix, msg) { toast(msg); confetti(document.getElementById(prefix + id)); }
   function onClick(t, d) {
+    if (d.hsPin) { hsOpen(t); return true; }
+    if (d.hsClose !== undefined) { const sec = t.closest('.hotspot'); sec.querySelector('.hs-pop').hidden = true; sec.querySelectorAll('.hs-pin').forEach(x => x.setAttribute('aria-expanded', 'false')); return true; }
     if (d.mt) { mtTap(d.mt, d.side, Number(d.i)); return true; }
     if (d.mtCheck) { const b = findBlock(d.mtCheck), p = pairsOf(b), left = p.filter(x => x < 0).length;
       if (left && !st().teacher) { toast(`Match every card first (${left} left).`); return true; }

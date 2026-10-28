@@ -91,6 +91,7 @@ const LOCKED_MSG = 'Your teacher has closed the answers for now. Keep working â€
 const wallOn = a => !!(wall && wall.enabled && lesson.wall !== false && a && a.wall !== false);
 
 const ICON = {
+  tap: '<path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-2.5a1.5 1.5 0 0 1 3 0V11m0-1a1.5 1.5 0 0 1 3 0v5.5a5 5 0 0 1-5 5h-1.5a5 5 0 0 1-4.2-2.3L4 13.6a1.4 1.4 0 0 1 2.2-1.7L9 14.5"/>',
   book: '<path d="M3 4c4-1 7 0 9 2 2-2 5-3 9-2v15c-4-1-7 0-9 2-2-2-5-3-9-2zM12 6v15"/>',
   arrow: '<path d="M4 12h15m-6-6 6 6-6 6"/>',
   search: '<circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>',
