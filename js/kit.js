@@ -247,6 +247,27 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
       </li>`; }).join('')}</ol>
   </section>`;
 
+  /* ───────── detect: a writing box whose "function lights" turn on as the student uses each function's language ─────────
+     { type: 'detect', id, title?, hint?, label?, checks: [{ label, color?, any: ['phrase', '/regex/'] }],
+       avoid?: [{ label, any: [...] }], items: [{ task, placeholder?, rows?, model? }] }
+     Matching is case-insensitive; a string written as /…/ is a regular expression. */
+  const dtHit = (any, v) => any.some(a => a.startsWith('/') ? new RegExp(a.slice(1, a.lastIndexOf('/')), 'i').test(v) : norm(v).includes(norm(a)));
+  function dtLights(b, v) {
+    const on = b.checks.filter(c => dtHit(c.any, v)).length, bad = (b.avoid || []).filter(a => dtHit(a.any, v));
+    return `<span class="dt-score"><b>${on}</b>/${b.checks.length}</span>${b.checks.map(c => `<span class="dt-chip${dtHit(c.any, v) ? ' is-on' : ''}" style="--c:${c.color || '#2f7d6b'}"><i aria-hidden="true"></i>${c.label}</span>`).join('')}${bad.map(a => `<span class="dt-chip is-bad"><i aria-hidden="true"></i>${a.label}</span>`).join('')}`;
+  }
+  B.detect = b => `<section class="block kit detect${fresh('dt-' + b.id)}" id="detect-${b.id}">
+    <div class="block-label">${icon('pen')}${b.label || 'Writing studio'}</div>
+    ${b.title ? `<h3>${b.title}</h3>` : ''}${b.hint ? `<p class="kit-hint">${b.hint}</p>` : ''}
+    <ol class="dt-items">${b.items.map((it, i) => { const k = `${b.id}-${i}`, v = String(val(k)), shown = st().checked[k];
+      return `<li class="dt-item">
+        ${it.task ? `<p class="dt-task">${b.items.length > 1 ? `<span class="pa-num">${i + 1}</span>` : ''}${it.task}</p>` : ''}
+        <textarea rows="${it.rows || 3}" data-save="${k}" data-detect="${b.id}" data-i="${i}" placeholder="${esc(it.placeholder || 'Write here…')}">${esc(v)}</textarea>
+        <div class="dt-lights" data-dt-lights="${k}" aria-live="polite">${dtLights(b, v)}</div>
+        ${it.model ? (shown ? `<p class="pa-model"><span>A possible answer</span>${it.model}</p>` : `<button class="btn-quiet btn-sm" data-dt-show="${k}">${icon('check')}Compare with a possible answer</button>`) : ''}
+      </li>`; }).join('')}</ol>
+  </section>`;
+
   /* ───────── sticky: a pinned note for one key idea ─────────
      { type: 'sticky', title?, text, color?: 'yellow' | 'pink' | 'green' | 'blue', tilt?: number } */
   B.sticky = b => `<aside class="block kit sticky sticky-${b.color || 'yellow'}" style="--tilt:${b.tilt ?? -1.5}deg"><i class="sticky-pin" aria-hidden="true"></i>
@@ -296,6 +317,7 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
     if (b.type === 'bingo') b.squares.forEach((s, i) => reg(`${b.id}-${i}`, 'Find someone who: ' + strip(s.text)));
     if (b.type === 'squeeze') b.items.forEach((it, i) => reg(`${b.id}-${i}`, 'Notes: ' + it.text));
     if (b.type === 'para') b.items.forEach((it, i) => reg(`${b.id}-${i}`, 'Paraphrase: ' + it.text));
+    if (b.type === 'detect') b.items.forEach((it, i) => reg(`${b.id}-${i}`, strip(it.task || b.title || 'Writing')));
   }
   function notebookItems(b) {
     const filled = v => String(v ?? '').trim() !== '', out = [];
@@ -311,6 +333,7 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
     if (b.type === 'bingo') { const rows = b.squares.map((s, i) => [strip(s.text), String(val(`${b.id}-${i}`))]).filter(r => r[1].trim()); if (rows.length) out.push({ t: 'table', title: strip(b.title || 'Find someone who'), head: ['Find someone who…', 'Classmate'], rows, widths: [65, 35] }); }
     if (b.type === 'squeeze') b.items.forEach((it, i) => filled(val(`${b.id}-${i}`)) && out.push({ t: 'qa', label: 'Notes for: ' + it.text, value: val(`${b.id}-${i}`) }));
     if (b.type === 'para') b.items.forEach((it, i) => filled(val(`${b.id}-${i}`)) && out.push({ t: 'qa', label: 'Paraphrase of: ' + it.text, value: val(`${b.id}-${i}`) }));
+    if (b.type === 'detect') b.items.forEach((it, i) => filled(val(`${b.id}-${i}`)) && out.push({ t: 'qa', label: strip(it.task || b.title || 'Writing'), value: val(`${b.id}-${i}`) }));
     return out;
   }
 
@@ -354,6 +377,7 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
     if (d.betReset) { const b = findBlock(d.betReset); delete st().checked[b.id]; b.items.forEach((_, i) => { delete st().values[`${b.id}-${i}`]; delete st().values[`${b.id}-${i}-s`]; }); save(); rerender(); return true; }
 
     if (d.paShow) { if (!String(val(d.paShow)).trim()) { toast('Write your paraphrase first, then compare.'); return true; } st().checked[d.paShow] = true; save(); rerender(); return true; }
+    if (d.dtShow) { if (!String(val(d.dtShow)).trim()) { toast('Write your answer first, then compare.'); return true; } st().checked[d.dtShow] = true; save(); rerender(); return true; }
     if (d.sqShow) { if (!String(val(d.sqShow)).trim()) { toast('Write your notes first, then compare.'); return true; } st().checked[d.sqShow] = true; save(); rerender(); return true; }
     return false;
   }
@@ -363,6 +387,7 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
       if (st().checked[t.dataset.limit]) { delete st().checked[t.dataset.limit]; save(); } }
     if (t.dataset.bingo) bingoRefresh(t.dataset.bingo);
     if (t.dataset.para) { const b = findBlock(t.dataset.para), m = document.querySelector(`[data-pa-meter="${CSS.escape(t.dataset.save)}"]`); if (b && m) m.innerHTML = paraMeter(b.items[Number(t.dataset.i)], t.value); }
+    if (t.dataset.detect) { const b = findBlock(t.dataset.detect), m = document.querySelector(`[data-dt-lights="${CSS.escape(t.dataset.save)}"]`); if (b && m) m.innerHTML = dtLights(b, t.value); }
     if (t.dataset.squeeze) { const n = t.value.length, max = Number(t.dataset.squeeze), g = document.querySelector(`[data-sq-gauge="${CSS.escape(t.dataset.save)}"]`);
       if (g) { g.innerHTML = `<b>${n}</b>/${max}`; g.style.setProperty('--p', Math.min(1, n / max)); g.className = 'sq-gauge' + (n > max ? ' is-over' : n ? ' is-in' : ''); } }
   }
