@@ -255,3 +255,21 @@
 .hs-close:hover { background: var(--line, #e3ded5); }
 @media (max-width: 640px) { .hs-pop { position: static; transform: none; width: auto; margin-top: 12px; } .hs-pin { width: 28px; height: 28px; font-size: .7rem; } }
 @media (prefers-reduced-motion: reduce) { .hs-pin i, .hs-pop { animation: none; } }
+
+/* ───────── detect: writing studio with function lights ───────── */
+.dt-items { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.dt-item { padding: 16px; border-radius: var(--r); background: var(--surface-2); border: 1px solid var(--line); }
+.dt-task { margin: 0 0 10px; font-size: 1rem; line-height: 1.55; }
+.dt-item textarea { width: 100%; min-height: 84px; padding: 12px 14px; border-radius: 12px; border: 1.5px solid var(--line-2); background: #fff; font: 1rem/1.6 var(--sans); color: var(--ink); resize: vertical; }
+.dt-item textarea:focus { outline: none; border-color: #7a4a8c; box-shadow: 0 0 0 4px rgba(122, 74, 140, .12); }
+.dt-lights { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+.dt-score { display: inline-flex; align-items: center; justify-content: center; min-width: 46px; height: 30px; padding: 0 10px; white-space: nowrap; border-radius: 999px; background: var(--ink); color: #fff; font: 700 .82rem/1 var(--sans); }
+.dt-score b { font-weight: 800; }
+.dt-chip { --c: #2f7d6b; display: inline-flex; align-items: center; gap: 7px; padding: 5px 12px 5px 8px; border-radius: 999px; border: 1.5px dashed var(--line-2); color: var(--ink-3, #7b8790); font: 700 .8rem/1.3 var(--sans); background: #fff; transition: background .3s, color .3s, border-color .3s, transform .3s var(--ease); }
+.dt-chip i { width: 12px; height: 12px; border-radius: 50%; background: var(--line-2); transition: background .3s, box-shadow .3s; }
+.dt-chip.is-on { border-style: solid; border-color: var(--c); color: var(--c); background: color-mix(in srgb, var(--c) 10%, #fff); }
+.dt-chip.is-on i { background: var(--c); box-shadow: 0 0 0 4px color-mix(in srgb, var(--c) 22%, transparent); animation: dtOn .5s var(--ease); }
+.dt-chip.is-bad { border-style: solid; border-color: #c4562f; color: #8f2f17; background: #fdf0ec; }
+.dt-chip.is-bad i { background: #c4562f; }
+@keyframes dtOn { from { transform: scale(.3); } 60% { transform: scale(1.4); } }
+@media (prefers-reduced-motion: reduce) { .dt-chip.is-on i { animation: none; } }
