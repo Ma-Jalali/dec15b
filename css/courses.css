@@ -216,3 +216,8 @@
 @media (prefers-reduced-motion: reduce) {
   :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ic { transition: none; }
 }
+
+/* DEC10: a new part (tab or Next) fades in, so the change is visible */
+[data-course="dec10"] .act-enter { animation: actEnter .45s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes actEnter { from { opacity: 0; transform: translateY(14px); } }
+@media (prefers-reduced-motion: reduce) { [data-course="dec10"] .act-enter { animation: none; } }
