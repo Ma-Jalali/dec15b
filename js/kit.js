@@ -17,6 +17,8 @@
               find-someone-who: write a classmate's name in a square; four in a row is BINGO.
      squeeze  { type: 'squeeze', id, title?, hint?, items: [{ text, max, model }] }
               turn a sentence into notes in a few characters (symbols, abbreviations), then compare with a model.
+     sticky   { type: 'sticky', title?, text, color? }   a pinned note for one key idea
+     pairs    { type: 'pairs', items: [{ from, to, tag?, note? }] }   before → after examples, [[changed words]] highlighted
      para     { type: 'para', id, title?, hint?, label?, placeholder?, items: [{ text, strategy?, keep?: ['IPAT'], sentences?: 3, model }] }
               paraphrase a sentence; a live “copy meter” shows how many of the original’s content words you reused,
               and warns if a technical term that must stay (keep) is missing. Then compare with a model.
@@ -241,6 +243,21 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
         <div class="pa-meter" data-pa-meter="${k}">${paraMeter(it, v)}</div>
         ${shown ? `<p class="pa-model"><span>A possible answer</span>${esc(it.model)}</p>` : `<button class="btn-quiet btn-sm" data-pa-show="${k}">${icon('check')}Compare with a possible answer</button>`}
       </li>`; }).join('')}</ol>
+  </section>`;
+
+  /* ───────── sticky: a pinned note for one key idea ─────────
+     { type: 'sticky', title?, text, color?: 'yellow' | 'pink' | 'green' | 'blue', tilt?: number } */
+  B.sticky = b => `<aside class="block kit sticky sticky-${b.color || 'yellow'}" style="--tilt:${b.tilt ?? -1.5}deg"><i class="sticky-pin" aria-hidden="true"></i>
+    ${b.title ? `<h3>${b.title}</h3>` : ''}<div class="sticky-text">${b.text}</div></aside>`;
+
+  /* ───────── pairs: before → after examples; [[words]] are highlighted; the tag opens on tap ─────────
+     { type: 'pairs', title?, hint?, items: [{ from, to, tag?, note? }], ask?: 'What changed?' } */
+  const mk = t => esc(t).replace(/\[\[(.+?)\]\]/g, '<mark>$1</mark>');
+  B.pairs = b => `<section class="block kit pairs">
+    ${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}${b.hint ? `<p class="kit-hint">${b.hint}</p>` : ''}
+    <ol class="pr-list">${b.items.map((it, i) => `<li class="pr-item"><span class="pr-num">${i + 1}</span>
+      <p class="pr-from"><small>Original</small>${mk(it.from)}</p><span class="pr-arrow" aria-hidden="true">${icon('arrow')}</span><p class="pr-to"><small>New version</small>${mk(it.to)}</p>
+      ${it.tag ? `<details class="pr-tag"><summary>${b.ask || 'What changed?'}</summary><b>${it.tag}</b>${it.note ? ` <span>${it.note}</span>` : ''}</details>` : ''}</li>`).join('')}</ol>
   </section>`;
 
   /* ───────── registry ───────── */
