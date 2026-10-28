@@ -1584,6 +1584,13 @@ document.addEventListener('click', e => {
   if (d.jump) {
     const s = lesson.sections.find(x => x.activities.some(a => a.id === d.jump));
     state.active[s.id] = d.jump; save(); render();
+    /* DEC10: Next / Previous at the bottom go back to the TOP of the page (it feels like a new part);
+       the numbered tabs at the top just change the part — the page does not move. The new part fades in. */
+    if (course.id === 'dec10') {
+      if (t.closest('.pager')) window.scrollTo({ top: 0, behavior: calm() ? 'auto' : 'smooth' });
+      const card = $('#' + d.jump); if (card) { card.classList.remove('act-enter'); void card.offsetWidth; card.classList.add('act-enter'); card.focus({ preventScroll: true }); }
+      return;
+    }
     const el = $('.act-tabs'); el?.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     $('#' + d.jump)?.focus({ preventScroll: true }); return;
   }
