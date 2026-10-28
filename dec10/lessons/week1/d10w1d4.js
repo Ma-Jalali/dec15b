@@ -398,95 +398,167 @@ window.DEC15_LESSON = {
       ]
     },
 
-    /* ───────────────────────── 15A · Responding-to-feedback video ───────────────────────── */
+    /* ───────────────────────── 15A · Seminar + Portfolio: the big picture, and the responding-to-feedback video ─────────────────────────
+       Rebuilt so students can see the whole task, Weeks 2–7: a one-page map, an animated week grid, one slide per week,
+       what presenters and the audience do in the room, their own dates, then the video. Facts follow the current
+       Assessments page in Canvas (8 written uploads + 1 video per group; audience feedback after every presentation). */
     {
       id: 'video', number: '02', code: '15A', minutes: 60,
       tone: 'teal', art: 'dec10/assets/week1/s-video.svg',
-      title: 'Responding-to-feedback video',
-      subtitle: 'Your Seminar Portfolio, step by step',
-      outcome: 'You understand the Portfolio and the responding-to-feedback video, and your group has started planning it.',
+      title: 'Seminar + Portfolio: the big picture',
+      subtitle: 'What happens each week, what you upload, and your feedback video',
+      outcome: 'You can say what happens each week from Week 2 to Week 7, what your group does as presenters and as the audience, what you upload and when, and how to make your video.',
       activities: [
         {
-          id: 'f1', short: 'Timeline', minutes: 8, grouping: 'Group',
+          id: 'sp1', short: 'Guess first', minutes: 5, grouping: 'Group',
           art: 'dec10/assets/week1/v/v-d10w1d4-f1.svg',
-          title: 'Before, on the day, after: who does what?',
-          goal: 'See how the Seminar and the Portfolio fit together.',
+          title: 'How much do you really know?',
+          goal: 'Find out what you know about the task before we start.',
           blocks: [
-            { type: 'hotspot', src: 'dec10/assets/week1/portfolio-flow.svg', spots: [{ x: 42.7, y: 33, title: "Presenting group · the week before", text: "Give your Opening Remarks (5–7 min). Then write <b>Portfolio Submission 1</b>: a summary of, and reflection on, your teacher’s verbal feedback.", label: "1", color: "#3a58a0" }, { x: 42.7, y: 67, title: "Audience · the week before", text: "Listen to the Opening Remarks. In your seminar group, discuss your reactions and post ONE group post with reactions and 1–2 questions on the Discussion Board — in class.", label: "2", color: "#3a58a0" }, { x: 69, y: 33, title: "Presenting group · the seminar day", text: "Deliver your seminar (10–12 min) and run the discussion. Your teacher gives verbal feedback. Later: <b>Submission 2</b>, a summary of and reflection on the teacher’s and peers’ feedback.", label: "3", color: "#2b776e" }, { x: 69, y: 67, title: "Audience · the seminar day", text: "Take part in the discussion. Then, as a group, prepare feedback using the Academic Success Toolkit and the feedback tool, choose a mode (audio, video or text), and upload it to the presenting group’s Portfolio.", label: "4", color: "#2b776e" }, { x: 95.2, y: 33, title: "Presenting group · after", text: "<b>Submission 3 — the video.</b> One 8-minute video per group: 4 minutes on feedback literacy and 4 minutes on one other AST skill, all members together. This is the assessed part (10% of your speaking score).", label: "5", color: "#b0512a" }, { x: 95.2, y: 67, title: "Audience · after", text: "Your <b>Additional Portfolio Submission</b>: the peer feedback your group gave. You do this three times during the course, once for each other group.", label: "6", color: "#b0512a" }], size: 'wide', alt: 'The Seminar + Portfolio timeline. The week before: the seminar group gives Opening Remarks and submits Portfolio Submission 1; the rest of the class posts reactions and questions to the Discussion Board. The day of the seminar: the group delivers the seminar; the rest of the class takes part, then uploads peer feedback to the group’s Portfolio. After the seminar: the group submits Portfolio Submissions 2 and 3 — 3 is the video.', caption: 'Seminar + Portfolio: three stages.', credit: 'Full task description and rubric: Assessments (side panel) and Canvas.' },
-            { type: 'sort', id: 'f1-sort', title: 'Presenting group or audience group?', hint: 'Every group does both jobs during the course: one week you present, the other weeks you are the audience.', buckets: [
-              { label: 'Presenting (seminar) group', letter: 'P' }, { label: 'Audience (rest of the class)', letter: 'A' }
-            ], items: [
-              { text: 'Deliver a 5–7-minute opening remarks presentation.', answer: 0 },
-              { text: 'Post reactions and follow-up questions to the Discussion Board.', answer: 1 },
-              { text: 'Choose a focus for the seminar from the Discussion Board comments.', answer: 0 },
-              { text: 'Upload feedback (video, audio or text) to the other group’s Portfolio.', answer: 1 },
-              { text: 'Write a summary of, and reflection on, the teacher’s feedback (Submission 1).', answer: 0 },
-              { text: 'Record a video response to the teacher’s and classmates’ feedback (Submission 3).', answer: 0 },
-              { text: 'Submit an Additional Portfolio Submission: peer feedback.', answer: 1 }
+            { type: 'key', title: 'Today’s goals', points: [
+              'Say what happens <b>each week</b>, from Week 2 to Week 7.',
+              'Say what your group does as <b>presenters</b> and as the <b>audience</b>.',
+              'Know your <b>9 uploads</b> and when each one is due.',
+              'Know what goes in your <b>video</b>, and start your plan.'
+            ] },
+            { type: 'do', n: 1, who: 'group', text: 'Bet first, learn later. Choose an answer and bet your coins: bet more when you are sure. Then check.' },
+            { type: 'bet', id: 'sp1-bet', title: 'Seminar + Portfolio: true facts', proof: 'Bet big only when you are sure.', coins: 10, items: [
+              { q: 'How many presentations does your group give?', options: ['One', 'Two', 'Four'], answer: 'Two', why: 'Opening Remarks (5–7 minutes), then your Seminar one week later.' },
+              { q: 'How many times does your group upload something to a Portfolio?', options: ['3 times', '6 times', '9 times'], answer: '9 times', why: '8 written uploads and 1 video. For your own presentations: 2 written + 1 video. For the other three groups: 6 feedback uploads.' },
+              { q: 'Which part gets a mark?', options: ['The Opening Remarks', 'The Seminar', 'The video'], answer: 'The video', why: 'The video is marked with the Video Task Rubric. But you must finish EVERY task on time to get a score.' }
             ] }
           ]
         },
         {
-          id: 'f2', short: 'Portfolio', minutes: 10, grouping: 'Pair',
+          id: 'sp2', short: 'The map', minutes: 8, grouping: 'Pair',
           art: 'dec10/assets/week1/v/v-d10w1d4-f2.svg',
-          title: 'Six Portfolio submissions',
-          goal: 'Know what goes in your Portfolio — and which one is marked.',
+          title: 'The whole task on one page',
+          goal: 'See your two jobs: presenting and being the audience.',
           blocks: [
-            { type: 'tabs', title: 'Your six submissions', tabs: [
-              { label: 'As the presenting group', blocks: [
-                { type: 'cards', numbered: true, items: [
-                  { label: 'After Opening Remarks', text: 'A written summary of, and reflection on, your teacher’s verbal feedback.' },
-                  { label: 'After the Seminar', text: 'A written summary of, and reflection on, your teacher’s and peers’ feedback.' },
-                  { label: 'The video · assessed', text: 'A video response to (and reflection on) your teacher’s and classmates’ feedback.' }
-                ] }
-              ] },
-              { label: 'As an audience group', blocks: [
-                { type: 'cards', numbered: true, items: [
-                  { label: 'Peer feedback 1', text: 'Your group agrees on feedback and chooses a mode: audio, video or written text.' },
-                  { label: 'Peer feedback 2', text: 'The same, for another group.' },
-                  { label: 'Peer feedback 3', text: 'The same, for another group.' }
-                ] }
-              ] }
+            { type: 'do', n: 1, who: 'pair', text: 'Every group has two jobs. Tap each card on the map. Partner A reads the left side, Partner B the right side. Then tell each other.' },
+            { type: 'hotspot', src: 'dec10/assets/week1/sp-map.svg', size: 'wide', alt: 'The Seminar + Portfolio task on one page. When your group presents: Opening Remarks then upload 1; Seminar then upload 2; video, upload 3, the marked part. When another group presents: after their Opening Remarks, listen and use the Feedback Tool, post 1–2 questions, upload 150–200 words the same day; after their Seminar, the same without the questions. In total: 2 presentations, 8 written uploads, 1 video.', caption: 'Seminar + Portfolio on one page.', credit: 'Full details: Assessments (side panel) and Canvas.', spots: [
+              { x: 36.5, y: 23.9, label: '1', color: '#d4583a', title: 'Opening Remarks → Upload 1', text: 'In class, 5–7 minutes. Everyone in your group speaks. Your teacher and the audience give you feedback.<br><b>Upload 1:</b> a summary of the feedback and a reflection on it, 150–200 words, by the Monday after.' },
+              { x: 36.5, y: 47.7, label: '2', color: '#d4583a', title: 'Seminar → Upload 2', text: 'One week later, in class. You present your research and lead a class discussion.<br><b>Upload 2:</b> the same kind of summary and reflection, 150–200 words, by the Monday after.' },
+              { x: 36.5, y: 71.4, label: '3', color: '#b07a00', title: 'Video → Upload 3 (marked)', text: 'Up to 8 minutes. You respond to ALL your feedback, from the Opening Remarks and the Seminar. Upload it within ONE week of your Seminar. This is the part with a mark.' },
+              { x: 63.8, y: 27.2, label: 'A', color: '#3a58a0', title: 'Another group’s Opening Remarks', text: 'Listen and fill in the <b>Feedback Tool</b>. With your group, post 1–2 questions on the discussion board: what do you want them to explain in their Seminar? Then upload 150–200 words of feedback to their Portfolio, the <b>same day</b>.' },
+              { x: 63.8, y: 57.8, label: 'B', color: '#3a58a0', title: 'Another group’s Seminar', text: 'Listen and fill in the Feedback Tool. Discuss their two questions in your group. Then upload 150–200 words of feedback to their Portfolio, the <b>same day</b>.' },
+              { x: 81, y: 92, label: '=', color: '#14293a', title: 'Count your uploads', text: 'Your own group: 2 written + 1 video.<br>The other three groups: 3 × 2 = 6 feedback uploads.<br><b>Total: 8 written uploads + 1 video.</b>' }
             ] },
-            { type: 'checklist', id: 'f2-eff', title: 'Your peer feedback must be effective. Tick the ones you remember from yesterday.', meter: ['remembered', 'You are feedback literate!'], items: [
-              'addresses the assessment criteria (rubric)', 'is specific, not general', 'is clear', 'is useful and actionable', 'is timely', 'advises how to improve (feed forward)', 'is sensitive and encouraging', 'is not a criticism', 'uses appropriate language'
+            { type: 'do', n: 2, who: 'pair', text: 'Check your map. Who does each job: the presenting group or the audience?' },
+            { type: 'sort', id: 'sp2-sort', title: 'Presenters or audience?', buckets: [
+              { label: 'Presenting group', letter: 'P' }, { label: 'Audience group', letter: 'A' }
+            ], items: [
+              { text: 'Give Opening Remarks (5–7 minutes).', answer: 0 },
+              { text: 'Fill in the Feedback Tool while you listen.', answer: 1 },
+              { text: 'Post 1–2 questions on the discussion board.', answer: 1 },
+              { text: 'Choose ONE question from the board as your research focus.', answer: 0 },
+              { text: 'Discuss two questions with your group during the Seminar.', answer: 1 },
+              { text: 'Give a 1-minute summary of one group’s discussion.', answer: 0 },
+              { text: 'Upload 150–200 words of feedback the same day.', answer: 1 },
+              { text: 'Write a summary and reflection by the Monday after.', answer: 0 },
+              { text: 'Make a video of up to 8 minutes about all your feedback.', answer: 0 }
             ] }
           ]
         },
         {
-          id: 'f3', short: 'Video spec', minutes: 8, grouping: 'Pair',
+          id: 'sp3', short: 'Week by week', minutes: 12, grouping: 'Class → Pair',
           art: 'dec10/assets/week1/v/v-d10w1d4-f3.svg',
-          title: 'The video: rules you cannot break',
-          goal: 'Catch the traps before your group records.',
+          title: 'Week by week: Weeks 2 to 7',
+          goal: 'Follow the task one week at a time.',
           blocks: [
-            { type: 'quiz', id: 'f3-q', title: 'True or false?', items: [
-              { q: 'Each person in the group records and submits their own video.', options: ['True', 'False'], answer: 'False', why: 'ONE video per group, submitted by ONE person.' },
-              { q: 'The video is about 8 minutes long.', options: ['True', 'False'], answer: 'True' },
-              { q: 'Your best speaker can do most of the talking.', options: ['True', 'False'], answer: 'False', why: 'ALL group members must make equal contributions.' },
-              { q: 'Group members can record their parts separately and join the clips.', options: ['True', 'False'], answer: 'False', why: 'ALL group members must appear together.' },
-              { q: 'You can record in Zoom, on your own device or in Canvas Studio.', options: ['True', 'False'], answer: 'True', why: 'Your teacher will confirm the options for your class.' },
-              { q: 'The video only needs to reflect on your feedback.', options: ['True', 'False'], answer: 'False', why: 'It must include BOTH a reflection on your feedback AND references to the Academic Success Toolkit (AST).' }
+            { type: 'do', n: 1, who: 'class', text: 'Watch the animation. The yellow box moves one week at a time. Read the sentence under the grid. Find your group’s row.' },
+            { type: 'figure', src: 'dec10/assets/week1/sp-weeks.svg', size: 'wide', alt: 'Week by week. Group 1: Opening Remarks Week 2, Seminar Week 3, video due Week 4. Group 2: Opening Remarks Week 3, Seminar Week 4, video due Week 5. Group 3: Opening Remarks Week 4, Seminar Week 5, video due Week 6. Group 4: Opening Remarks Week 5, Seminar Week 6, video due Week 7. In the other weeks, each group is the audience.', caption: 'Each group: Opening Remarks → Seminar → video. A new group starts every week.' },
+            { type: 'do', n: 2, who: 'pair', text: 'Now go step by step. Use the arrows. For each week, say: who presents in class, and what is uploaded after class?' },
+            { type: 'carousel', single: true, title: 'One week at a time', slides: [
+              { image: 'dec10/assets/week1/sp-w2.svg', alt: 'Week 2: Group 1 gives its Opening Remarks; Groups 2, 3 and 4 are the audience. After class, the audience groups upload feedback and post questions today; Group 1 uploads its summary and reflection by Monday.', title: 'Week 2 · The first Opening Remarks', text: 'Group 1 presents. Everyone else is the audience. The audience uploads feedback and posts questions <b>today</b>. Group 1 writes Upload 1 by <b>Monday</b>.' },
+              { image: 'dec10/assets/week1/sp-w3.svg', alt: 'Week 3: first Group 1 gives its Seminar, then Group 2 gives its Opening Remarks. After class, audience groups upload feedback today; Group 1 uploads 2 by Monday and the video within one week; Group 2 uploads 1 by Monday.', title: 'Week 3 · Two presentations', text: 'First Group 1’s <b>Seminar</b>, then Group 2’s <b>Opening Remarks</b>. You are the audience for every presentation that is not yours.' },
+              { image: 'dec10/assets/week1/sp-w4.svg', alt: 'Week 4: Group 2 gives its Seminar, then Group 3 gives its Opening Remarks. Group 1’s video is due.', title: 'Week 4 · The pattern repeats', text: 'Group 2’s Seminar, then Group 3’s Opening Remarks. Group 1’s video is due this week.' },
+              { image: 'dec10/assets/week1/sp-w5.svg', alt: 'Week 5: Group 3 gives its Seminar, then Group 4 gives its Opening Remarks. Group 2’s video is due.', title: 'Week 5 · Group 4 starts', text: 'Group 3’s Seminar, then Group 4’s Opening Remarks. Group 2’s video is due.' },
+              { image: 'dec10/assets/week1/sp-w6.svg', alt: 'Week 6: Group 4 gives its Seminar; Groups 1, 2 and 3 are the audience. Group 3’s video is due; Group 4’s video is due in Week 7.', title: 'Week 6 · The last Seminar', text: 'Group 4’s Seminar. Group 3’s video is due. Group 4’s video is due in Week 7. Then the task is finished.' }
             ] },
-            { type: 'steps', title: 'Before you record', items: [
-              { who: 'group', text: 'Watch, listen to or read your <b>peers’ feedback</b>. Reflect on it and discuss it.' },
-              { who: 'group', text: 'Reflect on your <b>teacher’s feedback</b> on your Opening Remarks and your Seminar. Discuss it.' },
-              { who: 'group', text: 'Look at the <b>AST framework</b> and decide how you will answer the questions (next activity).' }
+            { type: 'do', n: 3, who: 'pair', text: 'Test your partner. Then check.' },
+            { type: 'quiz', id: 'sp3-q', items: [
+              { q: 'Who presents in Week 3?', options: ['Only Group 2', 'Group 1 (Seminar) and Group 2 (Opening Remarks)', 'All four groups'], answer: 'Group 1 (Seminar) and Group 2 (Opening Remarks)' },
+              { q: 'When is Group 3’s Seminar?', options: ['Week 4', 'Week 5', 'Week 6'], answer: 'Week 5', why: 'The Seminar is always one week after the Opening Remarks (Week 4).' },
+              { q: 'Another group gave its Seminar today. When must your group upload its feedback?', options: ['By the end of today', 'By Monday', 'Within one week'], answer: 'By the end of today' },
+              { q: 'Your group gave its Opening Remarks today. When is Upload 1 due?', options: ['By the end of today', 'By the Monday after', 'In Week 7'], answer: 'By the Monday after' }
             ] }
           ]
         },
         {
-          id: 'f4', short: 'AST parts', minutes: 18, grouping: 'Group',
+          id: 'sp4', short: 'In the room', minutes: 10, grouping: 'Pair',
           art: 'dec10/assets/week1/v/v-d10w1d4-f4.svg',
-          title: 'Two parts, four minutes each',
-          goal: 'Choose how you will do each part of your video.',
+          title: 'What happens in the room?',
+          goal: 'Know what presenters say and what the audience does, minute by minute.',
           blocks: [
-            { type: 'hotspot', src: 'dec10/assets/week1/video-parts.svg', spots: [{ x: 27.5, y: 41, title: "Part 1 · Feedback literacy (4 min) — everyone must do this", text: "Reflect on the teacher’s feedback (Opening Remarks and Seminar) and the peer feedback. You choose the format: an interview, acting out the feedback, or a discussion. Say what you understood, what you decided, and what you will do next time.", label: "1", color: "#a3416a" }, { x: 72.5, y: 41, title: "Part 2 · ONE other skill (4 min) — a panel discussion", text: "All group members together. Choose one skill: criticality, self-regulation and monitoring, group work skills, research skills, or digital literacy and AI. Answer at least one guiding question from each of the three categories, and say which skill was most challenging for you.", label: "2", color: "#2d8a9a" }], size: 'wide', alt: 'The 8-minute video in two parts. Part 1, 4 minutes: Feedback literacy — everyone must do this; you choose how, for example an interview, acting or a discussion. Part 2, 4 minutes: a panel discussion with all group members about ONE other skill — criticality, self-regulation and monitoring, group work skills, research skills, or digital literacy and AI.', caption: 'Your 8-minute video.' },
-            { type: 'cards', pick: 'f4-format', title: 'Part 1 · Feedback literacy (must). How will your group do it?', items: [
+            { type: 'do', n: 1, who: 'pair', text: 'Look at the two presentations, minute by minute. Tap each lane: what do the presenters do? What does the audience do?' },
+            { type: 'hotspot', src: 'dec10/assets/week1/sp-day.svg', size: 'wide', alt: 'Opening Remarks: presenters say which country and why, then its sustainability problems; the audience listens and fills in the Feedback Tool, then posts questions and uploads feedback. Seminar: Part 1a reactions and focus, 1b research, Part 2 the class discusses two questions, Part 3 one-minute summaries; the audience listens, discusses, then uploads feedback. At the end the teacher gives feedback.', caption: 'Presenters and audience: both are busy.', spots: [
+              { x: 3, y: 18, label: 'P', color: '#d4583a', title: 'Opening Remarks · presenters', text: 'Everyone speaks. Answer: <b>Which country did we choose, and why?</b> and <b>What are its sustainability problems: causes and effects?</b> No solutions yet: those come in the Seminar.' },
+              { x: 3, y: 32, label: 'A', color: '#3a58a0', title: 'Opening Remarks · audience', text: 'Listen and fill in the Feedback Tool. After the talk, agree on 1–2 questions as a group and post them on the discussion board. Upload 150–200 words of feedback today.' },
+              { x: 3, y: 56.5, label: 'P', color: '#d4583a', title: 'Seminar · presenters', text: '<b>Part 1</b> (10–12 min): the class’s reactions and the ONE question you chose (2–3 min), then your research (8–10 min).<br><b>Part 2</b> (10 min): give the class two questions to discuss. Listen and take notes.<br><b>Part 3:</b> each of you gives a 1-minute summary of one group’s discussion.' },
+              { x: 3, y: 70.4, label: 'A', color: '#3a58a0', title: 'Seminar · audience', text: 'Listen and fill in the Feedback Tool. Discuss the two questions in your group: the presenters are listening. Then upload 150–200 words of feedback today.' }
+            ] },
+            { type: 'do', n: 2, who: 'pair', text: 'Each presentation answers different questions. Read them.' },
+            { type: 'model', title: 'What questions do you answer?', rows: [
+              ['Opening Remarks', 'Which country did we choose? Why? · What are its sustainability problems (causes and effects)?'],
+              ['Seminar', 'What did the class ask us? Which ONE question did we choose? · What did our research find about our seminar question? · What two questions will the class discuss?']
+            ], note: 'You may use one framework from Week 1 (triple bottom line, IPAT or DTM) in the Opening Remarks OR the Seminar.' },
+            { type: 'do', n: 3, who: 'alone', text: 'As the audience, you post questions on the discussion board. Use these starters. Write one question you could ask Group 1 after their Opening Remarks.' },
+            { type: 'language', title: 'Questions for the discussion board', groups: [
+              { label: 'Ask for more', phrases: ['Can you include some examples of … and sources to support …?', 'We are not sure about … . Can you explain this in your seminar?'] },
+              { label: 'Ask why', phrases: ['Why did you say …?', 'Can you explain why …?'] }
+            ] },
+            { type: 'fields', fields: [
+              { id: 'sp4-q', label: 'My question for Group 1', rows: 2, placeholder: 'Can you explain why …?' }
+            ] }
+          ]
+        },
+        {
+          id: 'sp5', short: 'Our dates', minutes: 5, grouping: 'Seminar group',
+          art: 'dec10/assets/week1/v/v-d10w1d4-f5.svg',
+          title: 'Our group’s dates',
+          goal: 'Write your own timeline so you never miss a deadline.',
+          blocks: [
+            { type: 'do', n: 1, who: 'group', text: 'Sit in your Seminar group. Find your row in the week grid. Write your dates below. Check the exact days in the <a href="https://canvas.sydney.edu.au/courses/76269/files/53312425?wrap=1" target="_blank" rel="noopener">Portfolio schedule</a> on Canvas.' },
+            { type: 'fields', fields: [
+              { id: 'sp5-g', label: 'Our group number and topic', rows: 1, placeholder: 'Group 2 · Green jobs' },
+              { id: 'sp5-or', label: 'Our Opening Remarks: week and day', rows: 1, placeholder: 'Week 3, …' },
+              { id: 'sp5-u1', label: 'Upload 1 due (the Monday after)', rows: 1, placeholder: '' },
+              { id: 'sp5-sem', label: 'Our Seminar: week and day', rows: 1, placeholder: 'Week 4, …' },
+              { id: 'sp5-u2', label: 'Upload 2 due (the Monday after)', rows: 1, placeholder: '' },
+              { id: 'sp5-vid', label: 'Our video due (within one week of our Seminar)', rows: 1, placeholder: '' }
+            ] },
+            { type: 'sticky', color: 'yellow', title: 'Don’t forget', text: '<p>Every week another group presents, your group uploads feedback <b>the same day</b>.</p><p>Every task must be done on time, or you cannot get a score.</p>' }
+          ]
+        },
+        {
+          id: 'sp6', short: 'The video', minutes: 12, grouping: 'Group',
+          art: 'dec10/assets/week1/v/v-d10w1d4-f4.svg',
+          title: 'Upload 3: the responding-to-feedback video',
+          goal: 'Know what goes in the video and choose how you will do it.',
+          blocks: [
+            { type: 'do', n: 1, who: 'group', text: 'The video is the marked part. Tap each half of the video below. What must you talk about?' },
+            { type: 'hotspot', src: 'dec10/assets/week1/video-parts.svg', size: 'wide', alt: 'The 8-minute video in two parts. Part 1, about 4 minutes: Feedback literacy, which everyone must do; you choose how, for example an interview, acting or a discussion. Part 2, about 4 minutes: a panel discussion about ONE other skill.', caption: 'Your video: up to 8 minutes, two AST skills.', spots: [
+              { x: 27.5, y: 41, label: '1', color: '#a3416a', title: 'Part 1 · Feedback literacy (about 4 min): a must', text: 'Talk about ALL your feedback: from your teacher and the audience, on your Opening Remarks and your Seminar. What did you understand? What did you learn? What will you do next time? You choose the format: an interview, acting, or a discussion.' },
+              { x: 72.5, y: 41, label: '2', color: '#2d8a9a', title: 'Part 2 · ONE more skill (about 4 min): a panel discussion', text: 'Choose one: criticality, self-regulation and monitoring, group work skills, research skills, or digital literacy and AI. Answer at least ONE guiding question from each category. Also say which skill was the most challenging for you, and why.' }
+            ] },
+            { type: 'do', n: 2, who: 'group', text: 'True or false? Check what you know about the rules.' },
+            { type: 'quiz', id: 'sp6-q', items: [
+              { q: 'Your group makes ONE video together.', options: ['True', 'False'], answer: 'True', why: 'One video per group, uploaded to your group’s Portfolio.' },
+              { q: 'The video can be 15 minutes long.', options: ['True', 'False'], answer: 'False', why: 'Up to 8 minutes.' },
+              { q: 'The video is only about the Seminar feedback.', options: ['True', 'False'], answer: 'False', why: 'It responds to ALL your feedback: Opening Remarks AND Seminar, from your teacher AND the audience.' },
+              { q: 'You can choose any two AST skills.', options: ['True', 'False'], answer: 'False', why: 'Feedback literacy is a must. You choose only the second skill.' },
+              { q: 'Every member must appear on camera.', options: ['True', 'False'], answer: 'False', why: 'Not everyone has to appear. For example, one member may be good at editing. But everyone must share the work fairly.' },
+              { q: 'You upload the video within one week of your Seminar.', options: ['True', 'False'], answer: 'True' }
+            ] },
+            { type: 'do', n: 3, who: 'group', text: 'Choose how your group will do Part 1.' },
+            { type: 'cards', pick: 'sp6-format', title: 'Part 1 · Feedback literacy', items: [
               { label: 'Interview', text: 'One member interviews the others about the feedback.', icon: 'chat' },
-              { label: 'Acting', text: 'Act out receiving the feedback and deciding what to do.', icon: 'model' },
+              { label: 'Acting', text: 'Act out getting the feedback and deciding what to do.', icon: 'model' },
               { label: 'Discussion', text: 'A natural group discussion of the feedback.', icon: 'list' }
             ] },
-            { type: 'cards', pick: 'f4-skill', title: 'Part 2 · Panel discussion. Which ONE other skill?', items: [
+            { type: 'do', n: 4, who: 'group', text: 'Choose ONE more skill for Part 2.' },
+            { type: 'cards', pick: 'sp6-skill', title: 'Part 2 · Panel discussion', items: [
               { label: 'Criticality', text: 'question, compare, decide' },
               { label: 'Self-regulation and monitoring', text: 'goals, time, progress' },
               { label: 'Group work skills', text: 'fair work, clear talk' },
@@ -495,26 +567,40 @@ window.DEC15_LESSON = {
             ] },
             { type: 'key', title: 'The guiding questions', points: [
               'Your teacher will show you the PDF <b>AST guiding questions</b> (W1 D4 15B).',
-              'For your Part 2 skill, answer at least ONE question from EACH category: <b>Appreciating feedback</b> · <b>Making judgements</b> · <b>Taking action</b>.',
-              'In the panel, each member should also say which skill was <b>the most challenging</b> for them, and why.'
+              'For your Part 2 skill, answer at least ONE question from EACH category: <b>Appreciating feedback</b> · <b>Making judgements</b> · <b>Taking action</b>.'
+            ] },
+            { type: 'steps', title: 'Before you record', items: [
+              { who: 'group', text: 'Collect ALL your feedback: teacher and audience, Opening Remarks and Seminar.' },
+              { who: 'group', text: 'Read Upload 1 and Upload 2 again: your reflections.' },
+              { who: 'group', text: 'Choose your guiding questions and decide who says what. Record in Zoom, on your device or in Canvas Studio.' }
             ] }
           ]
         },
         {
-          id: 'f5', short: 'Check', minutes: 12, grouping: 'Group',
+          id: 'sp7', short: 'Check + plan', minutes: 8, grouping: 'Group',
           art: 'dec10/assets/week1/v/v-d10w1d4-f5.svg',
-          title: 'Do you really understand the task?',
-          goal: 'Answer the five questions every group should be able to answer.',
+          title: 'Check and plan',
+          goal: 'Make sure your whole group understands the task.',
           blocks: [
-            { type: 'quiz', id: 'f5-q', items: [
-              { q: 'What is the overall purpose of the Seminar + Portfolio task?', options: ['To test your grammar in a formal presentation', 'To practise researching, preparing and delivering a presentation, and to give and receive feedback', 'To write a research report in a group'], answer: 'To practise researching, preparing and delivering a presentation, and to give and receive feedback' },
-              { q: 'What are its three main components?', options: ['Reading · Writing · Speaking', 'Before the seminar · The seminar · After the seminar', 'Research · Slides · Questions'], answer: 'Before the seminar · The seminar · After the seminar', why: 'Before: Opening Remarks to preview the presentation. The seminar: the presentation. After: Portfolio submissions.' },
-              { q: 'Who gives you feedback, and how?', options: ['Only the teacher, in writing', 'The teacher (verbal, in class) and your peers (video, audio or written, uploaded to your Portfolio)', 'Only your peers, on the Discussion Board'], answer: 'The teacher (verbal, in class) and your peers (video, audio or written, uploaded to your Portfolio)' },
-              { q: 'Where do you find the feedback criteria?', options: ['In the marking rubric (Assessments page / Canvas)', 'Your teacher keeps them secret', 'In the Student Booklet reading section'], answer: 'In the marking rubric (Assessments page / Canvas)' }
+            { type: 'do', n: 1, who: 'group', text: 'Answer the questions together. Every member must agree.' },
+            { type: 'quiz', id: 'sp7-q', items: [
+              { q: 'What is the purpose of the Seminar + Portfolio task?', options: ['To test your grammar in a formal presentation', 'To practise researching, preparing and delivering a presentation, and to give and receive feedback', 'To write a research report in a group'], answer: 'To practise researching, preparing and delivering a presentation, and to give and receive feedback' },
+              { q: 'What are its three stages?', options: ['Reading · Writing · Speaking', 'Before the Seminar · The Seminar · After the Seminar', 'Research · Slides · Questions'], answer: 'Before the Seminar · The Seminar · After the Seminar', why: 'Before: Opening Remarks. The Seminar: your presentation and discussion. After: your Portfolio uploads.' },
+              { q: 'Who gives you feedback?', options: ['Only the teacher', 'Your teacher (spoken, in class) and the audience groups (uploaded to your Portfolio)', 'Only the other students'], answer: 'Your teacher (spoken, in class) and the audience groups (uploaded to your Portfolio)' },
+              { q: 'Where do you find the criteria?', options: ['In the Video Task Rubric and the Feedback Tool (Assessments page / Canvas)', 'Your teacher keeps them secret', 'In the reading texts'], answer: 'In the Video Task Rubric and the Feedback Tool (Assessments page / Canvas)' }
             ] },
+            { type: 'do', n: 2, who: 'group', text: 'Start your plan. Write who does what.' },
             { type: 'fields', fields: [
-              { id: 'f5-plan', label: 'Our video plan so far: Part 1 format, Part 2 skill, who says what', rows: 3, placeholder: 'Part 1: interview — [Name] asks … Part 2: research skills — …' }
-            ] }
+              { id: 'sp7-plan', label: 'Our plan: Opening Remarks jobs, and our video ideas so far', rows: 4, placeholder: '[Name]: country and why … [Name]: causes … Video Part 1: interview · Part 2: research skills' }
+            ] },
+            { type: 'checklist', id: 'sp7-ready', title: 'Before you leave', meter: ['ticked', 'You are ready for Week 2!'], items: [
+              'I know my group number, topic and country.',
+              'I know our Opening Remarks week and Seminar week.',
+              'I know our 9 uploads and when each one is due.',
+              'I know what the audience does after every presentation.',
+              'I know where to find the Feedback Tool and the Video Task Rubric.'
+            ] },
+            { type: 'teacher', text: 'This lesson follows the current Seminar + Portfolio page in Canvas (Assessments). It differs from the older Teacher’s Book 15A in four ways: each group makes 8 written uploads + 1 video (not 6 submissions); audience groups upload the Feedback Tool and 150–200 words after EVERY Opening Remarks and Seminar (6 uploads, not 3, and always written); Upload 1 reflects on teacher AND audience feedback; and not every member has to appear in the video. Check your class’s Portfolio schedule for exact days.' }
           ]
         }
       ]
@@ -563,8 +649,9 @@ window.DEC15_LESSON = {
             ] },
             { type: 'key', title: 'Not in Group 1?', points: [
               'Nothing to prepare — just come ready to listen and respond.',
-              'After the Opening Remarks, Group 1 uses your Discussion Board posts to plan two thought-provoking questions for their Seminar (Week 3).',
-              'You will make one Additional Portfolio Submission: peer feedback 1.'
+              'During Group 1’s Opening Remarks, fill in the Feedback Tool.',
+              'After it, post 1–2 questions on the discussion board, and upload 150–200 words of feedback to Group 1’s Portfolio the same day.',
+              'Group 1 then chooses ONE of the class’s questions as the focus of their Seminar (Week 3).'
             ] }
           ]
         }

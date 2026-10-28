@@ -182,6 +182,10 @@ window.DEC15_GUIDE = {
     studentIT: 'https://www.sydney.edu.au/students/student-it.html',
     learningHubs: 'https://www.sydney.edu.au/students/study-spaces.html'
   },
+  seminarFigures: [
+    { src: 'dec10/assets/week1/sp-map.svg', caption: 'The whole task on one page · tap to open full size', alt: 'Seminar + Portfolio on one page. When your group presents: Opening Remarks then upload 1 by Monday; Seminar then upload 2 by Monday; a video of up to 8 minutes, upload 3, within one week of your Seminar, the marked part. When another group presents: Feedback Tool, 1–2 questions on the board after their Opening Remarks, and 150–200 words of feedback the same day. In total: 2 presentations, 8 written uploads and 1 video.' },
+    { src: 'dec10/assets/week1/sp-weeks.svg', caption: 'Week by week, Weeks 2–7 · find your group’s row', alt: 'Group 1: Opening Remarks Week 2, Seminar Week 3, video due Week 4. Group 2: Weeks 3, 4 and 5. Group 3: Weeks 4, 5 and 6. Group 4: Weeks 5, 6 and 7. In the other weeks, each group is the audience.' }
+  ],
   seminarGroups: [
     { g: 1, topic: 'Your digital carbon footprint', question: 'What is the impact of the digital carbon footprint on overall carbon emissions in [your chosen country], and what strategies can be deployed to reduce it?', opening: 2, seminar: 3,
       ipQuestion: 'What strategies can be employed in Australia to reduce the overall digital carbon footprint?', strategies: ['Energy-efficient data centres (optimisation, cooling techniques, etc.)', 'Renewable energy use by data centres and IT operations', 'Virtualisation and cloud computing', 'Efficient hardware and data management', 'E-waste reduction and recycling'] },
