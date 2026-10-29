@@ -221,3 +221,16 @@
 [data-course="dec10"] .act-enter { animation: actEnter .45s cubic-bezier(.2, .7, .2, 1) both; }
 @keyframes actEnter { from { opacity: 0; transform: translateY(14px); } }
 @media (prefers-reduced-motion: reduce) { [data-course="dec10"] .act-enter { animation: none; } }
+
+/* ───── DEC10 · calmer activity pages ─────
+   The "Write together" card at the top of writing activities is hidden: the same button sits in the activity footer.
+   The signed-out Class discussion card becomes one slim row, and the per-box share buttons sit closer to their box. */
+[data-course="dec10"] .cowrite-card { display: none; }
+[data-course="dec10"] .wall:has(.wall-signin) { padding-top: 10px; padding-bottom: 10px; }
+[data-course="dec10"] .wall:has(.wall-signin) .wall-head { display: none; }
+[data-course="dec10"] .wall-signin { margin: 0; padding: 10px 14px; border-style: solid; border-color: var(--line); background: transparent; }
+[data-course="dec10"] .wall-signin .wall-art { display: none; }
+[data-course="dec10"] .wall-signin p { font-size: .86rem; }
+[data-course="dec10"] .wall-signin p b::before { content: "Class discussion · "; color: var(--ink); }
+[data-course="dec10"] .wall-signin .btn { padding: 7px 14px; font-size: .82rem; }
+[data-course="dec10"] .share-btn, [data-course="dec10"] .sb-btns { margin-top: 6px; }
