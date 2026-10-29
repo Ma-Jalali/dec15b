@@ -167,6 +167,10 @@ window.DEC15Blocks = (() => {
           while (this.colgroup.children.length > n) this.colgroup.lastChild.remove();
           [...this.colgroup.children].forEach((c, i) => { c.style.width = w ? (w[i] * 100).toFixed(3) + '%' : ''; });
           this.table.classList.toggle('has-widths', !!w);
+          const { border, borderColor } = this.node.attrs;   // the table's border style and colour (Borders menu)
+          if (border) this.table.dataset.border = border; else delete this.table.dataset.border;
+          if (borderColor) this.table.style.setProperty('--tb-c', borderColor); else this.table.style.removeProperty('--tb-c');
+          this.dom.classList.toggle('has-border', !!border);
         }
         update(node) { if (node.type !== this.node.type) return false; this.node = node; this.draw(); return true; }
         ignoreMutation(m) { return m.type === 'attributes' && (m.target === this.table || m.target === this.dom || this.colgroup.contains(m.target)); }
@@ -216,8 +220,19 @@ window.DEC15Blocks = (() => {
         },
         dblclick(view, e) { const hit = edgeAt(view, e), at = hit && tableAt(view, hit.table); if (!at) return false; const n = measure(hit.table).length; save(view, at, Array(n).fill(1 / n)); return true; } } } })];
     } });
+    // tables: a border style and colour for the whole table, and a fill colour for each cell
+    const COLOR_RE = /^(#[0-9a-f]{3,8}|rgba?\([\d\s.,%]+\))$/i, okColor = v => (v && COLOR_RE.test(String(v).trim()) ? String(v).trim() : null);
+    const TableStyled = T.Table.extend({ addAttributes() { return { ...this.parent?.(),
+      border: { default: null, parseHTML: el => el.getAttribute('data-border') || null, renderHTML: a => (a.border ? { 'data-border': a.border } : {}) },
+      borderColor: { default: null, parseHTML: el => okColor(el.style.getPropertyValue('--tb-c')), renderHTML: a => (okColor(a.borderColor) ? { style: `--tb-c:${okColor(a.borderColor)}` } : {}) } }; } });
+    const cellFill = { addAttributes() { return { ...this.parent?.(),
+      background: { default: null, parseHTML: el => okColor(el.getAttribute('data-bg')) || null,
+        renderHTML: a => { const c = okColor(a.background); return c ? { 'data-bg': c, ...(isDark(c) ? { 'data-dark': '' } : {}), style: `background-color:${c}` } : {}; } } }; } };
+    function isDark(c) {   // white text on dark fills
+      const h = /^#([0-9a-f]{3}|[0-9a-f]{6})/i.exec(c); if (!h) return false; let x = h[1]; if (x.length === 3) x = [...x].map(k => k + k).join('');
+      const [r, g, b] = [0, 2, 4].map(i => parseInt(x.slice(i, i + 2), 16) / 255); return 0.2126 * r + 0.7152 * g + 0.0722 * b < 0.45; }
     return [Callout, Toggle, Trailing, Column, Columns, Picture, Bookmark, Indent, DividerStyle, FontSize, ColumnShare,
-      T.Table.configure({ resizable: false, cellMinWidth: 60, HTMLAttributes: { class: 'pl-table' } }), T.TableRow, T.TableHeader, T.TableCell,
+      TableStyled.configure({ resizable: false, cellMinWidth: 60, HTMLAttributes: { class: 'pl-table' } }), T.TableRow, T.TableHeader.extend(cellFill), T.TableCell.extend(cellFill),
       T.Link.configure({ openOnClick: false, autolink: true, linkOnPaste: true, HTMLAttributes: { rel: 'noopener noreferrer', target: '_blank' } })];
   }
 
@@ -226,6 +241,12 @@ window.DEC15Blocks = (() => {
   const SIZES = [['.85em', 'Small'], ['', 'Normal'], ['1.25em', 'Large'], ['1.6em', 'Extra large'], ['2.2em', 'Huge']];
   const FONT_COLORS = ['#14293a', '#3d505e', '#7a868e', '#b0512a', '#c0392b', '#985c0e', '#3f7a3a', '#2b776e', '#3a58a0', '#7a4a8c'];
   const HIGHLIGHTS = [['#fff59d', 'Yellow'], ['#c8f0c0', 'Green'], ['#b9f3f0', 'Turquoise'], ['#ffd0e6', 'Pink'], ['#cfe6ff', 'Blue'], ['#ffd9b0', 'Orange'], ['#e4d4f4', 'Violet'], ['#e3e3e3', 'Grey']];
+  const CELL_FILLS = [['#fdf1c7', 'Butter'], ['#fde2d0', 'Peach'], ['#fbd5dc', 'Rose'], ['#e6dcf5', 'Lilac'], ['#d8e6fb', 'Sky'], ['#d2efe9', 'Mint'], ['#dcefd2', 'Sage'], ['#eceae4', 'Stone'], ['#14293a', 'Ink'], ['#2b776e', 'Teal']];
+  const BORDER_COLORS = [['#14293a', 'Ink'], ['#3d505e', 'Slate'], ['#9aa5ad', 'Grey'], ['#b0512a', 'Rust'], ['#c0392b', 'Red'], ['#c98a12', 'Gold'], ['#3f7a3a', 'Green'], ['#2b776e', 'Teal'], ['#3a58a0', 'Blue'], ['#7a4a8c', 'Plum']];
+  const BORDER_STYLES = [['none', 'None'], ['light', 'Light'], ['thin', 'All lines'], ['thick', 'Bold'], ['outer', 'Outside only'], ['rows', 'Rows only']];
+  const tableAttrs = e => { if (!e) return null; const $f = e.state.selection.$from; for (let d = $f.depth; d > 0; d--) if ($f.node(d).type.name === 'table') return $f.node(d).attrs; return null; };
+  const cellAttr = (e, k) => { const $f = e.state.selection.$anchorCell || e.state.selection.$from; const n = $f.nodeAfter && /^table(Cell|Header)$/.test($f.nodeAfter.type.name) ? $f.nodeAfter : null;
+    if (n) return n.attrs[k]; for (let d = $f.depth; d > 0; d--) if (/^table(Cell|Header)$/.test($f.node(d).type.name)) return $f.node(d).attrs[k]; return null; };
   const TI = {
     undo: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>', redo: '<path d="m15 14 5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/>',
     left: '<path d="M4 6h16M4 10h10M4 14h16M4 18h10"/>', center: '<path d="M4 6h16M7 10h10M4 14h16M7 18h10"/>', right: '<path d="M4 6h16M10 10h10M4 14h16M10 18h10"/>',
@@ -236,13 +257,15 @@ window.DEC15Blocks = (() => {
     pen: '<path d="m14 4 6 6-9 9H5v-6z"/><path d="M4 21h16" stroke-width="3"/>',
     plus: '<path d="M12 5v14M5 12h14"/>', quote: '<path d="M5 5v14"/><path d="M9.5 8h9.5M9.5 12h9.5M9.5 16h6"/>',
     link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.2 1.2"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.2-1.2"/>',
+    fill: '<path d="m5 11 6.5-6.5 7 7L12 18a2 2 0 0 1-2.8 0L5 13.8a2 2 0 0 1 0-2.8z"/><path d="M5 11h13.5"/><path d="M20 15.5s1.5 1.8 1.5 2.8a1.5 1.5 0 0 1-3 0c0-1 1.5-2.8 1.5-2.8z" fill="currentColor"/>',
+    borders: '<rect x="3.5" y="3.5" width="17" height="17" rx="1.5" stroke-width="2.4"/><path d="M12 3.5v17M3.5 12h17" stroke-dasharray="1.5 2.2"/>',
     rowAdd: '<rect x="3" y="4" width="18" height="10" rx="2"/><path d="M3 9h18M12 17v4M10 19h4"/>', colAdd: '<rect x="3" y="3" width="10" height="18" rx="2"/><path d="M8 3v18M17 12h4M19 10v4"/>',
     rowDel: '<rect x="3" y="4" width="18" height="10" rx="2"/><path d="M3 9h18M9.5 18.5l5 0"/>', colDel: '<rect x="3" y="3" width="10" height="18" rx="2"/><path d="M8 3v18M17 12h4"/>',
     tableDel: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16M14.5 12.5l4 4M18.5 12.5l-4 4"/>',
   };
   const tsvg = p => `<svg class="pl-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
   function toolbar({ getEditor, popover, closePop, esc, openInsert, id = 'pl' }) {
-    let lastColor = '#b0512a', lastHl = '#fff59d';
+    let lastColor = '#b0512a', lastHl = '#fff59d', lastFill = '#fdf1c7';
     const ed = () => getEditor();
     const b = (cmd, label, inner, extra = '') => `<button type="button" class="pl-tb" data-cmd="${cmd}" aria-label="${label}" title="${label}" aria-pressed="false"${extra}>${inner}</button>`;
     const html = () => `<div class="pl-toolbar" role="toolbar" aria-label="Formatting">
@@ -255,7 +278,7 @@ window.DEC15Blocks = (() => {
       <div class="pl-grp pl-fold">${b('left', 'Align left', tsvg(TI.left))}${b('center', 'Centre', tsvg(TI.center))}${b('right', 'Align right', tsvg(TI.right))}</div>
       <div class="pl-grp">${b('bullets', 'Bulleted list', tsvg(TI.bullets))}${b('numbers', 'Numbered list', tsvg(TI.numbers))}${b('tasks', 'To-do list', tsvg(TI.tasks))}${b('outdent', 'Decrease indent (Shift+Tab)', tsvg(TI.outdent))}${b('indent', 'Increase indent (Tab)', tsvg(TI.indent))}</div>
       <div class="pl-grp">${b('quote', 'Quote', tsvg(TI.quote))}${b('link', 'Link (Ctrl+K)', tsvg(TI.link))}</div>
-      <div class="pl-grp pl-tablegrp" hidden>${b('rowAfter', 'Add a row below', tsvg(TI.rowAdd))}${b('colAfter', 'Add a column to the right', tsvg(TI.colAdd))}${b('rowDel', 'Delete this row', tsvg(TI.rowDel))}${b('colDel', 'Delete this column', tsvg(TI.colDel))}${b('tableDel', 'Delete the table', tsvg(TI.tableDel))}</div>
+      <div class="pl-grp pl-tablegrp" hidden>${b('cellFill', 'Cell colour', tsvg(TI.fill) + '<i class="pl-bar" data-bar="cellFill"></i>', ' aria-haspopup="true"')}${b('borders', 'Table borders', tsvg(TI.borders), ' aria-haspopup="true"')}${b('rowAfter', 'Add a row below', tsvg(TI.rowAdd))}${b('colAfter', 'Add a column to the right', tsvg(TI.colAdd))}${b('rowDel', 'Delete this row', tsvg(TI.rowDel))}${b('colDel', 'Delete this column', tsvg(TI.colDel))}${b('tableDel', 'Delete the table', tsvg(TI.tableDel))}</div>
     </div>`;
     function linkPop(anchor) {
       const e = ed(); if (!e || !anchor) return; const had = e.getAttributes('link').href || '';
@@ -270,16 +293,41 @@ window.DEC15Blocks = (() => {
         p.querySelector('[data-unlink]')?.addEventListener('click', () => { closePop(); e.chain().focus().extendMarkRange('link').unsetLink().run(); });
       });
     }
+    const PAL = { color: ['Font colour', 'Automatic'], highlight: ['Highlight', 'No colour'], cellFill: ['Cell colour', 'No colour'] };
+    const custom = (v, label) => `<label class="pl-custom" title="${label}"><input type="color" value="${v}" data-custom aria-label="${label}"><span>More colours…</span></label>`;
     function palette(anchor, kind, tbEl) {
-      const cols = kind === 'color' ? FONT_COLORS.map(c => [c, c]) : HIGHLIGHTS;
-      popover(anchor, `<div class="pl-pal" role="menu" aria-label="${kind === 'color' ? 'Font colour' : 'Highlight colour'}">
-        <b>${kind === 'color' ? 'Font colour' : 'Highlight'}</b>
-        <div class="pl-sw ${kind}">${cols.map(([c, n]) => `<button type="button" role="menuitem" style="--sw:${c}" data-pick="${c}" title="${esc(n)}" aria-label="${esc(n)}"></button>`).join('')}</div>
-        <button type="button" class="pl-link" data-pick="">${kind === 'color' ? 'Automatic' : 'No colour'}</button></div>`, pop => {
-        pop.addEventListener('click', ev => { const t = ev.target.closest('[data-pick]'); if (!t) return; const v = t.dataset.pick, c = ed().chain().focus();
+      const cols = kind === 'color' ? FONT_COLORS.map(c => [c, c]) : kind === 'cellFill' ? CELL_FILLS : HIGHLIGHTS, [title, none] = PAL[kind];
+      const cur = kind === 'color' ? ed().getAttributes('textStyle').color : kind === 'cellFill' ? cellAttr(ed(), 'background') : ed().getAttributes('highlight').color;
+      popover(anchor, `<div class="pl-pal" role="menu" aria-label="${title}">
+        <b>${title}</b>${kind === 'cellFill' ? '<small class="pl-pal-hint">Select several cells to colour them all.</small>' : ''}
+        <div class="pl-sw ${kind}">${cols.map(([c, n]) => `<button type="button" role="menuitem" style="--sw:${c}" data-pick="${c}" title="${esc(n)}" aria-label="${esc(n)}" aria-pressed="${String(c).toLowerCase() === String(cur || '').toLowerCase()}"></button>`).join('')}</div>
+        <div class="pl-pal-foot"><button type="button" class="pl-link" data-pick="">${none}</button>${custom(/^#[0-9a-f]{6}$/i.test(cur || '') ? cur : (kind === 'color' ? lastColor : kind === 'cellFill' ? lastFill : lastHl), 'Choose any colour')}</div></div>`, pop => {
+        const apply = (v, close) => { const c = ed().chain().focus();
           if (kind === 'color') { if (v) { lastColor = v; c.setColor(v).run(); } else c.unsetColor().run(); }
+          else if (kind === 'cellFill') { if (v) lastFill = v; c.setCellAttribute('background', v || null).run(); }
           else { if (v) { lastHl = v; c.setHighlight({ color: v }).run(); } else c.unsetHighlight().run(); }
-          closePop(); paint(tbEl || anchor.closest('.pl-toolbar')); });
+          if (close) closePop(); paint(tbEl || anchor.closest('.pl-toolbar')); };
+        pop.addEventListener('click', ev => { const t = ev.target.closest('[data-pick]'); if (t) apply(t.dataset.pick, true); });
+        pop.querySelector('[data-custom]').addEventListener('change', ev => apply(ev.target.value, true));
+      });
+    }
+    function bordersPop(anchor, tbEl) {
+      const e = ed(), t = tableAttrs(e); if (!t) return;
+      const style = t.border || 'light', col = t.borderColor || '';
+      popover(anchor, `<div class="pl-pal pl-borders" role="menu" aria-label="Table borders">
+        <b>Borders</b>
+        <div class="pl-bstyles">${BORDER_STYLES.map(([v, n]) => `<button type="button" data-bstyle="${v}" aria-pressed="${v === style}" title="${n}"><i class="pl-bprev" data-border="${v}"><s></s><s></s><s></s><s></s></i><span>${n}</span></button>`).join('')}</div>
+        <b>Border colour</b>
+        <div class="pl-sw color">${BORDER_COLORS.map(([c, n]) => `<button type="button" role="menuitem" style="--sw:${c}" data-bcol="${c}" title="${esc(n)}" aria-label="${esc(n)}" aria-pressed="${c.toLowerCase() === col.toLowerCase()}"></button>`).join('')}</div>
+        <div class="pl-pal-foot"><button type="button" class="pl-link" data-bcol="">Automatic</button>${custom(/^#[0-9a-f]{6}$/i.test(col) ? col : '#3d505e', 'Choose any border colour')}</div></div>`, pop => {
+        const set = attrs => { ed().chain().focus().updateAttributes('table', attrs).run(); paint(tbEl || anchor.closest('.pl-toolbar')); };
+        pop.addEventListener('click', ev => {
+          const s = ev.target.closest('[data-bstyle]'), c = ev.target.closest('[data-bcol]');
+          if (s) { const v = s.dataset.bstyle; set({ border: v === 'light' ? null : v }); pop.querySelectorAll('[data-bstyle]').forEach(x => x.setAttribute('aria-pressed', String(x === s))); }
+          if (c) { const v = c.dataset.bcol || null, now = tableAttrs(ed());
+            set({ borderColor: v, ...(v && (!now?.border || now.border === 'none') ? { border: 'thin' } : {}) }); closePop(); }
+        });
+        pop.querySelector('[data-custom]').addEventListener('change', ev => { const now = tableAttrs(ed()); set({ borderColor: ev.target.value, ...(!now?.border || now.border === 'none' ? { border: 'thin' } : {}) }); closePop(); });
       });
     }
     function run(cmd, el) {
@@ -291,7 +339,7 @@ window.DEC15Blocks = (() => {
         indent: () => indent(e, 1), outdent: () => indent(e, -1),
         quote: () => c.toggleBlockquote().run(), link: () => linkPop(el), insert: () => openInsert?.(),
         rowAfter: () => c.addRowAfter().run(), colAfter: () => c.addColumnAfter().run(), rowDel: () => c.deleteRow().run(), colDel: () => c.deleteColumn().run(), tableDel: () => c.deleteTable().run(),
-        color: () => palette(el, 'color'), highlight: () => palette(el, 'highlight') })[cmd]?.();
+        color: () => palette(el, 'color'), highlight: () => palette(el, 'highlight'), cellFill: () => palette(el, 'cellFill'), borders: () => bordersPop(el) })[cmd]?.();
     }
     function change(t) {   // the two drop-downs; returns true when it handled the event
       const e = ed(); if (!e || !t?.dataset?.tb) return false; const v = t.value, c = e.chain().focus();
@@ -310,6 +358,7 @@ window.DEC15Blocks = (() => {
       const sz = tb.querySelector('[data-tb=size]'); if (sz) { const f = e.getAttributes('textStyle').fontSize || ''; sz.value = SIZES.some(([v]) => v === f) ? f : ''; }
       tb.querySelector('[data-bar=color]').style.background = e.getAttributes('textStyle').color || lastColor;
       tb.querySelector('[data-bar=highlight]').style.background = e.getAttributes('highlight').color || lastHl;
+      const cf = tb.querySelector('[data-bar=cellFill]'); if (cf && e.isActive('table')) cf.style.background = cellAttr(e, 'background') || lastFill;
       tb.querySelector('[data-cmd=undo]').disabled = !e.can().undo(); tb.querySelector('[data-cmd=redo]').disabled = !e.can().redo();
     }
     return { html, run, change, paint, linkPop };
