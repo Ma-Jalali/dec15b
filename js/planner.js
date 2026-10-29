@@ -286,6 +286,22 @@ window.DEC15Planner = (() => {
   document.addEventListener('mousedown', e => { if (pop && !pop.contains(e.target) && !e.target.closest('[data-cmd=color],[data-cmd=highlight],.pl-chip,[data-task-open]')) closePop(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && pop) { closePop(); e.stopPropagation(); } }, true);
 
+  /* one small menu per calendar: rename, recolour, delete */
+  function calMenu(id, anchor, fresh = false) {
+    const c = get(id); if (!c) return;
+    popover(anchor, `<div class="pl-calmenu"><label><span class="sr-only">Calendar name</span><input data-pop-name value="${esc(c.data.name)}" maxlength="40" placeholder="Calendar name"${fresh ? ' autofocus' : ''}></label>
+      <div class="pl-sw color">${Object.entries(COLORS).map(([k, v]) => `<button type="button" data-pick="${k}" style="--sw:${v}" aria-label="${k}"${k === c.data.color ? ' aria-pressed="true"' : ''}></button>`).join('')}</div>
+      <div class="pl-pop-actions"><button type="button" class="pl-link danger" data-pop-del>Delete calendar</button><button type="button" class="pl-btn" data-pop-done>Done</button></div></div>`, p => {
+      const nm = p.querySelector('[data-pop-name]'); if (fresh) setTimeout(() => nm.select(), 0);
+      nm.addEventListener('input', () => { const v = nm.value.trim().slice(0, 40); if (v) put(id, 'calendar', { name: v }); });
+      nm.addEventListener('keydown', ev => { if (ev.key === 'Enter') { ev.preventDefault(); closePop(); } });
+      p.addEventListener('click', ev => { const k = ev.target.closest('[data-pick]')?.dataset.pick; if (k) { put(id, 'calendar', { color: k }); p.querySelectorAll('[data-pick]').forEach(b => b.toggleAttribute('aria-pressed', b.dataset.pick === k)); return; }
+        if (ev.target.closest('[data-pop-done]')) { closePop(); return; }
+        const del = ev.target.closest('[data-pop-del]'); if (!del) return;
+        if (del.dataset.sure) { closePop(); list('task').filter(x => x.data.calendarId === id).forEach(x => put(x.id, 'task', { calendarId: null }, { quiet: true })); remove(id); return; }
+        del.dataset.sure = '1'; del.textContent = 'Delete? Its to-dos are kept'; });
+    });
+  }
   /* A to-do's details: date, time, calendar (and words, for to-dos that are not in a note). */
   function taskPopover(id, anchor, fresh = false) {
     const t = items[id]; if (!t) return;
@@ -325,9 +341,9 @@ window.DEC15Planner = (() => {
     ctx = context; root = el; mounted = true; root.className = "";
     root.innerHTML = `<div class="pl" data-tab="${ui.tab}">
       <header class="pl-head">
-        <div class="pl-title"><h1>My planner</h1><span class="pl-private">${ctx.icon('lock')}Private unless you share</span></div>
+        <div class="pl-title"><span class="pl-brand" aria-hidden="true">${BRAND_ART}</span><div><h1>My planner</h1><span class="pl-private" title="Only you can see this page, unless you share a note">${ctx.icon('lock')}Private</span></div></div>
         <div class="pl-tabs" role="tablist" aria-label="Planner">
-          ${['notes', 'calendar', 'todos'].map(t => `<button type="button" role="tab" id="pl-tab-${t}" aria-controls="pl-panel" data-tab="${t}" aria-selected="${ui.tab === t}">${{ notes: 'Notes', calendar: 'Calendar', todos: 'To-dos' }[t]}</button>`).join('')}
+          ${['notes', 'calendar', 'todos'].map(t => `<button type="button" role="tab" id="pl-tab-${t}" aria-controls="pl-panel" data-tab="${t}" aria-selected="${ui.tab === t}">${TAB_ICON[t]}<span>${{ notes: 'Notes', calendar: 'Calendar', todos: 'To-dos' }[t]}</span><small class="pl-tabn" data-tabn="${t}"></small></button>`).join('')}
         </div>
         <span class="pl-status" data-s="${status}" role="status">${STATUS[status]}</span>
       </header>
@@ -350,9 +366,12 @@ window.DEC15Planner = (() => {
     else paintPanel();
   }
   const firstNote = () => list('note').sort((a, b) => (b.updatedAt || '').localeCompare(a.updatedAt || ''))[0]?.id || null;
+  /* live counts on the tabs: notes, to-dos still open */
+  function paintTabCounts() { if (!root) return; const n = list('note').length, o = list('task').filter(x => !x.data.done && (x.data.title || '').trim()).length;
+    root.querySelectorAll('[data-tabn]').forEach(el => { const v = el.dataset.tabn === 'notes' ? n : el.dataset.tabn === 'todos' ? o : 0; el.textContent = v || ''; el.hidden = !v; }); }
   function paint() {
     if (!root) return;
-    root.querySelector('.pl').dataset.tab = ui.tab;
+    root.querySelector('.pl').dataset.tab = ui.tab; paintTabCounts();
     root.querySelectorAll('[data-tab][role=tab]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === ui.tab)));
     root.querySelector('#pl-panel').setAttribute('aria-labelledby', 'pl-tab-' + ui.tab);
     if (ui.tab === 'notes') paintNotes(); else { destroyEditor(); paintPanel(); }
@@ -673,14 +692,11 @@ window.DEC15Planner = (() => {
     const openOn = cid => list('task').filter(x => !x.data.done && (x.data.title || '').trim() && (x.data.calendarId || 'none') === cid).length;
     const side = `<aside class="pl-calside" aria-label="Calendars"><h2 class="pl-h pl-sidemonth">${MONTHS[mo]} <span>${y}</span></h2>${miniMonth(m, true)}
       <h2 class="pl-h">My calendars</h2>
-      <div class="pl-cals">${cals.map(c => `<div class="pl-calrow"><label><input type="checkbox" data-cal-show="${c.id}"${hidden[c.id] ? '' : ' checked'} style="--c:${COLORS[c.data.color]}"><span class="sr-only">Show </span></label>
-          <input class="pl-calname" data-cal-name="${c.id}" value="${esc(c.data.name)}" maxlength="40" aria-label="Calendar name">
-          ${openOn(c.id) ? `<small class="pl-calcount" title="Open to-dos">${openOn(c.id)}</small>` : ''}
-          <button type="button" class="pl-swatch" data-cal-color="${c.id}" style="--c:${COLORS[c.data.color]}" aria-label="Change colour of ${esc(c.data.name)}"></button>
-          <button type="button" class="pl-more" data-cal-del="${c.id}" aria-label="Delete calendar ${esc(c.data.name)}">×</button></div>`).join('')}
-        <div class="pl-calrow none"><label><input type="checkbox" data-cal-show="none"${hidden.none ? '' : ' checked'} style="--c:var(--pl-muted)"><span class="sr-only">Show </span></label><span>No calendar</span>${openOn('none') ? `<small class="pl-calcount">${openOn('none')}</small>` : ''}</div>
-        ${hasCourse() ? `<div class="pl-calrow course"><label><input type="checkbox" data-cal-show="course"${hidden.course ? '' : ' checked'} style="--c:#1a355e"><span class="sr-only">Show </span></label><a href="#/calendar" title="Open the Course calendar">Course calendar</a><span class="pl-callock" title="Synced with the Course calendar. Events are all day: check the time on Canvas." aria-label="Synced with the Course calendar"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.2 6.4A5.3 5.3 0 0 0 3.6 4.6M2.8 9.6a5.3 5.3 0 0 0 9.6 1.8"/><path d="M3.4 2v2.8h2.8M12.6 14v-2.8H9.8"/></svg></span></div>` : ''}</div>
-      ${cals.length < MAX_CAL ? `<button type="button" class="pl-btn ghost" data-new-cal>＋ New calendar <small>${cals.length} of ${MAX_CAL}</small></button>` : `<p class="pl-limit">${MAX_CAL} of ${MAX_CAL} calendars. Rename or delete one to make a different one.</p>`}</aside>`;
+      <div class="pl-chips">${cals.map(c => `<span class="pl-calchip${hidden[c.id] ? ' off' : ''}" style="--c:${COLORS[c.data.color]}"><button type="button" class="pl-calchip-t" data-cal-toggle="${c.id}" aria-pressed="${!hidden[c.id]}" title="${hidden[c.id] ? 'Show' : 'Hide'} ${esc(c.data.name)}"><i aria-hidden="true"></i>${esc(c.data.name)}${openOn(c.id) ? `<small title="Open to-dos">${openOn(c.id)}</small>` : ''}</button><button type="button" class="pl-calchip-m" data-cal-menu="${c.id}" aria-label="Options for ${esc(c.data.name)}">⋯</button></span>`).join('')}
+        <span class="pl-calchip none${hidden.none ? ' off' : ''}" style="--c:var(--pl-muted)"><button type="button" class="pl-calchip-t" data-cal-toggle="none" aria-pressed="${!hidden.none}"><i aria-hidden="true"></i>No calendar${openOn('none') ? `<small>${openOn('none')}</small>` : ''}</button></span>
+        ${hasCourse() ? `<span class="pl-calchip course${hidden.course ? ' off' : ''}" style="--c:#1a355e"><button type="button" class="pl-calchip-t" data-cal-toggle="course" aria-pressed="${!hidden.course}" title="Synced with the Course calendar. Events are all day: check the time on Canvas."><i aria-hidden="true"></i>Course calendar</button><a class="pl-calchip-m" href="#/calendar" title="Open the Course calendar" aria-label="Open the Course calendar">${svg(ic.open || ic.link || ic.arrow)}</a></span>` : ''}
+        ${cals.length < MAX_CAL ? `<button type="button" class="pl-calchip add" data-new-cal title="New calendar (${cals.length} of ${MAX_CAL})">＋ New</button>` : ''}</div>
+      <p class="pl-chips-hint">Tap a calendar to show or hide it · ⋯ to rename, recolour or delete</p></aside>`;
     let body, title;
     if (view === 'year') {
       title = `${y}`;
@@ -754,7 +770,7 @@ window.DEC15Planner = (() => {
     const cals = list('calendar'), ws = mondayOf(t), wkAll = all.filter(x => x.data.date >= ws && x.data.date <= addDays(ws, 6)), wkDone = wkAll.filter(x => x.data.done).length;
     const stat = (n, label, cls) => `<div class="pl-tstat ${cls}"><b>${n}</b><span>${label}</span></div>`;
     return `<div class="pl-todos">
-      ${all.length ? `<div class="pl-tsum"><div class="pl-tsum-ring">${ring(wkDone, wkAll.length, 54)}<b>${wkAll.length ? Math.round(wkDone / wkAll.length * 100) : 0}<small>%</small></b></div>
+      ${all.length ? `<div class="pl-tsum"><div class="pl-tsum-ring${wkAll.length && wkDone === wkAll.length ? ' is-done' : ''}">${ring(wkDone, wkAll.length, 54)}<b>${wkAll.length ? Math.round(wkDone / wkAll.length * 100) : 0}<small>%</small></b></div>
         <div class="pl-tsum-txt"><b>This week</b><span>${wkDone} of ${wkAll.length} dated to-do${wkAll.length === 1 ? '' : 's'} done · Week ${isoWeek(t)}</span></div>
         <div class="pl-tstats">${stat(groups[0][1].length, 'late', 'late')}${stat(groups[1][1].length, 'today', 'today')}${stat(groups[2][1].length, 'next 7 days', 'soon')}${stat(groups[4][1].length, 'no date', 'nodate')}</div></div>` : ''}
       <form class="pl-add" data-add-form><span class="pl-add-ico" aria-hidden="true">＋</span><label class="sr-only" for="pl-add-title">New to-do</label><input id="pl-add-title" name="title" maxlength="300" placeholder="Add a to-do…" autocomplete="off">
@@ -770,6 +786,12 @@ window.DEC15Planner = (() => {
   }
 
   /* small flat illustrations for empty states */
+  const BRAND_ART = `<svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="plb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6a07a"/><stop offset="1" stop-color="#d0442a"/></linearGradient></defs><rect x="2" y="2" width="36" height="36" rx="11" fill="url(#plb)"/><rect x="9" y="11" width="22" height="20" rx="4" fill="#fff"/><rect x="9" y="11" width="22" height="6" rx="3" fill="#14293a"/><rect x="9" y="14" width="22" height="3" fill="#14293a"/><rect x="14" y="8" width="3" height="6" rx="1.5" fill="#14293a"/><rect x="23" y="8" width="3" height="6" rx="1.5" fill="#14293a"/><path d="M13 23l3 3 6-6" stroke="#d0442a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 25h4" stroke="#c9d3da" stroke-width="2" stroke-linecap="round"/></svg>`;
+  const TAB_ICON = {
+    notes: '<svg class="pl-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5h9l3.5 3.5v13.5H6z"/><path d="M14.5 3.5V7.5h4M9 12h6M9 15.5h4"/></svg>',
+    calendar: '<svg class="pl-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M8 14h2M12 14h2M16 14h.5"/></svg>',
+    todos: '<svg class="pl-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8 12 3 3 5-6"/></svg>'
+  };
   const ART = {
     notes: `<svg class="pl-art" viewBox="0 0 160 110" aria-hidden="true"><rect x="38" y="14" width="74" height="88" rx="8" fill="#fff" stroke="#c9d3da" stroke-width="1.5"/><rect x="48" y="8" width="74" height="88" rx="8" fill="#fff" stroke="#14293a" stroke-width="1.6"/><path d="M60 30h40M60 42h50M60 54h34" stroke="#c9d3da" stroke-width="3" stroke-linecap="round"/><rect x="58" y="64" width="9" height="9" rx="2.5" fill="none" stroke="#2b776e" stroke-width="1.6"/><path d="M73 68.5h28" stroke="#c9d3da" stroke-width="3" stroke-linecap="round"/><path d="m118 70 14-14 6 6-14 14-8 2z" fill="#e3a843" stroke="#14293a" stroke-width="1.5" stroke-linejoin="round"/><circle cx="30" cy="30" r="3" fill="#e3a843"/><circle cx="138" cy="24" r="2" fill="#2b776e"/></svg>`,
     todos: `<svg class="pl-art" viewBox="0 0 160 110" aria-hidden="true"><rect x="34" y="16" width="92" height="82" rx="10" fill="#fff" stroke="#14293a" stroke-width="1.6"/><rect x="48" y="32" width="11" height="11" rx="3" fill="#2b776e"/><path d="m50.5 37.6 2.2 2.2 4-4.3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M66 37.5h44" stroke="#c9d3da" stroke-width="3" stroke-linecap="round"/><rect x="48" y="52" width="11" height="11" rx="3" fill="#2b776e"/><path d="m50.5 57.6 2.2 2.2 4-4.3" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M66 57.5h34" stroke="#c9d3da" stroke-width="3" stroke-linecap="round"/><rect x="48" y="72" width="11" height="11" rx="3" fill="none" stroke="#c9d3da" stroke-width="1.6"/><path d="M66 77.5h38" stroke="#e8edf0" stroke-width="3" stroke-linecap="round"/><circle cx="128" cy="20" r="11" fill="#e3a843"/><path d="M128 14.5v11M122.5 20h11" stroke="#14293a" stroke-width="1.6" stroke-linecap="round"/><circle cx="24" cy="70" r="3" fill="#e3a843"/></svg>`,
@@ -842,7 +864,9 @@ window.DEC15Planner = (() => {
     if (d.newCal !== undefined) { const cals = list('calendar'); if (cals.length >= MAX_CAL) { ctx.toast(`You can have ${MAX_CAL} calendars.`); return; }
       const color = Object.keys(COLORS).find(c => !cals.some(x => x.data.color === c)) || 'teal', id = uuid();
       put(id, 'calendar', { name: ['Lectures', 'Exams', 'Personal'].find(n => !cals.some(x => x.data.name === n)) || 'Calendar', color, sort: cals.length });
-      setTimeout(() => root.querySelector(`[data-cal-name="${id}"]`)?.select(), 30); return; }
+      setTimeout(() => { const b = root.querySelector(`[data-cal-menu="${id}"]`); if (b) calMenu(id, b, true); }, 60); return; }
+    if (d.calToggle) { hidden[d.calToggle] = !hidden[d.calToggle]; try { localStorage.setItem('dec15-planner-hidden', JSON.stringify(hidden)); } catch (e2) { /* ignore */ } paintPanel(); return; }
+    if (d.calMenu) { calMenu(d.calMenu, t); return; }
     if (d.calColor) { const c = get(d.calColor); popover(t, `<div class="pl-pal"><b>Colour</b><div class="pl-sw color">${Object.entries(COLORS).map(([k, v]) => `<button type="button" data-pick="${k}" style="--sw:${v}" aria-label="${k}"${k === c.data.color ? ' aria-pressed="true"' : ''}></button>`).join('')}</div></div>`, p => p.addEventListener('click', ev => { const k = ev.target.closest('[data-pick]')?.dataset.pick; if (k) { put(c.id, 'calendar', { color: k }); closePop(); } })); return; }
     if (d.calDel) { const c = get(d.calDel); popover(t, `<div class="pl-menu"><p>Delete the calendar “${esc(c.data.name)}”? Its to-dos are kept, without a calendar.</p><button type="button" class="pl-btn danger" data-m="yes">Delete calendar</button></div>`, p => p.querySelector('[data-m]').addEventListener('click', () => {
       closePop(); list('task').filter(x => x.data.calendarId === c.id).forEach(x => put(x.id, 'task', { calendarId: null }, { quiet: true })); remove(c.id); })); return; }
