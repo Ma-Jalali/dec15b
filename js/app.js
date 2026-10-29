@@ -1643,7 +1643,15 @@ $('#source-open').onclick = () => openSource();
 $('#dialog-close').onclick = () => { reader.closeWord(); $('#resource-dialog').close(); };
 $('#text-toggle').onclick = e => { const on = document.body.classList.toggle('large-text'); e.currentTarget.setAttribute('aria-pressed', String(on)); };
 /* The course card under the logo (DEC10): the course code as a chip, then its name. */
-if (course.sideCard) $('#sidebar .uni').insertAdjacentHTML('afterend', `<div class="side-course"><b class="sc-code">${esc(course.code)}</b><span class="sc-name">${esc(course.sideCard.name)}<small>${esc(course.sideCard.note || '')}</small></span></div>`);
+if (course.sideCard) {
+  /* DEC10: a ten-week strip under the course name shows where the term is up to (weeks done, this week, to come). */
+  const strip = (() => { const G = window.DEC15_GUIDE; if (!G?.weeks) return '';
+    const t = new Date(), today = new Date(t.getFullYear(), t.getMonth(), t.getDate()), parse = x => { const [y, m, d] = x.split('-').map(Number); return new Date(y, m - 1, d); };
+    const ws = G.weeks.filter(w => !w.brk); let now = 0;
+    ws.forEach((w, i) => { const a = parse(w.start), b = new Date(a.getFullYear(), a.getMonth(), a.getDate() + 6); if (today >= a) now = today <= b ? i : i + 1; });
+    return `<span class="sc-weeks" aria-label="Week ${Math.min(now + 1, ws.length)} of ${ws.length}">${ws.map((w, i) => `<i class="${i < now ? 'is-done' : i === now ? 'is-now' : ''}" title="Week ${w.n}"></i>`).join('')}</span>`; })();
+  $('#sidebar .uni').insertAdjacentHTML('afterend', `<div class="side-course"><b class="sc-code">${esc(course.code)}</b><span class="sc-name">${esc(course.sideCard.name)}<small>${esc(course.sideCard.note || '')}</small>${strip}</span></div>`);
+}
 /* Side panel colour (Settings): only for a course whose map lists sideColours (DEC10). Saved on this device. */
 if (course.sideColours?.length) {
   const root = document.documentElement, key = CLS.id + '-side';
