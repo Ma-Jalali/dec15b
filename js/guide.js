@@ -54,6 +54,12 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
     return `<ul class="gd-lessons${hw ? ' is-hw' : ''}">${items.map(([code, title]) => { const id = lessonId(code), on = id && ready.has(id);
       return `<li>${on ? `<a href="#/${id}" title="Open this lesson">` : '<span>'}${esc(title)}${on ? `<i class="gd-go">${icon('arrow')}</i></a>` : '</span>'}</li>`; }).join('')}</ul>`;
   }
+  /* small dots in a day's header: one per kind of event, so the week can be read at a glance */
+  function dayDots(d) {
+    const kinds = [...new Set((d.events || []).map(e => e.type))]; if (!kinds.length && !d.class) return '';
+    const n = (d.class || []).length + (d.hw || []).length;
+    return `<span class="gd-ddots" aria-hidden="true">${n ? `<small>${n} lesson${n === 1 ? '' : 's'}</small>` : ''}${kinds.map(k => `<i style="--ec:${type(k)[1]}" title="${esc(type(k)[0])}"></i>`).join('')}</span>`;
+  }
   function dayCard(w, d, i) {
     const dt = addDays(parse(w.start), i), isToday = same(dt, today), assess = (d.events || []).some(e => e.type === 'assess');
     const showC = filter !== 'events', showE = filter !== 'classes';
@@ -65,14 +71,18 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
       ${filter === 'events' && !ev.length ? '<p class="gd-empty">No extra events.</p>' : ''}`;
     const past = dt < today, key = `${calSel}-${i}`;
     return `<article class="gd-day${isToday ? ' is-today' : ''}${assess ? ' has-assess' : ''}${d.off ? ' is-off' : ''}${past ? ' is-past' : ''}${openPast.has(key) ? ' is-open' : ''}" style="--i:${i}">
-      <header><span class="gd-dname">${DAYS[i]}</span><span class="gd-ddate">${fmt(dt)}</span>${isToday ? '<em class="gd-today">Today</em>' : ''}${past ? `<button type="button" class="gd-past-btn" data-gd-day="${key}" aria-expanded="${openPast.has(key)}">${openPast.has(key) ? 'Hide' : 'Show'}</button>` : ''}</header>${body}</article>`;
+      <header><span class="gd-dname">${DAYS[i]}</span><span class="gd-ddate">${fmt(dt)}</span>${dayDots(d)}${isToday ? '<em class="gd-today">Today</em>' : ''}${past ? `<button type="button" class="gd-past-btn" data-gd-day="${key}" aria-expanded="${openPast.has(key)}">${openPast.has(key) ? 'Hide' : 'Show'}</button>` : ''}</header>${body}</article>`;
+  }
+  /* previous / this week / next, shown beside the week title and under a break */
+  function weekNav() {
+    return `<span class="gd-wnav" role="group" aria-label="Change week"><button type="button" data-gd-week="${calSel - 1}"${calSel ? '' : ' disabled'} aria-label="Previous week">${icon('left')}</button>${calSel === nowIdx ? '' : `<button type="button" class="gd-wnav-now" data-gd-week="${nowIdx}">This week</button>`}<button type="button" data-gd-week="${calSel + 1}"${calSel < weeks.length - 1 ? '' : ' disabled'} aria-label="Next week">${icon('arrow')}</button></span>`;
   }
   function weekPanel(w) {
     if (w.brk) return `<div class="gd-break"><div class="gd-break-art" aria-hidden="true">${icon('sprout')}</div><div><span class="eyebrow">${esc(w.dates)}</span><h2>${esc(w.title)}</h2><p>${esc(w.text)}</p>
-      ${w.events ? `<ul class="gd-evs gd-evs-row">${w.events.map(eventHTML).join('')}</ul>` : ''}</div></div>`;
+      ${w.events ? `<ul class="gd-evs gd-evs-row">${w.events.map(eventHTML).join('')}</ul>` : ''}<div class="gd-week-tools">${weekNav()}</div></div></div>`;
     const counts = w.days.some(d => (d.events || []).some(e => e.counts));
     return `<div class="gd-week-head"><div><span class="eyebrow">Week ${w.n} · ${esc(w.dates)}</span><h2>${esc(w.theme)}</h2>${w.sub ? `<p>${esc(w.sub)}</p>` : ''}</div>
-      ${counts ? `<span class="gd-flag">${icon('alert')}Assessment week</span>` : ''}</div>
+      <div class="gd-week-tools">${counts ? `<span class="gd-flag">${icon('alert')}Assessment week</span>` : ''}${weekNav()}</div></div>
       <div class="gd-seg" role="group" aria-label="Show">${[['all', 'Everything'], ['classes', 'Classes & homework'], ['events', 'Workshops & events']].map(([k, l]) => `<button type="button" data-gd-filter="${k}" aria-pressed="${filter === k}">${l}</button>`).join('')}</div>
       <div class="gd-days">${w.days.map((d, i) => dayCard(w, d, i)).join('')}</div>`;
   }
@@ -99,7 +109,8 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
     <path d="M112 71h46M112 101h38M112 131h44" stroke="#d6dbe6"/></g><path class="gd-tw" d="M196 52l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#e3a843"/></svg>`;
   const L = G.links, a = (href, text) => `<a href="${esc(href)}" target="_blank" rel="noopener">${esc(text)} ${icon('open')}</a>`;
   const facts = rows => `<dl class="gd-facts">${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>`;
-  const fold = (title, sub, body, open) => `<details class="gd-fold"${open ? ' open' : ''}><summary><span><b>${title}</b>${sub ? `<small>${sub}</small>` : ''}</span><i class="lg-fold-chev" aria-hidden="true"></i></summary><div class="gd-fold-body">${body}</div></details>`;
+  const FOLD_ICON = { 'The rules on the day': 'lock', 'Sick, an emergency, or a technical problem?': 'alert', 'Think your mark is wrong?': 'target', 'Disability, health condition or learning difficulty': 'users', 'Contacts': 'chat' };
+  const fold = (title, sub, body, open, ic = FOLD_ICON[title]) => `<details class="gd-fold"${open ? ' open' : ''}><summary>${ic ? `<span class="gd-fold-ic">${icon(ic)}</span>` : ''}<span><b>${title}</b>${sub ? `<small>${sub}</small>` : ''}</span><i class="lg-fold-chev" aria-hidden="true"></i></summary><div class="gd-fold-body">${body}</div></details>`;
   const steps = items => `<ol class="gd-steps">${items.map(t => `<li>${t}</li>`).join('')}</ol>`;
   const TABS = [['lrw', 'Listening, Reading & Writing', 'Weeks 5 & 9 · 70%'], ['seminar', 'Seminar + Portfolio', 'Weeks 2–7 · 3%'], ['ip', 'Interactive Presentation', 'Week 7 · 12%'], ['id', 'Interactive Discussion', 'Week 10 · 15%']];
   function tabBody(k) {
@@ -150,6 +161,15 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
   }
   const READY = [['laptop', 'I have a laptop that works (Windows 8+ or macOS, 4 GB RAM or more). Phones and tablets are not allowed.'], ['battery', 'My laptop runs for 3 hours — or I have a power bank. (You cannot plug into the wall.)'],
     ['ldb', 'I installed LockDown Browser.'], ['quiz', 'I did the LockDown Browser practice quiz.'], ['lang', 'I read “Language for online assessments”.'], ['soft', 'I removed language software (e.g. Sogou, Youdao) and turned off predictive text.'], ['news', 'I checked the Canvas announcements for this assessment.']];
+  /* the ten weeks as one strip: a dot for each assessment, a bar for the Seminar + Portfolio weeks, and where we are now */
+  function stripHTML() {
+    const ws = weeks.filter(w => !w.brk), KC = { real: '#e64626', practice: '#3a58a0', check: '#2f7a52' };
+    const cur = (() => { const w = weeks[nowIdx]; return w?.brk ? null : w?.n; })();
+    const cells = ws.map(w => { const items = G.timeline.filter(t => { const m = String(t.week).match(/^(\d+)(?:–(\d+))?$/); if (!m) return false; const a = +m[1], b = m[2] ? +m[2] : a; return w.n >= a && w.n <= b; });
+      const range = items.find(t => /–/.test(String(t.week)));
+      return `<li class="${w.n === cur ? 'is-now' : ''}${range ? ' in-range' : ''}"><b>${w.n}</b>${items.filter(t => !/–/.test(String(t.week))).map(t => `<i style="--k:${KC[t.kind] || '#5d6a74'}" title="${esc(t.title)}"></i>`).join('')}${range ? `<span class="gd-sc-bar" style="--k:${KC[range.kind]}"></span>` : ''}</li>`; }).join('');
+    return `<ol class="gd-strip" aria-label="The ten weeks">${cells}</ol><p class="gd-strip-key"><span style="--k:#e64626">Counts</span><span style="--k:#3a58a0">Practice</span><span style="--k:#2f7a52">Check-in</span>${cur ? `<span class="is-now">Week ${cur} · now</span>` : ''}</p>`;
+  }
   function assessmentsHTML() {
     const tick = store.get('ready') || {}, n = READY.filter(([k]) => tick[k]).length;
     const total = G.weights.reduce((t, w) => t + w.total, 0);
@@ -160,6 +180,7 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
       <div class="gd-skills">${G.weights.map(w => `<div class="gd-skill" style="--ec:${w.color}"><b>${esc(w.skill)} <em>${w.total}%</em></b><ul>${w.parts.map(([p, v]) => `<li><span>${esc(p)}</span><i style="--p:${v / 16.5}"></i><b>${v}%</b></li>`).join('')}</ul></div>`).join('')}</div>
     </section>
     <section id="gd-s-year"><h2 class="gd-h2">When are my assessments?</h2>
+      ${stripHTML()}
       <ol class="gd-tl">${G.timeline.map((t, i) => `<li class="is-${t.kind}" style="--i:${i}"><span class="gd-tl-w">Week ${esc(String(t.week))}</span><b>${esc(t.title)}</b><small>${esc(t.text)}</small><em>${t.kind === 'real' ? 'Counts' : t.kind === 'practice' ? 'Practice' : 'Check-in'}</em></li>`).join('')}</ol>
     </section>
     <section class="gd-tabs-wrap" id="gd-s-four"><h2 class="gd-h2">The four assessments</h2>
@@ -189,6 +210,13 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
   }
 
   /* ───────── events ───────── */
+  /* the "On this page" pills follow the reader: the section nearest the top is marked */
+  let spyTick = false;
+  document.addEventListener('scroll', () => { if (spyTick) return; spyTick = true; requestAnimationFrame(() => { spyTick = false;
+    const nav = document.querySelector('.gd-jump'); if (!nav) return;
+    const btns = [...nav.querySelectorAll('[data-gd-jump]')]; let cur = btns[0];
+    for (const b of btns) { const el = document.getElementById(b.dataset.gdJump); if (el && el.getBoundingClientRect().top <= 230) cur = b; }
+    btns.forEach(b => b.setAttribute('aria-current', b === cur ? 'true' : 'false')); }); }, { capture: true, passive: true });
   function onClick(t, d, rerender) {
     if (d.gdWeek != null) { calSel = Number(d.gdWeek); rerender(); document.querySelector(`[data-gd-week="${calSel}"]`)?.scrollIntoView({ block: 'nearest', inline: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); return true; }
     if (d.gdJump) { document.getElementById(d.gdJump)?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); return true; }

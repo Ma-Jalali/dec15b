@@ -236,3 +236,53 @@
 .gd-fig a { display: block; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 24px rgba(20, 41, 58, .1); }
 .gd-fig img { display: block; width: 100%; height: auto; }
 .gd-fig figcaption { margin-top: 8px; font: 700 .85rem/1.4 var(--sans); color: var(--ink-2, #5d6a74); }
+
+/* ───── v2.95 · richer calendar and assessments ───── */
+.gd-rail { position: sticky; top: 102px; z-index: 5; margin: 0 -12px; padding: 12px 12px 14px; border-radius: 22px; background: rgba(243, 239, 232, .78); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.gd-week-tools { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.gd-wnav { display: inline-flex; align-items: center; gap: 4px; padding: 4px; border-radius: 999px; background: #fff; box-shadow: var(--shadow-sm), 0 0 0 1px var(--line-2); }
+.gd-wnav button { display: inline-grid; place-items: center; width: 34px; height: 34px; border: 0; border-radius: 999px; background: transparent; color: var(--ink); cursor: pointer; transition: background .15s, transform .15s var(--ease); }
+.gd-wnav button .icon { width: 17px; height: 17px; }
+.gd-wnav button:hover:not(:disabled) { background: var(--paper-2); transform: scale(1.06); }
+.gd-wnav button:disabled { opacity: .3; cursor: default; }
+.gd-wnav .gd-wnav-now { width: auto; padding: 0 12px; font: 800 .76rem/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; color: #fff; background: linear-gradient(160deg, #e64626, #b8331a); }
+.gd-wnav .gd-wnav-now:hover { background: linear-gradient(160deg, #f05a3a, #c73b20); }
+.gd-break .gd-week-tools { margin-top: 14px; }
+.gd-ddots { display: inline-flex; align-items: center; gap: 5px; margin-left: 2px; }
+.gd-ddots small { font: 700 .68rem/1 var(--sans); color: var(--muted); margin-right: 3px; }
+.gd-ddots i { width: 8px; height: 8px; border-radius: 50%; background: var(--ec); box-shadow: 0 0 0 2px color-mix(in srgb, var(--ec) 18%, #fff); }
+.gd-day > header { align-items: center; }
+.gd-day .gd-lessons a { transition: transform .18s var(--ease), box-shadow .18s; }
+.gd-day .gd-lessons a:hover { transform: translateX(2px); box-shadow: 0 6px 14px -10px rgba(20, 41, 58, .5); }
+.gd-rail button::after { content: ""; position: absolute; inset: auto 14px 6px; height: 3px; border-radius: 3px; background: color-mix(in srgb, #14293a 12%, transparent); opacity: 0; transition: opacity .2s; }
+.gd-rail button.is-now::after { opacity: 1; background: #e64626; }
+.gd-rail button[aria-pressed="true"]::after { opacity: 1; background: #f2c14e; }
+
+/* assessments: sticky "on this page" with the current section marked */
+.gd-jump { position: sticky; top: 106px; z-index: 5; }
+.gd-jump button[aria-current="true"] { background: #14293a; color: #fff; box-shadow: 0 6px 14px -8px rgba(20, 41, 58, .6); }
+/* the ten-week strip */
+.gd-strip { list-style: none; margin: 0 0 18px; padding: 14px 14px 10px; display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 6px; border-radius: 18px; background: #fff; border: 1px solid var(--line-2); box-shadow: var(--shadow-sm); position: relative; }
+.gd-strip li { position: relative; display: grid; justify-items: center; gap: 6px; padding: 8px 4px 10px; border-radius: 12px; background: var(--paper-2); min-height: 62px; }
+.gd-strip li b { font: 700 .95rem/1 var(--serif); color: var(--ink-2); }
+.gd-strip li i { width: 10px; height: 10px; border-radius: 50%; background: var(--k); box-shadow: 0 0 0 3px color-mix(in srgb, var(--k) 18%, #fff); }
+.gd-strip li.in-range { background: color-mix(in srgb, #e64626 7%, #fff); }
+.gd-strip li .gd-sc-bar { position: absolute; left: -3px; right: -3px; bottom: 5px; height: 4px; background: var(--k); opacity: .55; }
+.gd-strip li.in-range:first-of-type .gd-sc-bar, .gd-strip li:not(.in-range) + .in-range .gd-sc-bar { border-radius: 4px 0 0 4px; left: 6px; }
+.gd-strip li.in-range:has(+ li:not(.in-range)) .gd-sc-bar { border-radius: 0 4px 4px 0; right: 6px; }
+.gd-strip li.is-now { background: #14293a; box-shadow: 0 8px 18px -10px rgba(20, 41, 58, .7); }
+.gd-strip li.is-now b { color: #fff; }
+.gd-strip li.is-now::before { content: "NOW"; position: absolute; top: -9px; left: 50%; transform: translateX(-50%); padding: 2px 7px; border-radius: 999px; background: #e64626; color: #fff; font: 800 .58rem/1.3 var(--sans); letter-spacing: .08em; }
+.gd-strip-key { display: flex; flex-wrap: wrap; gap: 14px; margin: 0 0 14px 4px; font: 700 .78rem/1 var(--sans); color: var(--ink-2); }
+.gd-strip-key span { display: inline-flex; align-items: center; gap: 6px; }
+.gd-strip-key span::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--k, #14293a); }
+.gd-strip-key span.is-now::before { background: #14293a; }
+/* fold icons */
+.gd-fold summary { display: flex; align-items: center; gap: 14px; }
+.gd-fold summary > span:not(.gd-fold-ic) { flex: 1; }
+.gd-fold-ic { flex: none; width: 40px; height: 40px; border-radius: 13px; display: grid; place-items: center; background: linear-gradient(150deg, #eef2fb, #e3e9f7); color: #3a58a0; box-shadow: inset 0 1px 0 #fff, 0 0 0 .5px rgba(58, 88, 160, .25); }
+.gd-fold-ic .icon { width: 19px; height: 19px; }
+.gd-fold[open] .gd-fold-ic { background: linear-gradient(150deg, #3a58a0, #2b4580); color: #fff; }
+.gd-ready-meter { background: radial-gradient(closest-side, #fff 76%, transparent 77%), conic-gradient(from 0deg, #6fd39a, #2f9a63 calc(var(--p) * 360deg), var(--paper-2) 0); box-shadow: 0 10px 24px -18px rgba(47, 154, 99, .7); }
+@media (max-width: 760px) { .gd-rail { position: static; margin: 0; padding: 10px 0 12px; background: transparent; } .gd-strip { grid-template-columns: repeat(5, minmax(0, 1fr)); } .gd-jump { position: static; } }
+@media (prefers-reduced-motion: reduce) { .gd-wnav button, .gd-day .gd-lessons a { transition: none; } }
