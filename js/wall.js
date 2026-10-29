@@ -22,6 +22,17 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
   const drafts = {}, kindOf = {}, filter = {}, sortBy = {}, typingNow = {}; let replyTo = null, picker = null, menuFor = null;
   /* Busy walls show the newest posts first and fold the rest away, so the activity stays in focus. */
   const SHOW_POSTS = 3, SHOW_REPLIES = 2, expanded = new Set();
+  /* Compact mode (DEC10): the discussion is one slim bar under the activity; tap it to open the composer and posts.
+     Which bars are open, and how many posts the student has seen, are remembered on this device. */
+  const compact = () => document.documentElement.dataset.course === 'dec10';
+  const mem = k => { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch { return null; } };
+  const openSet = new Set(mem('dec15.wallOpen') || []), seen = mem('dec15.wallSeen') || {};
+  const wkey = thread => lessonId + ':' + thread;
+  const isOpen = thread => openSet.has(wkey(thread));
+  function setOpen(thread, on) { on ? openSet.add(wkey(thread)) : openSet.delete(wkey(thread)); try { localStorage.setItem('dec15.wallOpen', JSON.stringify([...openSet])); } catch {} }
+  function markSeen(thread) { seen[wkey(thread)] = count(thread); try { localStorage.setItem('dec15.wallSeen', JSON.stringify(seen)); } catch {} }
+  const unseen = thread => Math.max(0, count(thread) - (seen[wkey(thread)] || 0));
+  const CHEV = '<svg class="wall-chev" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
   const cloud = () => getCloud();
   const klass = () => getClass?.() || null;
@@ -153,6 +164,7 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
     if (status === 'error') return '<p class="wall-empty">The class discussion could not load. Check your internet connection.</p>';
     const f = filter[thread] || 'all', s = sortBy[thread] || 'new';
     let top = posts.filter(p => p.thread === thread && !p.parent_id).reverse();   // newest first
+    if (!top.length && compact()) return '<p class="wall-empty wall-empty-slim">No posts yet. Be the first: ask a question, share an idea or comment on the task.</p>';
     if (!top.length) return `<div class="wall-empty wall-first">${EMPTY_ART}<div class="wall-first-tx"><b>No posts yet — be the first!</b><span>Start the conversation: ask a question, share an idea or comment on the task.</span><span class="wall-first-tips"><i class="t-q">Ask a question</i><i class="t-i">Share an idea</i><i class="t-c">Reply and react</i></span></div></div>`;
     if (f === 'teacher') top = top.filter(p => p.author_role === 'teacher' || posts.some(r => r.parent_id === p.id && r.author_role === 'teacher'));
     else if (f !== 'all') top = top.filter(p => kind(p) === f);
@@ -164,6 +176,20 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
       + (more ? `<button type="button" class="wall-more" data-wall-more="${esc(thread)}">${icon('chat')}Show ${more} more post${more === 1 ? '' : 's'}</button>` : '');
   }
   const EMPTY_ART = `<svg class="wall-art" viewBox="0 0 168 112" aria-hidden="true"><defs><linearGradient id="wa-t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6f3ef"/><stop offset="1" stop-color="#cfe6df"/></linearGradient><linearGradient id="wa-c" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1e8"/><stop offset="1" stop-color="#f7d9c6"/></linearGradient><linearGradient id="wa-v" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a6ccc"/><stop offset="1" stop-color="#6e4caa"/></linearGradient><radialGradient id="wa-g" cx=".5" cy=".55" r=".5"><stop offset="0" stop-color="#efe8fb"/><stop offset="1" stop-color="#efe8fb" stop-opacity="0"/></radialGradient><filter id="wa-s" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".14"/></filter></defs><ellipse cx="84" cy="60" rx="80" ry="50" fill="url(#wa-g)"/><ellipse cx="86" cy="104" rx="52" ry="4" fill="#14293a" opacity=".07"/><g filter="url(#wa-s)"><rect x="14" y="16" width="78" height="44" rx="15" fill="url(#wa-t)"/><path d="M30 58l-4 15 17-13z" fill="#cfe6df"/></g><circle cx="34" cy="38" r="4" fill="#2b776e"/><circle cx="47" cy="38" r="4" fill="#2b776e" opacity=".6"/><circle cx="60" cy="38" r="4" fill="#2b776e" opacity=".3"/><circle cx="16" cy="18" r="9" fill="#2b776e" stroke="#fff" stroke-width="2.5"/><circle cx="16" cy="15.5" r="3" fill="#fff"/><path d="M10.5 23.5a5.5 4 0 0 1 11 0" fill="#fff"/><g filter="url(#wa-s)"><rect x="66" y="40" width="86" height="46" rx="15" fill="url(#wa-c)"/><path d="M134 84l5 15-17-13z" fill="#f7d9c6"/></g><path d="M80 56h50M80 66h34M80 76h20" stroke="#c0603a" stroke-width="4" stroke-linecap="round"/><path d="M80 56h50" stroke="#c0603a" stroke-width="4" stroke-linecap="round" opacity=".0"/><circle cx="152" cy="42" r="9" fill="#c0603a" stroke="#fff" stroke-width="2.5"/><circle cx="152" cy="39.5" r="3" fill="#fff"/><path d="M146.5 47.5a5.5 4 0 0 1 11 0" fill="#fff"/><g filter="url(#wa-s)"><circle cx="108" cy="20" r="11" fill="url(#wa-v)"/></g><path d="M104.5 17a3.6 3.6 0 1 1 5.2 3.2c-1.1.6-1.7 1.2-1.7 2.6" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="108" cy="26.4" r="1.3" fill="#fff"/><g filter="url(#wa-s)"><rect x="40" y="76" width="30" height="18" rx="9" fill="#fff"/></g><path d="M50 82.5c-1.6-2-4.6-.6-3.6 1.8.6 1.4 3.6 3.6 3.6 3.6s3-2.2 3.6-3.6c1-2.4-2-3.8-3.6-1.8z" fill="#e2574c"/><text x="60" y="88" font-family="Manrope, sans-serif" font-size="8" font-weight="800" fill="#4c5d6a">3</text><path d="M132 14l1.6 4.4 4.4 1.6-4.4 1.6-1.6 4.4-1.6-4.4-4.4-1.6 4.4-1.6z" fill="#e3a843"/><circle cx="8" cy="64" r="2" fill="#e3a843" opacity=".7"/><circle cx="160" cy="70" r="1.6" fill="#8a6ccc" opacity=".6"/><path d="M6 34h5M8.5 31.5v5" stroke="#8a6ccc" stroke-width="1.4" stroke-linecap="round" opacity=".6"/></svg>`;
+  /* compact mode: the one line shown on the closed bar */
+  function peekHTML(thread) {
+    if (!cloud()?.user) return 'Sign in to ask questions, share ideas and react.';
+    if (status !== 'ready') return 'Ask a question, share an idea or comment.';
+    const all = posts.filter(p => p.thread === thread), top = all.filter(p => !p.parent_id), last = all[all.length - 1];
+    if (!top.length) return 'No posts yet. Ask a question, share an idea or comment.';
+    const who = last.user_id === me() ? 'You' : (last.author_name || 'Someone').split(' ')[0], body = String(last.body || '').replace(/\s+/g, ' ').trim();
+    return `<b>${all.length}</b> post${all.length === 1 ? '' : 's'} · ${esc(who)}: “${esc(body.length > 70 ? body.slice(0, 68).trim() + '…' : body)}”`;
+  }
+  function miniHTML(thread) {
+    if (!cloud()?.user || status !== 'ready') return '';
+    const authors = [...new Map(posts.filter(p => p.thread === thread).reverse().map(p => [p.user_id, p])).values()], on = klass()?.online?.() || 0, nu = isOpen(thread) ? 0 : unseen(thread);
+    return `${authors.length ? `<span class="ws-faces">${authors.slice(0, 3).map(p => avatar(p, ' ws-face')).join('')}</span>` : ''}${on > 1 ? `<span class="ws-on">${G.dot}${on}</span>` : ''}${nu ? `<span class="wall-new">${nu} new</span>` : ''}`;
+  }
   /* the strip under the heading: who posted, who is online, how many finished */
   function statsHTML(thread) {
     if (!cloud()?.user || status !== 'ready') return '';
@@ -184,20 +210,33 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
   function sectionHTML(a) {
     if (!enabled()) return '';
     const signedIn = !!cloud()?.user, name = cloud()?.profile?.full_name || '', k = kindOf[a.id] || 'comment';
+    if (compact()) { const open = signedIn && isOpen(a.id), bid = 'wall-body-' + a.id;
+      return `<section class="wall wall-compact${open ? ' is-open' : ''}" data-wall="${esc(a.id)}" aria-label="Class discussion: ${esc(a.short || a.title || a.id)}">
+      ${signedIn ? `<button type="button" class="wall-bar" data-wall-toggle="${esc(a.id)}" aria-expanded="${open}" aria-controls="${bid}">` : '<div class="wall-bar">'}
+        <span class="wall-icon">${icon('chat')}</span>
+        <span class="wall-bar-tx"><b>Class discussion <span class="wall-count" data-wall-count="${esc(a.id)}">${signedIn && count(a.id) ? count(a.id) : ''}</span></b><small data-wall-peek="${esc(a.id)}">${peekHTML(a.id)}</small></span>
+        <span class="wall-bar-meta" data-wall-mini="${esc(a.id)}">${miniHTML(a.id)}</span>
+        ${signedIn ? `<span class="wall-bar-open">${open ? 'Close' : 'Open'}${CHEV}</span>` : `<button type="button" class="btn btn-sm" data-wall-signin>Sign in</button>`}
+      ${signedIn ? '</button>' : '</div>'}
+      ${signedIn ? `<div class="wall-body" id="${bid}"${open ? '' : ' hidden'}>${bodyHTML(a, k, name)}</div>` : ''}
+    </section>`; }
     return `<section class="wall" data-wall="${esc(a.id)}" aria-label="Class discussion: ${esc(a.short || a.title || a.id)}">
       <header class="wall-head"><span class="wall-icon">${icon('chat')}</span><div class="wall-htext"><h3>Class discussion <span class="wall-count" data-wall-count="${esc(a.id)}">${signedIn && count(a.id) ? count(a.id) : ''}</span></h3>
         <p>Ask a question, share an idea or comment. Your class can reply and react.</p></div></header>
-      ${signedIn ? `<div class="wall-stats" data-wall-stats="${esc(a.id)}">${statsHTML(a.id)}</div>
+      ${signedIn ? bodyHTML(a, k, name)
+        : `<div class="wall-signin">${EMPTY_ART}<p><span><b>Sign in to join the class discussion.</b> See what your classmates posted, ask questions, reply and react.</span></p><button type="button" class="btn" data-wall-signin>Sign in</button></div>`}
+    </section>`;
+  }
+  function bodyHTML(a, k, name) {
+    return `<div class="wall-stats" data-wall-stats="${esc(a.id)}">${statsHTML(a.id)}</div>
         <form class="wall-form wall-compose" data-wall-form="${esc(a.id)}">
         <span class="wall-avatar${photo(cloud()?.profile?.avatar_url) ? ' has-photo' : ''}" style="--h:${hue(me())}" aria-hidden="true">${photo(cloud()?.profile?.avatar_url) || initial(name || cloud().user.email)}</span>
         <div class="wall-form-main">
           <div class="wall-kinds" role="radiogroup" aria-label="Type of post">${Object.entries(KINDS).map(([key, l]) => `<button type="button" role="radio" class="wk-${key}" aria-checked="${k === key}" data-wall-kind="${key}" data-thread="${esc(a.id)}">${G[key]}${l}</button>`).join('')}</div>
           <textarea data-wall-draft="${esc(a.id)}" rows="2" maxlength="2000" placeholder="${k === 'question' ? 'What would you like to ask?' : k === 'idea' ? 'Share your idea with the class…' : 'Write a comment for the class…'}" aria-label="Write a ${KINDS[k].toLowerCase()} for the class">${esc(drafts[a.id] || '')}</textarea>
-          <div class="wall-form-bar"><small class="wall-typing" data-wall-typing="${esc(a.id)}" aria-live="polite">${typingHTML(a.id)}</small><button class="btn" type="submit">Post ${icon('arrow')}</button></div></div></form>`
-        : `<div class="wall-signin">${EMPTY_ART}<p><span><b>Sign in to join the class discussion.</b> See what your classmates posted, ask questions, reply and react.</span></p><button type="button" class="btn" data-wall-signin>Sign in</button></div>`}
-      <div class="wall-tools-slot" data-wall-tools="${esc(a.id)}">${signedIn && status === 'ready' ? toolsHTML(a.id) : ''}</div>
-      <div class="wall-list" data-wall-list="${esc(a.id)}">${listHTML(a.id)}</div>
-    </section>`;
+          <div class="wall-form-bar"><small class="wall-typing" data-wall-typing="${esc(a.id)}" aria-live="polite">${typingHTML(a.id)}</small><button class="btn" type="submit">Post ${icon('arrow')}</button></div></div></form>
+      <div class="wall-tools-slot" data-wall-tools="${esc(a.id)}">${status === 'ready' ? toolsHTML(a.id) : ''}</div>
+      <div class="wall-list" data-wall-list="${esc(a.id)}">${listHTML(a.id)}</div>`;
   }
   /* Repaint lists only, keeping focus and cursor in any reply box. */
   function paint() {
@@ -206,6 +245,8 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
     document.querySelectorAll('[data-wall-tools]').forEach(el => { el.innerHTML = cloud()?.user && status === 'ready' ? toolsHTML(el.dataset.wallTools) : ''; });
     paintStats();
     document.querySelectorAll('[data-wall-count]').forEach(el => { const n = count(el.dataset.wallCount); el.textContent = cloud()?.user && n ? n : ''; });
+    document.querySelectorAll('[data-wall-peek]').forEach(el => { el.innerHTML = peekHTML(el.dataset.wallPeek); });
+    document.querySelectorAll('[data-wall-mini]').forEach(el => { el.innerHTML = miniHTML(el.dataset.wallMini); });
     if (key && !document.contains(act)) { const t = document.querySelector(`[data-wall-draft="${CSS.escape(key)}"]`); if (t) { t.focus(); t.setSelectionRange(...sel); } }
   }
   function paintStats() { document.querySelectorAll('[data-wall-stats]').forEach(el => { el.innerHTML = statsHTML(el.dataset.wallStats); }); }
@@ -231,6 +272,7 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
     if (!t) { if ((picker && !e.target.closest('.wall-picker')) || menuFor) { picker = null; menuFor = null; paint(); } return; }
     const d = t.dataset;
     if (menuFor && !d.wallMenu && !t.closest('.wall-menu')) { menuFor = null; paint(); }
+    if (d.wallToggle) { toggleWall(d.wallToggle); return; }
     if (d.wallMore) { expanded.add(d.wallMore); paint(); return; }
     if (d.wallReact) { react(d.wallReact, d.emoji); return; }
     if (d.wallPicker) { picker = picker === d.wallPicker ? null : d.wallPicker; paint(); return; }
@@ -251,6 +293,14 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
     if (picker && !t.closest('.wall-picker')) { picker = null; paint(); }
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && (menuFor || picker)) { const id = menuFor; menuFor = null; picker = null; paint(); if (id) document.querySelector(`[data-wall-menu="${CSS.escape(id)}"]`)?.focus(); } });
+  function toggleWall(thread, force) {
+    const on = force ?? !isOpen(thread); setOpen(thread, on); if (on) markSeen(thread);
+    document.querySelectorAll(`[data-wall="${CSS.escape(thread)}"].wall-compact`).forEach(sec => { sec.classList.toggle('is-open', on);
+      const bar = sec.querySelector('[data-wall-toggle]'), body = sec.querySelector('.wall-body'), lab = sec.querySelector('.wall-bar-open');
+      bar?.setAttribute('aria-expanded', String(on)); if (body) body.hidden = !on; if (lab) lab.innerHTML = (on ? 'Close' : 'Open') + CHEV; });
+    paint();
+    if (on) document.querySelector(`[data-wall="${CSS.escape(thread)}"] [data-wall-draft="${CSS.escape(thread)}"]`)?.focus({ preventScroll: true });
+  }
   async function share(fieldId, thread, label) {
     if (!db()) { signIn(); return; }
     const ids = String(fieldId).split(','), parts = ids.map(id => [document.querySelector(`label[for="f-${CSS.escape(id)}"]`)?.textContent.trim() || '', (document.getElementById('f-' + id)?.value || '').trim()]).filter(([, v]) => v);
@@ -258,7 +308,7 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
     const text = ids.length > 1 ? parts.map(([l, v]) => `${l}\n${v}`).join('\n\n') : parts[0][1];
     if (!confirm('Share this writing with your class?\n\nEveryone in DEC15 will see it in the class discussion with your name. Your own copy stays in your notebook.')) return;
     if (await post(thread, text, { kind: 'work', label: (label || '').slice(0, 200) })) {
-      toast('Shared with the class. Scroll down to see it in the class discussion.');
+      toast('Shared with the class. Scroll down to see it in the class discussion.'); if (compact() && !isOpen(thread)) toggleWall(thread, true);
       document.querySelector(`[data-wall="${CSS.escape(thread)}"]`)?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
     }
   }
