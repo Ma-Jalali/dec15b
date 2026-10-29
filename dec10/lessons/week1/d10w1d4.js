@@ -658,144 +658,203 @@ window.DEC15_LESSON = {
       ]
     },
 
-    /* ───────────────────────── 17A · AST: Research skills ───────────────────────── */
+    /* ───────────────────────── 17A · AST: Research skills ─────────────────────────
+       Rebuilt as "Source detective": short, visual, one instruction at a time. Students race to find a page, learn WHERE on a
+       page each CRAAP clue hides, judge five real links, build a search string with live checks, and find two real sources
+       in the University of Sydney Library. Teacher's Book links, topic, steps and answers are kept. */
     {
       id: 'research', number: '04', code: '17A', minutes: 60,
       tone: 'green', art: 'dec10/assets/week1/s-research.svg',
       title: 'AST: Research skills',
-      subtitle: 'Find it, test it, trust it',
-      outcome: 'You can apply the CRAAP test, search with AND / OR / “…”, and find a reliable source through the University of Sydney Library.',
+      subtitle: 'Source detective: find it, test it, trust it',
+      outcome: 'You can check any web page with the CRAAP test, build a search with AND, OR and “ ”, and find a reliable source in the University of Sydney Library.',
       activities: [
         {
-          id: 'x1', short: 'Lead-in', minutes: 5, grouping: 'Pair',
+          id: 'rs1', short: 'Lead-in', minutes: 5, grouping: 'Pair',
           art: 'dec10/assets/week1/v/v-d10w1d4-x1.svg',
-          title: 'What is research — really?',
-          goal: 'Know where to look and what researching involves.',
+          title: 'Where would you look?',
+          goal: 'Know which kind of source gives you which kind of information.',
           blocks: [
-            { type: 'match', id: 'x1-m', title: 'Where would you find …?', left: ['cutting-edge research', 'background information', 'current news'], right: ['journal articles', 'books, textbooks and encyclopedias', 'newspapers and news websites'] },
-            { type: 'sort', id: 'x1-sort', title: 'Is it part of good research?', buckets: [{ label: 'Good research', letter: '✓' }, { label: 'Not good research', letter: '✗' }], items: [
-              { text: 'finding an answer to a question or solving a problem', answer: 0 },
+            { type: 'key', title: 'Today’s goals', points: [
+              'Check a web page in one minute with the <b>CRAAP test</b>.',
+              'Search like a researcher with <b>AND</b>, <b>OR</b> and <b>“ ”</b>.',
+              'Find <b>two reliable sources</b> in the University of Sydney Library.'
+            ] },
+            { type: 'do', n: 1, who: 'pair', text: 'Look at the three shelves. Tap each one. What would you find there?' },
+            { type: 'hotspot', src: 'dec10/assets/week1/rs-shelves.svg', size: 'wide', alt: 'Three shelves: journals for cutting-edge research, books and encyclopedias for background information, and news for current news.', caption: 'Three shelves, three jobs.', spots: [
+              { x: 18, y: 45, label: '1', color: '#3a58a0', title: 'Journals: cutting-edge research', text: 'Academic journals publish <b>new research</b>, checked by other experts (peer review). Use them for the latest findings and evidence.' },
+              { x: 50, y: 45, label: '2', color: '#8a5a2b', title: 'Books and encyclopedias: background', text: 'Textbooks and encyclopedias explain the <b>basics</b>: definitions, history, key ideas. A good place to start a new topic.' },
+              { x: 82, y: 45, label: '3', color: '#d4583a', title: 'News: what is happening now', text: 'Newspapers and news websites report <b>current events</b>. Useful for recent examples, but check them carefully: news is not research.' }
+            ] },
+            { type: 'do', n: 2, who: 'pair', text: 'Check yourselves. Match each need with the right shelf.' },
+            { type: 'match', id: 'rs1-m', title: 'Where would you find …?', left: ['cutting-edge research', 'background information', 'current news'], right: ['journal articles', 'books, textbooks and encyclopedias', 'newspapers and news websites'] },
+            { type: 'do', n: 3, who: 'pair', text: 'Good research or a bad habit? Sort the cards.' },
+            { type: 'sort', id: 'rs1-sort', title: 'Good researcher or bad habit?', buckets: [{ label: 'Good research', letter: '✓' }, { label: 'Bad habit', letter: '✗' }], items: [
+              { text: 'finding an answer to a question', answer: 0 },
               { text: 'searching for information', answer: 0 },
               { text: 'analysing and interpreting information', answer: 0 },
-              { text: 'synthesising information', answer: 0 },
+              { text: 'putting ideas from different sources together', answer: 0 },
               { text: 'using information to support your argument', answer: 0 },
               { text: 'accepting the first web results', answer: 1 },
-              { text: 'looking only for sources that agree with your thesis', answer: 1, why: 'Good research looks at other points of view too — you need them to evaluate (14A).' },
-              { text: 'reading everything you can on the topic', answer: 1, why: 'Impossible, and not useful: you select what is relevant.' }
+              { text: 'looking only for sources that agree with you', answer: 1, why: 'Good research looks at other points of view too: you need them to evaluate (Lesson 14).' },
+              { text: 'reading everything on the topic', answer: 1, why: 'Impossible, and not useful. You choose what is relevant.' }
             ] }
           ]
         },
         {
-          id: 'x2', short: '2-min hunt', minutes: 8, grouping: 'Alone → Pair',
+          id: 'rs2', short: '2-min race', minutes: 7, grouping: 'Alone → Pair',
           art: 'dec10/assets/week1/v/v-d10w1d4-x2.svg',
-          title: 'The 2-minute source hunt',
-          goal: 'Find something online — then ask how reliable it is.',
+          title: 'The 2-minute race',
+          goal: 'Find a page fast, then ask: can I trust it?',
           blocks: [
-            { type: 'do', n: 1, who: 'alone', text: 'Think of an example of environmental damage: e.g. the 2010 Deepwater Horizon oil spill, loss of polar ice due to global heating, or soil erosion in Australia or China.' },
-            { type: 'do', n: 2, who: 'alone', text: 'You have <b>2 minutes</b>. Find one source online that looks useful.' },
-            { type: 'fields', fields: [{ id: 'x2-src', label: 'My source (title + website)', rows: 1 }] },
-            { type: 'do', n: 3, who: 'pair', text: 'Show your partner. How reliable is it? Do they agree?' },
-            { type: 'fields', fields: [{ id: 'x2-rel', label: 'How reliable is it — and where could I find something more reliable?', rows: 2 }] }
-          ],
-          answers: { items: [['More reliable information', 'Recent research, or reports by governments and other respected organisations — found through the library databases.']] }
+            { type: 'do', n: 1, who: 'pair', text: 'Spin a topic: an example of environmental damage.' },
+            { type: 'spinner', id: 'rs2-spin', label: 'Topic spinner', note: 'Spin once, then start the race.', title: 'Your topic', text: 'Spin once. This is your topic for the race.', reels: [
+              { label: 'Environmental damage', items: [
+                'The 2010 Deepwater Horizon oil spill',
+                'Loss of polar ice due to global heating',
+                'Soil erosion in Australia',
+                'Soil erosion in China',
+                'Plastic pollution in the ocean',
+                'Deforestation in the Amazon'
+              ] }
+            ] },
+            { type: 'do', n: 2, who: 'alone', text: 'Ready? Press the timer. Find ONE useful page about your topic. Paste the link. <button type="button" class="btn-quiet btn-sm" data-timer="2">Start the 2-minute timer</button>' },
+            { type: 'fields', fields: [{ id: 'rs2-link', label: 'My page (paste the link)', rows: 1, placeholder: 'https://…' }] },
+            { type: 'do', n: 3, who: 'pair', text: 'Swap links with your partner. Look at their page for 30 seconds. How much do you trust it?' },
+            { type: 'scale', id: 'rs2-trust', title: 'Trust meter', statement: 'I trust my partner’s page for a university assignment.', ends: ['Not at all', 'Completely'], mid: 'A little' },
+            { type: 'do', n: 4, who: 'pair', text: 'Hard to decide? Turn the card.' },
+            { type: 'flip', items: [
+              { front: 'Where can you find something MORE reliable?', back: 'Recent <b>research</b>, and reports by <b>governments</b> and respected organisations. You find them in the <b>Library databases</b>. You will do this at the end of the lesson.' }
+            ] }
+          ]
         },
         {
-          id: 'x3', short: 'CRAAP', minutes: 12, grouping: 'Alone → Pair',
+          id: 'rs3', short: 'CRAAP', minutes: 12, grouping: 'Pair',
           art: 'dec10/assets/week1/v/v-d10w1d4-x3.svg',
-          title: 'The CRAAP test',
-          goal: 'Five questions that tell you if a source is good enough.',
+          title: 'The CRAAP test: five clues on every page',
+          goal: 'Know what to ask, and where on the page to look.',
           blocks: [
-            { type: 'hotspot', src: 'dec10/assets/week1/craap.svg', hint: "Tap a letter for the questions to ask.", spots: [{ x: 12.5, y: 32.5, title: "Currency", text: "When was it published, updated or revised? Is it too old for this topic? (For climate data, five years is old. For a definition of the DTM, 1970 may be fine.)", label: "C", color: "#3a58a0" }, { x: 31.2, y: 32.5, title: "Relevance", text: "Is it about YOUR question? Is it an in-depth study or a quick summary? Who is it written for — the public, students, researchers? Is the level right for an academic assignment?", label: "R", color: "#2d8a9a" }, { x: 50.0, y: 32.5, title: "Authority", text: "Who wrote it, and who published it? Is the author an expert in this field? Can you check their credentials? A university, a government agency or a peer-reviewed journal counts; an anonymous blog does not.", label: "A", color: "#2f9a63" }, { x: 68.8, y: 32.5, title: "Accuracy", text: "Is there a reference list? Are the methods and data explained? Can you find the same facts in another reliable source?", label: "A", color: "#5f9a2a" }, { x: 87.5, y: 32.5, title: "Purpose", text: "Why does this page exist — to inform, to entertain, to teach, or to sell something? Is there a political, commercial or personal bias?", label: "P", color: "#d99a1e" }], size: 'wide', alt: 'The CRAAP test: five cards. Currency — when was it published? Relevance — is it on your topic, and at the right level? Authority — who wrote it, and are they an expert? Accuracy — are there references, methods and data? Purpose — is it to inform, or to sell an idea? Any bias?', caption: 'The CRAAP test.', credit: 'Source: University of Sydney Library. (n.d.). Evaluating search results.' },
-            { type: 'flip', title: 'What do you ask?', hint: 'Say your question, then turn the card.', items: [
+            { type: 'do', n: 1, who: 'pair', text: 'Every page has five clues. Watch the magnifying glass. Then tap each letter on the page: where is the clue, and what does it tell you?' },
+            { type: 'hotspot', src: 'dec10/assets/week1/rs-page.svg', size: 'wide', alt: 'A blog page about soil erosion with five clues: the date (posted 2011), the title (a quick guide), the author (a guest blogger with a nickname), the references (none listed), and an advertisement (buy now).', caption: 'Five clues on one page.', credit: 'CRAAP test: University of Sydney Library. (n.d.). Evaluating search results.', spots: [
+              { x: 49.5, y: 37, label: 'C', color: '#3a58a0', title: 'C · Currency: look at the DATE', text: 'Ask: When was it published or updated? Is it too old for my topic?<br><b>Here:</b> 2011. For erosion data, that is old.' },
+              { x: 45, y: 26, label: 'R', color: '#2d8a9a', title: 'R · Relevance: look at the TITLE', text: 'Ask: Is it about MY question? Is it in-depth or a quick summary? Who is it for: the public, students or researchers?<br><b>Here:</b> “a quick guide” for the public. Too basic.' },
+              { x: 4.5, y: 37.5, label: 'A', color: '#2f9a63', title: 'A · Authority: look at the AUTHOR', text: 'Ask: Who wrote or published it? Are they an expert? Can I check?<br><b>Here:</b> a nickname and a “guest blogger”. We cannot check them.' },
+              { x: 51.6, y: 84.5, label: 'A', color: '#5f9a2a', title: 'A · Accuracy: look for REFERENCES', text: 'Ask: Is there a reference list? Are the data and methods explained? Can I find the same facts elsewhere?<br><b>Here:</b> no references, and a big claim with no source.' },
+              { x: 71.6, y: 34.5, label: 'P', color: '#d48a12', title: 'P · Purpose: look for ADS and “buy”', text: 'Ask: Why does this page exist: to inform, entertain, teach or sell? Is there any bias?<br><b>Here:</b> the blog sells a product. Its purpose is not only to inform.' }
+            ] },
+            { type: 'sticky', color: 'yellow', title: 'Verdict on this page', text: '<p>Old · too basic · unknown author · no references · selling something.</p><p><b>Don’t use it.</b> One problem can be OK. Five problems: find another source.</p>' },
+            { type: 'do', n: 2, who: 'alone', text: 'Test yourself. Say the questions for each letter, then turn the card.' },
+            { type: 'flip', items: [
               { front: 'C · Currency', back: 'When was it published, updated or revised? Is it too old for this project?' },
               { front: 'R · Relevance', back: 'Is it on my topic? In-depth or a quick summary? Who is the audience? Basic or advanced?' },
               { front: 'A · Authority', back: 'Who wrote or published it? Is the author an expert? Can I check their credentials?' },
               { front: 'A · Accuracy', back: 'Is there a reference list? Are the methods and data explained? Can I check the claims elsewhere?' },
               { front: 'P · Purpose', back: 'Is it to inform, entertain, educate or sell? Any political, cultural, institutional or personal bias?' }
             ] },
+            { type: 'do', n: 3, who: 'pair', text: 'Which clue is the problem? Choose the letter.' },
+            { type: 'quiz', id: 'rs3-q', items: [
+              { q: 'The page was last updated in 2009, and your topic is plastic in the ocean today.', options: ['C · Currency', 'R · Relevance', 'A · Authority', 'A · Accuracy', 'P · Purpose'], answer: 'C · Currency' },
+              { q: 'The page is about forests in Brazil. Your question is about soil erosion in China.', options: ['C · Currency', 'R · Relevance', 'A · Authority', 'A · Accuracy', 'P · Purpose'], answer: 'R · Relevance' },
+              { q: 'There is no author name, and no organisation.', options: ['C · Currency', 'R · Relevance', 'A · Authority', 'A · Accuracy', 'P · Purpose'], answer: 'A · Authority' },
+              { q: 'It says “90% of reefs are dead” but gives no source.', options: ['C · Currency', 'R · Relevance', 'A · Authority', 'A · Accuracy', 'P · Purpose'], answer: 'A · Accuracy' },
+              { q: 'An oil company’s page says oil spills are “not a big problem”.', options: ['C · Currency', 'R · Relevance', 'A · Authority', 'A · Accuracy', 'P · Purpose'], answer: 'P · Purpose', why: 'The company has a reason to say this: a commercial bias.' }
+            ] },
+            { type: 'do', n: 4, who: 'class', text: 'Optional: watch the CRAAP test in action (2 minutes).' },
             { type: 'listening', source: 'Portland University Library (2017)', title: 'The C.R.A.P. test in action', videoId: 'k6tEkQMBzxw', start: 0, clip: 'short video · 2:22', transcripts: [], mode: 'video' }
           ]
         },
         {
-          id: 'x4', short: 'Judge', minutes: 10, grouping: 'Pair',
+          id: 'rs4', short: 'Judge', minutes: 10, grouping: 'Pair',
           art: 'dec10/assets/week1/v/v-d10w1d4-x4.svg',
-          title: 'CRAAP judge: five links',
-          goal: 'Scan each page fast. Is it good enough for an academic assignment?',
+          title: 'Source judge: five real links',
+          goal: 'Scan each page for one minute. Use it or not?',
           blocks: [
-            { type: 'model', title: 'Open each link and scan for C, R, A, A, P', rows: [
+            { type: 'do', n: 1, who: 'pair', text: 'Open each link. Spend about one minute on each page. Scan for the five clues: date, title, author, references, ads. <button type="button" class="btn-quiet btn-sm" data-timer="5">Start a 5-minute timer</button>' },
+            { type: 'model', title: 'Five pages about environmental degradation', rows: [
               ['a', '<a href="https://www.eea.europa.eu/en/topics/in-depth/environmental-health-impacts" target="_blank" rel="noopener">Environmental health impacts · European Environment Agency</a>'],
               ['b', '<a href="https://www.theworldcounts.com/stories/environmental-degradation-facts" target="_blank" rel="noopener">Environmental Degradation Facts · theworldcounts.com</a>'],
               ['c', '<a href="https://www.geeksforgeeks.org/biology/causes-and-impact-of-environmental-degradation/" target="_blank" rel="noopener">Causes and Impact of Environmental Degradation · GeeksforGeeks</a>'],
               ['d', '<a href="https://www.sciencedirect.com/science/article/pii/S0277953602000552" target="_blank" rel="noopener">Causes and health consequences of environmental degradation and social injustice · ScienceDirect</a>'],
               ['e', '<a href="https://link.springer.com/article/10.1007/s11111-007-0048-3" target="_blank" rel="noopener">Human population as a dynamic factor in environmental degradation · Population and Environment (Springer)</a>']
-            ], note: 'Spend about one minute on each page. You are scanning, not reading.' },
-            { type: 'sort', id: 'x4-sort', title: 'Your verdict', buckets: [{ label: 'Use it', letter: '✓' }, { label: 'Don’t use it', letter: '✗' }], items: [
-              { text: 'a · European Environment Agency', answer: 0, why: 'Authority: an official EU agency. Purpose: to inform.' },
-              { text: 'b · theworldcounts.com', answer: 1, why: 'Authority and accuracy are hard to check: no clear expert author or full references.' },
-              { text: 'c · GeeksforGeeks', answer: 1, why: 'A general study website for students — not an expert or academic source.' },
-              { text: 'd · ScienceDirect journal article', answer: 0, why: 'Peer-reviewed research with references and methods.' },
-              { text: 'e · Population and Environment (Springer)', answer: 0, why: 'A peer-reviewed academic journal.' }
+            ], note: 'You are scanning, not reading.' },
+            { type: 'do', n: 2, who: 'pair', text: 'Give your verdict. Bet more coins when you are sure.' },
+            { type: 'bet', id: 'rs4-bet', title: 'Use it or not?', proof: 'Bet big only when you found the clues.', coins: 10, items: [
+              { q: '<b>a</b> · European Environment Agency', options: ['Use it', 'Don’t use it'], answer: 'Use it', why: 'Authority: an official EU agency. Purpose: to inform.' },
+              { q: '<b>b</b> · theworldcounts.com', options: ['Use it', 'Don’t use it'], answer: 'Don’t use it', why: 'Authority and accuracy are hard to check: no clear expert author and no full references.' },
+              { q: '<b>c</b> · GeeksforGeeks', options: ['Use it', 'Don’t use it'], answer: 'Don’t use it', why: 'A general study website for students, not an expert or academic source.' },
+              { q: '<b>d</b> · ScienceDirect journal article', options: ['Use it', 'Don’t use it'], answer: 'Use it', why: 'Peer-reviewed research with references and methods. Check the date: it is more than 20 years old, so use it for background, not for the latest data.' },
+              { q: '<b>e</b> · Population and Environment (Springer)', options: ['Use it', 'Don’t use it'], answer: 'Use it', why: 'A peer-reviewed academic journal.' }
             ] }
           ]
         },
         {
-          id: 'x5', short: 'Keywords', minutes: 10, grouping: 'Pair',
+          id: 'rs5', short: 'Search', minutes: 12, grouping: 'Pair',
           art: 'dec10/assets/week1/v/v-d10w1d4-x5.svg',
           title: 'Search like a researcher',
-          goal: 'Pick keywords, expand them, and combine them.',
+          goal: 'Turn a question into a strong search in four steps.',
           blocks: [
-            { type: 'order', id: 'x5-order', title: 'Put the four search steps in order', items: ['Identify keywords', 'Expand your keywords', 'Run a search', 'Refine your search'], ends: ['First', 'Last'] },
-            { type: 'spot', id: 'x5-spot', label: 'Keyword hunter', title: 'Step 1 · Find the three keywords', hint: 'Tap the three words or phrases you would type into a search.', paras: [
+            { type: 'do', n: 1, who: 'class', text: 'Researchers search in four steps. Look at the path.' },
+            { type: 'figure', src: 'dec10/assets/week1/rs-steps.svg', size: 'wide', alt: 'Four search steps: identify keywords, expand them with synonyms, run a search with AND, OR and quotation marks, then refine by date, English and peer-reviewed.', caption: 'Four steps to a strong search.' },
+            { type: 'do', n: 2, who: 'pair', text: 'Close the picture in your mind. Put the steps in order.' },
+            { type: 'order', id: 'rs5-order', title: 'The four search steps', items: ['Identify keywords', 'Expand your keywords', 'Run a search', 'Refine your search'], ends: ['First', 'Last'] },
+            { type: 'do', n: 3, who: 'alone', text: '<b>Step 1.</b> Here is your research task. Tap the THREE keywords you would type into a search.' },
+            { type: 'spot', id: 'rs5-spot', label: 'Keyword hunter', title: 'Find the three keywords', hint: 'Only three. Leave the instruction words alone.', paras: [
               '[[Explain]] the problem of [[*environmental degradation]]. [[Begin by defining]] environmental degradation. Identify and discuss [[*causes]] of the [[current situation]] of environmental degradation. Consider factors such as industrial activities, deforestation, and pollution. Explore one or two current or potential [[*consequences]] of environmental degradation and how it could impact ecosystems, human health, or the global climate.'
             ] },
-            { type: 'model', title: 'Step 2 · Expand your keywords', rows: [
-              ['environmental degradation', 'ecological damage'],
-              ['causes', 'factors'],
-              ['consequences', 'impacts']
+            { type: 'do', n: 4, who: 'pair', text: '<b>Step 2.</b> Expand your keywords. Say a synonym for each one, then turn the card.' },
+            { type: 'flip', items: [
+              { front: 'environmental degradation', back: 'ecological damage' },
+              { front: 'causes', back: 'factors' },
+              { front: 'consequences', back: 'impacts' }
             ] },
-            { type: 'quiz', id: 'x5-q', title: 'Step 3 · Search operators', items: [
-              { q: '“environmental degradation” AND causes — more results or fewer than “environmental degradation” alone?', options: ['More', 'Fewer'], answer: 'Fewer', why: 'AND connects keywords: every result must have both. It narrows the search.' },
-              { q: 'consequences OR impacts — more results or fewer than consequences alone?', options: ['More', 'Fewer'], answer: 'More', why: 'OR includes synonyms: a result can have either word. It broadens the search.' },
-              { q: 'Why put “environmental degradation” in quotation marks?', options: ['To find the exact phrase', 'To find only quotes from experts', 'To search in English only'], answer: 'To find the exact phrase' },
-              { q: 'Too many results? Which do you do?', options: ['Add a keyword with AND', 'Add a synonym with OR'], answer: 'Add a keyword with AND' }
+            { type: 'do', n: 5, who: 'class', text: '<b>Step 3.</b> Three tools join your keywords. Look at what each one does.' },
+            { type: 'figure', src: 'dec10/assets/week1/rs-andor.svg', size: 'wide', alt: 'AND: both words must be there, fewer results. OR: either word can be there, more results. Quotation marks: the exact phrase.', caption: 'AND narrows · OR widens · “ ” keeps the phrase.' },
+            { type: 'do', n: 6, who: 'pair', text: 'Check: more results or fewer?' },
+            { type: 'quiz', id: 'rs5-q', items: [
+              { q: '“environmental degradation” AND causes: more results or fewer than “environmental degradation” alone?', options: ['More', 'Fewer'], answer: 'Fewer', why: 'AND: every result must have both. It narrows the search.' },
+              { q: 'consequences OR impacts: more results or fewer than consequences alone?', options: ['More', 'Fewer'], answer: 'More', why: 'OR: a result can have either word. It widens the search.' },
+              { q: 'Too many results. What do you do?', options: ['Add a keyword with AND', 'Add a synonym with OR'], answer: 'Add a keyword with AND' }
             ] },
-            { type: 'fields', fields: [{ id: 'x5-string', label: 'Write your search', rows: 1, placeholder: '“environmental degradation” AND (causes OR factors)' }] }
+            { type: 'do', n: 7, who: 'alone', text: 'Build your own search for the research task. Turn on all four lights.' },
+            { type: 'detect', id: 'rs5-w', title: 'Search builder', label: 'Search lab',
+              checks: [
+                { label: '“ ” exact phrase', color: '#d48a12', any: ['/["“”][^"“”]+["“”]/'] },
+                { label: 'AND (capitals)', color: '#2f9a63', any: ['/\\bAND\\b/u'] },
+                { label: 'OR (capitals)', color: '#3a58a0', any: ['/\\bOR\\b/u'] },
+                { label: '( ) brackets', color: '#7a4a8c', any: ['/\\(.+\\)/'] }
+              ],
+              items: [
+                { rows: 2, placeholder: '“environmental degradation” AND …', model: '“environmental degradation” AND (causes OR factors)<br>“environmental degradation” AND (consequences OR impacts)' }
+              ] },
+            { type: 'tip', text: 'Write AND and OR in CAPITALS. Brackets keep the OR words together: <b>“environmental degradation” AND (causes OR factors)</b> means the phrase AND one of the two words.' }
           ]
         },
         {
-          id: 'x6', short: 'Library', minutes: 15, grouping: 'Alone → Pair',
+          id: 'rs6', short: 'Library', minutes: 14, grouping: 'Alone → Pair',
           art: 'dec10/assets/week1/v/v-d10w1d4-x6.svg',
-          title: 'Find two real sources',
-          goal: 'One from the Library home page, one from a database. Both must pass CRAAP.',
+          title: 'Library mission: find two real sources',
+          goal: 'One source from the Library search, one from a database. Both must pass CRAAP.',
           blocks: [
-            { type: 'tabs', title: 'Two places to search', tabs: [
-              { label: '1 · Library home page', blocks: [
-                { type: 'steps', items: [
-                  { who: 'alone', text: 'Go to <a href="https://www.library.sydney.edu.au/" target="_blank" rel="noopener">library.sydney.edu.au</a>. Type your AND search with two or three terms.' },
-                  { who: 'alone', text: 'Too few results? Use just two terms, or add synonyms with OR.' },
-                  { who: 'alone', text: 'Refine in the left-hand panel: date, and <b>Language → English</b> (CET courses need English sources).' }
-                ] }
-              ] },
-              { label: '2 · A database', blocks: [
-                { type: 'steps', items: [
-                  { who: 'alone', text: 'On the Library page, click <b>Browse</b> → <a href="https://www.library.sydney.edu.au/browse" target="_blank" rel="noopener">databases by subject</a>. Try Science, or Arts and Social Sciences.' },
-                  { who: 'alone', text: 'Open <b>Web of Science</b> (or the database your teacher chooses). Run your search and refine the date.' },
-                  { who: 'alone', text: 'Browse by title. Click “see more” to read an abstract. Try the “You may also like …” link for key articles.' }
-                ] }
-              ] }
+            { type: 'do', n: 1, who: 'class', text: 'This is how the Library search works. Tap the numbers.' },
+            { type: 'hotspot', src: 'dec10/assets/week1/rs-library.svg', size: 'wide', alt: 'A simplified library search page with example results: a search bar, Refine filters on the left (date, English, peer-reviewed), results with peer-reviewed and full-text labels, and Browse then Databases at the top.', caption: 'The Library search, simplified.', spots: [
+              { x: 5, y: 22.5, label: '1', color: '#3a58a0', title: 'Search', text: 'Type your search from the Search lab. Start with two or three terms. Too few results? Use fewer terms, or add synonyms with OR.' },
+              { x: 17, y: 35, label: '2', color: '#2f9a63', title: 'Refine', text: 'Use the left panel. Choose a recent <b>date</b>. Choose <b>Language → English</b>: CET courses need English sources. <b>Peer-reviewed</b> gives you academic articles.' },
+              { x: 96, y: 40, label: '3', color: '#2d8a9a', title: 'Choose a result', text: 'Read the titles first. Open one that matches your question. Read the abstract (the short summary) before you read more.' },
+              { x: 74, y: 9.5, label: '4', color: '#d48a12', title: 'Browse → Databases', text: 'For mission 2. Databases are the original home of the articles. Choose a subject (Science, or Arts and Social Sciences), then a database such as <b>Web of Science</b>.' }
             ] },
-            { type: 'fields', fields: [
-              { id: 'x6-s1', label: 'Source 1 (Library home page): author, year, title', rows: 2 },
-              { id: 'x6-s2', label: 'Source 2 (database): author, year, title', rows: 2 }
+            { type: 'do', n: 2, who: 'alone', text: '<b>Mission 1.</b> Go to <a href="https://www.library.sydney.edu.au/" target="_blank" rel="noopener">library.sydney.edu.au</a>. Search, refine, and find ONE source for the research task.' },
+            { type: 'fields', fields: [{ id: 'rs6-s1', label: 'Source 1: author, year, title', rows: 1, placeholder: 'Smith, J. (2023). Soil erosion in …' }] },
+            { type: 'do', n: 3, who: 'alone', text: '<b>Mission 2.</b> Click <a href="https://www.library.sydney.edu.au/browse" target="_blank" rel="noopener">Browse → Databases</a>. Open Web of Science (or the database your teacher chooses). Search, open “see more” to read an abstract, and try “You may also like …”. Find ONE more source.' },
+            { type: 'fields', fields: [{ id: 'rs6-s2', label: 'Source 2: author, year, title', rows: 1, placeholder: '' }] },
+            { type: 'do', n: 4, who: 'pair', text: 'Show your partner your best source. Run the CRAAP test together. Tick each clue it passes.' },
+            { type: 'checklist', id: 'rs6-craap', title: 'Does it pass CRAAP?', meter: ['passed', 'Use it!'], items: [
+              'C · It is recent enough for this topic.',
+              'R · It helps answer the research task.',
+              'A · I know who wrote it, and they are an expert.',
+              'A · It has references and explains its data.',
+              'P · It informs. It is not selling anything.'
             ] },
-            { type: 'checklist', id: 'x6-craap', title: 'Does your source pass CRAAP?', meter: ['passed', 'Use it!'], items: [
-              'Currency: it is recent enough for this topic.',
-              'Relevance: it helps answer the question.',
-              'Authority: I know who wrote it and why they are an expert.',
-              'Accuracy: it has references and explains its data.',
-              'Purpose: it informs — it is not selling anything.'
-            ] },
-            { type: 'tip', text: 'Your Seminar group needs sources like these for Opening Remarks. Start a shared list today — it saves hours next week.' }
+            { type: 'sticky', color: 'green', title: 'Use this for your Seminar', text: '<p>Your Seminar group needs sources like these for the Opening Remarks.</p><p>Run the same search for <b>your</b> country and topic. Start a shared list today.</p>' }
           ]
         }
       ]

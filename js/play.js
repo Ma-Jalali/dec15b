@@ -125,10 +125,10 @@ window.createDEC15Play = function ({ getState, save, rerender, esc, strip, icon,
 
   /* ───────── spinner: a speaking game ───────── */
   B.spinner = b => `<section class="block play spinner${fresh('sp-' + b.id)}" id="spin-${b.id}">
-    <div class="block-label">${icon('chat')}Speaking game</div>
+    <div class="block-label">${icon('chat')}${b.label || 'Speaking game'}</div>
     <h3>${b.title || 'Spin and speak'}</h3>${b.text ? `<p class="spin-text">${b.text}</p>` : ''}
     <div class="reels" style="--n:${b.reels.length}">${b.reels.map((r, k) => `<div class="reel" style="--c:${PALETTE[(k + 1) % PALETTE.length]}"><span class="reel-label">${esc(r.label)}</span><div class="reel-window" aria-live="polite"><div class="reel-strip" data-reel="${b.id}" data-k="${k}"><span>${r.start ?? 'Spin!'}</span></div></div></div>`).join('')}</div>
-    <div class="spin-bar"><button type="button" class="btn spin-btn" data-spin="${b.id}"><span class="spin-ico" aria-hidden="true">${icon('undo')}</span>Spin</button><span class="spin-note">Spin, speak for 1 minute, then pass the turn.</span></div>
+    <div class="spin-bar"><button type="button" class="btn spin-btn" data-spin="${b.id}"><span class="spin-ico" aria-hidden="true">${icon('undo')}</span>Spin</button><span class="spin-note">${b.note || 'Spin, speak for 1 minute, then pass the turn.'}</span></div>
   </section>`;
   function spin(id) {
     const b = findBlock(id), dur = reduce() ? 0 : 1;
