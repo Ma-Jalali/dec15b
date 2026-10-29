@@ -10,7 +10,7 @@ window.DEC15_CONFIG = {
   // Use the project URL and the PUBLISHABLE / anon key — never the service_role key.
   supabaseUrl: 'https://bogagtbkiavnhuohzqzb.supabase.co',
   supabaseKey: 'sb_publishable_SThek4oq-ojxSq-CqIbTCg_mDvMkAYR',
-  version: '2.93'
+  version: '2.94'
 };
 /* Several courses (DEC15, DEC10 …) use this app and the same Supabase project. Each page's course map
    (lessons/course.js, dec10/lessons/course.js) names its course with `id`; the class around the lessons
