@@ -251,7 +251,7 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
      { type: 'detect', id, title?, hint?, label?, checks: [{ label, color?, any: ['phrase', '/regex/'] }],
        avoid?: [{ label, any: [...] }], items: [{ task, placeholder?, rows?, model? }] }
      Matching is case-insensitive; a string written as /…/ is a regular expression. */
-  const dtHit = (any, v) => any.some(a => a.startsWith('/') ? new RegExp(a.slice(1, a.lastIndexOf('/')), 'i').test(v) : norm(v).includes(norm(a)));
+  const dtHit = (any, v) => any.some(a => a.startsWith('/') ? new RegExp(a.slice(1, a.lastIndexOf('/')), a.slice(a.lastIndexOf('/') + 1) || 'i').test(v) : norm(v).includes(norm(a)));   // '/re/' ignores case; '/re/u' (any flags given) keeps case
   function dtLights(b, v) {
     const on = b.checks.filter(c => dtHit(c.any, v)).length, bad = (b.avoid || []).filter(a => dtHit(a.any, v));
     return `<span class="dt-score"><b>${on}</b>/${b.checks.length}</span>${b.checks.map(c => `<span class="dt-chip${dtHit(c.any, v) ? ' is-on' : ''}" style="--c:${c.color || '#2f7d6b'}"><i aria-hidden="true"></i>${c.label}</span>`).join('')}${bad.map(a => `<span class="dt-chip is-bad"><i aria-hidden="true"></i>${a.label}</span>`).join('')}`;
