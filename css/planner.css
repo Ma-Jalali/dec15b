@@ -829,3 +829,54 @@ body.pl-resizing, body.pl-resizing * { cursor: ns-resize !important; user-select
 .pl-tstat { border-radius: 12px; background: linear-gradient(180deg, #fff, #f8f6f1); box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(20, 41, 58, .06); }
 .pl-hint kbd { box-shadow: inset 0 -1px 0 rgba(20, 41, 58, .15); }
 .pl-tree-head b::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #d0442a; margin-right: 7px; vertical-align: 1px; }
+
+/* ── v2.97 · tables: borders, border colour and cell colour (My planner and the class board) ── */
+.pl-doc table { --tb-c: var(--pl-line, rgba(20, 41, 58, .14)); --tb-w: 1px; }   /* the class board sits outside .pl, so it needs the fallback */
+.pl-doc .tableWrapper { box-shadow: inset 0 0 0 1px var(--pl-line, rgba(20, 41, 58, .14)); }
+.pl-doc th, .pl-doc td { border: var(--tb-w) solid var(--tb-c); }
+.pl-doc table:not([data-border]) { --tb-c: var(--pl-line, rgba(20, 41, 58, .14)); }
+.pl-doc table[style*="--tb-c"]:not([data-border]) th, .pl-doc table[style*="--tb-c"]:not([data-border]) td { border-color: color-mix(in srgb, var(--tb-c) 45%, transparent); }
+.pl-doc .tableWrapper.has-border { box-shadow: none; border-radius: 4px; padding: 2px; }
+.pl-doc table[data-border] tr > * { border: var(--tb-w) solid var(--tb-c) !important; }
+.pl-doc table[data-border="thin"] { --tb-c: #5d6a74; }
+.pl-doc table[data-border="thick"] { --tb-c: #14293a; --tb-w: 2.5px; }
+.pl-doc table[data-border="none"] tr > * { border-color: transparent !important; }
+.pl-doc table[data-border="outer"] { --tb-c: #3d505e; outline: 2px solid var(--tb-c); outline-offset: -1px; }
+.pl-doc table[data-border="outer"] tr > * { border-color: transparent !important; }
+.pl-doc table[data-border="rows"] { --tb-c: #5d6a74; }
+.pl-doc table[data-border="rows"] tr > * { border-left-color: transparent !important; border-right-color: transparent !important; }
+.pl-doc table[data-border][style*="--tb-c"] { --tb-w: 1.5px; }
+.pl-doc table[data-border="thick"][style*="--tb-c"] { --tb-w: 2.5px; }
+/* while writing, an invisible table still shows faint dashed guides so you can find the cells */
+.ProseMirror[contenteditable="true"] table[data-border="none"] tr > *, .ProseMirror[contenteditable="true"] table[data-border="outer"] tr > * { border: 1px dashed rgba(20, 41, 58, .13) !important; }
+.ProseMirror[contenteditable="true"] table[data-border="rows"] tr > * { border-left: 1px dashed rgba(20, 41, 58, .1) !important; border-right: 1px dashed rgba(20, 41, 58, .1) !important; }
+/* cell colour: the fill wins over the grey header tint; dark fills get white text */
+.pl-doc th[data-bg], .pl-doc td[data-bg] { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.pl-doc th[data-dark], .pl-doc td[data-dark] { color: #fff; }
+.pl-doc th[data-dark] a, .pl-doc td[data-dark] a { color: #cfe0ff; }
+
+/* the toolbar's cell colour and borders buttons, and their menus */
+.pl-tb[data-cmd="cellFill"] .pl-i { margin-top: -4px; }
+.pl-pal-hint { margin-top: -6px; font: 500 .74rem/1.3 var(--sans); color: var(--muted); }
+.pl-pal-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.pl-custom { position: relative; display: inline-flex; align-items: center; gap: 7px; padding: 4px 10px 4px 4px; border-radius: 999px; cursor: pointer; font: 600 .78rem/1 var(--sans); color: var(--ink-2); box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .14); }
+.pl-custom:hover { background: rgba(118, 118, 128, .08); }
+.pl-custom input { width: 22px; height: 22px; padding: 0; border: 0; border-radius: 50%; background: conic-gradient(#e0473a, #e3a843, #3f9a5a, #2b8ad0, #7a4a8c, #e0473a); cursor: pointer; overflow: hidden; }
+.pl-custom input::-webkit-color-swatch-wrapper { padding: 0; } .pl-custom input::-webkit-color-swatch { border: 2px solid #fff; border-radius: 50%; }
+.pl-custom input::-moz-color-swatch { border: 2px solid #fff; border-radius: 50%; }
+.pl-sw.cellFill { grid-template-columns: repeat(5, 30px); }
+.pl-borders { min-width: 236px; }
+.pl-bstyles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.pl-bstyles button { display: grid; justify-items: center; gap: 5px; padding: 8px 4px 6px; border: 0; border-radius: 10px; background: rgba(118, 118, 128, .06); cursor: pointer; font: 600 .7rem/1.1 var(--sans); color: var(--ink-2); }
+.pl-bstyles button:hover { background: rgba(118, 118, 128, .13); }
+.pl-bstyles button[aria-pressed="true"] { background: #fff; color: var(--ink); box-shadow: 0 0 0 2px var(--ink), 0 4px 10px -6px rgba(20, 41, 58, .5); }
+.pl-bprev { position: relative; display: grid; grid-template-columns: 1fr 1fr; width: 34px; height: 26px; border-radius: 2px; background: #fff; }
+.pl-bprev s { border: 1px dashed rgba(20, 41, 58, .18); }
+.pl-bprev[data-border="light"] s { border: 1px solid rgba(20, 41, 58, .22); }
+.pl-bprev[data-border="thin"] s { border: 1px solid #3d505e; }
+.pl-bprev[data-border="thick"] s { border: 2px solid #14293a; }
+.pl-bprev[data-border="outer"] { outline: 2px solid #3d505e; outline-offset: -1px; }
+.pl-bprev[data-border="rows"] s { border-left-color: transparent; border-right-color: transparent; border-top: 1px solid #3d505e; border-bottom: 1px solid #3d505e; border-style: solid; }
+
+/* bold text keeps the colour you give it (the colour sits on the span around the bold) */
+.pl-doc span[style*="color"] strong, .pl-doc span[style*="color"] b, .pl-doc th[data-dark] strong, .pl-doc td[data-dark] strong { color: inherit; }
