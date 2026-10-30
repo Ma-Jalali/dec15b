@@ -1,12 +1,12 @@
 /* DEC10 · Language Lab · Grammar 3 — Linking ideas: coordinating conjunctions (FANBOYS, parallel structure) and conjunctive adverbs.
    Source: the teacher's "Interactive Grammar" document (Connectors · Group 1 and Group 2), set in the Week 3 topic (green jobs).
-   One page, four tabs: Warm-up · Notice and learn · Practise · Use it (built for self-study). */
+   One page, four tabs: Warm-up · Learn · Practise · Use it (built for self-study). */
 window.DEC15_LESSON = {
   id: "d10lab-link",
   week: null,
   day: null,
   title: "Linking ideas",
-  duration: "About 50 minutes",
+  duration: "About 55 minutes",
   questionKind: "Can-do",
   questionLabel: "By the end of this lesson you can",
   question: "join ideas with and, but, so … and with However, Therefore, In addition … — with the right grammar and the right punctuation.",
@@ -19,11 +19,11 @@ window.DEC15_LESSON = {
     {
       id: "lesson",
       number: "1",
-      minutes: 50,
+      minutes: 55,
       tone: "teal",
       art: "dec10/assets/lab/s-learn.svg",
       title: "Linking ideas",
-      subtitle: "Warm-up · Notice and learn · Practise · Use it",
+      subtitle: "Warm-up · Learn · Practise · Use it",
       outcome: "join ideas with and, but, so … and with However, Therefore, In addition … — with the right grammar and the right punctuation.",
       activities: [
         {
@@ -78,22 +78,67 @@ window.DEC15_LESSON = {
         },
         {
           id: "lk-learn",
-          short: "Notice and learn",
-          minutes: 17,
+          short: "Learn",
+          minutes: 18,
           grouping: "Self-study",
           art: "dec10/assets/lab/s-learn.svg",
-          title: "Two families of linkers",
-          goal: "You know how FANBOYS and conjunctive adverbs work, and how to punctuate them.",
+          title: "Linking ideas, step by step",
+          goal: "Learn the two families of linkers: what they mean, where they go, and how to punctuate them.",
           blocks: [
-            {"type":"part","n":1,"title":"Family 1: For, And, Nor, But, Or, Yet, So","goal":"Join two things of the same kind."},
             {
               type: "key",
-              title: "The rule: same + same",
+              title: "Two families, two jobs",
               points: [
-                "<b>and, or, but, yet</b> join two things of the <b>same kind</b>: noun + noun, adjective + adjective, -ing + -ing, to + verb + to + verb, sentence + sentence.",
-                "This is called <b>parallel structure</b>. If one side is <i>-ing</i>, the other side is <i>-ing</i> too.",
-                "<b>so</b> and <b>for</b> join only two <b>sentences</b>. Put a comma before them. (<b>for</b> = because; it is formal.)"
+                "<b>Family 1 · FANBOYS</b> (for, and, nor, but, or, yet, so) join words, phrases or two sentences <b>inside one sentence</b>.",
+                "<b>Family 2 · Connectors</b> (However, Therefore, In addition …) link <b>two separate sentences</b>. They show how the second idea relates to the first.",
+                "Most linking mistakes are punctuation mistakes. Learn the punctuation with the word."
               ]
+            },
+            {
+              type: "rule",
+              n: 1,
+              title: "FANBOYS: what each one means",
+              explain: "Each coordinating conjunction has its own meaning. Choose by meaning, not by habit.",
+              examples: [
+                ["ok","<b>and</b> adds: Green jobs need skills <b>and</b> money."],
+                ["ok","<b>but</b> contrasts: The plan is good, <b>but</b> it is expensive."],
+                ["ok","<b>yet</b> = a surprising contrast: It is cheap, <b>yet</b> it works well."],
+                ["ok","<b>or</b> gives a choice: We can retrain workers <b>or</b> import them."],
+                ["ok","<b>so</b> gives a result: Workers need skills, <b>so</b> the government pays for training."],
+                ["ok","<b>for</b> = because (formal): I am hungry, <b>for</b> I have not had breakfast."],
+                ["ok","<b>nor</b> = and not: The plan is not cheap, <b>nor</b> is it popular.","after nor, the verb comes before the subject"]
+              ],
+              check: {"q":"Prices rose, ___ people bought less. (so / but)","a":"<b>so</b>: the second idea is a result."}
+            },
+            {
+              type: "rule",
+              n: 2,
+              title: "FANBOYS: punctuation",
+              explain: "Joining two <b>complete sentences</b>? Put a comma <b>before</b> the FANBOYS word. Joining two words or phrases? No comma.",
+              form: "Sentence<b>, but</b> sentence. · word <b>and</b> word",
+              examples: [
+                ["ok","The air conditioner is working<b>, but</b> it is still hot in here.","two sentences → comma before but"],
+                ["ok","The plan is cheap <b>and</b> fast.","two adjectives → no comma"],
+                ["no","Workers need new skills <b>so,</b> governments pay for training.","→ skills, so governments …"],
+                ["ok","She studied hard, <b>so</b> she passed the test.","<b>so</b> and <b>for</b> only ever join two sentences"]
+              ],
+              note: "In academic writing, avoid starting a sentence with <i>And</i>, <i>But</i> or <i>So</i>. Use <i>In addition</i>, <i>However</i> or <i>Therefore</i> instead.",
+              check: {"q":"Comma or no comma? “Sara studies at university ___ works in a library.”","a":"No comma: one subject (Sara) with two verbs."}
+            },
+            {
+              type: "rule",
+              n: 3,
+              title: "Parallel structure: same + same",
+              explain: "<b>and, or, but, yet</b> must join two things of the <b>same grammatical form</b>: noun + noun, adjective + adjective, -ing + -ing, to + verb + to + verb.",
+              form: "<b>-ing</b> and <b>-ing</b> · <b>to</b> + verb and (<b>to</b>) + verb · <b>adjective</b> and <b>adjective</b>",
+              examples: [
+                ["ok","I enjoy listening to music and <b>hanging</b> out with friends."],
+                ["no","I enjoy listening to music and <b>hang</b> out with friends.","listening + hanging"],
+                ["ok","I want to go to the US and (to) <b>do</b> my PhD."],
+                ["ok","He is a really <b>kind and intelligent</b> man."],
+                ["no","He is a really kind man and intelligent man.","two adjectives before one noun"]
+              ],
+              check: {"q":"You can reach your goals by setting a clear plan and ___ hard. (work / working)","a":"<b>working</b>: by setting … and working."}
             },
             {
               type: "model",
@@ -112,25 +157,20 @@ window.DEC15_LESSON = {
               ]
             },
             {
-              type: "pairs",
-              items: [
-                {
-                  from: "I enjoy listening to music and [[hang]] out with my friends.",
-                  to: "I enjoy listening to music and [[hanging]] out with my friends.",
-                  tag: "-ing + -ing"
-                },
-                {"from":"He is a really kind man and [[intelligent man]].","to":"He is a really [[kind and intelligent]] man.","tag":"adjective + adjective"}
-              ]
-            },
-            {"type":"part","n":2,"title":"Family 2: However, Therefore, In addition …","goal":"Link two sentences, and show the meaning of the link."},
-            {
-              type: "key",
-              title: "The rule: two sentences",
-              points: [
-                "Conjunctive adverbs link <b>two separate sentences</b>. They show the meaning: addition, contrast, result …",
-                "Punctuation: <b>Sentence. However, sentence.</b> or <b>Sentence; however, sentence.</b>",
-                "Never: <s>Sentence, however sentence.</s> A comma is not strong enough to join two sentences."
-              ]
+              type: "rule",
+              n: 4,
+              title: "Connectors: what each family means",
+              explain: "Connectors show the relationship between two sentences. Learn them in meaning groups.",
+              examples: [
+                ["ok","<b>Addition:</b> In addition, · Moreover, · Furthermore, · What is more,"],
+                ["ok","<b>Contrast:</b> However, · Nevertheless, · In contrast, · On the other hand,"],
+                ["ok","<b>Result:</b> As a result, · Consequently, · Therefore, · Thus,"],
+                ["ok","<b>Example:</b> For example, · For instance,"],
+                ["ok","<b>Sequence:</b> Firstly, · Secondly, · Finally,"],
+                ["ok","<b>Restating:</b> In other words,"]
+              ],
+              note: "<b>On the other hand</b> gives another side of the same topic. <b>On the contrary</b> says the opposite is true. They are not the same.",
+              check: {"q":"Training is expensive. ___, it pays off in the long term. (Therefore / However)","a":"<b>However</b>: a contrast."}
             },
             {
               type: "language",
@@ -147,7 +187,55 @@ window.DEC15_LESSON = {
                 {"label":"Restating","phrases":["In other words,","To put it another way,"]}
               ]
             },
-            {"type":"do","n":1,"who":"alone","text":"Check yourself. What does each connector mean?"},
+            {
+              type: "rule",
+              n: 5,
+              title: "Connectors: punctuation",
+              explain: "A connector starts a <b>new sentence</b> (or comes after a semicolon) and is followed by a <b>comma</b>. A comma before it is not enough.",
+              form: "Sentence<b>. However,</b> sentence. · Sentence<b>; however,</b> sentence. · Inside one clause: The plan<b>, however,</b> was too expensive.",
+              examples: [
+                ["ok","He studied hard for the exam<b>. Therefore,</b> he passed."],
+                ["ok","Solar jobs are growing<b>; in contrast,</b> coal jobs are falling."],
+                ["no","Training is expensive<b>, however</b> it pays off.","a comma cannot join two sentences → . However,"],
+                ["ok","The plan<b>, however,</b> was too expensive.","here however is inside one sentence"]
+              ],
+              check: {"q":"Fix it: “Prices rose, therefore people bought less.”","a":"Prices rose<b>. Therefore,</b> people bought less. (or <b>; therefore,</b>)"}
+            },
+            {
+              type: "rule",
+              n: 6,
+              title: "One linker per link",
+              explain: "Do not use two linkers for the same link. <b>Although</b> already contains the contrast, so you do not need <b>but</b>. <b>Because</b> already contains the cause, so you do not need <b>so</b>.",
+              examples: [
+                ["no","<b>Although</b> the course was hard, <b>but</b> I enjoyed it.","→ Although the course was hard, I enjoyed it."],
+                ["no","<b>Because</b> it was raining, <b>so</b> we stayed at home.","→ Because it was raining, we stayed at home."],
+                ["ok","The course was hard, <b>but</b> I enjoyed it."]
+              ],
+              check: {"q":"Correct: “Although prices fell, but sales did not rise.”","a":"Although prices fell, sales did not rise."}
+            },
+            {
+              type: "model",
+              title: "Rules at a glance",
+              rows: [
+                ["FANBOYS meaning","and + · but ↔ · yet (surprising) ↔ · or (choice) · so → · for (= because)"],
+                ["FANBOYS punctuation","two sentences: <b>, but</b> · two words: no comma"],
+                ["Parallel structure","same form on both sides: reading <b>and</b> writing"],
+                ["Connector punctuation","<b>. However,</b> or <b>; however,</b> — never <s>, however</s> between sentences"],
+                ["One link, one linker","not <s>Although … , but</s> · not <s>Because … , so</s>"]
+              ]
+            }
+          ]
+        },
+        {
+          id: "lk-practise",
+          short: "Practise",
+          minutes: 18,
+          grouping: "Self-study",
+          art: "dec10/assets/lab/s-practise.svg",
+          title: "Controlled practice: recognise → choose → correct",
+          goal: "Three short parts. Do them in order.",
+          blocks: [
+            {"type":"part","n":1,"title":"Recognise","goal":"Sort the connectors by meaning."},
             {
               type: "sort",
               id: "lk-l2-sort",
@@ -165,47 +253,7 @@ window.DEC15_LESSON = {
                 {"text":"Hence,","answer":2}
               ]
             },
-            {
-              type: "sticky",
-              color: "pink",
-              title: "On the contrary ≠ On the other hand",
-              text: "<b>On the other hand</b> gives a different side of the same topic. <b>On the contrary</b> says the opposite is true: “The project was not a failure. <i>On the contrary</i>, it was a great success.”"
-            }
-          ]
-        },
-        {
-          id: "lk-practise",
-          short: "Practise",
-          minutes: 14,
-          grouping: "Self-study",
-          art: "dec10/assets/lab/s-practise.svg",
-          title: "Controlled practice with instant feedback",
-          goal: "You fix parallel structure, choose connectors by meaning and punctuate them correctly.",
-          blocks: [
-            {"type":"part","n":1,"title":"Fix the parallel structure","goal":"Each sentence had one mistake. Choose the form that makes both sides the same."},
-            {
-              type: "cloze",
-              id: "lk-p1-cl",
-              title: "Same + same",
-              list: true,
-              options: [
-                ["hang","hanging","to hang"],
-                ["seeing","see","saw"],
-                ["work","working","to work"],
-                ["kind man and intelligent","kind and intelligent"],
-                ["make","making","to make"]
-              ],
-              text: "I really enjoy listening to music and {{1}} out with my friends.\nI have decided to take a trip to Melbourne and {{2}} the natural scenery there.\nYou can achieve your goals by setting a clear goal and {{3}} hard towards it.\nHe is a really {{4}} man.\nI am thinking about changing my lifestyle and {{5}} my life healthier.",
-              answers: ["hanging","see","working","kind and intelligent","making"],
-              why: [
-                "enjoy <b>listening</b> … and <b>hanging</b>: -ing + -ing.",
-                "decided <b>to take</b> … and (to) <b>see</b>: to + verb + (to) verb.",
-                "by <b>setting</b> … and <b>working</b>: -ing + -ing.",
-                "adjective + adjective before one noun.",
-                "thinking about <b>changing</b> … and <b>making</b>."
-              ]
-            },
-            {"type":"part","n":2,"title":"Green jobs: choose the connector","goal":"Choose the connector with the right meaning."},
+            {"type":"part","n":2,"title":"Choose","goal":"Choose the connector with the right meaning, then the correct punctuation."},
             {
               type: "cloze",
               id: "lk-p2-cl",
@@ -229,7 +277,6 @@ window.DEC15_LESSON = {
                 "An example follows: <b>For instance,</b>"
               ]
             },
-            {"type":"part","n":3,"title":"Comma, full stop or semicolon?","goal":"Choose the correctly punctuated sentence."},
             {
               type: "quiz",
               id: "lk-p3-q",
@@ -274,6 +321,67 @@ window.DEC15_LESSON = {
                   ],
                   answer: "Workers need new skills, so governments pay for training.",
                   why: "<b>so</b> is a FANBOYS word: a comma <b>before</b> it, inside one sentence. (In academic writing, avoid starting a sentence with <i>So</i>.)"
+                }
+              ]
+            },
+            {"type":"part","n":3,"title":"Correct","goal":"Fix parallel structure, then rewrite sentences with linking mistakes."},
+            {
+              type: "cloze",
+              id: "lk-p1-cl",
+              title: "Same + same",
+              list: true,
+              options: [
+                ["hang","hanging","to hang"],
+                ["seeing","see","saw"],
+                ["work","working","to work"],
+                ["kind man and intelligent","kind and intelligent"],
+                ["make","making","to make"]
+              ],
+              text: "I really enjoy listening to music and {{1}} out with my friends.\nI have decided to take a trip to Melbourne and {{2}} the natural scenery there.\nYou can achieve your goals by setting a clear goal and {{3}} hard towards it.\nHe is a really {{4}} man.\nI am thinking about changing my lifestyle and {{5}} my life healthier.",
+              answers: ["hanging","see","working","kind and intelligent","making"],
+              why: [
+                "enjoy <b>listening</b> … and <b>hanging</b>: -ing + -ing.",
+                "decided <b>to take</b> … and (to) <b>see</b>: to + verb + (to) verb.",
+                "by <b>setting</b> … and <b>working</b>: -ing + -ing.",
+                "adjective + adjective before one noun.",
+                "thinking about <b>changing</b> … and <b>making</b>."
+              ]
+            },
+            {
+              type: "rewrite",
+              id: "lk-p4-rw",
+              title: "Correct the sentence",
+              hint: "Keep the words; fix the linker or the punctuation.",
+              items: [
+                {
+                  q: "Prices rose, however people kept buying.",
+                  accept: ["Prices rose. However, people kept buying.","Prices rose; however, people kept buying."],
+                  model: "Prices rose. However, people kept buying.",
+                  why: "A connector needs . or ; before it and a comma after it."
+                },
+                {
+                  q: "Although the course was hard, but I enjoyed it.",
+                  accept: ["Although the course was hard, I enjoyed it.","The course was hard, but I enjoyed it."],
+                  model: "Although the course was hard, I enjoyed it.",
+                  why: "One link, one linker."
+                },
+                {
+                  q: "Because it was raining so we stayed at home.",
+                  accept: ["Because it was raining, we stayed at home.","It was raining, so we stayed at home."],
+                  model: "Because it was raining, we stayed at home.",
+                  why: "One link, one linker."
+                },
+                {
+                  q: "Workers need new skills so, governments pay for training.",
+                  accept: ["Workers need new skills, so governments pay for training."],
+                  model: "Workers need new skills, so governments pay for training.",
+                  why: "Comma before so."
+                },
+                {
+                  q: "I like reading and to write.",
+                  accept: ["I like reading and writing.","I like to read and to write.","I like to read and write."],
+                  model: "I like reading and writing.",
+                  why: "Same form on both sides."
                 }
               ]
             }

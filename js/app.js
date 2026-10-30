@@ -245,6 +245,16 @@ B.cards = b => `<section class="block cards-block${b.pick ? ' cards-pick' : ''}"
 if (play) Object.assign(B, play.B);
 if (kit) Object.assign(B, kit.B);
 B.tip = b => `<p class="block tip" data-help>${icon('bulb')}<span>${b.text}</span></p>`;
+/* rule: one grammar or referencing rule, explained the way a teacher presents it (Language Lab "Learn" tab)
+   { type: 'rule', n, title, explain, form?: 'pattern (HTML)', examples?: [['ok' | 'no', 'sentence (HTML)', 'why / fix (HTML)?']], note?, check?: { q, a } } */
+B.rule = b => `<section class="block rule-card">
+  <header class="rule-head">${b.n != null ? `<span class="rule-n">Rule ${esc(String(b.n))}</span>` : ''}<h3>${b.title}</h3></header>
+  ${b.explain ? `<p class="rule-explain">${b.explain}</p>` : ''}
+  ${b.form ? `<div class="rule-form"><span>Form</span><p>${b.form}</p></div>` : ''}
+  ${b.examples?.length ? `<ul class="rule-eg">${b.examples.map(([k, t, w]) => `<li class="is-${k}"><i aria-label="${k === 'ok' ? 'correct' : 'wrong'}">${k === 'ok' ? '✓' : '✗'}</i><span>${t}${w ? `<small>${w}</small>` : ''}</span></li>`).join('')}</ul>` : ''}
+  ${b.note ? `<p class="rule-note">${icon('bulb')}<span>${b.note}</span></p>` : ''}
+  ${b.check ? `<details class="rule-check"><summary><b>Check yourself</b><span>${b.check.q}</span></summary><p>${b.check.a}</p></details>` : ''}
+</section>`;
 /* part: a numbered sub-heading inside one tab of a Language Lab lesson — { type: 'part', n, title, goal? } */
 B.part = b => `<div class="block lab-part"><span class="lab-part-n">${esc(String(b.n))}</span><div><h3>${esc(b.title)}</h3>${b.goal ? `<p>${esc(b.goal)}</p>` : ''}</div></div>`;
 B.teacher = b => { if (!state.teacher) return ''; const body = b.ref ? klass?.note(b.ref) : b.text; if (body === '') return '';
@@ -546,7 +556,7 @@ function stagePage(s) {
     <nav class="act-tabs" aria-label="Activities in this stage" style="--done:${doneCount / s.activities.length};--n:${s.activities.length}">${s.activities.map((a, i) => `<button data-jump="${a.id}" class="${a.id === activeId ? 'current' : ''}${state.done[a.id] ? ' is-done' : ''}" aria-current="${a.id === activeId ? 'step' : 'false'}"><span class="tab-num">${state.done[a.id] ? icon('check') : i + 1}</span><span class="tab-text">${esc(a.short)}<small>${a.minutes} min</small></span></button>`).join('')}</nav>
     ${activity(s.activities[idx], idx, s.activities, s)}${upNext(s, idx)}`;
 }
-/* A Language Lab lesson: one page, four tabs (Warm-up · Notice and learn · Practise · Use it) */
+/* A Language Lab lesson: one page, four tabs (Warm-up · Learn · Practise · Use it) */
 function labLessonPage(s) {
   const activeId = state.active[s.id] && s.activities.some(a => a.id === state.active[s.id]) ? state.active[s.id] : s.activities[0].id;
   const idx = s.activities.findIndex(a => a.id === activeId), doneCount = s.activities.filter(a => state.done[a.id]).length, complete = doneCount === s.activities.length;

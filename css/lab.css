@@ -77,3 +77,45 @@ a.lab-row:hover > .icon { transform: translateX(3px); color: var(--lc); }
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .t-lab { --tc: #a3416a; }
 .lab-back { display: flex; width: fit-content; }
 .is-lab .do-step .who { display: none; }   /* self-study: every step is done alone, so no badge */
+
+/* ── Rule card: one rule, presented step by step (explain → form → examples → note → check yourself) ── */
+.rule-card { position: relative; margin: 18px 0; padding: 20px 22px 18px; border-radius: 20px; background: #fff; border: 1px solid var(--line-2); box-shadow: inset 4px 0 0 var(--accent, #2b776e), 0 12px 26px -22px rgba(20, 41, 58, .55); }
+.rule-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+.rule-n { flex: none; padding: 4px 10px; border-radius: 999px; background: var(--accent, #2b776e); color: #fff; font: 800 .68rem/1.2 var(--sans); letter-spacing: .1em; text-transform: uppercase; }
+.rule-head h3 { margin: 0; font: 600 1.2rem/1.3 var(--serif); }
+.rule-explain { margin: 4px 0 12px; font-size: 1.02rem; line-height: 1.65; color: var(--ink); max-width: 72ch; }
+.rule-form { display: flex; gap: 12px; align-items: flex-start; margin: 0 0 12px; padding: 10px 14px; border-radius: 14px; background: var(--accent-bg, #e9f4f2); }
+.rule-form > span { flex: none; margin-top: 2px; padding: 3px 8px; border-radius: 6px; background: #fff; color: var(--accent, #2b776e); font: 800 .64rem/1.3 var(--sans); letter-spacing: .12em; text-transform: uppercase; box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent, #2b776e) 25%, transparent); }
+.rule-form p { margin: 0; font: 600 .98rem/1.6 var(--sans); color: var(--ink); }
+.rule-form p b { color: var(--accent, #2b776e); }
+.rule-eg { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 6px; }
+.rule-eg li { display: flex; gap: 10px; align-items: flex-start; padding: 8px 12px; border-radius: 12px; font-size: .98rem; line-height: 1.55; }
+.rule-eg li > i { flex: none; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; display: grid; place-items: center; font: 900 .8rem/1 var(--sans); font-style: normal; color: #fff; }
+.rule-eg li > span { min-width: 0; }
+.rule-eg li small { display: block; margin-top: 2px; font-size: .84rem; color: var(--ink-2); }
+.rule-eg li.is-ok { background: #f0f8f3; } .rule-eg li.is-ok > i { background: #2f9a63; }
+.rule-eg li.is-no { background: #fdf2ee; } .rule-eg li.is-no > i { background: #d4583a; }
+.rule-eg li.is-no > span { color: #6b2a17; }
+.rule-eg li.is-no > span > s, .rule-eg li.is-no del { text-decoration-color: #d4583a; }
+.rule-eg b { color: var(--accent, #2b776e); } .rule-eg li.is-no b { color: #b8331a; }
+.rule-eg u { text-decoration-thickness: 2px; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, var(--accent, #2b776e) 60%, transparent); }
+.rule-note { display: flex; gap: 8px; align-items: flex-start; margin: 4px 0 10px; padding: 9px 12px; border-radius: 12px; background: #fff8e8; border: 1px solid #f0dcae; font-size: .92rem; line-height: 1.55; }
+.rule-note .icon { flex: none; width: 16px; height: 16px; margin-top: 3px; color: #b07d12; }
+.rule-check { margin-top: 6px; border-radius: 12px; border: 1px dashed color-mix(in srgb, var(--accent, #2b776e) 45%, transparent); background: color-mix(in srgb, var(--accent, #2b776e) 4%, #fff); }
+.rule-check > summary { list-style: none; cursor: pointer; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; padding: 9px 12px; font-size: .94rem; }
+.rule-check > summary::-webkit-details-marker { display: none; }
+.rule-check > summary b { flex: none; padding: 3px 9px; border-radius: 999px; background: var(--accent, #2b776e); color: #fff; font: 800 .66rem/1.3 var(--sans); letter-spacing: .08em; text-transform: uppercase; }
+.rule-check > summary::after { content: "Show answer"; margin-left: auto; font: 700 .76rem/1 var(--sans); color: var(--accent, #2b776e); text-decoration: underline; text-underline-offset: 3px; }
+.rule-check[open] > summary::after { content: "Hide"; }
+.rule-check > p { margin: 0; padding: 0 12px 11px 12px; font-size: .94rem; line-height: 1.55; }
+.rule-check > p::before { content: "→ "; color: var(--accent, #2b776e); font-weight: 800; }
+
+/* ── Correct it: write the corrected sentence ── */
+.rw-items { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 12px; }
+.rw-item { padding: 12px 14px; border-radius: 14px; background: var(--surface-2, #faf8f4); border: 1px solid var(--line); }
+.rw-q { display: flex; gap: 10px; align-items: flex-start; margin: 0 0 8px; font-size: .98rem; line-height: 1.5; }
+.rw-item input { width: 100%; padding: 10px 12px; border-radius: 12px; border: 0; background: #fff; box-shadow: 0 0 0 1px var(--line-2); font: 500 .98rem/1.4 var(--sans); color: var(--ink); }
+.rw-item input:focus { outline: none; box-shadow: 0 0 0 1.5px var(--accent, #2b776e), 0 0 0 5px color-mix(in srgb, var(--accent, #2b776e) 14%, transparent); }
+.rw-item.is-right { background: #f0f8f3; border-color: #c9e6d3; } .rw-item.is-right input { box-shadow: 0 0 0 1.5px #2f9a63; }
+.rw-item.is-wrong { background: #fdf5f1; border-color: #f3cfc3; } .rw-item.is-wrong input { box-shadow: 0 0 0 1.5px #d4583a; }
+.rw-item .quiz-why { margin: 8px 0 0; }

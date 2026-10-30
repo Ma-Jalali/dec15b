@@ -1,12 +1,12 @@
 /* DEC10 · Language Lab · Grammar 1 — Subject–verb agreement (self-study or a class top-up).
    Source: the teacher's "Interactive Grammar" document (Subject-Verb Agreement), set in the Week 2 topic (our digital carbon footprint).
-   One page, four tabs: Warm-up · Notice and learn · Practise · Use it (built for self-study). Ids never change after students start. */
+   One page, four tabs: Warm-up · Learn · Practise · Use it (built for self-study). Ids never change after students start. */
 window.DEC15_LESSON = {
   id: "d10lab-sva",
   week: null,
   day: null,
   title: "Is or are? Subject–verb agreement",
-  duration: "About 45 minutes",
+  duration: "About 60 minutes",
   questionKind: "Can-do",
   questionLabel: "By the end of this lesson you can",
   question: "find the real subject of a long sentence, and choose a verb that agrees with it.",
@@ -19,11 +19,11 @@ window.DEC15_LESSON = {
     {
       id: "lesson",
       number: "1",
-      minutes: 45,
+      minutes: 58,
       tone: "teal",
       art: "dec10/assets/lab/s-learn.svg",
       title: "Is or are? Subject–verb agreement",
-      subtitle: "Warm-up · Notice and learn · Practise · Use it",
+      subtitle: "Warm-up · Learn · Practise · Use it",
       outcome: "find the real subject of a long sentence, and choose a verb that agrees with it.",
       activities: [
         {
@@ -94,31 +94,196 @@ window.DEC15_LESSON = {
         },
         {
           id: "sva-learn",
-          short: "Notice and learn",
-          minutes: 15,
+          short: "Learn",
+          minutes: 24,
           grouping: "Self-study",
           art: "dec10/assets/lab/s-learn.svg",
-          title: "Find the head noun, then learn the tricky subjects",
-          goal: "You can find the head noun of a subject and you know the rules for tricky subjects.",
+          title: "Subject–verb agreement, step by step",
+          goal: "Read each rule, study the ✓ and ✗ examples, and check yourself before you move on.",
           blocks: [
-            {"type":"part","n":1,"title":"The verb agrees with the head noun","goal":"Find the one noun that the verb agrees with."},
-            {"type":"do","n":1,"who":"alone","text":"Look at the two sentences. Which word does <b>is</b> agree with?"},
+            {
+              type: "key",
+              title: "What is subject–verb agreement?",
+              points: [
+                "In the <b>present</b> tense, the verb changes with its subject: a <b>singular</b> subject takes <b>is · has · shows</b>; a <b>plural</b> subject takes <b>are · have · show</b>.",
+                "In the past, only <b>be</b> changes: singular <b>was</b>, plural <b>were</b>.",
+                "Academic subjects are often long, so the verb is far from its subject. That is where mistakes happen. The answer is always the same: <b>find the head noun</b>."
+              ]
+            },
+            {
+              type: "model",
+              title: "The basic pattern",
+              rows: [
+                ["Singular subject","The study <b>shows</b> … · It <b>is</b> … · The cost <b>has</b> risen."],
+                ["Plural subject","The studies <b>show</b> … · They <b>are</b> … · The costs <b>have</b> risen."]
+              ]
+            },
+            {
+              type: "rule",
+              n: 1,
+              title: "The verb agrees with the head noun",
+              explain: "A subject can be many words long. The verb agrees with its <b>main noun</b> (the head noun), <b>not</b> with the noun that is closest to the verb. Phrases with <i>of, in, with, by, that, which</i> come <b>after</b> the head noun: ignore them.",
+              form: "the <b>HEAD NOUN</b> + [of … / in … / used by … / that …] + <b>VERB</b>",
+              examples: [
+                ["ok","The <u>results</u> [of the study] <b>are</b> clear.","Head noun: results (plural) → are"],
+                ["no","The results of the study <b>is</b> clear.","“study” is next to the verb, but it is not the head noun."],
+                ["ok","The <u>energy</u> [used by data centres around the world] <b>is</b> enormous."],
+                ["ok","The <u>weather</u> [in the southern states] <b>is</b> very hot."]
+              ],
+              note: "Cover the middle part with your finger: <i>The results … are clear.</i> Now the agreement is easy to see.",
+              check: {"q":"The cost of new phones ___ rising. (is / are)","a":"<b>is</b>: the head noun is <i>cost</i> (singular), not <i>phones</i>."}
+            },
             {
               type: "figure",
               src: "dec10/assets/lab/sva-head.svg",
-              alt: "The weather in the southern states is very hot: weather goes with is. One of the countries I would like to visit is Italy: one goes with is. The middle parts are ignored.",
-              caption: "<b>Ignore the middle.</b> Phrases with of, in, with, who, which … sit between the subject and the verb."
+              alt: "The weather in the southern states is very hot: weather goes with is. One of the countries I would like to visit is Italy: one goes with is.",
+              caption: "<b>Ignore the middle.</b> Find the head noun, then the verb."
             },
             {
-              type: "key",
-              title: "The rule",
-              points: [
-                "Find the <b>head noun</b>: the main noun of the subject.",
-                "Ignore phrases that come after it: <i>of the study</i>, <i>in the southern states</i>, <i>that I read</i>.",
-                "Singular head noun → singular verb (<b>is, has, shows</b>). Plural head noun → plural verb (<b>are, have, show</b>)."
-              ]
+              type: "rule",
+              n: 2,
+              title: "each, every and one of → singular",
+              explain: "<b>Each</b>, <b>every</b> and <b>one</b> talk about <b>one</b> person or thing at a time, so the verb is singular, even when a plural noun follows <i>of</i>.",
+              form: "<b>each / every</b> + singular noun → singular verb · <b>each of / one of</b> + the + plural noun → <b>singular</b> verb",
+              examples: [
+                ["ok","Each student <b>has</b> a laptop."],
+                ["ok","Each of the students <b>has</b> a laptop."],
+                ["no","Each of the students <b>have</b> a laptop.","each = one student → has"],
+                ["ok","One of the countries I would like to visit <b>is</b> Italy."],
+                ["ok","Every man, woman and child <b>is</b> protected under the law."]
+              ],
+              check: {"q":"One of my friends ___ in Melbourne. (live / lives)","a":"<b>lives</b>: <i>one</i> is the head noun."}
             },
-            {"type":"do","n":2,"who":"alone","text":"Your turn. Tap the head noun in each subject."},
+            {
+              type: "rule",
+              n: 3,
+              title: "some of, most of, a lot of, half of … → look after “of”",
+              explain: "With words of quantity (<i>some, most, all, a lot, half, three-quarters, none</i>) + <i>of</i>, the verb agrees with the noun <b>after of</b>.",
+              form: "quantity + of + <b>uncountable / singular</b> noun → singular · quantity + of + <b>plural</b> noun → plural",
+              examples: [
+                ["ok","Most of the <u>electricity</u> <b>comes</b> from coal.","electricity: uncountable → singular"],
+                ["ok","Most of the <u>servers</u> <b>run</b> day and night.","servers: plural → plural"],
+                ["ok","Some of the <u>furniture</u> <b>is</b> second-hand."],
+                ["ok","A lot of the <u>students</u> <b>are</b> already here."],
+                ["no","Most of the information in these articles <b>are</b> out of date.","information is uncountable → is"]
+              ],
+              check: {
+                q: "Half of the cake ___ gone. Half of the guests ___ left. (has / have)",
+                a: "Half of the cake <b>has</b> gone (cake = singular). Half of the guests <b>have</b> left (guests = plural)."
+              }
+            },
+            {
+              type: "rule",
+              n: 4,
+              title: "the number of / a number of",
+              explain: "These two look the same but mean different things. <b>The number of</b> = a figure (one number) → singular. <b>A number of</b> = many, several → plural.",
+              form: "<b>The number of</b> + plural noun + <b>singular</b> verb · <b>A number of</b> + plural noun + <b>plural</b> verb",
+              examples: [
+                ["ok","The number of data centres <b>is</b> growing."],
+                ["no","The number of international students <b>are</b> increasing.","the number = one figure → is"],
+                ["ok","A number of students <b>have</b> asked about the test.","a number of = several → have"]
+              ],
+              check: {"q":"___ number of e-waste sites is rising. (The / A)","a":"<b>The</b> number … is rising (one figure)."}
+            },
+            {
+              type: "rule",
+              n: 5,
+              title: "and joins; as well as only adds",
+              explain: "Two subjects joined by <b>and</b> are two things → plural. But <b>as well as, along with, together with, including</b> only add extra information: the verb agrees with the <b>first</b> noun.",
+              form: "A <b>and</b> B → plural · A, <b>as well as / along with</b> B, → agrees with <b>A</b>",
+              examples: [
+                ["ok","A woman and her child <b>are</b> waiting to see Dr Chang."],
+                ["ok","Anna, as well as her two older sisters, <b>is</b> in college."],
+                ["no","My cousin, along with my aunt and uncle, <b>work</b> in the shop.","the subject is my cousin → works"]
+              ],
+              note: "The commas around <i>as well as …</i> are a clue: that part is extra.",
+              check: {"q":"The lecturer, together with her students, ___ the project. (runs / run)","a":"<b>runs</b>: the subject is <i>the lecturer</i>."}
+            },
+            {
+              type: "rule",
+              n: 6,
+              title: "There is / There are",
+              explain: "<i>There</i> is not the real subject. The verb agrees with the noun that comes <b>after</b> it.",
+              form: "There <b>is</b> + singular / uncountable noun · There <b>are</b> + plural noun",
+              examples: [
+                ["ok","There <b>are</b> many ways to reduce our digital footprint."],
+                ["no","There <b>is</b> many ways to reduce our footprint.","ways is plural → are"],
+                ["ok","There <b>is</b> an incorrect statement in the article."],
+                ["ok","There <b>is</b> a lot of information online."]
+              ],
+              note: "With a list, the verb usually agrees with the first noun: <i>There is a laptop and two phones on the desk.</i>",
+              check: {"q":"There ___ some interesting pictures in today’s paper. (is / are)","a":"<b>are</b>: pictures is plural."}
+            },
+            {
+              type: "rule",
+              n: 7,
+              title: "-ing subjects and amounts → singular",
+              explain: "An <b>-ing</b> subject is one activity, so it is singular. An <b>amount</b> of time, money or distance is also seen as one amount.",
+              form: "<b>Watching videos</b> + singular verb · <b>Ten minutes / $200 / Five kilometres</b> + singular verb",
+              examples: [
+                ["ok","Watching videos online <b>uses</b> a lot of data."],
+                ["ok","Washing the dishes <b>is</b> the children’s job."],
+                ["ok","Ten minutes <b>is</b> more than enough time."],
+                ["no","Two hundred dollars <b>are</b> too much for a textbook.","an amount of money → is"]
+              ],
+              check: {"q":"Getting to know students from other countries ___ fun. (is / are)","a":"<b>is</b>: the subject is one activity (getting to know …)."}
+            },
+            {
+              type: "rule",
+              n: 8,
+              title: "Nouns that trick you",
+              explain: "Some nouns end in <b>-s</b> but are singular. Others have no <b>-s</b> but are plural.",
+              form: "Singular: <b>economics, physics, news, the United States</b>, a language (<b>Japanese</b>) · Plural: <b>people, police, cattle</b>, the + adjective for a group (<b>the elderly, the young, the Japanese</b>)",
+              examples: [
+                ["ok","Economics <b>is</b> Dan’s favourite subject."],
+                ["ok","The news <b>is</b> good today."],
+                ["ok","The police <b>are</b> coming."],
+                ["ok","Japanese <b>is</b> difficult to learn, but the Japanese <b>have</b> a long history.","the language → is · the people → have"],
+                ["ok","The elderly in my country <b>are</b> cared for by their families."]
+              ],
+              check: {"q":"The United States ___ in North America. (is / are)","a":"<b>is</b>: one country."}
+            },
+            {
+              type: "rule",
+              n: 9,
+              title: "In questions, the helping verb agrees",
+              explain: "In questions, <b>do/does</b>, <b>is/are</b> or <b>has/have</b> comes before the subject, but it still agrees with it.",
+              form: "<b>Does</b> + singular subject … ? · <b>Do</b> + plural subject … ?",
+              examples: [
+                ["ok","Where <b>do</b> your grandparents live?"],
+                ["ok","<b>Is</b> the bag of vegetables still in the car?","head noun: bag"],
+                ["ok","<b>Do</b> Professor Karl and her researchers work together?","A and B → do"],
+                ["no","<b>Does</b> the results support the hypothesis?","results → Do"]
+              ],
+              check: {"q":"___ taking care of the elderly the family’s job? (Is / Are)","a":"<b>Is</b>: an -ing subject."}
+            },
+            {
+              type: "model",
+              title: "Rules at a glance",
+              rows: [
+                ["1 · Head noun","Ignore of … / in … / that … : The results of the study <b>are</b> …"],
+                ["2 · each, every, one of","singular: Each of the students <b>has</b> …"],
+                ["3 · some / most / a lot of …","look after <i>of</i>: most of the electricity <b>comes</b> · most of the servers <b>run</b>"],
+                ["4 · the number / a number","The number of … <b>is</b> · A number of … <b>are</b>"],
+                ["5 · and / as well as","A and B <b>are</b> · A, as well as B, <b>is</b>"],
+                ["6 · There is / are","agrees with the noun after it"],
+                ["7 · -ing and amounts","singular: Watching videos <b>uses</b> … · Ten minutes <b>is</b> …"],
+                ["8 · Tricky nouns","economics, news <b>is</b> · police, people, the elderly <b>are</b>"],
+                ["9 · Questions","<b>Does</b> the study … ? · <b>Do</b> the results … ?"]
+              ]
+            }
+          ]
+        },
+        {
+          id: "sva-practise",
+          short: "Practise",
+          minutes: 16,
+          grouping: "Self-study",
+          art: "dec10/assets/lab/s-practise.svg",
+          title: "Controlled practice: recognise → choose → correct",
+          goal: "Three short parts. Do them in order: each one is a little harder.",
+          blocks: [
+            {"type":"part","n":1,"title":"Recognise","goal":"Tap the head noun, then sort the tricky subjects."},
             {
               type: "spot",
               id: "sva-l1-spot",
@@ -131,13 +296,6 @@ window.DEC15_LESSON = {
                 "A [[*list]] of practical [[strategies]] is in the appendix.",
                 "The [[*energy]] used by data [[centres]] around the world is enormous."
               ]
-            },
-            {"type":"part","n":2,"title":"Tricky subjects: singular or plural?","goal":"Sort the subjects, then read the rule for each one."},
-            {
-              type: "do",
-              n: 1,
-              who: "alone",
-              text: "Sort the subjects. Do they take a singular verb (<b>is</b>) or a plural verb (<b>are</b>)? Guess first, then check."
             },
             {
               type: "sort",
@@ -165,58 +323,7 @@ window.DEC15_LESSON = {
                 {"text":"The elderly in my country","answer":1,"why":"<b>the</b> + adjective for a group of people (the elderly, the young, the Japanese) is plural."}
               ]
             },
-            {"type":"do","n":2,"who":"alone","text":"Turn the cards. Which rule do you need most? Copy it into your notebook with your own example."},
-            {
-              type: "flip",
-              title: "Rule cards",
-              items: [
-                {"front":"one of the + plural noun","back":"Singular: <b>One</b> of the countries <b>is</b> Italy.","tag":"Rule 1"},
-                {
-                  front: "each / every",
-                  back: "Singular: <b>Each</b> of the students <b>has</b> a notebook. <b>Every</b> man, woman and child <b>is</b> protected.",
-                  tag: "Rule 2"
-                },
-                {
-                  front: "some / most / all / a lot / half / three-quarters + of",
-                  back: "Look at the noun after <i>of</i>: some of the desks <b>are</b> · some of the furniture <b>is</b>.",
-                  tag: "Rule 3"
-                },
-                {
-                  front: "There is / There are",
-                  back: "The verb agrees with the noun <b>after</b> it: There <b>are</b> some interesting pictures. There <b>is</b> an incorrect statement.",
-                  tag: "Rule 4"
-                },
-                {
-                  front: "A and B · A, as well as B,",
-                  back: "<b>and</b> makes it plural. <b>as well as / along with</b> does not: My cousin, along with my aunt, <b>works</b> in the shop.",
-                  tag: "Rule 5"
-                },
-                {
-                  front: "Japanese or the Japanese?",
-                  back: "<b>Japanese</b> (the language) <b>is</b> difficult. <b>The Japanese</b> (the people) <b>have</b> a long history.",
-                  tag: "Rule 6"
-                }
-              ]
-            },
-            {
-              type: "sticky",
-              color: "yellow",
-              title: "In questions too",
-              text: "The verb still agrees with the subject: Where <b>do</b> your grandparents live? <b>Is</b> the bag of vegetables still in the car? <b>Do</b> Professor Karl and her researchers work together?"
-            }
-          ]
-        },
-        {
-          id: "sva-practise",
-          short: "Practise",
-          minutes: 12,
-          grouping: "Self-study",
-          art: "dec10/assets/lab/s-practise.svg",
-          title: "Controlled practice with instant feedback",
-          goal: "You choose the right verb in sentences and in a short academic paragraph.",
-          blocks: [
-            {"type":"part","n":1,"title":"Our digital carbon footprint","goal":"Choose the verb that agrees with each subject."},
-            {"type":"do","n":1,"who":"alone","text":"Read the paragraph. For each gap, find the head noun first, then choose the verb."},
+            {"type":"part","n":2,"title":"Choose","goal":"Choose the verb in a paragraph, in sentences and in questions."},
             {
               type: "cloze",
               id: "sva-p1-cl",
@@ -235,8 +342,6 @@ window.DEC15_LESSON = {
                 "<b>Each</b> → singular."
               ]
             },
-            {"type":"part","n":2,"title":"Twelve tricky subjects","goal":"Use every rule from Notice and learn."},
-            {"type":"do","n":1,"who":"alone","text":"Choose the correct verb. Then check and read why."},
             {
               type: "cloze",
               id: "sva-p2-cl",
@@ -273,7 +378,6 @@ window.DEC15_LESSON = {
                 "An amount of time → singular."
               ]
             },
-            {"type":"do","n":2,"who":"alone","text":"Now questions. Choose the correct one."},
             {
               type: "quiz",
               id: "sva-p2-q",
@@ -303,6 +407,51 @@ window.DEC15_LESSON = {
                   options: ["is","are"],
                   answer: "is",
                   why: "Head: <b>getting to know …</b> (-ing) → singular."
+                }
+              ]
+            },
+            {"type":"part","n":3,"title":"Correct","goal":"Each sentence has one agreement mistake. Write the correct sentence."},
+            {
+              type: "rewrite",
+              id: "sva-p3-rw",
+              title: "Correct the sentence",
+              hint: "Change only the verb.",
+              items: [
+                {
+                  q: "The results of the survey <b>shows</b> that most students use AI.",
+                  accept: ["The results of the survey show that most students use AI."],
+                  model: "The results of the survey show that most students use AI.",
+                  why: "Head noun: results."
+                },
+                {
+                  q: "Each of the groups have five members.",
+                  accept: ["Each of the groups has five members."],
+                  model: "Each of the groups has five members.",
+                  why: "each → singular."
+                },
+                {
+                  q: "There is many reasons for this problem.",
+                  accept: ["There are many reasons for this problem."],
+                  model: "There are many reasons for this problem.",
+                  why: "reasons → are."
+                },
+                {
+                  q: "The number of international students are increasing.",
+                  accept: ["The number of international students is increasing."],
+                  model: "The number of international students is increasing.",
+                  why: "the number → singular."
+                },
+                {
+                  q: "One of the main causes are fast fashion.",
+                  accept: ["One of the main causes is fast fashion."],
+                  model: "One of the main causes is fast fashion.",
+                  why: "one of → singular."
+                },
+                {
+                  q: "Most of the information in these articles are out of date.",
+                  accept: ["Most of the information in these articles is out of date."],
+                  model: "Most of the information in these articles is out of date.",
+                  why: "information is uncountable."
                 }
               ]
             }

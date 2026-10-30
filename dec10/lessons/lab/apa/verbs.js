@@ -1,12 +1,12 @@
 /* DEC10 · Language Lab · APA 2 — Reporting verbs: neutral (discourse) verbs and evaluative verbs, their meaning, grammar and tense.
    Source: the teacher's "DEC 10 Citations" document (Table 1 Common discourse-related reporting verbs; Table 2 Common evaluative reporting verbs).
-   One page, four tabs: Warm-up · Notice and learn · Practise · Use it (built for self-study). */
+   One page, four tabs: Warm-up · Learn · Practise · Use it (built for self-study). */
 window.DEC15_LESSON = {
   id: "d10lab-verbs",
   week: null,
   day: null,
   title: "Reporting verbs",
-  duration: "About 45 minutes",
+  duration: "About 50 minutes",
   questionKind: "Can-do",
   questionLabel: "By the end of this lesson you can",
   question: "choose a reporting verb that says exactly what a source does — and what you think of it.",
@@ -19,11 +19,11 @@ window.DEC15_LESSON = {
     {
       id: "lesson",
       number: "1",
-      minutes: 45,
+      minutes: 51,
       tone: "clay",
       art: "dec10/assets/lab/s-learn.svg",
       title: "Reporting verbs",
-      subtitle: "Warm-up · Notice and learn · Practise · Use it",
+      subtitle: "Warm-up · Learn · Practise · Use it",
       outcome: "choose a reporting verb that says exactly what a source does — and what you think of it.",
       activities: [
         {
@@ -74,31 +74,115 @@ window.DEC15_LESSON = {
         },
         {
           id: "rv-learn",
-          short: "Notice and learn",
-          minutes: 16,
+          short: "Learn",
+          minutes: 18,
           grouping: "Self-study",
           art: "dec10/assets/lab/s-learn.svg",
-          title: "Neutral verbs, evaluative verbs, grammar and tense",
-          goal: "You know what common reporting verbs mean and how to build sentences with them.",
+          title: "Reporting verbs, step by step",
+          goal: "Learn what reporting verbs do, which verb means what, how strong each one is, and the grammar and tense to use.",
           blocks: [
-            {"type":"part","n":1,"title":"Verbs that describe what the source does","goal":"Match each verb to its use."},
             {
-              type: "match",
-              id: "rv-l1-m",
-              title: "Verb → use",
-              left: ["state","argue","point out","find","compare","list","discuss","mention","conclude","emphasise"],
-              right: [
-                "present something as a fact",
-                "present someone’s position on an issue",
-                "draw attention to a particular point or fact",
-                "discover something as a result of research",
-                "look for differences and similarities",
-                "set out a number of items",
-                "examine an issue or topic",
-                "deal with something very briefly",
-                "give the final result of the source’s thinking",
-                "show the source’s most important point"
+              type: "key",
+              title: "What do reporting verbs do?",
+              points: [
+                "They introduce a source: <i>Harris (2017) <b>argues</b> that …</i>",
+                "They tell the reader <b>what</b> the source does: states a fact, presents an argument, reports a finding, compares, lists …",
+                "Some also show <b>what you think</b>: <i>claims</i> or <i>alleges</i> tell the reader you are not convinced. Avoid <i>says</i>: it tells the reader nothing."
               ]
+            },
+            {
+              type: "rule",
+              n: 1,
+              title: "Verbs that present information",
+              explain: "Use these to report what a source tells us, without judging it.",
+              form: "<b>state, report, note, point out, mention, describe, explain</b> + that … / + noun",
+              examples: [
+                ["ok","Radford (2005) <b>states</b> that forest fires in Siberia have increased tenfold.","presented as a fact"],
+                ["ok","UNEP (2006) <b>reports</b> that poverty has increased.","makes known a situation"],
+                ["ok","Swales (2002) <b>points out</b> that there is a gap in the material.","draws attention to a point"],
+                ["ok","Brown (1997) <b>mentions</b> the role of agriculture.","deals with it only briefly"]
+              ],
+              note: "Small difference: <b>point out</b> shows you agree it is true and important; <b>mention</b> shows it is only a small part of the source.",
+              check: {"q":"Which verb for a point the source gives only one line to? (emphasises / mentions)","a":"<b>mentions</b>."}
+            },
+            {
+              type: "rule",
+              n: 2,
+              title: "Verbs that present an argument",
+              explain: "Use these when the source takes a <b>position</b> that others could disagree with.",
+              form: "<b>argue, suggest, propose, conclude, emphasise</b> + that … (emphasise also + noun)",
+              examples: [
+                ["ok","Branch (2009) <b>argues</b> that meat has long been a symbol of strength.","a position"],
+                ["ok","Poe (2009) <b>suggests</b> that instructors ask students to write abstracts.","a careful proposal"],
+                ["ok","Toso (2012) <b>concludes</b> that states are not enforcing the law.","the final result of the source’s thinking"],
+                ["ok","Shiva (2002) <b>emphasises</b> the need for sustainable water use.","the main point"]
+              ],
+              check: {"q":"Which verb gives the final result of a long study? (suggests / concludes)","a":"<b>concludes</b>."}
+            },
+            {
+              type: "rule",
+              n: 3,
+              title: "Verbs that report research findings",
+              explain: "Use these for what a study <b>discovered</b> or <b>showed</b> with evidence.",
+              form: "<b>find, show, demonstrate, reveal</b> + that … / + noun",
+              examples: [
+                ["ok","Collins et al. (2006) <b>found</b> positive effects of exercise programmes."],
+                ["ok","Garcia (2020) <b>showed</b> that rental users bought fewer clothes."],
+                [
+                  "ok",
+                  "Tad and Collin (2015) <b>reveal</b> that many environmental problems are social problems.",
+                  "reveal = information that was hidden or not well known"
+                ]
+              ],
+              note: "<b>find</b> is almost always in the past (<b>found</b>) or present perfect (<b>have found</b>)."
+            },
+            {
+              type: "rule",
+              n: 4,
+              title: "Verbs that show your view (evaluative verbs)",
+              explain: "These verbs show how much <b>you</b> trust the source. Choosing them is a small act of critical thinking.",
+              form: "Strong acceptance: <b>demonstrates, shows</b> → neutral: <b>argues, states</b> → distance: <b>claims, maintains</b> → doubt: <b>alleges</b>",
+              examples: [
+                ["ok","George (2003) <b>claims</b> the project may cause huge subsidence.","you keep some distance"],
+                ["ok","Cooper and Davy (1999) <b>allege</b> that governments understate pollution.","a claim without proof"],
+                ["ok","Mitch and Tyler (2010) <b>assume</b> that a weaker currency makes firms competitive.","treated as a fact, but it may not be"],
+                ["ok","Otchet (2002) <b>implies</b> that water is being mismanaged.","said indirectly"],
+                ["ok","Cuvier (2012) <b>exaggerates</b> the impact of the media.","too much emphasis"],
+                ["ok","Marcus (2008) <b>contends</b> that manufacturers already deal with packaging.","argues strongly; writers often use it before they disagree"]
+              ],
+              check: {
+                q: "A company says its product “ends fast fashion” but gives no data. Which verb? (demonstrates / claims)",
+                a: "<b>claims</b>: you are not convinced."
+              }
+            },
+            {
+              type: "rule",
+              n: 5,
+              title: "Grammar: that-clause or noun?",
+              explain: "Most reporting verbs take <b>that</b> + a full clause. Some take a <b>noun</b> directly, and some need a <b>preposition</b>. Never add <i>about</i> after <i>discuss</i> or <i>mention</i>.",
+              form: "verb + <b>that</b> + subject + verb: state, argue, claim, conclude, report · verb + <b>noun</b>: discuss, list, mention, emphasise, evaluate · verb + noun + <b>prep</b>: compare X <b>with</b> Y, refer <b>to</b> X",
+              examples: [
+                ["ok","Radford (2005) states <b>that</b> forest fires have increased."],
+                ["ok","Dietz (2003) <b>lists</b> six criteria."],
+                ["ok","Frank (2013) <b>compares</b> rich countries <b>with</b> poor ones."],
+                ["no","Van den Berg et al. (2016) <b>discuss about</b> the effects.","→ discuss the effects"],
+                ["no","Smith (2013) <b>refers</b> the Climate Change Act.","→ refers to"]
+              ],
+              check: {"q":"Correct it: “Shiva (2002) emphasises on the need for clean water.”","a":"Shiva (2002) <b>emphasises</b> the need for clean water."}
+            },
+            {
+              type: "rule",
+              n: 6,
+              title: "Which tense?",
+              explain: "Choose the tense for the job, and be consistent inside one paragraph.",
+              form: "<b>Present simple</b>: what a source says or argues · <b>Past simple</b>: what one study found · <b>Present perfect</b>: research in general",
+              examples: [
+                ["ok","Smith (2019) <b>argues</b> that rental reduces waste.","the argument is still there"],
+                ["ok","Collins et al. (2006) <b>found</b> positive effects.","one finished study"],
+                ["ok","Many studies <b>have found</b> that fast fashion increases waste.","research in general"],
+                ["no","Collins et al. (2006) <b>finds</b> positive effects.","→ found"]
+              ],
+              note: "One author → verb + <b>-s</b>: Smith (2019) argue<b>s</b>. Two or more authors → no -s: Harris and Smith (2017) argue."
             },
             {
               type: "language",
@@ -136,7 +220,47 @@ window.DEC15_LESSON = {
                 }
               ]
             },
-            {"type":"part","n":2,"title":"that-clause or noun? Present or past?","goal":"Learn the two sentence patterns, and which tense to use."},
+            {
+              type: "model",
+              title: "Choosing a reporting verb",
+              rows: [
+                ["Present information","states, reports, notes, points out, mentions, describes"],
+                ["Present an argument","argues, suggests, proposes, concludes, emphasises"],
+                ["Report research","found, showed, demonstrates, reveals"],
+                ["Show your view","claims, maintains, alleges, assumes, implies, exaggerates, contends"],
+                ["Avoid","says, talks about, writes that"]
+              ]
+            }
+          ]
+        },
+        {
+          id: "rv-practise",
+          short: "Practise",
+          minutes: 16,
+          grouping: "Self-study",
+          art: "dec10/assets/lab/s-practise.svg",
+          title: "Controlled practice: recognise → choose → correct",
+          goal: "Three short parts. Do them in order.",
+          blocks: [
+            {"type":"part","n":1,"title":"Recognise","goal":"Match each verb to its use, then sort the verbs by their grammar."},
+            {
+              type: "match",
+              id: "rv-l1-m",
+              title: "Verb → use",
+              left: ["state","argue","point out","find","compare","list","discuss","mention","conclude","emphasise"],
+              right: [
+                "present something as a fact",
+                "present someone’s position on an issue",
+                "draw attention to a particular point or fact",
+                "discover something as a result of research",
+                "look for differences and similarities",
+                "set out a number of items",
+                "examine an issue or topic",
+                "deal with something very briefly",
+                "give the final result of the source’s thinking",
+                "show the source’s most important point"
+              ]
+            },
             {
               type: "sort",
               id: "rv-l2-sort",
@@ -158,80 +282,7 @@ window.DEC15_LESSON = {
                 {"text":"refer to","answer":1,"why":"refer <b>to</b> + noun."}
               ]
             },
-            {
-              type: "key",
-              title: "Which tense?",
-              points: [
-                "<b>Present simple</b> for what a source says or argues: Smith (2019) <b>argues</b> that …",
-                "<b>Past simple</b> or <b>present perfect</b> for the findings of a study: Collins et al. (2006) <b>found</b> … / Many studies <b>have found</b> …",
-                "Be consistent inside one paragraph."
-              ]
-            },
-            {"type":"part","n":3,"title":"Verbs that show what you think","goal":"Learn verbs that show doubt or a judgement. Turn the cards."},
-            {
-              type: "flip",
-              title: "Evaluative verbs",
-              items: [
-                {
-                  front: "claim / maintain",
-                  back: "You keep a distance: you are not sure it is true. <i>George (2003) <b>claims</b> the project may cause huge subsidence in the Sahara.</i>",
-                  tag: "distance"
-                },
-                {
-                  front: "allege",
-                  back: "The source makes a claim <b>without proof</b>. <i>Cooper and Davy (1999) <b>allege</b> that governments understate water pollution.</i>",
-                  tag: "no proof"
-                },
-                {
-                  front: "assume",
-                  back: "The source treats something as a fact, but it <b>may not be</b>. <i>Mitch and Tyler (2010) <b>assume</b> that a weaker currency makes firms competitive.</i>",
-                  tag: "maybe not a fact"
-                },
-                {
-                  front: "imply",
-                  back: "The source says something <b>indirectly</b>. <i>Otchet (2002) <b>implies</b> that the government is mismanaging its water.</i>",
-                  tag: "indirect"
-                },
-                {
-                  front: "reveal",
-                  back: "The information was <b>hidden or not widely known</b>. <i>Tad and Collin (2015) <b>reveal</b> that many environmental problems are social problems.</i>",
-                  tag: "new information"
-                },
-                {
-                  front: "exaggerate",
-                  back: "The source puts <b>too much emphasis</b> on something. <i>Cuvier (2012) <b>exaggerates</b> the impact of the media on consumers.</i>",
-                  tag: "too much"
-                },
-                {
-                  front: "contend",
-                  back: "The source argues strongly. Writers often use it just before they <b>disagree</b>. <i>Marcus (2008) <b>contends</b> that manufacturers are already dealing with packaging.</i>",
-                  tag: "before you disagree"
-                },
-                {
-                  front: "criticise",
-                  back: "The source finds faults in something. <i>Lee (2019) <b>criticises</b> fast-fashion brands for “greenwashing”.</i>",
-                  tag: "negative judgement"
-                }
-              ]
-            },
-            {
-              type: "sticky",
-              color: "yellow",
-              title: "Your voice",
-              text: "Choosing <b>claims</b> instead of <b>shows</b> is a small word with a big message: it tells the reader you are not convinced. That is critical thinking in one verb."
-            }
-          ]
-        },
-        {
-          id: "rv-practise",
-          short: "Practise",
-          minutes: 12,
-          grouping: "Self-study",
-          art: "dec10/assets/lab/s-practise.svg",
-          title: "Controlled practice with instant feedback",
-          goal: "You choose verbs by meaning, and use them with the right grammar.",
-          blocks: [
-            {"type":"part","n":1,"title":"Choose the verb that fits","goal":"Read each sentence and choose the verb that says exactly what the source does."},
+            {"type":"part","n":2,"title":"Choose","goal":"Choose the verb that fits the meaning, then the correct grammar."},
             {
               type: "cloze",
               id: "rv-p1-cl",
@@ -260,7 +311,6 @@ window.DEC15_LESSON = {
                 "not widely known before → <b>reveal</b>."
               ]
             },
-            {"type":"part","n":2,"title":"Which sentence is correct?","goal":"Choose the sentence with the correct grammar."},
             {
               type: "quiz",
               id: "rv-p2-q",
@@ -301,6 +351,43 @@ window.DEC15_LESSON = {
                   options: ["claims that online bullying is cruel.","claim that online bullying is cruel.","claiming that online bullying is cruel."],
                   answer: "claim that online bullying is cruel.",
                   why: "Two authors = plural subject: <b>claim</b> (no -s). See the lesson <i>Is or are?</i>"
+                }
+              ]
+            },
+            {"type":"part","n":3,"title":"Correct","goal":"Each sentence has one mistake with the reporting verb. Write the correct sentence."},
+            {
+              type: "rewrite",
+              id: "rv-p3-rw",
+              title: "Correct the sentence",
+              hint: "Fix the verb, its grammar or its tense.",
+              items: [
+                {
+                  q: "Shiva (2002) emphasises on the need for clean water.",
+                  accept: ["Shiva (2002) emphasises the need for clean water."],
+                  model: "Shiva (2002) emphasises the need for clean water."
+                },
+                {
+                  q: "Brown (1997) mentions about the role of agriculture.",
+                  accept: ["Brown (1997) mentions the role of agriculture."],
+                  model: "Brown (1997) mentions the role of agriculture."
+                },
+                {
+                  q: "Collins et al. (2006) finds positive effects of exercise.",
+                  accept: ["Collins et al. (2006) found positive effects of exercise.","Collins et al. (2006) have found positive effects of exercise."],
+                  model: "Collins et al. (2006) found positive effects of exercise.",
+                  why: "A finding → past."
+                },
+                {
+                  q: "Harris and Smith (2017) argues that green jobs are growing.",
+                  accept: ["Harris and Smith (2017) argue that green jobs are growing."],
+                  model: "Harris and Smith (2017) argue that green jobs are growing.",
+                  why: "Two authors → argue."
+                },
+                {
+                  q: "Frank (2013) compares rich countries and poor ones.",
+                  accept: ["Frank (2013) compares rich countries with poor ones."],
+                  model: "Frank (2013) compares rich countries with poor ones.",
+                  why: "compare X with Y."
                 }
               ]
             }

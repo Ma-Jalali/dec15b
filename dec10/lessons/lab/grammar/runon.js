@@ -1,12 +1,12 @@
 /* DEC10 · Language Lab · Grammar 5 — Run-on sentences and comma splices: five ways to fix them.
    Source: the teacher's "Interactive Grammar" document (Sentence Types; Lessons: run-on sentences), set in the Week 7 topic (sustainable fashion).
-   One page, four tabs: Warm-up · Notice and learn · Practise · Use it (built for self-study). */
+   One page, four tabs: Warm-up · Learn · Practise · Use it (built for self-study). */
 window.DEC15_LESSON = {
   id: "d10lab-runon",
   week: null,
   day: null,
   title: "Run-ons and comma splices",
-  duration: "About 45 minutes",
+  duration: "About 55 minutes",
   questionKind: "Can-do",
   questionLabel: "By the end of this lesson you can",
   question: "spot two sentences that are joined the wrong way, and fix them in five different ways.",
@@ -19,11 +19,11 @@ window.DEC15_LESSON = {
     {
       id: "lesson",
       number: "1",
-      minutes: 45,
+      minutes: 56,
       tone: "teal",
       art: "dec10/assets/lab/s-learn.svg",
       title: "Run-ons and comma splices",
-      subtitle: "Warm-up · Notice and learn · Practise · Use it",
+      subtitle: "Warm-up · Learn · Practise · Use it",
       outcome: "spot two sentences that are joined the wrong way, and fix them in five different ways.",
       activities: [
         {
@@ -80,34 +80,149 @@ window.DEC15_LESSON = {
         },
         {
           id: "ro-learn",
-          short: "Notice and learn",
-          minutes: 15,
+          short: "Learn",
+          minutes: 22,
           grouping: "Self-study",
           art: "dec10/assets/lab/s-learn.svg",
-          title: "Two kinds of run-on, five ways to fix them",
-          goal: "You can name the two kinds of run-on and choose a fix.",
+          title: "Sentences, run-ons and five fixes, step by step",
+          goal: "Learn what a complete sentence is, the two kinds of run-on, and five ways to fix them.",
           blocks: [
-            {"type":"part","n":1,"title":"Fused sentence and comma splice","goal":"Learn to see where the first sentence ends."},
             {
               type: "key",
-              title: "Complete sentence = subject + verb + a complete idea",
-              compare: [
-                {
-                  label: "Fused sentence · no punctuation",
-                  text: "Two complete sentences stuck together.",
-                  eg: "<s>My sister lives in New York she loves the big city.</s>"
-                },
-                {
-                  label: "Comma splice · only a comma",
-                  text: "A comma is not strong enough to join two complete sentences.",
-                  eg: "<s>I finished my homework, I went to bed.</s>"
-                }
+              title: "First, what is a complete sentence?",
+              points: [
+                "A complete sentence (an <b>independent clause</b>) has a <b>subject</b>, a <b>verb</b> and a <b>complete idea</b>: <i>I finished my homework.</i>",
+                "A <b>dependent clause</b> starts with a word like <i>because, although, when, if</i>. It is not complete on its own: <i>because I was tired …</i>",
+                "A <b>run-on</b> happens when two complete sentences are joined the wrong way."
               ]
             },
             {
-              type: "tip",
-              text: "Test: cover the second half. Is the first half a complete sentence? Now cover the first half. Is the second half complete too? If <b>both</b> are complete, you need more than a comma."
+              type: "rule",
+              n: 1,
+              title: "Independent or dependent?",
+              explain: "Read the clause on its own. If it sounds finished, it is independent. If it leaves you waiting (because … what?), it is dependent.",
+              form: "<b>Independent</b>: subject + verb + complete idea · <b>Dependent</b>: because / although / when / if … + subject + verb",
+              examples: [
+                ["ok","<b>I listen to music.</b> → complete"],
+                ["ok","<b>When I listen to music</b> … → not complete: you are waiting for more"],
+                ["ok","When I listen to music, <b>I feel very good.</b> → dependent + independent = one correct sentence"]
+              ],
+              check: {
+                q: "Complete or not? “Although fast fashion is cheap.”",
+                a: "Not complete: <i>although</i> makes it dependent. Add a main clause: <i>Although fast fashion is cheap, it is wasteful.</i>"
+              }
             },
+            {
+              type: "rule",
+              n: 2,
+              title: "Run-on 1: the fused sentence",
+              explain: "Two complete sentences are stuck together with <b>no punctuation</b> and no linking word.",
+              form: "sentence + sentence (nothing between them)",
+              examples: [
+                ["no","My sister lives in New York she loves the big city.","Two complete ideas: My sister lives in New York. / She loves the big city."],
+                ["no","He worked hard all day he was very tired."]
+              ],
+              check: {
+                q: "Where does the first sentence end? “Cotton needs a lot of water it is grown in dry regions.”",
+                a: "After <i>water</i>: Cotton needs a lot of water. It is grown in dry regions."
+              }
+            },
+            {
+              type: "rule",
+              n: 3,
+              title: "Run-on 2: the comma splice",
+              explain: "Two complete sentences are joined with <b>only a comma</b>. A comma is too weak to join them. This is the most common run-on in student essays.",
+              form: "sentence<b>,</b> sentence ✗",
+              examples: [
+                ["no","I finished my homework, I went to bed."],
+                ["no","Fast fashion is cheap, people buy too many clothes."],
+                ["ok","Because I was hungry, I ate a sandwich.","Fine: the first part is dependent, so a comma is right."]
+              ],
+              note: "<b>The cover test:</b> cover the part after the comma. Is the first part complete? Now cover the first part. Is the second part complete too? If <b>both</b> are complete, a comma alone is wrong.",
+              check: {"q":"Comma splice or correct? “When the sun set, we packed up.”","a":"Correct: <i>When the sun set</i> is dependent."}
+            },
+            {
+              type: "rule",
+              n: 4,
+              title: "Fix 1: a full stop",
+              explain: "The simplest fix: make two sentences.",
+              form: "sentence<b>.</b> Sentence.",
+              examples: [["no","The cat jumped onto the table it knocked over the vase."],["ok","The cat jumped onto the table<b>. It</b> knocked over the vase."]],
+              note: "Use it when the two ideas are separate, or when your sentence is already long."
+            },
+            {
+              type: "rule",
+              n: 5,
+              title: "Fix 2: a semicolon",
+              explain: "A semicolon joins two complete sentences that are <b>closely related</b>. No capital letter after it.",
+              form: "sentence<b>;</b> sentence.",
+              examples: [
+                ["no","He worked hard all day he was very tired."],
+                ["ok","He worked hard all day<b>;</b> he was very tired."],
+                ["ok","Many clothes end up in landfill<b>;</b> most are worn fewer than ten times."]
+              ],
+              note: "Do not overuse it: one or two semicolons in a paragraph is plenty."
+            },
+            {
+              type: "rule",
+              n: 6,
+              title: "Fix 3: a comma + FANBOYS",
+              explain: "Add a comma <b>and</b> a coordinating conjunction (for, and, nor, but, or, yet, so). It also shows the relationship.",
+              form: "sentence<b>, but / , so / , and</b> sentence.",
+              examples: [
+                ["ok","I wanted to go to the party<b>, but</b> I had too much homework.","contrast"],
+                ["ok","She arrived late<b>, so</b> she missed the start.","result"],
+                ["ok","We can go to the beach<b>, or</b> we can stay home.","choice"]
+              ],
+              note: "<b>However</b> is not a FANBOYS word: <s>Fashion is cheap, however it is wasteful.</s> → Fashion is cheap<b>. However,</b> it is wasteful."
+            },
+            {
+              type: "rule",
+              n: 7,
+              title: "Fix 4: because, although, when … (make one part dependent)",
+              explain: "Turn one sentence into a dependent clause. Choose the word for the meaning: cause (because, since), contrast (although, while), time (when, before, after, until), condition (if, unless).",
+              form: "Dependent clause<b>,</b> main clause. · Main clause + dependent clause (no comma).",
+              examples: [
+                ["ok","<b>Because</b> I was hungry<b>,</b> I ate a sandwich.","dependent first → comma"],
+                ["ok","I ate a sandwich <b>because</b> I was hungry.","dependent second → no comma"],
+                ["ok","<b>Although</b> he is very busy<b>,</b> he always helps his friends.","although needs a real contrast"]
+              ],
+              note: "This fix is often the most academic, because it shows exactly how the ideas are connected."
+            },
+            {
+              type: "rule",
+              n: 8,
+              title: "Fix 5: rewrite",
+              explain: "A very long run-on with three or four ideas needs rewriting: split it, and join only the ideas that belong together.",
+              examples: [
+                ["no","My friend studied hard for the test she was worried about it she finally got an A she was very happy."],
+                ["ok","My friend studied hard for the test <b>because</b> she was worried about it<b>. She</b> finally got an A<b>, and</b> she was very happy."]
+              ]
+            },
+            {
+              type: "model",
+              title: "Which fix, when?",
+              rows: [
+                ["Full stop","separate ideas, or a long sentence"],
+                ["Semicolon ;","two closely related ideas"],
+                ["Comma + FANBOYS","equal ideas: , and · , but · , so · , or"],
+                ["because / although / when …","to show cause, contrast or time — often the most academic"],
+                ["Rewrite","long run-ons with three or more ideas"],
+                ["Never","two complete sentences with only a comma"]
+              ]
+            }
+          ]
+        },
+        {
+          id: "ro-practise",
+          short: "Practise",
+          minutes: 17,
+          grouping: "Self-study",
+          art: "dec10/assets/lab/s-practise.svg",
+          title: "Controlled practice: recognise → choose → fix",
+          goal: "Three short parts. Do them in order.",
+          blocks: [
+            {"type":"part","n":1,"title":"Recognise","goal":"Sort the sentences, then find the comma splices in a story."},
             {
               type: "sort",
               id: "ro-l1-sort",
@@ -123,137 +238,6 @@ window.DEC15_LESSON = {
                 {"text":"Many clothes end up in landfill; most are worn fewer than ten times.","answer":0}
               ]
             },
-            {"type":"part","n":2,"title":"Five ways to fix a run-on","goal":"Learn five fixes, and when each one works best."},
-            {
-              type: "tabs",
-              tabs: [
-                {
-                  label: "1 · Full stop",
-                  blocks: [
-                    {
-                      type: "pairs",
-                      items: [
-                        {
-                          from: "The cat jumped onto the table it knocked over the vase.",
-                          to: "The cat jumped onto the table[[. It]] knocked over the vase.",
-                          tag: "Simplest fix"
-                        },
-                        {"from":"She enjoys reading novels they help her relax.","to":"She enjoys reading novels[[. They]] help her relax.","tag":"Simplest fix"}
-                      ]
-                    }
-                  ]
-                },
-                {
-                  label: "2 · Semicolon",
-                  blocks: [
-                    {
-                      type: "key",
-                      title: "Use ; when the two ideas are closely related",
-                      points: ["A semicolon is stronger than a comma. It joins two complete sentences without a linking word."]
-                    },
-                    {
-                      type: "pairs",
-                      items: [
-                        {"from":"He worked hard all day he was very tired.","to":"He worked hard all day[[;]] he was very tired.","tag":"Closely related"},
-                        {"from":"My brother loves to cook he makes delicious pasta.","to":"My brother loves to cook[[;]] he makes delicious pasta.","tag":"Closely related"}
-                      ]
-                    }
-                  ]
-                },
-                {
-                  label: "3 · , + FANBOYS",
-                  blocks: [
-                    {
-                      type: "key",
-                      title: "Comma + for, and, nor, but, or, yet, so",
-                      points: ["Use them when the two ideas are equally important. The comma goes <b>before</b> the word."]
-                    },
-                    {
-                      type: "pairs",
-                      items: [
-                        {"from":"I wanted to go to the party I had too much homework.","to":"I wanted to go to the party[[, but]] I had too much homework.","tag":"contrast"},
-                        {"from":"She arrived late she missed the beginning of the film.","to":"She arrived late[[, so]] she missed the beginning of the film.","tag":"result"},
-                        {"from":"We can go to the beach we can stay home.","to":"We can go to the beach[[, or]] we can stay home.","tag":"choice"}
-                      ]
-                    }
-                  ]
-                },
-                {
-                  label: "4 · because, although …",
-                  blocks: [
-                    {
-                      type: "key",
-                      title: "Make one idea depend on the other",
-                      points: [
-                        "Use <b>because, although, since, when, while, if, unless, before, after, until</b>.",
-                        "At the start: comma after the first clause. In the middle: usually no comma."
-                      ]
-                    },
-                    {
-                      type: "pairs",
-                      items: [
-                        {
-                          from: "I was hungry I ate a sandwich.",
-                          to: "[[Because]] I was hungry[[,]] I ate a sandwich. · I ate a sandwich [[because]] I was hungry.",
-                          tag: "cause"
-                        },
-                        {"from":"The phone rang I was sleeping.","to":"[[While]] I was sleeping[[,]] the phone rang.","tag":"time"},
-                        {
-                          from: "He is very busy he always helps his friends.",
-                          to: "[[Although]] he is very busy[[,]] he always helps his friends.",
-                          tag: "contrast",
-                          note: "<b>although</b> needs a real contrast: busy ↔ still helps."
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  label: "5 · Rewrite",
-                  blocks: [
-                    {
-                      type: "key",
-                      title: "Long, confusing run-on? Rewrite it",
-                      points: ["Break it into shorter sentences, and join only the ideas that belong together."]
-                    },
-                    {
-                      type: "pairs",
-                      items: [
-                        {
-                          from: "My friend studied really hard for the test she was worried about it she finally got an A she was very happy.",
-                          to: "My friend studied really hard for the test [[because]] she was worried about it[[. She]] finally got an A[[, and]] she was very happy.",
-                          tag: "Mix the fixes"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {"type":"do","n":1,"who":"alone","text":"Think about your own writing: which fix do you use most? Which one would make it sound more academic?"},
-            {
-              type: "sticky",
-              color: "pink",
-              title: "However is not a FANBOYS word",
-              text: "<s>Fast fashion is cheap, however it is wasteful.</s> → Fast fashion is cheap<b>. However,</b> it is wasteful. (See the lesson <i>Linking ideas</i>.)"
-            }
-          ]
-        },
-        {
-          id: "ro-practise",
-          short: "Practise",
-          minutes: 13,
-          grouping: "Self-study",
-          art: "dec10/assets/lab/s-practise.svg",
-          title: "Controlled practice with instant feedback",
-          goal: "You find run-ons in a story and fix run-ons in an academic paragraph.",
-          blocks: [
-            {
-              type: "part",
-              n: 1,
-              title: "A day at the beach",
-              goal: "Find the comma splices. Tap the comma that joins two complete sentences (the words around it are highlighted)."
-            },
             {
               type: "spot",
               id: "ro-p1-spot",
@@ -266,7 +250,7 @@ window.DEC15_LESSON = {
                 "We ate our lunch and watched the [[*seagulls, they]] were hoping for some food. It was a perfect [[*day, we]] didn’t want it to end. We finally packed up when the sun began to set, feeling happy and tired. My brother fell asleep in the [[*car, he]] was exhausted."
               ]
             },
-            {"type":"part","n":2,"title":"Fast fashion: fix the run-ons","goal":"Choose the correct way to join each pair of ideas."},
+            {"type":"part","n":2,"title":"Choose","goal":"Choose the right way to join each pair of ideas."},
             {
               type: "cloze",
               id: "ro-p2-cl",
@@ -288,6 +272,45 @@ window.DEC15_LESSON = {
                 "Contrast + one dependent idea: <b>Although …,</b>",
                 "Two equal ideas: <b>, and</b>.",
                 "Cause: <b>because</b> + a complete clause (no comma in the middle)."
+              ]
+            },
+            {"type":"part","n":3,"title":"Fix","goal":"Fix each run-on with the method in brackets. Write the full sentence."},
+            {
+              type: "rewrite",
+              id: "ro-p3-rw",
+              title: "Fix the run-on",
+              hint: "Use the method in brackets.",
+              items: [
+                {
+                  q: "I finished my homework, I went to bed. <i>(full stop)</i>",
+                  accept: ["I finished my homework. I went to bed."],
+                  model: "I finished my homework. I went to bed."
+                },
+                {
+                  q: "He worked hard all day he was very tired. <i>(semicolon)</i>",
+                  accept: ["He worked hard all day; he was very tired."],
+                  model: "He worked hard all day; he was very tired."
+                },
+                {
+                  q: "Fast fashion is cheap, it is very wasteful. <i>(comma + but)</i>",
+                  accept: ["Fast fashion is cheap, but it is very wasteful."],
+                  model: "Fast fashion is cheap, but it is very wasteful."
+                },
+                {
+                  q: "I was hungry I ate a sandwich. <i>(start with Because)</i>",
+                  accept: ["Because I was hungry, I ate a sandwich."],
+                  model: "Because I was hungry, I ate a sandwich."
+                },
+                {
+                  q: "Clothes are cheap, people buy too many. <i>(comma + so)</i>",
+                  accept: ["Clothes are cheap, so people buy too many."],
+                  model: "Clothes are cheap, so people buy too many."
+                },
+                {
+                  q: "Recycling is growing, most clothes are still burnt. <i>(start with Although)</i>",
+                  accept: ["Although recycling is growing, most clothes are still burnt."],
+                  model: "Although recycling is growing, most clothes are still burnt."
+                }
               ]
             }
           ]
