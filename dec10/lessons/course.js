@@ -25,6 +25,33 @@ window.DEC15_COURSE = {
   defaultLesson: 'd10w1d1',
   // loaded before every lesson: the Course calendar and Assessments pages (side panel)
   scripts: ['dec10/lessons/guide.js'],
+  /* LANGUAGE LAB (side panel → Language Lab, #/lab): short self-study lessons outside the weekly plan, to fill gaps.
+     Students study alone, or the teacher uses one in class when there is time. Every lesson has the same four stages:
+       1 Warm-up (pre) → 2 Notice and learn (while) → 3 Practise (controlled) → 4 Use it (freer practice).
+     ADD A LAB LESSON IN 3 STEPS
+     1. Copy dec10/lessons/lab/_template.js to dec10/lessons/lab/<strand>/<name>.js and write the content.
+     2. Add an entry to the strand's lessons below: { id, status: 'ready', title, sub, minutes, level, scripts: [path] }.
+        Lesson ids start with "d10lab-" and never change after students start (they are the key of saved work).
+     3. Raise the version (index.html + js/config.js) and run  node tools/build-sw.js .
+     A new strand (e.g. Pronunciation) is one more object in strands. A strand with no ready lessons shows "Coming soon". */
+  lab: {
+    title: 'Language Lab',
+    intro: 'Short lessons to fill the gaps: grammar for accurate academic writing, APA referencing, and soon vocabulary. Study alone at your own pace, or your teacher may use one in class.',
+    strands: [
+      { id: 'grammar', title: 'Grammar', short: 'Grammar', tone: 'teal', icon: 'grammar', blurb: 'Accurate sentences for your writing and your seminars.', lessons: [
+        { id: 'd10lab-sva', status: 'ready', title: 'Is or are? Subject–verb agreement', sub: 'Find the real subject, then choose the verb', minutes: 45, level: 'B1+', scripts: ['dec10/lessons/lab/grammar/sva.js'] },
+        { id: 'd10lab-preps', status: 'ready', title: 'Words that travel together', sub: 'Dependent prepositions: aware of, rely on, solution to', minutes: 40, level: 'B1+', scripts: ['dec10/lessons/lab/grammar/preps.js'] },
+        { id: 'd10lab-link', status: 'ready', title: 'Linking ideas', sub: 'And, but, so … However, Therefore, In addition', minutes: 50, level: 'B1+', scripts: ['dec10/lessons/lab/grammar/link.js'] },
+        { id: 'd10lab-rel', status: 'ready', title: 'Relative clauses', sub: 'who, which, whose, where — and no extra pronoun', minutes: 55, level: 'B2', scripts: ['dec10/lessons/lab/grammar/rel.js'] },
+        { id: 'd10lab-runon', status: 'ready', title: 'Run-ons and comma splices', sub: 'Five ways to join or split two sentences', minutes: 45, level: 'B1+', scripts: ['dec10/lessons/lab/grammar/runon.js'] }
+      ] },
+      { id: 'apa', title: 'Referencing · APA 7', short: 'APA', tone: 'clay', icon: 'quote', blurb: 'Show where your ideas come from, the way your university expects.', lessons: [
+        { id: 'd10lab-cite', status: 'ready', title: 'In-text citations', sub: 'Integral or non-integral? One, two or three authors?', minutes: 45, level: 'All', scripts: ['dec10/lessons/lab/apa/cite.js'] },
+        { id: 'd10lab-verbs', status: 'ready', title: 'Reporting verbs', sub: 'states, argues, claims, found … and what each one says', minutes: 45, level: 'B2', scripts: ['dec10/lessons/lab/apa/verbs.js'] }
+      ] },
+      { id: 'vocab', title: 'Vocabulary', short: 'Vocabulary', tone: 'plum', icon: 'words', blurb: 'Academic words and collocations for each week’s topic.', soon: 'Word families, collocations and academic words for each week’s topic are on the way.', lessons: [] }
+    ]
+  },
   // The ten weeks shown on the course map (home page). Change label (short!) and sub when the course outline is final.
   map: [
     { n: 1, label: 'Foundation', sub: 'Sustainability frameworks' },

@@ -5,7 +5,8 @@
    Old links such as #ai or #notebook still work: they open Week 2 Day 5. */
 (() => {
   const course = window.DEC15_COURSE, cfg = window.DEC15_CONFIG;
-  const days = course.weeks.flatMap(w => w.days.map(d => ({ ...d, week: w.n, theme: w.theme })));
+  const days = course.weeks.flatMap(w => w.days.map(d => ({ ...d, week: w.n, theme: w.theme })))
+    .concat((course.lab?.strands || []).flatMap(st => st.lessons.map((l, i) => ({ ...l, lab: st.id, labN: i + 1, week: null, day: null }))));   // Language Lab lessons (DEC10)
   const ready = id => days.find(d => d.id === id && d.status === 'ready');
   const legacy = ['overview', 'sources', 'extra', 'notebook', 'ai', 'feedback', 'critical', 'writing'];
   const hash = location.hash.slice(1);

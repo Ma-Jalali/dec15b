@@ -490,3 +490,10 @@
   .gd-sg-when li { padding: 7px 7px; } .gd-sg-when b { font-size: .8rem; } .gd-sg-when span { font-size: .56rem; letter-spacing: .04em; }
   .gd-sg > header { flex-wrap: wrap; } .gd-sg-country { margin-left: 49px; }
 }
+
+/* v2.99 · no replayed entrance animations when the page redraws (a tick, a filter, a name) — only a new week or tab moves */
+.gd-page.no-anim .gd-tl li, .gd-page.no-anim .gd-bar span, .gd-page.no-anim .gd-tab, .gd-page.no-anim .gd-sem-body, .gd-page.no-anim .gd-fold-body,
+.gd-page.no-anim .gd-week:not(.gd-anim), .gd-page.no-anim .gd-week:not(.gd-anim) .gd-day { animation: none; }
+.gd-tab.is-swap > * { animation: gdSwap .3s var(--ease) both; }
+@keyframes gdSwap { from { opacity: 0; transform: translateY(4px); } }
+@media (prefers-reduced-motion: reduce) { .gd-tab.is-swap > * { animation: none; } }

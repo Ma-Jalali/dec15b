@@ -14,7 +14,7 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
   const weeks = G.weeks;
   const span = w => [parse(w.start), w.end ? parse(w.end) : addDays(parse(w.start), 4)];
   const nowIdx = (() => { const i = weeks.findIndex(w => { const [a, b] = span(w); return today >= a && today <= addDays(b, 2); }); return i >= 0 ? i : today < parse(weeks[0].start) ? 0 : weeks.length - 1; })();
-  let calSel = nowIdx, asTab = 'lrw', filter = 'all';
+  let calSel = nowIdx, asTab = 'lrw', filter = 'all', shownWeek = -1;
   /* ───────── Class 30 seminar schedule (G.classSchedule): helpers shared by both pages ───────── */
   const S = G.classSchedule || null, SG = S ? S.groups : [];
   const weekIdx = n => weeks.findIndex(w => w.n === n);
@@ -230,7 +230,7 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
     <nav class="gd-rail" aria-label="Weeks">${weeks.map((x, i) => { const cnt = !x.brk && x.days.some(d => (d.events || []).some(e => e.counts));
       const me = myGroup(), mine = me && !x.brk && rolesOf(me, x.n).some(r => r === 'opening' || r === 'seminar' || r === 'ip'), semWk = S && !x.brk && (semDay(x.n) || x.n === 7);
       return `<button type="button" class="${x.brk ? 'is-brk' : ''}${i === nowIdx ? ' is-now' : ''}${mine ? ' is-mine' : ''}" data-gd-week="${i}" aria-pressed="${i === calSel}">${x.brk ? `<b>${icon('sprout')}</b><small>Break</small>` : `<b>${x.n}</b><small>${esc(x.dates)}</small>`}${cnt ? '<i class="gd-dot" title="Assessment this week"></i>' : ''}${semWk ? `<i class="gd-semmark" title="${esc(S.short)} seminar week${mine ? ' · your group presents' : ''}">${MIC}</i>` : ''}${i === nowIdx ? '<em>Now</em>' : ''}</button>`; }).join('')}</nav>
-    <section class="gd-week" aria-live="polite">${weekPanel(w)}</section>
+    <section class="gd-week${calSel !== shownWeek ? ' gd-anim' : ''}" aria-live="polite">${(shownWeek = calSel, weekPanel(w))}</section>
     <div class="gd-legend">${Object.entries(G.eventTypes).filter(([k]) => k !== 'seminar' || S).map(([, [l, c]]) => `<span style="--ec:${c}"><i></i>${esc(l)}</span>`).join('')}<span class="gd-keys" aria-hidden="true"><kbd>←</kbd><kbd>→</kbd> change week</span></div>
     <p class="gd-foot">${icon('bulb')}<span>Rooms and sign-up links are on <a href="${esc(G.canvas)}" target="_blank" rel="noopener">Canvas › Course Calendar</a>. Workshops for <b>afternoon-class</b> students are in the morning, and for <b>morning-class</b> students in the afternoon. Questions? <a href="mailto:${esc(G.contact)}">${esc(G.contact)}</a></span></p>`;
   }
@@ -373,7 +373,12 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
     if (d.gdJump) { document.getElementById(d.gdJump)?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); return true; }
     if (d.gdDay) { openPast.has(d.gdDay) ? openPast.delete(d.gdDay) : openPast.add(d.gdDay); rerender(); return true; }
     if (d.gdFilter) { filter = d.gdFilter; rerender(); return true; }
-    if (d.gdTab) { asTab = d.gdTab; rerender(); document.querySelector(`[data-gd-tab="${asTab}"]`)?.focus({ preventScroll: true }); return true; }
+    if (d.gdTab) {   // swap only the panel: the rest of the page stays still
+      asTab = d.gdTab; const panel = document.querySelector('.gd-tab');
+      if (!panel) { rerender(); return true; }
+      document.querySelectorAll('[data-gd-tab]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.gdTab === asTab)));
+      panel.innerHTML = tabBody(asTab); panel.classList.remove('is-swap'); void panel.offsetWidth; panel.classList.add('is-swap');
+      t.focus({ preventScroll: true }); return true; }
     if (d.gdLayout) { store.set('layout', d.gdLayout); rerender(); return true; }
     if (d.gdSemShow) { showSem(d.gdSemShow); return true; }
     if (d.gdSemGo != null) { store.set('semOpen', true); return false; }
@@ -385,7 +390,9 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
     if (t.dataset.gdMe != null) { const [g, n] = t.value.split('|'); store.set('semGroup', g ? Number(g) : null); store.set('semName', n || '');
       rerender(); if (g) { toast(`Hi ${n}! Your group’s dates are now marked in the calendar.`); showSem(g); } return true; }
     if (!t.dataset.gdReady) return false;
-    const o = store.get('ready') || {}; o[t.dataset.gdReady] = t.checked; store.set('ready', o); rerender();
+    const o = store.get('ready') || {}; o[t.dataset.gdReady] = t.checked; store.set('ready', o);
+    const n = READY.filter(([k]) => o[k]).length, m = document.querySelector('.gd-ready-meter');
+    if (m) { m.style.setProperty('--p', n / READY.length); m.innerHTML = `<b>${n}/${READY.length}</b><small>${n === READY.length ? 'Ready!' : 'ready'}</small>`; } else rerender();
     if (READY.every(([k]) => o[k])) toast('All set — you are ready for your assessments!');
     return true;
   }
