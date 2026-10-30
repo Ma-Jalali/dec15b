@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="A glass flask full of bubbling pink liquid with the letters Aa, surrounded by floating cards: is / are, which, (Smith, 2024) and However.">
+<style>
+  .fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; }
+  .tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; }
+  @keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+  .wave { animation: wv 4s ease-in-out infinite; } .w2 { animation-duration: 5.5s; animation-direction: reverse; } @keyframes wv { 50% { transform: translateX(-30px); } } .bub { animation: bub 3.2s ease-in infinite; transform-box: fill-box; } .b2 { animation-delay: -.8s; } .b3 { animation-delay: -1.7s; } .b4 { animation-delay: -2.4s; } @keyframes bub { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: .9; } 100% { transform: translateY(-64px); opacity: 0; } } @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+</defs>
+<ellipse cx="222" cy="300" rx="150" ry="12" fill="#14293a" opacity=".07"/>
+<circle cx="220" cy="165" r="138" fill="#fbe3ec"/>
+<circle cx="220" cy="165" r="152" stroke="#a3416a" stroke-opacity=".25" stroke-dasharray="2 6" stroke-linecap="round"/>
+<rect x="326" y="30" width="72" height="60" fill="url(#d)"/><rect x="36" y="238" width="60" height="48" fill="url(#d)"/>
+<path class="tw" d="M50 106h22m-11-11v22" stroke="#a3416a" stroke-width="2.4" stroke-linecap="round"/>
+<path class="tw tw2" d="M372 236h20m-10-10v20" stroke="#a3416a" stroke-width="2.4" stroke-linecap="round"/>
+
+<g filter="url(#s)"><path d="M206 74v70L148 250c-6 11 2 24 14 24h116c12 0 20-13 14-24L234 144V74" fill="#fff"/></g>
+<clipPath id="fk"><path d="M206 74v70L148 250c-6 11 2 24 14 24h116c12 0 20-13 14-24L234 144V74z"/></clipPath>
+<g clip-path="url(#fk)"><path class="wave" d="M120 206c20-8 40 8 60 0s40-8 60 0 40 8 60 0 40-8 60 0V300H120z" fill="#e0457f" opacity=".9"/><path class="wave w2" d="M100 214c20-6 40 6 60 0s40-6 60 0 40 6 60 0 40-6 60 0V300H100z" fill="#a3134c" opacity=".55"/>
+<circle class="bub" cx="196" cy="262" r="5" fill="#fff" opacity=".8"/><circle class="bub b2" cx="236" cy="258" r="4" fill="#fff" opacity=".8"/><circle class="bub b3" cx="216" cy="266" r="3" fill="#fff" opacity=".8"/><circle class="bub b4" cx="252" cy="262" r="3.5" fill="#fff" opacity=".7"/></g>
+<path d="M206 74v70L148 250c-6 11 2 24 14 24h116c12 0 20-13 14-24L234 144V74" stroke="#14293a" stroke-width="5" stroke-linejoin="round"/>
+<rect x="196" y="62" width="48" height="14" rx="7" fill="#14293a"/>
+<path d="M214 96v36" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+<text x="220" y="252" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="34" fill="#fff">Aa</text>
+<g class="tw"><path d="M220 30v16M208 38h24" stroke="#e3a843" stroke-width="3" stroke-linecap="round"/></g>
+<g class="tw tw2"><circle cx="250" cy="44" r="4" fill="#e0457f"/></g><g class="tw"><circle cx="190" cy="48" r="3" fill="#3a58a0"/></g>
+<g class="fl"><rect x="46" y="96" width="104" height="44" rx="12" fill="#fff" filter="url(#s2)"/><rect x="46" y="96" width="5" height="44" rx="2.5" fill="#2b776e"/>
+<text x="100.0" y="124.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="18" fill="#2b776e">is / are</text></g>
+<g class="fl fl2"><rect x="40" y="186" width="96" height="42" rx="12" fill="#fff" filter="url(#s2)"/><rect x="40" y="186" width="5" height="42" rx="2.5" fill="#3a58a0"/>
+<text x="90.0" y="213.1" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="17" fill="#3a58a0">which</text></g>
+<g class="fl fl3"><rect x="286" y="84" width="132" height="44" rx="12" fill="#fff" filter="url(#s2)"/><rect x="286" y="84" width="5" height="44" rx="2.5" fill="#b0512a"/>
+<text x="354.0" y="111.4" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="15" fill="#b0512a">(Smith, 2024)</text></g>
+<g class="fl fl2"><rect x="300" y="182" width="110" height="42" rx="12" fill="#fff" filter="url(#s2)"/><rect x="300" y="182" width="5" height="42" rx="2.5" fill="#7a4a8c"/>
+<text x="357.0" y="208.8" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="16" fill="#7a4a8c">However,</text></g>
+
+</svg>

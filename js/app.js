@@ -28,7 +28,14 @@ const navCode = c => String(c).replace(/^(\d+)A$/, '$1');
 const stageName = s => `${s.code ? navCode(s.code) + ' ' : ''}${s.title}`;
 /* A day's part from course.js, e.g. '15A Discussion skills' → { code: '15A', name: 'Discussion skills', tone } */
 const dayPart = (d, k) => { const m = String(d.parts[k]).match(/^(\d+[A-Z])\s+(.*)$/); return { code: m ? navCode(m[1]) : String(k + 1), name: m ? m[2] : d.parts[k], tone: TONES[d.tones?.[k]] ? d.tones[k] : null }; };
-const artSrc = name => /[/.]/.test(name) ? name : `assets/art/stage-${name}.svg`;   // a name ('reading') or a picture's path ('dec10/assets/week1/….svg')
+const artSrc = name => /[/.]/.test(name) ? name : `assets/art/stage-${name}.svg`;
+/* Language Lab (DEC10, course.lab): self-study lessons outside the weeks. A lab lesson says where it is as
+   "Language Lab · Grammar 2" instead of "Week 2 · Day 3". */
+const LAB = course.lab || null;
+const labOf = id => { for (const st of LAB?.strands || []) { const i = st.lessons.findIndex(l => l.id === id); if (i >= 0) return { st, n: i + 1, l: st.lessons[i] }; } return null; };
+const labHere = labOf(lesson.id);
+const whereLong = (sep = ' · ') => labHere ? `Language Lab · ${labHere.st.short} ${labHere.n}` : `Week ${lesson.week}${sep}Day ${lesson.day}`;
+const whereShort = () => labHere ? `Lab · ${labHere.st.short} ${labHere.n}` : `W${lesson.week} D${lesson.day}`;   // a name ('reading') or a picture's path ('dec10/assets/week1/….svg')
 /* Addresses inside this lesson: L('ai') → #/w2d5/ai */
 const L = p => '#/' + lesson.id + (p && p !== 'overview' ? '/' + p : '');
 const coreActivities = lesson.sections.flatMap(s => s.activities);
@@ -143,6 +150,7 @@ const findBlock = id => allActivities.flatMap(a => a.blocks).find(x => x.id === 
 const play = window.createDEC15Play ? window.createDEC15Play({ getState: () => state, save, rerender: () => rerender(), esc, strip, icon, toast, findBlock }) : null;
 const guide = window.createDEC15Guide ? window.createDEC15Guide({ esc, icon, days, toast }) : null;   // DEC10: Course calendar + Assessments pages
 if (guide) ['side-calendar', 'side-assess'].forEach(id => { const el = document.getElementById(id); if (el) el.hidden = false; });
+if (LAB) { const el = document.getElementById('side-lab'); if (el) el.hidden = false; }
 const kit = window.createDEC10Kit ? window.createDEC10Kit({ getState: () => state, save, rerender: () => rerender(), esc, strip, icon, toast, findBlock, confetti: el => play?.confetti(el) }) : null;
 /* feedback forms, stance scale, quiz board and "Share with classmates" (js/forms.js) */
 /* Chats: the WhatsApp-style page for the class (js/chats.js) */
@@ -504,7 +512,7 @@ function activity(a, i, list, section) {
   </article>`;
 }
 /* The next lesson in the course, if it is ready. */
-function nextLesson() { const i = days.findIndex(d => d.id === lesson.id), nx = days[i + 1]; return nx && nx.status === 'ready' ? nx : null; }
+function nextLesson() { const i = days.findIndex(d => d.id === lesson.id), nx = days[i + 1]; return nx && nx.status === 'ready' && (nx.lab || null) === (days[i]?.lab || null) ? nx : null; }   // a lab lesson leads to the next lab lesson only
 function nextStageLink(section) {
   const n = lesson.sections.indexOf(section), next = lesson.sections[n + 1];
   if (next) return `<a class="btn" href="${L(next.id)}">Next stage: ${esc(next.title)} ${icon('arrow')}</a>`;
@@ -565,7 +573,7 @@ function overview() {
   const n = nextUp(), done = coreActivities.filter(a => state.done[a.id]).length;
   return `<section class="hero">
     <div class="hero-copy">
-      <span class="eyebrow">Week ${lesson.week} · Day ${lesson.day} · ${esc(lesson.duration || 'About 4 hours')}</span>
+      <span class="eyebrow">${esc(whereLong())} · ${esc(lesson.duration || 'About 4 hours')}</span>
       <h1>${esc(lesson.title)}</h1>
       <p class="hero-lead">${esc(lesson.journey)}</p>
       <div class="hero-actions">${continueButton(true)}${done && n ? `<span class="hero-progress"><b>${done} of ${coreActivities.length}</b> activities finished · next: ${esc(stageName(n.s))}</span>` : ''}</div>
@@ -576,12 +584,12 @@ function overview() {
     <span class="essay-q-label">${esc(lesson.questionLabel || 'This week’s essay question · you write it on Monday')}</span>
     <blockquote>${esc(lesson.question)}</blockquote>
   </section>
-  <h2 class="section-title">Your day at a glance</h2>
+  <h2 class="section-title">${labHere ? 'Your lesson at a glance' : 'Your day at a glance'}</h2>
   <p class="section-sub">${['Two', 'Three', 'Four', 'Five', 'Six'][lesson.sections.length - 2] || lesson.sections.length} stages${lesson.duration ? '' : ', about four hours'}. ${lesson.goalShort ? `Each one prepares you for ${esc(lesson.goalShort)}.` : lesson.id === 'w2d5' ? 'Each one prepares you for Monday’s essay.' : 'Each stage builds on the one before.'}</p>
   <div class="dayline" role="group" aria-label="${lesson.sections.map(s => `${stageName(s)}, ${s.minutes} minutes`).join('; ')}; then: ${esc(lesson.finish?.title || 'Monday')}.">
     ${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<a class="dayline-seg${d === s.activities.length ? ' complete' : ''}" style="${tone(s)};flex:${s.minutes}" href="${L(s.id)}"><span class="dayline-bar"><i style="width:${Math.round(100 * d / s.activities.length)}%"></i></span><span class="dayline-num">${esc(code(s))}</span><span class="dayline-title">${esc(s.title)}</span><span class="dayline-min">${s.minutes} min</span></a>`; }).join('')}
     ${(() => { const nx = nextLesson(), inner = `<span class="dayline-bar"></span><span class="dayline-num">${icon(nx ? 'arrow' : 'pen')}</span><span class="dayline-title">${esc(lesson.finish?.title || 'Monday')}</span><span class="dayline-min">${esc(lesson.finish?.text || 'Write the essay')}</span>`;
-      return nx ? `<a class="dayline-flag" href="#/${nx.id}" title="Open Week ${nx.week}, Day ${nx.day}">${inner}</a>` : `<div class="dayline-flag">${inner}</div>`; })()}
+      return nx ? `<a class="dayline-flag" href="#/${nx.id}" title="${nx.lab ? `Open the next lesson: ${esc(nx.title)}` : `Open Week ${nx.week}, Day ${nx.day}`}">${inner}</a>` : `<div class="dayline-flag">${inner}</div>`; })()}
   </div>
   <ol class="journey">${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<li><a class="journey-card${d === s.activities.length ? ' complete' : ''}" style="${tone(s)}" href="${L(s.id)}">
       <span class="journey-art-wrap"><img class="journey-art" src="${artSrc(s.art)}" alt="" width="220" height="170" loading="lazy"></span>
@@ -706,7 +714,7 @@ function courseHome() {
     <section class="resume" style="${tone(n ? n.s : lesson.sections[lesson.sections.length - 1])}">
       <img class="resume-art" src="${artSrc(n ? n.s.art : 'writing')}" alt="" width="220" height="170">
       <div class="resume-copy">
-        <span class="eyebrow">${done ? 'Continue where you left off' : 'Start here'} · Week ${lesson.week}, Day ${lesson.day}</span>
+        <span class="eyebrow">${done ? 'Continue where you left off' : 'Start here'} · ${esc(whereLong(', '))}</span>
         <h2>${esc(lesson.title)}</h2>
         <p>${n ? `Next: <b>${esc(stageName(n.s))}</b> — ${esc(n.a.title)}` : 'You finished every activity. Review your notebook before you write.'}</p>
         <div class="resume-bar"><span class="resume-meter"><i style="width:${pct}%"></i></span><span>${done} of ${coreActivities.length} activities</span></div>
@@ -783,6 +791,38 @@ function notebook() {
 // one week open at a time: the week number, 0 = all closed, null = follow the current lesson
 let navWeekOpen = (() => { try { const v = JSON.parse(localStorage.getItem(CLS.id + '-nav-week')); return typeof v === 'number' ? v : null; } catch (e) { return null; } })();
 let navRoute = 'home';
+/* ───────── Language Lab page (#/lab): every strand and its lessons, with progress ───────── */
+const LAB_IC = {
+  grammar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18 8.5 6 13 18M5.6 14h5.8"/><path d="M15.5 11.2c.6-.8 1.5-1.2 2.5-1.2 1.6 0 2.5.9 2.5 2.4V18m0-3.6c-3 .1-5 .6-5 2.2 0 1 .8 1.6 1.9 1.6 1.6 0 3.1-1.2 3.1-3.3"/></svg>',
+  quote: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5c0-3 1.6-5 4.5-5.8M4.5 11.5h3.8v5.8H4.5zM13.5 11.5c0-3 1.6-5 4.5-5.8M13.5 11.5h3.8v5.8h-3.8z"/></svg>',
+  words: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="7" width="12" height="13" rx="2.2"/><path d="M8 4h10.3a2.2 2.2 0 0 1 2.2 2.2V16.5"/><path d="M7 12h5M7 15.5h3.5"/></svg>'
+};
+const LAB_STEPS = [['Warm-up', 'Wake up what you already know', '#d9902a'], ['Notice and learn', 'Find the rule in real sentences', '#3a58a0'], ['Practise', 'Controlled practice with instant feedback', '#2b776e'], ['Use it', 'Write or speak with it: freer practice', '#a3416a']];
+function labPage() {
+  const all = LAB.strands.flatMap(st => st.lessons.filter(l => l.status === 'ready').map(l => ({ st, l })));
+  const mins = all.reduce((t, x) => t + (x.l.minutes || 0), 0), finished = all.filter(({ l }) => { const [a, b] = dayProgress(l); return b && a >= b; }).length;
+  const card = (st, l, i) => { const ready = l.status === 'ready', [a, b] = ready ? dayProgress(l) : [0, 0], p = b ? a / b : 0, done = b && a >= b;
+    const inner = `<span class="lab-card-n">${done ? icon('check') : i + 1}</span>
+      <span class="lab-card-body"><b>${esc(l.title)}</b><small>${esc(l.sub || '')}</small>
+        <span class="lab-card-foot"><span>${icon('clock')}${l.minutes || 45} min</span>${l.level ? `<span class="lab-lvl">${esc(l.level)}</span>` : ''}<em>${!ready ? 'Coming soon' : done ? 'Done' : a ? `${a}/${b} done` : 'Start'}</em></span></span>
+      <span class="lab-card-bar" aria-hidden="true"><i style="width:${Math.round(p * 100)}%"></i></span>`;
+    return ready ? `<a class="lab-card${done ? ' is-done' : a ? ' is-started' : ''}" href="#/${l.id}" style="--i:${i}">${inner}</a>` : `<div class="lab-card is-soon" style="--i:${i}">${inner}</div>`; };
+  return `<div class="lab-page">
+    <header class="lab-hero"><div class="lab-hero-copy"><span class="eyebrow">${esc(course.code)} · Self-study</span><h1>${esc(LAB.title)}</h1><p>${esc(LAB.intro)}</p>
+      <p class="lab-stats"><span><b>${all.length}</b> lessons</span><span><b>${LAB.strands.length}</b> strands</span><span><b>${Math.round(mins / 60 * 2) / 2}</b> hours</span><span><b>${finished}</b> finished</span></p></div>
+      <img class="lab-hero-art" src="dec10/assets/lab/lab-hero.svg" alt="" width="440" height="340"></header>
+    <section class="lab-how" aria-label="How every lesson works"><h2>How every lesson works</h2>
+      <ol>${LAB_STEPS.map(([t, d, c], i) => `<li style="--sc:${c};--i:${i}"><span class="lab-how-n">${i + 1}</span><b>${t}</b><small>${d}</small></li>`).join('')}</ol></section>
+    <nav class="lab-jump" aria-label="Strands">${LAB.strands.map(st => `<a href="#lab-${st.id}" data-lab-jump="${st.id}" style="--lc:${TONES[st.tone]?.[0] || '#3d505e'}"><span>${LAB_IC[st.icon] || LAB_IC.words}</span>${esc(st.title)}<small>${st.lessons.filter(l => l.status === 'ready').length || 'soon'}</small></a>`).join('')}</nav>
+    ${LAB.strands.map(st => { const [c, bg] = TONES[st.tone] || ['#3d505e', '#f2f4f5'], ready = st.lessons.filter(l => l.status === 'ready');
+      return `<section class="lab-strand" id="lab-${st.id}" style="--lc:${c};--lbg:${bg}">
+        <header><span class="lab-ic">${LAB_IC[st.icon] || LAB_IC.words}</span><div><h2>${esc(st.title)}</h2><p>${esc(st.blurb || '')}</p></div>${ready.length ? `<span class="lab-count">${ready.length} lesson${ready.length === 1 ? '' : 's'}</span>` : ''}</header>
+        ${st.lessons.length ? `<div class="lab-cards">${st.lessons.map((l, i) => card(st, l, i)).join('')}</div>`
+          : `<div class="lab-soon"><span class="lab-soon-ic">${LAB_IC[st.icon] || LAB_IC.words}</span><div><b>Coming soon</b><p>${esc(st.soon || 'New lessons are on the way.')}</p></div></div>`}
+      </section>`; }).join('')}
+    <p class="lab-foot">${icon('bulb')}<span>Each lesson takes about 45 minutes and saves your answers as you go. Teachers: each of the four stages also works as a 10–15 minute class activity.</span></p>
+  </div>`;
+}
 /* Progress ring around a day number. */
 function ring(p, n, done) {
   const c = 2 * Math.PI * 16;
@@ -819,7 +859,7 @@ function paintSideRing(done, total) {
 function paintLessonNav(route) {
   const box = $('#nav-lesson'); if (!box) return;
   const cur = r => route === r ? ' active" aria-current="page' : '';
-  box.innerHTML = `<p class="nav-label">This lesson <span>Week ${lesson.week} · Day ${lesson.day}</span></p>
+  box.innerHTML = `<p class="nav-label">This lesson <span>${esc(labHere ? `${labHere.st.short} ${labHere.n}` : whereLong())}</span></p>
     <ol class="nav-stages">${lesson.sections.map(s => { const dn = s.activities.filter(a => state.done[a.id]).length, n = s.activities.length, all = dn === n;
       return `<li><a href="${L(s.id)}" class="nav-stage${all ? ' complete' : ''}${cur(s.id)}" style="${tone(s)};--p:${n ? dn / n : 0}" title="${esc(code(s))} · ${esc(s.title)}"><span class="nav-scode">${all ? icon('check') : esc(navCode(code(s)))}</span><span class="nav-sname">${esc(s.title)}</span><span class="nav-scount" aria-label="${dn} of ${n} done">${dn}/${n}</span></a></li>`; }).join('')}
       <li><a href="${L('extra')}" class="nav-stage is-extra${cur('extra')}"><span class="nav-scode">${icon('list')}</span><span class="nav-sname">Extra practice</span></a></li></ol>`;
@@ -828,7 +868,7 @@ let navLessonWeek = null;
 function paintNav(route = navRoute) {
   navRoute = route;
   if (route !== 'home' && lesson.week !== navLessonWeek) { navLessonWeek = lesson.week; navWeekOpen = null; }   // a lesson in another week opens its own week
-  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-notebook', 'notebook'], ['side-board', 'board'], ['side-chats', 'chats'], ['side-shared', 'shared'], ['side-calendar', 'calendar'], ['side-assess', 'assessments']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
+  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-notebook', 'notebook'], ['side-board', 'board'], ['side-chats', 'chats'], ['side-shared', 'shared'], ['side-calendar', 'calendar'], ['side-assess', 'assessments'], ['side-lab', 'lab']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
   paintLessonNav(route);
   $('#side-home').classList.toggle('active', route === 'home');
   $('#side-planner')?.classList.toggle('active', route === 'planner');
@@ -849,7 +889,7 @@ function paintWeekbar(route = navRoute) {
       const w = course.weeks.find(x => x.n === m.n), n = w ? w.days.filter(d => d.status === 'ready').length : 0, wp = weekProgress(w);
       return `<button type="button" class="wb-item${wp ? ' has-prog' : ''}${cur === m.n ? ' is-current' : ''}${wbOpen === m.n ? ' open' : ''}${n ? '' : ' is-soon'}" data-wb-week="${m.n}" aria-haspopup="true" aria-expanded="${wbOpen === m.n}" style="--wk:${WB_TONES[i % WB_TONES.length]}" title="Week ${m.n} · ${esc(m.label)}">
         <span class="wb-num" style="--p:${wp.toFixed(3)}">${m.n}</span><span class="wb-tx">Week ${m.n}</span><span class="wb-chev" aria-hidden="true"></span></button>`; }).join('')}
-      ${route !== 'home' ? `<a class="wb-go" href="${L('overview')}" title="Back to Week ${lesson.week}, Day ${lesson.day}: ${esc(lesson.title)}"><span class="wb-go-dot" aria-hidden="true"></span><span>Week ${lesson.week} · Day ${lesson.day}</span></a>` : ''}`;
+      ${route !== 'home' ? `<a class="wb-go" href="${L('overview')}" title="Back to ${esc(whereLong(', '))}: ${esc(lesson.title)}"><span class="wb-go-dot" aria-hidden="true"></span><span>${esc(labHere ? `${labHere.st.short} ${labHere.n}` : whereLong())}</span></a>` : ''}`;
 }
 /* ───────── tabs, carousels and table column widths ───────── */
 function lensTo(seg) { const on = seg.querySelector('[aria-selected="true"]'), lens = seg.querySelector('.lg-lens'); if (!on || !lens) return; lens.style.width = on.offsetWidth + 'px'; lens.style.transform = `translateX(${on.offsetLeft}px)`; }
@@ -1010,6 +1050,9 @@ function searchIndex() {
     items.push({ kind: 'Lesson', ic: 'map', title: d.title, sub: where + (href ? '' : ' · coming soon'), href, text: d.title });
     if (d.id !== lesson.id) (d.parts || []).forEach(pt => items.push({ kind: 'Part', ic: 'list', title: pt, sub: where + ' · ' + d.title, href, text: pt }));
   }
+  for (const st of LAB?.strands || []) st.lessons.forEach((l, i) => { const href = l.status === 'ready' ? '#/' + l.id : '';
+    items.push({ kind: 'Lesson', ic: 'book', title: l.title, sub: `Language Lab · ${st.short} ${i + 1}${href ? '' : ' · coming soon'}`, href, text: `${l.title} ${l.sub || ''} ${st.title} language lab` }); });
+  if (LAB) items.push({ kind: 'Page', ic: 'book', title: 'Language Lab', sub: 'Grammar, APA referencing and vocabulary', href: '#/lab', text: 'language lab grammar apa referencing citation vocabulary self-study' });
   lesson.sections.forEach(s => {
     items.push({ kind: 'Stage', ic: 'flag', title: stageName(s), sub: `This lesson · Teacher’s Book ${code(s)}`, href: L(s.id), text: stageName(s) + ' ' + (s.subtitle || '') });
     s.activities.forEach(a => items.push({ kind: 'Activity', ic: 'pen', title: a.title, sub: `This lesson · ${s.title}`, href: L(s.id), go: a.id, text: a.title + ' ' + a.short, body: plainText(a) }));
@@ -1054,6 +1097,7 @@ function parseRoute() {
   if (h === '/chats' || h.startsWith('/chats/')) return { page: 'chats' };
   if (h === '/shared' || h.startsWith('/shared/')) return { page: 'shared' };
   if (guide && (h === '/calendar' || h === '/assessments')) return { page: h.slice(1) };
+  if (LAB && h === '/lab') return { page: 'lab' };
   if (routes.includes(h)) { history.replaceState(null, '', L(h)); return { page: h }; } // old links such as #ai
   const m = h.match(/^\/([\w-]+)(?:\/([\w-]+))?/);
   if (!m) return { page: 'overview' };
@@ -1065,11 +1109,12 @@ function render() {
   if (r.other) {
     const d = days.find(x => x.id === r.other);
     if (d && d.status === 'ready') { location.reload(); return; }
-    if (d) toast(`Week ${d.week}, Day ${d.day} is coming soon.`);
+    if (d) toast(d.lab ? `“${d.title}” is coming soon.` : `Week ${d.week}, Day ${d.day} is coming soon.`);
     history.replaceState(null, '', '#/'); return render();
   }
+  if (r.home && labHere) { location.reload(); return; }   // the course map shows the weekly lesson, so leave the lab lesson
   const route = r.home ? 'home' : r.page;
-  if (!r.home) try { localStorage.setItem(CLS.id + '-last-lesson', lesson.id); } catch (e) { /* ignore */ }
+  if (!r.home && !labHere && r.page !== 'lab') try { localStorage.setItem(CLS.id + '-last-lesson', lesson.id); } catch (e) { /* ignore */ }   // the course map keeps the weekly lesson, not a lab lesson
   const done = coreActivities.filter(a => state.done[a.id]).length;
   paintNav(route);
   $('#progress').value = done; $('#progress').max = coreActivities.length;
@@ -1121,13 +1166,24 @@ function render() {
     klass?.setWhere('shared', 'Shared with me'); forms?.paintBadge();
     return;
   }
+  if (route === 'lab') {   // Language Lab: the list of self-study lessons (course.lab)
+    document.body.dataset.page = 'lab'; document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg');
+    $('#crumb').innerHTML = `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>Language Lab</b>`;
+    document.title = `${course.code} · Language Lab`; paintStatus();
+    const main = $('#main'), changed = main.dataset.route !== route; main.dataset.route = route;
+    main.innerHTML = labPage();
+    if (changed) window.scrollTo(0, 0);
+    $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher(); document.body.classList.toggle('is-teacher', isTeacher());
+    klass?.setWhere('lab', 'Language Lab');
+    return;
+  }
   if (route === 'calendar' || route === 'assessments') {   // DEC10 course guide (js/guide.js)
     const name = route === 'calendar' ? 'Course calendar' : 'Assessments';
     document.body.dataset.page = 'guide'; document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg');
     $('#crumb').innerHTML = `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>${name}</b>`;
     document.title = `${course.code} · ${name}`; paintStatus();
     const main = $('#main'), changed = main.dataset.route !== route; main.dataset.route = route;
-    main.innerHTML = `<div class="gd-page">${route === 'calendar' ? guide.calendarHTML() : guide.assessmentsHTML()}</div>`;
+    main.innerHTML = `<div class="gd-page${changed ? '' : ' no-anim'}">${route === 'calendar' ? guide.calendarHTML() : guide.assessmentsHTML()}</div>`;   // entrance animations only when the page opens
     if (changed && !matchMedia('(prefers-reduced-motion: reduce)').matches) { main.classList.remove('route-in'); void main.offsetWidth; main.classList.add('route-in'); }
     if (changed) { window.scrollTo(0, 0); guide.centerNow(); }
     $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher(); document.body.classList.toggle('is-teacher', isTeacher());
@@ -1142,12 +1198,12 @@ function render() {
   else { document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg'); }
   const pageName = route === 'home' ? '' : s ? s.title : pageNames[route];
   $('#crumb').innerHTML = route === 'home' ? `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>Course map</b>`
-    : `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i>${route === 'overview' ? `<b>Week ${lesson.week} · Day ${lesson.day}</b>` : `<a href="${L('overview')}">Week ${lesson.week} · Day ${lesson.day}</a><i>/</i><b>${esc(pageName)}</b>`}`;
-  document.title = `${course.code} · ${route === 'home' ? 'Course map' : `Week ${lesson.week}, Day ${lesson.day}${route === 'overview' ? '' : ' · ' + pageName}`}`;
+    : `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i>${labHere ? `<a href="#/lab">Language Lab</a><i>/</i>` : ''}${route === 'overview' ? `<b>${esc(labHere ? lesson.title : whereLong())}</b>` : `<a href="${L('overview')}">${esc(labHere ? lesson.title : whereLong())}</a><i>/</i><b>${esc(pageName)}</b>`}`;
+  document.title = `${course.code} · ${route === 'home' ? 'Course map' : `${labHere ? 'Language Lab · ' + lesson.title : whereLong(', ')}${route === 'overview' ? '' : ' · ' + pageName}`}`;
   if (!isTeacher() && state.teacher) state.teacher = false;
   $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher();
   document.body.classList.toggle('is-teacher', isTeacher()); document.body.classList.toggle('answers-locked', locked());
-  const whereLabel = route === 'home' ? 'Course map' : `W${lesson.week} D${lesson.day}${route === 'overview' ? ' · Overview' : ' · ' + (s ? code(s) + ' ' + s.title : pageNames[route] || route)}`;
+  const whereLabel = route === 'home' ? 'Course map' : `${whereShort()}${route === 'overview' ? ' · Overview' : ' · ' + (s ? (labHere ? s.title : code(s) + ' ' + s.title) : pageNames[route] || route)}`;
   klass?.setWhere(route + (s ? ':' + s.id : ''), whereLabel); if (route !== 'home') chats?.notePage(location.hash, whereLabel);
   setTimeout(() => klass?.paintCounts(), 0);
   $('#teacher-toggle').setAttribute('aria-pressed', String(state.teacher));
@@ -1524,6 +1580,7 @@ document.addEventListener('change', e => {
 document.addEventListener('click', e => {
   const t = e.target.closest('button,a,[data-week-tab]'); if (!t) return;
   const d = t.dataset;
+  if (d.labJump) { e.preventDefault(); document.getElementById('lab-' + d.labJump)?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); return; }
   if (play && play.onClick(t, d)) return;
   if (kit && kit.onClick(t, d)) return;
   if (guide && guide.onClick(t, d, () => rerender())) return;

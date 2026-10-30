@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="The sentence The results of the study are clear: the words of the study are crossed out and an arrow joins results to are. A magnifying glass and a card: find the head noun.">
+<style>
+  .fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; }
+  .tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; }
+  @keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+  .strike { stroke-dasharray: 110; animation: st 4s ease-in-out infinite; } @keyframes st { 0%, 15% { stroke-dashoffset: 110; } 45%, 100% { stroke-dashoffset: 0; } } .arc { animation: dash 2s linear infinite; } @keyframes dash { to { stroke-dashoffset: -24; } } @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+</defs>
+<ellipse cx="222" cy="300" rx="150" ry="12" fill="#14293a" opacity=".07"/>
+<circle cx="220" cy="165" r="138" fill="#e8eefb"/>
+<circle cx="220" cy="165" r="152" stroke="#3a58a0" stroke-opacity=".25" stroke-dasharray="2 6" stroke-linecap="round"/>
+<rect x="326" y="30" width="72" height="60" fill="url(#d)"/><rect x="36" y="238" width="60" height="48" fill="url(#d)"/>
+<path class="tw" d="M50 106h22m-11-11v22" stroke="#3a58a0" stroke-width="2.4" stroke-linecap="round"/>
+<path class="tw tw2" d="M372 236h20m-10-10v20" stroke="#3a58a0" stroke-width="2.4" stroke-linecap="round"/>
+
+<g filter="url(#s)"><rect x="40" y="96" width="364" height="104" rx="18" fill="#fff"/></g>
+<rect x="96" y="124" width="80" height="32" rx="8" fill="#2b776e" opacity=".12"/>
+<g font-family="Georgia, 'Times New Roman', serif" font-size="20"><text x="58" y="146" fill="#14293a">The</text><text x="100" y="146" font-weight="700" fill="#2b776e">results</text><text x="186" y="146" fill="#9aa5ad">of the study</text><text x="302" y="146" font-weight="700" fill="#b0512a">are</text><text x="342" y="146" fill="#14293a">clear.</text></g>
+<path d="M184 140h108" stroke="#9aa5ad" stroke-width="2.5" class="strike"/>
+<path class="arc" d="M136 162c40 26 140 26 180 0" stroke="#3a58a0" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 6"/><path d="M308 160l9 1-1 9" stroke="#3a58a0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="226" y="192" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="800" letter-spacing="1.2" fill="#3a58a0">PLURAL → PLURAL</text>
+<g class="fl"><circle cx="118" cy="250" r="30" fill="#fff" fill-opacity=".7" stroke="#14293a" stroke-width="7"/><path d="M96 272l-26 28" stroke="#14293a" stroke-width="10" stroke-linecap="round"/><path d="M104 234a18 18 0 0 1 12-5" stroke="#3a58a0" stroke-width="4" stroke-linecap="round"/></g>
+<g class="fl fl2"><rect x="232" y="226" width="160" height="58" rx="14" fill="#3a58a0" filter="url(#s2)"/><text x="312" y="250" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="800" letter-spacing="1.5" fill="#c9d6f5">THE RULE</text><text x="312" y="271" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="16" fill="#fff">find the head noun</text></g>
+
+</svg>
