@@ -27,7 +27,7 @@ window.DEC15_COURSE = {
   scripts: ['dec10/lessons/guide.js'],
   /* LANGUAGE LAB (side panel → Language Lab, #/lab): short self-study lessons outside the weekly plan, to fill gaps.
      Built for self-study (a teacher can also use one in class). Every lesson is ONE page with four tabs:
-       Warm-up (a short self-check) · Notice and learn · Practise (controlled) · Use it (freer practice). The Lab page shows the strands
+       Warm-up (a short self-check) · Learn · Practise (controlled) · Use it (freer practice). The Lab page shows the strands
        in this order as fold-out lists.
      ADD A LAB LESSON IN 3 STEPS
      1. Copy dec10/lessons/lab/_template.js to dec10/lessons/lab/<strand>/<name>.js and write the content.
@@ -37,18 +37,18 @@ window.DEC15_COURSE = {
      A new strand (e.g. Pronunciation) is one more object in strands. A strand with no ready lessons shows "Coming soon". */
   lab: {
     title: 'Language Lab',
-    intro: 'Short self-study lessons to fill the gaps. Open a topic, then choose a lesson. Each lesson has four steps: Warm-up, Notice and learn, Practise, Use it.',
+    intro: 'Short self-study lessons to fill the gaps. Open a topic, then choose a lesson. Each lesson has four steps: Warm-up, Learn, Practise, Use it.',
     strands: [
       { id: 'apa', title: 'Referencing · APA 7', short: 'APA', tone: 'clay', icon: 'quote', blurb: 'Show where your ideas come from, the way your university expects.', lessons: [
-        { id: 'd10lab-cite', status: 'ready', title: 'In-text citations', sub: 'Integral or non-integral? One, two or three authors?', minutes: 45, level: 'All', scripts: ['dec10/lessons/lab/apa/cite.js'] },
-        { id: 'd10lab-verbs', status: 'ready', title: 'Reporting verbs', sub: 'states, argues, claims, found … and what each one says', minutes: 45, level: 'B2', scripts: ['dec10/lessons/lab/apa/verbs.js'] }
+        { id: 'd10lab-cite', status: 'ready', title: 'In-text citations', sub: 'Integral or non-integral? One, two or three authors?', minutes: 55, level: 'All', scripts: ['dec10/lessons/lab/apa/cite.js'] },
+        { id: 'd10lab-verbs', status: 'ready', title: 'Reporting verbs', sub: 'states, argues, claims, found … and what each one says', minutes: 50, level: 'B2', scripts: ['dec10/lessons/lab/apa/verbs.js'] }
       ] },
       { id: 'grammar', title: 'Grammar', short: 'Grammar', tone: 'teal', icon: 'grammar', blurb: 'Accurate sentences for your writing and your seminars.', lessons: [
-        { id: 'd10lab-sva', status: 'ready', title: 'Is or are? Subject–verb agreement', sub: 'Find the real subject, then choose the verb', minutes: 45, level: 'B1+', scripts: ['dec10/lessons/lab/grammar/sva.js'] },
-        { id: 'd10lab-preps', status: 'ready', title: 'Words that travel together', sub: 'Dependent prepositions: aware of, rely on, solution to', minutes: 40, level: 'B1+', scripts: ['dec10/lessons/lab/grammar/preps.js'] },
-        { id: 'd10lab-link', status: 'ready', title: 'Linking ideas', sub: 'And, but, so … However, Therefore, In addition', minutes: 50, level: 'B1+', scripts: ['dec10/lessons/lab/grammar/link.js'] },
-        { id: 'd10lab-rel', status: 'ready', title: 'Relative clauses', sub: 'who, which, whose, where — and no extra pronoun', minutes: 55, level: 'B2', scripts: ['dec10/lessons/lab/grammar/rel.js'] },
-        { id: 'd10lab-runon', status: 'ready', title: 'Run-ons and comma splices', sub: 'Five ways to join or split two sentences', minutes: 45, level: 'B1+', scripts: ['dec10/lessons/lab/grammar/runon.js'] }
+        { id: 'd10lab-sva', status: 'ready', title: 'Is or are? Subject–verb agreement', sub: 'Find the real subject, then choose the verb', minutes: 60, level: 'B1+', scripts: ['dec10/lessons/lab/grammar/sva.js'] },
+        { id: 'd10lab-preps', status: 'ready', title: 'Words that travel together', sub: 'Dependent prepositions: aware of, rely on, solution to', minutes: 50, level: 'B1+', scripts: ['dec10/lessons/lab/grammar/preps.js'] },
+        { id: 'd10lab-link', status: 'ready', title: 'Linking ideas', sub: 'And, but, so … However, Therefore, In addition', minutes: 55, level: 'B1+', scripts: ['dec10/lessons/lab/grammar/link.js'] },
+        { id: 'd10lab-rel', status: 'ready', title: 'Relative clauses', sub: 'who, which, whose, where — and no extra pronoun', minutes: 60, level: 'B2', scripts: ['dec10/lessons/lab/grammar/rel.js'] },
+        { id: 'd10lab-runon', status: 'ready', title: 'Run-ons and comma splices', sub: 'Five ways to join or split two sentences', minutes: 55, level: 'B1+', scripts: ['dec10/lessons/lab/grammar/runon.js'] }
       ] },
       { id: 'vocab', title: 'Vocabulary', short: 'Vocabulary', tone: 'plum', icon: 'words', blurb: 'Academic words and collocations for each week’s topic.', soon: 'Word families, collocations and academic words for each week’s topic are on the way.', lessons: [] }
     ]

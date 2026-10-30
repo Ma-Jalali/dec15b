@@ -156,6 +156,23 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
     </section>`;
   };
 
+  /* ───────── rewrite: write the corrected (or changed) sentence, then check ─────────
+     { type: 'rewrite', id, title?, hint?, label?, items: [{ q, accept: ['…', '…'], model, why? }] }
+     Punctuation and capitals count less than words: the check ignores case, curly quotes, spaces and a missing final full stop,
+     but keeps commas, full stops inside the sentence, semicolons and brackets (they are often the point). */
+  const rwNorm = s => String(s || '').replace(/[“”]/g, '"').replace(/[‘’]/g, "'").replace(/\s+/g, ' ').replace(/\s+([.,;:)])/g, '$1').replace(/\(\s+/g, '(').trim().replace(/[.!]$/, '').toLowerCase();
+  const rwOk = (it, v) => { const n = rwNorm(v); return !!n && it.accept.some(a => rwNorm(a) === n); };
+  B.rewrite = b => { const checked = st().checked[b.id], right = b.items.filter((it, i) => rwOk(it, val(`${b.id}-${i}`))).length;
+    return `<section class="block kit rewrite${fresh('rw-' + b.id)}" id="rewrite-${b.id}">
+      <div class="block-label">${icon('pen')}${b.label || 'Correct it'}</div>
+      ${b.title ? `<h3>${b.title}</h3>` : ''}${b.hint ? `<p class="kit-hint">${b.hint}</p>` : ''}
+      <ol class="rw-items">${b.items.map((it, i) => { const k = `${b.id}-${i}`, v = val(k), ok = rwOk(it, v);
+        return `<li class="rw-item${checked ? (ok ? ' is-right' : ' is-wrong') : ''}"><p class="rw-q"><span class="pa-num">${i + 1}</span><span>${it.q}</span></p>
+          <input type="text" autocomplete="off" spellcheck="false" data-save="${k}" data-rewrite="${b.id}" value="${esc(v)}" placeholder="Write the correct sentence…" aria-label="Your sentence ${i + 1}">
+          ${checked ? `<p class="quiz-why">${ok ? icon('check') + '<b>Correct.</b> ' : `<b>A correct answer:</b> ${it.model} `}${it.why || ''}</p>` : ''}</li>`; }).join('')}</ol>
+      ${bar(checked ? `<span class="quiz-score${right === b.items.length ? ' is-perfect' : ''}">${right} / ${b.items.length} correct</span><button class="btn-quiet" data-rw-reset="${b.id}">${icon('undo')}Try again</button>` : `<button class="btn" data-rw-check="${b.id}">Check my answers ${icon('arrow')}</button>`)}
+    </section>`; };
+
   /* ───────── bet (confidence betting) ───────── */
   const COIN = '<svg class="coin" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.5" fill="#f2c14e" stroke="#b07d12" stroke-width="1.5"/><circle cx="10" cy="10" r="5.2" fill="none" stroke="#b07d12" stroke-width="1.1" opacity=".6"/></svg>';
   B.bet = b => {
@@ -313,6 +330,7 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
     if (b.type === 'spot') reg(b.id, strip(b.title || 'Spot it'));
     if (b.type === 'outline') reg(b.id, strip(b.title || 'Outline'));
     if (b.type === 'limit') b.items.forEach((it, i) => reg(`${b.id}-${i}`, strip(it.q)));
+    if (b.type === 'rewrite') b.items.forEach((it, i) => reg(`${b.id}-${i}`, strip(it.q)));
     if (b.type === 'bet') b.items.forEach((it, i) => { reg(`${b.id}-${i}`, strip(it.q)); reg(`${b.id}-${i}-s`, 'Bet'); });
     if (b.type === 'bingo') b.squares.forEach((s, i) => reg(`${b.id}-${i}`, 'Find someone who: ' + strip(s.text)));
     if (b.type === 'squeeze') b.items.forEach((it, i) => reg(`${b.id}-${i}`, 'Notes: ' + it.text));
@@ -329,6 +347,7 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
     if (b.type === 'spot' && filled(val(b.id))) { const on = new Set(list(b.id)); out.push({ t: 'qa', label: strip(b.title || 'Spot it') + ' — my choices', value: spotParts(b).flat().filter(p => p.k != null && on.has(p.k)).map(p => p.t).join(' · ') }); }
     if (b.type === 'outline' && filled(val(b.id))) { const lv = levelsOf(b); out.push({ t: 'qa', label: strip(b.title || 'Outline'), value: b.items.map((it, i) => '    '.repeat(lv[i]) + (lv[i] ? '– ' : '') + it[1]).join('\n') }); }
     if (b.type === 'limit') b.items.forEach((it, i) => filled(val(`${b.id}-${i}`)) && out.push({ t: 'qa', label: strip(it.q), value: val(`${b.id}-${i}`) }));
+    if (b.type === 'rewrite') b.items.forEach((it, i) => filled(val(`${b.id}-${i}`)) && out.push({ t: 'qa', label: strip(it.q), value: val(`${b.id}-${i}`) }));
     if (b.type === 'bet') b.items.forEach((it, i) => filled(val(`${b.id}-${i}`)) && out.push({ t: 'qa', label: strip(it.q), value: `${val(`${b.id}-${i}`)}${val(`${b.id}-${i}-s`) ? ` (bet ${val(`${b.id}-${i}-s`)})` : ''}` }));
     if (b.type === 'bingo') { const rows = b.squares.map((s, i) => [strip(s.text), String(val(`${b.id}-${i}`))]).filter(r => r[1].trim()); if (rows.length) out.push({ t: 'table', title: strip(b.title || 'Find someone who'), head: ['Find someone who…', 'Classmate'], rows, widths: [65, 35] }); }
     if (b.type === 'squeeze') b.items.forEach((it, i) => filled(val(`${b.id}-${i}`)) && out.push({ t: 'qa', label: 'Notes for: ' + it.text, value: val(`${b.id}-${i}`) }));
@@ -366,6 +385,10 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
       if (left && !st().teacher) { toast(`Answer every question first (${left} left).`); return true; }
       st().checked[b.id] = true; save(); rerender(); if (b.items.every((it, i) => limitOk(it, val(`${b.id}-${i}`), b.max || 3))) celebrate(b.id, 'limit-', 'All correct — and inside the word limit!'); return true; }
     if (d.lmReset) { delete st().checked[d.lmReset]; save(); rerender(); return true; }
+    if (d.rwCheck) { const b = findBlock(d.rwCheck), left = b.items.filter((_, i) => !String(val(`${b.id}-${i}`)).trim()).length;
+      if (left && !st().teacher) { toast(`Write every sentence first (${left} left).`); return true; }
+      st().checked[b.id] = true; save(); rerender(); if (b.items.every((it, i) => rwOk(it, val(`${b.id}-${i}`)))) celebrate(b.id, 'rewrite-', 'All correct — well done!'); return true; }
+    if (d.rwReset) { delete st().checked[d.rwReset]; save(); rerender(); return true; }
 
     if (d.bet) { set(`${d.bet}-${d.i}`, d.opt); delete st().checked[d.bet]; rerender(); return true; }
     if (d.betStake) { set(`${d.betStake}-${d.i}-s`, d.s); delete st().checked[d.betStake]; rerender(); return true; }
@@ -385,6 +408,7 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
     if (t.dataset.limit) { const n = words(t.value).length, max = Number(t.dataset.max), c = document.querySelector(`[data-lm-count="${CSS.escape(t.dataset.save)}"]`);
       if (c) { c.textContent = `${n} / ${max}`; c.className = 'lm-count' + (n > max ? ' is-over' : n ? ' is-in' : ''); }
       if (st().checked[t.dataset.limit]) { delete st().checked[t.dataset.limit]; save(); } }
+    if (t.dataset.rewrite && st().checked[t.dataset.rewrite]) { delete st().checked[t.dataset.rewrite]; save(); }
     if (t.dataset.bingo) bingoRefresh(t.dataset.bingo);
     if (t.dataset.para) { const b = findBlock(t.dataset.para), m = document.querySelector(`[data-pa-meter="${CSS.escape(t.dataset.save)}"]`); if (b && m) m.innerHTML = paraMeter(b.items[Number(t.dataset.i)], t.value); }
     if (t.dataset.detect) { const b = findBlock(t.dataset.detect), m = document.querySelector(`[data-dt-lights="${CSS.escape(t.dataset.save)}"]`); if (b && m) m.innerHTML = dtLights(b, t.value); }

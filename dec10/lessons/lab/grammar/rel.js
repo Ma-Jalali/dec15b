@@ -1,13 +1,13 @@
 /* DEC10 · Language Lab · Grammar 4 — Relative clauses (who, which, that, whose, where, when; no extra pronoun;
    preposition + which/whom; defining and non-defining; reduced relative clauses).
    Source: the teacher's "Interactive Grammar" document (Relative Clauses), set in the Week 4 topic (ecotourism, Costa Rica).
-   One page, four tabs: Warm-up · Notice and learn · Practise · Use it (built for self-study). */
+   One page, four tabs: Warm-up · Learn · Practise · Use it (built for self-study). */
 window.DEC15_LESSON = {
   id: "d10lab-rel",
   week: null,
   day: null,
   title: "Relative clauses",
-  duration: "About 55 minutes",
+  duration: "About 60 minutes",
   questionKind: "Can-do",
   questionLabel: "By the end of this lesson you can",
   question: "describe a noun with who, which, whose or where — without an extra pronoun — and use commas for extra information.",
@@ -20,11 +20,11 @@ window.DEC15_LESSON = {
     {
       id: "lesson",
       number: "1",
-      minutes: 55,
+      minutes: 61,
       tone: "teal",
       art: "dec10/assets/lab/s-learn.svg",
       title: "Relative clauses",
-      subtitle: "Warm-up · Notice and learn · Practise · Use it",
+      subtitle: "Warm-up · Learn · Practise · Use it",
       outcome: "describe a noun with who, which, whose or where — without an extra pronoun — and use commas for extra information.",
       activities: [
         {
@@ -72,14 +72,22 @@ window.DEC15_LESSON = {
         },
         {
           id: "rl-learn",
-          short: "Notice and learn",
-          minutes: 20,
+          short: "Learn",
+          minutes: 22,
           grouping: "Self-study",
           art: "dec10/assets/lab/s-learn.svg",
-          title: "Form, the big mistake, and commas",
-          goal: "You choose the right relative word, never add a second pronoun, and use commas for extra information.",
+          title: "Relative clauses, step by step",
+          goal: "Learn which word to use, where it goes, the biggest mistake, commas, and how to shorten a clause.",
           blocks: [
-            {"type":"part","n":1,"title":"A relative clause is a long adjective","goal":"See how a clause describes a noun, like an adjective does."},
+            {
+              type: "key",
+              title: "What is a relative clause?",
+              points: [
+                "A relative clause is a group of words with its own verb that comes <b>after a noun</b> and describes it, like a long adjective.",
+                "It starts with a <b>relative word</b>: who, which, that, whose, where, when.",
+                "Academic writers use them to give precise information in one sentence."
+              ]
+            },
             {
               type: "pairs",
               items: [
@@ -88,30 +96,151 @@ window.DEC15_LESSON = {
               ]
             },
             {
-              type: "model",
-              title: "Six relative words",
-              rows: [
-                ["who","people · Guides <b>who</b> speak English earn more."],
-                ["which","things and animals · a park <b>which</b> protects jaguars"],
-                ["that","people or things, only <b>without commas</b> · the plan <b>that</b> the government chose"],
-                ["whose","possession (his, her, its, their) · a country <b>whose</b> forests are protected"],
-                ["where","places · the beach <b>where</b> turtles nest"],
-                ["when","times · the season <b>when</b> most tourists come"]
-              ]
+              type: "rule",
+              n: 1,
+              title: "who, which, that",
+              explain: "Use <b>who</b> for people and <b>which</b> for things and animals. <b>that</b> can replace who or which, but only when there are <b>no commas</b> (see Rule 6).",
+              form: "person + <b>who</b> … · thing / animal + <b>which</b> … · person or thing + <b>that</b> … (no commas)",
+              examples: [
+                ["ok","Guides <b>who</b> speak English earn more."],
+                ["ok","Tortuguero is a park <b>which</b> protects sea turtles."],
+                ["ok","The plan <b>that</b> the government chose is expensive."],
+                ["no","The tourists <b>which</b> visit the park …","people → who"]
+              ],
+              check: {"q":"an animal ___ lives in trees (who / which)","a":"<b>which</b> (or <b>that</b>): an animal is not a person."}
             },
             {
-              type: "key",
-              title: "Where does it go?",
-              points: ["Put the relative word <b>right after</b> the noun it describes. If it is far away, the sentence is confusing."]
+              type: "rule",
+              n: 2,
+              title: "whose = his, her, its, their",
+              explain: "<b>whose</b> shows possession. It replaces <i>his, her, its</i> or <i>their</i>, and it is followed by a noun.",
+              form: "noun + <b>whose</b> + noun + verb …",
+              examples: [
+                ["ok","Costa Rica is a country <b>whose</b> forests cover about half of its land.","= its forests"],
+                ["ok","I met a guide <b>whose</b> family once hunted turtles.","= his family"],
+                ["no","a country <b>which its</b> forests …","→ whose forests"]
+              ],
+              check: {"q":"Join: “I have a classmate. Her father is a pilot.”","a":"I have a classmate <b>whose</b> father is a pilot."}
             },
-            {"type":"part","n":2,"title":"One noun, one pronoun","goal":"Find and delete the extra pronoun."},
+            {
+              type: "rule",
+              n: 3,
+              title: "where and when",
+              explain: "Use <b>where</b> for places and <b>when</b> for times. <b>where</b> already means <i>in which</i>, so do not add <i>in</i> or <i>there</i> at the end.",
+              form: "place + <b>where</b> + subject + verb · time + <b>when</b> + subject + verb",
+              examples: [
+                ["ok","This is the beach <b>where</b> turtles nest."],
+                ["ok","July is the month <b>when</b> green turtles arrive."],
+                ["no","the house <b>where</b> I live <b>in</b>","→ the house where I live · the house which I live in · the house in which I live"]
+              ],
+              check: {"q":"the city ___ I was born (where / which)","a":"<b>where</b> I was born (or <i>in which</i> I was born)."}
+            },
+            {
+              type: "rule",
+              n: 4,
+              title: "The biggest mistake: one noun, one pronoun",
+              explain: "The relative word <b>replaces</b> a pronoun (he, she, it, them …). So do <b>not</b> keep the old pronoun in the clause.",
+              form: "I have a book. I bought <b>it</b> on Saturday. → I have a book <b>which</b> I bought <s>it</s> on Saturday.",
+              examples: [
+                ["no","I have a friend who <b>she</b> is a painter.","→ who is a painter"],
+                ["no","He watches programmes which I hate <b>them</b>.","→ which I hate"],
+                ["no","The house which I live in <b>it</b> is small.","→ which I live in"],
+                ["ok","There are two people who I work with."]
+              ],
+              note: "This is the most common relative clause error in student writing. Check every who / which / that in your text."
+            },
             {
               type: "figure",
               src: "dec10/assets/lab/rel-clause.svg",
               alt: "I have a book. I bought it on Saturday. becomes I have a book which I bought on Saturday. The word it is crossed out because which already stands for the book.",
               caption: "<b>which</b> replaces <b>it</b>. Do not keep both."
             },
-            {"type":"do","n":1,"who":"alone","text":"Each sentence has one extra word. Tap it."},
+            {
+              type: "rule",
+              n: 5,
+              title: "When can you leave out who / which / that?",
+              explain: "If the relative word is the <b>object</b> of the clause (a new subject follows it), you can leave it out. If it is the <b>subject</b> (a verb follows it), you must keep it.",
+              form: "noun + (<b>which</b>) + <b>subject</b> + verb → can omit · noun + <b>who/which</b> + <b>verb</b> → must keep",
+              examples: [
+                ["ok","The book (<b>which</b>) I bought is about grammar.","I = new subject → which can go"],
+                ["ok","The man <b>who</b> lives next door helps us.","who + lives → keep who"],
+                ["no","The man lives next door helps us."]
+              ],
+              check: {"q":"Can you leave out “that”? “The report that we read was long.”","a":"Yes: <i>The report we read was long.</i> (we = a new subject)"}
+            },
+            {
+              type: "rule",
+              n: 6,
+              title: "Formal: preposition + which / whom",
+              explain: "In formal writing, the preposition can move to the front, before <b>which</b> (things) or <b>whom</b> (people). Never use <i>who</i> or <i>that</i> after a preposition.",
+              form: "noun + <b>preposition + which / whom</b> + subject + verb",
+              examples: [
+                ["ok","It was the river <b>in which</b> the children swam.","informal: the river (which) the children swam in"],
+                ["ok","The person <b>with whom</b> he is negotiating is the chairman."],
+                ["ok","There is a formula <b>according to which</b> we can answer many questions."],
+                ["no","the person <b>with who</b> he works","→ with whom"]
+              ],
+              note: "Academic favourites: <i>according to which, through which, based on which, under which, without which</i>.",
+              check: {"q":"Make it formal: “the conditions which people change their minds under”","a":"the conditions <b>under which</b> people change their minds"}
+            },
+            {
+              type: "rule",
+              n: 7,
+              title: "Which one? or extra information? (commas)",
+              explain: "A <b>defining</b> clause tells us <b>which</b> person or thing: no commas. A <b>non-defining</b> clause adds <b>extra information</b> about a noun we already know: commas, and never <i>that</i>.",
+              form: "Defining: People <b>who live here</b> … · Non-defining: London<b>, which is the capital,</b> …",
+              examples: [
+                ["ok","People <b>who live in this city</b> have dark hair.","which people? → defining"],
+                ["ok","London<b>, which is the capital of England,</b> is overcrowded.","there is only one London → extra information"],
+                ["ok","My brother<b>, who is 27,</b> has long hair.","I have one brother"],
+                ["ok","My brother <b>who is 27</b> has long hair.","I have more than one brother: the one who is 27"],
+                ["no","Costa Rica<b>, that</b> has no army, …","→ , which has no army,"]
+              ],
+              check: {
+                q: "Commas or not? “Our class which is on the second floor has 21 chairs.”",
+                a: "Commas: <i>Our class, which is on the second floor, has 21 chairs.</i> (we have one class)"
+              }
+            },
+            {
+              type: "rule",
+              n: 8,
+              title: "Level up: shorter clauses",
+              explain: "When a <b>verb</b> comes right after who / which / that, academic writers often shorten the clause: delete the relative word (and is / are / was / were), then use <b>-ing</b> for an active verb or the <b>past participle</b> for a passive verb.",
+              form: "who <b>lives</b> → <b>living</b> · which <b>was built</b> → <b>built</b> · who I see → (no reduction: a new subject)",
+              examples: [
+                ["ok","I have a friend <b>living</b> in China.","= who lives"],
+                ["ok","Items <b>found</b> at the airport can be collected from customs.","= which are found"],
+                ["ok","People <b>invited</b> to this party should wear formal clothes."],
+                ["no","I have a student <b>seeing</b> every day.","“who I see”: who + subject → cannot reduce"]
+              ],
+              check: {"q":"Shorten: “The students who are taking this class enjoy it.”","a":"The students <b>taking</b> this class enjoy it."}
+            },
+            {
+              type: "model",
+              title: "Rules at a glance",
+              rows: [
+                ["who / which / that","people / things / either (no commas)"],
+                ["whose","= his, her, its, their + noun"],
+                ["where / when","place / time — no extra <i>in</i> or <i>there</i>"],
+                ["One noun, one pronoun","never <s>which I bought it</s>"],
+                ["Leave it out?","only when a new subject follows"],
+                ["Formal","in which, with whom, according to which"],
+                ["Commas","extra information → commas, never that"],
+                ["Shorter","who lives → living · which was built → built"]
+              ]
+            }
+          ]
+        },
+        {
+          id: "rl-practise",
+          short: "Practise",
+          minutes: 19,
+          grouping: "Self-study",
+          art: "dec10/assets/lab/s-practise.svg",
+          title: "Controlled practice: recognise → choose → combine",
+          goal: "Three short parts. Do them in order.",
+          blocks: [
+            {"type":"part","n":1,"title":"Recognise","goal":"Find the extra pronoun, then decide: defining or non-defining?"},
             {
               type: "spot",
               id: "rl-l2-spot",
@@ -124,40 +253,6 @@ window.DEC15_LESSON = {
                 "There are two [[people]] who I work with [[*them]].",
                 "The [[house]] which I live in [[*it]] is around 65 square metres.",
                 "She is one of your [[students]] who [[*she]] comes to your morning classes."
-              ]
-            },
-            {
-              type: "sticky",
-              color: "yellow",
-              title: "Who or whom?",
-              text: "In writing, use <b>whom</b> after a preposition: <i>the person <b>with whom</b> he is negotiating</i>. In speaking, most people say <i>the person (who) he is negotiating with</i>."
-            },
-            {"type":"part","n":3,"title":"Which one? Or extra information?","goal":"Decide whether the clause tells us which one, or just adds information."},
-            {
-              type: "key",
-              title: "Two kinds",
-              compare: [
-                {
-                  label: "Defining · no commas",
-                  text: "Tells us <b>which one</b>. Without it, the sentence is not clear.",
-                  eg: "People <b>who live in this city</b> have dark hair."
-                },
-                {
-                  label: "Non-defining · commas",
-                  text: "Adds <b>extra information</b> about a noun we already know. Never use <i>that</i>.",
-                  eg: "London<b>, which is the capital of England,</b> is overcrowded."
-                }
-              ]
-            },
-            {
-              type: "pairs",
-              items: [
-                {
-                  from: "My brother who is 27 has long hair.",
-                  to: "My brother[[, who is 27,]] has long hair.",
-                  tag: "one brother",
-                  note: "Without commas, it means I have more than one brother: the one who is 27."
-                }
               ]
             },
             {
@@ -175,19 +270,8 @@ window.DEC15_LESSON = {
                 {"text":"James Bond, who is a popular film character, has been played by six actors.","answer":1},
                 {"text":"My father, who is retired now, wants to travel to Colombia.","answer":1}
               ]
-            }
-          ]
-        },
-        {
-          id: "rl-practise",
-          short: "Practise",
-          minutes: 15,
-          grouping: "Self-study",
-          art: "dec10/assets/lab/s-practise.svg",
-          title: "Controlled practice with instant feedback",
-          goal: "You join sentences, write formal clauses with prepositions, and shorten clauses.",
-          blocks: [
-            {"type":"part","n":1,"title":"Ecotourism in Costa Rica","goal":"Choose the relative word."},
+            },
+            {"type":"part","n":2,"title":"Choose","goal":"Choose the relative word, the formal pattern and the short form."},
             {
               type: "cloze",
               id: "rl-p1-cl",
@@ -202,18 +286,6 @@ window.DEC15_LESSON = {
                 "Their families → <b>whose</b>.",
                 "A time: <b>when</b>.",
                 "Non-defining (commas): <b>which</b>, never <i>that</i>."
-              ]
-            },
-            {"type":"part","n":2,"title":"Preposition + which / whom","goal":"Choose the correct and the most formal sentence."},
-            {
-              type: "model",
-              title: "Formal patterns",
-              rows: [
-                ["noun + preposition + which / whom","the river <b>in which</b> the children swam · the people <b>with whom</b> he lived"],
-                [
-                  "academic favourites",
-                  "a formula <b>according to which</b> … · a book <b>with the help of which</b> … · conditions <b>under which</b> … · a person <b>through whom</b> … · data <b>based on which</b> …"
-                ]
               ]
             },
             {
@@ -253,29 +325,6 @@ window.DEC15_LESSON = {
                 }
               ]
             },
-            {"type":"part","n":3,"title":"Level up: shorter clauses","goal":"Make relative clauses shorter, the way academic texts do."},
-            {
-              type: "key",
-              title: "Reduction in 3 steps",
-              numbered: true,
-              points: [
-                "Only when a <b>verb</b> comes right after who / which / that.",
-                "Delete who / which / that (and <i>is / are / was / were</i>).",
-                "Active verb → <b>-ing</b> (who lives → <b>living</b>). Passive verb → <b>past participle</b> (which was built → <b>built</b>)."
-              ]
-            },
-            {
-              type: "pairs",
-              items: [
-                {"from":"I have a friend [[who lives]] in China.","to":"I have a friend [[living]] in China.","tag":"active → -ing"},
-                {
-                  from: "Items [[which are found]] at the airport can be collected from customs.",
-                  to: "Items [[found]] at the airport can be collected from customs.",
-                  tag: "passive → -ed / -en"
-                },
-                {"from":"I have a student [[who I see]] every day.","to":"No reduction: <i>who</i> + subject (I) + verb.","tag":"not possible"}
-              ]
-            },
             {
               type: "cloze",
               id: "rl-p3-cl",
@@ -299,6 +348,42 @@ window.DEC15_LESSON = {
                 "which were written → <b>written</b> (passive).",
                 "which contain → <b>containing</b> (active).",
                 "which is taught → <b>taught</b> (passive)."
+              ]
+            },
+            {"type":"part","n":3,"title":"Combine","goal":"Join the two sentences with a relative clause. Write one sentence."},
+            {
+              type: "rewrite",
+              id: "rl-p4-rw",
+              title: "Join the sentences",
+              hint: "Use who, which, whose or where. Use commas when the second sentence is extra information.",
+              items: [
+                {
+                  q: "Costa Rica is a small country. It protects a quarter of its land.",
+                  accept: ["Costa Rica is a small country which protects a quarter of its land.","Costa Rica is a small country that protects a quarter of its land."],
+                  model: "Costa Rica is a small country which protects a quarter of its land."
+                },
+                {
+                  q: "I met a guide. His family has lived in the park for a hundred years.",
+                  accept: ["I met a guide whose family has lived in the park for a hundred years."],
+                  model: "I met a guide whose family has lived in the park for a hundred years."
+                },
+                {
+                  q: "This is the beach. Turtles lay their eggs here.",
+                  accept: ["This is the beach where turtles lay their eggs.","This is the beach on which turtles lay their eggs."],
+                  model: "This is the beach where turtles lay their eggs."
+                },
+                {
+                  q: "Tortuguero is on the Caribbean coast. It is famous for its turtles.",
+                  accept: ["Tortuguero, which is on the Caribbean coast, is famous for its turtles.","Tortuguero, which is famous for its turtles, is on the Caribbean coast."],
+                  model: "Tortuguero, which is on the Caribbean coast, is famous for its turtles.",
+                  why: "Only one Tortuguero → commas and which."
+                },
+                {
+                  q: "The students are taking Dr Chu’s class. They enjoy it. (Use a short clause.)",
+                  accept: ["The students taking Dr Chu’s class enjoy it."],
+                  model: "The students taking Dr Chu’s class enjoy it.",
+                  why: "who are taking → taking."
+                }
               ]
             }
           ]
