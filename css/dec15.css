@@ -389,6 +389,8 @@ ol.key-points li::before { content: counter(k); position: absolute; left: 0; top
 .lang-group h4 { color: var(--lang); font-size: .7rem; text-transform: uppercase; letter-spacing: .14em; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--lang-line); }
 .lang-group ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 7px; }
 .lang-group li { background: #fff; border: 1px solid var(--lang-line); border-radius: 8px; padding: 6px 11px; font-size: .93rem; font-weight: 600; color: #173f5e; line-height: 1.4; }
+.lang-group li:has(b) { font-weight: 500; }
+.lang-group li b { font-weight: 700; color: #b4532a; }
 
 /* MODEL */
 .model { position: relative; background: var(--model-bg); border-radius: var(--r-lg); padding: 24px 28px; border: 1px solid var(--model-line); }

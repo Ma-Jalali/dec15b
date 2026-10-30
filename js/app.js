@@ -217,12 +217,14 @@ B.talk = b => `<section class="block talk" data-help>
 </section>`;
 /* Long banks (4+ groups) become tabs: one group at a time, so the page stays calm. */
 let langSeq = 0;
+/* escape, but keep simple <b> <i> <u> so a phrase can show the key word in bold */
+const escFmt = s => esc(s).replace(/&lt;(\/?)(b|i|u)&gt;/g, '<$1$2>');
 B.language = b => { const tabs = b.groups.length >= 4 && b.tabs !== false, uid = 'lg' + (++langSeq);
   return `<section class="block language${tabs ? ' lang-tabbed' : ''}">
   <div class="block-label">${icon('phrase')}Language bank</div>
   ${b.title ? `<h3>${b.title}</h3>` : ''}
   ${tabs ? `<div class="lang-tabs" role="tablist" aria-label="${esc(strip(b.title || 'Language bank'))}">${b.groups.map((g, i) => `<button type="button" role="tab" id="${uid}-t${i}" aria-controls="${uid}-p${i}" aria-selected="${!i}" tabindex="${i ? -1 : 0}" data-lang-tab="${uid}" data-i="${i}">${strip(g.label)}</button>`).join('')}</div>` : ''}
-  <div class="lang-grid">${b.groups.map((g, i) => `<div class="lang-group"${tabs ? ` role="tabpanel" id="${uid}-p${i}" aria-labelledby="${uid}-t${i}"${i ? ' hidden' : ''}` : ''}>${tabs ? '' : `<h4>${g.label}</h4>`}<ul>${g.phrases.map(p => `<li>${esc(p)}</li>`).join('')}</ul></div>`).join('')}</div>
+  <div class="lang-grid">${b.groups.map((g, i) => `<div class="lang-group"${tabs ? ` role="tabpanel" id="${uid}-p${i}" aria-labelledby="${uid}-t${i}"${i ? ' hidden' : ''}` : ''}>${tabs ? '' : `<h4>${g.label}</h4>`}<ul>${g.phrases.map(p => `<li>${escFmt(p)}</li>`).join('')}</ul></div>`).join('')}</div>
 </section>`; };
 B.model = b => `<section class="block model" data-help>
   <div class="block-label">${icon('model')}Model</div>
