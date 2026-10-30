@@ -245,6 +245,8 @@ B.cards = b => `<section class="block cards-block${b.pick ? ' cards-pick' : ''}"
 if (play) Object.assign(B, play.B);
 if (kit) Object.assign(B, kit.B);
 B.tip = b => `<p class="block tip" data-help>${icon('bulb')}<span>${b.text}</span></p>`;
+/* part: a numbered sub-heading inside one tab of a Language Lab lesson — { type: 'part', n, title, goal? } */
+B.part = b => `<div class="block lab-part"><span class="lab-part-n">${esc(String(b.n))}</span><div><h3>${esc(b.title)}</h3>${b.goal ? `<p>${esc(b.goal)}</p>` : ''}</div></div>`;
 B.teacher = b => { if (!state.teacher) return ''; const body = b.ref ? klass?.note(b.ref) : b.text; if (body === '') return '';
   return `<div role="note" aria-label="Teacher note" class="block teacher"><div class="block-label">${icon('teacher')}Teacher note</div>${body == null ? '<p class="tn-loading">Loading the teacher note…</p>' : `<p>${body}</p>`}</div>`; };
 B.sources = b => `<div class="block source-buttons">${b.ids.map(id => { const s = sources.find(x => x.id === id); return `<button class="source-btn" data-source="${id}">${icon('book')}<span><b>${esc(s.cite)}</b><small>${esc(s.title)}</small></span></button>`; }).join('')}</div>`;
@@ -496,14 +498,14 @@ function cowriteCard(a) {
 function activity(a, i, list, section) {
   return `<article class="activity" id="${a.id}" tabindex="-1" aria-labelledby="h-${a.id}">
     <header class="act-head${a.art ? ' has-art' : ''}">${a.art ? `<img class="act-art" src="${esc(a.art)}" alt="" width="240" height="180" loading="lazy">` : ''}
-      <div class="act-meta"><span class="act-count">Activity ${i + 1}<span> / ${list.length}</span></span><span class="chip chip-soft">${groupIcon(a.grouping)}${esc(a.grouping)}</span>${a.category ? `<span class="chip chip-soft">${esc(a.category)}</span>` : ''}<button class="timer-btn" data-timer="${a.minutes}" aria-label="Start a ${a.minutes}-minute timer">${icon('clock')}<span>${a.minutes} min</span><small>Start timer</small></button></div>
+      <div class="act-meta"><span class="act-count">${labHere ? esc(a.short) : `Activity ${i + 1}`}<span> / ${labHere ? `step ${i + 1} of ${list.length}` : list.length}</span></span><span class="chip chip-soft">${groupIcon(a.grouping)}${esc(a.grouping)}</span>${a.category ? `<span class="chip chip-soft">${esc(a.category)}</span>` : ''}<button class="timer-btn" data-timer="${a.minutes}" aria-label="Start a ${a.minutes}-minute timer">${icon('clock')}<span>${a.minutes} min</span><small>Start timer</small></button></div>
       <h2 id="h-${a.id}">${esc(a.title)}</h2>
       <p class="act-goal">${icon('target')}<span><b>Goal:</b> ${esc(a.goal)}</span></p>
     </header>
     ${cowriteCard(a)}<div class="act-body">${blocksHTML(a)}</div>
     ${answersPanel(a)}
     ${wallOn(a) ? wall.sectionHTML(a) : ''}
-    ${section && i === list.length - 1 && list.every(x => state.done[x.id]) ? `<div class="stage-done"><img src="assets/art/complete.svg" alt="" width="120" height="140"><div><b>Stage complete!</b><span>You finished all ${list.length} activities in ${esc(stageName(section))}.</span></div></div>` : ''}
+    ${section && !labHere && i === list.length - 1 && list.every(x => state.done[x.id]) ? `<div class="stage-done"><img src="assets/art/complete.svg" alt="" width="120" height="140"><div><b>Stage complete!</b><span>You finished all ${list.length} activities in ${esc(stageName(section))}.</span></div></div>` : ''}
     <footer class="act-foot">
       <label class="done-toggle"><input type="checkbox" data-done="${a.id}"${state.done[a.id] ? ' checked' : ''}><span>I have finished this activity</span></label>
       ${klass ? `<div class="act-class"><span class="class-done" data-class-count="${a.id}" hidden></span>${cowriteOn(a) ? `<button type="button" class="btn-quiet btn-sm cowrite-btn" data-cowrite="${a.id}">${icon('users')}Write together</button>` : ''}</div>` : ''}
@@ -522,6 +524,7 @@ function nextStageLink(section) {
 
 /* ───────── pages ───────── */
 function stagePage(s) {
+  if (labHere) return labLessonPage(s);
   const activeId = state.active[s.id] && s.activities.some(a => a.id === state.active[s.id]) ? state.active[s.id] : s.activities[0].id;
   const idx = s.activities.findIndex(a => a.id === activeId);
   const doneCount = s.activities.filter(a => state.done[a.id]).length;
@@ -542,6 +545,25 @@ function stagePage(s) {
     </header>
     <nav class="act-tabs" aria-label="Activities in this stage" style="--done:${doneCount / s.activities.length};--n:${s.activities.length}">${s.activities.map((a, i) => `<button data-jump="${a.id}" class="${a.id === activeId ? 'current' : ''}${state.done[a.id] ? ' is-done' : ''}" aria-current="${a.id === activeId ? 'step' : 'false'}"><span class="tab-num">${state.done[a.id] ? icon('check') : i + 1}</span><span class="tab-text">${esc(a.short)}<small>${a.minutes} min</small></span></button>`).join('')}</nav>
     ${activity(s.activities[idx], idx, s.activities, s)}${upNext(s, idx)}`;
+}
+/* A Language Lab lesson: one page, four tabs (Warm-up · Notice and learn · Practise · Use it) */
+function labLessonPage(s) {
+  const activeId = state.active[s.id] && s.activities.some(a => a.id === state.active[s.id]) ? state.active[s.id] : s.activities[0].id;
+  const idx = s.activities.findIndex(a => a.id === activeId), doneCount = s.activities.filter(a => state.done[a.id]).length, complete = doneCount === s.activities.length;
+  const nx = nextLesson();
+  return `<header class="lab-head${complete ? ' is-complete' : ''}">
+      <div class="lab-head-copy"><a class="lab-back" href="#/lab">${icon('left')}Language Lab</a>
+        <span class="eyebrow">${esc(labHere.st.title)} · Lesson ${labHere.n} · ${esc(lesson.duration || 'About 45 minutes')}</span>
+        <h1>${esc(lesson.title)}</h1>
+        <p class="lab-head-can"><b>${esc(lesson.questionLabel || 'By the end you can')}</b> ${esc(lesson.question)}</p></div>
+      <div class="lab-head-prog" style="--p:${doneCount / s.activities.length}"><b>${doneCount}<small>/${s.activities.length}</small></b><span>${complete ? 'Complete' : 'steps done'}</span></div>
+    </header>
+    <nav class="act-tabs lab-tabs" aria-label="Steps in this lesson" style="--done:${doneCount / s.activities.length};--n:${s.activities.length}">${s.activities.map((a, i) => `<button data-jump="${a.id}" class="${a.id === activeId ? 'current' : ''}${state.done[a.id] ? ' is-done' : ''}" aria-current="${a.id === activeId ? 'step' : 'false'}"><span class="tab-num">${state.done[a.id] ? icon('check') : i + 1}</span><span class="tab-text">${esc(a.short)}<small>${a.minutes} min</small></span></button>`).join('')}</nav>
+    ${activity(s.activities[idx], idx, s.activities, s)}
+    ${idx === s.activities.length - 1 ? `<aside class="upnext lab-end" aria-label="Lesson finished?">
+      <div class="upnext-art"><img src="assets/art/complete.svg" alt="" width="96" height="112" loading="lazy"></div>
+      <div class="upnext-copy"><span class="eyebrow">${complete ? 'Lesson complete' : 'Last step'}</span><h2>${complete ? 'Well done!' : 'Finished this step?'}</h2><p>${nx ? `Next in ${esc(labHere.st.title)}: <b>${esc(nx.title)}</b>.` : `That was the last ${esc(labHere.st.title)} lesson for now.`} Your answers are in your notebook (My workspace).</p></div>
+      <div class="lab-end-actions"><a class="btn-quiet" href="#/lab">${icon('left')}Language Lab</a>${nx ? `<a class="btn" href="#/${nx.id}">Next lesson ${icon('arrow')}</a>` : ''}</div></aside>` : ''}`;
 }
 /* At the last activity of a stage: a card for what comes next (the next stage, or the end of the day). */
 function upNext(s, idx) {
@@ -805,32 +827,27 @@ const LAB_IC = {
   quote: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5c0-3 1.6-5 4.5-5.8M4.5 11.5h3.8v5.8H4.5zM13.5 11.5c0-3 1.6-5 4.5-5.8M13.5 11.5h3.8v5.8h-3.8z"/></svg>',
   words: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="7" width="12" height="13" rx="2.2"/><path d="M8 4h10.3a2.2 2.2 0 0 1 2.2 2.2V16.5"/><path d="M7 12h5M7 15.5h3.5"/></svg>'
 };
-const LAB_STEPS = [['Warm-up', 'Wake up what you already know', '#d9902a'], ['Notice and learn', 'Find the rule in real sentences', '#3a58a0'], ['Practise', 'Controlled practice with instant feedback', '#2b776e'], ['Use it', 'Write or speak with it: freer practice', '#a3416a']];
 function labPage() {
-  const all = LAB.strands.flatMap(st => st.lessons.filter(l => l.status === 'ready').map(l => ({ st, l })));
-  const mins = all.reduce((t, x) => t + (x.l.minutes || 0), 0), finished = all.filter(({ l }) => { const [a, b] = dayProgress(l); return b && a >= b; }).length;
-  const card = (st, l, i) => { const ready = l.status === 'ready', [a, b] = ready ? dayProgress(l) : [0, 0], p = b ? a / b : 0, done = b && a >= b;
-    const inner = `<span class="lab-card-n">${done ? icon('check') : i + 1}</span>
-      <span class="lab-card-body"><b>${esc(l.title)}</b><small>${esc(l.sub || '')}</small>
-        <span class="lab-card-foot"><span>${icon('clock')}${l.minutes || 45} min</span>${l.level ? `<span class="lab-lvl">${esc(l.level)}</span>` : ''}<em>${!ready ? 'Coming soon' : done ? 'Done' : a ? `${a}/${b} done` : 'Start'}</em></span></span>
-      <span class="lab-card-bar" aria-hidden="true"><i style="width:${Math.round(p * 100)}%"></i></span>`;
-    return ready ? `<a class="lab-card${done ? ' is-done' : a ? ' is-started' : ''}" href="#/${l.id}" style="--i:${i}">${inner}</a>` : `<div class="lab-card is-soon" style="--i:${i}">${inner}</div>`; };
+  let open = {}; try { open = JSON.parse(localStorage.getItem('dec10-lab-open') || '{}'); } catch (e) { /* storage blocked */ }
+  const row = (l, i) => { const ready = l.status === 'ready', [a, b] = ready ? dayProgress(l) : [0, 0], done = b && a >= b;
+    const inner = `<span class="lab-row-n">${done ? icon('check') : i + 1}</span><span class="lab-row-t"><b>${esc(l.title)}</b><small>${esc(l.sub || '')}</small></span>
+      <span class="lab-row-meta">${icon('clock')}${l.minutes || 45} min${l.level ? ` · ${esc(l.level)}` : ''}</span>
+      <span class="lab-row-st${done ? ' is-done' : a ? ' is-on' : ''}">${!ready ? 'Soon' : done ? 'Done' : a ? `${a}/${b}` : 'Start'}</span>`;
+    return `<li>${ready ? `<a class="lab-row" href="#/${l.id}">${inner}${icon('arrow')}</a>` : `<div class="lab-row is-soon">${inner}</div>`}</li>`; };
   return `<div class="lab-page">
-    <header class="lab-hero"><div class="lab-hero-copy"><span class="eyebrow">${esc(course.code)} · Self-study</span><h1>${esc(LAB.title)}</h1><p>${esc(LAB.intro)}</p>
-      <p class="lab-stats"><span><b>${all.length}</b> lessons</span><span><b>${LAB.strands.length}</b> strands</span><span><b>${Math.round(mins / 60 * 2) / 2}</b> hours</span><span><b>${finished}</b> finished</span></p></div>
-      <img class="lab-hero-art" src="dec10/assets/lab/lab-hero.svg" alt="" width="440" height="340"></header>
-    <section class="lab-how" aria-label="How every lesson works"><h2>How every lesson works</h2>
-      <ol>${LAB_STEPS.map(([t, d, c], i) => `<li style="--sc:${c};--i:${i}"><span class="lab-how-n">${i + 1}</span><b>${t}</b><small>${d}</small></li>`).join('')}</ol></section>
-    <nav class="lab-jump" aria-label="Strands">${LAB.strands.map(st => `<a href="#lab-${st.id}" data-lab-jump="${st.id}" style="--lc:${TONES[st.tone]?.[0] || '#3d505e'}"><span>${LAB_IC[st.icon] || LAB_IC.words}</span>${esc(st.title)}<small>${st.lessons.filter(l => l.status === 'ready').length || 'soon'}</small></a>`).join('')}</nav>
-    ${LAB.strands.map(st => { const [c, bg] = TONES[st.tone] || ['#3d505e', '#f2f4f5'], ready = st.lessons.filter(l => l.status === 'ready');
-      return `<section class="lab-strand" id="lab-${st.id}" style="--lc:${c};--lbg:${bg}">
-        <header><span class="lab-ic">${LAB_IC[st.icon] || LAB_IC.words}</span><div><h2>${esc(st.title)}</h2><p>${esc(st.blurb || '')}</p></div>${ready.length ? `<span class="lab-count">${ready.length} lesson${ready.length === 1 ? '' : 's'}</span>` : ''}</header>
-        ${st.lessons.length ? `<div class="lab-cards">${st.lessons.map((l, i) => card(st, l, i)).join('')}</div>`
-          : `<div class="lab-soon"><span class="lab-soon-ic">${LAB_IC[st.icon] || LAB_IC.words}</span><div><b>Coming soon</b><p>${esc(st.soon || 'New lessons are on the way.')}</p></div></div>`}
-      </section>`; }).join('')}
-    <p class="lab-foot">${icon('bulb')}<span>Each lesson takes about 45 minutes and saves your answers as you go. Teachers: each of the four stages also works as a 10–15 minute class activity.</span></p>
+    <header class="lab-top"><div><span class="eyebrow">${esc(course.code)} · Self-study</span><h1>${esc(LAB.title)}</h1><p>${esc(LAB.intro)}</p></div>
+      <img class="lab-top-art" src="dec10/assets/lab/lab-hero.svg" alt="" width="440" height="340"></header>
+    <div class="lab-list">${LAB.strands.map(st => { const [c, bg] = TONES[st.tone] || ['#3d505e', '#f2f4f5'], ready = st.lessons.filter(l => l.status === 'ready');
+      const fin = ready.filter(l => { const [a, b] = dayProgress(l); return b && a >= b; }).length;
+      return `<details class="lab-acc" data-lab-acc="${st.id}" style="--lc:${c};--lbg:${bg}"${open[st.id] ? ' open' : ''}>
+        <summary><span class="lab-ic">${LAB_IC[st.icon] || LAB_IC.words}</span><span class="lab-acc-t"><b>${esc(st.title)}</b><small>${esc(st.blurb || '')}</small></span>
+          <span class="lab-acc-n">${ready.length ? `${ready.length} lesson${ready.length === 1 ? '' : 's'}${fin ? ` · ${fin} done` : ''}` : 'Coming soon'}</span><i class="lg-fold-chev" aria-hidden="true"></i></summary>
+        ${st.lessons.length ? `<ol class="lab-rows">${st.lessons.map(row).join('')}</ol>` : `<p class="lab-soon-tx">${esc(st.soon || 'New lessons are on the way.')}</p>`}
+      </details>`; }).join('')}</div>
   </div>`;
 }
+document.addEventListener('toggle', e => { const st = e.target.dataset?.labAcc; if (!st) return;   // the Lab page remembers which topics are open
+  try { const o = JSON.parse(localStorage.getItem('dec10-lab-open') || '{}'); o[st] = e.target.open; localStorage.setItem('dec10-lab-open', JSON.stringify(o)); } catch (e2) { /* ignore */ } }, true);
 /* Progress ring around a day number. */
 function ring(p, n, done) {
   const c = 2 * Math.PI * 16;
@@ -867,7 +884,11 @@ function paintSideRing(done, total) {
 function paintLessonNav(route) {
   const box = $('#nav-lesson'); if (!box) return;
   const cur = r => route === r ? ' active" aria-current="page' : '';
-  box.innerHTML = `<p class="nav-label">This lesson <span>${esc(labHere ? `${labHere.st.short} ${labHere.n}` : whereLong())}</span></p>
+  if (labHere) { const sec = lesson.sections[0], on = route === sec.id ? state.active[sec.id] || sec.activities[0].id : null;   // a lab lesson: its four steps
+    box.innerHTML = `<p class="nav-label">This lesson <span>${esc(`${labHere.st.short} ${labHere.n}`)}</span></p>
+      <ol class="nav-stages">${sec.activities.map((a, i) => `<li><a href="${L(sec.id)}" data-go="${a.id}" class="nav-stage${state.done[a.id] ? ' complete' : ''}${a.id === on ? ' active" aria-current="step' : ''}" style="${tone(sec)};--p:${state.done[a.id] ? 1 : 0}"><span class="nav-scode">${state.done[a.id] ? icon('check') : i + 1}</span><span class="nav-sname">${esc(a.short)}</span></a></li>`).join('')}</ol>`;
+    return; }
+  box.innerHTML = `<p class="nav-label">This lesson <span>${esc(whereLong())}</span></p>
     <ol class="nav-stages">${lesson.sections.map(s => { const dn = s.activities.filter(a => state.done[a.id]).length, n = s.activities.length, all = dn === n;
       return `<li><a href="${L(s.id)}" class="nav-stage${all ? ' complete' : ''}${cur(s.id)}" style="${tone(s)};--p:${n ? dn / n : 0}" title="${esc(code(s))} · ${esc(s.title)}"><span class="nav-scode">${all ? icon('check') : esc(navCode(code(s)))}</span><span class="nav-sname">${esc(s.title)}</span><span class="nav-scount" aria-label="${dn} of ${n} done">${dn}/${n}</span></a></li>`; }).join('')}
       <li><a href="${L('extra')}" class="nav-stage is-extra${cur('extra')}"><span class="nav-scode">${icon('list')}</span><span class="nav-sname">Extra practice</span></a></li></ol>`;
@@ -1111,6 +1132,7 @@ function parseRoute() {
   const m = h.match(/^\/([\w-]+)(?:\/([\w-]+))?/);
   if (!m) return { page: 'overview' };
   if (m[1] !== lesson.id) return { other: m[1] };
+  if (labHere && (!m[2] || m[2] === 'overview')) { history.replaceState(null, '', L(lesson.sections[0].id)); return { page: lesson.sections[0].id }; }   // a lab lesson is one page: no overview
   return { page: routes.includes(m[2]) ? m[2] : 'overview' };
 }
 function render() {
@@ -1123,6 +1145,7 @@ function render() {
   }
   if (r.home && labHere) { location.reload(); return; }   // the course map shows the weekly lesson, so leave the lab lesson
   const route = r.home ? 'home' : r.page;
+  document.body.classList.toggle('is-lab', !!labHere && !['planner', 'notebook', 'lab', 'calendar', 'assessments', 'board', 'chats', 'shared'].includes(route));   // a Language Lab lesson page
   if (!r.home && !labHere && r.page !== 'lab') try { localStorage.setItem(CLS.id + '-last-lesson', lesson.id); } catch (e) { /* ignore */ }   // the course map keeps the weekly lesson, not a lab lesson
   const done = coreActivities.filter(a => state.done[a.id]).length;
   paintNav(route);
@@ -1215,8 +1238,9 @@ function render() {
   else { document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg'); }
   const pageName = route === 'home' ? '' : s ? s.title : pageNames[route];
   $('#crumb').innerHTML = route === 'home' ? `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>Course map</b>`
+    : labHere && s ? `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><a href="#/lab">Language Lab</a><i>/</i><b>${esc(lesson.title)}</b>`
     : `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i>${labHere ? `<a href="#/lab">Language Lab</a><i>/</i>` : ''}${route === 'overview' ? `<b>${esc(labHere ? lesson.title : whereLong())}</b>` : `<a href="${L('overview')}">${esc(labHere ? lesson.title : whereLong())}</a><i>/</i><b>${esc(pageName)}</b>`}`;
-  document.title = `${course.code} · ${route === 'home' ? 'Course map' : `${labHere ? 'Language Lab · ' + lesson.title : whereLong(', ')}${route === 'overview' ? '' : ' · ' + pageName}`}`;
+  document.title = `${course.code} · ${route === 'home' ? 'Course map' : labHere ? 'Language Lab · ' + lesson.title : `${whereLong(', ')}${route === 'overview' ? '' : ' · ' + pageName}`}`;
   if (!isTeacher() && state.teacher) state.teacher = false;
   $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher();
   document.body.classList.toggle('is-teacher', isTeacher()); document.body.classList.toggle('answers-locked', locked());
@@ -1598,7 +1622,6 @@ document.addEventListener('change', e => {
 document.addEventListener('click', e => {
   const t = e.target.closest('button,a,[data-week-tab]'); if (!t) return;
   const d = t.dataset;
-  if (d.labJump) { e.preventDefault(); document.getElementById('lab-' + d.labJump)?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); return; }
   if (play && play.onClick(t, d)) return;
   if (kit && kit.onClick(t, d)) return;
   if (guide && guide.onClick(t, d, () => rerender())) return;
@@ -1656,7 +1679,9 @@ document.addEventListener('click', e => {
   if (t.id === 'side-settings') { const m = $('#side-menu'), open = m.hidden; m.hidden = !open; t.setAttribute('aria-expanded', String(open)); if (open) m.querySelector('button')?.focus(); return; }
   if (t.id === 'menu-btn') { setSide(!document.body.classList.contains('side-open')); return; }
   if (t.tagName === 'A' && t.closest('.sidebar')) { setSide(false); if ($('#side-search').value) { $('#side-search').value = ''; setTimeout(runSearch); } }
-  if (d.go) { const sec = lesson.sections.find(x => x.activities.some(a => a.id === d.go)); if (sec) { state.active[sec.id] = d.go; save(false); } return; }
+  if (d.go) { const sec = lesson.sections.find(x => x.activities.some(a => a.id === d.go)); if (sec) { state.active[sec.id] = d.go; save(false); }
+    if (t.getAttribute('href') === location.hash) { e.preventDefault(); rerender(); $('.act-tabs')?.scrollIntoView({ block: 'start' }); }   // already on this page: just switch the tab
+    return; }
   if (t.classList.contains('skip')) { e.preventDefault(); $('#main').focus(); return; }
   if (d.gloss) { glossary(d.gloss); return; }
   if (d.scroll) { const el = document.getElementById(d.scroll); el?.scrollIntoView({ behavior: calm() ? 'auto' : 'smooth', block: 'start' }); el?.focus({ preventScroll: true }); return; }
