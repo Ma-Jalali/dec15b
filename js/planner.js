@@ -137,7 +137,8 @@ window.DEC15Planner = (() => {
   }
 
   /* ───────── the editor (TipTap) ───────── */
-  const ui = { tab: 'calendar', openNoteId: null, month: null, calView: 'week', week: null, wkScroll: null, openFolders: {}, renaming: null, renameDraft: null, fresh: null, search: '', showTree: false, sharedOpen: null };
+  const TAB_KEY = 'dec15-ws-tab';   // My workspace remembers the last tab on this device
+  const ui = { tab: (() => { try { return localStorage.getItem(TAB_KEY) || 'calendar'; } catch (e) { return 'calendar'; } })(), openNoteId: null, month: null, calView: 'week', week: null, wkScroll: null, openFolders: {}, renaming: null, renameDraft: null, fresh: null, search: '', showTree: false, sharedOpen: null };
   let saveTimer = 0, reconcileTimer = 0;
   function makeExtensions() {
     const T = window.Tiptap;
@@ -337,13 +338,19 @@ window.DEC15Planner = (() => {
   new MutationObserver(() => { document.querySelectorAll('.pl-pop').length || Object.values(items).forEach(it => { if (it.kind === 'task' && !it.deleted && !it.data.noteId && !(it.data.title || '').trim()) remove(it.id); }); }).observe(document.body, { childList: true });
 
   /* ───────── page ───────── */
+  /* the tabs: Notebook (the open lesson's answers and highlights, drawn by app.js) when the app gives one, then Notes, Calendar, To-dos */
+  const TAB_NAME = { notebook: 'Notebook', notes: 'Notes', calendar: 'Calendar', todos: 'To-dos' };
+  const tabs = () => (ctx?.notebook ? ['notebook'] : []).concat(['notes', 'calendar', 'todos']);
+  function setTab(t, quiet) { if (!tabs().includes(t)) t = 'calendar'; const changed = ui.tab !== t; ui.tab = t; try { localStorage.setItem(TAB_KEY, t); } catch (e) { /* ignore */ }
+    if (!quiet) ctx?.onTab?.(t); if (mounted && (changed || t === 'notebook')) { closePop(); paint(); } }
   function mount(el, context) {
     ctx = context; root = el; mounted = true; root.className = "";
+    if (!tabs().includes(ui.tab)) ui.tab = 'calendar';
     root.innerHTML = `<div class="pl" data-tab="${ui.tab}">
       <header class="pl-head">
-        <div class="pl-title"><span class="pl-brand" aria-hidden="true">${BRAND_ART}</span><div><h1>My planner</h1><span class="pl-private" title="Only you can see this page, unless you share a note">${ctx.icon('lock')}Private</span></div></div>
-        <div class="pl-tabs" role="tablist" aria-label="Planner">
-          ${['notes', 'calendar', 'todos'].map(t => `<button type="button" role="tab" id="pl-tab-${t}" aria-controls="pl-panel" data-tab="${t}" aria-selected="${ui.tab === t}">${TAB_ICON[t]}<span>${{ notes: 'Notes', calendar: 'Calendar', todos: 'To-dos' }[t]}</span><small class="pl-tabn" data-tabn="${t}"></small></button>`).join('')}
+        <div class="pl-title"><span class="pl-brand" aria-hidden="true">${BRAND_ART}</span><div><h1>My workspace</h1><span class="pl-private" title="Only you can see this page, unless you share a note">${ctx.icon('lock')}Private</span></div></div>
+        <div class="pl-tabs" role="tablist" aria-label="My workspace">
+          ${tabs().map(t => `<button type="button" role="tab" id="pl-tab-${t}" aria-controls="pl-panel" data-tab="${t}" aria-selected="${ui.tab === t}">${TAB_ICON[t]}<span>${TAB_NAME[t]}</span><small class="pl-tabn" data-tabn="${t}"></small></button>`).join('')}
         </div>
         <span class="pl-status" data-s="${status}" role="status">${STATUS[status]}</span>
       </header>
@@ -368,7 +375,8 @@ window.DEC15Planner = (() => {
   const firstNote = () => list('note').sort((a, b) => (b.updatedAt || '').localeCompare(a.updatedAt || ''))[0]?.id || null;
   /* live counts on the tabs: notes, to-dos still open */
   function paintTabCounts() { if (!root) return; const n = list('note').length, o = list('task').filter(x => !x.data.done && (x.data.title || '').trim()).length;
-    root.querySelectorAll('[data-tabn]').forEach(el => { const v = el.dataset.tabn === 'notes' ? n : el.dataset.tabn === 'todos' ? o : 0; el.textContent = v || ''; el.hidden = !v; }); }
+    const nb = ctx?.notebook ? ctx.notebook.count() : 0;
+    root.querySelectorAll('[data-tabn]').forEach(el => { const v = el.dataset.tabn === 'notes' ? n : el.dataset.tabn === 'todos' ? o : el.dataset.tabn === 'notebook' ? nb : 0; el.textContent = v || ''; el.hidden = !v; }); }
   function paint() {
     if (!root) return;
     root.querySelector('.pl').dataset.tab = ui.tab; paintTabCounts();
@@ -376,7 +384,7 @@ window.DEC15Planner = (() => {
     root.querySelector('#pl-panel').setAttribute('aria-labelledby', 'pl-tab-' + ui.tab);
     if (ui.tab === 'notes') paintNotes(); else { destroyEditor(); paintPanel(); }
   }
-  function paintPanel() { const p = root?.querySelector('#pl-panel'); if (!p) return; if (ui.tab === 'calendar') p.innerHTML = calendarHTML(); else if (ui.tab === 'todos') p.innerHTML = todosHTML();
+  function paintPanel() { const p = root?.querySelector('#pl-panel'); if (!p) return; if (ui.tab === 'notebook') { p.innerHTML = `<div class="pl-nb">${ctx.notebook.html()}</div>`; return; } if (ui.tab === 'calendar') p.innerHTML = calendarHTML(); else if (ui.tab === 'todos') p.innerHTML = todosHTML();
     const sc = p.querySelector('.pl-wk-scroll'); if (!sc) return;
     if (ui.wkScroll == null) { const hr = sc.querySelector('.pl-wk-slot')?.offsetHeight || 46, first = Math.min(...[...sc.querySelectorAll('.pl-wev')].map(e => e.offsetTop), 8 * hr); ui.wkScroll = Math.max(0, Math.min(first, new Date().getHours() * hr) - hr / 2); }
     sc.scrollTop = ui.wkScroll; sc.addEventListener('scroll', () => { ui.wkScroll = sc.scrollTop; }, { passive: true }); }
@@ -788,6 +796,7 @@ window.DEC15Planner = (() => {
   /* small flat illustrations for empty states */
   const BRAND_ART = `<svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="plb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6a07a"/><stop offset="1" stop-color="#d0442a"/></linearGradient></defs><rect x="2" y="2" width="36" height="36" rx="11" fill="url(#plb)"/><rect x="9" y="11" width="22" height="20" rx="4" fill="#fff"/><rect x="9" y="11" width="22" height="6" rx="3" fill="#14293a"/><rect x="9" y="14" width="22" height="3" fill="#14293a"/><rect x="14" y="8" width="3" height="6" rx="1.5" fill="#14293a"/><rect x="23" y="8" width="3" height="6" rx="1.5" fill="#14293a"/><path d="M13 23l3 3 6-6" stroke="#d0442a" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 25h4" stroke="#c9d3da" stroke-width="2" stroke-linecap="round"/></svg>`;
   const TAB_ICON = {
+    notebook: '<svg class="pl-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H18v15H6.5A1.5 1.5 0 0 0 5 19.5z"/><path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H18v-3"/><path d="M9 7.5h5.5M9 11h4"/><path d="m14.5 13.5 1.6 1.6 3-3" stroke-width="2"/></svg>',
     notes: '<svg class="pl-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5h9l3.5 3.5v13.5H6z"/><path d="M14.5 3.5V7.5h4M9 12h6M9 15.5h4"/></svg>',
     calendar: '<svg class="pl-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M8 14h2M12 14h2M16 14h.5"/></svg>',
     todos: '<svg class="pl-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8 12 3 3 5-6"/></svg>'
@@ -803,7 +812,7 @@ window.DEC15Planner = (() => {
     const slot = e.target.closest('[data-add-at]'); if (slot && !e.target.closest('button, input')) { const r = slot.getBoundingClientRect(), q = Math.min(3, Math.floor((e.clientY - r.top) / r.height * 4));
       newTask(slot.dataset.addAt, slot, fromMin(toMin(slot.dataset.time) + q * 15)); return; }
     const t = e.target.closest('button, [data-tab]'); if (!t || t.disabled) return; const d = t.dataset;
-    if (d.tab && t.getAttribute('role') === 'tab' || (d.tab && t.classList.contains('pl-link'))) { ui.tab = d.tab; closePop(); paint(); return; }
+    if (d.tab && t.getAttribute('role') === 'tab' || (d.tab && t.classList.contains('pl-link'))) { setTab(d.tab); return; }
     if (d.cmd) { runCmd(d.cmd, t); return; }
     if (d.treeToggle !== undefined) { ui.showTree = !ui.showTree; root.querySelector('.pl-notes')?.classList.toggle('tree-open', ui.showTree); return; }
     if (d.openNote) { ui.sharedOpen = null; openNote(d.openNote, d.focusTask); return; }
@@ -952,6 +961,8 @@ window.DEC15Planner = (() => {
 
   return {
     mount, unmount, get mounted() { return mounted; },
+    setTab: t => setTab(t, true), get tab() { return ui.tab; },
+    refreshNotebook: () => { if (mounted && ui.tab === 'notebook') { paintPanel(); paintTabCounts(); } },
     onAuth: info => { if (mounted) setUser(info?.user?.id || null).then(() => { if (!get(ui.openNoteId)) ui.openNoteId = firstNote(); paint(); }); },
     _debug: { get items() { return items; }, put, reconcileNow, get editor() { return editor; } },
   };

@@ -759,7 +759,7 @@ function sourcesPage() {
   if (libOpen === null) libOpen = libWeeks.some(w => w.n === lesson.week) ? lesson.week : libWeeks[0]?.n;
   libWeeks.forEach(w => loadWeekTexts(w.n));   // small files; loading all of them shows each week's count
   return `${pageHero('Course texts', 'Readings and listening scripts', 'All the course texts, week by week. Open a week, then open a text to read it. You can highlight and underline the ideas you need.', 'library',
-    `<p class="page-hero-tip">${icon('bulb')}<span>Your highlights are saved and also appear in <a href="${L('notebook')}">My notebook</a>.</span></p>`)}
+    `<p class="page-hero-tip">${icon('bulb')}<span>Your highlights are saved and also appear in your <a href="${L('notebook')}">notebook</a> (My workspace).</span></p>`)}
   <div class="lib-weeks">${libWeeks.map(w => { const list = weekTexts(w.n), open = w.n === libOpen;
     const count = list ? `${list.length} text${list.length === 1 ? '' : 's'}` : '';
     return `<section class="lib-week${open ? ' open' : ''}">
@@ -784,6 +784,14 @@ function registerTables() {
 function notebook() {
   return `${nb.pageHTML()}<div class="nb-foot"><button class="btn-quiet danger" data-clear>Clear my work on this device</button></div>`;
 }
+/* My workspace → Notebook: one notebook per lesson; the picker opens another lesson's notebook */
+function wsNotebook() {
+  const opt = d => `<option value="${d.id}"${d.id === lesson.id ? ' selected' : ''}>${esc(d.lab ? d.title : `Week ${d.week}, Day ${d.day} · ${d.title}`)}</option>`;
+  const weeks = course.weeks.map(w => { const ready = w.days.filter(d => d.status === 'ready'); return ready.length ? `<optgroup label="Week ${w.n}">${ready.map(d => opt({ ...d, week: w.n })).join('')}</optgroup>` : ''; }).join('');
+  const lab = (LAB?.strands || []).map(st => { const ready = st.lessons.filter(l => l.status === 'ready'); return ready.length ? `<optgroup label="Language Lab · ${esc(st.short)}">${ready.map(l => opt({ ...l, lab: st.id })).join('')}</optgroup>` : ''; }).join('');
+  return `<div class="ws-nb-bar"><label><span>${icon('book')}Notebook for</span><select data-ws-lesson aria-label="Choose a lesson">${weeks}${lab}</select></label><small>Each lesson keeps its own answers and highlights.</small></div>${notebook()}`;
+}
+const wsNotebookCount = () => coreActivities.filter(a => state.done[a.id]).length;
 
 /* ───────── side panel: the whole course; the open lesson is expanded ─────────
    One week is open at a time (opening a week folds the others). The search box finds lessons, parts
@@ -868,11 +876,12 @@ let navLessonWeek = null;
 function paintNav(route = navRoute) {
   navRoute = route;
   if (route !== 'home' && lesson.week !== navLessonWeek) { navLessonWeek = lesson.week; navWeekOpen = null; }   // a lesson in another week opens its own week
-  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-notebook', 'notebook'], ['side-board', 'board'], ['side-chats', 'chats'], ['side-shared', 'shared'], ['side-calendar', 'calendar'], ['side-assess', 'assessments'], ['side-lab', 'lab']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
+  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-board', 'board'], ['side-chats', 'chats'], ['side-shared', 'shared'], ['side-calendar', 'calendar'], ['side-assess', 'assessments'], ['side-lab', 'lab']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
   paintLessonNav(route);
   $('#side-home').classList.toggle('active', route === 'home');
-  $('#side-planner')?.classList.toggle('active', route === 'planner');
-  if (route === 'planner') $('#side-planner')?.setAttribute('aria-current', 'page'); else $('#side-planner')?.removeAttribute('aria-current');
+  const ws = route === 'planner' || route === 'notebook';   // My workspace: planner + notebook
+  $('#side-planner')?.classList.toggle('active', ws);
+  if (ws) $('#side-planner')?.setAttribute('aria-current', 'page'); else $('#side-planner')?.removeAttribute('aria-current');
   if (route === 'home') $('#side-home').setAttribute('aria-current', 'page'); else $('#side-home').removeAttribute('aria-current');
   paintWeekbar(route);
 }
@@ -1057,7 +1066,7 @@ function searchIndex() {
     items.push({ kind: 'Stage', ic: 'flag', title: stageName(s), sub: `This lesson · Teacher’s Book ${code(s)}`, href: L(s.id), text: stageName(s) + ' ' + (s.subtitle || '') });
     s.activities.forEach(a => items.push({ kind: 'Activity', ic: 'pen', title: a.title, sub: `This lesson · ${s.title}`, href: L(s.id), go: a.id, text: a.title + ' ' + a.short, body: plainText(a) }));
   });
-  [['sources', 'book', 'Readings and listening scripts (all weeks)'], ['extra', 'list', 'Extra activities'], ['notebook', 'model', 'My notebook']].forEach(([id, ic, t]) => items.push({ kind: 'Page', ic, title: t, sub: 'This lesson', href: L(id), text: t }));
+  [['sources', 'book', 'Readings and listening scripts (all weeks)'], ['extra', 'list', 'Extra activities'], ['notebook', 'model', 'My workspace · Notebook']].forEach(([id, ic, t]) => items.push({ kind: 'Page', ic, title: t, sub: 'This lesson', href: L(id), text: t }));
   items.push({ kind: 'Page', ic: 'home', title: 'Course map', sub: 'All weeks', href: '#/', text: 'course map home all weeks' });
   lesson.glossary.forEach(([w, d]) => items.push({ kind: 'Word meaning', ic: 'book', title: w, sub: d, gloss: w, text: w }));
   return (searchCache = items);
@@ -1088,11 +1097,11 @@ function setSide(open) {
 
 /* ───────── render ───────── */
 const routes = ['overview', 'sources', 'extra', 'notebook', ...lesson.sections.map(s => s.id)];
-const pageNames = { overview: 'Overview', sources: 'Readings', extra: 'Extra activities', notebook: 'My notebook' };
+const pageNames = { overview: 'Overview', sources: 'Readings', extra: 'Extra activities', notebook: 'Notebook' };
 function parseRoute() {
   const h = location.hash.slice(1);
   if (!h || h === '/' || h === '/home') return { home: true };
-  if (h === '/planner' || h.startsWith('/planner/')) return { page: 'planner' };
+  if (h === '/planner' || h.startsWith('/planner/') || h === '/workspace') return { page: 'planner' };   // My workspace
   if (h === '/board') return { page: 'board' };
   if (h === '/chats' || h.startsWith('/chats/')) return { page: 'chats' };
   if (h === '/shared' || h.startsWith('/shared/')) return { page: 'shared' };
@@ -1119,17 +1128,25 @@ function render() {
   paintNav(route);
   $('#progress').value = done; $('#progress').max = coreActivities.length;
   $('#progress-label').innerHTML = `<b>${done}</b> of ${coreActivities.length} activities finished`;
-  $('#side-notebook').href = L('notebook'); $('#side-readings').href = L('sources');
+  $('#side-readings').href = L('sources');
   paintSideRing(done, coreActivities.length);
   const s = lesson.sections.find(x => x.id === route);
-  if (route === 'planner') {   // My planner: its own page, separate from the lesson notebook; kept open across re-renders
+  if (route === 'planner' || route === 'notebook') {   // My workspace = the planner (Notes, Calendar, To-dos) + this lesson's Notebook; kept open across re-renders
     document.body.dataset.page = 'planner'; document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg');
-    $('#crumb').innerHTML = `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>My planner</b>`;
-    document.title = `${course.code} · My planner`; paintStatus();
-    $('#main').dataset.route = 'planner';
-    if (!$('#planner-root')) { $('#main').innerHTML = '<div id="planner-root" class="planner-loading"><p>Opening your planner…</p></div>';
-      loadPlanner().then(() => { const el = $('#planner-root'); if (el && parseRoute().page === 'planner') window.DEC15Planner.mount(el, { esc, icon, toast, getCloud: () => cloud }); })
-        .catch(() => { const el = $('#planner-root'); if (el) el.innerHTML = '<p class="planner-error">The planner could not open. Check your internet connection and reload the page.</p>'; }); }
+    const nbTab = route === 'notebook', whereNb = labHere ? lesson.title : whereLong();
+    $('#crumb').innerHTML = `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i>${nbTab ? `<a href="#/planner">My workspace</a><i>/</i><b>Notebook · ${esc(whereNb)}</b>` : '<b>My workspace</b>'}`;
+    document.title = `${course.code} · My workspace${nbTab ? ' · Notebook' : ''}`; paintStatus();
+    const main = $('#main'), changed = main.dataset.route !== route; main.dataset.route = route;
+    const P = window.DEC15Planner;
+    if (!$('#planner-root')) { main.innerHTML = '<div id="planner-root" class="planner-loading"><p>Opening your workspace…</p></div>';
+      loadPlanner().then(() => { const el = $('#planner-root'), pg = parseRoute().page; if (!el || (pg !== 'planner' && pg !== 'notebook')) return;
+        window.DEC15Planner.mount(el, { esc, icon, toast, getCloud: () => cloud,
+          notebook: { html: wsNotebook, count: wsNotebookCount },
+          onTab: t => { history.replaceState(null, '', t === 'notebook' ? L('notebook') : '#/planner'); render(); } });   // the address and the breadcrumb follow the tab
+        if (pg === 'notebook') window.DEC15Planner.setTab('notebook'); else if (window.DEC15Planner.tab === 'notebook') history.replaceState(null, '', L('notebook')); })
+        .catch(() => { const el = $('#planner-root'); if (el) el.innerHTML = '<p class="planner-error">Your workspace could not open. Check your internet connection and reload the page.</p>'; });
+    } else if (P?.mounted) { if (nbTab && changed) P.setTab('notebook'); else P.refreshNotebook(); }
+    klass?.setWhere(route, nbTab ? 'My workspace · Notebook' : 'My workspace');
     return;
   }
   if (window.DEC15Planner?.mounted) window.DEC15Planner.unmount();
@@ -1567,6 +1584,7 @@ document.addEventListener('change', e => {
   const t = e.target;
   if (forms && forms.onChange(t)) return;
   if (guide && guide.onChange(t, () => rerender())) return;
+  if (t.matches?.('[data-ws-lesson]')) { if (t.value && t.value !== lesson.id) location.hash = '#/' + t.value + '/notebook'; return; }
   if (t.dataset.done) {
     state.done[t.dataset.done] = t.checked; save(); rerender(); clearTimeout(klass?._ct); if (klass) klass._ct = setTimeout(() => klass.loadCounts(), 4000);
     if (t.checked) {
