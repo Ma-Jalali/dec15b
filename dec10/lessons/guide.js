@@ -23,7 +23,8 @@ window.DEC15_GUIDE = {
     support: ['Learning support class', '#4f68b8'],
     skills: ['Academic Skills workshop', '#8a4f9e'],
     chat: ['Chat Club & social', '#2f9a63'],
-    care: ['CET Counsellors workshop', '#d9902a']
+    care: ['CET Counsellors workshop', '#d9902a'],
+    seminar: ['Class 30 seminar', '#c2185b']
   },
   shifts: { a: 'Afternoon-class students', m: 'Morning-class students' },
   weeks: [
@@ -195,5 +196,50 @@ window.DEC15_GUIDE = {
       ipQuestion: 'How can eco-tourism in Australia be managed to both support conservation and benefit local communities?', strategies: ['Indigenous-led eco-tourism', 'Protected area tourism', 'Sustainable tourism certification programs', 'Community-based tourism initiatives', 'Seasonal and controlled access tourism'] },
     { g: 4, topic: 'Cultural diversity', question: 'How is [your chosen country] encouraging, or how could [your chosen country] encourage cultural diversity?', opening: 5, seminar: 6,
       ipQuestion: 'How is Australia encouraging OR how could Australia encourage cultural diversity?', strategies: ['Indigenous cultural programs', 'Multicultural policy frameworks', 'National heritage listings and cultural preservation laws', 'Promotion of Australian content in media', 'Community leadership development'] }
-  ]
+  ],
+
+  /* ───────── Class 30 only: the teacher's seminar schedule (W1 D2 "Seminar schedule", DEC Class 30) ─────────
+     Group members, the country each group chose, when they present, and who takes which Week 7 strategy.
+     The block after this object turns the sessions into course-calendar events, so they also show in My planner. */
+  classSchedule: {
+    name: 'DEC Class 30', short: 'Class 30',
+    groups: [
+      { g: 1, color: '#0e8a7c', topic: 'Exploring our digital carbon footprint', country: 'Singapore', opening: 2, seminar: 3,
+        question: 'What is the impact of the digital carbon footprint on overall carbon emissions in Singapore, and what strategies can be deployed to reduce it?',
+        members: ['Yie', 'Michelle', 'Luo', 'Yuxian', 'Cecily'],
+        ip: { question: 'What strategies can be employed in Australia to reduce the overall digital carbon footprint?',
+          strategies: [['Energy-efficient data centres (optimisation, cooling techniques, etc.)', 'Yie'], ['Renewable energy use by data centres and IT operations', 'Michelle'], ['Virtualisation and cloud computing', 'Luo'], ['Efficient hardware and data management', 'Yuxian'], ['E-waste reduction and recycling', 'Cecily']] } },
+      { g: 2, color: '#3d5fc4', topic: 'The workforce of the future', country: 'Germany', opening: 3, seminar: 4,
+        question: 'What strategies could be implemented in Germany to enhance a smooth transition to more green jobs?',
+        members: ['Andris', 'Duan', 'Jole', 'Dou', 'Yunfeng'],
+        ip: { question: 'What strategies could be implemented in Australia to enhance a smooth transition to more green jobs?',
+          strategies: [['Upskilling and reskilling initiatives', 'Andris'], ['Private and public sector collaboration', 'Duan'], ['Localised job creation in renewable energy hubs', 'Jole'], ['Research and innovation funding', 'Dou'], ['Green manufacturing hubs', 'Yunfeng']] } },
+      { g: 3, color: '#d07b12', topic: 'Ecotourism', country: 'Costa Rica', opening: 4, seminar: 5,
+        question: 'How can ecotourism in Costa Rica be managed to both support conservation and benefit local communities?',
+        members: ['Jasmine', 'Seren', 'Roy', 'Esme'],
+        ip: { question: 'How can ecotourism in Australia be managed to both support conservation and benefit local communities?',
+          strategies: [['Indigenous-led ecotourism', ''], ['Protected area tourism', 'Jasmine'], ['Sustainable tourism certification programs', 'Seren'], ['Community-based tourism initiatives', 'Roy'], ['Seasonal and controlled access tourism', 'Esme']] } },
+      { g: 4, color: '#7a4fc0', topic: 'Cultural globalisation', country: 'Canada', opening: 5, seminar: 6,
+        question: 'How is Canada encouraging, or how could Canada encourage, cultural diversity?',
+        members: ['Monica', 'Zachary', 'Zhuo', 'Rory'],
+        ip: { question: 'How is Australia encouraging, or how could Australia encourage, cultural diversity?',
+          strategies: [['Indigenous cultural programs', 'Monica'], ['Multicultural policy frameworks', 'Zachary'], ['National heritage listings and cultural preservation laws', 'Zhuo'], ['Promotion of Australian content in media', 'Rory'], ['Community leadership development', '']] } }
+    ]
+  }
 };
+
+/* Class 30: put each group's Opening Remarks and Seminar on the day of the week's seminar session
+   (the lesson whose title names the groups), as 'seminar' events. Runs once, when this file loads. */
+(function () {
+  const G = window.DEC15_GUIDE, S = G.classSchedule; if (!S) return;
+  const isSession = t => /(Opening Remarks|Seminar) \(Group/i.test(t);
+  G.weeks.forEach(w => { if (w.brk) return;
+    const acts = S.groups.flatMap(g => [g.opening === w.n && ['opening', g], g.seminar === w.n && ['seminar', g]]).filter(Boolean);
+    if (!acts.length) return;
+    let i = w.days.findIndex(d => (d.class || []).some(([, t]) => isSession(t))); if (i < 0) i = 2;
+    const d = w.days[i];
+    d.events = [...acts.map(([role, g]) => ({ type: 'seminar', role, group: g.g,
+      title: `${role === 'opening' ? 'Opening Remarks' : 'Seminar'} · Group ${g.g} (${g.country})`,
+      note: `${S.short}: ${g.members.join(', ')}` })), ...(d.events || [])];
+  });
+})();
