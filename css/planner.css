@@ -880,3 +880,15 @@ body.pl-resizing, body.pl-resizing * { cursor: ns-resize !important; user-select
 
 /* bold text keeps the colour you give it (the colour sits on the span around the bold) */
 .pl-doc span[style*="color"] strong, .pl-doc span[style*="color"] b, .pl-doc th[data-dark] strong, .pl-doc td[data-dark] strong { color: inherit; }
+
+/* ── v3.0 · My workspace: the lesson notebook as the first tab ── */
+.pl-nb { padding: 2px 2px 20px; animation: plNbIn .3s var(--ease, ease) both; }
+@keyframes plNbIn { from { opacity: 0; transform: translateY(6px); } }
+.ws-nb-bar { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; margin: 0 0 16px; padding: 10px 12px 10px 16px; border-radius: 18px; background: var(--pl-panel, rgba(255, 255, 255, .78)); border: 1px solid var(--pl-line, rgba(20, 41, 58, .09)); box-shadow: 0 8px 22px -18px rgba(20, 41, 58, .4); }
+.ws-nb-bar label { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.ws-nb-bar label > span { display: inline-flex; align-items: center; gap: 7px; font: 800 .74rem/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.ws-nb-bar label .icon { width: 16px; height: 16px; }
+.ws-nb-bar select { max-width: min(460px, 70vw); border: 0; border-radius: 999px; padding: 9px 34px 9px 14px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2314293a' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center; box-shadow: 0 0 0 1px var(--line-2), 0 2px 6px -4px rgba(20, 41, 58, .4); font: 700 .9rem/1.2 var(--sans); color: var(--ink); appearance: none; cursor: pointer; text-overflow: ellipsis; }
+.ws-nb-bar small { color: var(--muted); font-size: .8rem; }
+.pl[data-tab="notebook"] .pl-panel { background: none; border: 0; box-shadow: none; }
+@media (prefers-reduced-motion: reduce) { .pl-nb { animation: none; } }

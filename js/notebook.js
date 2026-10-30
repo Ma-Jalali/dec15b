@@ -6,6 +6,7 @@
    - a clean print layout.
    Tables stay tables in every format. */
 window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows, reader, esc, strip, toast, person, extraItems }) {
+  const CODE = window.DEC15_COURSE?.code || 'DEC15';   // DEC15 or DEC10: the course this notebook belongs to
   const STAGE_COLORS = { ai: '#985c0e', feedback: '#2b776e', critical: '#3a58a0', writing: '#b0512a' }; // Week 2 Day 5; other lessons use section.color
   const val = k => getState().values[k] ?? '';
   const filled = v => v !== undefined && v !== null && String(v).trim() !== '';
@@ -63,7 +64,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
     const marks = reader.markRecords();
     const wordCount = Object.values(st.values).filter(v => typeof v === 'string').reduce((n, v) => n + words(v), 0);
     return {
-      title: 'My notebook', lesson: `DEC15 · Week ${lesson.week}, Day ${lesson.day} · ${lesson.title}`,
+      title: 'My notebook', lesson: lesson.week ? `${CODE} · Week ${lesson.week}, Day ${lesson.day} · ${lesson.title}` : `${CODE} · Language Lab · ${lesson.title}`,
       question: lesson.question, wordTarget: lesson.wordTarget || '', qLabel: lesson.questionKind || 'Essay question', student: person(),
       date: new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' }),
       stats: { finished: core.filter(a => st.done[a.id]).length, total: core.length, words: wordCount, marks: marks.reduce((n, r) => n + r.ranges.length, 0) },
@@ -150,7 +151,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
       ${m.sections.map(s => `<h2 style="font-family:${S};font-size:18pt;color:${s.color};margin:22pt 0 6pt;padding-bottom:4pt;border-bottom:2px solid ${s.color}">${stagePrefix(s)}${esc(s.title)}</h2>${s.activities.map(a => `<h3 style="font-family:${F};font-size:12.5pt;color:#14293a;margin:14pt 0 2pt">${esc(a.title)}${a.done ? ' <span style="color:#2f7a52;font-size:9pt">✓ Finished</span>' : ''}</h3>${a.items.map(item).join('')}`).join('')}`).join('')}
       ${m.marks.length ? `<h2 style="font-family:${S};font-size:18pt;color:#8a6a1f;margin:22pt 0 6pt;padding-bottom:4pt;border-bottom:2px solid #8a6a1f">My highlights</h2>${m.marks.map(r => `<p style="margin:10pt 0 2pt;font-family:${F};font-size:9pt;font-weight:bold;color:#5d6b75">${esc(r.title)}</p><p style="margin:0 0 6pt;font-family:${S};font-size:11pt;line-height:1.6">${r.html.replace(/class="annotation mark-yellow( mark-underline)?"/g, (x, u) => `style="background:#ffe08a${u ? ';text-decoration:underline' : ''}"`).replace(/class="annotation mark-blue( mark-underline)?"/g, (x, u) => `style="background:#c7e6f8${u ? ';text-decoration:underline' : ''}"`).replace(/class="annotation  ?mark-underline"/g, 'style="text-decoration:underline"')}</p>`).join('')}` : ''}`;
     if (!forPrint) return `<meta charset="utf-8"><div>${body}</div>`;
-    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>My notebook — DEC15</title><link rel="stylesheet" href="${new URL('css/fonts.css', location.href)}"><style>@page{size:A4;margin:16mm 16mm 18mm}body{margin:0;color:#14293a;-webkit-print-color-adjust:exact;print-color-adjust:exact}table{page-break-inside:auto}tr,h3{page-break-inside:avoid}h2,h3{page-break-after:avoid}</style></head><body>${body}</body></html>`;
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>My notebook — ${CODE}</title><link rel="stylesheet" href="${new URL('css/fonts.css', location.href)}"><style>@page{size:A4;margin:16mm 16mm 18mm}body{margin:0;color:#14293a;-webkit-print-color-adjust:exact;print-color-adjust:exact}table{page-break-inside:auto}tr,h3{page-break-inside:avoid}h2,h3{page-break-after:avoid}</style></head><body>${body}</body></html>`;
   }
 
   /* ───────── PDF ───────── */
@@ -238,7 +239,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
     const pages = doc.getNumberOfPages();
     for (let i = 1; i <= pages; i++) {
       doc.setPage(i); doc.setFont('Manrope', 'normal'); doc.setFontSize(8); doc.setTextColor(...muted);
-      doc.text(`DEC15 · My notebook${m.student ? ' · ' + m.student : ''}`, M, 297 - 9);
+      doc.text(`${CODE} · My notebook${m.student ? ' · ' + m.student : ''}`, M, 297 - 9);
       doc.text(`${i} / ${pages}`, W - M, 297 - 9, { align: 'right' });
     }
     doc.save(fileName('pdf'));
@@ -279,7 +280,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
       children.push(new D.Paragraph({ spacing: { before: 420, after: 120 }, border: { bottom: { style: D.BorderStyle.SINGLE, size: 12, color: '8A6A1F', space: 4 } }, children: [run('My highlights', { serif: true, size: 34, color: '8A6A1F' })] }));
       for (const r of m.marks) { children.push(new D.Paragraph({ spacing: { before: 160, after: 40 }, children: [run(r.title, { size: 16, bold: true, color: '5D6B75' })] })); r.ranges.forEach(t => children.push(new D.Paragraph({ spacing: { after: 40 }, children: [new D.TextRun({ text: t.text, font: 'Fraunces', size: 21, highlight: t.type === 'blue' ? 'cyan' : t.type === 'yellow' ? 'yellow' : undefined, underline: t.type === 'underline' ? {} : undefined })] }))); }
     }
-    const docFile = new D.Document({ creator: 'DEC15', title: 'My notebook', styles: { default: { document: { run: { font: 'Manrope', size: 21 } } } },
+    const docFile = new D.Document({ creator: CODE, title: 'My notebook', styles: { default: { document: { run: { font: 'Manrope', size: 21 } } } },
       sections: [{ properties: { page: { margin: { top: 1000, bottom: 1000, left: 1050, right: 1050 } } }, footers: { default: new D.Footer({ children: [new D.Paragraph({ alignment: D.AlignmentType.RIGHT, children: [run('DEC15 · My notebook · page ', { size: 15, color: '7B8790' }), new D.TextRun({ children: [D.PageNumber.CURRENT], font: 'Manrope', size: 15, color: '7B8790' })] })] }) }, children }] });
     const blob = await D.Packer.toBlob(docFile);
     download(blob, fileName('docx'));
@@ -308,7 +309,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
     f.contentWindow.document.fonts ? f.contentWindow.document.fonts.ready.then(() => setTimeout(go, 150)) : setTimeout(go, 600);
   }
 
-  function fileName(ext) { return `DEC15-W${lesson.week}D${lesson.day}-notebook${person() ? '-' + person().replace(/[^\w]+/g, '-') : ''}.${ext}`; }
+  function fileName(ext) { return `${CODE}-${lesson.week ? `W${lesson.week}D${lesson.day}` : lesson.id.replace(/^d10/, '')}-notebook${person() ? '-' + person().replace(/[^\w]+/g, '-') : ''}.${ext}`; }
   function download(blob, name) { const u = URL.createObjectURL(blob), a = document.createElement('a'); a.href = u; a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 1500); }
 
   return { model, pageHTML, docHTML, pdf, docx, gdocs, print };
