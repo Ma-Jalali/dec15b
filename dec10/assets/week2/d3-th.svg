@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" fill="none" role="img" aria-label="Two “th” sounds. Bath (noun) has /θ/, a voiceless sound: no sound from the throat, just air. Bathe (verb) has /ð/, a voiced sound: put your fingers on your throat and feel it vibrate.">
+<title>Two “th” sounds. Bath (noun) has /θ/, a voiceless sound: no sound from the throat, just air. Bathe (verb) has /ð/, a voiced sound: put your fingers on your throat and feel it vibrate.</title>
+<style>
+.fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; } .fl4 { animation-delay: -2.4s; animation-duration: 6.2s; }
+.tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; } .tw3 { animation-delay: -.7s; }
+.pu { animation: pu 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.dr { stroke-dasharray: 8 10; animation: dr 1.6s linear infinite; }
+.rv { animation: rv .7s cubic-bezier(.2,.7,.2,1) both; }
+.wv { animation: wv 2.6s ease-out infinite; transform-box: fill-box; transform-origin: center; opacity: 0; } .wv2 { animation-delay: .85s; } .wv3 { animation-delay: 1.7s; }
+.sw { animation: sw 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
+.sp { animation: sp 12s linear infinite; transform-box: fill-box; transform-origin: center; }
+.vb { animation: vb .35s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+.bl { animation: bl 1.6s steps(1) infinite; }
+.gr { animation: gr 4s ease-in-out infinite; transform-box: fill-box; transform-origin: left center; }
+@keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+@keyframes pu { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.1); } 30% { transform: scale(1); } }
+@keyframes dr { to { stroke-dashoffset: -36; } }
+@keyframes rv { from { opacity: 0; transform: translateY(14px); } }
+@keyframes wv { 0% { opacity: 0; transform: scale(.6); } 25% { opacity: .9; } 100% { opacity: 0; transform: scale(1.5); } }
+@keyframes sw { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@keyframes sp { to { transform: rotate(360deg); } }
+@keyframes vb { from { transform: scaleY(.55); } to { transform: scaleY(1.15); } }
+@keyframes bl { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes gr { 0%, 100% { transform: scaleX(.35); } 50% { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv, .wv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef5f3"/><stop offset="1" stop-color="#f8f4ec"/></linearGradient>
+  <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d3a52"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+</defs>
+<rect width="960" height="340" rx="28" fill="#f3f7f6"/>
+<g class="rv" style="animation-delay:0.0s"><rect x="40" y="30" width="430" height="280" rx="22" fill="#fff" filter="url(#s2)"/>
+<g class="fl fl1"><g transform="translate(150 150)"><path d="M-80 0h160v22c0 26-20 40-46 40h-68c-26 0-46-14-46-40z" fill="#eaf1f6" stroke="#14293a" stroke-opacity=".3" stroke-width="3"/><path d="M-60 62l-8 16M60 62l8 16" stroke="#14293a" stroke-opacity=".4" stroke-width="5" stroke-linecap="round"/><path d="M60 0v-56c0-16 22-16 22 0" stroke="#14293a" stroke-opacity=".45" stroke-width="5" fill="none"/><path d="M-74 4h148" stroke="#9cc6e0" stroke-width="6" stroke-linecap="round"/></g></g>
+<text x="150" y="270" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#14293a" text-anchor="middle">ba<tspan font-weight="800" fill="#3a58a0" text-decoration="underline">th</tspan></text><text x="150" y="294" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="13" fill="#5a6b78" text-anchor="middle" >(noun)</text>
+<g transform="translate(360 120)"><path d="M-40 70c0-60 20-90 40-90s40 30 40 90" fill="#f6d2b4"/><rect x="-14" y="10" width="28" height="60" rx="12" fill="#f0c19e"/><path d="M-30 30h-30" stroke="#14293a" stroke-opacity=".4" stroke-width="4" stroke-linecap="round"/><circle cx="-62" cy="30" r="10" fill="#f6d2b4" stroke="#14293a" stroke-opacity=".3"/>
+<path d="M22 31h40" stroke="#3a58a0" stroke-width="4" stroke-linecap="round"/><path class="wv wv" d="M0-34c6-8 6-14 0-22" stroke="#9cc6e0" stroke-width="3" stroke-linecap="round" transform="translate(-10 0)"/><path class="wv wv2" d="M0-34c6-8 6-14 0-22" stroke="#9cc6e0" stroke-width="3" stroke-linecap="round" transform="translate(0 0)"/><path class="wv wv3" d="M0-34c6-8 6-14 0-22" stroke="#9cc6e0" stroke-width="3" stroke-linecap="round" transform="translate(10 0)"/>
+</g>
+<text x="360" y="230" font-family="Georgia, 'Times New Roman', serif" font-weight="800" font-size="36" fill="#3a58a0" text-anchor="middle" >/θ/</text><text x="360" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="17" fill="#14293a" text-anchor="middle" >voiceless</text>
+<foreignObject x="268" y="266" width="190" height="44"><div xmlns="http://www.w3.org/1999/xhtml" style="font:600 13px/1.3 Helvetica Neue,Arial,sans-serif;color:#5a6b78;text-align:center">no sound from the throat — just air</div></foreignObject></g>
+<g class="rv" style="animation-delay:0.25s"><rect x="490" y="30" width="430" height="280" rx="22" fill="#fff" filter="url(#s2)"/>
+<g class="fl fl2"><g transform="translate(600 150)"><path d="M-80 0h160v22c0 26-20 40-46 40h-68c-26 0-46-14-46-40z" fill="#eaf1f6" stroke="#14293a" stroke-opacity=".3" stroke-width="3"/><path d="M-60 62l-8 16M60 62l8 16" stroke="#14293a" stroke-opacity=".4" stroke-width="5" stroke-linecap="round"/><path d="M60 0v-56c0-16 22-16 22 0" stroke="#14293a" stroke-opacity=".45" stroke-width="5" fill="none"/><circle cx="-30" cy="-10" r="22" fill="#f6d2b4"/><circle cx="-36" cy="-14" r="2.6" fill="#14293a"/><circle cx="-24" cy="-14" r="2.6" fill="#14293a"/><path d="M-36-2c4 4 8 4 12 0" stroke="#14293a" stroke-width="2" stroke-linecap="round"/><circle cx="-8" cy="-2" r="10" fill="#fff" stroke="#bcd" /><circle cx="10" cy="-6" r="13" fill="#fff" stroke="#bcd"/><circle cx="28" cy="-2" r="9" fill="#fff" stroke="#bcd"/><circle class="tw" cx="0" cy="-34" r="7" fill="#fff" stroke="#bcd"/></g></g>
+<text x="600" y="270" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#14293a" text-anchor="middle">ba<tspan font-weight="800" fill="#d4583a" text-decoration="underline">th</tspan>e</text><text x="600" y="294" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="13" fill="#5a6b78" text-anchor="middle" >(verb)</text>
+<g transform="translate(810 120)"><path d="M-40 70c0-60 20-90 40-90s40 30 40 90" fill="#f6d2b4"/><rect x="-14" y="10" width="28" height="60" rx="12" fill="#f0c19e"/><path d="M-30 30h-30" stroke="#14293a" stroke-opacity=".4" stroke-width="4" stroke-linecap="round"/><circle cx="-62" cy="30" r="10" fill="#f6d2b4" stroke="#14293a" stroke-opacity=".3"/>
+<rect class="vb" style="animation-delay:0.0s" x="22" y="18" width="5" height="26" rx="2.5" fill="#d4583a"/><rect class="vb" style="animation-delay:0.08s" x="32" y="18" width="5" height="26" rx="2.5" fill="#d4583a"/><rect class="vb" style="animation-delay:0.16s" x="42" y="18" width="5" height="26" rx="2.5" fill="#d4583a"/><rect class="vb" style="animation-delay:0.24s" x="52" y="18" width="5" height="26" rx="2.5" fill="#d4583a"/>
+</g>
+<text x="810" y="230" font-family="Georgia, 'Times New Roman', serif" font-weight="800" font-size="36" fill="#d4583a" text-anchor="middle" >/ð/</text><text x="810" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="17" fill="#14293a" text-anchor="middle" >voiced</text>
+<foreignObject x="718" y="266" width="190" height="44"><div xmlns="http://www.w3.org/1999/xhtml" style="font:600 13px/1.3 Helvetica Neue,Arial,sans-serif;color:#5a6b78;text-align:center">your throat vibrates (buzzes)</div></foreignObject></g>
+</svg>

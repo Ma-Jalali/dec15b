@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 270" fill="none" role="img" aria-label="SMART goals: Specific (one clear task), Measurable (you can count it), Achievable (realistic for you), Relevant (linked to the task), Time-bound (has a deadline).">
+<title>SMART goals: Specific (one clear task), Measurable (you can count it), Achievable (realistic for you), Relevant (linked to the task), Time-bound (has a deadline).</title>
+<style>
+.fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; } .fl4 { animation-delay: -2.4s; animation-duration: 6.2s; }
+.tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; } .tw3 { animation-delay: -.7s; }
+.pu { animation: pu 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.dr { stroke-dasharray: 8 10; animation: dr 1.6s linear infinite; }
+.rv { animation: rv .7s cubic-bezier(.2,.7,.2,1) both; }
+.wv { animation: wv 2.6s ease-out infinite; transform-box: fill-box; transform-origin: center; opacity: 0; } .wv2 { animation-delay: .85s; } .wv3 { animation-delay: 1.7s; }
+.sw { animation: sw 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
+.sp { animation: sp 12s linear infinite; transform-box: fill-box; transform-origin: center; }
+.vb { animation: vb .35s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+.bl { animation: bl 1.6s steps(1) infinite; }
+.gr { animation: gr 4s ease-in-out infinite; transform-box: fill-box; transform-origin: left center; }
+@keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+@keyframes pu { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.1); } 30% { transform: scale(1); } }
+@keyframes dr { to { stroke-dashoffset: -36; } }
+@keyframes rv { from { opacity: 0; transform: translateY(14px); } }
+@keyframes wv { 0% { opacity: 0; transform: scale(.6); } 25% { opacity: .9; } 100% { opacity: 0; transform: scale(1.5); } }
+@keyframes sw { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@keyframes sp { to { transform: rotate(360deg); } }
+@keyframes vb { from { transform: scaleY(.55); } to { transform: scaleY(1.15); } }
+@keyframes bl { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes gr { 0%, 100% { transform: scaleX(.35); } 50% { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv, .wv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef5f3"/><stop offset="1" stop-color="#f8f4ec"/></linearGradient>
+  <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d3a52"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+</defs>
+<rect width="960" height="270" rx="28" fill="#f3f7f6"/>
+<g class="rv" style="animation-delay:0.0s"><rect x="40" y="30" width="160" height="210" rx="20" fill="#fff" filter="url(#s2)"/><g class="fl fl1"><circle cx="120" cy="88" r="40" fill="#2b776e"/><g transform="translate(120 88)"><circle r="20" stroke="#fff" stroke-width="4"/><circle r="11" stroke="#fff" stroke-width="4"/><circle r="3" fill="#fff"/></g></g><text x="120" y="166" font-family="Georgia, 'Times New Roman', serif" font-weight="800" font-size="34" fill="#2b776e" text-anchor="middle" >S</text><text x="120" y="194" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="17" fill="#14293a" text-anchor="middle" >Specific</text><text x="120" y="218" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="13" fill="#5a6b78" text-anchor="middle" >one clear task</text></g>
+<g class="rv" style="animation-delay:0.15s"><rect x="220" y="30" width="160" height="210" rx="20" fill="#fff" filter="url(#s2)"/><g class="fl fl2"><circle cx="300" cy="88" r="40" fill="#3a58a0"/><g transform="translate(300 88)"><rect x="-24" y="-8" width="48" height="16" rx="3" stroke="#fff" stroke-width="3.5"/><path d="M-14-8v7M-4-8v10M6-8v7M16-8v10" stroke="#fff" stroke-width="3"/></g></g><text x="300" y="166" font-family="Georgia, 'Times New Roman', serif" font-weight="800" font-size="34" fill="#3a58a0" text-anchor="middle" >M</text><text x="300" y="194" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="17" fill="#14293a" text-anchor="middle" >Measurable</text><text x="300" y="218" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="13" fill="#5a6b78" text-anchor="middle" >you can count it</text></g>
+<g class="rv" style="animation-delay:0.3s"><rect x="400" y="30" width="160" height="210" rx="20" fill="#fff" filter="url(#s2)"/><g class="fl fl3"><circle cx="480" cy="88" r="40" fill="#e3a843"/><g transform="translate(480 88)"><path d="M-14 22V-22M14 22V-22M-14 12h28M-14-2h28M-14-16h28" stroke="#fff" stroke-width="4" stroke-linecap="round"/></g></g><text x="480" y="166" font-family="Georgia, 'Times New Roman', serif" font-weight="800" font-size="34" fill="#e3a843" text-anchor="middle" >A</text><text x="480" y="194" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="17" fill="#14293a" text-anchor="middle" >Achievable</text><text x="480" y="218" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="13" fill="#5a6b78" text-anchor="middle" >realistic for you</text></g>
+<g class="rv" style="animation-delay:0.44999999999999996s"><rect x="580" y="30" width="160" height="210" rx="20" fill="#fff" filter="url(#s2)"/><g class="fl fl1"><circle cx="660" cy="88" r="40" fill="#7a4a8c"/><g transform="translate(660 88)"><path d="M-20 0h14a6 6 0 1 0 0-1M20 0H6" stroke="#fff" stroke-width="4" stroke-linecap="round"/><circle cx="-2" cy="0" r="7" stroke="#fff" stroke-width="4"/><path d="M-22-14l10 6M22-14l-10 6" stroke="#fff" stroke-width="4" stroke-linecap="round"/></g></g><text x="660" y="166" font-family="Georgia, 'Times New Roman', serif" font-weight="800" font-size="34" fill="#7a4a8c" text-anchor="middle" >R</text><text x="660" y="194" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="17" fill="#14293a" text-anchor="middle" >Relevant</text><text x="660" y="218" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="13" fill="#5a6b78" text-anchor="middle" >linked to the task</text></g>
+<g class="rv" style="animation-delay:0.6s"><rect x="760" y="30" width="160" height="210" rx="20" fill="#fff" filter="url(#s2)"/><g class="fl fl2"><circle cx="840" cy="88" r="40" fill="#d4583a"/><g transform="translate(840 88)"><circle r="20" stroke="#fff" stroke-width="4"/><path d="M0-12V0l9 6" stroke="#fff" stroke-width="4" stroke-linecap="round"/></g></g><text x="840" y="166" font-family="Georgia, 'Times New Roman', serif" font-weight="800" font-size="34" fill="#d4583a" text-anchor="middle" >T</text><text x="840" y="194" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="17" fill="#14293a" text-anchor="middle" >Time-bound</text><text x="840" y="218" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="13" fill="#5a6b78" text-anchor="middle" >has a deadline</text></g>
+</svg>

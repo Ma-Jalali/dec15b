@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" fill="none" role="img" aria-label="The shape of a presentation. 1 Introduction: greet the audience, introduce yourself, introduce the topic, why it matters, and an outline of the main points. 2 Body: 2–4 main points in the same order as the outline. 3 Conclusion: signal the end, repeat the topic, rephrase the main points, thank the audience and ask for questions.">
+<title>The shape of a presentation. 1 Introduction: greet the audience, introduce yourself, introduce the topic, why it matters, and an outline of the main points. 2 Body: 2–4 main points in the same order as the outline. 3 Conclusion: signal the end, repeat the topic, rephrase the main points, thank the audience and ask for questions.</title>
+<style>
+.fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; } .fl4 { animation-delay: -2.4s; animation-duration: 6.2s; }
+.tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; } .tw3 { animation-delay: -.7s; }
+.pu { animation: pu 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.dr { stroke-dasharray: 8 10; animation: dr 1.6s linear infinite; }
+.rv { animation: rv .7s cubic-bezier(.2,.7,.2,1) both; }
+.wv { animation: wv 2.6s ease-out infinite; transform-box: fill-box; transform-origin: center; opacity: 0; } .wv2 { animation-delay: .85s; } .wv3 { animation-delay: 1.7s; }
+.sw { animation: sw 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
+.sp { animation: sp 12s linear infinite; transform-box: fill-box; transform-origin: center; }
+.vb { animation: vb .35s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+.bl { animation: bl 1.6s steps(1) infinite; }
+.gr { animation: gr 4s ease-in-out infinite; transform-box: fill-box; transform-origin: left center; }
+@keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+@keyframes pu { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.1); } 30% { transform: scale(1); } }
+@keyframes dr { to { stroke-dashoffset: -36; } }
+@keyframes rv { from { opacity: 0; transform: translateY(14px); } }
+@keyframes wv { 0% { opacity: 0; transform: scale(.6); } 25% { opacity: .9; } 100% { opacity: 0; transform: scale(1.5); } }
+@keyframes sw { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@keyframes sp { to { transform: rotate(360deg); } }
+@keyframes vb { from { transform: scaleY(.55); } to { transform: scaleY(1.15); } }
+@keyframes bl { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes gr { 0%, 100% { transform: scaleX(.35); } 50% { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv, .wv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef5f3"/><stop offset="1" stop-color="#f8f4ec"/></linearGradient>
+  <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d3a52"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+</defs>
+<rect width="960" height="330" rx="28" fill="#f3f7f6"/>
+<g class="rv" style="animation-delay:0.0s"><rect x="40" y="36" width="270" height="250" rx="20" fill="#fff" filter="url(#s2)"/><rect x="40" y="36" width="270" height="52" rx="20" fill="#2b776e"/><rect x="40" y="66" width="270" height="22" fill="#2b776e"/><text x="60" y="70" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="18" fill="#fff" text-anchor="start" >1 · Introduction</text>
+<circle cx="68" cy="112" r="5" fill="#2b776e"/><text x="82" y="117" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Greet the audience</text>
+<circle cx="68" cy="148" r="5" fill="#2b776e"/><text x="82" y="153" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Introduce yourself</text>
+<circle cx="68" cy="184" r="5" fill="#2b776e"/><text x="82" y="189" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Introduce the topic</text>
+<circle cx="68" cy="220" r="5" fill="#2b776e"/><text x="82" y="225" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Why it matters</text>
+<circle cx="68" cy="256" r="5" fill="#2b776e"/><text x="82" y="261" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="15" fill="#2b776e" text-anchor="start" >Outline: A → B → C</text>
+</g>
+<g class="rv" style="animation-delay:0.25s"><rect x="340" y="36" width="270" height="250" rx="20" fill="#fff" filter="url(#s2)"/><rect x="340" y="36" width="270" height="52" rx="20" fill="#b0512a"/><rect x="340" y="66" width="270" height="22" fill="#b0512a"/><text x="360" y="70" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="18" fill="#fff" text-anchor="start" >2 · Body</text>
+<circle cx="368" cy="112" r="5" fill="#b0512a"/><text x="382" y="117" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Main point A</text>
+<circle cx="368" cy="148" r="5" fill="#b0512a"/><text x="382" y="153" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Main point B</text>
+<circle cx="368" cy="184" r="5" fill="#b0512a"/><text x="382" y="189" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Main point C</text>
+<circle cx="368" cy="220" r="5" fill="#b0512a"/><text x="382" y="225" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >(2–4 main points)</text>
+<circle cx="368" cy="256" r="5" fill="#b0512a"/><text x="382" y="261" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="15" fill="#b0512a" text-anchor="start" >same order as the outline</text>
+</g>
+<g class="rv" style="animation-delay:0.5s"><rect x="640" y="36" width="270" height="250" rx="20" fill="#fff" filter="url(#s2)"/><rect x="640" y="36" width="270" height="52" rx="20" fill="#3a58a0"/><rect x="640" y="66" width="270" height="22" fill="#3a58a0"/><text x="660" y="70" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="18" fill="#fff" text-anchor="start" >3 · Conclusion</text>
+<circle cx="668" cy="112" r="5" fill="#3a58a0"/><text x="682" y="117" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Signal the end</text>
+<circle cx="668" cy="148" r="5" fill="#3a58a0"/><text x="682" y="153" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Repeat the topic</text>
+<circle cx="668" cy="184" r="5" fill="#3a58a0"/><text x="682" y="189" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Rephrase A, B, C</text>
+<circle cx="668" cy="220" r="5" fill="#3a58a0"/><text x="682" y="225" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Thank the audience</text>
+<circle cx="668" cy="256" r="5" fill="#3a58a0"/><text x="682" y="261" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="15" fill="#3a58a0" text-anchor="start" >Ask for questions</text>
+</g>
+<path class="dr" d="M250 268C380 318 440 318 560 268" stroke="#e3a843" stroke-width="3" stroke-linecap="round"/><path class="dr" d="M550 268C680 318 740 318 860 268" stroke="#e3a843" stroke-width="3" stroke-linecap="round"/>
+<text x="480" y="318" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" fill="#b0512a" text-anchor="middle" >same order</text><text x="780" y="318" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" fill="#3a58a0" text-anchor="middle" >rephrased</text>
+</svg>

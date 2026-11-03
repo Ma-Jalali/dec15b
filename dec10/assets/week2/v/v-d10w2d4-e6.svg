@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Sound waves and the marked sentence Today, / I’d like to talk about"><style>
+.fl{animation:fl 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.f2{animation-delay:-1.7s}.f3{animation-delay:-3.3s}
+.tw{animation:tw 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.t2{animation-delay:-1.4s}
+.sp{animation:sp 9s linear infinite;transform-box:fill-box;transform-origin:center}
+.pu{animation:pu 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.p2{animation-delay:-1.2s}
+.dr{stroke-dasharray:6 8;animation:dr 1.6s linear infinite}
+.bl{animation:bl 4.2s infinite;transform-box:fill-box;transform-origin:center}
+.sw{animation:sw 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}
+.wv{animation:wv 2.7s ease-out infinite;opacity:0;transform-box:fill-box;transform-origin:center}.w2{animation-delay:.9s}.w3{animation-delay:1.8s}
+.rv{animation:rv .8s ease-out both}
+.pb{animation:pb 7s linear infinite;transform-box:fill-box;transform-origin:left}
+.ring{animation:ring .5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes tw{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes sp{to{transform:rotate(360deg)}}
+@keyframes pu{0%,100%{transform:scale(1)}15%{transform:scale(1.1)}30%{transform:scale(1)}}
+@keyframes dr{to{stroke-dashoffset:-28}}
+@keyframes bl{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes wv{0%{opacity:0;transform:scale(.6)}25%{opacity:.85}100%{opacity:0;transform:scale(1.5)}}
+@keyframes rv{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes pb{from{transform:scaleX(.05)}to{transform:scaleX(1)}}
+@keyframes ring{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(9deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.rv,.wv{opacity:1!important}}
+</style><defs><filter id="s" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#14293a" flood-opacity=".16"/></filter></defs><g transform="translate(120 92) scale(1.0)"><path d="M-76-54c22-30 78-34 118-14 34 17 50 54 36 88-14 34-56 50-98 44-46-6-82-38-78-74 2-18 10-32 22-44z" fill="#fbe6dc"/></g><path class="tw" d="M22 30h12m-6-6v12" stroke="#c4562f" stroke-width="2.4" stroke-linecap="round"/><path class="tw t2" d="M204 150h12m-6-6v12" stroke="#e3a843" stroke-width="2.4" stroke-linecap="round"/><circle class="tw" cx="212" cy="36" r="3" fill="#c4562f"/><circle class="tw t2" cx="30" cy="148" r="3" fill="#e3a843"/><rect x="22" y="40" width="196" height="74" rx="14" fill="#fff" filter="url(#s)"/><text x="34" y="66" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="15" fill="#14293a" text-anchor="start">To</text><text x="53" y="66" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="15" fill="#c4562f" text-anchor="start">DAY</text><text x="88" y="66" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="15" fill="#14293a" text-anchor="start">/ I’d like to</text><text x="34" y="96" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="15" fill="#c4562f" text-anchor="start">TALK</text><text x="78" y="96" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="15" fill="#14293a" text-anchor="start">about //</text><path d="M50 50l8-8 8 8M150 84l10 8" stroke="#3a58a0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 102h40" stroke="#c4562f" stroke-width="2.4" stroke-linecap="round"/><g transform="translate(196 150) scale(0.9)"><rect x="-7" y="-26" width="14" height="24" rx="7" fill="#c4562f"/><path d="M-11-12a11 11 0 0 0 22 0M0 0v14M-8 14h16" stroke="#c4562f" stroke-width="3" stroke-linecap="round"/></g><circle class="wv" cx="196" cy="128" r="10" stroke="#c4562f" stroke-width="2.4"/><circle class="wv w2" cx="196" cy="128" r="10" stroke="#c4562f" stroke-width="2.4"/><circle class="wv w3" cx="196" cy="128" r="10" stroke="#c4562f" stroke-width="2.4"/><rect class="pu" x="30" y="136" width="5" height="8" rx="2.5" fill="#2f7d6b"/><rect class="pu p2" x="40" y="131" width="5" height="18" rx="2.5" fill="#2f7d6b"/><rect class="pu" x="50" y="126" width="5" height="28" rx="2.5" fill="#2f7d6b"/><rect class="pu p2" x="60" y="133" width="5" height="14" rx="2.5" fill="#2f7d6b"/><rect class="pu" x="70" y="128" width="5" height="24" rx="2.5" fill="#2f7d6b"/><rect class="pu p2" x="80" y="135" width="5" height="10" rx="2.5" fill="#2f7d6b"/><rect class="pu" x="90" y="130" width="5" height="20" rx="2.5" fill="#2f7d6b"/><rect class="pu p2" x="100" y="137" width="5" height="6" rx="2.5" fill="#2f7d6b"/></svg>
