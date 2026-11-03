@@ -58,7 +58,7 @@ window.DEC15_SOURCES = [
     "cite": "United Nations Conference on Trade and Development (2024)",
     "kind": "Mediation reading",
     "reference": "United Nations Conference on Trade and Development. (2024). 2024 Digital economy report: Shaping an environmentally sustainable and inclusive digital future. United Nations Conference on Trade and Development. https://unctad.org/system/files/official-document/der2024_en.pdf",
-    "citeAs": "Cite as United Nations Conference on Trade and Development (2024) or (UNCTAD, 2024).",
+    "citeAs": "Cite as United Nations Conference on Trade and Development (2024) or (United Nations Conference on Trade and Development, 2024).",
     "paragraphs": [
       "## Artificial intelligence",
       "A. Climate change implications of AI and machine learning are significant but highly uncertain (Cowls et al., 2021; Kaack et al., 2022; Rolnick et al., 2023). Just as information and communications technology (ICT) impacts climate change more generally, the environmental implications arising from AI and machine learning can be categorized into direct effects (GHG emissions resulting from housing and training AI) and indirect effects (the effect of GHG emissions from use of AI) (Kaack et al., 2022). Machine learning systems require computing resources and hardware, primarily in large data centres, that use energy, water and materials. The majority of machine learning-related GHG emissions today likely comes from these large data centres, with a smaller share from PCs and smartphones. These emissions result both from operational energy use during computation and from other phases of the hardware life cycle.",
