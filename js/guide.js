@@ -72,8 +72,8 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
       ${e.reg ? `<p class="gd-reg">${icon('pen')}${esc(e.reg === true ? 'Register on CET Connect' : e.reg)}</p>` : ''}</li>`;
   }
   function lessonList(items, hw) {
-    return `<ul class="gd-lessons${hw ? ' is-hw' : ''}">${items.map(([code, title]) => { const id = lessonId(code), on = id && ready.has(id);
-      return `<li>${on ? `<a href="#/${id}" title="Open this lesson">` : '<span>'}${esc(title)}${on ? `<i class="gd-go">${icon('arrow')}</i></a>` : '</span>'}</li>`; }).join('')}</ul>`;
+    return `<ul class="gd-lessons${hw ? ' is-hw' : ''}">${items.map(([code, title, at]) => { const id = at ? at.split('/')[0] : lessonId(code), on = id && ready.has(id);   // at: 'lessonId/stage' when the part is taught on another day's page
+      return `<li>${on ? `<a href="#/${esc(at || id)}" title="Open this lesson">` : '<span>'}${esc(title)}${on ? `<i class="gd-go">${icon('arrow')}</i></a>` : '</span>'}</li>`; }).join('')}</ul>`;
   }
   /* small dots in a day's header: one per kind of event, so the week can be read at a glance */
   function dayDots(d) {
