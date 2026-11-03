@@ -276,11 +276,11 @@ window.DEC15_LESSON = {
           goal: 'Take an argument apart — and judge how strong it is.',
           blocks: [
             { type: 'hotspot', src: 'dec10/assets/week2/d1-argument.svg', alt: 'An argument drawn as a house: key argument roof, claim pillars, evidence foundation, hidden assumptions underground and language label.', hint: 'Tap each part of the house.', spots: [
-              { x: 50, y: 22, title: 'Key argument', text: 'The <b>main idea</b> the author wants you to accept.', label: '1', color: '#2b776e' },
-              { x: 50, y: 48, title: 'Claim', text: 'The <b>key points</b> that support the argument.', label: '2', color: '#3a58a0' },
-              { x: 50, y: 70, title: 'Evidence from sources', text: 'Information from <b>experts</b> (studies, reports, data) the author uses to support the claims.', label: '3', color: '#b07d12' },
-              { x: 50, y: 86, title: 'Assumptions', text: 'Information the author believes the reader <b>already knows</b> — or accepts without proof.', label: '4', color: '#7a4a8c' },
-              { x: 88, y: 42, title: 'Language', text: 'The <b>deliberate choice of words</b> the author uses to communicate the argument.', label: '5', color: '#d4583a' }
+              { x: 33, y: 27, title: 'Key argument', text: 'The <b>main idea</b> the author wants you to accept.', label: '1', color: '#2b776e' },
+              { x: 50, y: 31, title: 'Claim', text: 'The <b>key points</b> that support the argument.', label: '2', color: '#3a58a0' },
+              { x: 28, y: 70, title: 'Evidence from sources', text: 'Information from <b>experts</b> (studies, reports, data) the author uses to support the claims.', label: '3', color: '#b07d12' },
+              { x: 30, y: 84, title: 'Assumptions', text: 'Information the author believes the reader <b>already knows</b> — or accepts without proof.', label: '4', color: '#7a4a8c' },
+              { x: 80, y: 35, title: 'Language', text: 'The <b>deliberate choice of words</b> the author uses to communicate the argument.', label: '5', color: '#d4583a' }
             ] },
             { type: 'passage', id: 'a10-c', title: 'Griffiths (2020) · Paragraph C', text: 'C. Calculating digital carbon footprints is more complex than it appears because few people can agree on what should and should not be included. This disagreement arises because some argue that emissions from manufacturing computing hardware should be counted, while others believe they should not. Additionally, the inclusion of emissions from the staff and buildings of technology companies is debated, causing further complexity. The figures around the running of data centres are also disputed; many run on renewable energy, which reduces their carbon footprint, while some companies buy “carbon offsets” to mitigate their energy use, leading to differing opinions on their actual impact.' },
             { type: 'sort', id: 'a10-sort', title: 'Take the paragraph apart', hint: 'Put each piece into the right part of the argument.', buckets: [{ label: 'Key argument' }, { label: 'Claim' }, { label: 'Evidence from sources' }, { label: 'Assumption' }, { label: 'Language' }], items: [
