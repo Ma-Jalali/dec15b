@@ -1,10 +1,11 @@
 /* DEC10 · course guide — the data behind two side-panel pages (js/guide.js draws them):
      #/calendar     Course calendar = the Canvas Course Calendar + the course weekly map, one week at a time
      #/assessments  Assessments     = the Canvas "DEC 10 Assessments" page, in plain English
-   Sources: Course Calendar (Canvas), "26.5b_27.1ab DEC 10 course weekly map – student version – FINAL – 14.10.2026",
+   Sources: Course Calendar (Canvas), "26.5b_27.1ab DEC 10 course weekly map – student version – FINAL – 14.10.2026" and the teacher version (16.10.2026),
    "Assessments: DEC 10 Semester 1 2027" (Canvas). Rooms are on Canvas — they change, so they are not copied here.
    Lessons sit on the weekday they are TAUGHT (the weekly map moves some lessons, e.g. a D5 lesson on a Wednesday).
-   Lesson entries: [code, title]. A code like 'W1 D1' links to that lesson on this site when it is ready.
+   Lesson entries: [code, title, at?]. A code like 'W1 D1' links to that lesson on this site when it is ready; at ('d10w2d3/star')
+   links a part to the Day page it is TAUGHT on (from Week 2 each Day page holds the parts taught that weekday).
    Event types: assess · info (orientation & information sessions) · support (learning support class) · skills (Academic Skills workshop) · chat (Chat Club & social) · care (CET Counsellors workshop) */
 window.DEC15_GUIDE = {
   contact: 'cet.decteam@sydney.edu.au',
@@ -47,15 +48,15 @@ window.DEC15_GUIDE = {
           { type: 'chat', title: 'Chat Club: Dreams', time: '1–2pm or 4:45–5:45pm', where: 'International Students Lounge, Wentworth Level 4', reg: true }] }
     ] },
     { n: 2, theme: 'Our digital carbon footprint', sub: 'Exploring our digital carbon footprint', start: '2026-11-02', dates: '2–6 Nov', days: [
-      { class: [['W2 D1', 'Reading to speak'], ['W2 D1', 'AST: Group work skills'], ['W2 D1', 'Introduction to research summary presentations']], hw: [['W2 D1', 'Research summary preparation']],
+      { class: [['W2 D1', 'Reading to speak', 'd10w2d1/reading'], ['W2 D1', 'AST: Group work skills', 'd10w2d1/groupwork'], ['W2 D1', 'Introduction to research summary presentations', 'd10w2d1/rsintro']], hw: [['W2 D1', 'Research summary preparation', 'd10w2d1/rsprep']],
         events: [{ type: 'care', title: 'Study Skills workshop', time: '12:30–1:30pm', reg: true }] },
-      { class: [['W2 D2', 'Research summary presentations'], ['W2 D2', 'Listening to speak'], ['W2 D2', 'Mediation']], hw: [['W2 D2', 'Presentation skills']],
+      { class: [['W2 D2', 'Research summary presentations', 'd10w2d2/rsgroup'], ['W2 D2', 'Listening to speak', 'd10w2d2/listening'], ['W2 D2', 'Mediation', 'd10w2d2/mediation']], hw: [['W2 D2', 'Presentation skills', 'd10w2d2/presskills']],
         events: [{ type: 'care', title: 'Transition to Life in Australia', time: '12:30–1:30pm', reg: true }] },
-      { class: [['W2 D3', 'Presentation skills'], ['W2 D5', 'STAR moment'], ['W2 D3', 'AST: Introducing the presentation feedback tool'], ['W2 D4', 'Seminar: Opening Remarks (Group 1)']], hw: [['W2 D3', 'AST: Self-regulation and monitoring']] },
-      { class: [['W2 D4', 'AST: Self-regulation and monitoring (homework follow-up)'], ['W2 D4', 'Presentation skills'], ['W2 D3', 'Asking effective individual questions'], ['W2 D5', 'Pronunciation for presentations: chunking, stress & intonation'], ['W2 D3', 'Group research summary presentations (groups 1 & 2)']],
-        hw: [['W2 D2', 'Listening assessment preparation']],
+      { class: [['W2 D3', 'Presentation skills', 'd10w2d3/present'], ['W2 D5', 'STAR moment', 'd10w2d3/star'], ['W2 D3', 'AST: Introducing the presentation feedback tool', 'd10w2d3/fbtool'], ['W2 D4', 'Seminar: PebblePad set-up, then Opening Remarks (Group 1)', 'd10w2d3/opening']], hw: [['W2 D3', 'AST: Self-regulation and monitoring', 'd10w2d3/selfreg']] },
+      { class: [['W2 D4', 'AST: Self-regulation and monitoring (homework follow-up)', 'd10w2d4/selfreg2'], ['W2 D4', 'Presentation skills', 'd10w2d4/present2'], ['W2 D3', 'Asking effective individual questions', 'd10w2d4/questions'], ['W2 D5', 'Pronunciation for presentations: chunking, stress & intonation', 'd10w2d4/pron'], ['W2 D3', 'Group research summary presentations (groups 1 & 2)', 'd10w2d4/rspres']],
+        hw: [['W2 D2', 'Listening assessment preparation', 'd10w2d4/testlab']],
         events: [{ type: 'care', title: 'Transition to Life in Australia', time: '11am–12pm', reg: true }] },
-      { class: [['W2 D4', 'Group research summary presentations (groups 3, 4 & 5)'], ['W2 D5', 'AST: Introduction to critical thinking'], ['W2 D5', 'AST: Feedback literacy – action plan (1)'], ['W2 D5', 'Interactive Presentation: check-in']],
+      { class: [['W2 D4', 'Group research summary presentations (groups 3, 4 & 5)', 'd10w2d5/rspres2'], ['W2 D5', 'AST: Introduction to critical thinking', 'd10w2d5/critical'], ['W2 D5', 'AST: Feedback literacy – action plan (1)', 'd10w2d5/action'], ['W2 D5', 'Interactive Presentation: check-in', 'd10w2d5/ipcheck']],
         events: [{ type: 'skills', title: 'Academic Skills workshop: Summarising and paraphrasing', times: [['a', '10:30–11:30am'], ['m', '1:00–2:00pm']] }] }
     ] },
     { n: 3, theme: 'The workforce of the future', start: '2026-11-09', dates: '9–13 Nov', days: [
