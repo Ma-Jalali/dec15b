@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" fill="none" role="img" aria-label="A browser showing goblin.tools Magic ToDo: the task is typed in the box, the spiciness is set to two chillies, and the magic wand turns the task into a list of subtasks with estimated times.">
+<title>A browser showing goblin.tools Magic ToDo: the task is typed in the box, the spiciness is set to two chillies, and the magic wand turns the task into a list of subtasks with estimated times.</title>
+<style>
+.fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; } .fl4 { animation-delay: -2.4s; animation-duration: 6.2s; }
+.tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; } .tw3 { animation-delay: -.7s; }
+.pu { animation: pu 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.dr { stroke-dasharray: 8 10; animation: dr 1.6s linear infinite; }
+.rv { animation: rv .7s cubic-bezier(.2,.7,.2,1) both; }
+.wv { animation: wv 2.6s ease-out infinite; transform-box: fill-box; transform-origin: center; opacity: 0; } .wv2 { animation-delay: .85s; } .wv3 { animation-delay: 1.7s; }
+.sw { animation: sw 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
+.sp { animation: sp 12s linear infinite; transform-box: fill-box; transform-origin: center; }
+.vb { animation: vb .35s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+.bl { animation: bl 1.6s steps(1) infinite; }
+.gr { animation: gr 4s ease-in-out infinite; transform-box: fill-box; transform-origin: left center; }
+@keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+@keyframes pu { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.1); } 30% { transform: scale(1); } }
+@keyframes dr { to { stroke-dashoffset: -36; } }
+@keyframes rv { from { opacity: 0; transform: translateY(14px); } }
+@keyframes wv { 0% { opacity: 0; transform: scale(.6); } 25% { opacity: .9; } 100% { opacity: 0; transform: scale(1.5); } }
+@keyframes sw { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@keyframes sp { to { transform: rotate(360deg); } }
+@keyframes vb { from { transform: scaleY(.55); } to { transform: scaleY(1.15); } }
+@keyframes bl { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes gr { 0%, 100% { transform: scaleX(.35); } 50% { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv, .wv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef5f3"/><stop offset="1" stop-color="#f8f4ec"/></linearGradient>
+  <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d3a52"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+</defs>
+<rect width="960" height="400" rx="28" fill="#f3f7f6"/>
+<g filter="url(#s)"><rect x="40" y="30" width="880" height="340" rx="16" fill="#fff"/></g><rect x="40" y="30" width="880" height="38" rx="16" fill="#e9eef2"/><rect x="40" y="52" width="880" height="16" fill="#e9eef2"/>
+<circle cx="66" cy="49" r="6" fill="#ff5f57"/><circle cx="86" cy="49" r="6" fill="#febc2e"/><circle cx="106" cy="49" r="6" fill="#28c840"/>
+<rect x="140" y="38" width="360" height="22" rx="11" fill="#fff"/><text x="156" y="54" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="13" fill="#5a6b78" text-anchor="start" >goblin.tools › Magic ToDo</text>
+<text x="70" y="106" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="24" fill="#14293a" text-anchor="start" >Magic ToDo</text>
+<rect x="70" y="122" width="560" height="44" rx="10" stroke="#14293a" stroke-opacity=".25" stroke-width="2"/><text x="86" y="150" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Prepare a group seminar on sustainable business in …</text><rect class="bl" x="530" y="134" width="2" height="22" fill="#14293a"/>
+<text x="650" y="148" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="14" fill="#14293a" text-anchor="start" >Spiciness:</text>
+<g class="pu" style="animation-delay:0.0s"><g transform="translate(750 142)"><path d="M-6-10c10 0 14 8 10 20-2 6-10 6-12 0-3-8-3-14 2-20z" fill="#d4583a"/><path d="M-4-10c0-6 4-8 8-8" stroke="#2f9a63" stroke-width="3" stroke-linecap="round"/></g></g>
+<g class="pu" style="animation-delay:0.3s"><g transform="translate(778 142)"><path d="M-6-10c10 0 14 8 10 20-2 6-10 6-12 0-3-8-3-14 2-20z" fill="#d4583a"/><path d="M-4-10c0-6 4-8 8-8" stroke="#2f9a63" stroke-width="3" stroke-linecap="round"/></g></g>
+<g class="" style="animation-delay:0.6s" transform="translate(806 142)"><path d="M-6-10c10 0 14 8 10 20-2 6-10 6-12 0-3-8-3-14 2-20z" fill="#dcdcdc"/><path d="M-4-10c0-6 4-8 8-8" stroke="#c4c4c4" stroke-width="3" stroke-linecap="round"/></g>
+<g class="" style="animation-delay:0.8999999999999999s" transform="translate(834 142)"><path d="M-6-10c10 0 14 8 10 20-2 6-10 6-12 0-3-8-3-14 2-20z" fill="#dcdcdc"/><path d="M-4-10c0-6 4-8 8-8" stroke="#c4c4c4" stroke-width="3" stroke-linecap="round"/></g>
+<g class="" style="animation-delay:1.2s" transform="translate(862 142)"><path d="M-6-10c10 0 14 8 10 20-2 6-10 6-12 0-3-8-3-14 2-20z" fill="#dcdcdc"/><path d="M-4-10c0-6 4-8 8-8" stroke="#c4c4c4" stroke-width="3" stroke-linecap="round"/></g>
+<g class="fl"><circle cx="890" cy="144" r="18" fill="#7a4a8c"/><path d="M882 152l14-14M894 136l4-4" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path class="tw" d="M893 126h22m-11-11v22" stroke="#e3a843" stroke-width="2.4" stroke-linecap="round"/></g>
+<g class="rv" style="animation-delay:0.3s"><rect x="70" y="196" width="820" height="28" rx="8" fill="#f6f8fa"/><rect x="82" y="203" width="14" height="14" rx="3" stroke="#14293a" stroke-opacity=".35" stroke-width="2"/><text x="108" y="215" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="14" fill="#14293a" text-anchor="start" >Identify the specific industry or region</text><rect x="790" y="201" width="86" height="18" rx="9" fill="#dfeee8"/><text x="833" y="214" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="11" fill="#2b776e" text-anchor="middle" >10–15 min</text></g>
+<g class="rv" style="animation-delay:0.5s"><rect x="70" y="230" width="820" height="28" rx="8" fill="#f6f8fa"/><rect x="82" y="237" width="14" height="14" rx="3" stroke="#14293a" stroke-opacity=".35" stroke-width="2"/><text x="108" y="249" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="14" fill="#14293a" text-anchor="start" >Research the main challenges</text><rect x="790" y="235" width="86" height="18" rx="9" fill="#dfeee8"/><text x="833" y="248" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="11" fill="#2b776e" text-anchor="middle" >1 hour</text></g>
+<g class="rv" style="animation-delay:0.7s"><rect x="70" y="264" width="820" height="28" rx="8" fill="#f6f8fa"/><rect x="82" y="271" width="14" height="14" rx="3" stroke="#14293a" stroke-opacity=".35" stroke-width="2"/><text x="108" y="283" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="14" fill="#14293a" text-anchor="start" >Research the benefits for businesses</text><rect x="790" y="269" width="86" height="18" rx="9" fill="#dfeee8"/><text x="833" y="282" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="11" fill="#2b776e" text-anchor="middle" >1 hour</text></g>
+<g class="rv" style="animation-delay:0.9000000000000001s"><rect x="70" y="298" width="820" height="28" rx="8" fill="#f6f8fa"/><rect x="82" y="305" width="14" height="14" rx="3" stroke="#14293a" stroke-opacity=".35" stroke-width="2"/><text x="108" y="317" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="14" fill="#14293a" text-anchor="start" >Find examples of company–government collaboration</text><rect x="790" y="303" width="86" height="18" rx="9" fill="#dfeee8"/><text x="833" y="316" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="11" fill="#2b776e" text-anchor="middle" >1 hour</text></g>
+<g class="rv" style="animation-delay:1.1s"><rect x="70" y="332" width="820" height="28" rx="8" fill="#f6f8fa"/><rect x="82" y="339" width="14" height="14" rx="3" stroke="#14293a" stroke-opacity=".35" stroke-width="2"/><text x="108" y="351" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="14" fill="#14293a" text-anchor="start" >Organise the findings into a clear structure</text><rect x="790" y="337" width="86" height="18" rx="9" fill="#dfeee8"/><text x="833" y="350" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="11" fill="#2b776e" text-anchor="middle" >1 hour</text></g>
+</svg>

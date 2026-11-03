@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" fill="none" role="img" aria-label="Four vowel sounds. /iː/ as in seat, cheap, feel: a long sound with a smile. /ɪ/ as in sit, chip, fill: short and relaxed. /e/ as in men, beg, bet: short, mouth half open. /æ/ as in man, bag, bat: short, mouth wide open. A bar shows that /iː/ is the longest.">
+<title>Four vowel sounds. /iː/ as in seat, cheap, feel: a long sound with a smile. /ɪ/ as in sit, chip, fill: short and relaxed. /e/ as in men, beg, bet: short, mouth half open. /æ/ as in man, bag, bat: short, mouth wide open. A bar shows that /iː/ is the longest.</title>
+<style>
+.fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; } .fl4 { animation-delay: -2.4s; animation-duration: 6.2s; }
+.tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; } .tw3 { animation-delay: -.7s; }
+.pu { animation: pu 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.dr { stroke-dasharray: 8 10; animation: dr 1.6s linear infinite; }
+.rv { animation: rv .7s cubic-bezier(.2,.7,.2,1) both; }
+.wv { animation: wv 2.6s ease-out infinite; transform-box: fill-box; transform-origin: center; opacity: 0; } .wv2 { animation-delay: .85s; } .wv3 { animation-delay: 1.7s; }
+.sw { animation: sw 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
+.sp { animation: sp 12s linear infinite; transform-box: fill-box; transform-origin: center; }
+.vb { animation: vb .35s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+.bl { animation: bl 1.6s steps(1) infinite; }
+.gr { animation: gr 4s ease-in-out infinite; transform-box: fill-box; transform-origin: left center; }
+@keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+@keyframes pu { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.1); } 30% { transform: scale(1); } }
+@keyframes dr { to { stroke-dashoffset: -36; } }
+@keyframes rv { from { opacity: 0; transform: translateY(14px); } }
+@keyframes wv { 0% { opacity: 0; transform: scale(.6); } 25% { opacity: .9; } 100% { opacity: 0; transform: scale(1.5); } }
+@keyframes sw { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@keyframes sp { to { transform: rotate(360deg); } }
+@keyframes vb { from { transform: scaleY(.55); } to { transform: scaleY(1.15); } }
+@keyframes bl { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes gr { 0%, 100% { transform: scaleX(.35); } 50% { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv, .wv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef5f3"/><stop offset="1" stop-color="#f8f4ec"/></linearGradient>
+  <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d3a52"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+</defs>
+<rect width="960" height="330" rx="28" fill="#f3f7f6"/>
+<g class="rv" style="animation-delay:0.0s"><rect x="40" y="30" width="205" height="270" rx="20" fill="#fff" filter="url(#s2)"/>
+<g class="fl fl1"><g transform="translate(142 100)"><circle r="44" fill="#f6d2b4"/><circle cx="-15" cy="-12" r="4" fill="#14293a"/><circle cx="15" cy="-12" r="4" fill="#14293a"/><g transform="translate(0 16)"><path d="M-34 0c20 10 48 10 68 0c-20 8-48 8-68 0z" fill="#8a2f2f" stroke="#5a1f1f" stroke-width="2"/></g></g></g>
+<text x="142" y="178" font-family="Georgia, 'Times New Roman', serif" font-weight="800" font-size="30" fill="#2b776e" text-anchor="middle" >/iː/</text><text x="142" y="200" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="13" fill="#14293a" text-anchor="middle" >long · smile</text>
+<rect x="70" y="212" width="145" height="8" rx="4" fill="#14293a" opacity=".08"/><rect x="70" y="212" width="145" height="8" rx="4" fill="#2b776e"/>
+<text x="142" y="252" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="18" fill="#14293a" text-anchor="middle" >seat · cheap · feel</text>
+<text x="142" y="282" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="11" fill="#5a6b78" text-anchor="middle" >length</text></g>
+<g class="rv" style="animation-delay:0.2s"><rect x="265" y="30" width="205" height="270" rx="20" fill="#fff" filter="url(#s2)"/>
+<g class="fl fl2"><g transform="translate(367 100)"><circle r="44" fill="#f6d2b4"/><circle cx="-15" cy="-12" r="4" fill="#14293a"/><circle cx="15" cy="-12" r="4" fill="#14293a"/><g transform="translate(0 16)"><path d="M-28 0c18 12 38 12 56 0c-18 4-38 4-56 0z" fill="#8a2f2f" stroke="#5a1f1f" stroke-width="2"/></g></g></g>
+<text x="367" y="178" font-family="Georgia, 'Times New Roman', serif" font-weight="800" font-size="30" fill="#3a58a0" text-anchor="middle" >/ɪ/</text><text x="367" y="200" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="13" fill="#14293a" text-anchor="middle" >short · relaxed</text>
+<rect x="295" y="212" width="145" height="8" rx="4" fill="#14293a" opacity=".08"/><rect x="295" y="212" width="65" height="8" rx="4" fill="#3a58a0"/>
+<text x="367" y="252" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="18" fill="#14293a" text-anchor="middle" >sit · chip · fill</text>
+<text x="367" y="282" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="11" fill="#5a6b78" text-anchor="middle" >length</text></g>
+<g class="rv" style="animation-delay:0.4s"><rect x="490" y="30" width="205" height="270" rx="20" fill="#fff" filter="url(#s2)"/>
+<g class="fl fl3"><g transform="translate(592 100)"><circle r="44" fill="#f6d2b4"/><circle cx="-15" cy="-12" r="4" fill="#14293a"/><circle cx="15" cy="-12" r="4" fill="#14293a"/><g transform="translate(0 16)"><path d="M-26-4c14 22 38 22 52 0c-16 4-36 4-52 0z" fill="#8a2f2f" stroke="#5a1f1f" stroke-width="2"/></g></g></g>
+<text x="592" y="178" font-family="Georgia, 'Times New Roman', serif" font-weight="800" font-size="30" fill="#e3a843" text-anchor="middle" >/e/</text><text x="592" y="200" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="13" fill="#14293a" text-anchor="middle" >short · half open</text>
+<rect x="520" y="212" width="145" height="8" rx="4" fill="#14293a" opacity=".08"/><rect x="520" y="212" width="65" height="8" rx="4" fill="#e3a843"/>
+<text x="592" y="252" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="18" fill="#14293a" text-anchor="middle" >men · beg · bet</text>
+<text x="592" y="282" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="11" fill="#5a6b78" text-anchor="middle" >length</text></g>
+<g class="rv" style="animation-delay:0.6000000000000001s"><rect x="715" y="30" width="205" height="270" rx="20" fill="#fff" filter="url(#s2)"/>
+<g class="fl fl1"><g transform="translate(817 100)"><circle r="44" fill="#f6d2b4"/><circle cx="-15" cy="-12" r="4" fill="#14293a"/><circle cx="15" cy="-12" r="4" fill="#14293a"/><g transform="translate(0 16)"><path d="M-30-6c10 34 50 34 60 0c-18 4-42 4-60 0z" fill="#8a2f2f" stroke="#5a1f1f" stroke-width="2"/></g></g></g>
+<text x="817" y="178" font-family="Georgia, 'Times New Roman', serif" font-weight="800" font-size="30" fill="#d4583a" text-anchor="middle" >/æ/</text><text x="817" y="200" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="13" fill="#14293a" text-anchor="middle" >short · wide open</text>
+<rect x="745" y="212" width="145" height="8" rx="4" fill="#14293a" opacity=".08"/><rect x="745" y="212" width="72" height="8" rx="4" fill="#d4583a"/>
+<text x="817" y="252" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="18" fill="#14293a" text-anchor="middle" >man · bag · bat</text>
+<text x="817" y="282" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="11" fill="#5a6b78" text-anchor="middle" >length</text></g>
+<path d="M248 260h14M473 260h14M698 260h14" stroke="#14293a" stroke-opacity=".25" stroke-width="3"/>
+</svg>

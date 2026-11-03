@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" fill="none" role="img" aria-label="Slide C: the same bullet points as slide B, but with a hard-to-read script font in the headings, pale green text on a bright green box and pink text on a bright red box, two smiley emojis with hearts, and no references.">
+<title>Slide C: the same bullet points as slide B, but with a hard-to-read script font in the headings, pale green text on a bright green box and pink text on a bright red box, two smiley emojis with hearts, and no references.</title>
+<style>
+.fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; } .fl4 { animation-delay: -2.4s; animation-duration: 6.2s; }
+.tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; } .tw3 { animation-delay: -.7s; }
+.pu { animation: pu 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.dr { stroke-dasharray: 8 10; animation: dr 1.6s linear infinite; }
+.rv { animation: rv .7s cubic-bezier(.2,.7,.2,1) both; }
+.wv { animation: wv 2.6s ease-out infinite; transform-box: fill-box; transform-origin: center; opacity: 0; } .wv2 { animation-delay: .85s; } .wv3 { animation-delay: 1.7s; }
+.sw { animation: sw 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
+.sp { animation: sp 12s linear infinite; transform-box: fill-box; transform-origin: center; }
+.vb { animation: vb .35s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+.bl { animation: bl 1.6s steps(1) infinite; }
+.gr { animation: gr 4s ease-in-out infinite; transform-box: fill-box; transform-origin: left center; }
+@keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+@keyframes pu { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.1); } 30% { transform: scale(1); } }
+@keyframes dr { to { stroke-dashoffset: -36; } }
+@keyframes rv { from { opacity: 0; transform: translateY(14px); } }
+@keyframes wv { 0% { opacity: 0; transform: scale(.6); } 25% { opacity: .9; } 100% { opacity: 0; transform: scale(1.5); } }
+@keyframes sw { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@keyframes sp { to { transform: rotate(360deg); } }
+@keyframes vb { from { transform: scaleY(.55); } to { transform: scaleY(1.15); } }
+@keyframes bl { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes gr { 0%, 100% { transform: scaleX(.35); } 50% { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv, .wv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef5f3"/><stop offset="1" stop-color="#f8f4ec"/></linearGradient>
+  <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d3a52"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+</defs>
+<rect width="960" height="540" fill="#fff"/>
+<rect x="0.5" y="0.5" width="959" height="539" stroke="#14293a" stroke-opacity=".15"/>
+<g transform="translate(928 34)"><circle r="24" fill="#14293a"/><text x="0" y="8" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="22" fill="#fff" text-anchor="middle" >C</text></g>
+<text x="480" y="72" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-weight="400" font-size="40" fill="#444" text-anchor="middle" font-style="italic" text-decoration="underline">Impacts of Digital Devices</text>
+<text x="230" y="128" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-weight="400" font-size="26" fill="#444" text-anchor="middle" font-style="italic">Positive Impacts</text><text x="700" y="128" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-weight="400" font-size="26" fill="#444" text-anchor="middle" font-style="italic">Negative Impacts</text>
+<g class="fl"><g transform="translate(130 64)"><circle r="40" stroke="#f2c14e" stroke-width="4"/><path d="M-18-6c4-6 10-6 14 0M4-6c4-6 10-6 14 0M-18 12c10 14 26 14 36 0" stroke="#f2c14e" stroke-width="4" stroke-linecap="round"/><path d="M28-36c4-8 14-4 10 4l-8 8-8-8c-4-8 6-12 6-4z" fill="#fff" stroke="#f2c14e" stroke-width="3"/><path d="M-36 26c4-8 14-4 10 4l-8 8-8-8c-4-8 6-12 6-4z" fill="#fff" stroke="#f2c14e" stroke-width="3"/></g></g><g class="fl"><g transform="translate(830 64)"><circle r="40" stroke="#f2c14e" stroke-width="4"/><path d="M-18-6c4-6 10-6 14 0M4-6c4-6 10-6 14 0M-18 12c10 14 26 14 36 0" stroke="#f2c14e" stroke-width="4" stroke-linecap="round"/><path d="M28-36c4-8 14-4 10 4l-8 8-8-8c-4-8 6-12 6-4z" fill="#fff" stroke="#f2c14e" stroke-width="3"/><path d="M-36 26c4-8 14-4 10 4l-8 8-8-8c-4-8 6-12 6-4z" fill="#fff" stroke="#f2c14e" stroke-width="3"/></g></g>
+<rect x="48" y="146" width="420" height="314" fill="#00b050" stroke="#333" stroke-width="1"/><rect x="494" y="146" width="420" height="320" fill="#ff1a1a" stroke="#333" stroke-width="1"/>
+<text x="60" y="232" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="22" fill="#9dd86b" text-anchor="start" >•Efficiency of digital tech=</text><path d="M252 246h16v22h10l-18 20-18-20h10z" fill="#e6851c" stroke="#b0512a" stroke-width="1.2"/><text x="290" y="280" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="22" fill="#9dd86b" text-anchor="start" >energy use</text>
+<text x="60" y="346" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="22" fill="#9dd86b" text-anchor="start" >•e.g. working from home/</text><text x="60" y="376" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="22" fill="#9dd86b" text-anchor="start" >shopping online=</text><path d="M102 384h16v22h10l-18 20-18-20h10z" fill="#e6851c" stroke="#b0512a" stroke-width="1.2"/><text x="150" y="410" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="22" fill="#9dd86b" text-anchor="start" >emissions from car use</text>
+<text x="516" y="210" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="22" fill="#ff8a80" text-anchor="start" >• Production &amp; use of digital tech</text><path d="M512 230h26v-10l22 18-22 18v-10h-26z" fill="#e6851c" stroke="#b0512a" stroke-width="1.2"/><text x="572" y="246" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="22" fill="#ff8a80" text-anchor="start" >1.7 billion tonnes of GHG p/a</text>
+<text x="516" y="310" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="22" fill="#ff8a80" text-anchor="start" >• Individual internet users</text><path d="M600 328h26v-10l22 18-22 18v-10h-26z" fill="#e6851c" stroke="#b0512a" stroke-width="1.2"/><text x="660" y="344" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="22" fill="#ff8a80" text-anchor="start" >414kg of CO2 emissions</text>
+<text x="516" y="410" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="22" fill="#ff8a80" text-anchor="start" >• Harmful gases</text><path d="M690 396h26v-10l22 18-22 18v-10h-26z" fill="#e6851c" stroke="#b0512a" stroke-width="1.2"/><text x="516" y="442" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="22" fill="#ff8a80" text-anchor="start" >irreparable environmental damage</text>
+<rect x="0" y="484" width="960" height="10" fill="#e6851c"/><rect x="0" y="494" width="960" height="46" fill="#b0512a"/>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" fill="none" role="img" aria-label="After your Interactive Presentation you answer two sets of questions. Set 1, on your content: one clarification question and one probing question. Set 2, on the Academic Success Toolkit: AI, group work, self-regulation, feedback, research or criticality.">
+<title>After your Interactive Presentation you answer two sets of questions. Set 1, on your content: one clarification question and one probing question. Set 2, on the Academic Success Toolkit: AI, group work, self-regulation, feedback, research or criticality.</title>
+<style>
+.fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; } .fl4 { animation-delay: -2.4s; animation-duration: 6.2s; }
+.tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; } .tw3 { animation-delay: -.7s; }
+.pu { animation: pu 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.dr { stroke-dasharray: 8 10; animation: dr 1.6s linear infinite; }
+.rv { animation: rv .7s cubic-bezier(.2,.7,.2,1) both; }
+.wv { animation: wv 2.6s ease-out infinite; transform-box: fill-box; transform-origin: center; opacity: 0; } .wv2 { animation-delay: .85s; } .wv3 { animation-delay: 1.7s; }
+.sw { animation: sw 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
+.sp { animation: sp 12s linear infinite; transform-box: fill-box; transform-origin: center; }
+.vb { animation: vb .35s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+.bl { animation: bl 1.6s steps(1) infinite; }
+.gr { animation: gr 4s ease-in-out infinite; transform-box: fill-box; transform-origin: left center; }
+@keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+@keyframes pu { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.1); } 30% { transform: scale(1); } }
+@keyframes dr { to { stroke-dashoffset: -36; } }
+@keyframes rv { from { opacity: 0; transform: translateY(14px); } }
+@keyframes wv { 0% { opacity: 0; transform: scale(.6); } 25% { opacity: .9; } 100% { opacity: 0; transform: scale(1.5); } }
+@keyframes sw { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@keyframes sp { to { transform: rotate(360deg); } }
+@keyframes vb { from { transform: scaleY(.55); } to { transform: scaleY(1.15); } }
+@keyframes bl { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes gr { 0%, 100% { transform: scaleX(.35); } 50% { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv, .wv { opacity: 1 !important; } }
+</style>
+<defs>
+  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
+  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
+  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef5f3"/><stop offset="1" stop-color="#f8f4ec"/></linearGradient>
+  <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d3a52"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+</defs>
+<rect width="960" height="320" rx="28" fill="#f3f7f6"/>
+<g class="rv"><rect x="36" y="110" width="180" height="100" rx="18" fill="#14293a" filter="url(#s2)"/><text x="126" y="152" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="16" fill="#fff" text-anchor="middle" >Your</text><text x="126" y="176" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="18" fill="#fff" text-anchor="middle" >presentation</text></g>
+<path class="dr" d="M216 140C270 140 270 80 320 80M216 180C270 180 270 240 320 240" stroke="#14293a" stroke-opacity=".4" stroke-width="3" stroke-linecap="round"/>
+<g class="rv" style="animation-delay:.2s"><rect x="320" y="24" width="600" height="120" rx="20" fill="#fff" filter="url(#s2)"/><text x="344" y="58" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="14" fill="#2b776e" text-anchor="start" letter-spacing="1.4">SET 1 · QUESTIONS ON YOUR CONTENT</text>
+<rect x="344" y="74" width="270" height="52" rx="14" fill="#2b776e"/><text x="479" y="98" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="16" fill="#fff" text-anchor="middle" >1 clarification question</text><text x="479" y="116" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="12" fill="#fff" text-anchor="middle" >make it clear</text><rect x="630" y="74" width="270" height="52" rx="14" fill="#d4583a"/><text x="765" y="98" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="16" fill="#fff" text-anchor="middle" >1 probing question</text><text x="765" y="116" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="12" fill="#fff" text-anchor="middle" >go deeper</text></g>
+<g class="rv" style="animation-delay:.4s"><rect x="320" y="176" width="600" height="120" rx="20" fill="#fff" filter="url(#s2)"/><text x="344" y="210" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="14" fill="#7a4a8c" text-anchor="start" letter-spacing="1.4">SET 2 · QUESTIONS ON THE ACADEMIC SUCCESS TOOLKIT</text>
+<g class="fl fl1"><rect x="344" y="228" width="88" height="46" rx="12" fill="#3a58a0"/><text x="388" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle" >AI</text></g>
+<g class="fl fl2"><rect x="440" y="228" width="88" height="46" rx="12" fill="#2b776e"/><text x="484" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle" >Group work</text></g>
+<g class="fl fl3"><rect x="536" y="228" width="88" height="46" rx="12" fill="#2f9a63"/><text x="580" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle" >Self-regulation</text></g>
+<g class="fl fl1"><rect x="632" y="228" width="88" height="46" rx="12" fill="#e3a843"/><text x="676" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle" >Feedback</text></g>
+<g class="fl fl2"><rect x="728" y="228" width="88" height="46" rx="12" fill="#b0512a"/><text x="772" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle" >Research</text></g>
+<g class="fl fl3"><rect x="824" y="228" width="88" height="46" rx="12" fill="#7a4a8c"/><text x="868" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle" >Criticality</text></g>
+</g>
+</svg>
