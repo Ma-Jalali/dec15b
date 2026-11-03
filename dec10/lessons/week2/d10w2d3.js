@@ -165,7 +165,7 @@ window.DEC15_LESSON = {
               { label: 'Slide B', blocks: [{ type: 'figure', src: 'dec10/assets/week2/d3-slide-b.svg', size: 'wide', alt: 'Slide B: two columns, positive and negative impacts, short bullet points with arrows and references.' }] },
               { label: 'Slide C', blocks: [{ type: 'figure', src: 'dec10/assets/week2/d3-slide-c.svg', size: 'wide', alt: 'Slide C: a script font, bright green and red boxes with pale text, smiley emojis and no references.' }] }
             ] },
-            { type: 'bet', id: 'p6-bet', title: 'Place your bet', items: [{ q: 'Which slide is best?', options: ['Slide A', 'Slide B', 'Slide C'], answer: 'Slide B', why: 'It just has bullet points of key details and includes referencing.' }] },
+            { type: 'bet', id: 'p6-bet', title: 'Place your bet', proof: 'Bet big only when you can say WHY.', items: [{ q: 'Which slide is best?', options: ['Slide A', 'Slide B', 'Slide C'], answer: 'Slide B', why: 'It just has bullet points of key details and includes referencing.' }] },
             { type: 'sort', id: 'p6-sort', title: 'What did you notice?', hint: 'Which slide does each comment describe?', buckets: [{ label: 'Slide A', letter: 'A' }, { label: 'Slide B', letter: 'B' }, { label: 'Slide C', letter: 'C' }], items: [
               { text: 'Too much text — the presenter will just read it.', answer: 0 },
               { text: 'The text distracts the audience from the speaker.', answer: 0 },
