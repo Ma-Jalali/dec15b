@@ -62,13 +62,15 @@ window.DEC15_LESSON = {
               { q: 'Was his presentation engaging?', options: ['Yes — he told a personal story.', 'No — he looked nervous and did not make eye contact.'], answer: 'No — he looked nervous and did not make eye contact.', why: 'Also: his phone rang, people laughed, and his slides had too much small text. He did not use his slides at all.' }
             ] },
             { type: 'do', n: 4, who: 'pair', text: 'Imagine Ranjit is your classmate. Say <b>one good thing</b> and <b>one tip</b>. Use the phrases.' },
-            { type: 'language', title: 'Give kind, useful feedback (from Week 1, Day 3)', tabs: false, groups: [
-              { label: 'Start with a strength', phrases: ['One thing that <b>worked well</b> was …', 'I <b>liked the way</b> you …', 'Your topic was <b>really interesting</b>.'] },
-              { label: 'Give a tip', phrases: ['<b>Next time, you could</b> …', 'It <b>might help to</b> …', 'Have you <b>thought about</b> …?', 'I <b>found it hard to</b> … because …'] }
+            { type: 'language', title: 'Language for giving peer feedback on presentations · Student’s book p. 102', groups: [
+              { label: 'Make it clearer', phrases: ['To make it clearer that …, you could …', 'To strengthen …, it might help …', 'Perhaps consider … -ing … rather than …', 'For better …, I suggest you …'] },
+              { label: 'Remind', phrases: ['Don’t forget to …', 'Remember to …', 'Be mindful of …', 'Try … to …, so …'] },
+              { label: 'Suggest', phrases: ['It might be beneficial to …', 'You could possibly …', 'I recommend …-ing …, so …', '… was good. To make it even better, you might …', 'It would help if …', 'It would help to …'] }
             ] },
-            { type: 'fields', fields: [{ id: 'e2-fb', label: 'My feedback for Ranjit', rows: 3, placeholder: 'One thing that worked well was … Next time, you could …' }] }
+            { type: 'tip', text: 'Open your <b>Student’s book, page 102</b>. These are the same expressions. You will use them all day.' },
+            { type: 'fields', fields: [{ id: 'e2-fb', label: 'My feedback for Ranjit', rows: 3, placeholder: '… was good. To make it even better, you might …' }] }
           ],
-          answers: { items: [['Feedback for Ranjit', 'Your own answer. For example: “Your slide showed the topic clearly. Next time, you could introduce the topic and your plan at the start, look up at the audience, and switch off your phone.”']] }
+          answers: { items: [['Feedback for Ranjit', 'Your own answer. For example: “Your slide was good. To make it even better, you might introduce the topic and your plan at the start, look up at the audience, and switch off your phone.”']] }
         },
         {
           id: 'e3', short: 'Video 2', minutes: 6, grouping: 'Alone → Pair', art: 'dec10/assets/week2/v/v-d10w2d4-e3.svg',
@@ -261,6 +263,7 @@ window.DEC15_LESSON = {
               'The Peer and Teacher Presentation Feedback Tool is open, ready to fill out.',
               'I know my part and who speaks before and after me.'
             ] },
+            { type: 'tip', text: 'Working as a group? Your <b>Student’s book, page 103</b> has the language for solving problems in a group.' },
             { type: 'do', n: 1, who: 'group', text: 'Run through your talk once. Each speaker: practise your <b>first sentence</b> and your <b>hand-over</b> to the next speaker.' },
             { type: 'language', title: 'Language for your group presentation', groups: [
               { label: 'Open', phrases: ['Good morning, everyone. <b>Today we’re going to talk about</b> …', 'Our presentation <b>is divided into</b> three parts.', '<b>First</b>, I’ll … <b>Then</b> … will … <b>Finally</b>, …'] },
@@ -352,10 +355,11 @@ window.DEC15_LESSON = {
               { label: 'Question & Answer', items: ['Answers were given spontaneously.', 'Answers were relevant.', 'Answers were clear.'] }
             ], send: true, sendLabel: 'Send to the presenter', sendHint: 'Send this form to the presenter you gave feedback on. They save it in their “Research & Seminar Presentations – Feedback & Action Plans” folder.' },
             { type: 'fields', fields: [{ id: 'p5-q', label: 'My question for Group 3', rows: 2, placeholder: 'Could you explain what you mean by … ? / Why do you think … ?' }] },
-            { type: 'language', title: 'Say your feedback face to face', tabs: false, groups: [
-              { label: '1 · Strength', phrases: ['<b>We really liked</b> the way you …', 'Your … was <b>very clear</b>.'] },
-              { label: '2 · Area to work on', phrases: ['<b>We found it a bit hard to</b> … because …', '<b>Sometimes</b> your voice was …'] },
-              { label: '3 · Action point', phrases: ['<b>Next time, try to</b> …', '<b>Our action point for you is</b> …', '<b>Does that make sense?</b> Any questions?'] }
+            { type: 'do', n: 1, who: 'group', text: 'Say your feedback face to face. Open your <b>Student’s book, page 102</b>: Language for giving peer feedback on presentations. Use at least <b>three</b> expressions.' },
+            { type: 'language', title: 'Language for giving peer feedback on presentations · Student’s book p. 102', groups: [
+              { label: 'Make it clearer', phrases: ['To make it clearer that …, you could …', 'To strengthen …, it might help …', 'Perhaps consider … -ing … rather than …', 'For better …, I suggest you …'] },
+              { label: 'Remind', phrases: ['Don’t forget to …', 'Remember to …', 'Be mindful of …', 'Try … to …, so …'] },
+              { label: 'Suggest', phrases: ['It might be beneficial to …', 'You could possibly …', 'I recommend …-ing …, so …', '… was good. To make it even better, you might …', 'It would help if …', 'It would help to …'] }
             ] }
           ]
         },
@@ -377,7 +381,7 @@ window.DEC15_LESSON = {
               { label: 'Question & Answer', items: ['Answers were given spontaneously.', 'Answers were relevant.', 'Answers were clear.'] }
             ], send: true, sendLabel: 'Send to the presenter', sendHint: 'Send this form to the presenter you gave feedback on. They save it in their “Research & Seminar Presentations – Feedback & Action Plans” folder.' },
             { type: 'fields', fields: [{ id: 'p6-q', label: 'My question for Group 4', rows: 2, placeholder: 'What evidence is there that … ? / What would happen if … ?' }] },
-            { type: 'tip', text: '<b>Make your action point specific.</b> Not “Speak better.” → “Pause after each main point, and look up every sentence or two.”' }
+            { type: 'tip', text: '<b>Student’s book, page 102:</b> use a feedback expression you did not use for Group 3. <b>Make your action point specific.</b> Not “Speak better.” → “Pause after each main point, and look up every sentence or two.”' }
           ]
         },
         {
@@ -397,7 +401,8 @@ window.DEC15_LESSON = {
               { label: 'Language Use', items: ['The grammar used was largely accurate and we could understand the meaning. The vocabulary used was largely accurate and we could understand the meaning.', 'We could hear functional language (EG evaluating; explaining cause /effect; explaining problem)'] },
               { label: 'Question & Answer', items: ['Answers were given spontaneously.', 'Answers were relevant.', 'Answers were clear.'] }
             ], send: true, sendLabel: 'Send to the presenter', sendHint: 'Send this form to the presenter you gave feedback on. They save it in their “Research & Seminar Presentations – Feedback & Action Plans” folder.' },
-            { type: 'fields', fields: [{ id: 'p7-q', label: 'My question for Group 5', rows: 2, placeholder: 'How would … affect … ? / Is this true for … ?' }] }
+            { type: 'fields', fields: [{ id: 'p7-q', label: 'My question for Group 5', rows: 2, placeholder: 'How would … affect … ? / Is this true for … ?' }] },
+            { type: 'fields', fields: [{ id: 'p7-fb', label: 'My feedback sentence for the presenter (Student’s book p. 102)', rows: 2, placeholder: 'To strengthen …, it might help … / I recommend …-ing …, so …' }] }
           ]
         },
         {
@@ -473,6 +478,7 @@ window.DEC15_LESSON = {
                   { label: 'React', phrases: ['<b>I was surprised that</b> …', '<b>I didn’t know that</b> …', '<b>It was interesting to hear</b> that …', '<b>I agree / I’m not sure</b> that …'] },
                   { label: 'Ask for more', phrases: ['<b>We would like to know more about</b> …', '<b>It wasn’t clear to us</b> why …', '<b>We wonder whether</b> …'] }
                 ] },
+                { type: 'tip', text: 'Need more discussion language? Open your <b>Student’s book</b>: <b>page 112</b> (cause and effect) and <b>page 113</b> (compare and contrast).' },
                 { type: 'do', n: 2, who: 'group', text: 'Choose your best <b>one or two questions</b>. Write ONE group post. Post it to the Discussion Board <b>now, in class</b>.' },
                 { type: 'fields', fields: [{ id: 'o3-react', label: 'Our group’s reactions', rows: 3, placeholder: 'We were surprised that … It was interesting to hear …' }, { id: 'o3-qs', label: 'Our one or two questions for Group 1', rows: 3, placeholder: '1. How … ?\n2. Why … ?' }] },
                 { type: 'checklist', id: 'o3-post', title: 'Our post', items: ['Reactions + one or two questions', 'ONE post per group', 'Posted in class'] }
@@ -527,6 +533,7 @@ window.DEC15_LESSON = {
               { label: 'Compare', phrases: ['<b>How is</b> … <b>different in</b> … <b>compared with</b> …?', '<b>Which is more effective</b>, … or …? Why?'] },
               { label: 'Experience', phrases: ['<b>In your experience</b>, …?', '<b>How could you change your own</b> … ?'] }
             ] },
+            { type: 'tip', text: 'More language for your questions: <b>Student’s book page 112</b> (cause and effect) and <b>page 113</b> (compare and contrast). Group 1, planning together? Use <b>page 103</b> (solving problems in a group).' },
             { type: 'do', n: 2, who: 'pair', text: '<b>Upgrade it!</b> Turn each weak question into a thought-provoking one. Use a stem above.' },
             { type: 'fields', fields: [
               { id: 'o5-u1', label: 'Weak: “Do you use your phone a lot?” → My upgrade', rows: 2, placeholder: 'How do our phone habits …' },

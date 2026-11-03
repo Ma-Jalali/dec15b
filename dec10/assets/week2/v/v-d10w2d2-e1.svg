@@ -4,7 +4,7 @@
 .sp{animation:sp 9s linear infinite;transform-box:fill-box;transform-origin:center}.pu{animation:pu 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
 .dr{stroke-dasharray:6 8;animation:dr 1.6s linear infinite}.bl{animation:bl 1.8s steps(1) infinite}.b2{animation-delay:-.6s}.b3{animation-delay:-1.2s}
 .sw{animation:sw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}
-.wv{animation:wv 2.7s ease-out infinite;opacity:0;transform-box:fill-box;transform-origin:left center}.w2{animation-delay:.9s}.w3{animation-delay:1.8s}
+.wv{animation:wv 2.7s ease-out infinite;opacity:.8;transform-box:fill-box;transform-origin:left center}.w2{animation-delay:.9s}.w3{animation-delay:1.8s}
 .ri{animation:ri 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.r2{animation-delay:-2s}.r3{animation-delay:-4s}
 .eq{animation:eq 1.2s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom}.e2{animation-delay:-.3s}.e3{animation-delay:-.6s}.e4{animation-delay:-.9s}
 .pb{animation:pb 8s linear infinite;transform-box:fill-box;transform-origin:left}
