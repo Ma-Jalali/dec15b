@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" fill="none" role="img" aria-label="A language lab bench: a flask with Aa bubbling inside, a test-tube rack labelled is, are, which and however, a citation card reading (Smith, 2024), a magnifying glass over a notebook">
+<style>
+  .bub { animation: bub 3.4s ease-in infinite; transform-box: fill-box; transform-origin: center; opacity: 0; }
+  .b2 { animation-delay: -1.1s; } .b3 { animation-delay: -2.2s; } .b4 { animation-delay: -.6s; }
+  @keyframes bub { 0% { transform: translateY(0) scale(.6); opacity: 0; } 15% { opacity: .9; } 100% { transform: translateY(-46px) scale(1.1); opacity: 0; } }
+  .fl { animation: fl 6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .f2 { animation-delay: -2s; } .f3 { animation-delay: -4s; }
+  @keyframes fl { 0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); } 50% { transform: translateY(-6px) rotate(var(--r, 0deg)); } }
+  .tw { animation: tw 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .t2 { animation-delay: -1.5s; }
+  @keyframes tw { 0%, 100% { opacity: .25; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+  .slosh { animation: slosh 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center bottom; }
+  @keyframes slosh { 0%, 100% { transform: skewX(0); } 50% { transform: skewX(-3deg); } }
+  .glow { animation: glow 4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes glow { 0%, 100% { opacity: .35; } 50% { opacity: .7; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } .bub { opacity: .7; } }
+</style>
+<defs>
+  <linearGradient id="liq" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2669a"/><stop offset="1" stop-color="#a3416a"/></linearGradient>
+  <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffffff" stop-opacity=".9"/><stop offset=".5" stop-color="#ffffff" stop-opacity=".35"/><stop offset="1" stop-color="#ffffff" stop-opacity=".8"/></linearGradient>
+  <linearGradient id="teal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fae9b"/><stop offset="1" stop-color="#1f7d6c"/></linearGradient>
+  <linearGradient id="clay" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e58a5c"/><stop offset="1" stop-color="#b8532a"/></linearGradient>
+  <linearGradient id="plum" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9a6bc0"/><stop offset="1" stop-color="#6e4a92"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0bb55"/><stop offset="1" stop-color="#c88a20"/></linearGradient>
+  <radialGradient id="halo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#f7c6dc"/><stop offset="1" stop-color="#f7c6dc" stop-opacity="0"/></radialGradient>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1" fill="#14293a" opacity=".08"/></pattern>
+</defs>
+<!-- backdrop -->
+<rect x="20" y="16" width="480" height="258" rx="34" fill="url(#dots)"/>
+<circle class="glow" cx="262" cy="140" r="120" fill="url(#halo)"/>
+<!-- bench -->
+<rect x="40" y="236" width="440" height="14" rx="7" fill="#e9dcc4"/>
+<rect x="40" y="236" width="440" height="4" rx="2" fill="#f5ecdc"/>
+<ellipse cx="262" cy="262" rx="210" ry="8" fill="#14293a" opacity=".06"/>
+<!-- notebook + magnifier (left) -->
+<g class="fl f3" style="--r:-4deg">
+  <rect x="62" y="168" width="104" height="66" rx="6" fill="#fff" stroke="#d9cdb6"/>
+  <rect x="62" y="168" width="10" height="66" rx="3" fill="#14293a"/>
+  <path d="M80 182h72M80 192h66M80 202h70M80 212h50M80 222h60" stroke="#c9d3dc" stroke-width="2" stroke-linecap="round"/>
+  <path d="M80 192h30" stroke="#2f7d6b" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="132" cy="196" r="17" fill="#ffffff" fill-opacity=".55" stroke="#14293a" stroke-width="4"/>
+  <path d="m144 208 14 14" stroke="#14293a" stroke-width="6" stroke-linecap="round"/>
+  <path d="M124 190a9 9 0 0 1 8-4" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+</g>
+<!-- flask (centre) -->
+<g>
+  <path d="M244 70h36v8h-4v42l38 76a14 14 0 0 1-12.5 20.5h-79A14 14 0 0 1 210 196l38-76V78h-4z" fill="#fff" stroke="#14293a" stroke-width="3" stroke-linejoin="round"/>
+  <g class="slosh"><path d="M226 166h72l17 32a10 10 0 0 1-9 14.6h-88a10 10 0 0 1-9-14.6z" fill="url(#liq)"/>
+    <path d="M226 166c12 6 24-6 36 0s24 6 36 0" stroke="#f7b9d3" stroke-width="3" stroke-linecap="round" fill="none"/></g>
+  <text x="262" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#fff">Aa</text>
+  <circle class="bub" cx="246" cy="176" r="4" fill="#fff" fill-opacity=".85"/>
+  <circle class="bub b2" cx="270" cy="182" r="3" fill="#fff" fill-opacity=".85"/>
+  <circle class="bub b3" cx="282" cy="174" r="5" fill="#fff" fill-opacity=".7"/>
+  <circle class="bub b4" cx="256" cy="186" r="2.5" fill="#fff" fill-opacity=".9"/>
+  <path d="M252 84v36l-34 68" stroke="url(#glass)" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+  <rect x="240" y="64" width="44" height="10" rx="4" fill="#14293a"/>
+  <path d="M262 52c0-8 6-10 6-16" stroke="#f0bb55" stroke-width="2.4" stroke-linecap="round" class="tw"/>
+</g>
+<!-- test-tube rack (right) -->
+<g>
+  <rect x="338" y="150" width="128" height="12" rx="4" fill="#c9b08a"/>
+  <rect x="338" y="214" width="128" height="10" rx="4" fill="#b99b72"/>
+  <rect x="344" y="160" width="6" height="64" fill="#c9b08a"/><rect x="454" y="160" width="6" height="64" fill="#c9b08a"/>
+  <g><rect x="356" y="104" width="18" height="108" rx="9" fill="#fff" stroke="#14293a" stroke-width="2.5"/><rect x="358.5" y="152" width="13" height="57" rx="6.5" fill="url(#teal)"/></g>
+  <g><rect x="382" y="96" width="18" height="116" rx="9" fill="#fff" stroke="#14293a" stroke-width="2.5"/><rect x="384.5" y="140" width="13" height="69" rx="6.5" fill="url(#clay)"/></g>
+  <g><rect x="408" y="110" width="18" height="102" rx="9" fill="#fff" stroke="#14293a" stroke-width="2.5"/><rect x="410.5" y="162" width="13" height="47" rx="6.5" fill="url(#plum)"/></g>
+  <g><rect x="434" y="100" width="18" height="112" rx="9" fill="#fff" stroke="#14293a" stroke-width="2.5"/><rect x="436.5" y="146" width="13" height="63" rx="6.5" fill="url(#gold)"/></g>
+  <!-- labels on the tubes -->
+  <g font-family="Arial, sans-serif" font-size="7.5" font-weight="700" text-anchor="middle" fill="#fff">
+    <text x="365" y="186" transform="rotate(-90 365 186)">is/are</text>
+    <text x="391" y="182" transform="rotate(-90 391 182)">which</text>
+    <text x="417" y="190" transform="rotate(-90 417 190)">rely on</text>
+    <text x="443" y="184" transform="rotate(-90 443 184)">However,</text>
+  </g>
+</g>
+<!-- floating cards -->
+<g class="fl" style="--r:-6deg"><rect x="96" y="64" width="108" height="44" rx="10" fill="#fff" stroke="#f0d2c1"/>
+  <rect x="96" y="64" width="6" height="44" rx="3" fill="#b8532a"/>
+  <text x="152" y="84" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#b8532a" font-style="italic">(Smith, 2024)</text>
+  <path d="M112 96h70" stroke="#e7d5c7" stroke-width="3" stroke-linecap="round"/></g>
+<g class="fl f2" style="--r:5deg"><rect x="330" y="40" width="96" height="40" rx="10" fill="#fff" stroke="#cfe5df"/>
+  <rect x="330" y="40" width="6" height="40" rx="3" fill="#1f7d6c"/>
+  <text x="380" y="65" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#1f7d6c" font-weight="700">is ✓ / are</text></g>
+<g class="fl f3" style="--r:-3deg"><rect x="432" y="250" width="0" height="0"/></g>
+<!-- sparkles -->
+<path class="tw" d="M208 46l2.6 6.4 6.4 2.6-6.4 2.6-2.6 6.4-2.6-6.4-6.4-2.6 6.4-2.6z" fill="#f0bb55"/>
+<path class="tw t2" d="M462 78l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#a3416a"/>
+<circle class="tw" cx="70" cy="136" r="3" fill="#1f7d6c"/><circle class="tw t2" cx="318" cy="112" r="2.6" fill="#b8532a"/>
+<circle class="tw t2" cx="182" cy="140" r="2.2" fill="#6e4a92"/>
+</svg>
