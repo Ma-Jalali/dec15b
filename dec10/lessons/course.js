@@ -25,6 +25,21 @@ window.DEC15_COURSE = {
   defaultLesson: 'd10w1d1',
   // loaded before every lesson: the Course calendar and Assessments pages (side panel)
   scripts: ['dec10/lessons/guide.js'],
+  /* DOWNLOADS (side panel → Downloads, #/downloads): forms students download, fill in and keep or share.
+     Each file lives in the site (dec10/downloads/, cached for offline use) and a copy is kept in Supabase Storage
+     (public bucket "downloads"). In a lesson, { type: 'download', id: 'feedback-tool' } shows the download card.
+     ADD A FILE: put the PDF in dec10/downloads/, a preview of each page in dec10/assets/downloads/, add an entry below,
+     raise the version and run node tools/build-sw.js. Upload the same PDF to the "downloads" bucket in Supabase. */
+  downloads: [
+    { id: 'feedback-tool', title: 'Peer & Teacher Feedback Tool', sub: 'Research Summary Presentations · Seminar Presentations',
+      kind: 'Fillable PDF', pages: 2, size: '149 KB', tone: 'blue',
+      file: 'dec10/downloads/DEC10-Peer-and-Teacher-Feedback-Tool.pdf',
+      mirror: 'https://bogagtbkiavnhuohzqzb.supabase.co/storage/v1/object/public/downloads/DEC10-Peer-and-Teacher-Feedback-Tool.pdf',
+      thumbs: ['dec10/assets/downloads/feedback-tool-p1.jpg', 'dec10/assets/downloads/feedback-tool-p2.jpg'],
+      what: 'Rate a classmate’s presentation on 20 statements (content, pronunciation, language, questions and answers), then write one specific action for each part.',
+      when: ['Research Summary group presentations (Weeks 2–3 and Week 6)', 'Seminar presentations and Opening Remarks (Weeks 2–7)', 'Your own feedback action plan'],
+      how: ['Download the form.', 'Open it in <b>Adobe Acrobat Reader</b> (free) or <b>Preview</b> on a Mac — a web browser may not save what you type.', 'Tick one circle for each statement. Then write your actions on page 2.', '<b>Save</b> the file with the presenter’s name, e.g. <i>Feedback – Group 2 – Anna.pdf</i>.', 'Send it to the presenter, or keep it in your feedback folder.'] }
+  ],
   /* LANGUAGE LAB (side panel → Language Lab, #/lab): short self-study lessons outside the weekly plan, to fill gaps.
      Built for self-study (a teacher can also use one in class). Every lesson is ONE page with four tabs:
        Warm-up (a short self-check) · Learn · Practise (controlled) · Use it (freer practice). The Lab page shows the strands

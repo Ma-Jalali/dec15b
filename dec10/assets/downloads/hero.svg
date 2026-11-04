@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="Two feedback forms rise out of an open folder; a download arrow drops into a tray with a tick">
+<style>
+  .fl { animation: fl 5.5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .f2 { animation-delay: -1.8s; } .f3 { animation-delay: -3.6s; }
+  .dr { animation: dr 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  .tw { animation: tw 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .t2 { animation-delay: -1.5s; }
+  .pb { animation: pb 4s ease-in-out infinite; transform-box: fill-box; transform-origin: left; }
+  @keyframes fl { 0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); } 50% { transform: translateY(-7px) rotate(var(--r, 0deg)); } }
+  @keyframes dr { 0% { transform: translateY(-10px); opacity: 0; } 25% { opacity: 1; } 70% { transform: translateY(8px); opacity: 1; } 100% { transform: translateY(12px); opacity: 0; } }
+  @keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
+  @keyframes pb { 0% { transform: scaleX(.08); } 70%, 100% { transform: scaleX(1); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eaf1fb"/><stop offset="1" stop-color="#f6f0e4"/></linearGradient>
+  <linearGradient id="fold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2b54f"/><stop offset="1" stop-color="#d9902a"/></linearGradient>
+  <linearGradient id="foldb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3a843"/><stop offset="1" stop-color="#c47f1f"/></linearGradient>
+  <linearGradient id="head" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#14293a"/><stop offset="1" stop-color="#1f4466"/></linearGradient>
+</defs>
+<circle cx="222" cy="172" r="138" fill="url(#bg)"/>
+<circle cx="222" cy="172" r="138" stroke="#c9d8ec" stroke-dasharray="3 7"/>
+<ellipse cx="222" cy="300" rx="128" ry="12" fill="#14293a" opacity=".08"/>
+<!-- folder back -->
+<path d="M110 132h70l14 14h136a10 10 0 0 1 10 10v124a10 10 0 0 1-10 10H110a10 10 0 0 1-10-10V142a10 10 0 0 1 10-10z" fill="url(#foldb)"/>
+<!-- page 2 -->
+<g class="fl f2" style="--r:-7deg">
+  <rect x="148" y="70" width="112" height="156" rx="6" fill="#fff" stroke="#d6dfe9"/>
+  <rect x="148" y="70" width="112" height="20" rx="6" fill="url(#head)"/><rect x="148" y="84" width="112" height="6" fill="#1f4466"/>
+  <rect x="156" y="77" width="56" height="5" rx="2.5" fill="#fff" opacity=".9"/>
+  <rect x="158" y="100" width="92" height="22" rx="4" fill="#e8f0fb" stroke="#3a6fb6" stroke-opacity=".3"/>
+  <rect x="158" y="128" width="92" height="22" rx="4" fill="#e3f4f1" stroke="#1f8a7a" stroke-opacity=".3"/>
+  <rect x="158" y="156" width="92" height="22" rx="4" fill="#efe9fb" stroke="#6e4caa" stroke-opacity=".3"/>
+  <rect x="158" y="184" width="92" height="22" rx="4" fill="#fcefe2" stroke="#d07a1f" stroke-opacity=".3"/>
+</g>
+<!-- page 1 -->
+<g class="fl" style="--r:5deg">
+  <rect x="200" y="62" width="118" height="164" rx="6" fill="#fff" stroke="#d6dfe9"/>
+  <rect x="200" y="62" width="118" height="24" rx="6" fill="url(#head)"/><rect x="200" y="80" width="118" height="6" fill="#1f4466"/>
+  <rect x="208" y="68" width="22" height="3" rx="1.5" fill="#9fb8d6"/><rect x="208" y="74" width="70" height="6" rx="3" fill="#fff"/>
+  <rect x="208" y="94" width="102" height="12" rx="3" fill="#2f6db5"/><rect x="212" y="98.5" width="40" height="3" rx="1.5" fill="#fff"/>
+  <g fill="none" stroke="#9fb3c8" stroke-width="1.2">
+    <circle cx="266" cy="118" r="3.2"/><circle cx="280" cy="118" r="3.2"/><circle cx="294" cy="118" r="3.2"/><circle cx="306" cy="118" r="3.2"/>
+    <circle cx="266" cy="130" r="3.2"/><circle cx="280" cy="130" r="3.2"/><circle cx="294" cy="130" r="3.2"/><circle cx="306" cy="130" r="3.2"/>
+    <circle cx="266" cy="142" r="3.2"/><circle cx="280" cy="142" r="3.2"/><circle cx="294" cy="142" r="3.2"/><circle cx="306" cy="142" r="3.2"/>
+  </g>
+  <circle cx="280" cy="118" r="2" fill="#2f6db5"/><circle cx="294" cy="130" r="2" fill="#2f6db5"/><circle cx="280" cy="142" r="2" fill="#2f6db5"/>
+  <rect x="208" y="115.5" width="48" height="4" rx="2" fill="#c3cfdb"/><rect x="208" y="127.5" width="42" height="4" rx="2" fill="#c3cfdb"/><rect x="208" y="139.5" width="50" height="4" rx="2" fill="#c3cfdb"/>
+  <rect x="208" y="154" width="102" height="10" rx="3" fill="#13887a"/><rect x="212" y="157.5" width="44" height="3" rx="1.5" fill="#fff"/>
+  <rect x="208" y="170" width="48" height="4" rx="2" fill="#c3cfdb"/><circle cx="294" cy="172" r="3.2" stroke="#9fb3c8" stroke-width="1.2"/><circle cx="294" cy="172" r="2" fill="#13887a"/>
+  <rect x="208" y="182" width="102" height="10" rx="3" fill="#6e4caa"/><rect x="212" y="185.5" width="36" height="3" rx="1.5" fill="#fff"/>
+  <rect x="208" y="198" width="102" height="10" rx="3" fill="#d07a1f"/><rect x="212" y="201.5" width="50" height="3" rx="1.5" fill="#fff"/>
+</g>
+<!-- folder front -->
+<path d="M98 176a10 10 0 0 1 10-10h236a10 10 0 0 1 9.7 12.4l-24 102A10 10 0 0 1 320 288H110a10 10 0 0 1-10-10z" fill="url(#fold)"/>
+<path d="M104 182h240" stroke="#fff" stroke-opacity=".35"/>
+<rect x="196" y="196" width="72" height="22" rx="11" fill="#fff" opacity=".9"/>
+<text x="232" y="211" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" letter-spacing="1.5" fill="#a5651a">FORMS</text>
+<!-- progress bar on the folder -->
+<rect x="150" y="244" width="140" height="8" rx="4" fill="#fff" opacity=".45"/>
+<rect class="pb" x="150" y="244" width="140" height="8" rx="4" fill="#fff"/>
+<!-- download badge -->
+<g class="fl f3">
+  <circle cx="356" cy="98" r="30" fill="#14293a"/><circle cx="356" cy="98" r="30" stroke="#fff" stroke-opacity=".18" stroke-width="5"/>
+  <g class="dr"><path d="M356 82v22m-9-9 9 9 9-9" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <path d="M343 112h26" stroke="#e3a843" stroke-width="3.4" stroke-linecap="round"/>
+</g>
+<!-- tick card -->
+<g class="fl f2"><rect x="62" y="210" width="62" height="40" rx="10" fill="#fff" stroke="#cfe6d8"/><circle cx="80" cy="230" r="9" fill="#2f9a63"/><path d="m76 230 3 3 6-6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><rect x="94" y="225" width="22" height="4" rx="2" fill="#bcd9c6"/><rect x="94" y="232" width="16" height="4" rx="2" fill="#dbe9e0"/></g>
+<!-- pdf chip -->
+<g class="fl f3" style="--r:-6deg"><rect x="74" y="92" width="58" height="26" rx="8" fill="#e64626"/><text x="103" y="110" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="800" fill="#fff">PDF</text></g>
+<path class="tw" d="M150 46l2.4 6 6 2.4-6 2.4-2.4 6-2.4-6-6-2.4 6-2.4z" fill="#e3a843"/>
+<path class="tw t2" d="M384 214l1.8 4.6 4.6 1.8-4.6 1.8-1.8 4.6-1.8-4.6-4.6-1.8 4.6-1.8z" fill="#3a6fb6"/>
+<circle class="tw" cx="66" cy="164" r="3" fill="#13887a"/><circle class="tw t2" cx="398" cy="160" r="2.5" fill="#e64626"/>
+</svg>

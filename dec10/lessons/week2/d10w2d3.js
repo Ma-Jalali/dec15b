@@ -1120,6 +1120,7 @@ window.DEC15_LESSON = {
           title: "Understand the feedback tool to give peer feedback",
           goal: "Download, save and understand the Peer and Teacher Feedback Tool.",
           blocks: [
+            { type: 'download', id: 'feedback-tool', note: "This is the same tool as a <b>fillable PDF</b>. Download it now: you use it tomorrow and Friday for every group presentation." },
             {
               type: "figure",
               src: "dec10/assets/week2/d3-tool.svg",
@@ -1336,6 +1337,7 @@ window.DEC15_LESSON = {
               who: "alone",
               text: "Listen as Group 1 presents. Take short notes. In the last column, write what you <b>want to know more about</b>."
             },
+            { type: 'download', id: 'feedback-tool', note: "While Group 1 speaks, fill in the Feedback Tool. Tick <b>Seminar Presentation</b> at the top." },
             {
               type: "table",
               id: "o2-t",

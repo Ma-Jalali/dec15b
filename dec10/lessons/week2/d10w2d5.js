@@ -238,6 +238,7 @@ window.DEC15_LESSON = {
           goal: "Know what to listen for and how to ask good questions.",
           blocks: [
             {"type":"do","n":1,"who":"group","text":"The feedback tool has four criteria. Sort each statement into its criterion."},
+            { type: 'download', id: 'feedback-tool', note: "One form for each group: Groups 3, 4 and 5. Save each one with the group’s name." },
             {
               type: "sort",
               id: "p4-sort",
@@ -1444,6 +1445,7 @@ window.DEC15_LESSON = {
               who: "alone",
               text: "Look at the feedback you received on your Week 2 presentation. Copy the ratings here. Which aspects got the most <b>Needs work</b>?"
             },
+            { type: 'download', id: 'feedback-tool', note: "Use the forms your classmates and your teacher filled in for <b>your</b> presentation. A spare form is here if you need one." },
             {
               type: "form",
               id: "a3-form",

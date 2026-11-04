@@ -17,7 +17,7 @@ COURSES.forEach(c => fs.writeFileSync(path.join(root, c.id + '.html'), index
 const walk = d => fs.readdirSync(path.join(root, d), { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
 const versioned = [...walk('css'), ...walk('js').filter(f => !f.includes('vendor')), ...walk('lessons').filter(f => !f.includes('_template')), ...COURSES.flatMap(c => walk(c.id + '/lessons'))]
   .filter(f => /\.(css|js)$/.test(f)).concat(['js/vendor/tiptap.bundle.js']).map(f => f.split(path.sep).join('/') + '?v=' + version);
-const plain = [...walk('assets'), ...COURSES.flatMap(c => walk(c.id + '/assets'))].filter(f => /\.(svg|png|jpg|webp|woff2)$/.test(f) && !f.includes('excalidraw'))   // the whiteboard's files load only when used
+const plain = [...walk('assets'), ...COURSES.flatMap(c => [...walk(c.id + '/assets'), ...(fs.existsSync(path.join(root, c.id, 'downloads')) ? walk(c.id + '/downloads') : [])])].filter(f => /\.(svg|png|jpg|webp|woff2|pdf)$/.test(f) && !f.includes('excalidraw'))   // the whiteboard's files load only when used
 .map(f => f.split(path.sep).join('/'))
   .concat(['./', 'index.html', 'manifest.webmanifest', 'js/vendor/supabase.min.js', ...COURSES.map(c => c.id + '.html')]);
 const list = [...plain, ...versioned].sort();

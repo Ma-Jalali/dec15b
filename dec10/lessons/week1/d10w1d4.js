@@ -436,6 +436,7 @@ window.DEC15_LESSON = {
           goal: 'See your two jobs: presenting and being the audience.',
           blocks: [
             { type: 'do', n: 1, who: 'pair', text: 'Every group has two jobs. Tap each card on the map. Partner A reads the left side, Partner B the right side. Then tell each other.' },
+            { type: 'download', id: 'feedback-tool', note: "This is the form you fill in when another group gives its Opening Remarks or its Seminar. Download it now — you will use it from Week 2." },
             { type: 'hotspot', src: 'dec10/assets/week1/sp-map.svg', size: 'wide', alt: 'The Seminar + Portfolio task on one page. When your group presents: Opening Remarks then upload 1; Seminar then upload 2; video, upload 3, the marked part. When another group presents: after their Opening Remarks, listen and use the Feedback Tool, post 1–2 questions, upload 150–200 words the same day; after their Seminar, the same without the questions. In total: 2 presentations, 8 written uploads, 1 video.', caption: 'Seminar + Portfolio on one page.', credit: 'Full details: Assessments (side panel) and Canvas.', spots: [
               { x: 36.5, y: 23.9, label: '1', color: '#d4583a', title: 'Opening Remarks → Upload 1', text: 'In class, 5–7 minutes. Everyone in your group speaks. Your teacher and the audience give you feedback.<br><b>Upload 1:</b> a summary of the feedback and a reflection on it, 150–200 words, by the Monday after.' },
               { x: 36.5, y: 47.7, label: '2', color: '#d4583a', title: 'Seminar → Upload 2', text: 'One week later, in class. You present your research and lead a class discussion.<br><b>Upload 2:</b> the same kind of summary and reflection, 150–200 words, by the Monday after.' },
@@ -641,6 +642,7 @@ window.DEC15_LESSON = {
           title: 'Group 1’s checklist',
           goal: 'Group 1: tick it off before next week.',
           blocks: [
+            { type: 'download', id: 'feedback-tool', note: "Everyone except Group 1: have the form open on your laptop before Group 1 starts." },
             { type: 'checklist', id: 'c2-g1', title: 'Group 1 — before next week', meter: ['done', 'Ready to present!'], items: [
               'We have researched our topic in our chosen country.',
               'We have met to prepare the 5–7-minute presentation.',
