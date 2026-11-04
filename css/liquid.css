@@ -638,7 +638,7 @@ body.present .block.key .key-title { font-size: 2.1rem; }
   background: repeating-linear-gradient(180deg, transparent 0 29px, rgba(60, 110, 190, .09) 29px 30px),
     radial-gradient(600px 260px at 100% 0%, rgba(227, 168, 67, .16), transparent 65%), linear-gradient(160deg, #fffdf8, #fbf6ea) !important;
   box-shadow: inset 0 0 0 1px rgba(195, 126, 20, .22), 0 20px 40px -28px rgba(120, 80, 10, .5) !important; }
-.nb-cover::before { background: linear-gradient(90deg, transparent 58px, rgba(214, 96, 80, .3) 58px 59.5px, transparent 59.5px) !important; }
+.nb-cover::before { background: none !important; }   /* no red margin line */
 .nb-cover::after { width: 10px !important; background: repeating-linear-gradient(180deg, #e3a843 0 18px, #c98a2a 18px 20px) !important; box-shadow: 2px 0 4px rgba(120, 80, 10, .2); }
 .nb-cover .eyebrow { color: #a86a0e !important; }
 .nb-cover h1 { color: #16293a !important; }

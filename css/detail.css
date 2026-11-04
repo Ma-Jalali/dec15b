@@ -1,0 +1,128 @@
+/* DEC10 · detail layer (v3.4) — the small, crafted touches on every page: paper grain, print crop marks, ticket
+   perforations, lettered answer options, drawn ticks, halo rings, button sheen, ruled language banks, framed pictures.
+   Loaded last. Everything is scoped to [data-course="dec10"] so DEC15 is untouched. Motion respects reduced-motion. */
+
+/* ── 1. Paper grain over the whole page: a very faint texture that makes flat colour feel printed ── */
+[data-course="dec10"] main { position: relative; }
+[data-course="dec10"] main::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .055; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+[data-course="dec10"] main > * { position: relative; z-index: 1; }
+[data-course="dec10"] body.present main::before { display: none; }
+
+/* ── 2. Crop marks: four small print-registration corners on the big cards (stage head, lesson hero, big question) ── */
+[data-course="dec10"] .stage-head, [data-course="dec10"] .hero, [data-course="dec10"] .essay-q { --cm: color-mix(in srgb, var(--accent, #2b776e) 42%, transparent); }
+[data-course="dec10"] .stage-head::before { height: 4px; }
+[data-course="dec10"] .stage-copy::before, [data-course="dec10"] .stage-copy::after, [data-course="dec10"] .hero-copy::before, [data-course="dec10"] .hero-copy::after {
+  content: ""; position: absolute; width: 14px; height: 14px; pointer-events: none; border: 1.5px solid var(--cm); }
+[data-course="dec10"] .stage-copy::before, [data-course="dec10"] .hero-copy::before { left: 14px; top: 14px; border-right: 0; border-bottom: 0; border-radius: 3px 0 0 0; }
+[data-course="dec10"] .stage-copy::after, [data-course="dec10"] .hero-copy::after { right: 14px; bottom: 14px; border-left: 0; border-top: 0; border-radius: 0 0 3px 0; }
+[data-course="dec10"] .stage-head, [data-course="dec10"] .hero { position: relative; }
+[data-course="dec10"] .stage-copy, [data-course="dec10"] .hero-copy { position: static; }
+/* faint notebook ruling behind the stage title, fading to the right */
+[data-course="dec10"] .stage-head { background-image: repeating-linear-gradient(180deg, transparent 0 27px, color-mix(in srgb, var(--accent, #2b776e) 7%, transparent) 27px 28px), linear-gradient(120deg, var(--surface) 0%, var(--surface) 45%, var(--accent-bg) 100%) !important; }
+[data-course="dec10"] .stage-numeral { text-shadow: 0 1px 0 #fff; }
+
+/* ── 3. Activity card: a perforated ticket edge under the header, a hairline double rule inside the goal box ── */
+[data-course="dec10"] .act-head { background-image: radial-gradient(circle, rgba(20, 41, 58, .16) 1.1px, transparent 1.5px), linear-gradient(180deg, var(--surface-2), var(--surface)) !important;
+  background-size: 9px 9px, 100% 100%; background-position: 10px 100%, 0 0; background-repeat: repeat-x, no-repeat; padding-bottom: 32px; }
+[data-course="dec10"] .act-head.has-art { background-size: 9px 9px, 100% 100%; }
+[data-course="dec10"] .act-count { display: inline-flex; align-items: center; gap: 7px; padding: 5px 10px 5px 8px; border-radius: 999px; background: color-mix(in srgb, var(--accent, #2b776e) 9%, #fff); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #2b776e) 22%, transparent); }
+[data-course="dec10"] .act-count::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent, #2b776e); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent, #2b776e) 18%, transparent); }
+[data-course="dec10"] .act-goal { position: relative; padding: 14px 18px 14px 20px; border-radius: 14px; background: color-mix(in srgb, var(--accent, #2b776e) 6%, #fff); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #2b776e) 18%, transparent); }
+[data-course="dec10"] .act-goal::after { content: ""; position: absolute; inset: 4px; border-radius: 11px; border: 1px solid color-mix(in srgb, var(--accent, #2b776e) 14%, transparent); pointer-events: none; }
+[data-course="dec10"] .act-goal .icon { width: 20px; height: 20px; }
+[data-course="dec10"] .timer-btn { background: linear-gradient(180deg, #fff, #f6f4ee); box-shadow: inset 0 1px 0 #fff, 0 2px 6px -4px rgba(20, 41, 58, .4); }
+
+/* ── 4. What to do: step numbers get a halo ring; the connector ends in a small arrowhead ── */
+[data-course="dec10"] .steps li::before { box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent, #2b776e) 14%, transparent), 0 4px 10px -5px color-mix(in srgb, var(--accent, #2b776e) 70%, transparent) !important; }
+[data-course="dec10"] .steps li:not(:last-child)::after { background: repeating-linear-gradient(180deg, color-mix(in srgb, var(--accent, #2b776e) 45%, transparent) 0 5px, transparent 5px 9px) !important; }
+[data-course="dec10"] .steps li p { position: relative; }
+[data-course="dec10"] .steps li p::before { content: ""; position: absolute; left: -7px; top: 14px; width: 10px; height: 10px; background: rgba(255, 255, 255, .85); transform: rotate(45deg); box-shadow: -1px 1px 0 rgba(20, 41, 58, .06); }
+[data-course="dec10"] .do-step { box-shadow: inset 0 1px 0 #fff, 0 6px 16px -14px rgba(20, 41, 58, .5); }
+[data-course="dec10"] .do-n { box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent, #2b776e) 14%, transparent), 0 4px 10px -5px color-mix(in srgb, var(--accent, #2b776e) 70%, transparent); }
+
+/* ── 5. Quiz options: lettered A · B · C · D badges instead of a plain radio dot ── */
+[data-course="dec10"] .quiz .options { counter-reset: o; }
+[data-course="dec10"] .quiz .option { counter-increment: o; padding-left: 9px; }
+[data-course="dec10"] .quiz .option::before { content: counter(o, upper-alpha) !important; width: 22px !important; height: 22px !important; border-radius: 7px !important; border: 0 !important;
+  background: color-mix(in srgb, var(--accent, #2b776e) 10%, #fff) !important; color: var(--accent, #2b776e); font: 800 .7rem/1 var(--sans); display: grid; place-items: center;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #2b776e) 28%, transparent); transition: all .18s var(--ease); }
+[data-course="dec10"] .quiz .option:hover::before { background: var(--accent, #2b776e) !important; color: #fff; }
+[data-course="dec10"] .quiz .option.selected::before { background: var(--accent, #2b776e) !important; color: #fff; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent, #2b776e) 20%, transparent); }
+[data-course="dec10"] .quiz-item.is-right .option.selected::before, [data-course="dec10"] .quiz .option.correct::before { background: #3c9a66 !important; color: #fff; box-shadow: 0 0 0 3px rgba(60, 154, 102, .2); }
+[data-course="dec10"] .quiz-item.is-wrong .option.selected::before { background: #d9763f !important; color: #fff; box-shadow: 0 0 0 3px rgba(217, 118, 63, .2); }
+[data-course="dec10"] .quiz-q::before { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #2b776e) 25%, transparent); }
+/* the confidence bet keeps its own A · B letters in the text; give its options the same card edge */
+[data-course="dec10"] .bet .option { box-shadow: inset 0 1px 0 #fff, 0 2px 6px -4px rgba(20, 41, 58, .35); }
+
+/* ── 6. Checklist: a drawn tick, a colour tab that slides in when ticked, a pressed feel ── */
+[data-course="dec10"] .check { position: relative; overflow: hidden; }
+[data-course="dec10"] .check::before { content: ""; position: absolute; left: 0; top: 10px; bottom: 10px; width: 4px; border-radius: 0 4px 4px 0; background: #2f9a63; transform: translateX(-6px); transition: transform .25s var(--ease); }
+[data-course="dec10"] .check:has(input:checked)::before { transform: translateX(0); }
+[data-course="dec10"] .check input { border-radius: 8px; box-shadow: inset 0 1px 2px rgba(20, 41, 58, .08); }
+[data-course="dec10"] .check input:checked { background: #2f9a63; border-color: #2f9a63; box-shadow: 0 0 0 4px rgba(47, 154, 99, .16); }
+[data-course="dec10"] .check input::after { width: 11px; height: 6px; transition: opacity .15s, transform .25s var(--ease); transform: rotate(-45deg) translate(1px, -1px) scale(.4); }
+[data-course="dec10"] .check input:checked::after { transform: rotate(-45deg) translate(1px, -1px) scale(1); }
+[data-course="dec10"] .check:hover { box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .12), 0 6px 16px -12px rgba(20, 41, 58, .5) !important; }
+[data-course="dec10"] .check:active { transform: scale(.995); }
+[data-course="dec10"] .check-meter span { box-shadow: inset 0 1px 2px rgba(20, 41, 58, .12); }
+
+/* ── 7. Buttons: a light sweep across the dark button on hover, a brighter rim; quiet buttons get a hairline ── */
+[data-course="dec10"] .btn { position: relative; overflow: hidden; isolation: isolate; }
+[data-course="dec10"] .btn::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .18) 50%, transparent 70%); transform: translateX(-120%); transition: transform .6s var(--ease); }
+[data-course="dec10"] .btn:hover::after { transform: translateX(120%); }
+[data-course="dec10"] .btn-quiet { background-image: linear-gradient(180deg, #fff, #f7f5f0); }
+
+/* ── 8. Language bank: faint ruled paper behind the chips; the bold word gets a hand-drawn underline on hover ── */
+[data-course="dec10"] .block.language { background-image: repeating-linear-gradient(180deg, transparent 0 31px, rgba(58, 88, 160, .07) 31px 32px), linear-gradient(180deg, #f7f9fe, #f3f6fc) !important; }
+[data-course="dec10"] .lang-group li { position: relative; }
+[data-course="dec10"] .lang-group li b { background: linear-gradient(transparent 70%, rgba(180, 83, 42, .18) 70%); border-radius: 2px; }
+[data-course="dec10"] .lang-group li:active { transform: translateY(0) scale(.98); }
+
+/* ── 9. Talk bubbles: a small coloured dot in the corner, like a microphone light ── */
+[data-course="dec10"] .talk-prompts li { position: relative; }
+[data-course="dec10"] .talk-prompts li > *:first-child::before, [data-course="dec10"] .talk-prompts li:not(:has(*))::before { display: none; }
+[data-course="dec10"] .talk-prompts li::before { content: "" !important; display: block !important; position: absolute; right: 12px; top: 12px; left: auto; width: 7px; height: 7px; border: 0 !important; border-radius: 50%; background: #8a4f9e; box-shadow: 0 0 0 3px rgba(138, 79, 158, .16); }
+
+/* ── 10. Pictures: a thin mat and a hairline inner frame, like a mounted print; captions as small caps ── */
+[data-course="dec10"] .figure img, [data-course="dec10"] .hotspot img { padding: 6px; background: #fff; border: 1px solid rgba(20, 41, 58, .1) !important; box-shadow: inset 0 0 0 1px #fff, 0 10px 24px -18px rgba(20, 41, 58, .55); }
+
+/* ── 11. Key point, model, tip: tiny finishing touches ── */
+[data-course="dec10"] .block.key .key-title, [data-course="dec10"] .block.key h3 { text-shadow: 0 1px 0 rgba(255, 255, 255, .6); }
+[data-course="dec10"] .block.model { background-image: linear-gradient(90deg, rgba(60, 130, 100, .12) 1px, transparent 1px), linear-gradient(180deg, #f3faf5, #eef7f1) !important; background-size: 100% 100%, 100% 100%; }
+[data-course="dec10"] .block.model::before { border-style: dashed; }
+[data-course="dec10"] .tip { position: relative; padding-left: 18px; border-left: 3px solid var(--gold, #e3a843); border-radius: 4px 14px 14px 4px; background: linear-gradient(90deg, rgba(227, 168, 67, .14), rgba(227, 168, 67, .04)); }
+[data-course="dec10"] .tip .icon { width: 22px; height: 22px; padding: 3px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px rgba(227, 168, 67, .5); margin-top: 0; }
+
+/* ── 12. Activity foot: the "finished" box and the Next button sit on a soft ledge ── */
+[data-course="dec10"] .act-foot { background-image: linear-gradient(180deg, rgba(20, 41, 58, .035), transparent 14px) !important; }
+
+/* ── 13. Lesson tabs (the numbered row): a soft inner ring and a tiny tick mark under the current one ── */
+[data-course="dec10"] .tab-num { box-shadow: 0 0 0 5px var(--paper), inset 0 1px 0 #fff, 0 2px 4px -2px rgba(20, 41, 58, .35) !important; }
+[data-course="dec10"] .act-tabs button.current::after { content: ""; width: 18px; height: 3px; border-radius: 3px; background: var(--accent, #2b776e); margin-top: -2px; }
+
+/* ── 14. Course map day cards: a ticket-stub perforation between picture and text, a stamp-style day label ── */
+[data-course="dec10"] .day-card { overflow: hidden; }
+[data-course="dec10"] .day-art { position: relative; background-image: radial-gradient(circle at 1px 1px, rgba(20, 41, 58, .07) 1px, transparent 1.6px), linear-gradient(180deg, #fbf3e4, #f7ecd8) !important; background-size: 12px 12px, 100% 100%; border-bottom: 0 !important; }
+[data-course="dec10"] .day-art::after { content: ""; position: absolute; left: 14px; right: 14px; bottom: -1px; height: 2px; background: repeating-linear-gradient(90deg, rgba(20, 41, 58, .22) 0 4px, transparent 4px 9px); }
+[data-course="dec10"] .day-art::before { content: ""; position: absolute; left: -9px; bottom: -9px; width: 16px; height: 16px; border-radius: 50%; background: var(--paper); box-shadow: calc(100% + 2px) 0 0 0 var(--paper); z-index: 2; }
+[data-course="dec10"] .day-card .day-art::before { box-shadow: none; }
+[data-course="dec10"] .day-label .day-open { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .25), 0 3px 8px -4px rgba(20, 41, 58, .6); }
+[data-course="dec10"] .day-title { position: relative; }
+[data-course="dec10"] .day-card:hover .day-art img { transform: translateY(-3px) scale(1.03); }
+[data-course="dec10"] .day-art img { transition: transform .35s var(--ease); }
+
+/* ── 15. Tables and scroll areas: thin, coloured scrollbars ── */
+[data-course="dec10"] .table-scroll, [data-course="dec10"] .tbl-wrap, [data-course="dec10"] .nb-table-scroll, [data-course="dec10"] .act-tabs { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--accent, #2b776e) 45%, transparent) transparent; }
+
+/* ── 16. Match / flip / sort cards: a soft inner highlight and a press ── */
+[data-course="dec10"] .mt-card, [data-course="dec10"] .sort-card, [data-course="dec10"] .flip-face { box-shadow: inset 0 1px 0 #fff, 0 2px 6px -4px rgba(20, 41, 58, .35); }
+[data-course="dec10"] .mt-card:active { transform: scale(.985); }
+
+/* ── 17. The lesson overview "at a glance" rail and stage cards: corner dots and a hairline inner frame ── */
+[data-course="dec10"] .journey-card { position: relative; }
+[data-course="dec10"] .journey-card::after { content: ""; position: absolute; inset: 5px; border-radius: inherit; border: 1px solid rgba(20, 41, 58, .05); pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-course="dec10"] .btn::after, [data-course="dec10"] .day-art img, [data-course="dec10"] .check::before, [data-course="dec10"] .check input::after { transition: none; }
+}
