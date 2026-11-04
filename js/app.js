@@ -1294,7 +1294,31 @@ function loadCollab() {   // the shared editor loads only when "Write together" 
     window.Tiptap ? null : add('script', { src: 'js/vendor/tiptap.bundle.js?v=' + cfg.version }),
   ]).then(() => window.DEC15Collab || add('script', { src: 'js/collab.js?v=' + cfg.version })).catch(e => { collabLoad = null; throw e; }));
 }
-function rerender() { const y = window.scrollY; render(); window.scrollTo(0, y); }
+/* Re-render without moving the page. Keep what the student just touched (the nearest element with an id) at the same
+   place on screen — not just the same scrollY — and hold it there while pictures above it finish loading.
+   Browsers without scroll anchoring (Safari) otherwise jump when a re-created <img> is briefly 0 px tall. */
+let lastHit = null, userScrolled = 0;
+document.addEventListener('pointerdown', e => { lastHit = e.target; }, true);
+document.addEventListener('keydown', e => { lastHit = e.target; }, true);
+['wheel', 'touchmove'].forEach(t => addEventListener(t, () => { userScrolled = Date.now(); }, { passive: true }));
+const imgRatio = new Map();   // src → "w / h", so a re-created picture reserves its height at once
+document.addEventListener('load', e => { const i = e.target; if (i.tagName === 'IMG' && i.naturalWidth) imgRatio.set(i.getAttribute('src'), `${i.naturalWidth} / ${i.naturalHeight}`); }, true);
+function rerender() {
+  const y = window.scrollY, hit = lastHit?.isConnected ? lastHit : document.activeElement;
+  const pageTop = el => { let t = 0; for (; el; el = el.offsetParent) t += el.offsetTop; return t; };   // layout position: ignores the fade-up transform
+  const anchor = hit?.closest?.('#main [id]'), id = anchor?.id, top = anchor && pageTop(anchor) - y;
+  render();
+  document.querySelectorAll('#main img').forEach(i => { const r = imgRatio.get(i.getAttribute('src')); if (r && !i.style.aspectRatio && !i.complete) i.style.aspectRatio = r; });
+  let expect = null;   // the scrollY we last set: if anything else scrolls (a tab jump, the student), stop holding
+  const hold = () => { const el = id && document.getElementById(id); if (el) window.scrollTo(0, pageTop(el) - top); expect = window.scrollY; };
+  window.scrollTo(0, y); hold();
+  const since = Date.now(), again = () => { if (userScrolled < since && Date.now() - since < 1500 && Math.abs(window.scrollY - expect) < 2) hold(); };
+  requestAnimationFrame(again);
+  if (id && 'ResizeObserver' in window) {   // pictures (or anything else) above changing height in the next moment
+    const main = document.getElementById('main'), ro = new ResizeObserver(again); ro.observe(main);
+    main.querySelectorAll('img').forEach(i => ro.observe(i)); setTimeout(() => ro.disconnect(), 1500);
+  }
+}
 /* Blocks fade up gently the first time they scroll into view (once per visit; never on re-render). */
 const seenBlocks = new Set();
 const revealIO = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); seenBlocks.add(e.target.dataset.rk); revealIO.unobserve(e.target); } }), { rootMargin: '0px 0px -40px 0px' }) : null;
