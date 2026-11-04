@@ -836,13 +836,13 @@ const wsNotebookCount = () => coreActivities.filter(a => state.done[a.id]).lengt
 let navWeekOpen = (() => { try { const v = JSON.parse(localStorage.getItem(CLS.id + '-nav-week')); return typeof v === 'number' ? v : null; } catch (e) { return null; } })();
 let navRoute = 'home';
 /* ───────── Downloads (#/downloads) and the 'download' lesson block ─────────
-   course.downloads: [{ id, title, sub, kind, pages, size, tone, file, mirror?, thumbs: [page images], what, when: [..], how: [..] }]
+   course.downloads: [{ id, title, sub, kind, pages, size, tone, file, mirror?, thumbs: [page images], what, when: [..], how: [..], action?, howTitle? }]
    In a lesson: { type: 'download', id: 'feedback-tool', note? } — a card with the page previews and a Download button. */
 const dlFind = id => (DL || []).find(d => d.id === id);
 const dlName = d => d.file.split('/').pop();
 const dlFile = d => `<span class="dl-file"><b>PDF</b><span>${esc(d.kind)}</span><span>${d.pages} page${d.pages === 1 ? '' : 's'}</span><span>${esc(d.size)}</span></span>`;
 const dlStack = (d, small) => `<span class="dl-stack${small ? ' is-small' : ''}" aria-hidden="true">${(d.thumbs || []).slice(0, 2).reverse().map((t, i, a) => `<img src="${esc(t)}" alt="" loading="lazy" width="210" height="297" style="--k:${a.length - 1 - i}">`).join('')}<i class="dl-badge">${icon('download')}</i></span>`;
-const dlButtons = d => `<a class="btn dl-go" href="${esc(d.file)}" download="${esc(dlName(d))}" data-dl="${esc(d.id)}">${icon('download')}Download the form</a>
+const dlButtons = d => `<a class="btn dl-go" href="${esc(d.file)}" download="${esc(dlName(d))}" data-dl="${esc(d.id)}">${icon('download')}${esc(d.action || 'Download the form')}</a>
   <a class="btn-quiet dl-open" href="${esc(d.file)}" target="_blank" rel="noopener">${icon('open')}Open</a>`;
 B.download = b => { const d = dlFind(b.id); if (!d) return '';
   return `<section class="block dl-card tone-${esc(d.tone || 'blue')}">
@@ -852,7 +852,7 @@ B.download = b => { const d = dlFind(b.id); if (!d) return '';
       <h3>${esc(d.title)}</h3><p class="dl-sub">${esc(d.sub)}</p>
       ${b.note ? `<p class="dl-note">${b.note}</p>` : ''}
       ${dlFile(d)}
-      <div class="dl-actions">${dlButtons(d)}<a class="dl-more" href="#/downloads">How to fill it in ${icon('arrow')}</a></div>
+      <div class="dl-actions">${dlButtons(d)}<a class="dl-more" href="#/downloads">${esc(d.howTitle || 'How to fill it in')} ${icon('arrow')}</a></div>
     </div>
   </section>`; };
 function downloadsPage() {
@@ -866,7 +866,7 @@ function downloadsPage() {
       <div class="dl-actions">${dlButtons(d)}</div>
       <div class="dl-cols">
         <div><h3>${icon('clock')}When you use it</h3><ul>${d.when.map(w => `<li>${esc(w)}</li>`).join('')}</ul></div>
-        <div><h3>${icon('pen')}How to fill it in</h3><ol>${d.how.map(h => `<li>${h}</li>`).join('')}</ol></div>
+        <div><h3>${icon('pen')}${esc(d.howTitle || 'How to fill it in')}</h3><ol>${d.how.map(h => `<li>${h}</li>`).join('')}</ol></div>
       </div>
     </div>
   </article>`).join('')}</div>`;

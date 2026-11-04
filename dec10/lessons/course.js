@@ -38,7 +38,15 @@ window.DEC15_COURSE = {
       thumbs: ['dec10/assets/downloads/feedback-tool-p1.jpg', 'dec10/assets/downloads/feedback-tool-p2.jpg'],
       what: 'Rate a classmate’s presentation on 20 statements (content, pronunciation, language, questions and answers), then write one specific action for each part.',
       when: ['Research Summary group presentations (Weeks 2–3 and Week 6)', 'Seminar presentations and Opening Remarks (Weeks 2–7)', 'Your own feedback action plan'],
-      how: ['Download the form.', 'Open it in <b>Adobe Acrobat Reader</b> (free) or <b>Preview</b> on a Mac — a web browser may not save what you type.', 'Tick one circle for each statement. Then write your actions on page 2.', '<b>Save</b> the file with the presenter’s name, e.g. <i>Feedback – Group 2 – Anna.pdf</i>.', 'Send it to the presenter, or keep it in your feedback folder.'] }
+      how: ['Download the form.', 'Open it in <b>Adobe Acrobat Reader</b> (free) or <b>Preview</b> on a Mac — a web browser may not save what you type.', 'Tick one circle for each statement. Then write your actions on page 2.', '<b>Save</b> the file with the presenter’s name, e.g. <i>Feedback – Group 2 – Anna.pdf</i>.', 'Send it to the presenter, or keep it in your feedback folder.'] },
+    { id: 'ip-questions', title: 'Follow-up Questions', sub: 'Interactive Presentation · question types and examples',
+      kind: 'Printable PDF', pages: 1, size: '39 KB', tone: 'teal', action: 'Download the sheet', howTitle: 'How to use it',
+      file: 'dec10/downloads/DEC10-Interactive-Presentation-Follow-up-Questions.pdf',
+      mirror: 'https://bogagtbkiavnhuohzqzb.supabase.co/storage/v1/object/public/downloads/DEC10-Interactive-Presentation-Follow-up-Questions.pdf',
+      thumbs: ['dec10/assets/downloads/ip-questions-p1.jpg'],
+      what: 'All the follow-up questions on one page: clarification and probing questions about the presenter’s content, and questions on the six Academic Success Toolkit skills about how they prepared.',
+      when: ['Asking effective individual questions (Week 2, 11A)', 'Research Summary group presentations: ask and answer questions', 'Preparing for the Interactive Presentation (Week 7): practise answering them'],
+      how: ['Download the sheet, or print it.', 'Keep it open during presentations.', 'Listen carefully. Start with a <b>clarification</b> question, then <b>probe</b> deeper.', 'Before your own Interactive Presentation, practise answering one question from each box.'] }
   ],
   /* LANGUAGE LAB (side panel → Language Lab, #/lab): short self-study lessons outside the weekly plan, to fill gaps.
      Built for self-study (a teacher can also use one in class). Every lesson is ONE page with four tabs:

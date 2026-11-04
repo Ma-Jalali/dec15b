@@ -78,3 +78,5 @@
 }
 @media (prefers-reduced-motion: reduce) { .dl-badge .icon { animation: none; } .dl-stack img, .dl-page { transition: none; } }
 .gd-links a.gd-dl { padding: 3px 10px; border-radius: 999px; background: #eef4fc; color: #2f6db5; font-weight: 700; text-decoration: none; box-shadow: inset 0 0 0 1px rgba(47, 109, 181, .25); }
+/* a one-page download: one centred preview */
+.dl-pages:has(> .dl-page:only-child) { grid-template-columns: minmax(0, 230px); justify-content: center; }

@@ -992,8 +992,9 @@ window.DEC15_LESSON = {
               ]
             },
             {
-              type: "tip",
-              text: "These questions are also in the downloadable <b>Follow-up question types and examples</b> PDF on Canvas. Keep it open during today’s presentations."
+              type: "download",
+              id: "ip-questions",
+              note: "All these questions on one page. Keep it open during today’s presentations — and use it to practise for your Interactive Presentation."
             }
           ]
         },
@@ -1681,7 +1682,11 @@ window.DEC15_LESSON = {
           title: "Group Research Summary Presentations",
           goal: "Know today’s plan.",
           blocks: [
-            { type: 'download', id: 'feedback-tool', note: "Download it <b>before</b> the presentations start. Fill in one form for each group. Tick <b>Research Summary Presentation</b> at the top." },
+            {
+              type: "download",
+              id: "feedback-tool",
+              note: "Download it <b>before</b> the presentations start. Fill in one form for each group. Tick <b>Research Summary Presentation</b> at the top."
+            },
             {
               type: "figure",
               src: "dec10/assets/week2/d3-rs-timeline.svg",
@@ -1735,6 +1740,11 @@ window.DEC15_LESSON = {
                 {"who":"alone","text":"Open the <b>Peer and Teacher Presentation Feedback Tool</b> (below, or your saved copy)."},
                 {"who":"alone","text":"Open the <b>Follow-up questions</b> document so you can ask good questions."}
               ]
+            },
+            {
+              type: "download",
+              id: "ip-questions",
+              note: "Have it open while Groups 1 and 2 present. Ask one <b>clarification</b> question, then one <b>probing</b> question."
             },
             {
               type: "language",
