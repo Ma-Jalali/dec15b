@@ -109,3 +109,32 @@
   .bd-tray { width: 80%; gap: 8px; } .bd-mk { width: 40px; } .bd-eraser { width: 34px; }
 }
 @media print { .bd-badge, .bd-tray, .bd-meta, .bd-board::before { display: none !important; } .bd-board { background: none; box-shadow: none; } }
+
+/* ── Whiteboard toolbar (v3.6): Freeform-style sticky colours, mind-map idea buttons, sticky settings ── */
+.bd-stk-group { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px 3px 3px; border-radius: 13px; background: rgba(255, 255, 255, .7); box-shadow: inset 0 0 0 1px var(--glass-line, rgba(20, 41, 58, .1)); }
+.bd-chip.sticky i { width: 16px; height: 16px; border-radius: 2px; background: var(--stk, #fddf6d); box-shadow: 0 2px 3px -1px rgba(40, 30, 10, .35); transform: rotate(-5deg); }
+.bd-swatches { display: inline-flex; gap: 5px; margin-left: 4px; }
+.bd-sw { width: 20px; height: 20px; padding: 0; border: 0; border-radius: 4px; background: var(--stk); cursor: pointer; box-shadow: 0 2px 3px -1px rgba(40, 30, 10, .35); transition: transform .15s; }
+.bd-sw:hover { transform: translateY(-1px) scale(1.06); }
+.bd-sw[aria-checked="true"] { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #14293a, 0 2px 3px -1px rgba(40, 30, 10, .35); }
+.bd-idea { display: inline-flex; gap: 6px; }
+.bd-chip.is-idea { background: #14293a; color: #fff; box-shadow: 0 6px 12px -8px rgba(20, 41, 58, .8); font-weight: 700; }
+.bd-gear .icon { color: var(--muted, #5b6d7b) !important; }
+.bd-mindstart { width: min(420px, 88vw); padding: 2px 2px 14px; margin-bottom: 12px; border-bottom: 1px solid var(--line-2, #e3e7ea); }
+.bd-mindstart b { display: flex; align-items: center; gap: 7px; } .bd-mindstart b .icon { width: 18px; height: 18px; color: #7a4a8c; }
+.bd-mindstart p { margin: 6px 0 10px; font-size: .84rem; color: var(--ink-2, #34495a); line-height: 1.5; }
+.bd-mindstart kbd { display: inline-block; padding: 1px 6px; border-radius: 5px; background: #fff; box-shadow: inset 0 -1px 0 rgba(20, 41, 58, .18), 0 0 0 1px rgba(20, 41, 58, .12); font: 700 .74rem var(--sans); }
+.bd-plus { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: #14293a; color: #fff; font-weight: 800; font-size: .8rem; }
+.bd-stkpop { width: min(330px, 86vw); display: grid; gap: 10px; }
+.bd-stkpop b { display: flex; align-items: center; gap: 7px; } .bd-stkpop b .icon { width: 17px; height: 17px; }
+.bd-stkpop label { display: grid; gap: 5px; font: 600 .82rem var(--sans); color: var(--ink-2, #34495a); }
+.bd-stkpop label.bd-check { display: flex; align-items: center; gap: 8px; }
+.bd-stkpop input[type="text"] { border: 1px solid var(--line-2, #d9dfe3); border-radius: 9px; padding: 8px 10px; font: 500 .9rem var(--sans); }
+.bd-stkpop .bd-hint { margin: 0; font-size: .74rem; color: var(--muted); }
+
+/* the "+" handles beside a selected mind-map idea */
+.wb-mm-handles { position: absolute; inset: 0; pointer-events: none; z-index: 5; }
+.wb-mm-h { position: absolute; left: 0; top: 0; width: 26px; height: 26px; border: 0; border-radius: 50%; display: grid; place-items: center; pointer-events: auto; cursor: pointer;
+  background: #14293a; color: #fff; font: 800 1.05rem/1 var(--sans); box-shadow: 0 0 0 3px #fff, 0 6px 14px -6px rgba(20, 41, 58, .7); transition: background .15s, box-shadow .15s; }
+.wb-mm-h:hover { background: #2b776e; box-shadow: 0 0 0 3px #fff, 0 0 0 6px rgba(43, 119, 110, .25), 0 6px 14px -6px rgba(20, 41, 58, .7); }
+.wb-mm-h[hidden] { display: none; }

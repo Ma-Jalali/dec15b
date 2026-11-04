@@ -94,12 +94,23 @@ window.DEC15Board = (() => {
   const BOARD_GLYPH = '<svg viewBox="0 0 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="26" height="18" rx="3" fill="#fff" stroke="currentColor" stroke-width="1.8"/><path d="M8 10.5h9M8 14.5h13" stroke="currentColor" stroke-width="1.8"/><path d="M11 22l-3 6M21 22l3 6M16 22v5" stroke="currentColor" stroke-width="1.8"/><circle cx="23.5" cy="10" r="2" fill="var(--bd-accent, #e64626)"/></svg>';
 
   /* ───────── whiteboard (js/whiteboard.js, Excalidraw) ───────── */
+  /* sticky-note settings on this device: the next colour, and (off by default) the writer's name on new notes */
+  const WB_PREF_KEY = 'dec15-wb-sticky';
+  const STICKY_COLORS = [['Yellow', '#fddf6d'], ['Coral', '#ff7a6e'], ['Violet', '#e58bf7'], ['Orange', '#fdae36'], ['Green', '#86dc95'], ['Sky', '#66d6fb']];
+  const wbPref = () => { try { return { color: STICKY_COLORS[0][1], nameOn: false, name: '', ...JSON.parse(localStorage.getItem(WB_PREF_KEY) || '{}') }; } catch (e) { return { color: STICKY_COLORS[0][1], nameOn: false, name: '' }; } };
+  const setWbPref = patch => { try { localStorage.setItem(WB_PREF_KEY, JSON.stringify({ ...wbPref(), ...patch })); } catch (e) { /* private mode */ } };
+  const myFirstName = () => (cloud()?.profile?.full_name || '').split(' ')[0];
+  const GEAR = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>';
   const WB_ICON = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 12.5c1.5-2.5 3-3.5 4.5-1.5s3 1 5-2.5"/></svg>';
   function wbBarHTML(b) {
     const t = teacher(), can = t || b.wb_open;
     return `<div class="bd-wbbar" role="toolbar" aria-label="Whiteboard">
-      ${can ? `<button type="button" class="bd-chip sticky" data-wb="sticky"><i aria-hidden="true"></i>Sticky note</button><button type="button" class="bd-chip" data-wb="mind">${MM_ICON}Mind map</button><button type="button" class="bd-chip" data-wb="brain">${BS_ICON}Brainstorm</button>` : ''}
+      ${can ? (() => { const pf = wbPref(); return `<span class="bd-stk-group"><button type="button" class="bd-chip sticky" data-wb="sticky" style="--stk:${esc(pf.color)}"><i aria-hidden="true"></i>Sticky note</button>
+        <span class="bd-swatches" role="radiogroup" aria-label="Sticky note colour">${STICKY_COLORS.map(([n, c]) => `<button type="button" class="bd-sw" role="radio" style="--stk:${c}" data-wb-color="${c}" aria-checked="${pf.color === c}" aria-label="${n}" title="${n}"></button>`).join('')}</span></span>
+        <button type="button" class="bd-chip" data-wb="mind">${MM_ICON}Mind map</button><button type="button" class="bd-chip" data-wb="brain">${BS_ICON}Brainstorm</button>
+        <span class="bd-idea" hidden><button type="button" class="bd-chip is-idea" data-wb="child" title="Tab">＋ Idea</button><button type="button" class="bd-chip is-idea" data-wb="sibling" title="Enter">＋ Idea below</button></span>`; })() : ''}
       <button type="button" class="bd-chip" data-wb="fit">Fit to screen</button>
+      ${can ? `<button type="button" class="bd-chip bd-gear" data-wb="settings" aria-label="Sticky note settings" title="Sticky note settings">${GEAR}</button>` : ''}
       <span class="bd-sp"></span>
       ${t ? `<button type="button" class="bd-open${b.wb_open ? ' on' : ''}" data-wb="open" aria-pressed="${!!b.wb_open}"><span class="ap-sw" aria-hidden="true"><i></i></span>Students can add</button>`
         : `<span class="bd-wbnote">${b.wb_open ? '<i class="bd-open-dot"></i>You can add to this whiteboard' : 'Your teacher is drawing. They can let you add.'}</span>`}
@@ -113,18 +124,35 @@ window.DEC15Board = (() => {
     try {
       if (!window.DEC15Whiteboard) await new Promise((ok, bad) => { const sc = Object.assign(document.createElement('script'), { src: 'js/whiteboard.js?v=' + (ctx.version || '') }); sc.onload = ok; sc.onerror = bad; document.head.append(sc); });
       const p = cloud()?.profile || {}, made = await window.DEC15Whiteboard.mount(host, { board: b, client: db(), uid: cloud()?.user?.id, name: p.full_name || 'Student', teacher: teacher(),
-        canEdit: () => teacher() || !!boards.find(x => x.id === b.id)?.wb_open, toast: ctx.toast, esc, version: ctx.version || '' });
+        canEdit: () => teacher() || !!boards.find(x => x.id === b.id)?.wb_open, toast: ctx.toast, esc, version: ctx.version || '',
+        stickyColor: () => wbPref().color, stickyName: () => { const pf = wbPref(); return pf.nameOn ? (pf.name || myFirstName()) : ''; },
+        onSelect: n => { const g = root?.querySelector('.bd-idea'); if (!g) return; g.hidden = !n; g.querySelector('[data-wb="sibling"]').hidden = !!n?.root; } });
       if (wbFor !== b.id || !root?.contains(host)) { made.destroy(); return; }
       wb = made;
     } catch (e) { console.error(e); wbFor = null; host.innerHTML = '<p class="bd-wb-loading">The whiteboard could not open. Check your internet connection and try again.</p>'; }
   }
   function mindPop(anchor) {
-    popover(anchor, `<form class="pl-task-pop bd-mindpop" novalidate><b>${MM_ICON}Make a mind map</b>
+    popover(anchor, `<div class="bd-mindstart"><b>${MM_ICON}New mind map</b><p>Start with one main idea in the middle. Then select an idea and press <kbd>Tab</kbd> for a new idea to the right, <kbd>Enter</kbd> for one below, <kbd>Delete</kbd> to remove it — or use the <span class="bd-plus">+</span> buttons.</p>
+      <button type="button" class="pl-btn" data-mm-new>Start a mind map</button></div>
+      <form class="pl-task-pop bd-mindpop" novalidate><b>${MM_ICON}Or type an outline</b>
       <label>Type the main idea first. Indent with two spaces (or Tab) for each level.<textarea name="o" rows="9" spellcheck="true" autofocus placeholder="Food waste\n  Causes\n    Buying too much\n    Poor storage\n  Effects\n    Greenhouse gases\n  Solutions\n    Plan meals\n    Share leftovers"></textarea></label>
-      <div class="pl-pop-actions"><span class="bd-hint">Tip: select a box and press Ctrl/⌘ + → to grow a new branch.</span><button class="pl-btn" type="submit">Draw it</button></div></form>`, p => {
+      <div class="pl-pop-actions"><span class="bd-hint">You can keep growing it with Tab and Enter.</span><button class="pl-btn" type="submit">Draw it</button></div></form>`, p => {
       const f = p.querySelector('form'), ta = f.querySelector('textarea');
+      p.querySelector('[data-mm-new]').addEventListener('click', () => { closePop(); wb?.newMind(); });
       ta.addEventListener('keydown', e => { if (e.key === 'Tab') { e.preventDefault(); const { selectionStart: a, selectionEnd: z } = ta; ta.setRangeText('  ', a, z, 'end'); } });
       f.addEventListener('submit', e => { e.preventDefault(); if (!wb) return; if (wb.mindMap(ta.value || ta.placeholder)) closePop(); });
+    });
+  }
+
+  function stickyPop(anchor) {   // sticky-note settings: off by default, kept on this device
+    const pf = wbPref();
+    popover(anchor, `<form class="pl-task-pop bd-stkpop" novalidate><b>${GEAR}Sticky notes</b>
+      <label class="bd-check"><input type="checkbox" name="on"${pf.nameOn ? ' checked' : ''}> Add my name to new sticky notes</label>
+      <label>Name to use<input type="text" name="nm" maxlength="40" value="${esc(pf.name)}" placeholder="${esc(myFirstName() || 'Your name')}"></label>
+      <p class="bd-hint">Off by default. Only new notes change — notes already on the board stay as they are.</p>
+      <div class="pl-pop-actions"><button class="pl-btn" type="submit">Save</button></div></form>`, p => {
+      const f = p.querySelector('form');
+      f.addEventListener('submit', e => { e.preventDefault(); setWbPref({ nameOn: f.on.checked, name: f.nm.value.trim() }); closePop(); ctx.toast(f.on.checked ? 'New sticky notes start with your name.' : 'New sticky notes start empty.'); });
     });
   }
 
@@ -235,6 +263,10 @@ window.DEC15Board = (() => {
         const bar = root.querySelector('.bd-wbbar'); if (bar) bar.outerHTML = wbBarHTML(b); ctx.toast(b.wb_open ? 'Students can now add to the whiteboard.' : 'Only you can change the whiteboard now.'); return; }
       if (!wb) return;
       if (d.wb === 'sticky') wb.sticky(); if (d.wb === 'brain') wb.brainstorm(b.title?.split(' · ')[0]); if (d.wb === 'fit') wb.fit(); if (d.wb === 'mind') mindPop(t);
+      if (d.wb === 'child' || d.wb === 'sibling') wb.addIdea(d.wb); if (d.wb === 'settings') stickyPop(t);
+      return; }
+    if (d.wbColor) { setWbPref({ color: d.wbColor }); root.querySelectorAll('[data-wb-color]').forEach(x => x.setAttribute('aria-checked', String(x.dataset.wbColor === d.wbColor)));
+      root.querySelector('.bd-chip.sticky')?.style.setProperty('--stk', d.wbColor); wb?.sticky();
       return; }
     if (d.bdNew !== undefined) { save(); newBoard(); return; }
     if (d.bdOpen) { save(); cur = d.bdOpen; follow = d.bdOpen === live; paint(); return; }
@@ -256,6 +288,8 @@ window.DEC15Board = (() => {
   function mount(el, context) {
     ctx = context; root = el; mounted = true; root.className = 'bd-root';
     root.addEventListener('click', onClick); root.addEventListener('input', onInput);
+    // whiteboard toolbar: keep focus in a note that is being typed in until the click lands (otherwise the page jumps under the pointer and the click is lost)
+    root.addEventListener('mousedown', e => { if (e.target.closest('.bd-wbbar button')) e.preventDefault(); });
     root.addEventListener('change', e => { if (e.target.closest('.bd-format')) tb().change(e.target); });
     root.addEventListener('pointerdown', onDown); root.addEventListener('pointermove', onMove); root.addEventListener('pointerup', onUp); root.addEventListener('pointercancel', onUp);
     addEventListener('resize', onResize);
