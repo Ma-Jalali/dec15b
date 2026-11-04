@@ -32,6 +32,7 @@ const artSrc = name => /[/.]/.test(name) ? name : `assets/art/stage-${name}.svg`
 /* Language Lab (DEC10, course.lab): self-study lessons outside the weeks. A lab lesson says where it is as
    "Language Lab · Grammar 2" instead of "Week 2 · Day 3". */
 const LAB = course.lab || null;
+const DL = course.downloads?.length ? course.downloads : null;   // side panel → Downloads (#/downloads) and the 'download' lesson block
 const labOf = id => { for (const st of LAB?.strands || []) { const i = st.lessons.findIndex(l => l.id === id); if (i >= 0) return { st, n: i + 1, l: st.lessons[i] }; } return null; };
 const labHere = labOf(lesson.id);
 const whereLong = (sep = ' · ') => labHere ? `Language Lab · ${labHere.st.short} ${labHere.n}` : `Week ${lesson.week}${sep}Day ${lesson.day}`;
@@ -151,6 +152,7 @@ const play = window.createDEC15Play ? window.createDEC15Play({ getState: () => s
 const guide = window.createDEC15Guide ? window.createDEC15Guide({ esc, icon, days, toast }) : null;   // DEC10: Course calendar + Assessments pages
 if (guide) ['side-calendar', 'side-assess'].forEach(id => { const el = document.getElementById(id); if (el) el.hidden = false; });
 if (LAB) { const el = document.getElementById('side-lab'); if (el) el.hidden = false; }
+if (DL) { const el = document.getElementById('side-downloads'); if (el) el.hidden = false; }
 const kit = window.createDEC10Kit ? window.createDEC10Kit({ getState: () => state, save, rerender: () => rerender(), esc, strip, icon, toast, findBlock, confetti: el => play?.confetti(el) }) : null;
 /* feedback forms, stance scale, quiz board and "Share with classmates" (js/forms.js) */
 /* Chats: the WhatsApp-style page for the class (js/chats.js) */
@@ -833,6 +835,42 @@ const wsNotebookCount = () => coreActivities.filter(a => state.done[a.id]).lengt
 // one week open at a time: the week number, 0 = all closed, null = follow the current lesson
 let navWeekOpen = (() => { try { const v = JSON.parse(localStorage.getItem(CLS.id + '-nav-week')); return typeof v === 'number' ? v : null; } catch (e) { return null; } })();
 let navRoute = 'home';
+/* ───────── Downloads (#/downloads) and the 'download' lesson block ─────────
+   course.downloads: [{ id, title, sub, kind, pages, size, tone, file, mirror?, thumbs: [page images], what, when: [..], how: [..] }]
+   In a lesson: { type: 'download', id: 'feedback-tool', note? } — a card with the page previews and a Download button. */
+const dlFind = id => (DL || []).find(d => d.id === id);
+const dlName = d => d.file.split('/').pop();
+const dlFile = d => `<span class="dl-file"><b>PDF</b><span>${esc(d.kind)}</span><span>${d.pages} page${d.pages === 1 ? '' : 's'}</span><span>${esc(d.size)}</span></span>`;
+const dlStack = (d, small) => `<span class="dl-stack${small ? ' is-small' : ''}" aria-hidden="true">${(d.thumbs || []).slice(0, 2).reverse().map((t, i, a) => `<img src="${esc(t)}" alt="" loading="lazy" width="210" height="297" style="--k:${a.length - 1 - i}">`).join('')}<i class="dl-badge">${icon('download')}</i></span>`;
+const dlButtons = d => `<a class="btn dl-go" href="${esc(d.file)}" download="${esc(dlName(d))}" data-dl="${esc(d.id)}">${icon('download')}Download the form</a>
+  <a class="btn-quiet dl-open" href="${esc(d.file)}" target="_blank" rel="noopener">${icon('open')}Open</a>`;
+B.download = b => { const d = dlFind(b.id); if (!d) return '';
+  return `<section class="block dl-card tone-${esc(d.tone || 'blue')}">
+    ${dlStack(d, true)}
+    <div class="dl-body">
+      <div class="block-label">${icon('download')}Download</div>
+      <h3>${esc(d.title)}</h3><p class="dl-sub">${esc(d.sub)}</p>
+      ${b.note ? `<p class="dl-note">${b.note}</p>` : ''}
+      ${dlFile(d)}
+      <div class="dl-actions">${dlButtons(d)}<a class="dl-more" href="#/downloads">How to fill it in ${icon('arrow')}</a></div>
+    </div>
+  </section>`; };
+function downloadsPage() {
+  return `<header class="page-head page-hero dl-hero"><div><span class="eyebrow">${esc(course.code)} · Downloads</span><h1>Downloads</h1><p>Forms you download, fill in on your laptop and keep or share. You also find them in the lessons where you need them.</p></div><img class="page-hero-art" src="${ROOT}assets/downloads/hero.svg" alt="" width="440" height="340"></header>
+  <div class="dl-list">${DL.map(d => `<article class="dl-item tone-${esc(d.tone || 'blue')}" id="dl-${esc(d.id)}">
+    <div class="dl-pages">${(d.thumbs || []).map((t, i) => `<a class="dl-page" href="${esc(d.file)}" target="_blank" rel="noopener" title="Open page ${i + 1}"><img src="${esc(t)}" alt="Page ${i + 1} of the ${esc(d.title)}" loading="lazy" width="210" height="297"><span>Page ${i + 1}</span></a>`).join('')}</div>
+    <div class="dl-info">
+      <h2>${esc(d.title)}</h2><p class="dl-sub">${esc(d.sub)}</p>
+      ${dlFile(d)}
+      <p class="dl-what">${esc(d.what)}</p>
+      <div class="dl-actions">${dlButtons(d)}</div>
+      <div class="dl-cols">
+        <div><h3>${icon('clock')}When you use it</h3><ul>${d.when.map(w => `<li>${esc(w)}</li>`).join('')}</ul></div>
+        <div><h3>${icon('pen')}How to fill it in</h3><ol>${d.how.map(h => `<li>${h}</li>`).join('')}</ol></div>
+      </div>
+    </div>
+  </article>`).join('')}</div>`;
+}
 /* ───────── Language Lab page (#/lab): every strand and its lessons, with progress ───────── */
 const LAB_IC = {
   grammar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18 8.5 6 13 18M5.6 14h5.8"/><path d="M15.5 11.2c.6-.8 1.5-1.2 2.5-1.2 1.6 0 2.5.9 2.5 2.4V18m0-3.6c-3 .1-5 .6-5 2.2 0 1 .8 1.6 1.9 1.6 1.6 0 3.1-1.2 3.1-3.3"/></svg>',
@@ -909,7 +947,7 @@ let navLessonWeek = null;
 function paintNav(route = navRoute) {
   navRoute = route;
   if (route !== 'home' && lesson.week !== navLessonWeek) { navLessonWeek = lesson.week; navWeekOpen = null; }   // a lesson in another week opens its own week
-  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-board', 'board'], ['side-chats', 'chats'], ['side-shared', 'shared'], ['side-calendar', 'calendar'], ['side-assess', 'assessments'], ['side-lab', 'lab']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
+  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-board', 'board'], ['side-chats', 'chats'], ['side-shared', 'shared'], ['side-calendar', 'calendar'], ['side-assess', 'assessments'], ['side-lab', 'lab'], ['side-downloads', 'downloads']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
   paintLessonNav(route);
   $('#side-home').classList.toggle('active', route === 'home');
   const ws = route === 'planner' || route === 'notebook';   // My workspace: planner + notebook
@@ -1094,6 +1132,7 @@ function searchIndex() {
   }
   for (const st of LAB?.strands || []) st.lessons.forEach((l, i) => { const href = l.status === 'ready' ? '#/' + l.id : '';
     items.push({ kind: 'Lesson', ic: 'book', title: l.title, sub: `Language Lab · ${st.short} ${i + 1}${href ? '' : ' · coming soon'}`, href, text: `${l.title} ${l.sub || ''} ${st.title} language lab` }); });
+  (DL || []).forEach(d => items.push({ kind: 'Download', ic: 'download', title: d.title, sub: 'Downloads · ' + d.kind, href: '#/downloads', text: `download pdf form ${d.title} ${d.sub} ${d.what}` }));
   if (LAB) items.push({ kind: 'Page', ic: 'book', title: 'Language Lab', sub: 'Grammar, APA referencing and vocabulary', href: '#/lab', text: 'language lab grammar apa referencing citation vocabulary self-study' });
   lesson.sections.forEach(s => {
     items.push({ kind: 'Stage', ic: 'flag', title: stageName(s), sub: `This lesson · Teacher’s Book ${code(s)}`, href: L(s.id), text: stageName(s) + ' ' + (s.subtitle || '') });
@@ -1140,6 +1179,7 @@ function parseRoute() {
   if (h === '/shared' || h.startsWith('/shared/')) return { page: 'shared' };
   if (guide && (h === '/calendar' || h === '/assessments')) return { page: h.slice(1) };
   if (LAB && h === '/lab') return { page: 'lab' };
+  if (DL && h === '/downloads') return { page: 'downloads' };
   if (routes.includes(h)) { history.replaceState(null, '', L(h)); return { page: h }; } // old links such as #ai
   const m = h.match(/^\/([\w-]+)(?:\/([\w-]+))?/);
   if (!m) return { page: 'overview' };
@@ -1157,8 +1197,8 @@ function render() {
   }
   if (r.home && labHere) { location.reload(); return; }   // the course map shows the weekly lesson, so leave the lab lesson
   const route = r.home ? 'home' : r.page;
-  document.body.classList.toggle('is-lab', !!labHere && !['planner', 'notebook', 'lab', 'calendar', 'assessments', 'board', 'chats', 'shared'].includes(route));   // a Language Lab lesson page
-  if (!r.home && !labHere && r.page !== 'lab') try { localStorage.setItem(CLS.id + '-last-lesson', lesson.id); } catch (e) { /* ignore */ }   // the course map keeps the weekly lesson, not a lab lesson
+  document.body.classList.toggle('is-lab', !!labHere && !['planner', 'notebook', 'lab', 'downloads', 'calendar', 'assessments', 'board', 'chats', 'shared'].includes(route));   // a Language Lab lesson page
+  if (!r.home && !labHere && r.page !== 'lab' && r.page !== 'downloads') try { localStorage.setItem(CLS.id + '-last-lesson', lesson.id); } catch (e) { /* ignore */ }   // the course map keeps the weekly lesson, not a lab lesson
   const done = coreActivities.filter(a => state.done[a.id]).length;
   paintNav(route);
   $('#progress').value = done; $('#progress').max = coreActivities.length;
@@ -1216,6 +1256,17 @@ function render() {
     if (changed && !matchMedia('(prefers-reduced-motion: reduce)').matches) { main.classList.remove('route-in'); void main.offsetWidth; main.classList.add('route-in'); }
     $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher(); document.body.classList.toggle('is-teacher', isTeacher());
     klass?.setWhere('shared', 'Shared with me'); forms?.paintBadge();
+    return;
+  }
+  if (route === 'downloads') {   // Downloads: forms to download and fill in (course.downloads)
+    document.body.dataset.page = 'downloads'; document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg');
+    $('#crumb').innerHTML = `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>Downloads</b>`;
+    document.title = `${course.code} · Downloads`; paintStatus();
+    const main = $('#main'), changed = main.dataset.route !== route; main.dataset.route = route;
+    main.innerHTML = downloadsPage();
+    if (changed) window.scrollTo(0, 0);
+    $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher(); document.body.classList.toggle('is-teacher', isTeacher());
+    klass?.setWhere('downloads', 'Downloads');
     return;
   }
   if (route === 'lab') {   // Language Lab: the list of self-study lessons (course.lab)

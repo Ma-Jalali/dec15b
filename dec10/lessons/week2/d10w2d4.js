@@ -1681,6 +1681,7 @@ window.DEC15_LESSON = {
           title: "Group Research Summary Presentations",
           goal: "Know today’s plan.",
           blocks: [
+            { type: 'download', id: 'feedback-tool', note: "Download it <b>before</b> the presentations start. Fill in one form for each group. Tick <b>Research Summary Presentation</b> at the top." },
             {
               type: "figure",
               src: "dec10/assets/week2/d3-rs-timeline.svg",

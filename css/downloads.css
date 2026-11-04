@@ -1,0 +1,80 @@
+/* Downloads (v3.5): the side-panel page (#/downloads) and the 'download' card inside lessons.
+   A stack of real page previews, a file chip (PDF · fillable · pages · size) and one big Download button. */
+.t-dl { --tc: #2f6db5; }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .t-dl { --tc: #2f6db5; }
+.dl-card, .dl-item { --dl: #2f6db5; --dl-bg: #eef4fc; }
+.dl-card.tone-teal, .dl-item.tone-teal { --dl: #13887a; --dl-bg: #e8f5f2; }
+.dl-card.tone-plum, .dl-item.tone-plum { --dl: #7a4a8c; --dl-bg: #f3edf7; }
+.dl-card.tone-amber, .dl-item.tone-amber { --dl: #b07d12; --dl-bg: #fbf3e2; }
+
+/* ── the stack of page previews ── */
+.dl-stack { position: relative; display: block; width: 150px; height: 190px; flex: none; }
+.dl-stack.is-small { width: 128px; height: 166px; }
+.dl-stack img { position: absolute; left: 10px; top: 4px; width: calc(100% - 24px); height: auto; border-radius: 6px; background: #fff;
+  box-shadow: 0 0 0 1px rgba(20, 41, 58, .1), 0 14px 26px -16px rgba(20, 41, 58, .55);
+  transform: rotate(calc(var(--k) * 6deg - 3deg)) translate(calc(var(--k) * 12px), calc(var(--k) * 6px)); transition: transform .35s var(--ease); }
+.dl-card:hover .dl-stack img, .dl-item:hover .dl-stack img { transform: rotate(calc(var(--k) * 9deg - 4deg)) translate(calc(var(--k) * 18px), calc(var(--k) * 4px)); }
+.dl-badge { position: absolute; right: -2px; bottom: 6px; z-index: 2; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; color: #fff;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--dl) 80%, #fff), var(--dl)); box-shadow: 0 0 0 4px #fff, 0 10px 18px -8px color-mix(in srgb, var(--dl) 80%, transparent); }
+.dl-badge .icon { width: 20px; height: 20px; animation: dlBob 2.4s ease-in-out infinite; }
+@keyframes dlBob { 0%, 100% { transform: translateY(-1px); } 50% { transform: translateY(2px); } }
+
+/* ── the file chip ── */
+.dl-file { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0; margin: 4px 0 14px; border-radius: 999px; background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .1), 0 3px 8px -6px rgba(20, 41, 58, .4); overflow: hidden; font: 700 .76rem/1 var(--sans); color: var(--ink-2); }
+.dl-file > * { padding: 7px 11px; }
+.dl-file b { background: #e64626; color: #fff; letter-spacing: .08em; }
+.dl-file span + span { border-left: 1px solid rgba(20, 41, 58, .1); }
+
+/* ── buttons ── */
+.dl-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; }
+.dl-go { height: 50px; padding: 0 24px 0 20px; font-size: .98rem; background: linear-gradient(180deg, color-mix(in srgb, var(--dl) 82%, #fff), var(--dl)) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .28), inset 0 -1px 0 rgba(0, 0, 0, .2), 0 12px 22px -12px color-mix(in srgb, var(--dl) 85%, transparent) !important; }
+.dl-go:hover { filter: brightness(1.05); }
+.dl-go .icon { width: 19px; height: 19px; }
+.dl-go:hover .icon { transform: translateY(2px) !important; }
+.dl-open { height: 50px; }
+.dl-more { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: .88rem; color: var(--dl); text-decoration: none; }
+.dl-more .icon { width: 15px; height: 15px; transition: transform .2s var(--ease); }
+.dl-more:hover .icon { transform: translateX(3px); }
+
+/* ── the card inside a lesson ── */
+.block.dl-card { position: relative; display: flex; gap: 26px; align-items: center; padding: 22px 26px 22px 18px; border-radius: 22px; overflow: hidden;
+  background: radial-gradient(420px 200px at 0% 50%, color-mix(in srgb, var(--dl) 14%, transparent), transparent 70%), linear-gradient(135deg, var(--dl-bg), #fff 70%);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--dl) 22%, transparent), 0 16px 32px -24px color-mix(in srgb, var(--dl) 70%, transparent); }
+.block.dl-card::after { content: ""; position: absolute; inset: 6px; border-radius: 17px; border: 1px dashed color-mix(in srgb, var(--dl) 26%, transparent); pointer-events: none; }
+.dl-card .block-label { color: var(--dl); }
+.dl-card h3 { margin: 0 0 2px; font-size: 1.28rem; }
+.dl-sub { margin: 0 0 8px; color: var(--muted); font-size: .92rem; }
+.dl-note { margin: 0 0 10px; max-width: 60ch; }
+.dl-body { min-width: 0; position: relative; z-index: 1; }
+
+/* ── the Downloads page ── */
+.dl-hero .page-hero-art { max-height: 240px; }
+.dl-list { display: grid; gap: 26px; margin-top: 28px; }
+.dl-item { position: relative; display: grid; grid-template-columns: minmax(0, 330px) minmax(0, 1fr); gap: 34px; padding: 30px; border-radius: 26px; background: var(--surface);
+  box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .07), 0 20px 40px -30px rgba(20, 41, 58, .55); overflow: hidden; }
+.dl-item::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: linear-gradient(90deg, var(--dl), color-mix(in srgb, var(--dl) 40%, #e3a843)); }
+.dl-pages { align-self: start; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-content: start; padding: 18px; border-radius: 18px;
+  background: radial-gradient(circle at 1px 1px, rgba(20, 41, 58, .08) 1px, transparent 1.6px) 0 0 / 12px 12px, var(--dl-bg); }
+.dl-page { position: relative; display: block; border-radius: 6px; text-decoration: none; transition: transform .25s var(--ease); }
+.dl-page img { display: block; width: 100%; height: auto; border-radius: 6px; background: #fff; box-shadow: 0 0 0 1px rgba(20, 41, 58, .1), 0 12px 22px -14px rgba(20, 41, 58, .6); }
+.dl-page span { position: absolute; left: 50%; bottom: -10px; transform: translateX(-50%); white-space: nowrap; padding: 3px 9px; border-radius: 999px; background: #14293a; color: #fff; font: 800 .62rem/1.2 var(--sans); letter-spacing: .1em; text-transform: uppercase; }
+.dl-page:hover { transform: translateY(-4px) rotate(-1deg); }
+.dl-info h2 { margin: 2px 0 2px; font-size: clamp(1.5rem, 2.4vw, 2rem); }
+.dl-what { max-width: 62ch; color: var(--ink-2); margin: 0 0 18px; }
+.dl-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 24px; }
+.dl-cols > div { padding: 16px 18px; border-radius: 16px; background: var(--surface-2, #faf8f3); box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .06); }
+.dl-cols h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font: 800 .74rem/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--dl); }
+.dl-cols h3 .icon { width: 16px; height: 16px; }
+.dl-cols ul, .dl-cols ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: .95rem; }
+.dl-cols ol li::marker { color: var(--dl); font-weight: 800; }
+.dl-cols ul li::marker { color: var(--dl); }
+
+@media (max-width: 760px) {
+  .block.dl-card { flex-direction: column; align-items: flex-start; padding: 22px 20px; }
+  .dl-item { grid-template-columns: minmax(0, 1fr); padding: 22px 18px; gap: 22px; }
+  .dl-go, .dl-open { height: 46px; }
+}
+@media (prefers-reduced-motion: reduce) { .dl-badge .icon { animation: none; } .dl-stack img, .dl-page { transition: none; } }
+.gd-links a.gd-dl { padding: 3px 10px; border-radius: 999px; background: #eef4fc; color: #2f6db5; font-weight: 700; text-decoration: none; box-shadow: inset 0 0 0 1px rgba(47, 109, 181, .25); }
