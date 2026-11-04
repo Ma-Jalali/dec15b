@@ -879,20 +879,34 @@ const LAB_IC = {
 };
 function labPage() {
   let open = {}; try { open = JSON.parse(localStorage.getItem('dec10-lab-open') || '{}'); } catch (e) { /* storage blocked */ }
-  const row = (l, i) => { const ready = l.status === 'ready', [a, b] = ready ? dayProgress(l) : [0, 0], done = b && a >= b;
-    const inner = `<span class="lab-row-n">${done ? icon('check') : i + 1}</span><span class="lab-row-t"><b>${esc(l.title)}</b><small>${esc(l.sub || '')}</small></span>
-      <span class="lab-row-meta">${icon('clock')}${l.minutes || 45} min${l.level ? ` · ${esc(l.level)}` : ''}</span>
-      <span class="lab-row-st${done ? ' is-done' : a ? ' is-on' : ''}">${!ready ? 'Soon' : done ? 'Done' : a ? `${a}/${b}` : 'Start'}</span>`;
-    return `<li>${ready ? `<a class="lab-row" href="#/${l.id}">${inner}${icon('arrow')}</a>` : `<div class="lab-row is-soon">${inner}</div>`}</li>`; };
+  const C = 2 * Math.PI * 15, arc = p => `<svg class="lab-ring" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="15"/><circle cx="18" cy="18" r="15" style="stroke-dasharray:${C.toFixed(1)};stroke-dashoffset:${(C * (1 - p)).toFixed(1)}"/></svg>`;
+  const prog = l => { const ready = l.status === 'ready', [a, b] = ready ? dayProgress(l) : [0, 0]; return { ready, a, b, done: !!b && a >= b }; };
+  const row = (l, i) => { const { ready, a, b, done } = prog(l);
+    const inner = `<span class="lab-row-n">${arc(b ? a / b : 0)}<b>${done ? icon('check') : i + 1}</b></span>
+      <span class="lab-row-t"><b>${esc(l.title)}</b><small>${esc(l.sub || '')}</small></span>
+      <span class="lab-row-chips"><span class="lab-chip">${icon('clock')}${l.minutes || 45} min</span>${l.level ? `<span class="lab-chip is-lv">${esc(l.level)}</span>` : ''}</span>
+      <span class="lab-row-st${done ? ' is-done' : a ? ' is-on' : ''}">${!ready ? 'Soon' : done ? `${icon('check')}Done` : a ? `Continue <small>${a}/${b}</small>` : 'Start'}${ready && !done ? icon('arrow') : ''}</span>`;
+    return `<li style="--i:${i}">${ready ? `<a class="lab-row" href="#/${l.id}">${inner}</a>` : `<div class="lab-row is-soon">${inner}</div>`}</li>`; };
+  const all = LAB.strands.flatMap(st => st.lessons.filter(l => l.status === 'ready')), fin = all.filter(l => prog(l).done).length, started = all.filter(l => { const x = prog(l); return x.a && !x.done; }).length;
+  const soonArt = `<svg class="lab-soon-art" viewBox="0 0 120 80" aria-hidden="true"><rect x="8" y="14" width="56" height="40" rx="7" transform="rotate(-8 36 34)" fill="#fff" stroke="currentColor" stroke-opacity=".35"/><rect x="40" y="22" width="56" height="40" rx="7" transform="rotate(5 68 42)" fill="#fff" stroke="currentColor" stroke-opacity=".5"/><text x="68" y="46" text-anchor="middle" transform="rotate(5 68 42)" font-family="Georgia, serif" font-size="13" font-style="italic" fill="currentColor">sustain</text><path d="M20 30h24M20 38h16" transform="rotate(-8 36 34)" stroke="currentColor" stroke-opacity=".3" stroke-width="3" stroke-linecap="round"/><circle cx="104" cy="16" r="3" fill="currentColor" opacity=".5"/><circle cx="12" cy="66" r="2" fill="currentColor" opacity=".4"/></svg>`;
   return `<div class="lab-page">
-    <header class="lab-top"><div><span class="eyebrow">${esc(course.code)} · Self-study</span><h1>${esc(LAB.title)}</h1><p>${esc(LAB.intro)}</p></div>
-      <img class="lab-top-art" src="dec10/assets/lab/lab-hero.svg" alt="" width="440" height="340"></header>
-    <div class="lab-list">${LAB.strands.map(st => { const [c, bg] = TONES[st.tone] || ['#3d505e', '#f2f4f5'], ready = st.lessons.filter(l => l.status === 'ready');
-      const fin = ready.filter(l => { const [a, b] = dayProgress(l); return b && a >= b; }).length;
-      return `<details class="lab-acc" data-lab-acc="${st.id}" style="--lc:${c};--lbg:${bg}"${open[st.id] ? ' open' : ''}>
-        <summary><span class="lab-ic">${LAB_IC[st.icon] || LAB_IC.words}</span><span class="lab-acc-t"><b>${esc(st.title)}</b><small>${esc(st.blurb || '')}</small></span>
-          <span class="lab-acc-n">${ready.length ? `${ready.length} lesson${ready.length === 1 ? '' : 's'}${fin ? ` · ${fin} done` : ''}` : 'Coming soon'}</span><i class="lg-fold-chev" aria-hidden="true"></i></summary>
-        ${st.lessons.length ? `<ol class="lab-rows">${st.lessons.map(row).join('')}</ol>` : `<p class="lab-soon-tx">${esc(st.soon || 'New lessons are on the way.')}</p>`}
+    <header class="lab-top">
+      <div class="lab-top-copy"><span class="eyebrow">${esc(course.code)} · Self-study</span><h1>${esc(LAB.title)}</h1><p>${esc(LAB.intro)}</p>
+        <ul class="lab-stats" aria-label="Your Language Lab">
+          <li><b>${all.length}</b><span>lessons ready</span></li>
+          <li><b>${started}</b><span>in progress</span></li>
+          <li class="is-done"><b>${fin}</b><span>finished</span></li>
+        </ul></div>
+      <img class="lab-top-art" src="dec10/assets/lab/lab-bench.svg" alt="" width="520" height="300">
+    </header>
+    <div class="lab-list">${LAB.strands.map((st, k) => { const [c, bg] = TONES[st.tone] || ['#3d505e', '#f2f4f5'], ready = st.lessons.filter(l => l.status === 'ready');
+      const done = ready.filter(l => prog(l).done).length, p = ready.length ? done / ready.length : 0;
+      return `<details class="lab-acc${ready.length ? '' : ' is-soon'}" data-lab-acc="${st.id}" style="--lc:${c};--lbg:${bg}"${open[st.id] ? ' open' : ''}>
+        <summary><span class="lab-ic">${LAB_IC[st.icon] || LAB_IC.words}<i class="lab-ic-n">${k + 1}</i></span>
+          <span class="lab-acc-t"><b>${esc(st.title)}</b><small>${esc(st.blurb || '')}</small></span>
+          ${ready.length ? `<span class="lab-acc-p" title="${done} of ${ready.length} finished">${arc(p)}<b>${done}<small>/${ready.length}</small></b></span>` : ''}
+          <span class="lab-acc-n">${ready.length ? `${ready.length} lesson${ready.length === 1 ? '' : 's'}` : 'Coming soon'}</span><i class="lg-fold-chev" aria-hidden="true"></i></summary>
+        ${st.lessons.length ? `<ol class="lab-rows">${st.lessons.map(row).join('')}</ol>` : `<div class="lab-soon">${soonArt}<p><b>On the way</b>${esc(st.soon || 'New lessons are on the way.')}</p></div>`}
       </details>`; }).join('')}</div>
   </div>`;
 }
