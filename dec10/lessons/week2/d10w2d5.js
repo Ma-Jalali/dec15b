@@ -238,7 +238,7 @@ window.DEC15_LESSON = {
           goal: "Know what to listen for and how to ask good questions.",
           blocks: [
             {"type":"do","n":1,"who":"group","text":"The feedback tool has four criteria. Sort each statement into its criterion."},
-            { type: 'download', id: 'feedback-tool', note: "One form for each group: Groups 3, 4 and 5. Save each one with the group’s name." },
+            {"type":"download","id":"feedback-tool","note":"One form for each group: Groups 3, 4 and 5. Save each one with the group’s name."},
             {
               type: "sort",
               id: "p4-sort",
@@ -262,6 +262,11 @@ window.DEC15_LESSON = {
               ]
             },
             {"type":"do","n":2,"who":"group","text":"Two kinds of question for today. Is each one <b>clarification</b> or <b>probing</b>?"},
+            {
+              type: "download",
+              id: "ip-questions",
+              note: "The question sheet for today: start with a <b>clarification</b> question, then go deeper with a <b>probing</b> one."
+            },
             {
               type: "sort",
               id: "p4-q",
@@ -1445,7 +1450,11 @@ window.DEC15_LESSON = {
               who: "alone",
               text: "Look at the feedback you received on your Week 2 presentation. Copy the ratings here. Which aspects got the most <b>Needs work</b>?"
             },
-            { type: 'download', id: 'feedback-tool', note: "Use the forms your classmates and your teacher filled in for <b>your</b> presentation. A spare form is here if you need one." },
+            {
+              type: "download",
+              id: "feedback-tool",
+              note: "Use the forms your classmates and your teacher filled in for <b>your</b> presentation. A spare form is here if you need one."
+            },
             {
               type: "form",
               id: "a3-form",
@@ -1688,6 +1697,11 @@ window.DEC15_LESSON = {
                 "You help each other — <b>but</b> you give an <b>INDIVIDUAL</b> presentation, <b>NOT a group</b> presentation.",
                 "After your presentation, you answer <b>4–6 individual questions</b> about your content and about how you applied your academic skills."
               ]
+            },
+            {
+              type: "download",
+              id: "ip-questions",
+              note: "After your Interactive Presentation you answer questions like these: two on your content and some on the Academic Success Toolkit. Practise with this sheet."
             },
             {
               type: "cards",
