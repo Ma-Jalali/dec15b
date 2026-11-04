@@ -55,19 +55,15 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
   }
 
   /* ───────── Course calendar ───────── */
-  const CAL_ART = `<svg class="gd-hero-art" viewBox="0 0 240 180" aria-hidden="true"><defs><filter id="gds" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#14293a" flood-opacity=".18"/></filter></defs>
-    <circle cx="120" cy="92" r="78" fill="#fbe6dc"/><g filter="url(#gds)"><rect x="52" y="40" width="136" height="112" rx="16" fill="#fff"/><rect x="52" y="40" width="136" height="30" rx="16" fill="#e64626"/><rect x="52" y="56" width="136" height="14" fill="#e64626"/></g>
-    <g fill="#14293a"><rect x="80" y="30" width="8" height="20" rx="4"/><rect x="152" y="30" width="8" height="20" rx="4"/></g>
-    <g fill="#f3ede4">${[0, 1, 2, 3, 4].map(c => [0, 1, 2].map(r => `<rect x="${64 + c * 24}" y="${80 + r * 22}" width="18" height="16" rx="4"/>`).join('')).join('')}</g>
-    <rect class="gd-pulse" x="112" y="102" width="18" height="16" rx="4" fill="#e64626"/><rect x="160" y="124" width="18" height="16" rx="4" fill="#4f68b8"/><rect x="88" y="80" width="18" height="16" rx="4" fill="#2f9a63"/>
-    <path class="gd-tw" d="M200 46l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#e3a843"/></svg>`;
+  const CAL_ART = `<img class="gd-hero-art" src="dec10/assets/guide/calendar.svg" alt="" width="360" height="240">`;
   function eventHTML(e) {
     const [label, col] = type(e.type);
-    const times = e.times ? `<ul class="gd-times">${e.times.map(([k, t]) => `<li><span>${esc(G.shifts[k] || k)}</span><b>${esc(t)}</b></li>`).join('')}</ul>` : e.time ? `<p class="gd-time">${icon('clock')}${esc(e.time)}</p>` : '';
+    const times = e.times ? `<ul class="gd-times">${e.times.map(([k, t]) => `<li><span>${esc(G.shifts[k] || k)}</span><b>${esc(t)}</b></li>`).join('')}</ul>` : '';
+    const meta = [e.time ? `${icon('clock')}${esc(e.time)}` : '', e.where ? `${icon('map')}${esc(e.where)}` : ''].filter(Boolean);
     return `<li class="gd-ev${e.type === 'assess' ? ' is-assess' : ''}${e.counts ? ' is-counts' : ''}" style="--ec:${col}">
-      <span class="gd-ev-type">${esc(label)}${e.must ? '<em>Must attend</em>' : ''}${e.counts ? '<em>Counts</em>' : ''}</span>
+      <span class="gd-ev-type"><i aria-hidden="true"></i>${esc(label)}${e.must ? '<em>Must attend</em>' : ''}${e.counts ? '<em>Counts</em>' : ''}</span>
       <b class="gd-ev-title">${esc(e.title)}</b>${times}
-      ${e.where ? `<p class="gd-where">${icon('map')}${esc(e.where)}</p>` : ''}
+      ${meta.length ? `<p class="gd-ev-meta">${meta.map(m => `<span>${m}</span>`).join('')}</p>` : ''}
       ${e.note ? `<p class="gd-note">${esc(e.note)}</p>` : ''}
       ${e.reg ? `<p class="gd-reg">${icon('pen')}${esc(e.reg === true ? 'Register on CET Connect' : e.reg)}</p>` : ''}</li>`;
   }
@@ -92,7 +88,7 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
       ${filter === 'events' && !ev.length && !sem.length ? '<p class="gd-empty">No extra events.</p>' : ''}`;
     const past = dt < today, key = `${calSel}-${i}`;
     return `<article class="gd-day${isToday ? ' is-today' : ''}${assess ? ' has-assess' : ''}${d.off ? ' is-off' : ''}${past ? ' is-past' : ''}${openPast.has(key) ? ' is-open' : ''}" style="--i:${i}">
-      <header><span class="gd-dh"><span class="gd-dname">${DAYS[i]}</span><span class="gd-ddate">${fmt(dt)}</span></span>${dayDots(d)}${isToday ? '<em class="gd-today">Today</em>' : ''}${past ? `<button type="button" class="gd-past-btn" data-gd-day="${key}" aria-expanded="${openPast.has(key)}">${openPast.has(key) ? 'Hide' : 'Show'}</button>` : ''}</header><div class="gd-dbody">${body}</div></article>`;
+      <header><span class="gd-dtile" aria-hidden="true"><small>${DAY[i]}</small><b>${dt.getDate()}</b></span><span class="gd-dh"><span class="gd-dname">${DAYS[i]}</span><span class="gd-ddate">${fmt(dt)}</span></span>${dayDots(d)}${isToday ? '<em class="gd-today">Today</em>' : ''}${past ? `<button type="button" class="gd-past-btn" data-gd-day="${key}" aria-expanded="${openPast.has(key)}">${openPast.has(key) ? 'Hide' : 'Show'}</button>` : ''}</header><div class="gd-dbody">${body}</div></article>`;
   }
   /* previous / this week / next, shown beside the week title and under a break */
   function weekNav() {
@@ -106,10 +102,10 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
       <div class="gd-week-tools">${counts ? `<span class="gd-flag">${icon('alert')}Assessment week</span>` : ''}${weekNav()}</div></div>
       ${semWeekHTML(w)}
       <div class="gd-viewbar"><div class="gd-seg" role="group" aria-label="Show">${[['all', 'Everything'], ['classes', 'Classes & homework'], ['events', 'Workshops & events']].map(([k, l]) => `<button type="button" data-gd-filter="${k}" aria-pressed="${filter === k}">${l}</button>`).join('')}</div>
-        <div class="gd-seg gd-lay" role="group" aria-label="Layout">${[['cols', 'Columns', COLS], ['list', 'List', ROWS]].map(([k, l, ic]) => `<button type="button" data-gd-layout="${k}" aria-pressed="${layout() === k}" title="${l}">${ic}<span>${l}</span></button>`).join('')}</div></div>
+        <div class="gd-seg gd-lay" role="group" aria-label="Layout">${[['list', 'Agenda', ROWS], ['cols', 'Week grid', COLS]].map(([k, l, ic]) => `<button type="button" data-gd-layout="${k}" aria-pressed="${layout() === k}" title="${l}">${ic}<span>${l}</span></button>`).join('')}</div></div>
       <div class="gd-days${layout() === 'list' ? ' is-list' : ''}">${w.days.map((d, i) => dayCard(w, d, i)).join('')}</div>`;
   }
-  const layout = () => store.get('layout') === 'list' ? 'list' : 'cols';
+  const layout = () => store.get('layout') === 'cols' ? 'cols' : 'list';   // the agenda (one day per row) is the default: easier to read
 
   /* ───────── Class 30: the seminar schedule panel (a fold-out menu above the weeks) ───────── */
   const WK = [2, 3, 4, 5, 6, 7];
@@ -217,14 +213,40 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
     e.preventDefault(); document.querySelector(`.gd-wnav [data-gd-week="${to}"]`)?.click();
   });
 
+  /* ───────── focus cards at the top of both pages ───────── */
+  const classDays = () => weeks.flatMap((w, wi) => w.brk ? [] : w.days.map((d, i) => ({ w, wi, d, i, dt: addDays(parse(w.start), i) })).filter(x => !x.d.off));
+  function todayHTML() {
+    const all = classDays(), t = all.find(x => same(x.dt, today)), nx = t || all.find(x => x.dt > today); if (!nx) return '';
+    const { w, d, i, dt } = nx, id = `d10w${w.n}d${i + 1}`, info = days.find(x => x.id === id), open = ready.has(id), n = Math.round((dt - today) / 864e5);
+    const ev = (d.events || []).filter(e => e.type !== 'seminar'), sem = (d.events || []).some(e => e.type === 'seminar');
+    const row = ([code, title, at]) => { const lid = at ? at.split('/')[0] : lessonId(code), on = lid && ready.has(lid);
+      return `<li>${on ? `<a href="#/${esc(at || lid)}">${esc(title)}${icon('arrow')}</a>` : `<span>${esc(title)}</span>`}</li>`; };
+    return `<section class="gx-today${t ? ' is-today' : ''}">
+      <span class="gx-cal" aria-hidden="true"><small>${DAY[i]}</small><b>${dt.getDate()}</b><small>${MON[dt.getMonth()]}</small></span>
+      <div class="gx-today-main"><span class="eyebrow">${t ? 'Today' : n === 1 ? 'Tomorrow' : 'Next class day'} · ${DAYS[i]} · Week ${w.n}</span>
+        <h2>${esc(info?.title || w.theme)}</h2>
+        ${d.class ? `<ol class="gx-today-list">${d.class.map(row).join('')}</ol>` : ''}
+        <div class="gx-today-foot">${open ? `<a class="btn btn-sm" href="#/${id}">${t ? 'Open today’s lesson' : 'Open the lesson'}${icon('arrow')}</a>` : ''}
+          ${d.hw ? `<span class="gx-chip">${icon('home')}${d.hw.length} homework</span>` : ''}${ev.length ? `<span class="gx-chip">${icon('flag')}${ev.length} event${ev.length === 1 ? '' : 's'}</span>` : ''}${sem ? `<span class="gx-chip is-sem">${MIC}Seminar session</span>` : ''}</div></div>
+    </section>`;
+  }
+  function nextHTML(onAssess) {
+    const nx = upcoming(); if (!nx) return '';
+    const fill = nx.n === 0 ? 1 : Math.max(.06, 1 - Math.min(nx.n, 30) / 30);
+    return `<section class="gx-next${nx.e.counts ? ' is-counts' : ''}">
+      <span class="gx-ring" style="--p:${fill}" aria-hidden="true"><b>${nx.n === 0 ? 'Today' : nx.n}</b>${nx.n ? `<small>day${nx.n === 1 ? '' : 's'}</small>` : ''}</span>
+      <div class="gx-next-main"><span class="eyebrow">Next assessment</span><b class="gx-next-t">${esc(nx.e.title)}</b>
+        <small>${DAYS[nx.i]} ${fmt(nx.dt)} · Week ${nx.w.n}${nx.n ? ` · in ${nx.n} day${nx.n === 1 ? '' : 's'}` : ''}</small>
+        <span class="gx-kind ${nx.e.counts ? 'is-counts' : 'is-practice'}">${nx.e.counts ? 'Counts towards your score' : esc(nx.e.note || 'Practice')}</span></div>
+      ${onAssess ? `<button type="button" class="gx-link" data-gd-jump="gd-s-ready">Get ready${icon('arrow')}</button>` : `<a class="gx-link" href="#/assessments">Assessments${icon('arrow')}</a>`}
+    </section>`;
+  }
   function calendarHTML() {
-    const w = weeks[calSel], nx = upcoming();
-    return `${head('DEC10 · 26 Oct 2026 – 22 Jan 2027', 'Course calendar', 'Every week on one page: your classes, your homework, and the workshops and events you can join. Pick a week, then read it day by day.', CAL_ART)}
-    <div class="gd-top">
-      ${nx ? `<div class="gd-next"><span class="gd-next-n${nx.n === 0 ? ' is-today' : ''}"><b>${nx.n === 0 ? 'Today' : nx.n}</b>${nx.n === 0 ? '' : `<small>day${nx.n === 1 ? '' : 's'}</small>`}</span><div><span class="eyebrow">Next assessment</span><b>${esc(nx.e.title)}</b><small>${DAYS[nx.i]} ${fmt(nx.dt)} · Week ${nx.w.n}${nx.e.counts ? ' · counts towards your score' : ''}</small></div>
-        <a class="btn-quiet btn-sm" href="#/assessments">${icon('flag')}Assessments</a></div>` : ''}
+    const w = weeks[calSel];
+    return `${head('DEC10 · 26 Oct 2026 – 22 Jan 2027', 'Course calendar', 'Your classes, homework and events, one week at a time.', CAL_ART)}
+    <div class="gx-focus">${todayHTML()}<div class="gx-side">${nextHTML(false)}
       <details class="gd-terms"><summary><span>${icon('clock')}<b>Term dates and breaks</b></span><i class="lg-fold-chev" aria-hidden="true"></i></summary>
-        <dl>${G.terms.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl><p class="gd-warn">${icon('alert')}${esc(G.resit)}</p></details>
+        <dl>${G.terms.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl><p class="gd-warn">${icon('alert')}${esc(G.resit)}</p></details></div>
     </div>
     ${semPanelHTML()}
     <nav class="gd-rail" aria-label="Weeks">${weeks.map((x, i) => { const cnt = !x.brk && x.days.some(d => (d.events || []).some(e => e.counts));
@@ -236,15 +258,13 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
   }
 
   /* ───────── Assessments ───────── */
-  const AS_ART = `<svg class="gd-hero-art" viewBox="0 0 240 180" aria-hidden="true"><defs><filter id="gda" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#14293a" flood-opacity=".18"/></filter></defs>
-    <circle cx="120" cy="92" r="78" fill="#e9edf8"/><g filter="url(#gda)" transform="rotate(-4 120 96)"><rect x="66" y="34" width="108" height="130" rx="12" fill="#fff"/><rect x="98" y="26" width="44" height="18" rx="8" fill="#4f68b8"/></g>
-    <g transform="rotate(-4 120 96)" stroke-linecap="round" stroke-width="5"><path class="gd-tick" d="M82 70l7 7 12-13M82 100l7 7 12-13M82 130l7 7 12-13" stroke="#2f9a63" fill="none" stroke-linejoin="round"/>
-    <path d="M112 71h46M112 101h38M112 131h44" stroke="#d6dbe6"/></g><path class="gd-tw" d="M196 52l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#e3a843"/></svg>`;
+  const AS_ART = `<img class="gd-hero-art" src="dec10/assets/guide/assessments.svg" alt="" width="360" height="240">`;
   const L = G.links, a = (href, text) => `<a href="${esc(href)}" target="_blank" rel="noopener">${esc(text)} ${icon('open')}</a>`;
   const facts = rows => `<dl class="gd-facts">${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>`;
   const FOLD_ICON = { 'The rules on the day': 'lock', 'Sick, an emergency, or a technical problem?': 'alert', 'Think your mark is wrong?': 'target', 'Disability, health condition or learning difficulty': 'users', 'Contacts': 'chat' };
   const fold = (title, sub, body, open, ic = FOLD_ICON[title]) => `<details class="gd-fold"${open ? ' open' : ''}><summary>${ic ? `<span class="gd-fold-ic">${icon(ic)}</span>` : ''}<span><b>${title}</b>${sub ? `<small>${sub}</small>` : ''}</span><i class="lg-fold-chev" aria-hidden="true"></i></summary><div class="gd-fold-body">${body}</div></details>`;
   const steps = items => `<ol class="gd-steps">${items.map(t => `<li>${t}</li>`).join('')}</ol>`;
+  const TAB_IC = { lrw: SVG('<path d="M4 5.5c3-1 5.5-.6 8 1.2 2.5-1.8 5-2.2 8-1.2v13c-3-1-5.5-.6-8 1.2-2.5-1.8-5-2.2-8-1.2z"/><path d="M12 6.7v13"/>'), seminar: SVG('<circle cx="8" cy="9" r="3"/><circle cx="16.5" cy="9.5" r="2.5"/><path d="M3 19c.6-3 2.7-4.6 5-4.6s4.4 1.6 5 4.6M13.5 18.5c.5-2.3 1.8-3.6 3.5-3.6 1.8 0 3 1.3 3.5 3.6"/>'), ip: MIC, id: SVG('<path d="M4 6h10v7H8.5L5 16v-3H4z"/><path d="M14 9h6v7h-1v3l-3.5-3H11v-3"/>') };
   const TABS = [['lrw', 'Listening, Reading & Writing', 'Weeks 5 & 9 · 70%'], ['seminar', 'Seminar + Portfolio', 'Weeks 2–7 · 3%'], ['ip', 'Interactive Presentation', 'Week 7 · 12%'], ['id', 'Interactive Discussion', 'Week 10 · 15%']];
   function tabBody(k) {
     if (k === 'lrw') return `<p class="gd-lead">Three tests, one after the other, with <b>no break</b>: listening → reading → writing. Your writing uses ideas from the listening and reading. You do it <b>twice</b>: Week 5 and Week 9 (Week 9 counts a little more).</p>
@@ -320,31 +340,40 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
   function assessmentsHTML() {
     const tick = store.get('ready') || {}, n = READY.filter(([k]) => tick[k]).length;
     const total = G.weights.reduce((t, w) => t + w.total, 0);
-    return `${head('DEC10 · How you are assessed', 'Assessments', 'What you do, when, and how much it counts — in plain English. Start with the big picture, then open the assessment you need.', AS_ART)}
+    return `${head('DEC10 · How you are assessed', 'Assessments', 'What you do, when, and how much it counts — in plain English.', AS_ART)}
+    <div class="gx-focus is-assess">${nextHTML(true)}
+      <section class="gx-readycard"><div class="gd-ready-meter" style="--p:${n / READY.length}"><b>${n}/${READY.length}</b><small>${n === READY.length ? 'Ready!' : 'ready'}</small></div>
+        <div><span class="eyebrow">Before every assessment</span><b>Laptop, battery, LockDown Browser</b><small>Seven quick checks — tick them before each test.</small></div>
+        <button type="button" class="gx-link" data-gd-jump="gd-s-ready">Check${icon('arrow')}</button></section></div>
     <nav class="gd-jump" aria-label="On this page">${[['gd-s-score', 'Your score'], ['gd-s-year', 'When'], ['gd-s-four', 'The four assessments'], ['gd-s-ready', 'Get ready'], ['gd-s-help', 'Rules & help']].map(([id, l]) => `<button type="button" data-gd-jump="${id}">${l}</button>`).join('')}</nav>
-    <section class="gd-score" id="gd-s-score"><h2 class="gd-h2">Where your score comes from</h2>
-      <div class="gd-bar" role="img" aria-label="${G.weights.map(w => `${w.skill} ${w.total}%`).join(', ')}">${G.weights.map(w => `<span style="--w:${w.total / total};--ec:${w.color}"><b>${w.total}%</b>${esc(w.skill)}</span>`).join('')}</div>
-      <div class="gd-skills">${G.weights.map(w => `<div class="gd-skill" style="--ec:${w.color}"><b>${esc(w.skill)} <em>${w.total}%</em></b><ul>${w.parts.map(([p, v]) => `<li><span>${esc(p)}</span><i style="--p:${v / 16.5}"></i><b>${v}%</b></li>`).join('')}</ul></div>`).join('')}</div>
+    <section class="gx-score" id="gd-s-score"><div class="gx-sec-head"><h2 class="gd-h2">Where your score comes from</h2><p>Four skills · 100% · each assessment adds to one skill</p></div>
+      <div class="gx-card">
+        <div class="gx-bar" role="img" aria-label="${G.weights.map(w => `${w.skill} ${w.total}%`).join(', ')}">${G.weights.map(w => `<span style="--w:${w.total / total};--ec:${w.color}"></span>`).join('')}</div>
+        <div class="gx-skills">${G.weights.map(w => `<div class="gx-skill" style="--ec:${w.color}"><span class="gx-skill-h"><i aria-hidden="true"></i><b>${esc(w.skill)}</b><em>${w.total}%</em></span>
+          <ul>${w.parts.map(([p, v]) => `<li><span>${esc(p)}</span><b>${v}%</b><i style="--p:${v / w.total}" aria-hidden="true"></i></li>`).join('')}</ul></div>`).join('')}</div>
+      </div>
     </section>
-    <section id="gd-s-year"><h2 class="gd-h2">When are my assessments?</h2>
-      ${stripHTML()}
-      <ol class="gd-tl">${(() => { const info = G.timeline.map(tlDate), next = info.findIndex(x => x && x >= today);
+    <section id="gd-s-year"><div class="gx-sec-head"><h2 class="gd-h2">When are my assessments?</h2><p>Ten weeks · the next one is marked</p></div>
+      <div class="gx-card gx-when">${stripHTML()}
+      <ol class="gx-tl">${(() => { const info = G.timeline.map(tlDate), next = info.findIndex(x => x && x >= today);
         return G.timeline.map((t, i) => { const dt = info[i], done = dt && dt < today, n = dt ? Math.round((dt - today) / 864e5) : null, me = myGroup();
-          const when = dt ? (done ? `<span class="gd-tl-when is-done">${icon('check')}Done</span>` : `<span class="gd-tl-when${i === next ? ' is-next' : ''}">${n === 0 ? 'Today' : n === 1 ? 'Tomorrow' : `in ${n} days`}</span>`) : '';
+          const when = dt ? (done ? `<span class="gx-when is-done">${icon('check')}Done</span>` : `<span class="gx-when${i === next ? ' is-next' : ''}">${n === 0 ? 'Today' : n === 1 ? 'Tomorrow' : `in ${n} days`}</span>`) : '';
           const sub = /–/.test(String(t.week)) && S && me ? `Group ${me.g}: Opening Remarks ${whenOf(me.opening)} · Seminar ${whenOf(me.seminar)}` : t.text;
-          return `<li class="is-${t.kind}${done ? ' is-done' : ''}${i === next ? ' is-next' : ''}" style="--i:${i}"><span class="gd-tl-w">Week ${esc(String(t.week))}${dt ? ` · ${esc(dayLabel(dt))}` : ''}</span><b>${esc(t.title)}</b><small>${esc(sub)}</small><span class="gd-tl-foot"><em>${t.kind === 'real' ? 'Counts' : t.kind === 'practice' ? 'Practice' : 'Check-in'}</em>${when}</span></li>`; }).join(''); })()}</ol>
+          return `<li class="is-${t.kind}${done ? ' is-done' : ''}${i === next ? ' is-next' : ''}"><span class="gx-tl-d"><b>Week ${esc(String(t.week))}</b>${dt ? `<small>${esc(dayLabel(dt))}</small>` : ''}</span>
+            <span class="gx-tl-t"><b>${esc(t.title)}</b><small>${esc(sub)}</small></span>
+            <span class="gx-tl-r"><em class="gx-kind is-${t.kind}">${t.kind === 'real' ? 'Counts' : t.kind === 'practice' ? 'Practice' : 'Check-in'}</em>${when}</span></li>`; }).join(''); })()}</ol></div>
     </section>
-    <section class="gd-tabs-wrap" id="gd-s-four"><h2 class="gd-h2">The four assessments</h2>
-      <div class="gd-tabs" role="tablist">${TABS.map(([k, l, s]) => `<button type="button" role="tab" data-gd-tab="${k}" aria-selected="${asTab === k}"><b>${l}</b><small>${s}</small></button>`).join('')}</div>
+    <section class="gd-tabs-wrap" id="gd-s-four"><div class="gx-sec-head"><h2 class="gd-h2">The four assessments</h2><p>Choose one to see what you do</p></div>
+      <div class="gd-tabs" role="tablist">${TABS.map(([k, l, s]) => `<button type="button" role="tab" data-gd-tab="${k}" aria-selected="${asTab === k}"><span class="gx-tab-ic" aria-hidden="true">${TAB_IC[k]}</span><span><b>${l}</b><small>${s}</small></span></button>`).join('')}</div>
       <div class="gd-tab" role="tabpanel">${tabBody(asTab)}</div>
     </section>
-    <section id="gd-s-ready"><h2 class="gd-h2">Before every assessment</h2>
+    <section id="gd-s-ready"><div class="gx-sec-head"><h2 class="gd-h2">Before every assessment</h2><p>Tick each one — it is saved on this device</p></div>
       <div class="gd-ready"><div class="gd-ready-meter" style="--p:${n / READY.length}"><b>${n}/${READY.length}</b><small>${n === READY.length ? 'Ready!' : 'ready'}</small></div>
         <ul>${READY.map(([k, t]) => `<li><label><input type="checkbox" data-gd-ready="${k}"${tick[k] ? ' checked' : ''}><span>${esc(t)}</span></label></li>`).join('')}</ul></div>
       <p class="gd-links">${icon('book')}${a(L.lockdownInstall, 'Install LockDown Browser')} ${a(L.lockdownQuiz, 'Practice quiz')} ${a(L.language, 'Language for online assessments')} ${a(L.removeSoftware, 'Removing language software')}</p>
       <p class="gd-tip">${icon('flag')}<span>In Week 1 you <b>must</b> attend the “Preparing for DEC10 assessments” session (Thursday). Your teacher also helps you set up in class.</span></p>
     </section>
-    <section id="gd-s-help"><h2 class="gd-h2">Rules and help</h2>
+    <section id="gd-s-help"><div class="gx-sec-head"><h2 class="gd-h2">Rules and help</h2><p>Open the one you need</p></div>
       ${fold('The rules on the day', 'What you must and must not do', `<div class="gd-two"><div class="gd-do"><b>${icon('check')}You must</b><ul><li>follow every assessment rule</li><li>work honestly — the work must be all yours</li></ul></div>
         <div class="gd-dont"><b>${icon('alert')}You must not</b><ul><li>talk to or message anyone (except the supervisor)</li><li>use a phone or other device, unless the supervisor says so</li><li>use anything not allowed: sample answers, class writing, course readings, translation or language apps, predictive text</li><li>leave your seat without permission</li><li>type in any language except English</li></ul></div></div>
         <p class="gd-warn">${icon('alert')}Not knowing a rule is not an excuse. If you are unsure, ask the DEC Team — not other students. Breaking a rule can mean a new assessment or, in serious cases, cancelled enrolment.</p>`)}
@@ -377,6 +406,7 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
       asTab = d.gdTab; const panel = document.querySelector('.gd-tab');
       if (!panel) { rerender(); return true; }
       document.querySelectorAll('[data-gd-tab]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.gdTab === asTab)));
+      panel.style.minHeight = `${Math.max(parseFloat(panel.style.minHeight) || 0, panel.offsetHeight)}px`;   // never shorter than before: nothing above or below moves
       panel.innerHTML = tabBody(asTab); panel.classList.remove('is-swap'); void panel.offsetWidth; panel.classList.add('is-swap');
       t.focus({ preventScroll: true }); return true; }
     if (d.gdLayout) { store.set('layout', d.gdLayout); rerender(); return true; }
@@ -391,8 +421,8 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
       rerender(); if (g) { toast(`Hi ${n}! Your group’s dates are now marked in the calendar.`); showSem(g); } return true; }
     if (!t.dataset.gdReady) return false;
     const o = store.get('ready') || {}; o[t.dataset.gdReady] = t.checked; store.set('ready', o);
-    const n = READY.filter(([k]) => o[k]).length, m = document.querySelector('.gd-ready-meter');
-    if (m) { m.style.setProperty('--p', n / READY.length); m.innerHTML = `<b>${n}/${READY.length}</b><small>${n === READY.length ? 'Ready!' : 'ready'}</small>`; } else rerender();
+    const n = READY.filter(([k]) => o[k]).length, ms = document.querySelectorAll('.gd-ready-meter');
+    if (ms.length) ms.forEach(m => { m.style.setProperty('--p', n / READY.length); m.innerHTML = `<b>${n}/${READY.length}</b><small>${n === READY.length ? 'Ready!' : 'ready'}</small>`; }); else rerender();
     if (READY.every(([k]) => o[k])) toast('All set — you are ready for your assessments!');
     return true;
   }
