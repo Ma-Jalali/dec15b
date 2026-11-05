@@ -1028,21 +1028,44 @@ B.download = b => { const d = dlFind(b.id); if (!d) return '';
       <div class="dl-actions">${dlButtons(d)}<a class="dl-more" href="#/downloads">${esc(d.howTitle || 'How to fill it in')} ${icon('arrow')}</a></div>
     </div>
   </section>`; };
+const DLX_TONE = { blue: ['#2f6db5', '#eef4fc'], teal: ['#13887a', '#e8f5f2'], plum: ['#7a4a8c', '#f3edf7'], amber: ['#b07d12', '#fbf3e2'] };
+const DLX_IC = {
+  form: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8.5 8h7M8.5 12h7"/><circle cx="9.5" cy="16" r="1.2"/><path d="m12.5 16 1.2 1.2 2.6-2.6"/></svg>',
+  ask: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M10.2 8.6a2 2 0 1 1 2.8 1.8c-.6.3-1 .8-1 1.4M12 13.6h.01"/></svg>',
+  dl: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/></svg>',
+  pen: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13.5 6.5 4 4"/></svg>',
+  save: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7V4M8 20v-6h8v6"/></svg>',
+  send: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12 3 4.5l18 7.5-18 7.5z"/><path d="M4.5 12H12"/></svg>',
+};
 function downloadsPage() {
-  return `<header class="page-head page-hero dl-hero"><div><span class="eyebrow">${esc(course.code)} · Downloads</span><h1>Downloads</h1><p>Forms you download, fill in on your laptop and keep or share. You also find them in the lessons where you need them.</p></div><img class="page-hero-art" src="${ROOT}assets/downloads/hero.svg" alt="" width="440" height="340"></header>
-  <div class="dl-list">${DL.map(d => `<article class="dl-item tone-${esc(d.tone || 'blue')}" id="dl-${esc(d.id)}">
-    <div class="dl-pages">${(d.thumbs || []).map((t, i) => `<a class="dl-page" href="${esc(d.file)}" target="_blank" rel="noopener" title="Open page ${i + 1}"><img src="${esc(t)}" alt="Page ${i + 1} of the ${esc(d.title)}" loading="lazy" width="210" height="297"><span>Page ${i + 1}</span></a>`).join('')}</div>
-    <div class="dl-info">
-      <h2>${esc(d.title)}</h2><p class="dl-sub">${esc(d.sub)}</p>
-      ${dlFile(d)}
-      <p class="dl-what">${esc(d.what)}</p>
-      <div class="dl-actions">${dlButtons(d)}<a class="dl-more" href="#/chats" title="Fill it in, then send the filled PDF to classmates in Chats">Send a filled copy in Chats ${icon('arrow')}</a></div>
-      <div class="dl-cols">
-        <div><h3>${icon('clock')}When you use it</h3><ul>${d.when.map(w => `<li>${esc(w)}</li>`).join('')}</ul></div>
-        <div><h3>${icon('pen')}${esc(d.howTitle || 'How to fill it in')}</h3><ol>${d.how.map(h => `<li>${h}</li>`).join('')}</ol></div>
+  const pages = DL.reduce((n, d) => n + (d.pages || 0), 0);
+  const steps = [['dl', 'Download', 'Save the PDF on your laptop'], ['pen', 'Fill it in', 'In Acrobat Reader or Preview'], ['save', 'Save', 'Give it a clear file name'], ['send', 'Send', 'To classmates in Chats']];
+  return `<div class="dlx-page">
+  <header class="dlx-top">
+    <div class="dlx-top-copy"><span class="eyebrow">${esc(course.code)} · Downloads</span><h1>Downloads</h1>
+      <p>Forms you download, fill in on your laptop and keep or share. You also find them in the lessons where you need them.</p>
+      <ul class="dlx-stats" aria-label="Downloads"><li><b>${DL.length}</b><span>forms</span></li><li><b>${pages}</b><span>pages</span></li><li class="is-pdf"><i>PDF</i><span>fill in and save</span></li></ul></div>
+    <img class="dlx-top-art" src="${ROOT}assets/downloads/hero-v2.svg" alt="" width="540" height="310">
+    <ol class="dlx-steps" aria-label="How it works">${steps.map(([k, t, d], i) => `<li style="--i:${i}"><span class="dlx-step-ic">${DLX_IC[k]}<i>${i + 1}</i></span><span><b>${t}</b><small>${d}</small></span></li>`).join('')}</ol>
+  </header>
+  <div class="dlx-list">${DL.map((d, n) => { const [c, bg] = DLX_TONE[d.tone] || DLX_TONE.blue, th = d.thumbs || [];
+    return `<article class="dlx-item tone-${esc(d.tone || 'blue')}" id="dl-${esc(d.id)}" style="--dc:${c};--dbg:${bg};--i:${n}">
+    <div class="dlx-desk${th.length === 1 ? ' is-one' : ''}">
+      ${th.map((t, i) => `<a class="dlx-thumb" href="${esc(d.file)}" target="_blank" rel="noopener" title="Open page ${i + 1}" style="--k:${i};--n:${th.length}"><img src="${esc(t)}" alt="Page ${i + 1} of the ${esc(d.title)}" loading="lazy" width="210" height="297"><span>Page ${i + 1}</span></a>`).join('')}
+      <svg class="dlx-clip" viewBox="0 0 20 52" aria-hidden="true"><path d="M6 46V10a6 6 0 0 1 12 0v32a9 9 0 0 1-18 0V14" fill="none" stroke="#8a97a2" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <svg class="dlx-pen" viewBox="0 0 120 20" aria-hidden="true"><rect x="16" y="4" width="96" height="12" rx="6" fill="${c}"/><rect x="16" y="4" width="96" height="4" rx="2" fill="#fff" opacity=".3"/><rect x="88" y="3" width="8" height="14" rx="2" fill="#e3a843"/><path d="M16 4 2 10l14 6z" fill="#e8d9bd"/><path d="M6 8.3 2 10l4 1.7z" fill="#14293a"/></svg>
+      <span class="dlx-file-badge"><b>PDF</b>${d.pages} page${d.pages === 1 ? '' : 's'} · ${esc(d.size)}</span>
+    </div>
+    <div class="dlx-info">
+      <div class="dlx-head"><span class="dlx-ic">${d.id === 'ip-questions' ? DLX_IC.ask : DLX_IC.form}</span><div><span class="dlx-kind">${esc(d.kind)}</span><h2>${esc(d.title)}</h2><p class="dlx-sub">${esc(d.sub)}</p></div></div>
+      <p class="dlx-what">${esc(d.what)}</p>
+      <div class="dl-actions">${dlButtons(d)}<a class="dlx-chat" href="#/chats" title="Fill it in, then send the filled PDF to classmates in Chats">${DLX_IC.send}Send a filled copy in Chats</a></div>
+      <div class="dlx-cols">
+        <section class="dlx-when"><h3>${icon('clock')}When you use it</h3><ul>${d.when.map(w => `<li>${esc(w)}</li>`).join('')}</ul></section>
+        <section class="dlx-how"><h3>${icon('pen')}${esc(d.howTitle || 'How to fill it in')}</h3><ol>${d.how.map((h, i) => `<li><i>${i + 1}</i><span>${h}</span></li>`).join('')}</ol></section>
       </div>
     </div>
-  </article>`).join('')}</div>`;
+  </article>`; }).join('')}</div></div>`;
 }
 /* ───────── Language Lab page (#/lab): every strand and its lessons, with progress ───────── */
 const LAB_IC = {
