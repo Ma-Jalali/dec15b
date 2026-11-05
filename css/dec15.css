@@ -1265,3 +1265,9 @@ body.large-text .key h3 { font-size: 1.95rem; }
   .rn-card.is-hot, .rn-card.is-active { transform: none; }
 }
 @media (prefers-reduced-motion: reduce) { .rn-card, .note-anchor, .rn-bubble { transition: none; animation: none; } }
+/* the dictionary's hooks in the reader (DEC10): "Define" in the selection bar and the toolbar, "Full dictionary" on a word card */
+.rn-bubble-dict { color: #fff !important; }
+.rn-bubble-dict svg, .mt-dict svg { width: 17px; height: 17px; }
+.mt-dict { display: inline-flex; align-items: center; gap: 6px; }
+.word-dict { display: inline-block; margin-top: 4px; font: 700 .82rem/1 var(--sans); color: #2f6db5; text-decoration: none; }
+.word-dict:hover { text-decoration: underline; }
