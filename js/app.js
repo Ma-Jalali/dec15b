@@ -32,7 +32,8 @@ const artSrc = name => /[/.]/.test(name) ? name : `assets/art/stage-${name}.svg`
 /* Language Lab (DEC10, course.lab): self-study lessons outside the weeks. A lab lesson says where it is as
    "Language Lab · Grammar 2" instead of "Week 2 · Day 3". */
 const LAB = course.lab || null;
-const DL = course.downloads?.length ? course.downloads : null;   // side panel → Downloads (#/downloads) and the 'download' lesson block
+const DL = course.downloads?.length ? course.downloads : null;
+const PICK = course.id === 'dec10' && window.DEC15Picker;   // side panel → Name wheel (#/picker), DEC10 only   // side panel → Downloads (#/downloads) and the 'download' lesson block
 const labOf = id => { for (const st of LAB?.strands || []) { const i = st.lessons.findIndex(l => l.id === id); if (i >= 0) return { st, n: i + 1, l: st.lessons[i] }; } return null; };
 const labHere = labOf(lesson.id);
 const whereLong = (sep = ' · ') => labHere ? `Language Lab · ${labHere.st.short} ${labHere.n}` : `Week ${lesson.week}${sep}Day ${lesson.day}`;
@@ -154,6 +155,7 @@ const guide = window.createDEC15Guide ? window.createDEC15Guide({ esc, icon, day
 if (guide) ['side-calendar', 'side-assess'].forEach(id => { const el = document.getElementById(id); if (el) el.hidden = false; });
 if (LAB) { const el = document.getElementById('side-lab'); if (el) el.hidden = false; }
 if (DL) { const el = document.getElementById('side-downloads'); if (el) el.hidden = false; }
+if (PICK) { const el = document.getElementById('side-pick'); if (el) el.hidden = false; }
 const kit = window.createDEC10Kit ? window.createDEC10Kit({ getState: () => state, save, rerender: () => rerender(), esc, strip, icon, toast, findBlock, confetti: el => play?.confetti(el) }) : null;
 /* feedback forms, stance scale, quiz board and "Share with classmates" (js/forms.js) */
 /* Chats: the WhatsApp-style page for the class (js/chats.js) */
@@ -1094,7 +1096,7 @@ let navLessonWeek = null;
 function paintNav(route = navRoute) {
   navRoute = route;
   if (route !== 'home' && lesson.week !== navLessonWeek) { navLessonWeek = lesson.week; navWeekOpen = null; }   // a lesson in another week opens its own week
-  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-board', 'board'], ['side-chats', 'chats'], ['side-shared', 'shared'], ['side-calendar', 'calendar'], ['side-assess', 'assessments'], ['side-lab', 'lab'], ['side-downloads', 'downloads']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
+  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-board', 'board'], ['side-chats', 'chats'], ['side-shared', 'shared'], ['side-calendar', 'calendar'], ['side-assess', 'assessments'], ['side-lab', 'lab'], ['side-downloads', 'downloads'], ['side-pick', 'picker']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
   paintLessonNav(route);
   $('#side-home').classList.toggle('active', route === 'home');
   const ws = route === 'planner' || route === 'notebook';   // My workspace: planner + notebook
@@ -1327,6 +1329,7 @@ function parseRoute() {
   if (guide && (h === '/calendar' || h === '/assessments')) return { page: h.slice(1) };
   if (LAB && h === '/lab') return { page: 'lab' };
   if (DL && h === '/downloads') return { page: 'downloads' };
+  if (PICK && h === '/picker') return { page: 'picker' };
   if (routes.includes(h)) { history.replaceState(null, '', L(h)); return { page: h }; } // old links such as #ai
   const m = h.match(/^\/([\w-]+)(?:\/([\w-]+))?/);
   if (!m) return { page: 'overview' };
@@ -1344,8 +1347,8 @@ function render() {
   }
   if (r.home && labHere) { location.reload(); return; }   // the course map shows the weekly lesson, so leave the lab lesson
   const route = r.home ? 'home' : r.page;
-  document.body.classList.toggle('is-lab', !!labHere && !['planner', 'notebook', 'lab', 'downloads', 'calendar', 'assessments', 'board', 'chats', 'shared'].includes(route));   // a Language Lab lesson page
-  if (!r.home && !labHere && r.page !== 'lab' && r.page !== 'downloads') try { localStorage.setItem(CLS.id + '-last-lesson', lesson.id); } catch (e) { /* ignore */ }   // the course map keeps the weekly lesson, not a lab lesson
+  document.body.classList.toggle('is-lab', !!labHere && !['planner', 'notebook', 'lab', 'downloads', 'picker', 'calendar', 'assessments', 'board', 'chats', 'shared'].includes(route));   // a Language Lab lesson page
+  if (!r.home && !labHere && r.page !== 'lab' && r.page !== 'downloads' && r.page !== 'picker') try { localStorage.setItem(CLS.id + '-last-lesson', lesson.id); } catch (e) { /* ignore */ }   // the course map keeps the weekly lesson, not a lab lesson
   const done = coreActivities.filter(a => state.done[a.id]).length;
   paintNav(route);
   $('#progress').value = done; $('#progress').max = coreActivities.length;
@@ -1403,6 +1406,16 @@ function render() {
     if (changed && !matchMedia('(prefers-reduced-motion: reduce)').matches) { main.classList.remove('route-in'); void main.offsetWidth; main.classList.add('route-in'); }
     $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher(); document.body.classList.toggle('is-teacher', isTeacher());
     klass?.setWhere('shared', 'Shared with me'); forms?.paintBadge();
+    return;
+  }
+  if (route === 'picker') {   // Name wheel (js/picker.js): pick a student or a group at random
+    document.body.dataset.page = 'picker'; document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg');
+    $('#crumb').innerHTML = `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>Name wheel</b>`;
+    document.title = `${course.code} · Name wheel`; paintStatus();
+    const main = $('#main'), changed = main.dataset.route !== route; main.dataset.route = route;
+    if (changed) { main.innerHTML = '<div class="pk-root"></div>'; window.DEC15Picker.mount(main.firstChild); window.scrollTo(0, 0); }
+    $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher(); document.body.classList.toggle('is-teacher', isTeacher());
+    klass?.setWhere('picker', 'Name wheel');
     return;
   }
   if (route === 'downloads') {   // Downloads: forms to download and fill in (course.downloads)
