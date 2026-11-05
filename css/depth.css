@@ -1,0 +1,97 @@
+/* DEC10 · depth (v4.5): a modern, softly three-dimensional finish on top of everything else.
+   Loaded last. Light from the top-left: surfaces get a fine top highlight and layered shadows (a contact
+   shadow plus a soft ambient one); icon tiles are glossy, like app icons; buttons can be pressed. */
+[data-course="dec10"] {
+  --d-hi: inset 0 1px 0 rgba(255, 255, 255, .9);
+  --d-rim: 0 0 0 1px rgba(20, 41, 58, .06);
+  --d-1: 0 1px 2px rgba(20, 41, 58, .06), 0 4px 10px -6px rgba(20, 41, 58, .18);
+  --d-2: 0 1px 2px rgba(20, 41, 58, .05), 0 10px 24px -14px rgba(20, 41, 58, .28), 0 30px 60px -44px rgba(20, 41, 58, .35);
+  --d-3: 0 2px 4px rgba(20, 41, 58, .06), 0 18px 36px -18px rgba(20, 41, 58, .34), 0 44px 80px -50px rgba(20, 41, 58, .4);
+}
+
+/* ───────── the side panel: the same light, tinted icon tiles as before, with finer detail ───────── */
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ic {
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 30% 0%, rgba(255, 255, 255, .95) 0, rgba(255, 255, 255, 0) 55%),
+    linear-gradient(155deg, color-mix(in srgb, var(--tc) 24%, #fff) 0%, color-mix(in srgb, var(--tc) 12%, #fff) 60%, color-mix(in srgb, var(--tc) 20%, #fff) 100%);
+  box-shadow: inset 0 1px 0 #fff, inset 0 -1.5px 0 color-mix(in srgb, var(--tc) 18%, transparent), inset 0 0 0 .5px color-mix(in srgb, var(--tc) 30%, transparent),
+    0 0 0 .5px color-mix(in srgb, var(--tc) 22%, transparent), 0 1px 1.5px color-mix(in srgb, var(--tc) 22%, transparent), 0 5px 10px -6px color-mix(in srgb, var(--tc) 65%, transparent);
+}
+/* a faint glass sheen across the top half, and a fine inner ring */
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ic::before {
+  content: ""; position: absolute; inset: 2px; border-radius: 9px; pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .55);
+}
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ic::after {
+  content: ""; position: absolute; left: 3px; right: 3px; top: 2px; height: 42%; border-radius: 8px 8px 12px 12px / 8px 8px 6px 6px; pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .7), rgba(255, 255, 255, 0));
+}
+/* the symbol: its own colour, a little darker, with a soft tinted fill inside closed shapes (two-tone) and a crisp edge */
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ic svg {
+  position: relative; z-index: 1; stroke-width: 1.8;
+  fill: color-mix(in srgb, var(--tc) 16%, transparent);
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, .85)) drop-shadow(0 1px 1px color-mix(in srgb, var(--tc) 30%, transparent));
+}
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link:hover .side-ic {
+  transform: translateY(-1px) scale(1.06);
+  box-shadow: inset 0 1px 0 #fff, inset 0 -1.5px 0 color-mix(in srgb, var(--tc) 22%, transparent), inset 0 0 0 .5px color-mix(in srgb, var(--tc) 40%, transparent),
+    0 0 0 .5px color-mix(in srgb, var(--tc) 30%, transparent), 0 2px 3px color-mix(in srgb, var(--tc) 22%, transparent), 0 10px 18px -8px color-mix(in srgb, var(--tc) 80%, transparent);
+}
+/* the open page: the filled tile as before, with a soft gloss and a white symbol */
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active .side-ic {
+  background: radial-gradient(120% 90% at 30% 0%, rgba(255, 255, 255, .35) 0, rgba(255, 255, 255, 0) 55%), linear-gradient(150deg, color-mix(in srgb, var(--tc) 88%, #fff), color-mix(in srgb, var(--tc) 85%, #14293a));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), inset 0 -1.5px 0 rgba(0, 0, 0, .12), 0 8px 18px -8px color-mix(in srgb, var(--tc) 90%, transparent);
+}
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active .side-ic::before { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22); }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active .side-ic::after { background: linear-gradient(180deg, rgba(255, 255, 255, .32), rgba(255, 255, 255, 0)); }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active .side-ic svg { fill: rgba(255, 255, 255, .18); filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .2)); }
+
+/* ───────── surfaces: activities, cards, hero ───────── */
+[data-course="dec10"] .activity { box-shadow: var(--d-hi), var(--d-rim), var(--d-2) !important; }
+[data-course="dec10"] :is(.day-card, .lib-card, .journey-card, .dl-item, .pk-panel) { box-shadow: var(--d-hi), var(--d-rim), var(--d-2) !important; }
+[data-course="dec10"] .day-card.is-ready:hover, [data-course="dec10"] .lib-card:hover { box-shadow: var(--d-hi), var(--d-rim), var(--d-3) !important; transform: translateY(-4px) !important; }
+[data-course="dec10"] :is(.page-hero, .stage-head, .course-map) { box-shadow: var(--d-hi), var(--d-rim), var(--d-3) !important; }
+
+/* numbered steps: glossy coins */
+[data-course="dec10"] .do-n { background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, .45), transparent 48%), linear-gradient(160deg, color-mix(in srgb, var(--accent, #1f8a7a) 75%, #fff), var(--accent, #1f8a7a) 60%, color-mix(in srgb, var(--accent, #1f8a7a) 80%, #14293a)) !important;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .16), 0 0 0 3px #fff, 0 6px 12px -4px color-mix(in srgb, var(--accent, #1f8a7a) 70%, transparent) !important; text-shadow: 0 1px 1px rgba(0, 0, 0, .25); }
+
+/* buttons you can press */
+[data-course="dec10"] .btn { background: linear-gradient(180deg, #2c4c68, #14293a) !important; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), inset 0 -2px 0 rgba(0, 0, 0, .25), 0 1px 2px rgba(20, 41, 58, .25), 0 10px 20px -10px rgba(20, 41, 58, .7) !important; transition: transform .15s, box-shadow .15s, filter .15s; }
+[data-course="dec10"] .btn:hover { filter: brightness(1.12); transform: translateY(-1px); }
+[data-course="dec10"] .btn:active { transform: translateY(1px); box-shadow: inset 0 2px 4px rgba(0, 0, 0, .3), 0 1px 2px rgba(20, 41, 58, .2) !important; }
+[data-course="dec10"] .btn-quiet { box-shadow: var(--d-hi), 0 0 0 1px rgba(20, 41, 58, .1), 0 1px 2px rgba(20, 41, 58, .08), 0 6px 12px -8px rgba(20, 41, 58, .35) !important; transition: transform .15s, box-shadow .15s; }
+[data-course="dec10"] .btn-quiet:hover { transform: translateY(-1px); }
+[data-course="dec10"] .btn-quiet:active { transform: translateY(1px); box-shadow: inset 0 2px 3px rgba(20, 41, 58, .12), 0 0 0 1px rgba(20, 41, 58, .1) !important; }
+
+/* the week bar: the current week's number is a glossy gold coin */
+[data-course="dec10"] .wb-item.is-current .wb-num, [data-course="dec10"] .wb-item.open .wb-num {
+  background: radial-gradient(circle at 32% 26%, rgba(255, 255, 255, .5), transparent 46%), linear-gradient(160deg, #f6a58c, #e64626 60%, #b8331a) !important; color: #fff !important;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .18), 0 4px 10px -4px rgba(230, 70, 38, .7) !important; text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+}
+[data-course="dec10"] .topbar, [data-course="dec10"] .masthead { box-shadow: 0 1px 0 rgba(255, 255, 255, .8) inset, 0 10px 24px -20px rgba(20, 41, 58, .4); }
+
+/* small labels like LANGUAGE BANK: a slight emboss */
+[data-course="dec10"] .block-label { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 3px 8px -4px rgba(20, 41, 58, .45); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-course="dec10"] .btn, [data-course="dec10"] .btn-quiet { transition: none !important; }
+}
+
+/* ───────── layout fixes ───────── */
+/* phones: the stage strip scrolls sideways; with 7+ stages only the current stage's name shows, so nothing overlaps */
+@media (max-width: 900px) {
+  [data-course="dec10"] .act-tabs { grid-auto-columns: 72px !important; scroll-snap-type: x proximity; }
+  [data-course="dec10"] .act-tabs button { scroll-snap-align: center; }
+  [data-course="dec10"] .act-tabs .tab-text { font-size: .72rem !important; overflow-wrap: anywhere; }
+  [data-course="dec10"] .act-tabs:has(> button:nth-child(6)) button:not(.current) .tab-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  [data-course="dec10"] .act-tabs:has(> button:nth-child(6)) button.current .tab-text { width: max-content; max-width: 150px; }
+}
+/* day cards in a narrow column (5 across): "DAY 1" stays on one line; the status chip steps aside (the footer already says Start / Continue / Review) */
+[data-course="dec10"] .day-card { container-type: inline-size; }
+[data-course="dec10"] .day-n-txt { white-space: nowrap; }
+@container (max-width: 300px) {
+  [data-course="dec10"] .day-label > span:not(.day-n) { display: none; }
+  [data-course="dec10"] .day-n-num { width: 50px; height: 50px; font-size: 1.6rem; }
+}
