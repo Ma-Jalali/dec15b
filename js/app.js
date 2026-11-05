@@ -1693,6 +1693,8 @@ const topBtn = document.createElement('button');
 topBtn.type = 'button'; topBtn.className = 'to-top'; topBtn.setAttribute('aria-label', 'Back to the top of the page'); topBtn.innerHTML = icon('up');
 topBtn.onclick = () => { window.scrollTo({ top: 0, behavior: calm() ? 'auto' : 'smooth' }); $('#main')?.focus({ preventScroll: true }); };
 document.body.append(topBtn);
+/* DEC10: the dictionary button sits just above it (js/dictionary.js) */
+if (course.id === 'dec10' && window.DEC15Dictionary) { window.DEC15Dictionary.init({ icon, toast, esc }); document.body.classList.add('has-dict'); }
 let topTick = 0;
 addEventListener('scroll', () => { if (topTick) return; topTick = requestAnimationFrame(() => { topTick = 0; topBtn.classList.toggle('show', scrollY > innerHeight * 1.4);
   const h = document.documentElement.scrollHeight - innerHeight; document.body.style.setProperty('--read', h > 0 ? Math.min(1, scrollY / h).toFixed(3) : 0); }); }, { passive: true });
