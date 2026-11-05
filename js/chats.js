@@ -1,6 +1,7 @@
-/* DEC15 Chats (v2.49) — a WhatsApp-style page (#/chats) for signed-in classmates to learn together.
+/* DEC15 Chats (v2.49, PDFs v4.4) — a WhatsApp-style page (#/chats) for signed-in classmates to learn together.
    - Conversations: the class chat, study groups (tables chat_groups / chat_members) and private chats.
    - Every message can be replied to, reacted to (chat_reactions) and pinned (rpc chat_pin).
+   - PDF files (📎): one upload sent to this chat and/or several classmates and groups at once (bucket chat-files).
    - Learning tools in the composer: polls (chat_votes), word cards (saved to "My words" and practised as
      flashcards), "Help needed" questions that the asker marks as solved (rpc chat_solve), links to lesson pages,
      and a bank of useful academic phrases.
@@ -58,6 +59,10 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
     door: '<path d="M14 4h5v16h-5M10 8l-4 4 4 4M6 12h10"/>',
     lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
     down: '<path d="m6 9 6 6 6-6"/>',
+    clip: '<path d="M20 11.5 12.2 19.3a5 5 0 0 1-7.1-7.1l8.5-8.5a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4l7.8-7.8"/>',
+    file: '<path d="M14 3.5H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5z"/><path d="M14 3.5v5h5"/>',
+    dl: '<path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14"/>',
+    eye: '<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>',
   };
   const ic = (n, c = '') => `<svg class="ch-i ${c}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${SVG[n] || SVG.chat}</svg>`;
 
@@ -200,7 +205,7 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
     document.dispatchEvent(new CustomEvent('dec15:chats-read', { detail: { key: k } }));
     paintList(); paintBadge();
   }
-  const KIND_LABEL = { poll: '📊 Poll', word: '📖 Word', question: '🙋 Help needed', link: '🔗 Page' };
+  const KIND_LABEL = { poll: '📊 Poll', word: '📖 Word', question: '🙋 Help needed', link: '🔗 Page', file: '📄 PDF' };
   const preview = m => (KIND_LABEL[m.kind] ? KIND_LABEL[m.kind] + ': ' : '') + String(m.body || '').replace(/\s+/g, ' ');
   const time = iso => new Date(iso).toLocaleTimeString('en-AU', { hour: 'numeric', minute: '2-digit' });
   function shortWhen(iso) {
@@ -491,7 +496,90 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
       const href = /^#\/[\w\-/:]{0,120}$/.test(d.href || '') ? d.href : '#/';
       return `<a class="ch-card ch-link" href="${esc(href)}"><span class="ch-lico" aria-hidden="true">${ic('link')}</span><span><span class="ch-k">Lesson page</span><b>${esc(d.title || 'A page in ' + (window.DEC15_COURSE?.code || 'DEC15'))}</b>${d.note ? `<small>${esc(d.note)}</small>` : ''}</span><span class="ch-lgo" aria-hidden="true">Open ›</span></a>${m.body && m.body !== d.title ? `<p class="ch-tx">${rich(m.body, find)}</p>` : ''}`;
     }
+    if (m.kind === 'file') {
+      const name = String(d.name || 'document.pdf'), many = d.n > 1;
+      return `<div class="ch-card ch-file"><span class="ch-fdoc" aria-hidden="true"><i>PDF</i></span><span class="ch-finfo"><b title="${esc(name)}">${esc(name)}</b><small>PDF · ${esc(sizeTx(d.size))}${many ? ` · sent to ${d.n} ${d.n === 1 ? 'chat' : 'chats'}` : ''}</small></span>
+        <span class="ch-facts"><button type="button" data-file-open="${m.id}" title="Open">${ic('eye')}<span>Open</span></button><button type="button" data-file-get="${m.id}" title="Download">${ic('dl')}<span>Save</span></button></span></div>
+        ${m.body && m.body !== name ? `<p class="ch-tx">${rich(m.body, find)}</p>` : ''}`;
+    }
     return `<p class="ch-tx">${rich(m.body, find)}</p>`;
+  }
+  const sizeTx = b => !b ? '' : b < 1024 * 1024 ? Math.max(1, Math.round(b / 1024)) + ' KB' : (b / 1048576).toFixed(1) + ' MB';
+
+  /* ───────── PDF files: one upload, sent to this chat and/or to several classmates and groups at once ───────── */
+  const FILE_MAX = 10 * 1024 * 1024;
+  async function pickedFile(f) {
+    if (!f) return;
+    const isPdf = /\.pdf$/i.test(f.name) || f.type === 'application/pdf';
+    if (!isPdf) { toast('Please choose a PDF file.'); return; }
+    if (f.size > FILE_MAX) { toast('That PDF is bigger than 10 MB. Please choose a smaller file.'); return; }
+    try { const head = new Uint8Array(await f.slice(0, 5).arrayBuffer()); if (String.fromCharCode(...head) !== '%PDF-') { toast('That file is not a real PDF.'); return; } } catch (e) { /* cannot read: let the server decide */ }
+    sendFileModal(f);
+  }
+  function sendFileModal(f) {
+    const c = convInfo(), on = onlineIds();
+    const mine = groups.filter(g => isMember(g));
+    const others = people.filter(p => p.id !== me()).sort((a, b) => (b.role === 'teacher') - (a.role === 'teacher') || a.full_name.localeCompare(b.full_name));
+    const here = c ? c.key : 'class';
+    const row = (key, title, sub, avaHTML, checked) => `<li data-name="${esc(title.toLowerCase())}"><label><input type="checkbox" value="${esc(key)}"${checked ? ' checked' : ''}><span class="ch-to-ava">${avaHTML}</span><span><b>${esc(title)}</b><small>${sub}</small></span><i class="ch-chk">${ic('check')}</i></label></li>`;
+    const el = modal(`<header class="ch-mhead"><span class="ch-tile t-coral">${ic('file')}</span><div><h2>Send a PDF</h2><p>Choose who gets it — one chat, a study group, or several classmates at once.</p></div><button type="button" class="ch-ghost" data-mclose aria-label="Close">${ic('x')}</button></header>
+      <div class="ch-mbody">
+        <div class="ch-fprev"><span class="ch-fdoc" aria-hidden="true"><i>PDF</i></span><span class="ch-finfo"><b>${esc(f.name)}</b><small>PDF · ${esc(sizeTx(f.size))}</small></span></div>
+        <label class="ch-fl">Message <small>(optional)</small><input name="note" maxlength="300" placeholder="e.g. Here is my feedback on your presentation 😊"></label>
+        <div class="ch-fl"><span class="ch-tolabel">Send to <em data-count></em></span>
+          <ul class="ch-pick ch-to">
+            ${row(here, c ? c.name : 'Class chat', c?.kind === 'class' ? 'Everyone in your class' : c?.kind === 'group' ? 'This study group' : 'This private chat', c ? tile(c, on, '') : '', true)}
+            ${[...(here !== 'class' ? [{ key: 'class', kind: 'class', name: 'Class chat' }] : []), ...mine.filter(g => 'g:' + g.id !== here).map(g => ({ key: 'g:' + g.id, kind: 'group', g, name: g.name }))].map(x => row(x.key, x.name, x.kind === 'class' ? 'Everyone in your class' : `Study group · ${x.g.members.length} members`, tile(x, on, ''), false)).join('')}
+          </ul>
+          <div class="ch-to-people"><div class="ch-to-head"><b>Classmates</b><span><button type="button" class="text-link" data-to-all>Select all</button> · <button type="button" class="text-link" data-to-none>None</button></span></div>
+          <label class="ch-search ch-msearch">${ic('search')}<input type="search" placeholder="Find a classmate" data-pick-q aria-label="Find a classmate"></label>
+          <ul class="ch-pick ch-to">${others.filter(p => 'u:' + p.id !== here).map(p => row('u:' + p.id, p.full_name, p.role === 'teacher' ? 'Teacher · private message' : 'Private message', `<span class="ch-pava">${ava(p)}${on.has(p.id) ? '<i class="ch-on"></i>' : ''}</span>`, false)).join('')}</ul></div>
+          <p class="ch-hint">${ic('lock')} Each person gets the file in a private message from you. Only people in the chats you choose can open it.</p>
+        </div>
+      </div>
+      <footer class="ch-mfoot"><button type="button" class="btn-quiet" data-mclose>Cancel</button><button type="button" class="btn" data-do-send>Send</button></footer>`, 'ch-mfile');
+    bindPick(el);
+    const picked = () => [...el.querySelectorAll('.ch-to input:checked')].map(i => i.value);
+    const count = () => { const n = picked().length; el.querySelector('[data-count]').textContent = n ? `${n} ${n === 1 ? 'chat' : 'chats'}` : ''; const b = el.querySelector('[data-do-send]'); b.disabled = !n; b.textContent = n > 1 ? `Send to ${n}` : 'Send'; };
+    el.addEventListener('change', count); count();
+    el.addEventListener('click', e => {
+      if (e.target.closest('[data-to-all]')) { el.querySelectorAll('.ch-to-people li:not([hidden]) input').forEach(i => { i.checked = true; }); count(); }
+      if (e.target.closest('[data-to-none]')) { el.querySelectorAll('.ch-to-people input').forEach(i => { i.checked = false; }); count(); }
+    });
+    el.querySelector('[data-do-send]').onclick = async e => {
+      const to = picked(); if (!to.length) return;
+      const btn = e.currentTarget; btn.disabled = true; btn.innerHTML = '<span class="ch-spin" aria-hidden="true"></span> Sending…';
+      const ok = await sendFile(f, to, el.querySelector('[name=note]').value.trim());
+      if (ok) { closeModal(); toast(to.length > 1 ? `Sent to ${to.length} chats.` : 'PDF sent.'); } else { btn.disabled = false; count(); }
+    };
+  }
+  async function sendFile(f, keys, note) {
+    const c = db(), uid = me(); if (!c || !uid) return false;
+    const id = (crypto.randomUUID?.() || Date.now().toString(36) + Math.random().toString(36).slice(2));
+    const path = `${uid}/${id}.pdf`;
+    const up = await c.storage.from('chat-files').upload(path, f, { contentType: 'application/pdf', cacheControl: '3600', upsert: false });
+    if (up.error) { toast(/size|large/i.test(up.error.message || '') ? 'That PDF is too big (10 MB at most).' : 'Sorry — the file was not uploaded. Check your internet.'); return false; }
+    const name = f.name.replace(/[\u0000-\u001f]/g, '').slice(0, 120) || 'document.pdf';
+    const rows = keys.map(k => ({ kind: 'file', body: (note || name).slice(0, 2000), course: CLS.id, data: { path, name, size: f.size, n: keys.length },
+      ...(k === 'class' ? {} : k.startsWith('g:') ? { group_id: k.slice(2) } : { recipient_id: k.slice(2) }) }));
+    const { data, error } = await c.from('messages').insert(rows).select(MSG_COLS);
+    if (error) { toast('Sorry — the file was not sent. Check your internet.'); c.storage.from('chat-files').remove([path]).catch?.(() => {}); return false; }
+    (data || []).forEach(m => { if (!msgs.some(x => x.id === m.id)) { msgs.push(m); onNew(m); } });
+    return true;
+  }
+  async function openFile(id, save) {
+    const m = msgs.find(x => x.id === id), d = m?.data || {}; const c = db(); if (!m || !c || !d.path) return;
+    const name = d.name || 'document.pdf';
+    if (!save) {   // open in a new tab (the tab is opened first so the browser does not block it)
+      const w = window.open('', '_blank');
+      const { data, error } = await c.storage.from('chat-files').createSignedUrl(d.path, 600);
+      if (error || !data?.signedUrl) { w?.close(); toast('The file could not be opened. It may have been deleted.'); return; }
+      if (w) w.location.href = data.signedUrl; else location.href = data.signedUrl;
+      return;
+    }
+    const { data, error } = await c.storage.from('chat-files').download(d.path);
+    if (error || !data) { toast('The file could not be downloaded. It may have been deleted.'); return; }
+    const url = URL.createObjectURL(data), a = document.createElement('a'); a.href = url; a.download = name; document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 4000);
   }
   function paintTyping() {
     const el = $('.ch-typing'); if (!el) return; const ty = typers(cur);
@@ -512,9 +600,9 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
       <div class="ch-cbar">
         <button type="button" class="ch-plus" data-sheet="tools" aria-expanded="false" title="Learning tools" aria-label="Learning tools: poll, word card, ask for help, share a page, phrases">${ic('plus')}</button>
         <div class="ch-field"><label class="sr-only" for="ch-input">Message</label><textarea id="ch-input" class="ch-input" rows="1" maxlength="2000" placeholder="${c.kind === 'class' ? 'Message the class' : c.kind === 'group' ? `Message ${esc(c.name)}` : `Message ${esc(first(c.name))}`}"></textarea>
-          <button type="button" class="ch-ghost" data-sheet="emoji" title="Emoji" aria-label="Emoji">${ic('smile')}</button><button type="button" class="ch-ghost" data-sheet="phrases" title="Useful phrases" aria-label="Useful phrases">${ic('phrase')}</button></div>
+          <button type="button" class="ch-ghost" data-attach title="Send a PDF (for example a filled Feedback Tool)" aria-label="Send a PDF file">${ic('clip')}</button><button type="button" class="ch-ghost" data-sheet="emoji" title="Emoji" aria-label="Emoji">${ic('smile')}</button><button type="button" class="ch-ghost" data-sheet="phrases" title="Useful phrases" aria-label="Useful phrases">${ic('phrase')}</button></div>
         <button type="submit" class="ch-send" aria-label="Send">${ic('send')}</button>
-      </div></form>`;
+      </div><input type="file" class="ch-file-in" accept="application/pdf,.pdf" hidden></form>`;
   }
   function saveDraft() { const ta = $('.ch-input'); if (ta) drafts[cur] = ta.value; }
   function grow(ta) { ta.style.height = 'auto'; ta.style.height = Math.min(ta.scrollHeight, 160) + 'px'; $('.ch-compose')?.classList.toggle('has-text', !!ta.value.trim()); }
@@ -534,7 +622,7 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
     const close = `<button type="button" class="ch-ghost ch-sx" data-sheet="${s}" aria-label="Close">${ic('x')}</button>`;
     if (s === 'tools') return `<div class="ch-tools">${[
       ['poll', 'Poll', 'Ask the group to vote', 'blue'], ['word', 'Word card', 'Teach a useful word', 'plum'], ['question', 'Ask for help', 'Get an answer from classmates', 'saffron'],
-      ['link', 'Share a page', lastPage ? esc(lastPage.label || 'Your last lesson page') : 'Open a lesson page first', 'teal'], ['phrases', 'Useful phrases', 'Polite academic English', 'coral'],
+      ['link', 'Share a page', lastPage ? esc(lastPage.label || 'Your last lesson page') : 'Open a lesson page first', 'teal'], ['file', 'Send a PDF', 'A filled form to one or many', 'coral'], ['phrases', 'Useful phrases', 'Polite academic English', 'sage'],
     ].map(([k, l, d, t]) => `<button type="button" class="ch-tool t-${t}" data-tool="${k}"${k === 'link' && !lastPage ? ' disabled' : ''}><span>${ic(k === 'phrases' ? 'phrase' : k === 'question' ? 'help' : k)}</span><b>${l}</b><small>${d}</small></button>`).join('')}</div>`;
     if (s === 'emoji') return `<div class="ch-emojis">${EMOJIS.map(e => `<button type="button" data-emoji-put="${e}">${e}</button>`).join('')}</div>`;
     if (s === 'phrases') return `${close}<div class="ch-phr"><p class="ch-sh">${ic('phrase')} Useful phrases <small>Tap one to add it to your message.</small></p>${PHRASES.map(([h, l]) => `<div><b>${esc(h)}</b>${l.map(x => `<button type="button" data-phrase="${esc(x)}">${esc(x)}</button>`).join('')}</div>`).join('')}</div>`;
@@ -601,9 +689,9 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
     const el = $('.ch-info'), app = $('.ch-app'); if (!el || !app) return;
     el.hidden = !info; app.classList.toggle('info-open', !!info); if (!info) { el.innerHTML = ''; return; }
     const c = convInfo(); if (!c) return; const on = onlineIds(), list = inConv(cur);
-    const words = list.filter(m => m.kind === 'word'), polls = list.filter(m => m.kind === 'poll'), qs = list.filter(m => m.kind === 'question'), pins = list.filter(m => m.pinned_at);
+    const words = list.filter(m => m.kind === 'word'), polls = list.filter(m => m.kind === 'poll'), qs = list.filter(m => m.kind === 'question'), pins = list.filter(m => m.pinned_at), files = list.filter(m => m.kind === 'file');
     const members = c.kind === 'class' ? people.map(p => p.id) : c.kind === 'group' ? c.g.members.map(m => m.user_id) : [me(), c.p.id];
-    const n = x => x ? ` <i>${x}</i>` : '', tabs = [['about', c.kind === 'dm' ? 'Person' : 'People'], ['words', 'Words' + n(words.length)], ['polls', 'Polls' + n(polls.length + qs.length)], ['pins', 'Pins' + n(pins.length)]];
+    const n = x => x ? ` <i>${x}</i>` : '', tabs = [['about', c.kind === 'dm' ? 'Person' : 'People'], ['words', 'Words' + n(words.length)], ['polls', 'Polls' + n(polls.length + qs.length)], ['files', 'Files' + n(files.length)], ['pins', 'Pins' + n(pins.length)]];
     let body = '';
     if (infoTab === 'about') {
       body = `<div class="ch-ihero">${tile(c, on, 'ch-tile-lg')}<b>${esc(c.name)}</b><small>${c.kind === 'class' ? 'Everyone in ' + (window.DEC15_COURSE?.code || 'DEC15') : c.kind === 'group' ? esc(c.g.about || 'Study group') : c.p.role === 'teacher' ? 'Your teacher' : 'Classmate'}</small>
@@ -618,6 +706,7 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
         <h3 class="ch-ih">My words <span>${mine.length}</span></h3>
         ${mine.length ? `<div class="ch-ibar"><button type="button" class="btn-quiet btn-sm" data-practise="mine">${ic('flip')} Practise My words</button></div><ul class="ch-wlist mine">${mine.slice(0, 40).map(w => `<li><span><b>${esc(w.word)}</b><small>${esc(w.meaning)}</small></span></li>`).join('')}</ul>` : '<p class="ch-inone">Words you save are kept on this device.</p>'}`;
     }
+    if (infoTab === 'files') body = files.length ? `<ul class="ch-ilist ch-flist">${files.slice().reverse().map(m => `<li><span class="ch-fdoc sm" aria-hidden="true"><i>PDF</i></span><button type="button" data-goto="${m.id}"><span><b>${esc(m.data?.name || 'document.pdf')}</b><small>${esc(m.sender_id === me() ? 'You' : first(m.sender_name))} · ${esc(shortWhen(m.created_at))} · ${esc(sizeTx(m.data?.size))}</small></span></button><button type="button" class="ch-ghost" data-file-get="${m.id}" title="Save" aria-label="Save ${esc(m.data?.name || 'the file')}">${ic('dl')}</button></li>`).join('')}</ul>` : `<p class="ch-inone">No files yet. Tap ${ic('clip')} next to the message box to send a PDF, for example a filled Feedback Tool.</p>`;
     if (infoTab === 'polls') {
       const open = qs.filter(m => !m.solved_at);
       body = `<h3 class="ch-ih">Open questions <span>${open.length}</span></h3>${open.length ? `<ul class="ch-ilist">${open.slice().reverse().map(m => `<li><button type="button" data-goto="${m.id}"><span class="ch-dot t-saffron"></span><span><b>${esc(m.body.slice(0, 90))}</b><small>${esc(first(m.sender_name))} · ${esc(m.data?.topic || 'Question')} · ${msgs.filter(x => x.reply_to === m.id).length} answers</small></span></button></li>`).join('')}</ul>` : '<p class="ch-inone">No open questions. 🎉</p>'}
@@ -712,6 +801,7 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
   let typedT = 0;
   function bind() {
     root.addEventListener('click', onClick);
+    root.addEventListener('change', e => { if (e.target.matches('.ch-file-in')) { const f = e.target.files?.[0]; e.target.value = ''; pickedFile(f); } });
     root.addEventListener('input', e => {
       if (e.target.id === 'ch-q') { q = e.target.value; paintList(); return; }
       if (e.target.id === 'ch-find') { find = e.target.value; paintFind(); paintMessages('keep'); return; }
@@ -743,6 +833,9 @@ window.createDEC15Chats = function ({ getCloud, getClass, esc, icon, toast, avat
     if (d.info !== undefined) { info = !!d.info; if (d.info) infoTab = d.info; paintInfo(); paintHead(); return; }
     if (d.itab) { infoTab = d.itab; paintInfo(); return; }
     if (d.sheet) { openSheet(d.sheet); return; }
+    if (d.attach !== undefined || d.tool === 'file') { if (sheet) openSheet(null); $('.ch-file-in')?.click(); return; }
+    if (d.fileOpen) { openFile(d.fileOpen, false); return; }
+    if (d.fileGet) { openFile(d.fileGet, true); return; }
     if (d.tool) { if (!$('.ch-sheet')) return; if (d.tool === 'phrases') { openSheet('phrases'); return; } sheet = null; openSheet(d.tool); return; }
     if (d.emojiPut) { insert(d.emojiPut); return; }
     if (d.phrase) { insert(d.phrase + ' '); return; }
