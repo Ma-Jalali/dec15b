@@ -838,20 +838,28 @@ function courseMap(current) {
       </g>`; }).join('')}
   </svg>`;
 }
+/* DEC10: the lesson the course calendar says is on today (class days only), so the course map can point to it */
+const classToday = (() => { const G = window.DEC15_GUIDE; if (course.id !== 'dec10' || !G?.weeks) return null;
+  const t = new Date(), today = new Date(t.getFullYear(), t.getMonth(), t.getDate()), parse = x => { const [y, m, d] = x.split('-').map(Number); return new Date(y, m - 1, d); };
+  for (const w of G.weeks) { if (w.brk || !w.start) continue; const i = Math.round((today - parse(w.start)) / 864e5);
+    if (i >= 0 && i < 5) { if (w.days?.[i]?.off) return null; const id = `d10w${w.n}d${i + 1}`, wk = course.weeks.find(x => x.n === w.n), d = wk?.days.find(x => x.id === id);
+      return d ? { id, week: w.n, day: i + 1, d } : null; } }
+  return null; })();
+const GREET = () => { const h = new Date().getHours(); return h < 5 ? 'Working late' : h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening'; };
 const DAY_TINT = ['#1f8a7a', '#c2562f', '#7a4a8c', '#2f6db5', '#b07d12'], WEEKDAY = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 const dayHead = d => `<em class="day-n"><i class="day-n-num" aria-hidden="true">${d.day}</i><i class="day-n-txt">Day ${d.day}<small>${WEEKDAY[d.day - 1] || ''}</small></i></em>`;
 function dayCard(d) {
   const sum = summaries()[d.id] || {}, here = d.id === lesson.id;
   const done = here ? coreActivities.filter(a => state.done[a.id]).length : sum.done || 0, total = here ? coreActivities.length : sum.total || 0;
-  const dc = ` style="--dc:${DAY_TINT[(d.day - 1) % 5]}"`;
-  if (d.status !== 'ready') return `<li class="day-card is-soon"${dc}>
+  const dc = ` style="--dc:${DAY_TINT[(d.day - 1) % 5]}"`, isT = classToday?.id === d.id, tTag = isT ? '<span class="day-today"><i aria-hidden="true"></i>Today in class</span>' : '';
+  if (d.status !== 'ready') return `<li class="day-card is-soon${isT ? ' is-today' : ''}"${dc}>${tTag}
       <span class="day-art day-art-soon"><img src="assets/art/soon.svg" alt="" width="120" height="100" loading="lazy"></span>
       <span class="day-label">${dayHead(d)}<span class="day-soon">${icon('sprout')}Coming soon</span></span>
       <b class="day-title">${esc(d.title)}</b>
       ${d.parts ? `<ul class="day-parts">${d.parts.map((_, k) => { const p = dayPart(d, k); return `<li${p.tone ? ` class="has-code" style="${tone(p)}"` : ''}>${p.tone ? `<span class="part-code">${esc(p.code)}</span>` : ''}${esc(p.tone ? p.name : d.parts[k])}</li>`; }).join('')}</ul>` : ''}
     </li>`;
   const pct = total ? Math.round(100 * done / total) : 0;
-  return `<li class="day-card is-ready${pct === 100 ? ' complete' : ''}"${dc}><a href="#/${d.id}">
+  return `<li class="day-card is-ready${pct === 100 ? ' complete' : ''}${isT ? ' is-today' : ''}"${dc}>${tTag}<a href="#/${d.id}"${isT ? ' aria-label="Today in class: ' + esc(d.title) + '"' : ''}>
       <span class="day-art"><img src="${artSrc(d.art || 'writing')}" alt="" width="220" height="170" loading="lazy"></span>
       <span class="day-label">${dayHead(d)}${pct === 100 ? `<span class="day-done">${icon('check')}Complete</span>` : done ? `<span class="day-now">In progress</span>` : '<span class="day-open">Open</span>'}</span>
       <b class="day-title">${esc(d.title)}</b>
@@ -868,7 +876,7 @@ function weekTabs() {
   if (!ws.some(w => w.n === homeWeek)) homeWeek = (ws.find(w => w.n === lesson.week) || ws[ws.length - 1]).n;
   const w = ws.find(x => x.n === homeWeek);
   const tabs = ws.length > 1 ? `<div class="week-tabs" role="tablist" aria-label="Weeks">${ws.map(x => { const st = x.days.filter(d => d.status === 'ready').length, done = x.days.filter(d => { const [a, b] = dayProgress(d); return b && a === b; }).length;
-    return `<button type="button" role="tab" id="tab-week-${x.n}" aria-controls="panel-week" aria-selected="${x.n === homeWeek}" tabindex="${x.n === homeWeek ? 0 : -1}" class="week-tab" data-week-tab="${x.n}" style="--p:${st ? Math.round(100 * done / st) : 0}%"><span class="week-tab-num">${x.n}</span><span class="week-tab-text"><b>Week ${x.n}</b><small>${esc(x.theme)}</small></span><span class="week-tab-meta">${done ? `${done}/${st} done` : `${st} lesson${st === 1 ? '' : 's'}`}</span></button>`; }).join('')}</div>` : '';
+    return `<button type="button" role="tab" id="tab-week-${x.n}" aria-controls="panel-week" aria-selected="${x.n === homeWeek}" tabindex="${x.n === homeWeek ? 0 : -1}" class="week-tab${classToday?.week === x.n ? ' has-today' : ''}" data-week-tab="${x.n}" style="--p:${st ? Math.round(100 * done / st) : 0}%"><span class="week-tab-num">${x.n}</span><span class="week-tab-text"><b>Week ${x.n}</b><small>${esc(x.theme)}</small></span><span class="week-tab-meta">${done ? `${done}/${st} done` : `${st} lesson${st === 1 ? '' : 's'}`}</span></button>`; }).join('')}</div>` : '';
   return `<section class="week" aria-label="Lessons by week">${tabs}
     <div class="week-panel" id="panel-week" role="tabpanel" aria-labelledby="tab-week-${w.n}">
       <header class="week-head"><span class="week-num"><small>Week</small>${w.n}</span><div><h2>${esc(w.theme)}</h2><p>${esc(w.summary || '')}</p></div></header>
@@ -881,6 +889,8 @@ function courseHome() {
       <span class="eyebrow">${esc(course.code)} · ${esc(course.topic)}</span>
       <h1>Your course map</h1>
       <p>${esc(course.intro || 'Pick up where you left off, or open any lesson below.')}</p>
+      ${classToday ? (() => { const { d, week, day } = classToday, ready = d.status === 'ready', inner = `<span class="ht-dot" aria-hidden="true"></span><span class="ht-hi">${GREET()}</span><span class="ht-txt">Today in class · ${WEEKDAY[day - 1]}, Week ${week}</span><b>${esc(d.title)}</b>${ready ? icon('arrow') : '<small>Coming soon</small>'}`;
+        return ready ? `<a class="home-today" href="#/${d.id}">${inner}</a>` : `<span class="home-today is-soon">${inner}</span>`; })() : ''}
     </header>
     <section class="course-map" aria-label="Course map">${courseMap(lesson.week)}</section>
     <section class="resume" style="${tone(n ? n.s : lesson.sections[lesson.sections.length - 1])}">
@@ -1758,6 +1768,12 @@ document.body.append(topBtn);
 if (course.id === 'dec10' && window.DEC15Dictionary) { window.DEC15Dictionary.init({ icon, toast, esc }); document.body.classList.add('has-dict'); }
 let topTick = 0;
 addEventListener('scroll', () => { if (topTick) return; topTick = requestAnimationFrame(() => { topTick = 0; topBtn.classList.toggle('show', scrollY > innerHeight * 1.4);
+/* DEC10: a thin reading-progress line along the top of long pages (lessons, readings, the calendar) */
+if (course.id === 'dec10') { const rp = document.body.appendChild(document.createElement('div')); let rpTick = 0; rp.className = 'read-prog'; rp.setAttribute('aria-hidden', 'true');
+  const paintRp = () => { rpTick = 0; const max = document.documentElement.scrollHeight - innerHeight, long = max > innerHeight * .5;
+    rp.style.setProperty('--p', long ? Math.min(1, Math.max(0, scrollY / max)).toFixed(4) : 0); rp.classList.toggle('on', long && scrollY > 40); };
+  addEventListener('scroll', () => { if (!rpTick) rpTick = requestAnimationFrame(paintRp); }, { passive: true });
+  addEventListener('hashchange', () => setTimeout(paintRp, 150)); addEventListener('resize', paintRp); }
   const h = document.documentElement.scrollHeight - innerHeight; document.body.style.setProperty('--read', h > 0 ? Math.min(1, scrollY / h).toFixed(3) : 0); }); }, { passive: true });
 /* side panel: a long lesson name glides sideways on hover or focus, so it can be read in full */
 function glide(e, on) {
