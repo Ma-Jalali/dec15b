@@ -51,28 +51,29 @@ body.dx-docked .to-top { right: calc(var(--dx-w) + 22px); }
 
 /* ── the empty state ── */
 .dx-home { display: grid; gap: 14px; padding-top: 6px; }
-.dx-home-art { width: min(100%, 260px); margin: 0 auto; }
+.dx-home-art { width: min(100%, 330px); margin: 0 auto -4px; }
 .dx-home-art svg { display: block; width: 100%; overflow: visible; }
-.dxh-book { animation: dxhFloat 5.5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-.dxh-glow { animation: dxhGlow 5.5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-.dxh-ring { animation: dxOrbit 40s linear infinite; transform-box: fill-box; transform-origin: center; }
-.dxh-flip { animation: dxhFlip 6s cubic-bezier(.5, 0, .3, 1) infinite; transform-box: fill-box; transform-origin: left center; opacity: 0; }
-.dxh-mark { animation: dxhMark 6s ease-in-out infinite; stroke-dasharray: 60; stroke-dashoffset: 60; }
-.dxh-l { animation: dxhRise 4.5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; opacity: 0; }
-.dxh-l.l2 { animation-delay: -1.1s; } .dxh-l.l3 { animation-delay: -2.3s; } .dxh-l.l4 { animation-delay: -3.4s; }
-.dxh-glass { animation: dxhGlass 5.5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-.dxh-ribbon { animation: dxhRibbon 5.5s ease-in-out infinite; transform-box: fill-box; transform-origin: top center; }
-.dxh-tw { animation: dxhTw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-.dxh-tw.t2 { animation-delay: -1.2s; } .dxh-tw.t3 { animation-delay: -.6s; }
-@keyframes dxhFloat { 50% { transform: translateY(-6px) rotate(-1.2deg); } }
-@keyframes dxhGlow { 50% { transform: scale(1.08); opacity: .8; } }
-@keyframes dxhFlip { 0%, 55% { transform: scaleX(1); opacity: 0; } 60% { opacity: 1; transform: scaleX(1); } 80% { opacity: 1; transform: scaleX(.05) skewY(-6deg); } 81%, 100% { opacity: 0; transform: scaleX(.05); } }
-@keyframes dxhMark { 0%, 15% { stroke-dashoffset: 60; } 45%, 100% { stroke-dashoffset: 0; } }
-@keyframes dxhRise { 0% { opacity: 0; transform: translateY(14px) scale(.7) rotate(-6deg); } 20% { opacity: 1; } 70% { opacity: 1; } 100% { opacity: 0; transform: translateY(-26px) scale(1.05) rotate(5deg); } }
-@keyframes dxhGlass { 50% { transform: translate(-6px, -5px) rotate(-6deg); } }
-@keyframes dxhRibbon { 50% { transform: skewX(-4deg) translateY(2px); } }
+.dxa-book { animation: dxaFloat 6s ease-in-out infinite; transform-box: view-box; transform-origin: 160px 120px; }
+.dxa-shadow { animation: dxaShadow 6s ease-in-out infinite; transform-box: view-box; transform-origin: 160px 186px; }
+.dxa-card { animation: dxaCard 7s ease-in-out infinite; }
+.dxa-chip.c1 { animation: dxaCard 6.4s ease-in-out -2s infinite; }
+.dxa-chip.c2 { animation: dxaCard 7.6s ease-in-out -4s infinite; }
+.dxa-wave rect { animation: dxaWave 1.1s ease-in-out infinite; transform-box: fill-box; transform-origin: bottom; }
+.dxa-wave rect:nth-child(2) { animation-delay: -.2s; } .dxa-wave rect:nth-child(3) { animation-delay: -.4s; } .dxa-wave rect:nth-child(4) { animation-delay: -.6s; } .dxa-wave rect:nth-child(5) { animation-delay: -.8s; }
+.dxa-hl { stroke-dasharray: 100; stroke-dashoffset: 100; animation: dxaHl 6s ease-in-out infinite; }
+.dxa-curl { animation: dxaCurl 6s ease-in-out infinite; transform-box: fill-box; transform-origin: right bottom; }
+.dxa-rib { animation: dxaRib 6s ease-in-out infinite; transform-box: fill-box; transform-origin: top center; }
+.dxa-tw { animation: dxhTw 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.dxa-tw.t2 { animation-delay: -1s; } .dxa-tw.t3 { animation-delay: -2s; }
+@keyframes dxaFloat { 50% { transform: translateY(-5px); } }
+@keyframes dxaShadow { 50% { transform: scale(.94); opacity: .8; } }
+@keyframes dxaCard { 50% { transform: translateY(-6px); } }
+@keyframes dxaWave { 50% { transform: scaleY(.45); } }
+@keyframes dxaHl { 0%, 12% { stroke-dashoffset: 100; } 40%, 85% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes dxaCurl { 0%, 40%, 100% { transform: scale(.55); } 60%, 75% { transform: scale(1.12); } }
+@keyframes dxaRib { 50% { transform: rotate(3deg); } }
 @keyframes dxhTw { 0%, 100% { opacity: .2; transform: scale(.5) rotate(0deg); } 50% { opacity: 1; transform: scale(1.1) rotate(45deg); } }
-@media (prefers-reduced-motion: reduce) { .dxh-book, .dxh-glow, .dxh-ring, .dxh-flip, .dxh-mark, .dxh-l, .dxh-glass, .dxh-ribbon, .dxh-tw, .dx-fab, .dx-fab-ic::after { animation: none !important; } .dxh-l { opacity: 1; } .dxh-mark { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { [class^="dxa-"], [class*=" dxa-"], .dxa-wave rect, .dx-fab, .dx-fab-ic::after { animation: none !important; } .dxa-hl { stroke-dashoffset: 0; } }
 .dx-lead { margin: 0; text-align: center; color: var(--ink-2); font-size: .94rem; line-height: 1.5; }
 .dx-muted { margin: 0; color: var(--muted); font-size: .86rem; line-height: 1.5; }
 .dx-chips-sec h3, .dx-box h3, .dx-none h3 { display: flex; align-items: center; gap: 8px; margin: 14px 0 8px; font: 800 .7rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
