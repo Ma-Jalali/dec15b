@@ -625,32 +625,32 @@ window.DEC15_LESSON = {
               caption: "Before and after: the same student, one week later.",
               spots: [
                 {
-                  x: 21,
+                  x: 12,
                   y: 30,
                   label: "1",
                   color: "#c4562f",
                   title: "Reading from paper",
                   text: "He reads, so he cannot look up. It does not feel like he is <b>talking to</b> us."
                 },
-                {"x":39,"y":22,"label":"2","color":"#c4562f","title":"A slide full of small text","text":"Nobody can read it, and he never points at it."},
+                {"x":39,"y":37,"label":"2","color":"#c4562f","title":"A slide full of small text","text":"Nobody can read it, and he never points at it."},
                 {
-                  x: 12,
-                  y: 70,
+                  x: 20,
+                  y: 68,
                   label: "3",
                   color: "#c4562f",
                   title: "The phone rings",
                   text: "The class laughs and he gets more nervous. <b>Switch it off</b> before you start."
                 },
-                {"x":70,"y":26,"label":"4","color":"#2f7d6b","title":"A clear opening","text":"“Today, I’d like to talk about …” — now everyone knows the topic."},
+                {"x":53,"y":18,"label":"4","color":"#2f7d6b","title":"A clear opening","text":"“Today, I’d like to talk about …” — now everyone knows the topic."},
                 {
-                  x: 86,
-                  y: 44,
+                  x: 75,
+                  y: 41,
                   label: "5",
                   color: "#2f7d6b",
                   title: "A personal story",
                   text: "His own story about stress makes the audience <b>feel connected</b> to him."
                 },
-                {"x":63,"y":74,"label":"6","color":"#2f7d6b","title":"Eye contact and a smile","text":"He looks up and smiles. He looks relaxed, so we relax too."}
+                {"x":69.5,"y":71,"label":"6","color":"#2f7d6b","title":"Eye contact and a smile","text":"He looks up and smiles. He looks relaxed, so we relax too."}
               ]
             }
           ],

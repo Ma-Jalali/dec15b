@@ -705,37 +705,37 @@ window.DEC15_LESSON = {
               hint: "Tap a number to see what changed people’s minds.",
               spots: [
                 {
-                  x: 13,
-                  y: 43,
+                  x: 6.5,
+                  y: 34,
                   title: "A flat Earth",
                   text: "Plato suggested a round (spherical) Earth in the 4th century BC. Observation of ships and shadows slowly changed minds — but in some places the old belief lasted much longer.",
                   color: "#3a58a0"
                 },
                 {
-                  x: 32,
-                  y: 34,
+                  x: 26,
+                  y: 22,
                   title: "Terra Australis",
                   text: "People thought a huge southern land had to “balance” the north. Explorers sailed there in the 17th and 18th centuries and found it was not true.",
                   color: "#2b776e"
                 },
-                {"x":49,"y":54,"title":"A hollow Earth","text":"Disproven in 1740. Measurements of the Earth showed that it is not empty inside.","color":"#985c0e"},
+                {"x":45,"y":42.5,"title":"A hollow Earth","text":"Disproven in 1740. Measurements of the Earth showed that it is not empty inside.","color":"#985c0e"},
                 {
-                  x: 64,
-                  y: 30,
+                  x: 59.5,
+                  y: 17,
                   title: "California, the island",
                   text: "A mapping error. Explorers travelled there by land, and the map was corrected in 1701.",
                   color: "#b0512a"
                 },
                 {
-                  x: 78,
-                  y: 52,
+                  x: 72,
+                  y: 43,
                   title: "Doctors and hand washing",
                   text: "In 1847 Ignaz Semmelweis noticed that fewer patients died when doctors washed their hands. He used evidence — numbers — to question what everyone believed.",
                   color: "#7a4a8c"
                 },
                 {
-                  x: 91,
-                  y: 36,
+                  x: 86.5,
+                  y: 26.5,
                   title: "Melting on fast trains",
                   text: "When the first fast trains appeared, some people feared the speed could hurt or even “melt” the body. People travelled on trains — and the fear disappeared.",
                   color: "#3f7a3a"
@@ -1263,30 +1263,30 @@ window.DEC15_LESSON = {
               hint: "Tap each tile.",
               spots: [
                 {
-                  x: 27,
-                  y: 38,
+                  x: 10,
+                  y: 27,
                   label: "1",
                   title: "Identifying positions and perspectives in sources",
                   text: "Who is speaking, and what do they think? For example: the UN podcast guest believes big digital companies must take special responsibility.",
                   color: "#1f6b3a"
                 },
                 {
-                  x: 73,
-                  y: 38,
+                  x: 57,
+                  y: 27,
                   label: "2",
                   title: "Selecting relevant ideas or information",
                   text: "Choose only the ideas that answer your question — and leave the rest out.",
                   color: "#2b8a5c"
                 },
                 {
-                  x: 27,
-                  y: 76,
+                  x: 10,
+                  y: 63,
                   label: "3",
                   title: "Evaluating ideas and connecting them to your own voice",
                   text: "Is this idea strong? Do you agree? Say what <b>you</b> think about the source.",
                   color: "#1f9c8c"
                 },
-                {"x":73,"y":76,"label":"4","title":"Showing flexibility","text":"Be ready to change your mind when you meet better evidence.","color":"#1f8cc4"}
+                {"x":57,"y":63,"label":"4","title":"Showing flexibility","text":"Be ready to change your mind when you meet better evidence.","color":"#1f8cc4"}
               ]
             },
             {"type":"do","n":2,"who":"group","text":"Which skill is each student using? Sort the cards."},

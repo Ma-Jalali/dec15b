@@ -994,7 +994,7 @@ window.DEC15_LESSON = {
               spots: [
                 {
                   x: 18,
-                  y: 62,
+                  y: 42.5,
                   label: "A",
                   title: "Role A · The CEO of a large tech company",
                   text: "Your company manufactures mobile phones and has been very successful. It has been making a huge profit, and your investors expect this profit to continue. In your opinion profit is more important than the environment.",
@@ -1002,7 +1002,7 @@ window.DEC15_LESSON = {
                 },
                 {
                   x: 39,
-                  y: 62,
+                  y: 42.5,
                   label: "B",
                   title: "Role B · A Politician",
                   text: "There is an upcoming election, and one of your main campaigns is about reducing pollution and resource use. You want to enforce restrictions (and penalties) on tech companies to use fewer natural resources and create less waste.",
@@ -1010,7 +1010,7 @@ window.DEC15_LESSON = {
                 },
                 {
                   x: 61,
-                  y: 62,
+                  y: 42.5,
                   label: "C",
                   title: "Role C · An Academic Researcher",
                   text: "You are a researcher at the School of Life and Environmental Sciences. You and your team are very concerned about the future of the planet and are currently doing research into how digital technology can be used to minimise the environmental footprint of digital devices.",
@@ -1018,7 +1018,7 @@ window.DEC15_LESSON = {
                 },
                 {
                   x: 82,
-                  y: 62,
+                  y: 42.5,
                   label: "D",
                   title: "Role D · A Consumer",
                   text: "You have both a smart phone and a laptop, and you need these for your work life, social life and almost every part of your life! You can’t live without them! You are concerned about the future of the planet, but you don’t think your behaviour makes much difference.",

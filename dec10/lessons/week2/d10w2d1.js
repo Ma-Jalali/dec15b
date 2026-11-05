@@ -685,24 +685,24 @@ window.DEC15_LESSON = {
               hint: "Tap a number to see one way to say it.",
               spots: [
                 {
-                  x: 15,
-                  y: 62,
+                  x: 8.5,
+                  y: 51,
                   title: "4 BILLION+",
                   text: "“<b>Because</b> over four billion people are now active internet users, small amounts of energy add up …”",
                   label: "1",
                   color: "#2b776e"
                 },
                 {
-                  x: 44,
-                  y: 62,
+                  x: 40.5,
+                  y: 51,
                   title: "3.7%",
                   text: "“Our gadgets and the systems behind them <b>account for</b> 3.7% of global greenhouse emissions — similar to the airline industry. These emissions are predicted to double, <b>which means</b> …”",
                   label: "2",
                   color: "#3a58a0"
                 },
                 {
-                  x: 76,
-                  y: 62,
+                  x: 72.5,
+                  y: 51,
                   title: "NO.3",
                   text: "“The IT sector needs so much electricity that it ranks behind only China and the US. <b>As a result,</b> …”",
                   label: "3",
@@ -810,11 +810,11 @@ window.DEC15_LESSON = {
               alt: "An argument drawn as a house: key argument roof, claim pillars, evidence foundation, hidden assumptions underground and language label.",
               hint: "Tap each part of the house.",
               spots: [
-                {"x":33,"y":27,"title":"Key argument","text":"The <b>main idea</b> the author wants you to accept.","label":"1","color":"#2b776e"},
-                {"x":50,"y":31,"title":"Claim","text":"The <b>key points</b> that support the argument.","label":"2","color":"#3a58a0"},
+                {"x":35,"y":28.5,"title":"Key argument","text":"The <b>main idea</b> the author wants you to accept.","label":"1","color":"#2b776e"},
+                {"x":50,"y":58,"title":"Claim","text":"The <b>key points</b> that support the argument.","label":"2","color":"#3a58a0"},
                 {
-                  x: 28,
-                  y: 70,
+                  x: 29,
+                  y: 69,
                   title: "Evidence from sources",
                   text: "Information from <b>experts</b> (studies, reports, data) the author uses to support the claims.",
                   label: "3",
@@ -822,15 +822,15 @@ window.DEC15_LESSON = {
                 },
                 {
                   x: 30,
-                  y: 84,
+                  y: 86.5,
                   title: "Assumptions",
                   text: "Information the author believes the reader <b>already knows</b> — or accepts without proof.",
                   label: "4",
                   color: "#7a4a8c"
                 },
                 {
-                  x: 80,
-                  y: 35,
+                  x: 78.5,
+                  y: 33.5,
                   title: "Language",
                   text: "The <b>deliberate choice of words</b> the author uses to communicate the argument.",
                   label: "5",
@@ -1104,48 +1104,48 @@ window.DEC15_LESSON = {
               hint: "Tap a problem to see what it means.",
               spots: [
                 {
-                  x: 18,
-                  y: 26,
+                  x: 8.5,
+                  y: 17,
                   title: "Allocation of tasks",
                   text: "<b>Who does what?</b> Nobody knows who is doing the slides, the research or the conclusion — or one person does everything.",
                   label: "1",
                   color: "#d4583a"
                 },
                 {
-                  x: 50,
-                  y: 26,
+                  x: 39.5,
+                  y: 17,
                   title: "Communication breakdown",
                   text: "Groupmates <b>don’t understand each other</b>: unclear messages, no replies, different ideas about the task.",
                   label: "2",
                   color: "#3a58a0"
                 },
                 {
-                  x: 81,
-                  y: 26,
+                  x: 71,
+                  y: 17,
                   title: "Different priorities / goals",
                   text: "One person wants a <b>high distinction</b>; another just wants to <b>pass</b>.",
                   label: "3",
                   color: "#7a4a8c"
                 },
                 {
-                  x: 18,
-                  y: 72,
+                  x: 8.5,
+                  y: 63,
                   title: "Lack of commitment / effort",
                   text: "Some members <b>don’t do their part</b>, miss meetings or reply late.",
                   label: "4",
                   color: "#b07d12"
                 },
                 {
-                  x: 50,
-                  y: 72,
+                  x: 39.5,
+                  y: 63,
                   title: "Time management",
                   text: "<b>Different schedules</b> (work, sport, travel) and difficulty meeting deadlines.",
                   label: "5",
                   color: "#2b776e"
                 },
                 {
-                  x: 81,
-                  y: 72,
+                  x: 71,
+                  y: 63,
                   title: "Personal disagreement",
                   text: "Two people <b>don’t get on</b>, and it starts to affect the task.",
                   label: "6",

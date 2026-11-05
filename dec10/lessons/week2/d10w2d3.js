@@ -1281,25 +1281,25 @@ window.DEC15_LESSON = {
               caption: "Tap the numbers: what Group 1 covers in 5–7 minutes.",
               spots: [
                 {
-                  x: 24,
-                  y: 40,
+                  x: 16.5,
+                  y: 26.5,
                   label: "1",
                   color: "#2f7d6b",
                   title: "The country",
                   text: "A brief introduction to the country they chose — and <b>why</b> they chose it."
                 },
                 {
-                  x: 50,
-                  y: 40,
+                  x: 42.5,
+                  y: 26.5,
                   label: "2",
                   color: "#c4562f",
                   title: "Causes and/or effects",
                   text: "The causes and/or effects of the sustainability issue or problem."
                 },
-                {"x":76,"y":40,"label":"3","color":"#3a58a0","title":"Strategies","text":"Possible strategies or solutions."},
+                {"x":68.5,"y":26.5,"label":"3","color":"#3a58a0","title":"Strategies","text":"Possible strategies or solutions."},
                 {
-                  x: 50,
-                  y: 84,
+                  x: 42.5,
+                  y: 90.5,
                   label: "4",
                   color: "#8a4f9e",
                   title: "The rest of the class",
