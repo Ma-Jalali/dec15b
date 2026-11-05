@@ -786,6 +786,32 @@ a.dayline-flag:hover .dayline-title { text-decoration: underline; text-underline
 .course-map-svg { display: block; width: 100%; height: auto; }
 .cm-now > circle:first-child { animation: breathe 2.6s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
 @keyframes breathe { 50% { transform: scale(1.18); opacity: .1; } }
+/* the ten-week map (DEC10): slow, quiet movement */
+.cm-rich .cm-cloud { animation: cmDrift 26s ease-in-out infinite alternate; }
+.cm-rich .cm-bird { animation: cmFlap 1.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.cm-rich .cm-balloon { animation: cmBob 7s ease-in-out infinite; }
+.cm-rich .cm-rotor { animation: cmSpin 7s linear infinite; transform-box: view-box; }
+.cm-rich .cm-rays { animation: cmSpin 60s linear infinite; transform-box: view-box; }
+.cm-rich .cm-spin { animation: cmSpin 14s linear infinite; transform-box: fill-box; transform-origin: center; }
+.cm-rich .cm-flow { animation: cmFlow 2.4s linear infinite; }
+.cm-rich .cm-shimmer { animation: cmShim 3.2s ease-in-out infinite; }
+.cm-rich .cm-boat { animation: cmBoat 5s ease-in-out infinite; }
+.cm-rich .cm-flag { animation: cmWave 2.2s ease-in-out infinite; transform-box: fill-box; transform-origin: left center; }
+.cm-rich .cm-twinkle { animation: cmTwinkle 2.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.cm-rich .cm-walker { animation: cmStep .9s ease-in-out infinite; }
+.cm-rich .cm-disc { transition: filter .2s; }
+.cm-rich .cm-link:hover .cm-disc, .cm-rich .cm-link:focus-visible .cm-disc { filter: brightness(1.06); }
+@keyframes cmDrift { to { transform: translateX(26px); } }
+@keyframes cmFlap { 50% { transform: scaleY(.55); } }
+@keyframes cmBob { 50% { transform: translateY(-6px); } }
+@keyframes cmSpin { to { transform: rotate(360deg); } }
+@keyframes cmFlow { to { stroke-dashoffset: -32; } }
+@keyframes cmShim { 50% { opacity: .35; } }
+@keyframes cmBoat { 50% { transform: translateX(8px) translateY(-1px); } }
+@keyframes cmWave { 50% { transform: skewY(4deg) scaleX(.94); } }
+@keyframes cmTwinkle { 0%, 100% { opacity: .25; transform: scale(.6); } 50% { opacity: 1; transform: scale(1.1); } }
+@keyframes cmStep { 50% { transform: translateY(-1.2px); } }
+@media (prefers-reduced-motion: reduce) { .cm-rich * { animation: none !important; } }
 .resume { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 28px; margin: -34px 28px 0; padding: 22px 28px 22px 22px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow-lift); }
 .resume::before { content: ''; position: absolute; left: 0; top: 18px; bottom: 18px; width: 4px; border-radius: 0 4px 4px 0; background: var(--accent); }
 .resume-art { width: 132px; border-radius: var(--r); background: var(--accent-bg); }
@@ -1165,3 +1191,8 @@ body.large-text .key h3 { font-size: 1.95rem; }
 .day-parts li.has-code { padding-left: 0; display: flex; align-items: baseline; gap: 8px; }
 .day-parts li.has-code::before { display: none; }
 .part-code { flex: none; min-width: 30px; text-align: center; padding: 3px 6px; border-radius: 6px; background: var(--accent); color: #fff; font: 700 .68rem/1 var(--sans); letter-spacing: .02em; }
+
+/* the day number on a day card: plain "Day 1" by default; DEC10 shows a big coloured number (css/detail.css) */
+.day-n { font-style: normal; }
+.day-n i { font-style: normal; }
+.day-n-num, .day-n small { display: none; }

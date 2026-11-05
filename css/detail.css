@@ -126,3 +126,25 @@
 @media (prefers-reduced-motion: reduce) {
   [data-course="dec10"] .btn::after, [data-course="dec10"] .day-art img, [data-course="dec10"] .check::before, [data-course="dec10"] .check input::after { transition: none; }
 }
+
+/* DEC10 day cards: each day has its own colour, a big number badge on the edge of the picture and the weekday */
+[data-course="dec10"] .day-card { --dc: #2f6db5; }
+[data-course="dec10"] .day-card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; z-index: 3; background: linear-gradient(90deg, var(--dc), color-mix(in srgb, var(--dc) 45%, #e3a843)); }
+[data-course="dec10"] .day-card.is-soon::before { opacity: .45; }
+[data-course="dec10"] .day-art { background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--dc) 16%, transparent) 1px, transparent 1.6px), linear-gradient(180deg, color-mix(in srgb, var(--dc) 7%, #fbf3e4), color-mix(in srgb, var(--dc) 12%, #f7ecd8)) !important; }
+[data-course="dec10"] .day-label { position: relative; z-index: 3; align-items: flex-start; margin-top: -28px; padding: 0 18px; white-space: normal; }
+[data-course="dec10"] .day-label > span { margin-top: 38px; }
+[data-course="dec10"] .day-n { display: flex; align-items: flex-start; gap: 12px; }
+[data-course="dec10"] .day-n-num { display: grid; place-items: center; flex: none; width: 56px; height: 56px; border-radius: 50%; color: #fff; font: 700 1.85rem/1 var(--serif); letter-spacing: 0;
+  background: radial-gradient(circle at 32% 26%, rgba(255, 255, 255, .32), transparent 46%), linear-gradient(160deg, color-mix(in srgb, var(--dc) 78%, #fff), var(--dc));
+  box-shadow: 0 0 0 4px var(--surface, #fff), 0 12px 20px -10px color-mix(in srgb, var(--dc) 85%, transparent); }
+[data-course="dec10"] .day-card.is-soon .day-n-num { filter: saturate(.4); opacity: .8; }
+[data-course="dec10"] .day-n-txt { display: grid; gap: 4px; margin-top: 36px; font: 800 .92rem/1 var(--sans); letter-spacing: .16em; color: var(--dc); }
+[data-course="dec10"] .day-n small { display: block; font: 600 .78rem/1.1 var(--sans); letter-spacing: .02em; text-transform: none; color: var(--muted); }
+[data-course="dec10"] .day-title { font-size: 1.26rem; padding-top: 10px; }
+[data-course="dec10"] .day-meter i { background: linear-gradient(90deg, color-mix(in srgb, var(--dc) 70%, #fff), var(--dc)); }
+[data-course="dec10"] .day-go { padding: 7px 12px 7px 14px; border-radius: 999px; color: var(--dc); background: color-mix(in srgb, var(--dc) 11%, transparent); transition: background .2s var(--ease), color .2s var(--ease); }
+[data-course="dec10"] .day-card.is-ready:hover .day-go { background: var(--dc); color: #fff; }
+[data-course="dec10"] .day-card.is-ready:hover .day-n-num { transform: translateY(-2px) rotate(-4deg); }
+[data-course="dec10"] .day-n-num { transition: transform .3s var(--ease); }
+@media (prefers-reduced-motion: reduce) { [data-course="dec10"] .day-n-num, [data-course="dec10"] .day-go { transition: none; } }
