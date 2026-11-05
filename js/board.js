@@ -69,7 +69,7 @@ window.DEC15Board = (() => {
     const a = root.querySelector('[data-bd-ago]'), b = boards.find(x => x.id === cur); if (a && b) a.textContent = ago(b.updated_at);
   }
   /* the empty board picture: a whiteboard on an easel, a heading and three lines in marker, a tick, a sticky note and a marker */
-  const art = () => `<svg class="bd-art" viewBox="0 0 240 170" aria-hidden="true"><defs>
+  const art = () => document.documentElement.getAttribute('data-course') === 'dec10' ? '<img class="bd-art bd-art-x" src="dec10/assets/class/board.svg" alt="" width="360" height="240">' : `<svg class="bd-art" viewBox="0 0 240 170" aria-hidden="true"><defs>
     <linearGradient id="bd-fr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f6f8"/><stop offset="1" stop-color="#cdd5dc"/></linearGradient>
     <linearGradient id="bd-pa" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f6f3ec"/></linearGradient></defs>
     <ellipse cx="120" cy="160" rx="86" ry="6" fill="#14293a" opacity=".07"/>
