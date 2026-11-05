@@ -15,23 +15,36 @@ window.DEC15Picker = (() => {
 
   /* ───────── the wheel ───────── */
   const R = 230, C = 250;
+  const colorAt = (i, n) => PAL[(i === n - 1 && n > 1 && n % PAL.length === 1 ? i + 3 : i) % PAL.length];   // the last slice never matches the first
+  const pt = (r, deg) => [C + r * Math.cos(deg * Math.PI / 180), C + r * Math.sin(deg * Math.PI / 180)];
   function wheelSVG(list) {
     const n = list.length;
-    if (!n) return `<g class="pk-empty"><circle cx="${C}" cy="${C}" r="${R}" fill="#f4efe4"/>${Array.from({ length: 8 }, (_, i) => seg(i, 8, '#ece5d6', i % 2 ? '#f4efe4' : '#ece5d6')).join('')}<text x="${C}" y="${C - 74}" text-anchor="middle" class="pk-empty-tx">Add names on the right</text></g>`;
-    const fs = n <= 6 ? 26 : n <= 10 ? 22 : n <= 16 ? 18 : n <= 24 ? 15 : 12;
-    return list.map((name, i) => {
-      const a0 = (i / n) * 360, mid = a0 + 180 / n, col = PAL[(i === n - 1 && n > 1 && n % PAL.length === 1 ? i + 3 : i) % PAL.length];   // the last slice never matches the first
+    if (!n) return `<g class="pk-empty">${Array.from({ length: 12 }, (_, i) => seg(i, 12, i % 2 ? '#f6f1e6' : '#ece4d3')).join('')}<text x="${C}" y="${C - 82}" text-anchor="middle" class="pk-empty-tx">Add names on the right</text></g>`;
+    const fs = n <= 6 ? 27 : n <= 10 ? 23 : n <= 16 ? 19 : n <= 24 ? 15.5 : 12.5;
+    const slices = list.map((name, i) => {
+      const mid = (i + .5) / n * 360, col = colorAt(i, n), light = LIGHT.has(col);
       const label = name.length > 20 ? name.slice(0, 19) + '…' : name;
-      return `<g class="pk-seg" data-i="${i}">${seg(i, n, col)}<text transform="rotate(${mid} ${C} ${C})" x="${C + R - 24}" y="${C}" dy=".35em" text-anchor="end" font-size="${fs}" fill="${LIGHT.has(col) ? '#14293a' : '#fff'}" class="pk-name">${esc(label)}</text></g>`;
+      return `<g class="pk-seg" data-i="${i}">${seg(i, n, col)}<text transform="rotate(${mid} ${C} ${C})" x="${C + R - 30}" y="${C}" dy=".35em" text-anchor="end" font-size="${fs}" fill="${light ? '#14293a' : '#fff'}" stroke="${light ? 'rgba(255,255,255,.35)' : 'rgba(10,20,30,.28)'}" stroke-width="${light ? 2 : 3}" class="pk-name">${esc(label)}</text></g>`;
     }).join('');
+    const lines = n > 1 ? Array.from({ length: n }, (_, i) => { const [x, y] = pt(R, i / n * 360); return `<path d="M${C} ${C}L${x.toFixed(1)} ${y.toFixed(1)}" stroke="url(#pk-gold)" stroke-width="2.2" stroke-opacity=".85"/>`; }).join('') : '';
+    const pegs = Array.from({ length: n > 1 ? n : 0 }, (_, i) => { const [x, y] = pt(R - 9, i / n * 360); return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5.2" fill="url(#pk-peg)" stroke="#8a5a12" stroke-width=".8"/>`; }).join('');
+    return slices + lines + pegs;
   }
-  function seg(i, n, fill, alt) {
+  function seg(i, n, fill) {
     if (n === 1) return `<circle cx="${C}" cy="${C}" r="${R}" fill="${fill}"/>`;
-    const p = a => [C + R * Math.cos(a * Math.PI / 180), C + R * Math.sin(a * Math.PI / 180)];
-    const a0 = (i / n) * 360, a1 = ((i + 1) / n) * 360, [x0, y0] = p(a0), [x1, y1] = p(a1);
-    return `<path d="M${C} ${C}L${x0.toFixed(2)} ${y0.toFixed(2)}A${R} ${R} 0 ${a1 - a0 > 180 ? 1 : 0} 1 ${x1.toFixed(2)} ${y1.toFixed(2)}Z" fill="${alt || fill}" stroke="#fff" stroke-opacity=".55" stroke-width="1.5"/>`;
+    const a0 = (i / n) * 360, a1 = ((i + 1) / n) * 360, [x0, y0] = pt(R, a0), [x1, y1] = pt(R, a1);
+    return `<path d="M${C} ${C}L${x0.toFixed(2)} ${y0.toFixed(2)}A${R} ${R} 0 ${a1 - a0 > 180 ? 1 : 0} 1 ${x1.toFixed(2)} ${y1.toFixed(2)}Z" fill="${fill}"/>`;
   }
-  const bulbs = () => Array.from({ length: 24 }, (_, i) => { const a = i * 15 * Math.PI / 180; return `<circle class="pk-bulb" style="animation-delay:${(i % 2) * .6}s" cx="${(C + (R + 11) * Math.cos(a)).toFixed(1)}" cy="${(C + (R + 11) * Math.sin(a)).toFixed(1)}" r="3.4"/>`; }).join('');
+  const bulbs = () => Array.from({ length: 32 }, (_, i) => { const [x, y] = pt(R + 17, i * 360 / 32); return `<g class="pk-bulb ${i % 2 ? 'b2' : 'b1'}"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7" class="pk-glow"/><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.6" class="pk-lamp"/></g>`; }).join('');
+  const WHEEL_DEFS = `<defs>
+      <radialGradient id="pk-depth" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".3" stop-color="#000" stop-opacity="0"/><stop offset=".78" stop-color="#fff" stop-opacity=".06"/><stop offset=".94" stop-color="#000" stop-opacity=".05"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></radialGradient>
+      <linearGradient id="pk-gloss" x1="0" y1="0" x2=".55" y2=".9"><stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset=".45" stop-color="#fff" stop-opacity=".06"/><stop offset=".46" stop-color="#fff" stop-opacity="0"/></linearGradient>
+      <linearGradient id="pk-rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b4d68"/><stop offset=".5" stop-color="#14293a"/><stop offset="1" stop-color="#0a1824"/></linearGradient>
+      <linearGradient id="pk-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1c2"/><stop offset=".35" stop-color="#f0c35a"/><stop offset=".7" stop-color="#c88a1e"/><stop offset="1" stop-color="#f6d27a"/></linearGradient>
+      <radialGradient id="pk-peg" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff7d6"/><stop offset=".5" stop-color="#f0c35a"/><stop offset="1" stop-color="#a86f14"/></radialGradient>
+      <filter id="pk-sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#14293a" flood-opacity=".35"/></filter>
+      <filter id="pk-blur" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="0" class="pk-mb"/></filter>
+    </defs>`;
 
   /* ───────── the page ───────── */
   function html() {
@@ -46,18 +59,25 @@ window.DEC15Picker = (() => {
       </header>
       <div class="pk-grid">
         <section class="pk-stage" aria-label="The wheel">
+          <div class="pk-rays" aria-hidden="true"></div>
           <div class="pk-wheel-wrap">
             <svg class="pk-wheel" viewBox="0 0 500 500" role="img" aria-label="${list.length ? 'A wheel with ' + list.length + ' names' : 'An empty wheel'}">
-              <defs><radialGradient id="pk-shine" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/></radialGradient>
-                <filter id="pk-sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#14293a" flood-opacity=".28"/></filter></defs>
-              <circle cx="${C}" cy="${C}" r="${R + 20}" fill="#14293a" filter="url(#pk-sh)"/>
-              <circle cx="${C}" cy="${C}" r="${R + 20}" fill="none" stroke="#e3a843" stroke-width="3" stroke-opacity=".9"/>
+              ${WHEEL_DEFS}
+              <ellipse cx="${C}" cy="${C + R + 34}" rx="${R * .8}" ry="12" fill="#14293a" opacity=".12"/>
+              <circle cx="${C}" cy="${C}" r="${R + 30}" fill="url(#pk-rim)" filter="url(#pk-sh)"/>
+              <circle cx="${C}" cy="${C}" r="${R + 29}" fill="none" stroke="url(#pk-gold)" stroke-width="2.5"/>
+              <circle cx="${C}" cy="${C}" r="${R + 5}" fill="none" stroke="url(#pk-gold)" stroke-width="5"/>
               <g class="pk-bulbs">${bulbs()}</g>
-              <g class="pk-rot" style="transform:rotate(${rot}deg)">${wheelSVG(list)}</g>
-              <circle cx="${C}" cy="${C}" r="${R}" fill="url(#pk-shine)" pointer-events="none"/>
+              <g class="pk-rot" style="transform:rotate(${rot}deg)" filter="url(#pk-blur)">${wheelSVG(list)}</g>
+              <circle cx="${C}" cy="${C}" r="${R}" fill="url(#pk-depth)" pointer-events="none"/>
+              <path d="M${C - R + 8} ${C}A${R - 8} ${R - 8} 0 0 1 ${C + R - 8} ${C}C${C + R * .55} ${C - R * .18} ${C - R * .55} ${C - R * .05} ${C - R + 8} ${C}z" fill="url(#pk-gloss)" pointer-events="none"/>
             </svg>
-            <div class="pk-pointer" aria-hidden="true"><svg viewBox="0 0 60 50"><path d="M4 25 52 6c4-1.5 7 2 5 6L50 25l7 13c2 4-1 7.5-5 6z" fill="#14293a"/><path d="M10 25 50 10 44 25z" fill="#e3a843"/></svg></div>
-            <button type="button" class="pk-hub" data-pk="spin"${list.length < 2 ? ' disabled' : ''} aria-label="Spin the wheel"><b>SPIN</b><small>${list.length} ${S.tab === 'groups' ? (list.length === 1 ? 'group' : 'groups') : (list.length === 1 ? 'name' : 'names')}</small></button>
+            <div class="pk-pointer" aria-hidden="true"><svg viewBox="0 0 74 60"><defs><linearGradient id="pk-pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7d47e"/><stop offset=".55" stop-color="#e3a843"/><stop offset="1" stop-color="#b9781a"/></linearGradient></defs>
+              <path d="M3 30 50 8c8-3.6 16 2 16 10.5v23c0 8.5-8 14-16 10.5z" fill="#14293a"/>
+              <path d="M9 30 49 12.5c5.5-2.4 11 1.5 11 7.3v20.4c0 5.8-5.5 9.7-11 7.3z" fill="url(#pk-pg)"/>
+              <path d="M9 30 49 12.5c5.5-2.4 11 1.5 11 7.3V27z" fill="#fff" opacity=".28"/>
+              <circle cx="51" cy="30" r="6" fill="#14293a"/><circle cx="51" cy="30" r="2.6" fill="#f7d47e"/></svg></div>
+            <button type="button" class="pk-hub" data-pk="spin"${list.length < 2 ? ' disabled' : ''} aria-label="Spin the wheel"><span class="pk-hub-ring"></span><b>SPIN</b><small>${list.length} ${S.tab === 'groups' ? (list.length === 1 ? 'group' : 'groups') : (list.length === 1 ? 'name' : 'names')}</small></button>
             <div class="pk-win" hidden role="status" aria-live="assertive"></div>
           </div>
           ${S.history.length ? `<div class="pk-history"><span>Picked</span>${S.history.slice(0, 12).map((h, i) => `<em${i === 0 ? ' class="is-new"' : ''}>${esc(h)}</em>`).join('')}<button type="button" class="pk-link" data-pk="clearhist">Clear</button></div>` : ''}
@@ -93,46 +113,103 @@ window.DEC15Picker = (() => {
     lock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg>',
   };
 
-  /* ───────── spinning ───────── */
-  function tick() {
-    if (!S.sound) return;
-    try { audio ??= new (window.AudioContext || window.webkitAudioContext)();
-      const o = audio.createOscillator(), g = audio.createGain(), t = audio.currentTime;
-      o.type = 'triangle'; o.frequency.setValueAtTime(1500, t); o.frequency.exponentialRampToValueAtTime(700, t + .04);
-      g.gain.setValueAtTime(.18, t); g.gain.exponentialRampToValueAtTime(.001, t + .05); o.connect(g).connect(audio.destination); o.start(t); o.stop(t + .06);
-    } catch (e) { /* no audio */ }
+  /* ───────── sound: made on the fly with Web Audio (no files) ─────────
+     • a whoosh while it turns: filtered noise that gets quieter and lower as the wheel slows
+     • a click each time a peg passes the pointer: bright and light when fast, louder and deeper as it slows
+     • a soft thunk when it stops, then a little fanfare */
+  let ac = null, noise = null, whir = null;
+  function ctx() {
+    if (!S.sound) return null;
+    try {
+      ac ??= new (window.AudioContext || window.webkitAudioContext)(); if (ac.state === 'suspended') ac.resume();
+      if (!noise) { noise = ac.createBuffer(1, ac.sampleRate, ac.sampleRate); const d = noise.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; }
+      return ac;
+    } catch (e) { return null; }
   }
-  function chime() {
-    if (!S.sound) return;
-    try { audio ??= new (window.AudioContext || window.webkitAudioContext)(); const t = audio.currentTime;
-      [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => { const o = audio.createOscillator(), g = audio.createGain(); o.type = 'sine'; o.frequency.value = f;
-        g.gain.setValueAtTime(0, t + i * .09); g.gain.linearRampToValueAtTime(.16, t + i * .09 + .02); g.gain.exponentialRampToValueAtTime(.001, t + i * .09 + .6); o.connect(g).connect(audio.destination); o.start(t + i * .09); o.stop(t + i * .09 + .7); });
-    } catch (e) { /* no audio */ }
+  function whirStart() {
+    const a = ctx(); if (!a) return;
+    const src = a.createBufferSource(), lp = a.createBiquadFilter(), bp = a.createBiquadFilter(), g = a.createGain();
+    src.buffer = noise; src.loop = true; lp.type = 'lowpass'; lp.frequency.value = 1800; bp.type = 'peaking'; bp.frequency.value = 600; bp.gain.value = 6;
+    g.gain.setValueAtTime(0, a.currentTime); g.gain.linearRampToValueAtTime(.09, a.currentTime + .25);
+    src.connect(lp).connect(bp).connect(g).connect(a.destination); src.start();
+    whir = { src, lp, g };
   }
+  function whirSet(v) {   // v: speed 0..1
+    if (!whir || !ac) return; const t = ac.currentTime;
+    whir.g.gain.setTargetAtTime(.012 + .09 * v * v, t, .06); whir.lp.frequency.setTargetAtTime(260 + 2400 * v, t, .06);
+  }
+  function whirStop() { if (!whir || !ac) return; const w = whir; whir = null; w.g.gain.setTargetAtTime(0, ac.currentTime, .08); setTimeout(() => { try { w.src.stop(); } catch (e) { /* stopped */ } }, 600); }
+  let lastClick = 0;
+  function click(v) {   // v: speed 0..1
+    const a = ctx(); if (!a) return; const t = a.currentTime;
+    if (t - lastClick < .028) return; lastClick = t;
+    const src = a.createBufferSource(), f = a.createBiquadFilter(), g = a.createGain();
+    src.buffer = noise; f.type = 'bandpass'; f.frequency.value = 1700 + 2600 * v; f.Q.value = 4;
+    const vol = .1 + .32 * (1 - v);
+    g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(.0005, t + .035 + .03 * (1 - v));
+    src.connect(f).connect(g).connect(a.destination); src.start(t, Math.random() * .5, .08);
+    const o = a.createOscillator(), og = a.createGain();   // a little woody "tock" under the click, stronger when slow
+    o.type = 'triangle'; o.frequency.setValueAtTime(420 + 500 * v, t); o.frequency.exponentialRampToValueAtTime(180, t + .05);
+    og.gain.setValueAtTime(.12 * (1 - v) + .02, t); og.gain.exponentialRampToValueAtTime(.0005, t + .06);
+    o.connect(og).connect(a.destination); o.start(t); o.stop(t + .07);
+  }
+  function thunk() {
+    const a = ctx(); if (!a) return; const t = a.currentTime, o = a.createOscillator(), g = a.createGain();
+    o.type = 'sine'; o.frequency.setValueAtTime(150, t); o.frequency.exponentialRampToValueAtTime(60, t + .18);
+    g.gain.setValueAtTime(.3, t); g.gain.exponentialRampToValueAtTime(.001, t + .25); o.connect(g).connect(a.destination); o.start(t); o.stop(t + .3);
+  }
+  function fanfare() {
+    const a = ctx(); if (!a) return; const t = a.currentTime + .12;
+    [[523.25, 0], [659.25, .1], [783.99, .2], [1046.5, .32], [1318.5, .32]].forEach(([f, d]) => {
+      const o = a.createOscillator(), o2 = a.createOscillator(), g = a.createGain(); o.type = 'triangle'; o2.type = 'sine'; o.frequency.value = f; o2.frequency.value = f * 2;
+      g.gain.setValueAtTime(0, t + d); g.gain.linearRampToValueAtTime(.12, t + d + .015); g.gain.exponentialRampToValueAtTime(.001, t + d + (d > .3 ? 1.2 : .5));
+      o.connect(g); o2.connect(g); g.connect(a.destination); o.start(t + d); o2.start(t + d); o.stop(t + d + 1.3); o2.stop(t + d + 1.3);
+    });
+    for (let i = 0; i < 10; i++) { const o = a.createOscillator(), g = a.createGain(), d = .4 + i * .045; o.type = 'sine'; o.frequency.value = 2000 + Math.random() * 2600;   // sparkle
+      g.gain.setValueAtTime(0, t + d); g.gain.linearRampToValueAtTime(.03, t + d + .01); g.gain.exponentialRampToValueAtTime(.0005, t + d + .25); o.connect(g).connect(a.destination); o.start(t + d); o.stop(t + d + .3); }
+  }
+  const chime = fanfare;
+
+  /* ───────── spinning: a quick wind-up, a fast spin that slows down (ease-out), a tiny settle back onto the peg ───────── */
   function spin() {
     const list = live(); if (spinning || list.length < 2 || !root) return; root.querySelector('.pk-rot').classList.remove('has-win'); root.querySelectorAll('.pk-seg.is-win').forEach(x => x.classList.remove('is-win'));
     spinning = true; root.querySelector('.pk-win').hidden = true; root.classList.add('is-spinning');
-    const n = list.length, a = 360 / n, w = Math.floor(Math.random() * n), u = .15 + Math.random() * .7;
-    const theta = (w + u) * a, start = rot, turns = 5 + Math.floor(Math.random() * 3);
-    const end = start + turns * 360 + (((-theta - start) % 360) + 360) % 360;
-    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches, dur = reduce ? 600 : 5200 + Math.random() * 1200;
-    const g = root.querySelector('.pk-rot'), ptr = root.querySelector('.pk-pointer');
-    const ease = t => 1 - Math.pow(1 - t, 4);
+    const n = list.length, a = 360 / n, w = Math.floor(Math.random() * n), u = .2 + Math.random() * .6;
+    const theta = (w + u) * a, start = rot, turns = 6 + Math.floor(Math.random() * 3);
+    const settle = Math.min(1.6, a * .12);
+    const end = start + turns * 360 + (((-theta - start) % 360) + 360) % 360 + settle;   // overshoot a little, then settle back
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches, dur = reduce ? 700 : 6200 + Math.random() * 1600;
+    const g = root.querySelector('.pk-rot'), ptr = root.querySelector('.pk-pointer'), mb = root.querySelector('.pk-mb'), stage = root.querySelector('.pk-stage');
+    const wind = reduce ? 0 : 260, back = reduce ? 0 : 7;
+    const ease = t => 1 - Math.pow(1 - t, 3.2);
     const segAt = r => Math.floor((((-r % 360) + 360) % 360) / a);
-    let last = segAt(start), t0 = performance.now();
+    let last = segAt(start), prev = start, prevT = performance.now(); const t0 = prevT, vmax = (end - start) * 3.2 / dur;
+    whirStart();
     const frame = now => {
-      const t = Math.min(1, (now - t0) / dur); rot = start + (end - start) * ease(t);
+      const el = now - t0;
+      if (el < wind) { rot = start - back * Math.sin(el / wind * Math.PI / 2); }   // wind up: pull back a little
+      else { const t = Math.min(1, (el - wind) / dur); rot = start - back + (end - start + back) * ease(t); }
       g.style.transform = `rotate(${rot}deg)`;
-      const s = segAt(rot); if (s !== last) { last = s; tick(); ptr.classList.remove('flick'); void ptr.offsetWidth; ptr.classList.add('flick'); }
-      if (t < 1) requestAnimationFrame(frame); else { g.classList.add('has-win'); g.querySelector(`.pk-seg[data-i="${w}"]`)?.classList.add('is-win'); done(list[w]); }
+      const dt = Math.max(1, now - prevT), v = Math.min(1, Math.abs(rot - prev) / dt / vmax); prev = rot; prevT = now;
+      if (mb) mb.setAttribute('stdDeviation', (v > .35 ? (v - .35) * 4.5 : 0).toFixed(2));
+      stage.style.setProperty('--spd', v.toFixed(3)); whirSet(v);
+      const s = segAt(rot); if (s !== last) { last = s; click(v); ptr.style.setProperty('--kick', (-10 - 16 * (1 - v)) + 'deg'); ptr.classList.remove('flick'); void ptr.offsetWidth; ptr.classList.add('flick'); }
+      if (el < wind + dur) requestAnimationFrame(frame);
+      else {   // settle back onto the slice, like the pointer catching on a peg
+        whirStop(); if (mb) mb.setAttribute('stdDeviation', 0); stage.style.setProperty('--spd', 0);
+        const from = rot, s0 = performance.now(), sd = reduce ? 1 : 420;
+        const back2 = t2 => { const k = Math.min(1, (t2 - s0) / sd); rot = from - settle * (1 - Math.pow(1 - k, 2)); g.style.transform = `rotate(${rot}deg)`;
+          if (k < 1) requestAnimationFrame(back2); else { thunk(); g.classList.add('has-win'); g.querySelector(`.pk-seg[data-i="${w}"]`)?.classList.add('is-win'); done(list[w], colorAt(w, n)); } };
+        requestAnimationFrame(back2);
+      }
     };
     requestAnimationFrame(frame);
   }
-  function done(name) {
+  function done(name, col = '#e3a843') {
     spinning = false; root.classList.remove('is-spinning'); rot %= 360;
     S.history.unshift(name); S.history = S.history.slice(0, 30); store(); chime();
     const box = root.querySelector('.pk-win');
-    box.innerHTML = `<span class="pk-win-kick">${S.tab === 'groups' ? 'The group is' : 'It’s your turn'}</span><b>${esc(name)}</b><div class="pk-win-row">${S.removeAfter ? `<button type="button" class="pk-btn" data-pk="next" data-name="${esc(name)}">Remove &amp; spin again</button><button type="button" class="pk-btn pk-soft" data-pk="keep" data-name="${esc(name)}">Keep on the wheel</button>` : `<button type="button" class="pk-btn" data-pk="again">Spin again</button><button type="button" class="pk-btn pk-soft" data-pk="close">Close</button>`}</div>`;
+    box.style.setProperty('--wc', col); box.innerHTML = `<span class="pk-win-badge" aria-hidden="true">${esc([...name][0] || '?').toUpperCase()}</span><span class="pk-win-kick">${S.tab === 'groups' ? 'The group is' : 'It’s your turn'}</span><b>${esc(name)}</b><div class="pk-win-row">${S.removeAfter ? `<button type="button" class="pk-btn" data-pk="next" data-name="${esc(name)}">Remove &amp; spin again</button><button type="button" class="pk-btn pk-soft" data-pk="keep" data-name="${esc(name)}">Keep on the wheel</button>` : `<button type="button" class="pk-btn" data-pk="again">Spin again</button><button type="button" class="pk-btn pk-soft" data-pk="close">Close</button>`}</div>`;
     box.hidden = false;
     if (S.removeAfter) { (S.out[S.tab] ||= []).push(name); store(); }
     document.dispatchEvent(new CustomEvent('dec15:celebrate', { detail: box }));
