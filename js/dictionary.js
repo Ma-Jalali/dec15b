@@ -214,7 +214,54 @@ window.DEC15Dictionary = (() => {
     ${sug.length ? `<h3>Did you mean</h3><div class="dx-chips">${sug.map(s => chip(s)).join('')}</div>` : ''}</div>`;
   function homeHTML() {
     return `<div class="dx-home">
-      <div class="dx-home-art" aria-hidden="true"><svg viewBox="0 0 120 90"><path d="M12 22c14-6 28-6 46 2 18-8 32-8 46-2v52c-14-6-28-6-46 2-18-8-32-8-46-2z" fill="#fffdf6" stroke="#d9cfb8" stroke-width="1.5"/><path d="M58 24v52" stroke="#d9cfb8" stroke-width="1.5"/><path d="M20 34h28M20 42h24M20 50h28M20 58h20M70 34h28M70 42h24M70 50h28M70 58h18" stroke="#e3a843" stroke-width="2.4" stroke-linecap="round" opacity=".55"/><text x="24" y="20" font-family="Fraunces, Georgia, serif" font-size="13" fill="#14293a" font-weight="600">Aa</text><circle cx="100" cy="14" r="2.2" fill="#e3a843"/><circle cx="8" cy="70" r="1.8" fill="#2f6db5"/></svg></div>
+      <div class="dx-home-art" aria-hidden="true"><svg viewBox="0 0 240 170">
+        <defs>
+          <radialGradient id="dxh-glow" cx=".5" cy=".55" r=".5"><stop offset="0" stop-color="#f6dfae" stop-opacity=".55"/><stop offset=".7" stop-color="#f6dfae" stop-opacity=".12"/><stop offset="1" stop-color="#f6dfae" stop-opacity="0"/></radialGradient>
+          <linearGradient id="dxh-cover" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b4d68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+          <linearGradient id="dxh-page" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f7f1e3"/><stop offset=".5" stop-color="#fffdf7"/><stop offset="1" stop-color="#fbf7ee"/></linearGradient>
+          <linearGradient id="dxh-pageR" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fbf7ee"/><stop offset=".5" stop-color="#fffdf7"/><stop offset="1" stop-color="#f3ecdc"/></linearGradient>
+          <linearGradient id="dxh-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d27a"/><stop offset="1" stop-color="#c88a1e"/></linearGradient>
+          <linearGradient id="dxh-lens" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9f0f7" stop-opacity=".9"/><stop offset="1" stop-color="#9fd3e6" stop-opacity=".55"/></linearGradient>
+          <filter id="dxh-sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#14293a" flood-opacity=".28"/></filter>
+        </defs>
+        <circle class="dxh-glow" cx="120" cy="92" r="82" fill="url(#dxh-glow)"/>
+        <g class="dxh-ring"><circle cx="120" cy="92" r="70" fill="none" stroke="#e3a843" stroke-opacity=".35" stroke-width="1.2" stroke-dasharray="3 7"/></g>
+        <ellipse cx="120" cy="150" rx="66" ry="7" fill="#14293a" opacity=".1"/>
+        <g class="dxh-book">
+          <path d="M34 54c24-10 52-10 86 4 34-14 62-14 86-4v78c-24-10-52-10-86 4-34-14-62-14-86-4z" fill="url(#dxh-cover)" filter="url(#dxh-sh)"/>
+          <path d="M40 60c22-9 48-9 80 4v66c-32-13-58-13-80-4z" fill="url(#dxh-page)"/>
+          <path d="M200 60c-22-9-48-9-80 4v66c32-13 58-13 80-4z" fill="url(#dxh-pageR)"/>
+          <path d="M120 64v66" fill="none" stroke="#14293a" stroke-opacity=".18" stroke-width="2"/>
+          <path d="M44 64c20-8 44-8 72 3M44 70c20-8 44-8 72 3" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="1"/>
+          <g class="dxh-lines" fill="none" stroke-linecap="round" stroke-width="3.2">
+            <path d="M52 80c14-5 30-5 56 2" stroke="#14293a" stroke-opacity=".55"/>
+            <path d="M52 90c12-4 26-4 46 1" stroke="#e3a843" stroke-opacity=".9"/>
+            <path d="M52 100c14-5 30-5 56 2M52 110c10-3 22-3 36 0" stroke="#c9b48a" stroke-opacity=".7"/>
+            <path d="M132 83c26-7 42-7 56-2M132 93c22-6 38-6 50-1M132 103c26-7 42-7 56-2M132 113c18-5 30-5 40-2" stroke="#c9b48a" stroke-opacity=".7"/>
+          </g>
+          <path class="dxh-mark" d="M56 86c12-4 24-4 42 0" fill="none" stroke="#ffe08a" stroke-width="9" stroke-linecap="round" opacity=".75"/>
+          <path d="M54 90c12-4 26-4 46 1" fill="none" stroke="#14293a" stroke-opacity=".75" stroke-width="3.2" stroke-linecap="round"/>
+          <g class="dxh-flip"><path d="M120 64c22-9 48-9 80 4v66c-32-13-58-13-80-4z" fill="#fffdf7" stroke="#e3dccb" stroke-width="1"/><path d="M132 83c26-7 42-7 56-2M132 93c22-6 38-6 50-1M132 103c26-7 42-7 56-2" fill="none" stroke="#d9cfb6" stroke-width="3" stroke-linecap="round"/></g>
+          <path class="dxh-ribbon" d="M138 62v40l-6-6-6 6V62z" fill="url(#dxh-gold)"/>
+        </g>
+        <g class="dxh-letters" font-family="Fraunces, Georgia, serif" font-weight="600" fill="#14293a">
+          <text class="dxh-l l1" x="70" y="52" font-size="22">Aa</text>
+          <text class="dxh-l l2" x="112" y="48" font-size="14" fill="#2f6db5">b</text>
+          <text class="dxh-l l3" x="140" y="50" font-size="17" fill="#c2562f">é</text>
+          <text class="dxh-l l4" x="96" y="46" font-size="12" fill="#1f8a7a">c</text>
+        </g>
+        <g class="dxh-glass">
+          <circle cx="188" cy="102" r="22" fill="url(#dxh-lens)" stroke="#14293a" stroke-width="4"/>
+          <circle cx="188" cy="102" r="22" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1.5"/>
+          <path d="M178 92a13 13 0 0 1 10-4" stroke="#fff" stroke-opacity=".9" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M205 119l14 14" stroke="#14293a" stroke-width="8" stroke-linecap="round"/><path d="M206 120l12 12" stroke="#e3a843" stroke-width="3.5" stroke-linecap="round"/>
+          <text x="188" y="108" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="16" font-weight="600" fill="#14293a">Aa</text>
+        </g>
+        <path class="dxh-tw t1" d="M44 34l1.8 4.4 4.4 1.8-4.4 1.8-1.8 4.4-1.8-4.4-4.4-1.8 4.4-1.8z" fill="#e3a843"/>
+        <path class="dxh-tw t2" d="M206 40l1.4 3.4 3.4 1.4-3.4 1.4-1.4 3.4-1.4-3.4-3.4-1.4 3.4-1.4z" fill="#2f6db5"/>
+        <path class="dxh-tw t3" d="M214 128l1.2 3 3 1.2-3 1.2-1.2 3-1.2-3-3-1.2 3-1.2z" fill="#1f8a7a"/>
+        <circle class="dxh-tw t2" cx="30" cy="120" r="2.6" fill="#c2562f"/>
+      </svg></div>
       <p class="dx-lead">Type a word, or <b>double-tap any word on the page</b> while the dictionary is open.</p>
       ${S.recent.length ? `<section class="dx-chips-sec"><h3>Recent <button type="button" class="dx-link" data-dx="clear-recent">Clear</button></h3><div class="dx-chips">${S.recent.map(w => chip(w)).join('')}</div></section>` : ''}
       ${S.saved.length ? `<section class="dx-chips-sec"><h3>My words <span class="dx-count">${S.saved.length}</span></h3><div class="dx-chips">${S.saved.map(w => chip(w, '<svg class="dx-chip-star" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.5 2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 9.8l6.1-.7z"/></svg>')).join('')}</div></section>` : `<p class="dx-muted">Tap the star on a word to keep it in <b>My words</b>.</p>`}
@@ -243,7 +290,13 @@ window.DEC15Dictionary = (() => {
   };
   function build() {
     fab = document.createElement('button'); fab.type = 'button'; fab.className = 'dx-fab'; fab.setAttribute('aria-label', 'Open the dictionary'); fab.setAttribute('aria-expanded', 'false'); fab.title = 'Dictionary';
-    fab.innerHTML = `${ICON.book}<span class="dx-fab-tx">Dictionary</span>`;
+    fab.innerHTML = `<span class="dx-fab-ic"><svg viewBox="0 0 28 28" aria-hidden="true"><defs><linearGradient id="dxf-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d27a"/><stop offset="1" stop-color="#d9952a"/></linearGradient></defs>
+        <path d="M4 7.5c3.2-1.4 6.5-1.4 10 1.2 3.5-2.6 6.8-2.6 10-1.2v14.2c-3.2-1.4-6.5-1.4-10 1.2-3.5-2.6-6.8-2.6-10-1.2z" fill="#fffaf0"/>
+        <path d="M14 8.7v14.2" fill="none" stroke="#14293a" stroke-opacity=".35" stroke-width="1.4"/>
+        <path d="M4 7.5c3.2-1.4 6.5-1.4 10 1.2 3.5-2.6 6.8-2.6 10-1.2v14.2c-3.2-1.4-6.5-1.4-10 1.2-3.5-2.6-6.8-2.6-10-1.2z" fill="none" stroke="#14293a" stroke-width="1.7" stroke-linejoin="round"/>
+        <path d="M7 12.2c2-.7 4-.7 6 .3M7 15.4c2-.7 4-.7 6 .3M17.5 12.5c2-1 4-1 5.5-.3M17.5 15.7c2-1 4-1 5.5-.3" fill="none" stroke="#14293a" stroke-opacity=".5" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M8 18.4c2-.7 4-.7 6 .3" fill="none" stroke="url(#dxf-g)" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M19.5 5.5v6l-1.6-1.5-1.6 1.5v-6z" fill="url(#dxf-g)"/></svg></span><span class="dx-fab-tx">Dictionary</span>`;
     panel = document.createElement('aside'); panel.className = 'dx-panel'; panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', 'Dictionary'); panel.setAttribute('aria-modal', 'false');
     if ('showPopover' in panel) panel.setAttribute('popover', 'manual');
     panel.innerHTML = `<header class="dx-head"><span class="dx-logo">${ICON.book}</span><div class="dx-title"><b>Dictionary</b><small>Learner’s · English–English</small></div>
