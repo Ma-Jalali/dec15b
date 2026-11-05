@@ -214,53 +214,88 @@ window.DEC15Dictionary = (() => {
     ${sug.length ? `<h3>Did you mean</h3><div class="dx-chips">${sug.map(s => chip(s)).join('')}</div>` : ''}</div>`;
   function homeHTML() {
     return `<div class="dx-home">
-      <div class="dx-home-art" aria-hidden="true"><svg viewBox="0 0 240 170">
+      <div class="dx-home-art" aria-hidden="true"><svg viewBox="0 0 320 222">
         <defs>
-          <radialGradient id="dxh-glow" cx=".5" cy=".55" r=".5"><stop offset="0" stop-color="#f6dfae" stop-opacity=".55"/><stop offset=".7" stop-color="#f6dfae" stop-opacity=".12"/><stop offset="1" stop-color="#f6dfae" stop-opacity="0"/></radialGradient>
-          <linearGradient id="dxh-cover" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b4d68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
-          <linearGradient id="dxh-page" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f7f1e3"/><stop offset=".5" stop-color="#fffdf7"/><stop offset="1" stop-color="#fbf7ee"/></linearGradient>
-          <linearGradient id="dxh-pageR" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fbf7ee"/><stop offset=".5" stop-color="#fffdf7"/><stop offset="1" stop-color="#f3ecdc"/></linearGradient>
-          <linearGradient id="dxh-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d27a"/><stop offset="1" stop-color="#c88a1e"/></linearGradient>
-          <linearGradient id="dxh-lens" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9f0f7" stop-opacity=".9"/><stop offset="1" stop-color="#9fd3e6" stop-opacity=".55"/></linearGradient>
-          <filter id="dxh-sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#14293a" flood-opacity=".28"/></filter>
+          <radialGradient id="dxa-spot" cx=".5" cy=".46" r=".55"><stop offset="0" stop-color="#fff6de"/><stop offset=".55" stop-color="#fbf1dc" stop-opacity=".55"/><stop offset="1" stop-color="#fbf1dc" stop-opacity="0"/></radialGradient>
+          <linearGradient id="dxa-pl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#efe5d1"/><stop offset=".12" stop-color="#fffbf2"/><stop offset=".62" stop-color="#fdf7ea"/><stop offset=".88" stop-color="#ece0c7"/><stop offset="1" stop-color="#cbb894"/></linearGradient>
+          <linearGradient id="dxa-pr" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#e9dec8"/><stop offset=".12" stop-color="#fdf8ee"/><stop offset=".62" stop-color="#fbf4e5"/><stop offset=".88" stop-color="#e6d8bc"/><stop offset="1" stop-color="#c4b08a"/></linearGradient>
+          <linearGradient id="dxa-light" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/></linearGradient>
+          <linearGradient id="dxa-edge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1e7d2"/><stop offset="1" stop-color="#d8c9a8"/></linearGradient>
+          <linearGradient id="dxa-cover" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f5675"/><stop offset=".55" stop-color="#1a3a54"/><stop offset="1" stop-color="#0d1f2e"/></linearGradient>
+          <linearGradient id="dxa-rib" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b8761a"/><stop offset=".45" stop-color="#f3c862"/><stop offset="1" stop-color="#c7871f"/></linearGradient>
+          <linearGradient id="dxa-glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".96"/><stop offset="1" stop-color="#fffaf0" stop-opacity=".9"/></linearGradient>
+          <linearGradient id="dxa-hl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffd76a" stop-opacity=".25"/><stop offset=".15" stop-color="#ffd76a" stop-opacity=".85"/><stop offset=".9" stop-color="#ffcf4d" stop-opacity=".85"/><stop offset="1" stop-color="#ffcf4d" stop-opacity=".2"/></linearGradient>
+          <filter id="dxa-blur8" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="8"/></filter>
+          <filter id="dxa-blur3" x="-20%" y="-100%" width="140%" height="300%"><feGaussianBlur stdDeviation="2.6"/></filter>
+          <filter id="dxa-card" x="-60%" y="-80%" width="220%" height="300%" filterUnits="objectBoundingBox"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".18"/><feDropShadow dx="0" dy="1.5" stdDeviation="1.2" flood-color="#14293a" flood-opacity=".12"/></filter>
+          <filter id="dxa-soft" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="2" stdDeviation="1.6" flood-color="#14293a" flood-opacity=".22"/></filter>
+          <clipPath id="dxa-clipL"><path d="M160 78C140 63 94 55 52 64L54 158C94 148 138 153 160 168Z"/></clipPath>
+          <clipPath id="dxa-clipR"><path d="M160 78C180 63 226 55 268 64L266 158C226 148 182 153 160 168Z"/></clipPath>
         </defs>
-        <circle class="dxh-glow" cx="120" cy="92" r="82" fill="url(#dxh-glow)"/>
-        <g class="dxh-ring"><circle cx="120" cy="92" r="70" fill="none" stroke="#e3a843" stroke-opacity=".35" stroke-width="1.2" stroke-dasharray="3 7"/></g>
-        <ellipse cx="120" cy="150" rx="66" ry="7" fill="#14293a" opacity=".1"/>
-        <g class="dxh-book">
-          <path d="M34 54c24-10 52-10 86 4 34-14 62-14 86-4v78c-24-10-52-10-86 4-34-14-62-14-86-4z" fill="url(#dxh-cover)" filter="url(#dxh-sh)"/>
-          <path d="M40 60c22-9 48-9 80 4v66c-32-13-58-13-80-4z" fill="url(#dxh-page)"/>
-          <path d="M200 60c-22-9-48-9-80 4v66c32-13 58-13 80-4z" fill="url(#dxh-pageR)"/>
-          <path d="M120 64v66" fill="none" stroke="#14293a" stroke-opacity=".18" stroke-width="2"/>
-          <path d="M44 64c20-8 44-8 72 3M44 70c20-8 44-8 72 3" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="1"/>
-          <g class="dxh-lines" fill="none" stroke-linecap="round" stroke-width="3.2">
-            <path d="M52 80c14-5 30-5 56 2" stroke="#14293a" stroke-opacity=".55"/>
-            <path d="M52 90c12-4 26-4 46 1" stroke="#e3a843" stroke-opacity=".9"/>
-            <path d="M52 100c14-5 30-5 56 2M52 110c10-3 22-3 36 0" stroke="#c9b48a" stroke-opacity=".7"/>
-            <path d="M132 83c26-7 42-7 56-2M132 93c22-6 38-6 50-1M132 103c26-7 42-7 56-2M132 113c18-5 30-5 40-2" stroke="#c9b48a" stroke-opacity=".7"/>
+        <ellipse cx="160" cy="104" rx="150" ry="100" fill="url(#dxa-spot)"/>
+        <!-- shadows on the desk: a wide soft one and a tight contact one -->
+        <g class="dxa-shadow"><ellipse cx="162" cy="190" rx="122" ry="15" fill="#14293a" opacity=".22" filter="url(#dxa-blur8)"/><ellipse cx="160" cy="182" rx="104" ry="5" fill="#14293a" opacity=".35" filter="url(#dxa-blur3)"/></g>
+        <g class="dxa-book">
+          <!-- the ribbon bookmark, hanging out under the book -->
+          <path class="dxa-rib" d="M168 166C169 178 171 190 174 204L168.5 199.5L163.5 205C162 192 161.5 179 162 166Z" fill="url(#dxa-rib)" filter="url(#dxa-soft)"/>
+          <!-- hard cover, with its thickness -->
+          <path d="M160 86C134 72 86 66 42 72L38 172C84 164 132 168 160 184C188 168 236 164 282 172L278 72C234 66 186 72 160 86Z" fill="url(#dxa-cover)"/>
+          <path d="M38 172C84 164 132 168 160 184C188 168 236 164 282 172L282 176C236 168 188 172 160 188C132 172 84 168 38 176Z" fill="#0b1824"/>
+          <path d="M42 72C86 66 134 72 160 86C186 72 234 66 278 72" fill="none" stroke="#5f86a6" stroke-opacity=".55" stroke-width="1"/>
+          <!-- the page block: many thin page edges -->
+          <path d="M52 64L46 70L44 166C88 157 136 162 160 176L160 168C138 153 94 148 54 158Z" fill="url(#dxa-edge)"/>
+          <path d="M268 64L274 70L276 166C232 157 184 162 160 176L160 168C182 153 226 148 266 158Z" fill="url(#dxa-edge)"/>
+          <g fill="none" stroke="#bfae8c" stroke-opacity=".55" stroke-width=".6">
+            <path d="M53 160C93 150 137 155 160 170M51 162.2C91 152.4 136 157.6 160 172M49 164.2C90 154.6 136 159.8 160 174"/>
+            <path d="M267 160C227 150 183 155 160 170M269 162.2C229 152.4 184 157.6 160 172M271 164.2C230 154.6 184 159.8 160 174"/>
+            <path d="M48 70.5V164M50 68.5V162M272 70.5V164M270 68.5V162"/>
           </g>
-          <path class="dxh-mark" d="M56 86c12-4 24-4 42 0" fill="none" stroke="#ffe08a" stroke-width="9" stroke-linecap="round" opacity=".75"/>
-          <path d="M54 90c12-4 26-4 46 1" fill="none" stroke="#14293a" stroke-opacity=".75" stroke-width="3.2" stroke-linecap="round"/>
-          <g class="dxh-flip"><path d="M120 64c22-9 48-9 80 4v66c-32-13-58-13-80-4z" fill="#fffdf7" stroke="#e3dccb" stroke-width="1"/><path d="M132 83c26-7 42-7 56-2M132 93c22-6 38-6 50-1M132 103c26-7 42-7 56-2" fill="none" stroke="#d9cfb6" stroke-width="3" stroke-linecap="round"/></g>
-          <path class="dxh-ribbon" d="M138 62v40l-6-6-6 6V62z" fill="url(#dxh-gold)"/>
+          <!-- the two open pages, curving up from the spine, darker in the gutter -->
+          <path d="M160 78C140 63 94 55 52 64L54 158C94 148 138 153 160 168Z" fill="url(#dxa-pl)"/>
+          <path d="M160 78C180 63 226 55 268 64L266 158C226 148 182 153 160 168Z" fill="url(#dxa-pr)"/>
+          <path d="M160 78C140 63 94 55 52 64L54 158C94 148 138 153 160 168ZM160 78C180 63 226 55 268 64L266 158C226 148 182 153 160 168Z" fill="url(#dxa-light)"/>
+          <path d="M160 78V168" stroke="#8a7656" stroke-opacity=".35" stroke-width="1.2"/>
+          <path d="M52 64C94 55 140 63 160 78C180 63 226 55 268 64" fill="none" stroke="#fff" stroke-width="1.2" stroke-opacity=".9"/>
+          <!-- what is printed: a headword, its sounds, lines of text -->
+          <g clip-path="url(#dxa-clipL)">
+            <text x="64" y="84" font-family="Fraunces, Georgia, serif" font-size="13.5" font-weight="600" fill="#14293a" transform="rotate(-3 64 84)">lexicon</text>
+            <text x="118" y="83" font-family="Manrope, sans-serif" font-size="6" fill="#8b7a5c" transform="rotate(-1 118 83)">/ˈlek·sə·kən/</text>
+            <path class="dxa-hl" d="M62 107C92 99 120 100 146 110" fill="none" stroke="url(#dxa-hl)" stroke-width="8" stroke-linecap="round"/>
+            <g fill="none" stroke="#7d6e55" stroke-opacity=".45" stroke-width="2" stroke-linecap="round"><path d="M62 110C92 102 122 103 148 112"/><path d="M62 120C92 112 106 113 132 122"/><path d="M62 130C92 122 120 123 146 132"/><path d="M62 140C92 132 94 133 120 142"/></g>
+          </g>
+          <g clip-path="url(#dxa-clipR)">
+            <g fill="none" stroke="#7d6e55" stroke-opacity=".42" stroke-width="2" stroke-linecap="round"><path d="M174 92C200 83 228 82 258 90"/><path d="M174 102C200 93 222 92 252 100"/><path d="M174 112C200 103 228 102 258 110"/><path d="M174 122C200 113 208 112 238 117"/><path d="M174 132C200 123 226 122 256 130"/><path d="M174 142C200 133 196 132 226 137"/></g>
+            <circle cx="178" cy="84" r="3.4" fill="#e3a843"/><circle cx="178" cy="114" r="3.4" fill="#2f6db5" opacity=".8"/>
+          </g>
+          <path d="M162 80C166 104 166 132 163 166" fill="none" stroke="url(#dxa-rib)" stroke-width="3.2" stroke-linecap="round" opacity=".9"/>
+          <!-- a page corner that lifts, catching the light -->
+          <g class="dxa-curl"><path d="M266 158C258 154 251 152 246 151C252 147 258 146 266 146Z" fill="#fffdf6"/><path d="M266 158C258 154 251 152 246 151C252 147 258 146 266 146Z" fill="none" stroke="#d6c7a6" stroke-width=".8"/><path d="M246 151C252 147 258 146 266 146" fill="none" stroke="#fff" stroke-width="1"/></g>
+          <!-- the ribbon bookmark -->
+          
         </g>
-        <g class="dxh-letters" font-family="Fraunces, Georgia, serif" font-weight="600" fill="#14293a">
-          <text class="dxh-l l1" x="70" y="52" font-size="22">Aa</text>
-          <text class="dxh-l l2" x="112" y="48" font-size="14" fill="#2f6db5">b</text>
-          <text class="dxh-l l3" x="140" y="50" font-size="17" fill="#c2562f">é</text>
-          <text class="dxh-l l4" x="96" y="46" font-size="12" fill="#1f8a7a">c</text>
+        <!-- floating cards, frosted glass -->
+        <g class="dxa-card">
+          <rect x="190" y="10" width="118" height="58" rx="13" fill="url(#dxa-glass)" stroke="#fff" filter="url(#dxa-card)"/>
+          <rect x="190.5" y="10.5" width="117" height="57" rx="12.5" fill="none" stroke="#14293a" stroke-opacity=".06"/>
+          <text x="203" y="32" font-family="Fraunces, Georgia, serif" font-size="14" font-weight="600" fill="#14293a">lexicon</text>
+          <rect x="203" y="40" width="30" height="13" rx="6.5" fill="#eef4fc"/><text x="218" y="49.2" text-anchor="middle" font-family="Manrope, sans-serif" font-size="7" font-weight="700" fill="#2f6db5">noun</text>
+          <text x="238" y="49.2" font-family="Manrope, sans-serif" font-size="6.6" fill="#8b969e">all the words</text>
+          <circle cx="290" cy="27" r="9.5" fill="#14293a"/><path d="M287.5 23v8l6.5-4z" fill="#fff"/>
+          <g class="dxa-wave" fill="#e3a843"><rect x="281" y="44" width="2.2" height="8" rx="1.1"/><rect x="285" y="41" width="2.2" height="11" rx="1.1"/><rect x="289" y="45" width="2.2" height="7" rx="1.1"/><rect x="293" y="42" width="2.2" height="10" rx="1.1"/><rect x="297" y="46" width="2.2" height="6" rx="1.1"/></g>
         </g>
-        <g class="dxh-glass">
-          <circle cx="188" cy="102" r="22" fill="url(#dxh-lens)" stroke="#14293a" stroke-width="4"/>
-          <circle cx="188" cy="102" r="22" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1.5"/>
-          <path d="M178 92a13 13 0 0 1 10-4" stroke="#fff" stroke-opacity=".9" stroke-width="3" stroke-linecap="round" fill="none"/>
-          <path d="M205 119l14 14" stroke="#14293a" stroke-width="8" stroke-linecap="round"/><path d="M206 120l12 12" stroke="#e3a843" stroke-width="3.5" stroke-linecap="round"/>
-          <text x="188" y="108" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="16" font-weight="600" fill="#14293a">Aa</text>
+        <g class="dxa-chip c1">
+          <rect x="12" y="30" width="68" height="26" rx="13" fill="url(#dxa-glass)" stroke="#fff" filter="url(#dxa-card)"/>
+          <path d="M27 36.5l2 4.2 4.6.5-3.4 3.1.9 4.5-4.1-2.3-4.1 2.3.9-4.5-3.4-3.1 4.6-.5z" fill="#e3a843"/>
+          <text x="38" y="47" font-family="Manrope, sans-serif" font-size="9" font-weight="700" fill="#14293a">Saved</text>
         </g>
-        <path class="dxh-tw t1" d="M44 34l1.8 4.4 4.4 1.8-4.4 1.8-1.8 4.4-1.8-4.4-4.4-1.8 4.4-1.8z" fill="#e3a843"/>
-        <path class="dxh-tw t2" d="M206 40l1.4 3.4 3.4 1.4-3.4 1.4-1.4 3.4-1.4-3.4-3.4-1.4 3.4-1.4z" fill="#2f6db5"/>
-        <path class="dxh-tw t3" d="M214 128l1.2 3 3 1.2-3 1.2-1.2 3-1.2-3-3-1.2 3-1.2z" fill="#1f8a7a"/>
-        <circle class="dxh-tw t2" cx="30" cy="120" r="2.6" fill="#c2562f"/>
+        <g class="dxa-chip c2">
+          <rect x="8" y="122" width="44" height="44" rx="14" fill="url(#dxa-glass)" stroke="#fff" filter="url(#dxa-card)"/>
+          <text x="30" y="150" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="17" font-weight="600" fill="#14293a">Aa</text>
+          <circle cx="45" cy="129" r="3" fill="#2f9a63"/>
+        </g>
+        <path class="dxa-tw t1" d="M118 26l1.6 3.9 3.9 1.6-3.9 1.6-1.6 3.9-1.6-3.9-3.9-1.6 3.9-1.6z" fill="#e3a843"/>
+        <path class="dxa-tw t2" d="M300 96l1.2 3 3 1.2-3 1.2-1.2 3-1.2-3-3-1.2 3-1.2z" fill="#2f6db5"/>
+        <circle class="dxa-tw t3" cx="92" cy="18" r="2" fill="#c2562f"/>
       </svg></div>
       <p class="dx-lead">Type a word, or <b>double-tap any word on the page</b> while the dictionary is open.</p>
       ${S.recent.length ? `<section class="dx-chips-sec"><h3>Recent <button type="button" class="dx-link" data-dx="clear-recent">Clear</button></h3><div class="dx-chips">${S.recent.map(w => chip(w)).join('')}</div></section>` : ''}
