@@ -306,7 +306,7 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
     return `<section class="block kit hotspot figure${b.size ? ' figure-' + b.size : ''}" data-hs="${uid}">
     ${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}<p class="kit-hint hs-hint">${icon('tap')}${b.hint || 'Tap a marker on the picture for more detail.'}</p>
     <div class="hs-stage"><img src="${esc(b.src)}" alt="${esc(b.alt || '')}" loading="lazy">
-      ${b.spots.map((sp, i) => `<button type="button" class="hs-pin" style="left:${sp.x}%;top:${sp.y}%${sp.color ? `;--c:${sp.color}` : ''}" data-hs-pin="${uid}" data-i="${i}" data-x="${sp.x}" data-y="${sp.y}" aria-expanded="false" aria-label="${esc(strip(sp.title))}"><i></i><span>${sp.label || i + 1}</span></button>`).join('')}
+      ${b.spots.map((sp, i) => `<button type="button" class="hs-pin" style="--x:${sp.x};--y:${sp.y}${sp.color ? `;--c:${sp.color}` : ''}" data-hs-pin="${uid}" data-i="${i}" data-x="${sp.x}" data-y="${sp.y}" aria-expanded="false" aria-label="${esc(strip(sp.title))}"><i></i><span>${sp.label || i + 1}</span></button>`).join('')}
       <div class="hs-pop" hidden>${b.spots.map((sp, i) => `<div class="hs-card" data-card="${i}" hidden${sp.color ? ` style="--c:${sp.color}"` : ''}><em>${sp.label || i + 1}</em><b>${sp.title}</b><div class="hs-text">${sp.text}</div><button type="button" class="hs-close" data-hs-close aria-label="Close">×</button></div>`).join('')}</div>
     </div>
     ${b.caption || b.credit ? `<figcaption>${b.caption ? `<b>${b.caption}</b>` : ''}${b.credit ? ` <span>${esc(b.credit)}</span>` : ''}</figcaption>` : ''}
@@ -317,7 +317,7 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
     sec.querySelectorAll('.hs-card').forEach(c => { c.hidden = true; });
     if (open) { pop.hidden = true; return; }
     pin.setAttribute('aria-expanded', 'true'); pop.querySelector(`[data-card="${i}"]`).hidden = false; pop.hidden = false;
-    pop.style.left = x + '%'; pop.style.top = y + '%';
+    pop.style.setProperty('--x', x); pop.style.setProperty('--y', y);
     pop.style.setProperty('--tx', x > 62 ? 'calc(-100% + 20px)' : x < 38 ? '-20px' : '-50%');
     pop.style.setProperty('--ty', y > 58 ? 'calc(-100% - 26px)' : '26px');
     pop.querySelector(`[data-card="${i}"] b`).setAttribute('tabindex', '-1');

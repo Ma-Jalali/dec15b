@@ -234,7 +234,9 @@
 /* ───────── hotspot pictures ───────── */
 .hotspot .hs-hint { display: flex; align-items: center; gap: 6px; }
 .hotspot .hs-hint .icon { width: 16px; height: 16px; color: var(--accent, #2b776e); }
-.hs-stage { position: relative; display: block; }
+.hs-stage { position: relative; display: block; --in: 1px; }
+/* markers sit on the picture itself, inside any frame or padding round it (--in), so x/y % match the drawing exactly */
+.hs-pin, .hs-pop { left: calc(var(--in) + (100% - 2 * var(--in)) * var(--x) / 100); top: calc(var(--in) + (100% - 2 * var(--in)) * var(--y) / 100); }
 .hs-stage > img { display: block; width: 100%; height: auto; border-radius: var(--r, 16px); border: 1px solid var(--line); background: #fff; }
 .hs-pin { position: absolute; z-index: 2; width: 34px; height: 34px; margin: 0; padding: 0; border: 0; border-radius: 50%; transform: translate(-50%, -50%); background: var(--c, var(--accent, #2b776e)); color: #fff; font: 800 .8rem/1 var(--sans); display: grid; place-items: center; cursor: pointer; box-shadow: 0 0 0 3px #fff, 0 8px 16px -6px rgba(20, 41, 58, .5); transition: transform .18s; }
 .hs-pin i { position: absolute; inset: -7px; border-radius: 50%; border: 2px solid var(--c, var(--accent, #2b776e)); opacity: .7; animation: hsPulse 2.2s ease-out infinite; }

@@ -86,6 +86,7 @@ const val = k => state.values[k] ?? '';
 const pad = n => String(n).padStart(2, '0');
 function toast(t) { const el = $('#toast'); el.textContent = t; el.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('show'), 3800); }
 const reader = window.createDEC15Reader({ getState: () => state, save, esc, lesson, sources, toast });
+const readNotes = window.createDEC15Notes ? window.createDEC15Notes({ getState: () => state, save, esc, toast, reader }) : null;
 /* Class wall under each activity (needs online saving). Turn it off for a lesson with wall: false,
    or for one activity with wall: false. */
 const wall = window.createDEC15Wall ? window.createDEC15Wall({ getCloud: () => cloud, lessonId: lesson.id, esc, toast, icon: (n, c) => icon(n, c), signIn: () => accountDialog('signin'), getClass: () => klass }) : null;
@@ -1541,14 +1542,14 @@ function openSource(id = 'reading1', week = null) {
   $('#resource-title').textContent = 'Read and highlight';
   $('#resource-body').innerHTML = `<div class="source-tabs">${pool.map(x => `<button class="${x.id === s.id ? 'active' : ''}" data-source="${x.id}"${wk}>${srcName(x.id, pool)}</button>`).join('')}</div>
     ${reader.toolbar('reading')}
-    <article class="source-text" data-help><span class="eyebrow">${esc(s.cite)} · ${esc(s.kind)}</span><h3>${esc(s.title)}</h3>${s.note ? `<p class="script-note">${esc(s.note)}</p>` : ''}
+    <div class="rd-layout" data-src="${esc((week ? 'w' + week + '-' : '') + s.id)}"><article class="source-text" data-help><span class="eyebrow">${esc(s.cite)} · ${esc(s.kind)}</span><h3>${esc(s.title)}</h3>${s.note ? `<p class="script-note">${esc(s.note)}</p>` : ''}
     <p class="source-ref">${esc(s.reference)}</p>
     ${s.citeAs ? `<p class="source-cite">${esc(s.citeAs)}</p>` : ''}
     ${s.paragraphs.map((p, i) => p.startsWith('## ') ? `<h4 class="source-h">${esc(p.slice(3))}</h4>` : `<p>${reader.text('s-' + s.id + '-' + i, p, s.cite + ' · ' + (s.id === 'video-script' ? p.slice(0, 10) : /^[A-Z]\. /.test(p) ? 'paragraph ' + p.slice(0, 1) : p.split(':')[0].slice(0, 20)))}</p>`).join('')}
-    ${s.figure ? `<figure><img src="${s.figure}" alt="${esc(s.figureAlt || '')}"><figcaption>Figure 1. ${esc(s.figureCaption || '')} ${esc(s.figureCredit || '')}</figcaption></figure>` : ''}</article>`;
+    ${s.figure ? `<figure><img src="${s.figure}" alt="${esc(s.figureAlt || '')}"><figcaption>Figure 1. ${esc(s.figureCaption || '')} ${esc(s.figureCredit || '')}</figcaption></figure>` : ''}</article><aside class="rd-notes" aria-label="My notes"></aside></div>`;
   if (!$('#resource-dialog').open) $('#resource-dialog').showModal();
   $('#resource-body').scrollTop = 0;
-  reader.mount();
+  reader.mount(); readNotes?.mount();
 }
 function filterGlossary(q) {
   q = String(q || '').trim().toLowerCase(); let n = 0;
