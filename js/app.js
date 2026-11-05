@@ -125,6 +125,7 @@ const ICON = {
   home: '<path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10M10 20v-5h4v5"/>',
   map: '<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14m6-12v14"/>',
   flag: '<path d="M5 21V4m0 1h11l-2 4 2 4H5"/>',
+  quote: '<path d="M4.5 11.5c0-3 1.6-5 4.5-5.8M4.5 11.5h3.8v5.8H4.5zM13.5 11.5c0-3 1.6-5 4.5-5.8M13.5 11.5h3.8v5.8h-3.8z"/>',
   lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
   sprout: '<path d="M12 20v-8m0 0c0-4-3-6-7-6 0 4 3 6 7 6zm0-2c0-4 3-6 7-6 0 4-3 6-7 6z"/>',
   smile: '<circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1.3 2.2 2 3.5 2s2.5-.7 3.5-2M9 9.5h.01M15 9.5h.01"/>',
@@ -926,7 +927,44 @@ function libCard(s, i, week) {
     <div class="lib-meta"><span>${icon('clock')}${l.time}</span>${l.marks ? `<span class="lib-marks">${icon('pen')}${l.marks} mark${l.marks > 1 ? 's' : ''}</span>` : ''}</div>
     <button class="btn" data-source="${s.id}" data-src-week="${week}">Open and read ${icon('arrow')}</button></div></article>`;
 }
+/* DEC10: the same page, redrawn (js/library.js, css/library.css): a picture head with counts, colour-coded week
+   rows like the Language Lab, and a picture of each text drawn from the text itself */
+const RL_WEEK = ['#d0442a', '#2a8a7d', '#3b6fb6', '#7a4fb0', '#c27a14', '#1f7f86', '#b8532a', '#4f9a5b', '#a3416a', '#2f6db5'];
+function rlCard(s, i, week) {
+  const L = window.DEC15Library, k = L.kindOf(s), [c, bg] = L.TONE[k], l = srcLook(s), w = L.words(s);
+  return `<article class="rl-card k-${k}" style="--rc:${c};--rbg:${bg};--i:${i}">
+    <button type="button" class="rl-cover" data-source="${s.id}" data-src-week="${week}" aria-label="Open ${esc(s.title)}" tabindex="-1">${L.art(s)}<span class="rl-kind">${L.ICON[k]}${esc(k === 'report' ? 'Report' : k === 'reading' ? 'Reading' : 'Listening')}</span></button>
+    <div class="rl-body"><span class="rl-pill">${esc(s.kind)}</span><h3>${esc(s.title)}</h3><p class="rl-cite">${icon('quote')}<span>${esc(s.cite)}</span></p>
+      <ul class="rl-meta"><li>${icon('clock')}${l.time.replace(/^About /, '')}</li><li>${icon('list')}${w.toLocaleString('en-AU')} words</li>${l.marks ? `<li class="is-marked">${icon('pen')}${l.marks} mark${l.marks > 1 ? 's' : ''}</li>` : ''}</ul>
+      <button class="rl-open" data-source="${s.id}" data-src-week="${week}"><span>${k === 'listening' || k === 'discussion' ? 'Open the transcript' : 'Open and read'}</span>${icon('arrow')}</button></div></article>`;
+}
+function rlPage() {
+  const L = window.DEC15Library, all = libWeeks.flatMap(w => weekTexts(w.n) || []);
+  const nRead = all.filter(s => L.kindOf(s) !== 'listening' && L.kindOf(s) !== 'discussion').length, nListen = all.length - nRead;
+  const marks = Object.entries(state.marks || {}).filter(([id, rs]) => id.startsWith('s-') && rs?.length).reduce((n, [, rs]) => n + rs.length, 0);
+  return `<div class="rl-page">
+    <header class="rl-top">
+      <div class="rl-top-copy"><span class="eyebrow">${esc(course.code)} · Course texts</span><h1>Readings and listening scripts</h1>
+        <p>All the course texts, week by week. Open a week, then open a text to read it. Highlight, underline and add your own notes as you read.</p>
+        <ul class="rl-stats" aria-label="Your course texts"><li><b>${all.length}</b><span>texts</span></li><li class="k-reading"><i>${L.ICON.reading}</i><b>${nRead}</b><span>readings</span></li><li class="k-listening"><i>${L.ICON.listening}</i><b>${nListen}</b><span>listening scripts</span></li><li class="k-marks"><i>${icon('pen')}</i><b>${marks}</b><span>marks</span></li></ul>
+        <p class="rl-tip">${icon('bulb')}<span>Your highlights and notes are saved, and appear in your <a href="${L_('notebook')}">notebook</a> (My workspace).</span></p></div>
+      <img class="rl-top-art" src="dec10/assets/library/hero.svg" alt="" width="540" height="310">
+    </header>
+    <div class="rl-weeks">${libWeeks.map((w, k) => { const list = weekTexts(w.n), open = w.n === libOpen, col = RL_WEEK[(w.n - 1) % RL_WEEK.length];
+      const r = list ? list.filter(s => !['listening', 'discussion'].includes(L.kindOf(s))).length : 0, li = list ? list.length - r : 0;
+      return `<section class="rl-week${open ? ' open' : ''}${w.n === lesson.week ? ' is-now' : ''}" style="--wc:${col};--i:${k}">
+        <button type="button" class="rl-week-head" data-lib-week="${w.n}" aria-expanded="${open}" aria-controls="lib-w${w.n}">
+          <span class="rl-wn"><small>Week</small><b>${w.n}</b></span>
+          <span class="rl-wt"><b>${esc(w.theme)}</b><small>${list ? `${list.length} text${list.length === 1 ? '' : 's'}` : 'Loading…'}</small></span>
+          ${list ? `<span class="rl-wk-kinds">${r ? `<span class="k-reading">${L.ICON.reading}${r} reading${r === 1 ? '' : 's'}</span>` : ''}${li ? `<span class="k-listening">${L.ICON.listening}${li} listening</span>` : ''}</span>` : ''}
+          ${w.n === lesson.week ? `<em class="rl-now">${icon('flag')}This week</em>` : ''}
+          <i class="lg-fold-chev" aria-hidden="true"></i></button>
+        <div class="rl-week-body" id="lib-w${w.n}"${open ? '' : ' hidden'}>${open ? (list ? `<div class="rl-grid">${list.map((s, i) => rlCard(s, i, w.n)).join('')}</div>` : '<p class="lib-loading">Loading the texts…</p>') : ''}</div>
+      </section>`; }).join('')}</div></div>`;
+}
+const L_ = id => L(id);
 function sourcesPage() {
+  if (course.id === 'dec10' && window.DEC15Library) { if (libOpen === null) libOpen = libWeeks.some(w => w.n === lesson.week) ? lesson.week : libWeeks[0]?.n; libWeeks.forEach(w => loadWeekTexts(w.n)); return rlPage(); }
   if (libOpen === null) libOpen = libWeeks.some(w => w.n === lesson.week) ? lesson.week : libWeeks[0]?.n;
   libWeeks.forEach(w => loadWeekTexts(w.n));   // small files; loading all of them shows each week's count
   return `${pageHero('Course texts', 'Readings and listening scripts', 'All the course texts, week by week. Open a week, then open a text to read it. You can highlight and underline the ideas you need.', 'library',
