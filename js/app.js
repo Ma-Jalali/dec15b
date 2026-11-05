@@ -998,7 +998,7 @@ function downloadsPage() {
       <h2>${esc(d.title)}</h2><p class="dl-sub">${esc(d.sub)}</p>
       ${dlFile(d)}
       <p class="dl-what">${esc(d.what)}</p>
-      <div class="dl-actions">${dlButtons(d)}</div>
+      <div class="dl-actions">${dlButtons(d)}<a class="dl-more" href="#/chats" title="Fill it in, then send the filled PDF to classmates in Chats">Send a filled copy in Chats ${icon('arrow')}</a></div>
       <div class="dl-cols">
         <div><h3>${icon('clock')}When you use it</h3><ul>${d.when.map(w => `<li>${esc(w)}</li>`).join('')}</ul></div>
         <div><h3>${icon('pen')}${esc(d.howTitle || 'How to fill it in')}</h3><ol>${d.how.map(h => `<li>${h}</li>`).join('')}</ol></div>
