@@ -9,36 +9,43 @@
   --d-3: 0 2px 4px rgba(20, 41, 58, .06), 0 18px 36px -18px rgba(20, 41, 58, .34), 0 44px 80px -50px rgba(20, 41, 58, .4);
 }
 
-/* ───────── the side panel ───────── */
-:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar {
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .95), inset 0 0 0 1px rgba(255, 255, 255, .55), 0 0 0 1px rgba(20, 41, 58, .07), 0 24px 50px -28px rgba(20, 41, 58, .45), 0 2px 6px rgba(20, 41, 58, .05) !important;
-}
-/* icon tiles: glossy, coloured, white symbol, a little highlight on top and a coloured shadow underneath */
+/* ───────── the side panel: the same light, tinted icon tiles as before, with finer detail ───────── */
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ic {
-  position: relative; width: 34px; height: 34px; border-radius: 11px; color: #fff !important;
-  background: linear-gradient(160deg, color-mix(in srgb, var(--tc) 62%, #fff) 0%, var(--tc) 55%, color-mix(in srgb, var(--tc) 82%, #14293a) 100%) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .55), inset 0 -2px 0 rgba(0, 0, 0, .14), 0 0 0 .5px color-mix(in srgb, var(--tc) 60%, #14293a), 0 6px 12px -6px color-mix(in srgb, var(--tc) 85%, transparent) !important;
-  transition: transform .25s cubic-bezier(.3, 1.4, .5, 1), box-shadow .25s !important; overflow: hidden;
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(120% 90% at 30% 0%, rgba(255, 255, 255, .95) 0, rgba(255, 255, 255, 0) 55%),
+    linear-gradient(155deg, color-mix(in srgb, var(--tc) 24%, #fff) 0%, color-mix(in srgb, var(--tc) 12%, #fff) 60%, color-mix(in srgb, var(--tc) 20%, #fff) 100%);
+  box-shadow: inset 0 1px 0 #fff, inset 0 -1.5px 0 color-mix(in srgb, var(--tc) 18%, transparent), inset 0 0 0 .5px color-mix(in srgb, var(--tc) 30%, transparent),
+    0 0 0 .5px color-mix(in srgb, var(--tc) 22%, transparent), 0 1px 1.5px color-mix(in srgb, var(--tc) 22%, transparent), 0 5px 10px -6px color-mix(in srgb, var(--tc) 65%, transparent);
+}
+/* a faint glass sheen across the top half, and a fine inner ring */
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ic::before {
+  content: ""; position: absolute; inset: 2px; border-radius: 9px; pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .55);
 }
 :is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ic::after {
-  content: ""; position: absolute; left: 2px; right: 2px; top: 1px; height: 46%; border-radius: 9px 9px 14px 14px / 9px 9px 7px 7px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, .5), rgba(255, 255, 255, 0)); pointer-events: none;
+  content: ""; position: absolute; left: 3px; right: 3px; top: 2px; height: 42%; border-radius: 8px 8px 12px 12px / 8px 8px 6px 6px; pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .7), rgba(255, 255, 255, 0));
 }
-:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ic svg { position: relative; z-index: 1; width: 18px; height: 18px; stroke-width: 2; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .22)) !important; }
-:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link { transition: background .2s, box-shadow .2s, transform .2s cubic-bezier(.3, 1.3, .5, 1) !important; }
-:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link:hover { transform: translateX(2px); background: rgba(255, 255, 255, .7) !important; box-shadow: var(--d-hi), var(--d-rim), var(--d-1) !important; }
-:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link:hover .side-ic { transform: translateY(-1px) rotate(-4deg) scale(1.06); }
-/* the page you are on: a raised white card, its tile a little bigger */
-:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active {
-  background: linear-gradient(180deg, #fff, #fbf8f2) !important; color: var(--ink) !important; transform: none;
-  box-shadow: var(--d-hi), 0 0 0 1px rgba(20, 41, 58, .07), 0 2px 4px rgba(20, 41, 58, .06), 0 12px 24px -14px rgba(20, 41, 58, .45) !important;
+/* the symbol: its own colour, a little darker, with a soft tinted fill inside closed shapes (two-tone) and a crisp edge */
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-ic svg {
+  position: relative; z-index: 1; stroke-width: 1.8;
+  fill: color-mix(in srgb, var(--tc) 16%, transparent);
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, .85)) drop-shadow(0 1px 1px color-mix(in srgb, var(--tc) 30%, transparent));
 }
-:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active .side-ic { transform: scale(1.06); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .55), inset 0 -2px 0 rgba(0, 0, 0, .14), 0 0 0 .5px color-mix(in srgb, var(--tc) 60%, #14293a), 0 8px 16px -6px color-mix(in srgb, var(--tc) 95%, transparent), 0 0 0 4px color-mix(in srgb, var(--tc) 16%, transparent) !important; }
-:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active .side-tx { font-weight: 800; }
-/* the course card and the search box */
-[data-course="dec10"] .sidebar .side-search, [data-course="dec10"] .sidebar .side-search input { border-radius: 14px; }
-[data-course="dec10"] .sidebar .side-search { box-shadow: inset 0 2px 4px rgba(20, 41, 58, .07), inset 0 0 0 1px rgba(20, 41, 58, .08), 0 1px 0 rgba(255, 255, 255, .9) !important; background: rgba(255, 255, 255, .55) !important; }
-[data-course="dec10"] .sidebar .side-search:focus-within { box-shadow: inset 0 2px 4px rgba(20, 41, 58, .05), 0 0 0 2px #e3a843, 0 0 0 6px rgba(227, 168, 67, .18) !important; background: #fff !important; }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link:hover .side-ic {
+  transform: translateY(-1px) scale(1.06);
+  box-shadow: inset 0 1px 0 #fff, inset 0 -1.5px 0 color-mix(in srgb, var(--tc) 22%, transparent), inset 0 0 0 .5px color-mix(in srgb, var(--tc) 40%, transparent),
+    0 0 0 .5px color-mix(in srgb, var(--tc) 30%, transparent), 0 2px 3px color-mix(in srgb, var(--tc) 22%, transparent), 0 10px 18px -8px color-mix(in srgb, var(--tc) 80%, transparent);
+}
+/* the open page: the filled tile as before, with a soft gloss and a white symbol */
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active .side-ic {
+  background: radial-gradient(120% 90% at 30% 0%, rgba(255, 255, 255, .35) 0, rgba(255, 255, 255, 0) 55%), linear-gradient(150deg, color-mix(in srgb, var(--tc) 88%, #fff), color-mix(in srgb, var(--tc) 85%, #14293a));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), inset 0 -1.5px 0 rgba(0, 0, 0, .12), 0 8px 18px -8px color-mix(in srgb, var(--tc) 90%, transparent);
+}
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active .side-ic::before { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22); }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active .side-ic::after { background: linear-gradient(180deg, rgba(255, 255, 255, .32), rgba(255, 255, 255, 0)); }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .side-link.active .side-ic svg { fill: rgba(255, 255, 255, .18); filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .2)); }
 
 /* ───────── surfaces: activities, cards, hero ───────── */
 [data-course="dec10"] .activity { box-shadow: var(--d-hi), var(--d-rim), var(--d-2) !important; }
@@ -69,7 +76,7 @@
 [data-course="dec10"] .block-label { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 3px 8px -4px rgba(20, 41, 58, .45); }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-course="dec10"] .sidebar .side-link, [data-course="dec10"] .sidebar .side-ic, [data-course="dec10"] .btn, [data-course="dec10"] .btn-quiet { transition: none !important; }
+  [data-course="dec10"] .btn, [data-course="dec10"] .btn-quiet { transition: none !important; }
 }
 
 /* ───────── layout fixes ───────── */
