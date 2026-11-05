@@ -650,7 +650,136 @@ function overview() {
 }
 
 /* ───────── course home: all weeks ───────── */
+/* DEC10's ten-week map: a road climbing through a detailed (but quiet) landscape — far mountains, a ridge with
+   pines and turning wind turbines, a river under a little bridge into a lake, fields with sheep, a campus at the
+   finish. Everything decorative sits behind the road or in the foreground, away from the stops and their labels. */
+function courseMapRich(current) {
+  const N = course.map.length, H = 300;
+  const pts = course.map.map((_, i) => { const k = N > 1 ? i / (N - 1) : 0; return [Math.round(150 + 760 * k), Math.round(160 - 84 * k + (i % 2 ? -10 : 8))]; });
+  const road = `M-10 196C40 192 ${pts[0][0] - 40} ${pts[0][1]} ${pts[0][0]} ${pts[0][1]}` + pts.slice(1).map(([x, y], i) => `S${x - Math.round((x - pts[i][0]) / 2)} ${y} ${x} ${y}`).join('');
+  const T = (x, y, k, s) => `<g transform="translate(${x} ${y})${k && k !== 1 ? ` scale(${k})` : ''}">${s}</g>`;
+  const tree = (x, y, k = 1, c = ['#8fb47a', '#6f9d5c', '#a9c995']) => T(x, y, k, `<ellipse cy="9" rx="12" ry="2.6" fill="#14293a" opacity=".08"/><path d="M-1.8 9V-4h3.6V9z" fill="#8a6f4e"/><path d="M0 0 4-5M0 2-3-3" stroke="#8a6f4e" stroke-width="1.2" stroke-linecap="round"/><circle cy="-12" r="10.5" fill="${c[0]}"/><circle cx="5.5" cy="-8" r="7.5" fill="${c[1]}"/><circle cx="-5" cy="-7" r="6" fill="${c[1]}" opacity=".55"/><circle cx="-4" cy="-16" r="4.4" fill="${c[2]}"/><circle cx="2" cy="-19" r="2" fill="#fff" opacity=".35"/>`);
+  const pine = (x, y, k = 1, c = '#6f9d5c') => T(x, y, k, `<path d="M-1 0h2v4h-2z" fill="#7c6446"/><path d="M0-22 7-8H3l6 8H-9l6-8h-4z" fill="${c}"/><path d="M0-22-7-8h4l-6 8h9z" fill="#fff" opacity=".12"/>`);
+  const bush = (x, y, k = 1) => T(x, y, k, `<ellipse cy="3.5" rx="13" ry="2.2" fill="#14293a" opacity=".07"/><circle cx="-5" r="5.4" fill="#9cc086"/><circle cx="3" cy="-1.5" r="6.6" fill="#86b170"/><circle cx="9" cy="1" r="4.4" fill="#9cc086"/><circle cx="1" cy="-4" r="2.2" fill="#c2dbb0"/>`);
+  const cloud = (x, y, k = 1, d = 0) => `<g class="cm-cloud" style="animation-delay:${d}s">${T(x, y, k, `<ellipse cx="2" cy="4" rx="26" ry="5" fill="#e9dcc2" opacity=".45"/><path d="M-24 2a9 9 0 0 1 10-10 13 13 0 0 1 24-3 9 9 0 0 1 14 7 7 7 0 0 1 2 6z" fill="#fff"/><path d="M-22 2h50" stroke="#efe4cf" stroke-width="2" stroke-linecap="round"/>`)}</g>`;
+  const bird = (x, y, k = 1, d = 0) => `<g class="cm-bird" style="animation-delay:${d}s">${T(x, y, k, '<path d="M-7 0q3.5-4 7 0q3.5-4 7 0" stroke="#6f7f8b" stroke-width="1.5" fill="none" stroke-linecap="round"/>')}</g>`;
+  const sheep = (x, y, k = 1, f = 1) => T(x, y, k, `<g transform="scale(${f} 1)"><ellipse cy="7" rx="9" ry="1.8" fill="#14293a" opacity=".08"/><path d="M-4 3v4M3 3v4" stroke="#3d4a52" stroke-width="1.6" stroke-linecap="round"/><circle cx="-5" cy="-1" r="3.6" fill="#fffdf8"/><circle cx="0" cy="-2.4" r="4.4" fill="#fffdf8"/><circle cx="4.6" cy="-.6" r="3.6" fill="#fffdf8"/><circle cx="-1" cy="1.6" r="3.6" fill="#f5efe2"/><ellipse cx="8.6" cy="-2.4" rx="2.6" ry="2.2" fill="#3d4a52"/><circle cx="9.4" cy="-3" r=".5" fill="#fff"/></g>`);
+  const flower = (x, y, c) => T(x, y, 1, `<path d="M0 0v-7" stroke="#7fa36a" stroke-width="1.2"/><path d="M0-3 3-5" stroke="#7fa36a" stroke-width="1"/><circle cy="-8" r="2.4" fill="${c}"/><circle cy="-8" r=".9" fill="#fff8d6"/>`);
+  const grass = (x, y) => `<path d="M${x} ${y}c-1-4-3-7-3-9m3 9c1-4 1-8 2-10m-2 10c2-3 4-5 6-6" stroke="#9fbf8a" stroke-width="1.3" fill="none" stroke-linecap="round"/>`;
+  const turbine = (x, y, h, d) => `<g><path d="M${x - 1.4} ${y}l.8-${h}h1.2l.8 ${h}z" fill="#fbfaf6" stroke="#cfd6d8" stroke-width=".6"/>
+    <g class="cm-rotor" style="transform-origin:${x}px ${y - h}px;animation-delay:${d}s">${[0, 120, 240].map(a => `<path d="M${x} ${y - h}c1.6-3 1.4-14 .2-19-1.6 4-2 15-.2 19z" fill="#fbfaf6" stroke="#cfd6d8" stroke-width=".5" transform="rotate(${a} ${x} ${y - h})"/>`).join('')}</g>
+    <circle cx="${x}" cy="${y - h}" r="1.8" fill="#dfe5e7" stroke="#b9c3c6" stroke-width=".6"/></g>`;
+  /* the bridge: where the river crosses the road, between the middle two stops */
+  const m = Math.max(0, Math.floor((N - 1) / 2)), [bx, by] = pts[m + 1] ? [(pts[m][0] + pts[m + 1][0]) / 2, (pts[m][1] + pts[m + 1][1]) / 2] : [530, 117];
+  const ang = pts[m + 1] ? Math.atan2(pts[m + 1][1] - pts[m][1], pts[m + 1][0] - pts[m][0]) * 180 / Math.PI : 0;
+  const river = `M${bx + 26} ${by - 52}C${bx + 12} ${by - 30} ${bx + 4} ${by - 12} ${bx} ${by}S${bx + 30} ${by + 56} ${bx + 70} ${by + 76}S${bx + 110} ${by + 94} ${bx + 128} ${by + 100}`;
+  const rail = s => `<path d="M-18 ${s}H18" stroke="#8a6f4e" stroke-width="1.8" stroke-linecap="round"/>${[-16, -8, 0, 8, 16].map(px => `<path d="M${px} ${s}v${s < 0 ? 4 : -4}" stroke="#8a6f4e" stroke-width="1.4"/>`).join('')}`;
+  /* labels alternate below / above the road so neighbours never collide; the "You are here" bubble then sits higher */
+  const up = i => i % 2 === 1 && i < N - 1;   // the finish keeps its label below, clear of the flag
+  const lab = (w, i) => { const y = pts[i][1], x = pts[i][0] + (i === N - 1 && N > 1 ? 22 : 0), t = esc(w.label), wd = Math.round(w.label.length * 6.5 + 20), ty = y + (up(i) ? -33 : 42);
+    return `<g class="cm-label"><rect x="${x - wd / 2}" y="${ty - 13}" width="${wd}" height="19" rx="9.5" fill="#fffdf6" fill-opacity=".9" stroke="#14293a" stroke-opacity=".08"/><text x="${x}" y="${ty}" text-anchor="middle" font-size="11.5" font-weight="700" font-family="Manrope, sans-serif" fill="#14293a">${t}</text></g>`; };
+  const walker = `<g transform="translate(-34 -2)"><g class="cm-walker"><ellipse cy="13" rx="7" ry="1.8" fill="#14293a" opacity=".14"/><path d="M-2 4-4 12M2 4l3 8" stroke="#2c3e50" stroke-width="2.4" stroke-linecap="round"/><rect x="-4.5" y="-7" width="9" height="12" rx="3.5" fill="#2f6db5"/><rect x="-8" y="-6" width="5" height="9" rx="2" fill="#e3a843"/><path d="M4-4l3 5" stroke="#f0c9a0" stroke-width="2.2" stroke-linecap="round"/><circle cy="-11" r="4.2" fill="#f0c9a0"/><path d="M-4.2-11.5a4.2 4.2 0 0 1 8.4-1c-2 .6-5 .6-8.4 1z" fill="#3b2a20"/></g></g>`;
+  const peaks = [[60, 92], [150, 70], [240, 82], [360, 66], [470, 74], [585, 56], [700, 70], [820, 58], [940, 66]];
+  return `<svg class="course-map-svg cm-rich" viewBox="0 0 1000 ${H}" role="group" aria-label="Course map: ${course.map.map(w => `Week ${w.n}, ${w.label}`).join('; ')}. You are in Week ${current}.">
+    <defs>
+      <linearGradient id="cm-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbf6ec"/><stop offset=".55" stop-color="#f8eedb"/><stop offset="1" stop-color="#f3e3c4"/></linearGradient>
+      <radialGradient id="cm-sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fbd98a" stop-opacity=".95"/><stop offset=".5" stop-color="#f7dfa9" stop-opacity=".4"/><stop offset="1" stop-color="#f7dfa9" stop-opacity="0"/></radialGradient>
+      <linearGradient id="cm-mtn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c3cfd4"/><stop offset="1" stop-color="#dfe3dc"/></linearGradient>
+      <linearGradient id="cm-mtn2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfe5e6"/><stop offset="1" stop-color="#ece9df"/></linearGradient>
+      <linearGradient id="cm-far" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1e7d2"/><stop offset="1" stop-color="#e9ddc4"/></linearGradient>
+      <linearGradient id="cm-near" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3edd6"/><stop offset="1" stop-color="#cfdfbd"/></linearGradient>
+      <linearGradient id="cm-lake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a9d0d8"/><stop offset="1" stop-color="#cfe6e8"/></linearGradient>
+      <linearGradient id="cm-past" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b4d68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+      <linearGradient id="cm-now" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5c862"/><stop offset="1" stop-color="#d9952a"/></linearGradient>
+      <linearGradient id="cm-next" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#f2e9d7"/></linearGradient>
+      <filter id="cm-sh" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".2"/></filter>
+      <pattern id="cm-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".9" fill="#14293a" opacity=".05"/></pattern>
+      <pattern id="cm-rows" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(-8)"><path d="M0 4h8" stroke="#b9cf9f" stroke-width="1.4"/></pattern>
+      <pattern id="cm-rows2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(12)"><path d="M0 3.5h7" stroke="#e2cf96" stroke-width="1.6"/></pattern>
+    </defs>
+    <rect width="1000" height="${H}" fill="url(#cm-sky)"/>
+    <rect width="1000" height="150" fill="url(#cm-dots)"/>
+    <g transform="translate(0 12)">
+    <!-- sun with slow rays -->
+    <circle cx="610" cy="40" r="76" fill="url(#cm-sun)"/>
+    <g class="cm-rays" style="transform-origin:610px 40px">${Array.from({ length: 12 }, (_, i) => `<path d="M610 2v-14" stroke="#f3c96d" stroke-width="2.4" stroke-linecap="round" opacity=".35" transform="rotate(${i * 30} 610 40)"/>`).join('')}</g>
+    <circle cx="610" cy="40" r="25" fill="#f7d98e"/><circle cx="610" cy="40" r="25" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/><circle cx="602" cy="32" r="8" fill="#fff" opacity=".38"/>
+    ${cloud(118, 44, 1, 0)}${cloud(484, 26, .78, -9)}${cloud(846, 24, .66, -18)}${cloud(40, 96, .5, -5)}
+    ${bird(178, 30, 1, 0)}${bird(196, 40, .7, -.4)}${bird(706, 22, .8, -.8)}${bird(724, 30, .6, -.2)}
+    <!-- hot-air balloon -->
+    <g class="cm-balloon">${T(388, 30, .9, `<path d="M0-26c-15 0-24 10-24 22 0 10 8 17 14 23l3 5h14l3-5c6-6 14-13 14-23 0-12-9-22-24-22z" fill="#e64626"/>
+      <path d="M0-26c-7 0-11 10-11 22 0 10 4 17 6 23l2 5h6l2-5c2-6 6-13 6-23 0-12-4-22-11-22z" fill="#f2b54f"/>
+      <path d="M0-26c-2 0-3.4 10-3.4 22 0 10 1.4 17 2 23l.5 5h1.8l.5-5c.6-6 2-13 2-23 0-12-1.4-22-3.4-22z" fill="#fffdf5"/>
+      <path d="M-24-4h48" stroke="#14293a" stroke-opacity=".12"/><path d="M-14-20a17 17 0 0 1 8-5" stroke="#fff" stroke-opacity=".55" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      <path d="M-7 24l2 8M7 24l-2 8" stroke="#8a6f4e" stroke-width=".9"/><rect x="-5.5" y="31" width="11" height="8" rx="1.6" fill="#a7774a"/><path d="M-5.5 34h11" stroke="#8a5f3a" stroke-width=".8"/>`)}</g>
+    <!-- far mountains, two ranges with snow -->
+    <path d="M0 120L50 98 110 108 190 78 270 102 330 88 420 104 520 80 600 96 680 74 760 92 850 70 930 86 1000 74V170H0Z" fill="url(#cm-mtn2)"/>
+    <path d="M0 132${peaks.map(([x, y], i) => `L${x} ${y}L${x + 48} ${y + 26 + (i % 3) * 6}`).join('')}L1000 100V170H0Z" fill="url(#cm-mtn)"/>
+    ${peaks.map(([x, y]) => `<path d="M${x - 9} ${y + 5}L${x} ${y}l9 5-3 2.5-3-2-3 3-3-2.5-3 1.5z" fill="#fbfcfb"/><path d="M${x} ${y}l-11 24" stroke="#fff" stroke-opacity=".35" stroke-width="1.2"/>`).join('')}
+    <!-- the ridge behind the road, with pines and wind turbines -->
+    <path d="M0 146C120 104 230 128 340 114S560 70 700 90 880 50 1000 64V${H}H0Z" fill="url(#cm-far)"/>
+    <path d="M0 146C120 104 230 128 340 114S560 70 700 90 880 50 1000 64" stroke="#fff" stroke-opacity=".65" stroke-width="1.6" fill="none"/>
+    ${turbine(704, 90, 44, 0)}${turbine(786, 78, 52, -2)}${turbine(868, 64, 40, -4)}
+    ${[[34, 136, .8], [48, 133, 1], [62, 130, .7], [276, 121, .8], [290, 119, 1], [304, 118, .75], [446, 98, .85], [460, 95, 1], [474, 93, .7], [620, 85, .8], [634, 87, .65]].map(([x, y, k]) => pine(x, y, k, k > .9 ? '#6a9a58' : '#7fab69')).join('')}
+    <!-- the river runs down under the bridge to the lake -->
+    <path d="${river}" stroke="#a9d0d8" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="${river}" stroke="#d8eef0" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-dasharray="6 10" class="cm-flow"/>
+    <!-- foreground meadow, fields, farm -->
+    <path d="M0 206C150 184 300 214 470 194S760 164 1000 178V${H}H0Z" fill="url(#cm-near)"/>
+    <path d="M0 206C150 184 300 214 470 194S760 164 1000 178" stroke="#fff" stroke-opacity=".75" stroke-width="1.6" fill="none"/>
+    <path d="M150 236l130-14 40 34-150 18z" fill="#d9e8c6"/><path d="M150 236l130-14 40 34-150 18z" fill="url(#cm-rows)"/>
+    <path d="M330 232l120-10 30 30-128 12z" fill="#f2e6c2"/><path d="M330 232l120-10 30 30-128 12z" fill="url(#cm-rows2)"/>
+    <path d="M10 262l120-8 18 26-140 6z" fill="#e1edd2"/><path d="M10 262l120-8 18 26-140 6z" fill="url(#cm-rows)" opacity=".7"/>
+    <path d="M150 236l130-14M330 232l120-10" stroke="#fff" stroke-opacity=".6" stroke-width="1.2"/>
+    ${T(70, 228, 1, `<ellipse cy="14" rx="28" ry="3" fill="#14293a" opacity=".08"/><path d="M-18 0h28v14h-28z" fill="#fbf4e4"/><path d="M-22 1l16-13 16 13z" fill="#c2562f"/><path d="M-22 1l16-13 4 3.3" fill="#fff" opacity=".18"/><rect x="-10" y="4" width="6" height="10" rx="1" fill="#8a5f3a"/><rect x="0" y="3" width="6" height="5" rx="1" fill="#a9d0d8"/><path d="M3 3v5M0 5.5h6" stroke="#fff" stroke-width=".7"/><path d="M10 14V2h12v12z" fill="#e6d3ae"/><path d="M8 3l8-7 8 7z" fill="#a74a2a"/><path d="M14 8h4v6h-4z" fill="#8a5f3a"/>`)}
+    <path d="M110 244h170M118 238v10M150 236v10M182 234v10M214 233v10M246 232v10M278 231v10" stroke="#b49a76" stroke-width="1.4" stroke-linecap="round"/>
+    ${sheep(214, 262, 1, 1)}${sheep(240, 270, .9, -1)}${sheep(190, 274, .85, 1)}
+    <!-- the lake with a little boat -->
+    <path d="M${bx + 100} ${by + 104}c26-14 96-16 150-8s56 30 14 40-128 12-160 0-30-22-4-32z" fill="url(#cm-lake)"/>
+    <path d="M${bx + 100} ${by + 104}c26-14 96-16 150-8" stroke="#fff" stroke-opacity=".7" stroke-width="1.4" fill="none"/>
+    <g class="cm-shimmer"><path d="M${bx + 126} ${by + 118}h22M${bx + 168} ${by + 126}h30M${bx + 212} ${by + 114}h18M${bx + 150} ${by + 134}h16" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".8"/></g>
+    <g class="cm-boat">${T(bx + 196, by + 118, 1, '<path d="M-10 0h20l-4 5h-12z" fill="#8a5f3a"/><path d="M0-1v-16" stroke="#6b5438" stroke-width="1.2"/><path d="M1-16l9 14H1z" fill="#fffdf5"/><path d="M-1-13l-7 11h7z" fill="#e3a843"/><path d="M-12 7h24" stroke="#fff" stroke-opacity=".6" stroke-linecap="round"/>')}</g>
+    ${[[bx + 98, by + 112], [bx + 104, by + 116], [bx + 262, by + 104]].map(([x, y]) => `<path d="M${x} ${y}v-10M${x + 3} ${y}v-8M${x - 3} ${y}v-7" stroke="#7fa36a" stroke-width="1.2" stroke-linecap="round"/><rect x="${x - .9}" y="${y - 13}" width="1.8" height="5" rx=".9" fill="#8a6f4e"/>`).join('')}
+    <!-- the campus at the finish -->
+    ${T(930, 200, 1, `<ellipse cy="2" rx="62" ry="4" fill="#14293a" opacity=".08"/>
+      <path d="M-56 0v-26h112V0z" fill="#ead2a4"/><path d="M-60-26h120l-6-8H-54z" fill="#b7744a"/><path d="M-56-20h112" stroke="#d9bb85" stroke-width="1"/>
+      ${[-46, -32, -18, 18, 32, 46].map(x => `<path d="M${x - 4}-6v-11a4 4 0 0 1 8 0V-6z" fill="#7d93a3"/><path d="M${x}-17v11" stroke="#ead2a4" stroke-width=".8"/>`).join('')}
+      <path d="M-10 0V-50h20V0z" fill="#e3c792"/><path d="M-13-50h26l-13-16z" fill="#a8663f"/><path d="M0-66v-8" stroke="#6b5438" stroke-width="1.2"/><path d="M0-74h7l-2 2.5 2 2.5H0z" fill="#2f6db5"/>
+      <circle cy="-38" r="5.5" fill="#fffdf5" stroke="#b49a76"/><path d="M0-38v-3.6M0-38h2.6" stroke="#14293a" stroke-width=".9" stroke-linecap="round"/>
+      <path d="M-5 0v-14a5 5 0 0 1 10 0V0z" fill="#8a5f3a"/><path d="M-26 0h52" stroke="#d9bb85" stroke-width="2"/>`)}
+    ${tree(862, 206, .9)}${tree(1000, 204, .85)}${pine(880, 200, .8)}
+    ${tree(196, 132, .95)}${tree(214, 138, .75)}${tree(414, 118, .8)}${tree(28, 176, .8)}${tree(560, 198, .9)}${tree(500, 266, 1.05)}${tree(976, 270, .95)}${tree(10, 282, .8)}
+    ${bush(300, 222, .8)}${bush(470, 214, .7)}${bush(620, 270, .9)}${bush(128, 226, .7)}${bush(840, 268, .8)}${bush(390, 278, .75)}
+    ${[[22, 248], [300, 256], [424, 268], [470, 286], [560, 236], [780, 282], [880, 248], [930, 284], [700, 284], [128, 278]].map(([x, y], i) => flower(x, y, ['#e9a23b', '#e0674b', '#fff', '#c27bc9', '#e9a23b'][i % 5])).join('')}
+    ${[[200, 284], [256, 232], [340, 284], [520, 240], [664, 280], [742, 270], [952, 238], [590, 250]].map(([x, y]) => grass(x, y)).join('')}
+    <!-- the road, with a kerb and a dashed centre line -->
+    <path d="${road}" stroke="#14293a" stroke-opacity=".08" stroke-width="24" fill="none" stroke-linecap="round" transform="translate(0 5)"/>
+    <path d="${road}" stroke="#e2d4b7" stroke-width="21" fill="none" stroke-linecap="round"/>
+    <path d="${road}" stroke="#fffdf5" stroke-width="16.5" fill="none" stroke-linecap="round"/>
+    <path d="${road}" stroke="#14293a" stroke-opacity=".32" stroke-width="2.4" stroke-dasharray="2 9" fill="none" stroke-linecap="round"/>
+    <g transform="translate(${bx} ${by}) rotate(${ang})">${rail(-11.5)}${rail(11.5)}</g>
+    <g transform="translate(74 158)"><rect x="-1.5" y="-26" width="3" height="30" rx="1" fill="#8a6f4e"/><rect x="-2" y="-35" width="32" height="14" rx="3" fill="#fffdf5" stroke="#c9bfae" stroke-width="1.2"/><path d="M30-35l5 7-5 7" fill="#fffdf5" stroke="#c9bfae" stroke-width="1.2"/><text x="13" y="-25" text-anchor="middle" font-size="7.5" font-weight="800" font-family="Manrope, sans-serif" fill="#8b969e" letter-spacing=".06em">START</text></g>
+    ${course.map.map((w, i) => { const [x, y] = pts[i], st = w.n < current ? 'past' : w.n === current ? 'now' : 'next', last = i === N - 1;
+      const has = course.weeks.some(cw => cw.n === w.n);
+      return `<g class="cm-stop cm-${st}${has ? ' cm-link' : ''}" transform="translate(${x} ${y})"${has ? ` data-week-tab="${w.n}" role="button" tabindex="0" aria-label="Show Week ${w.n} lessons"` : ''}>
+        ${st === 'now' ? '<circle r="31" fill="#e3a843" opacity=".24"/><circle r="26" fill="none" stroke="#e3a843" stroke-opacity=".55" stroke-width="1.4" stroke-dasharray="3 5" class="cm-spin"/>' : ''}
+        <title>Week ${w.n}: ${esc(w.label)} — ${esc(w.sub)}</title>
+        ${last ? `<path d="M2-18V-62" stroke="#14293a" stroke-opacity=".12" stroke-width="3" stroke-linecap="round"/><path d="M0-20V-64" stroke="#14293a" stroke-width="3" stroke-linecap="round"/><circle cy="-65" r="2.6" fill="#e3a843"/>
+          <g class="cm-flag"><path d="M1.5-63h30l-7 9 7 9h-30z" fill="#e64626"/><path d="M1.5-63h30l-7 9h-23z" fill="#fff" opacity=".18"/></g>
+          ${[[-16, -50, '#e3a843'], [40, -64, '#2f6db5'], [44, -40, '#13887a'], [-12, -72, '#e64626']].map(([cx, cy, c], k) => `<path class="cm-twinkle" style="animation-delay:${-k * .7}s" d="M${cx} ${cy - 4}l1.2 2.8 2.8 1.2-2.8 1.2-1.2 2.8-1.2-2.8-2.8-1.2 2.8-1.2z" fill="${c}"/>`).join('')}` : ''}
+        <ellipse cy="23" rx="17" ry="4" fill="#14293a" opacity=".12"/>
+        <circle r="22" fill="#fffdf6" filter="url(#cm-sh)"/>
+        <circle class="cm-disc" r="18" fill="url(#cm-${st})" stroke="${st === 'next' ? '#d9cdb6' : 'none'}" stroke-width="1.2"/>
+        <path d="M-12-7a14 14 0 0 1 11-10" stroke="#fff" stroke-opacity="${st === 'next' ? '.9' : '.45'}" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        ${st === 'past' ? '<path d="m-7 0 5 5 9-10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>' : `<text y="5.5" text-anchor="middle" font-size="16" font-weight="800" font-family="Manrope, sans-serif" fill="${st === 'now' ? '#14293a' : '#7d8992'}">${w.n}</text>`}
+        ${st === 'now' ? `${walker}<g transform="translate(${last ? -66 : 0} ${last ? -40 : up(i) ? -76 : -54})"><rect x="-52" y="-15" width="104" height="27" rx="13.5" fill="#14293a"/>${last ? '' : '<path d="M-6 11h12l-6 8z" fill="#14293a"/>'}<circle cx="-38" cy="-1.5" r="3.2" fill="#e3a843"/><text x="6" y="3" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="Manrope, sans-serif">You are here</text></g>` : ''}
+      </g>`; }).join('')}
+    ${course.map.map((w, i) => lab(w, i)).join('')}
+    </g>
+  </svg>`;
+}
 function courseMap(current) {
+  if (course.map.length > 6) return courseMapRich(current);
   /* five stops for DEC15; a longer course (DEC10) spreads its stops along a road that climbs gently to the flag */
   const N = course.map.length, many = N > 6;
   const pts = N === 5 ? [[120, 168], [320, 116], [530, 136], [740, 96], [900, 76]]
@@ -705,19 +834,22 @@ function courseMap(current) {
       </g>`; }).join('')}
   </svg>`;
 }
+const DAY_TINT = ['#1f8a7a', '#c2562f', '#7a4a8c', '#2f6db5', '#b07d12'], WEEKDAY = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+const dayHead = d => `<em class="day-n"><i class="day-n-num" aria-hidden="true">${d.day}</i><i class="day-n-txt">Day ${d.day}<small>${WEEKDAY[d.day - 1] || ''}</small></i></em>`;
 function dayCard(d) {
   const sum = summaries()[d.id] || {}, here = d.id === lesson.id;
   const done = here ? coreActivities.filter(a => state.done[a.id]).length : sum.done || 0, total = here ? coreActivities.length : sum.total || 0;
-  if (d.status !== 'ready') return `<li class="day-card is-soon">
+  const dc = ` style="--dc:${DAY_TINT[(d.day - 1) % 5]}"`;
+  if (d.status !== 'ready') return `<li class="day-card is-soon"${dc}>
       <span class="day-art day-art-soon"><img src="assets/art/soon.svg" alt="" width="120" height="100" loading="lazy"></span>
-      <span class="day-label">Day ${d.day}<span class="day-soon">${icon('sprout')}Coming soon</span></span>
+      <span class="day-label">${dayHead(d)}<span class="day-soon">${icon('sprout')}Coming soon</span></span>
       <b class="day-title">${esc(d.title)}</b>
       ${d.parts ? `<ul class="day-parts">${d.parts.map((_, k) => { const p = dayPart(d, k); return `<li${p.tone ? ` class="has-code" style="${tone(p)}"` : ''}>${p.tone ? `<span class="part-code">${esc(p.code)}</span>` : ''}${esc(p.tone ? p.name : d.parts[k])}</li>`; }).join('')}</ul>` : ''}
     </li>`;
   const pct = total ? Math.round(100 * done / total) : 0;
-  return `<li class="day-card is-ready${pct === 100 ? ' complete' : ''}"><a href="#/${d.id}">
+  return `<li class="day-card is-ready${pct === 100 ? ' complete' : ''}"${dc}><a href="#/${d.id}">
       <span class="day-art"><img src="${artSrc(d.art || 'writing')}" alt="" width="220" height="170" loading="lazy"></span>
-      <span class="day-label">Day ${d.day}${pct === 100 ? `<span class="day-done">${icon('check')}Complete</span>` : done ? `<span class="day-now">In progress</span>` : '<span class="day-open">Open</span>'}</span>
+      <span class="day-label">${dayHead(d)}${pct === 100 ? `<span class="day-done">${icon('check')}Complete</span>` : done ? `<span class="day-now">In progress</span>` : '<span class="day-open">Open</span>'}</span>
       <b class="day-title">${esc(d.title)}</b>
       ${d.parts ? `<ul class="day-parts">${d.parts.map((_, k) => { const p = dayPart(d, k); return `<li${p.tone ? ` class="has-code" style="${tone(p)}"` : ''}>${p.tone ? `<span class="part-code">${esc(p.code)}</span>` : ''}${esc(p.tone ? p.name : d.parts[k])}</li>`; }).join('')}</ul>` : ''}
       <span class="day-meter" aria-label="${done} of ${total} activities finished"><i style="width:${pct}%"></i></span>
