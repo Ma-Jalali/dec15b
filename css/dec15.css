@@ -1196,3 +1196,72 @@ body.large-text .key h3 { font-size: 1.95rem; }
 .day-n { font-style: normal; }
 .day-n i { font-style: normal; }
 .day-n-num, .day-n small { display: none; }
+
+/* ───────── notes on the readings (js/notes.js) ───────── */
+:root { --rn-yellow: #f2c443; --rn-green: #4fb286; --rn-blue: #4f9be0; --rn-pink: #ec6f9b; --rn-purple: #9a6fd6; }
+#resource-dialog:has(.rd-layout.has-notes) { width: min(1280px, calc(100% - 24px)); }
+.rd-layout.has-notes { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 34px; align-items: start; }
+.rd-layout.has-notes .source-text { margin: 0; }
+.rd-notes { position: relative; }
+.rd-layout:not(.has-notes) .rd-notes { display: none; }
+.rn-title { position: absolute; top: -34px; left: 0; display: flex; align-items: center; gap: 8px; margin: 0; font: 800 .72rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.rn-title span { display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 10px; background: var(--ink); color: #fff; letter-spacing: 0; }
+/* the words a note belongs to */
+.note-anchor { cursor: pointer; background: color-mix(in srgb, var(--nc) 24%, transparent); box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--nc) 85%, #000 0%); border-radius: 3px; transition: background .18s, box-shadow .18s; }
+.note-anchor.mark-yellow, .note-anchor.mark-blue { box-shadow: inset 0 -2px 0 var(--nc); }
+.note-anchor.is-hot, .note-anchor.is-active { background: color-mix(in srgb, var(--nc) 46%, transparent); box-shadow: inset 0 -3px 0 var(--nc), 0 0 0 2px color-mix(in srgb, var(--nc) 35%, transparent); }
+/* a note card */
+.rn-card { position: absolute; left: 0; right: 0; padding: 12px 14px 10px 16px; border-radius: 14px; background: #fff; transition: top .28s cubic-bezier(.2, .7, .2, 1), transform .2s, box-shadow .2s;
+  box-shadow: inset 4px 0 0 var(--nc), 0 0 0 1px rgba(20, 41, 58, .08), 0 10px 22px -18px rgba(20, 41, 58, .55); }
+.rn-card::before { content: ""; position: absolute; left: -18px; top: 16px; width: 14px; height: 0; border-top: 2px dotted color-mix(in srgb, var(--nc) 80%, transparent); opacity: 0; transition: opacity .2s; }
+.rn-card.is-hot, .rn-card.is-active { transform: translateX(-6px); box-shadow: inset 4px 0 0 var(--nc), 0 0 0 1.5px color-mix(in srgb, var(--nc) 70%, transparent), 0 18px 32px -18px rgba(20, 41, 58, .6); }
+.rn-card.is-hot::before, .rn-card.is-active::before { opacity: 1; }
+.rn-card.is-active { z-index: 2; }
+.rn-quote { display: block; width: 100%; margin: 0 0 6px; padding: 0; border: 0; background: none; text-align: left; font: italic 400 .8rem/1.4 var(--serif); color: var(--muted); cursor: pointer; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.rn-quote:hover { color: var(--ink-2); }
+.rn-body { min-height: 1.6em; outline: none; color: var(--ink); overflow-wrap: anywhere; caret-color: var(--nc); }
+.rn-body:empty::before { content: attr(data-placeholder); color: #a2adb5; pointer-events: none; }
+.rn-body.f-hand { font-family: 'Excalifont', 'Comic Sans MS', 'Segoe Print', cursive; line-height: 1.35; }
+.rn-body.f-sans { font-family: var(--sans); line-height: 1.5; }
+.rn-body.f-hand.s-s { font-size: 1rem; } .rn-body.f-hand.s-m { font-size: 1.2rem; } .rn-body.f-hand.s-l { font-size: 1.5rem; }
+.rn-body.f-sans.s-s { font-size: .82rem; } .rn-body.f-sans.s-m { font-size: .95rem; } .rn-body.f-sans.s-l { font-size: 1.18rem; }
+.rn-body div, .rn-body p { margin: 0; }
+.rn-tools { display: none; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 10px; padding-top: 9px; border-top: 1px dashed rgba(20, 41, 58, .12); }
+.rn-card.is-active .rn-tools, .rn-card:focus-within .rn-tools { display: flex; }
+.rn-seg { display: inline-flex; padding: 2px; border-radius: 9px; background: var(--surface-2, #f3f0ea); }
+.rn-seg button { min-width: 28px; height: 26px; padding: 0 6px; border: 0; border-radius: 7px; background: transparent; color: var(--ink-2); font: 700 .82rem/1 var(--sans); cursor: pointer; }
+.rn-seg button:hover { background: #fff; color: var(--ink); }
+.rn-seg button[aria-pressed="true"] { background: #fff; color: var(--ink); box-shadow: 0 1px 3px rgba(20, 41, 58, .18); }
+.rn-seg button:disabled { opacity: .35; cursor: default; background: transparent; }
+.rn-seg button small { font-size: .7em; margin-left: 1px; }
+.rn-seg .f-hand { font-family: 'Excalifont', cursive; font-weight: 400; font-size: 1rem; }
+.rn-dots { display: inline-flex; gap: 4px; margin-left: 2px; }
+.rn-dot { width: 18px; height: 18px; padding: 0; border: 0; border-radius: 50%; background: var(--d); cursor: pointer; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .08); transition: transform .15s; }
+.rn-dot:hover { transform: scale(1.15); }
+.rn-dot[aria-checked="true"] { box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px var(--d); }
+.rn-del { margin-left: auto; display: grid; place-items: center; width: 28px; height: 28px; padding: 0; border: 0; border-radius: 8px; background: transparent; color: var(--muted); cursor: pointer; }
+.rn-del:hover { background: #fdecea; color: #c0392b; }
+.rn-del svg { width: 17px; height: 17px; }
+.rn-when { display: block; margin-top: 6px; font: 600 .66rem/1 var(--sans); letter-spacing: .04em; color: #a2adb5; text-align: right; }
+.rn-card.is-active .rn-when { display: none; }
+/* the little bar over selected words */
+.rn-bubble { position: absolute; z-index: 30; display: flex !important; align-items: center; gap: 2px; margin: 0 !important; padding: 4px !important; border-radius: 12px; background: #14293a !important; box-shadow: 0 12px 26px -10px rgba(10, 20, 30, .6) !important; animation: rise .16s var(--ease) both; }
+.rn-bubble[hidden] { display: none !important; }
+.rn-bubble button { display: inline-flex; align-items: center; gap: 6px; height: 32px; min-width: 32px; justify-content: center; padding: 0 8px; border: 0 !important; border-radius: 8px; background: transparent !important; color: #fff !important; font: 700 .8rem/1 var(--sans); box-shadow: none !important; cursor: pointer; }
+.rn-bubble button:hover { background: rgba(255, 255, 255, .14) !important; }
+.rn-bubble .underline-icon { color: #fff; }
+.rn-bubble svg, .mt-note svg { width: 17px; height: 17px; }
+.rn-sep { width: 1px; height: 20px; margin: 0 3px; background: rgba(255, 255, 255, .22); }
+.rn-bubble-note { background: var(--rn-yellow) !important; color: #14293a !important; }
+.rn-bubble-note:hover { filter: brightness(1.06); }
+.mt-note { display: inline-flex; align-items: center; gap: 6px; }
+/* phones and narrow windows: the notes go under the text, in order */
+@media (max-width: 860px) {
+  .rd-layout.has-notes { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .rd-notes { display: grid; gap: 10px; padding-top: 30px; border-top: 1px solid var(--line); }
+  .rn-title { top: 8px; }
+  .rn-card { position: relative; top: auto !important; }
+  .rn-card::before { display: none; }
+  .rn-card.is-hot, .rn-card.is-active { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .rn-card, .note-anchor, .rn-bubble { transition: none; animation: none; } }
