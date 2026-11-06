@@ -1,14 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="The student’s notes">
-<style>.fl{animation:fl 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.f2{animation-delay:-1.7s}.f3{animation-delay:-3.3s}
-.tw{animation:tw 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.t2{animation-delay:-1.4s}
-.sp{animation:sp 9s linear infinite;transform-box:fill-box;transform-origin:center}.pu{animation:pu 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.dr{stroke-dasharray:6 8;animation:dr 1.6s linear infinite}.bl{animation:bl 4s infinite;transform-box:fill-box;transform-origin:center}
-.sw{animation:sw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:top center}
-@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes tw{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.05)}}
-@keyframes sp{to{transform:rotate(360deg)}}@keyframes pu{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}}
-@keyframes dr{to{stroke-dashoffset:-28}}@keyframes bl{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}@keyframes sw{50%{transform:rotate(6deg)}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style><defs><filter id="s" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#14293a" flood-opacity=".16"/></filter></defs>
-<path d="M44 38c22-30 78-34 118-14 34 17 50 54 36 88-14 34-56 50-98 44C54 150 18 118 22 82c2-18 10-32 22-44z" fill="#f6e8cc"/>
-<path class="tw" d="M28 30h12m-6-6v12" stroke="#985c0e" stroke-width="2.4" stroke-linecap="round"/><path class="tw t2" d="M204 150h12m-6-6v12" stroke="#2d8a9a" stroke-width="2.4" stroke-linecap="round"/>
-<circle class="tw t2" cx="208" cy="40" r="3" fill="#2d8a9a"/><circle class="tw" cx="34" cy="146" r="3" fill="#985c0e"/>
-<g transform="rotate(0 113.0 90.0)" filter="url(#s)"><rect x="58" y="42" width="110" height="96" rx="10" fill="#fff"/><path d="M72 64h82" stroke="#985c0e" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/><path d="M72 78h69" stroke="#985c0e" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/><path d="M72 92h56" stroke="#985c0e" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/><path d="M72 106h73" stroke="#985c0e" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/></g><g class="sw"><g transform="translate(150 112) rotate(35)"><rect x="-6" y="-44" width="12" height="60" rx="3" fill="#2d8a9a"/><path d="M-6 16l6 14 6-14z" fill="#14293a"/><rect x="-6" y="-44" width="12" height="9" fill="#14293a" opacity=".5"/></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="A spiral notebook page of handwritten notes in two columns, Cause/s and Effects, using abbreviations such as econ., Res. and neg. imp. with arrows linking causes to effects, and a pencil">
+<title>A spiral notebook page of handwritten notes in two columns, Cause/s and Effects, using abbreviations such as econ., Res. and neg. imp. with arrows linking causes to effects, and a pencil</title>
+<style>
+.fl{animation:fl 5.5s ease-in-out infinite}.f2{animation-delay:-1.8s}.f3{animation-delay:-3.6s}
+.tw{animation:tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.t2{animation-delay:-1s}.t3{animation-delay:-2s}
+@keyframes fl{50%{transform:translateY(-4px)}}
+@keyframes tw{0%,100%{opacity:.35;transform:scale(.65)}50%{opacity:1;transform:scale(1.05)}}
+.dw{stroke-dasharray:30;animation:dw 4s ease-in-out infinite}@keyframes dw{0%{stroke-dashoffset:30}40%,100%{stroke-dashoffset:0}}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs><linearGradient id="h2-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fdf6e8"/><stop offset="1" stop-color="#f3e0bb"/></linearGradient><pattern id="h2-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r=".9" fill="#985c0e" opacity=".16"/></pattern><filter id="h2-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".8" flood-color="#14293a" flood-opacity=".1"/></filter><filter id="h2-blur" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="3.5"/></filter><linearGradient id="h2-card" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fbf7ef"/></linearGradient><linearGradient id="h2-pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#f8f0e0"/></linearGradient><marker id="h2-ah" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L8 4L0 8z" fill="#d4583a"/></marker></defs>
+<g><path d="M44 38c22-30 78-34 118-14 34 17 50 54 36 88-14 34-56 50-98 44C54 150 18 118 22 82c2-18 10-32 22-44z" fill="url(#h2-bg)"/><path d="M44 38c22-30 78-34 118-14 34 17 50 54 36 88-14 34-56 50-98 44C54 150 18 118 22 82c2-18 10-32 22-44z" fill="url(#h2-dots)"/><path d="M52 44c20-24 70-28 104-12" stroke="#fff" stroke-opacity=".7" stroke-width="3" stroke-linecap="round" fill="none"/></g><ellipse cx="118" cy="166" rx="86" ry="5.5" fill="#14293a" opacity=".16" filter="url(#h2-blur)"/>
+<g transform="rotate(-3 112 86)">
+<g filter="url(#h2-sh)"><rect x="32" y="18" width="160" height="134" rx="8" fill="url(#h2-pg)"/></g>
+<path d="M40 52H184" stroke="#cfe0ea" stroke-width=".8"/>
+<path d="M40 64H184" stroke="#cfe0ea" stroke-width=".8"/>
+<path d="M40 76H184" stroke="#cfe0ea" stroke-width=".8"/>
+<path d="M40 88H184" stroke="#cfe0ea" stroke-width=".8"/>
+<path d="M40 100H184" stroke="#cfe0ea" stroke-width=".8"/>
+<path d="M40 112H184" stroke="#cfe0ea" stroke-width=".8"/>
+<path d="M40 124H184" stroke="#cfe0ea" stroke-width=".8"/>
+<path d="M40 136H184" stroke="#cfe0ea" stroke-width=".8"/>
+<path d="M40 148H184" stroke="#cfe0ea" stroke-width=".8"/>
+<path d="M108 30V146" stroke="#e8a08c" stroke-width="1.2"/>
+<circle cx="46" cy="24" r="2.2" fill="#d9ccb6"/><rect x="43.6" y="10" width="4.8" height="15.5" rx="2.4" stroke="#6a7682" stroke-width="1.6" fill="none"/><path d="M45 12.4v4" stroke="#fff" stroke-opacity=".6" stroke-width=".9" stroke-linecap="round"/>
+<circle cx="60" cy="24" r="2.2" fill="#d9ccb6"/><rect x="57.6" y="10" width="4.8" height="15.5" rx="2.4" stroke="#6a7682" stroke-width="1.6" fill="none"/><path d="M59 12.4v4" stroke="#fff" stroke-opacity=".6" stroke-width=".9" stroke-linecap="round"/>
+<circle cx="74" cy="24" r="2.2" fill="#d9ccb6"/><rect x="71.6" y="10" width="4.8" height="15.5" rx="2.4" stroke="#6a7682" stroke-width="1.6" fill="none"/><path d="M73 12.4v4" stroke="#fff" stroke-opacity=".6" stroke-width=".9" stroke-linecap="round"/>
+<circle cx="88" cy="24" r="2.2" fill="#d9ccb6"/><rect x="85.6" y="10" width="4.8" height="15.5" rx="2.4" stroke="#6a7682" stroke-width="1.6" fill="none"/><path d="M87 12.4v4" stroke="#fff" stroke-opacity=".6" stroke-width=".9" stroke-linecap="round"/>
+<circle cx="102" cy="24" r="2.2" fill="#d9ccb6"/><rect x="99.6" y="10" width="4.8" height="15.5" rx="2.4" stroke="#6a7682" stroke-width="1.6" fill="none"/><path d="M101 12.4v4" stroke="#fff" stroke-opacity=".6" stroke-width=".9" stroke-linecap="round"/>
+<circle cx="116" cy="24" r="2.2" fill="#d9ccb6"/><rect x="113.6" y="10" width="4.8" height="15.5" rx="2.4" stroke="#6a7682" stroke-width="1.6" fill="none"/><path d="M115 12.4v4" stroke="#fff" stroke-opacity=".6" stroke-width=".9" stroke-linecap="round"/>
+<circle cx="130" cy="24" r="2.2" fill="#d9ccb6"/><rect x="127.6" y="10" width="4.8" height="15.5" rx="2.4" stroke="#6a7682" stroke-width="1.6" fill="none"/><path d="M129 12.4v4" stroke="#fff" stroke-opacity=".6" stroke-width=".9" stroke-linecap="round"/>
+<circle cx="144" cy="24" r="2.2" fill="#d9ccb6"/><rect x="141.6" y="10" width="4.8" height="15.5" rx="2.4" stroke="#6a7682" stroke-width="1.6" fill="none"/><path d="M143 12.4v4" stroke="#fff" stroke-opacity=".6" stroke-width=".9" stroke-linecap="round"/>
+<circle cx="158" cy="24" r="2.2" fill="#d9ccb6"/><rect x="155.6" y="10" width="4.8" height="15.5" rx="2.4" stroke="#6a7682" stroke-width="1.6" fill="none"/><path d="M157 12.4v4" stroke="#fff" stroke-opacity=".6" stroke-width=".9" stroke-linecap="round"/>
+<circle cx="172" cy="24" r="2.2" fill="#d9ccb6"/><rect x="169.6" y="10" width="4.8" height="15.5" rx="2.4" stroke="#6a7682" stroke-width="1.6" fill="none"/><path d="M171 12.4v4" stroke="#fff" stroke-opacity=".6" stroke-width=".9" stroke-linecap="round"/>
+<text x="70" y="42" font-family="Georgia, serif" font-size="10" font-weight="700" fill="#985c0e" text-anchor="middle">Cause/s</text>
+<text x="146" y="42" font-family="Georgia, serif" font-size="10" font-weight="700" fill="#985c0e" text-anchor="middle">Effects</text>
+<path d="M40 47H184" stroke="#985c0e" stroke-opacity=".5" stroke-width="1.2"/>
+<text x="46" y="63" font-family="Georgia, serif" font-size="9.5" font-weight="400" fill="#2f4f7a" font-style="italic">econ. ↑</text>
+<text x="122" y="63" font-family="Georgia, serif" font-size="9.5" font-weight="400" fill="#2f4f7a" font-style="italic">invest. ↑</text>
+<path class="dw" d="M96 60Q106 54 117 59" stroke="#d4583a" stroke-width="1.5" fill="none" stroke-linecap="round" marker-end="url(#h2-ah)"/>
+<text x="46" y="87" font-family="Georgia, serif" font-size="9.5" font-weight="400" fill="#2f4f7a" font-style="italic">Res. land</text>
+<text x="122" y="87" font-family="Georgia, serif" font-size="9.5" font-weight="400" fill="#2f4f7a" font-style="italic">Agr land ↓</text>
+<path class="dw" d="M96 84Q106 78 117 83" stroke="#d4583a" stroke-width="1.5" fill="none" stroke-linecap="round" marker-end="url(#h2-ah)"/>
+<rect x="120" y="102" width="50" height="12" rx="2" fill="#f6d58e" opacity=".75"/>
+<text x="46" y="111" font-family="Georgia, serif" font-size="9.5" font-weight="400" fill="#2f4f7a" font-style="italic">urban ↑</text>
+<text x="122" y="111" font-family="Georgia, serif" font-size="9.5" font-weight="400" fill="#2f4f7a" font-style="italic">neg. imp.</text>
+<path class="dw" d="M96 108Q106 102 117 107" stroke="#d4583a" stroke-width="1.5" fill="none" stroke-linecap="round" marker-end="url(#h2-ah)"/>
+<path d="M58 128q16 6 32-2" stroke="#2f4f7a" stroke-width="1" stroke-dasharray="2 2.4" fill="none"/><path d="M46 138h40M122 126h44M122 138h30" stroke="#d6c6ad" stroke-width="2.4" stroke-linecap="round"/>
+</g>
+<g class="fl f2" transform="rotate(38 196 130)"><g filter="url(#h2-sh)"><rect x="160" y="125" width="54" height="9" rx="2" fill="#e3a843"/></g><rect x="160" y="125" width="54" height="3" rx="1.5" fill="#fff" opacity=".3"/><rect x="152" y="125" width="9" height="9" rx="2" fill="#e8a08c"/><rect x="159" y="125" width="3" height="9" fill="#b9c3cb"/><path d="M214 125l10 4.5-10 4.5z" fill="#f1caa5"/><path d="M220.6 127.9l3.4 1.6-3.4 1.6z" fill="#14293a"/></g>
+<path class="tw" d="M22 25Q23.40 28.60 27 30Q23.40 31.40 22 35Q20.60 31.40 17 30Q20.60 28.60 22 25z" fill="#e3a843"/><path class="tw t2" d="M218 35.5Q219.26 38.74 222.5 40Q219.26 41.26 218 44.5Q216.74 41.26 213.5 40Q216.74 38.74 218 35.5z" fill="#2d8a9a"/><circle class="tw t3" cx="22" cy="150" r="2.2" fill="#d4583a"/><circle class="tw t2" cx="210" cy="92" r="2" fill="#985c0e"/>
+</svg>
