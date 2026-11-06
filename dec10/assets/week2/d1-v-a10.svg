@@ -1,14 +1,74 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Weighing an argument">
-<style>.fl{animation:fl 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.f2{animation-delay:-1.7s}.f3{animation-delay:-3.3s}
-.tw{animation:tw 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.t2{animation-delay:-1.4s}
-.sp{animation:sp 9s linear infinite;transform-box:fill-box;transform-origin:center}.pu{animation:pu 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.dr{stroke-dasharray:6 8;animation:dr 1.6s linear infinite}.bl{animation:bl 4s infinite;transform-box:fill-box;transform-origin:center}
-.sw{animation:sw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:top center}
-@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes tw{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.05)}}
-@keyframes sp{to{transform:rotate(360deg)}}@keyframes pu{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}}
-@keyframes dr{to{stroke-dashoffset:-28}}@keyframes bl{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}@keyframes sw{50%{transform:rotate(6deg)}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style><defs><filter id="s" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#14293a" flood-opacity=".16"/></filter></defs>
-<path d="M44 38c22-30 78-34 118-14 34 17 50 54 36 88-14 34-56 50-98 44C54 150 18 118 22 82c2-18 10-32 22-44z" fill="#dfeee8"/>
-<path class="tw" d="M28 30h12m-6-6v12" stroke="#2b776e" stroke-width="2.4" stroke-linecap="round"/><path class="tw t2" d="M204 150h12m-6-6v12" stroke="#f2c14e" stroke-width="2.4" stroke-linecap="round"/>
-<circle class="tw t2" cx="208" cy="40" r="3" fill="#f2c14e"/><circle class="tw" cx="34" cy="146" r="3" fill="#2b776e"/>
-<path d="M120 42v96M80 138h80" stroke="#14293a" stroke-width="6" stroke-linecap="round"/><g class="sw"><path d="M58 72h124" stroke="#14293a" stroke-width="6" stroke-linecap="round" transform="rotate(-6 120 72)"/><path d="M58 76l-16 30h32zM182 68l-16 30h32z" fill="#2b776e" transform="rotate(-6 120 72)"/></g><g transform="translate(120 42)" filter="url(#s)"><g class="pu"><circle r="20" fill="#f2c14e"/><text x="0" y="7" font-family="'Manrope', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="24" fill="#fff" text-anchor="middle">?</text></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="An argument drawn as a house: 1 a teal roof for the key argument, 2 blue pillars for the claims, 3 a gold foundation of evidence, 4 hidden assumptions with question marks underground and 5 a language tag, beside a weak-to-strong gauge">
+<title>Criticality: the elements of an argument, and how strong it is</title>
+<style>
+.wa10-fl{animation:wa10-fl 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wa10-f2{animation-delay:-2s}.wa10-f3{animation-delay:-4s}
+.wa10-tw{animation:wa10-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wa10-t2{animation-delay:-1s}.wa10-t3{animation-delay:-2s}.wa10-t4{animation-delay:-.5s}
+@keyframes wa10-fl{50%{transform:translateY(-4px)}}
+@keyframes wa10-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.wa10-ndl{animation:wa10-ndl 5s ease-in-out infinite;transform-box:view-box;transform-origin:196px 118px}
+@keyframes wa10-ndl{0%,100%{transform:rotate(0)}50%{transform:rotate(-30deg)}}
+.wa10-q{animation:wa10-q 3s ease-in-out infinite}
+@keyframes wa10-q{50%{opacity:.35}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important}}
+</style>
+<defs>
+<linearGradient id="wa10-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8f5f0"/><stop offset="1" stop-color="#d2e9e0"/></linearGradient>
+<pattern id="wa10-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#2f7d6b" opacity=".16"/></pattern>
+<radialGradient id="wa10-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="wa10-gs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".22"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient>
+<filter id="wa10-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".17"/><feDropShadow dx="0" dy=".8" stdDeviation=".5" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="wa10-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#14293a" flood-opacity=".16"/></filter>
+<linearGradient id="wa10-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<path id="wa10-st" d="M0-6C.8-1.5 1.5-.8 6 0 1.5.8.8 1.5 0 6-.8 1.5-1.5.8-6 0-1.5-.8-.8-1.5 0-6z"/>
+
+<linearGradient id="wa10-roof" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a9d90"/><stop offset="1" stop-color="#2b776e"/></linearGradient>
+<linearGradient id="wa10-col" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5677bd"/><stop offset=".5" stop-color="#3a58a0"/><stop offset="1" stop-color="#2c4686"/></linearGradient>
+<linearGradient id="wa10-base" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9b84e"/><stop offset="1" stop-color="#b07d12"/></linearGradient>
+<linearGradient id="wa10-soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1dfc2" stop-opacity=".9"/><stop offset="1" stop-color="#f6efe1" stop-opacity=".2"/></linearGradient>
+<clipPath id="wa10-gc"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath>
+
+</defs>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#wa10-bg)"/>
+<clipPath id="wa10-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath>
+<g clip-path="url(#wa10-clip)"><rect width="240" height="180" fill="url(#wa10-dots)"/><ellipse cx="116" cy="74" rx="110" ry="70" fill="url(#wa10-glow)"/></g>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".75" stroke-width="1.2"/>
+<ellipse cx="108" cy="152" rx="70" ry="7" fill="url(#wa10-gs)"/>
+
+<!-- underground: hidden assumptions -->
+<g clip-path="url(#wa10-gc)"><rect x="0" y="122" width="240" height="60" fill="url(#wa10-soil)"/></g>
+<path d="M44 122c18 22 100 24 120 0" stroke="#7a4a8c" stroke-width="1.5" stroke-dasharray="3 3"/>
+<g class="wa10-q" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" fill="#7a4a8c"><text x="74" y="140" font-size="10" opacity=".8">?</text><text x="126" y="147" font-size="11">?</text><text x="145" y="137" font-size="9" opacity=".7">?</text></g>
+<path d="M28 122h172" stroke="#2f7d6b" stroke-opacity=".45" stroke-width="1.4"/>
+<path d="M36 122c1-4 2-4 3 0M40 122c.5-5 2-5 2.5 0M178 122c1-4 2-4 3 0M182 122c.5-5 2-5 2.5 0" stroke="#3f8f4a" stroke-width="1.3" stroke-linecap="round"/>
+<!-- the argument house -->
+<g filter="url(#wa10-sh)">
+<rect x="46" y="108" width="114" height="14" rx="2" fill="url(#wa10-base)"/>
+<path d="M103 22L44 58v6h118v-6z" fill="url(#wa10-roof)" stroke-linejoin="round"/>
+</g>
+<path d="M46 115h114M66 108v7M90 108v7M114 108v7M138 108v7M78 115v7M102 115v7M126 115v7M150 115v7" stroke="#8a5f0c" stroke-opacity=".35" stroke-width="1"/>
+<path d="M103 30L58 57h90z" fill="#fff" fill-opacity=".14"/>
+<path d="M103 22L44 58" stroke="#fff" stroke-opacity=".35" stroke-width="1.4" stroke-linecap="round"/>
+<g stroke="#fff" stroke-opacity=".8" stroke-width="2" stroke-linecap="round"><path d="M86 48h34M92 53.5h22"/></g>
+<rect x="62" y="66" width="13" height="40" fill="url(#wa10-col)"/><rect x="59.5" y="62" width="18" height="5" rx="1.5" fill="#2c4686"/><rect x="59.5" y="104" width="18" height="4" rx="1.5" fill="#2c4686"/><path d="M65.5 70v32M70 70v32" stroke="#fff" stroke-opacity=".22" stroke-width="1"/><rect x="96" y="66" width="13" height="40" fill="url(#wa10-col)"/><rect x="93.5" y="62" width="18" height="5" rx="1.5" fill="#2c4686"/><rect x="93.5" y="104" width="18" height="4" rx="1.5" fill="#2c4686"/><path d="M99.5 70v32M104 70v32" stroke="#fff" stroke-opacity=".22" stroke-width="1"/><rect x="130" y="66" width="13" height="40" fill="url(#wa10-col)"/><rect x="127.5" y="62" width="18" height="5" rx="1.5" fill="#2c4686"/><rect x="127.5" y="104" width="18" height="4" rx="1.5" fill="#2c4686"/><path d="M133.5 70v32M138 70v32" stroke="#fff" stroke-opacity=".22" stroke-width="1"/>
+<g transform="translate(103 38)"><circle r="6.6" fill="#2b776e" stroke="#fff" stroke-width="1.6" filter="url(#wa10-sh2)"/><text y="3" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="900" fill="#fff">1</text></g>
+<g transform="translate(102.5 86)"><circle r="6.6" fill="#3a58a0" stroke="#fff" stroke-width="1.6" filter="url(#wa10-sh2)"/><text y="3" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="900" fill="#fff">2</text></g>
+<g transform="translate(52 115)"><circle r="6.6" fill="#b07d12" stroke="#fff" stroke-width="1.6" filter="url(#wa10-sh2)"/><text y="3" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="900" fill="#fff">3</text></g>
+<g transform="translate(104 132)"><circle r="6.6" fill="#7a4a8c" stroke="#fff" stroke-width="1.6" filter="url(#wa10-sh2)"/><text y="3" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="900" fill="#fff">4</text></g>
+<!-- language tag -->
+<g transform="translate(170 40) rotate(8)"><g filter="url(#wa10-sh2)"><path d="M-14-9h24l7 9-7 9h-24a3 3 0 0 1-3-3V-6a3 3 0 0 1 3-3z" fill="#fff"/></g>
+<path d="M-14-9h24l7 9-7 9h-24a3 3 0 0 1-3-3V-6a3 3 0 0 1 3-3z" stroke="#d4583a" stroke-width="1.6"/><circle cx="12" r="1.8" fill="#d4583a"/>
+<text x="-3" y="3.6" text-anchor="middle" font-family="Georgia, serif" font-size="10" font-weight="700" fill="#d4583a">Aa</text></g>
+<path d="M150 46l-8 6" stroke="#d4583a" stroke-width="1.2" stroke-dasharray="2 2"/>
+<g transform="translate(186 28)"><circle r="6.6" fill="#d4583a" stroke="#fff" stroke-width="1.6" filter="url(#wa10-sh2)"/><text y="3" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="900" fill="#fff">5</text></g>
+<!-- strength gauge -->
+<g><circle cx="196" cy="118" r="24" fill="#fff" fill-opacity=".85" filter="url(#wa10-sh2)"/>
+<path d="M179.0 117.4A17 17 0 0 1 187.0 103.6" stroke="#e64626" stroke-width="6"/><path d="M188.0 103.0A17 17 0 0 1 204.0 103.0" stroke="#e3a843" stroke-width="6"/><path d="M205.0 103.6A17 17 0 0 1 213.0 117.4" stroke="#13887a" stroke-width="6"/>
+<g class="wa10-ndl"><path d="M196 118l-1.6-1.2L196 103l1.6 13.8z" fill="#14293a" transform="rotate(-20 196 118)"/></g>
+<circle cx="196" cy="118" r="2.6" fill="#14293a"/>
+<text x="181" y="129" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="5.5" font-weight="800" fill="#e64626">WEAK</text>
+<text x="211" y="129" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="5.5" font-weight="800" fill="#13887a">STRONG</text></g>
+<g transform="translate(30 40) scale(0.75)"><use href="#wa10-st" class="wa10-tw" fill="#e3a843"/></g>
+<g transform="translate(208 72) scale(0.6)"><use href="#wa10-st" class="wa10-tw wa10-t2" fill="#13887a"/></g>
+<circle class="wa10-tw wa10-t3" cx="24" cy="96" r="1.8" fill="#2f6db5"/>
+
+</svg>

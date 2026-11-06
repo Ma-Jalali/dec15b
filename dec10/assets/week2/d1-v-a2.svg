@@ -1,14 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Words matched to definitions">
-<style>.fl{animation:fl 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.f2{animation-delay:-1.7s}.f3{animation-delay:-3.3s}
-.tw{animation:tw 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.t2{animation-delay:-1.4s}
-.sp{animation:sp 9s linear infinite;transform-box:fill-box;transform-origin:center}.pu{animation:pu 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.dr{stroke-dasharray:6 8;animation:dr 1.6s linear infinite}.bl{animation:bl 4s infinite;transform-box:fill-box;transform-origin:center}
-.sw{animation:sw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:top center}
-@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes tw{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.05)}}
-@keyframes sp{to{transform:rotate(360deg)}}@keyframes pu{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}}
-@keyframes dr{to{stroke-dashoffset:-28}}@keyframes bl{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}@keyframes sw{50%{transform:rotate(6deg)}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style><defs><filter id="s" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#14293a" flood-opacity=".16"/></filter></defs>
-<path d="M44 38c22-30 78-34 118-14 34 17 50 54 36 88-14 34-56 50-98 44C54 150 18 118 22 82c2-18 10-32 22-44z" fill="#dfeee8"/>
-<path class="tw" d="M28 30h12m-6-6v12" stroke="#2b776e" stroke-width="2.4" stroke-linecap="round"/><path class="tw t2" d="M204 150h12m-6-6v12" stroke="#f2c14e" stroke-width="2.4" stroke-linecap="round"/>
-<circle class="tw t2" cx="208" cy="40" r="3" fill="#f2c14e"/><circle class="tw" cx="34" cy="146" r="3" fill="#2b776e"/>
-<g transform="rotate(0 79.0 64.0)" filter="url(#s)"><rect x="44" y="46" width="70" height="36" rx="10" fill="#fff"/><path d="M58 68h42" stroke="#2b776e" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(0 79.0 116.0)" filter="url(#s)"><rect x="44" y="98" width="70" height="36" rx="10" fill="#fff"/><path d="M58 120h42" stroke="#2b776e" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(0 161.0 64.0)" filter="url(#s)"><rect x="126" y="46" width="70" height="36" rx="10" fill="#fff"/><path d="M140 68h42" stroke="#f2c14e" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/></g><g transform="rotate(0 161.0 116.0)" filter="url(#s)"><rect x="126" y="98" width="70" height="36" rx="10" fill="#fff"/><path d="M140 120h42" stroke="#f2c14e" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/></g><path class="dr" d="M114 64c20 0 20 52 40 52M114 116c20 0 20-52 40-52" stroke="#14293a" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Find your partner: a student in a purple hijab holds a word slip saying offset, a student with curly hair holds the meaning slip showing a plane and a tree, and a green tick links the two slips">
+<title>Vocabulary: find your partner — match each word slip to its definition</title>
+<style>
+.wa2-fl{animation:wa2-fl 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wa2-f2{animation-delay:-2s}.wa2-f3{animation-delay:-4s}
+.wa2-tw{animation:wa2-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wa2-t2{animation-delay:-1s}.wa2-t3{animation-delay:-2s}.wa2-t4{animation-delay:-.5s}
+@keyframes wa2-fl{50%{transform:translateY(-4px)}}
+@keyframes wa2-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.wa2-ln{stroke-dasharray:3 4;animation:wa2-ln 1.2s linear infinite}
+@keyframes wa2-ln{to{stroke-dashoffset:-14}}
+.wa2-pop{animation:wa2-pop 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes wa2-pop{0%,60%,100%{transform:scale(1)}70%{transform:scale(1.18)}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important}}
+</style>
+<defs>
+<linearGradient id="wa2-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8f5f0"/><stop offset="1" stop-color="#d2e9e0"/></linearGradient>
+<pattern id="wa2-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#2f7d6b" opacity=".16"/></pattern>
+<radialGradient id="wa2-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="wa2-gs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".22"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient>
+<filter id="wa2-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".17"/><feDropShadow dx="0" dy=".8" stdDeviation=".5" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="wa2-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#14293a" flood-opacity=".16"/></filter>
+<linearGradient id="wa2-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<path id="wa2-st" d="M0-6C.8-1.5 1.5-.8 6 0 1.5.8.8 1.5 0 6-.8 1.5-1.5.8-6 0-1.5-.8-.8-1.5 0-6z"/>
+
+<linearGradient id="wa2-card" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f6efe1"/></linearGradient>
+<linearGradient id="wa2-teal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a9a89"/><stop offset="1" stop-color="#0f6f63"/></linearGradient>
+<linearGradient id="wa2-tree" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc47a"/><stop offset="1" stop-color="#3f8f4a"/></linearGradient>
+<radialGradient id="wa2-ok" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#3fbf8a"/><stop offset="1" stop-color="#1f8a5c"/></radialGradient>
+
+</defs>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#wa2-bg)"/>
+<clipPath id="wa2-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath>
+<g clip-path="url(#wa2-clip)"><rect width="240" height="180" fill="url(#wa2-dots)"/><ellipse cx="116" cy="74" rx="110" ry="70" fill="url(#wa2-glow)"/></g>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".75" stroke-width="1.2"/>
+<ellipse cx="120" cy="160" rx="82" ry="7" fill="url(#wa2-gs)"/>
+
+<!-- other slips in the room -->
+<g opacity=".55"><g transform="translate(104 20) rotate(8)"><path d="M4 0H22a4 4 0 0 1 4 4V3.0a4 4 0 0 0 0 8V10a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V11.0a4 4 0 0 0 0-8V4a4 4 0 0 1 4-4z" fill="#ffffff"/><path d="M6 7h14" stroke="#c9d6dc" stroke-width="1.6" stroke-linecap="round"/></g>
+<g transform="translate(110 132) rotate(-10)"><path d="M4 0H18a4 4 0 0 1 4 4V2.0a4 4 0 0 0 0 8V8a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V10.0a4 4 0 0 0 0-8V4a4 4 0 0 1 4-4z" fill="#ffffff"/><path d="M5 6h12" stroke="#c9d6dc" stroke-width="1.6" stroke-linecap="round"/></g></g>
+<g transform="translate(64 119) scale(0.95 0.95)"><path d="M-23 42C-23 25-15 16 0 16S23 25 23 42z" fill="#2f6db5"/><path d="M-23 42C-23 25-15 16 0 16S23 25 23 42z" fill="url(#wa2-shine)" opacity=".35"/><path d="M-15.5 3C-16.5-11-8.5-16.5 0-16.5S16.5-11 15.5 3C15.5 14 12.5 21 0 26-12.5 21-15.5 14-15.5 3z" fill="#8f5ea3"/><path d="M-15 10C-17 18-20 22-23 30 -14 26-6 26 0 26 6 26 14 26 23 30 20 22 17 18 15 10 12 20 6 23 0 24-6 23-12 20-15 10z" fill="#8f5ea3"/><circle r="9.6" fill="#e6b48c"/><path d="M-10.5 1C-10.5-8-5.5-12 0-12S10.5-8 10.5 1C9.5-5 5.5-9.3 0-9.3S-9.5-5-10.5 1z" fill="#8f5ea3"/><path d="M-9 -4C-6-8.6 6-8.6 9-4" stroke="#fff" stroke-opacity=".25" stroke-width="1"/><circle cx="-3.8" cy="1.2" r="1.35" fill="#14293a"/><circle cx="3.8" cy="1.2" r="1.35" fill="#14293a"/><path d="M-5.6-2.6l3-.6M5.6-2.6l-3-.6" stroke="#14293a" stroke-opacity=".55" stroke-width="1" stroke-linecap="round"/><circle cx="-6.6" cy="4.6" r="1.9" fill="#e64626" opacity=".18"/><circle cx="6.6" cy="4.6" r="1.9" fill="#e64626" opacity=".18"/><path d="M-2.8 5.4Q0 9.6 2.8 5.4z" fill="#8e2f1f"/></g>
+<g transform="translate(178 119) scale(0.95 0.95)"><path d="M-23 42C-23 25-15 16 0 16S23 25 23 42z" fill="#13887a"/><path d="M-23 42C-23 25-15 16 0 16S23 25 23 42z" fill="url(#wa2-shine)" opacity=".35"/><rect x="-4.2" y="7" width="8.4" height="11" rx="3" fill="#74482d"/><path d="M-6 16.5L0 23 6 16.5" stroke="#fff" stroke-opacity=".75" stroke-width="1.4" stroke-linejoin="round"/><circle cx="-10.8" cy="1.5" r="2.5" fill="#74482d"/><circle cx="10.8" cy="1.5" r="2.5" fill="#74482d"/><circle r="11" fill="#8a5a3c"/><g fill="#1d1512"><circle cx="-10.5" cy="-3" r="4.2"/><circle cx="-9" cy="-9" r="4.6"/><circle cx="-4" cy="-12.5" r="4.8"/><circle cx="2" cy="-13" r="4.8"/><circle cx="7.5" cy="-10.5" r="4.6"/><circle cx="10.8" cy="-4.5" r="4.2"/><circle cx="0" cy="-8.5" r="5"/></g><circle cx="-3.8" cy="1.2" r="1.35" fill="#14293a"/><circle cx="3.8" cy="1.2" r="1.35" fill="#14293a"/><path d="M-5.6-2.6l3-.6M5.6-2.6l-3-.6" stroke="#14293a" stroke-opacity=".55" stroke-width="1" stroke-linecap="round"/><circle cx="-6.6" cy="4.6" r="1.9" fill="#e64626" opacity=".18"/><circle cx="6.6" cy="4.6" r="1.9" fill="#e64626" opacity=".18"/><path d="M-3 5.6Q0 8.2 3 5.6" stroke="#14293a" stroke-width="1.1" stroke-linecap="round"/></g>
+<!-- word slip -->
+<g><g transform="translate(24 44) rotate(-6)" filter="url(#wa2-sh)">
+<path d="M4 0H72a4 4 0 0 1 4 4V16.0a4 4 0 0 0 0 8V36a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V24.0a4 4 0 0 0 0-8V4a4 4 0 0 1 4-4z" fill="url(#wa2-card)"/>
+<rect x="0" y="0" width="76" height="7" rx="3.5" fill="url(#wa2-teal)"/><rect x="0" y="3.5" width="76" height="3.5" fill="url(#wa2-teal)"/>
+<text x="38" y="5.4" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="4.6" font-weight="800" fill="#fff" letter-spacing="1">WORD</text>
+<text x="38" y="27" text-anchor="middle" font-family="Georgia, serif" font-size="15" font-weight="700" fill="#14293a">offset</text>
+<text x="38" y="35.5" text-anchor="middle" font-family="Georgia, serif" font-size="6.5" font-style="italic" fill="#6b7d88">(n)</text>
+</g></g>
+<!-- definition slip -->
+<g><g transform="translate(142 36) rotate(5)" filter="url(#wa2-sh)">
+<path d="M4 0H72a4 4 0 0 1 4 4V24.0a4 4 0 0 0 0 8V52a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32.0a4 4 0 0 0 0-8V4a4 4 0 0 1 4-4z" fill="url(#wa2-card)"/>
+<rect x="0" y="0" width="76" height="7" rx="3.5" fill="#e3a843"/><rect x="0" y="3.5" width="76" height="3.5" fill="#e3a843"/>
+<text x="38" y="5.4" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="4.6" font-weight="800" fill="#fff" letter-spacing="1">MEANING</text>
+<g transform="translate(19 22)"><path d="M-9 1.5l15-6c2-.8 3.6.6 2.6 2.2L-6 5z" fill="#2f6db5"/><path d="M-3-1l-4-5h3l5 3.4zM-2 3.2l-2 4.8h2.6l3.6-5.6z" fill="#2f6db5"/><circle cx="2.5" cy="-1.6" r=".9" fill="#fff"/></g>
+<g transform="translate(38 22)"><path d="M-5 0h8" stroke="#13887a" stroke-width="1.6" stroke-linecap="round"/><path d="M1-3l3 3-3 3" stroke="#13887a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g transform="translate(57 22)"><rect x="-1.2" y="2" width="2.4" height="7" rx="1" fill="#8a6d3b"/><circle cy="-2" r="6.5" fill="url(#wa2-tree)"/><circle cx="-3.5" cy="1.5" r="4" fill="url(#wa2-tree)"/><circle cx="3.6" cy="1.2" r="4" fill="url(#wa2-tree)"/><circle cx="-2" cy="-4.5" r="1.6" fill="#fff" opacity=".35"/></g>
+<path d="M9 37h58M9 43h50M9 49h36" stroke="#b7c6cd" stroke-width="2" stroke-linecap="round"/>
+</g></g>
+<!-- arms holding the slips -->
+<path d="M80 144C86 126 88 108 86 92" stroke="#2f6db5" stroke-width="7.5" stroke-linecap="round"/><circle cx="86" cy="88" r="4.6" fill="#e6b48c"/><path d="M83.5 86.5h5" stroke="#d39d74" stroke-width="1" stroke-linecap="round"/>
+<path d="M162 144C156 128 155 114 157 100" stroke="#13887a" stroke-width="7.5" stroke-linecap="round"/><circle cx="157" cy="97" r="4.6" fill="#8a5a3c"/><path d="M154.5 95.5h5" stroke="#74482d" stroke-width="1" stroke-linecap="round"/>
+<!-- the match -->
+<path class="wa2-ln" d="M100 74C110 86 128 88 140 78" stroke="#13887a" stroke-width="1.8" stroke-linecap="round"/>
+<g class="wa2-pop"><circle cx="120" cy="85" r="9.5" fill="url(#wa2-ok)" stroke="#fff" stroke-width="2" filter="url(#wa2-sh2)"/><path d="M115.6 85.2l3 3 5.4-6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g transform="translate(30 32) scale(0.75)"><use href="#wa2-st" class="wa2-tw" fill="#e3a843"/></g>
+<g transform="translate(214 120) scale(0.7)"><use href="#wa2-st" class="wa2-tw wa2-t2" fill="#13887a"/></g>
+<circle class="wa2-tw wa2-t3" cx="120" cy="58" r="2" fill="#e64626"/>
+<circle class="wa2-tw wa2-t4" cx="22" cy="104" r="1.8" fill="#2f6db5"/>
+
+</svg>
