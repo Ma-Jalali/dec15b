@@ -888,7 +888,7 @@ function courseHome() {
   return `<header class="home-head">
       <span class="eyebrow">${esc(course.code)} · ${esc(course.topic)}</span>
       <h1>Your course map</h1>
-      <p>${esc(course.intro || 'Pick up where you left off, or open any lesson below.')}</p>
+      ${course.intro === '' ? '' : `<p>${esc(course.intro || 'Pick up where you left off, or open any lesson below.')}</p>`}
       ${classToday ? (() => { const { d, week, day } = classToday, ready = d.status === 'ready', inner = `<span class="ht-dot" aria-hidden="true"></span><span class="ht-hi">${GREET()}</span><span class="ht-txt">Today in class · ${WEEKDAY[day - 1]}, Week ${week}</span><b>${esc(d.title)}</b>${ready ? icon('arrow') : '<small>Coming soon</small>'}`;
         return ready ? `<a class="home-today" href="#/${d.id}">${inner}</a>` : `<span class="home-today is-soon">${inner}</span>`; })() : ''}
     </header>

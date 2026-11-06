@@ -340,6 +340,9 @@ window.DEC15Planner = (() => {
   /* ───────── page ───────── */
   /* the tabs: Notebook (the open lesson's answers and highlights, drawn by app.js) when the app gives one, then Notes, Calendar, To-dos */
   const TAB_NAME = { notebook: 'Notebook', notes: 'Notes', calendar: 'Calendar', todos: 'To-dos' };
+  /* DEC10: one line under the title says what the open tab is for */
+  const D10 = () => document.documentElement.getAttribute('data-course') === 'dec10';
+  const TAB_SUB = { notebook: 'Your answers and highlights from each lesson', notes: 'Write, format and organise your own notes', calendar: 'Classes, homework and your own plans', todos: 'What to do next, sorted by date' };
   const tabs = () => (ctx?.notebook ? ['notebook'] : []).concat(['notes', 'calendar', 'todos']);
   function setTab(t, quiet) { if (!tabs().includes(t)) t = 'calendar'; const changed = ui.tab !== t; ui.tab = t; try { localStorage.setItem(TAB_KEY, t); } catch (e) { /* ignore */ }
     if (!quiet) ctx?.onTab?.(t); if (mounted && (changed || t === 'notebook')) { closePop(); paint(); } }
@@ -348,7 +351,7 @@ window.DEC15Planner = (() => {
     if (!tabs().includes(ui.tab)) ui.tab = 'calendar';
     root.innerHTML = `<div class="pl" data-tab="${ui.tab}">
       <header class="pl-head">
-        <div class="pl-title"><span class="pl-brand" aria-hidden="true">${BRAND_ART}</span><div><h1>My workspace</h1><span class="pl-private" title="Only you can see this page, unless you share a note">${ctx.icon('lock')}Private</span></div></div>
+        <div class="pl-title"><span class="pl-brand" aria-hidden="true">${BRAND_ART}</span><div><h1>My workspace</h1><span class="pl-private" title="Only you can see this page, unless you share a note">${ctx.icon('lock')}Private</span>${D10() ? `<p class="pl-sub" data-pl-sub>${TAB_SUB[ui.tab] || ''}</p>` : ''}</div></div>
         <div class="pl-tabs" role="tablist" aria-label="My workspace">
           ${tabs().map(t => `<button type="button" role="tab" id="pl-tab-${t}" aria-controls="pl-panel" data-tab="${t}" aria-selected="${ui.tab === t}">${TAB_ICON[t]}<span>${TAB_NAME[t]}</span><small class="pl-tabn" data-tabn="${t}"></small></button>`).join('')}
         </div>
@@ -380,6 +383,7 @@ window.DEC15Planner = (() => {
   function paint() {
     if (!root) return;
     root.querySelector('.pl').dataset.tab = ui.tab; paintTabCounts();
+    const sub = root.querySelector('[data-pl-sub]'); if (sub) sub.textContent = TAB_SUB[ui.tab] || '';
     root.querySelectorAll('[data-tab][role=tab]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === ui.tab)));
     root.querySelector('#pl-panel').setAttribute('aria-labelledby', 'pl-tab-' + ui.tab);
     if (ui.tab === 'notes') paintNotes(); else { destroyEditor(); paintPanel(); }
@@ -779,7 +783,7 @@ window.DEC15Planner = (() => {
     const stat = (n, label, cls) => `<div class="pl-tstat ${cls}"><b>${n}</b><span>${label}</span></div>`;
     return `<div class="pl-todos">
       ${all.length ? `<div class="pl-tsum"><div class="pl-tsum-ring${wkAll.length && wkDone === wkAll.length ? ' is-done' : ''}">${ring(wkDone, wkAll.length, 54)}<b>${wkAll.length ? Math.round(wkDone / wkAll.length * 100) : 0}<small>%</small></b></div>
-        <div class="pl-tsum-txt"><b>This week</b><span>${wkDone} of ${wkAll.length} dated to-do${wkAll.length === 1 ? '' : 's'} done · Week ${isoWeek(t)}</span></div>
+        ${D10() ? '<img class="pl-tsum-art" src="dec10/assets/class/todo.svg" alt="" width="240" height="120">' : ''}<div class="pl-tsum-txt"><b>This week</b><span>${wkDone} of ${wkAll.length} dated to-do${wkAll.length === 1 ? '' : 's'} done · Week ${isoWeek(t)}</span></div>
         <div class="pl-tstats">${stat(groups[0][1].length, 'late', 'late')}${stat(groups[1][1].length, 'today', 'today')}${stat(groups[2][1].length, 'next 7 days', 'soon')}${stat(groups[4][1].length, 'no date', 'nodate')}</div></div>` : ''}
       <form class="pl-add" data-add-form><span class="pl-add-ico" aria-hidden="true">＋</span><label class="sr-only" for="pl-add-title">New to-do</label><input id="pl-add-title" name="title" maxlength="300" placeholder="Add a to-do…" autocomplete="off">
         <label class="sr-only" for="pl-add-date">Date</label><input type="date" id="pl-add-date" name="date">
