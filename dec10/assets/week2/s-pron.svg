@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="A presenter at a lectern speaks into a microphone; her talk card shows two chunks, “The more we stream, / the more energy we use.”, with big and small stress dots over the words and an intonation line that rises after the first chunk and falls at the end">
-<title>A presenter at a lectern speaks into a microphone; her talk card shows two chunks, “The more we stream, / the more energy we use.”, with big and small stress dots over the words and an intonation line that rises after the first chunk and falls at the end</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="A presenter at a lectern speaks into a microphone; her talk card shows two chunks, “The more we stream, / the more energy we use.”, with big and small stress dots and an intonation line that rises, then falls">
+<title>A presenter at a lectern speaks into a microphone; her talk card shows two chunks, “The more we stream, / the more energy we use.”, with big and small stress dots and an intonation line that rises, then falls</title>
 <style>
 .pr-tw { animation: pr-tw 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
 @keyframes pr-tw { 0%, 100% { opacity: .35; transform: scale(.6); } 50% { opacity: 1; transform: scale(1); } }
