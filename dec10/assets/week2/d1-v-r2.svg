@@ -1,14 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Research skills">
-<style>.fl{animation:fl 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.f2{animation-delay:-1.7s}.f3{animation-delay:-3.3s}
-.tw{animation:tw 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.t2{animation-delay:-1.4s}
-.sp{animation:sp 9s linear infinite;transform-box:fill-box;transform-origin:center}.pu{animation:pu 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.dr{stroke-dasharray:6 8;animation:dr 1.6s linear infinite}.bl{animation:bl 4s infinite;transform-box:fill-box;transform-origin:center}
-.sw{animation:sw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:top center}
-@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes tw{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.05)}}
-@keyframes sp{to{transform:rotate(360deg)}}@keyframes pu{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}}
-@keyframes dr{to{stroke-dashoffset:-28}}@keyframes bl{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}@keyframes sw{50%{transform:rotate(6deg)}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style><defs><filter id="s" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#14293a" flood-opacity=".16"/></filter></defs>
-<path d="M44 38c22-30 78-34 118-14 34 17 50 54 36 88-14 34-56 50-98 44C54 150 18 118 22 82c2-18 10-32 22-44z" fill="#f1e8f5"/>
-<path class="tw" d="M28 30h12m-6-6v12" stroke="#7a4a8c" stroke-width="2.4" stroke-linecap="round"/><path class="tw t2" d="M204 150h12m-6-6v12" stroke="#2f9a63" stroke-width="2.4" stroke-linecap="round"/>
-<circle class="tw t2" cx="208" cy="40" r="3" fill="#2f9a63"/><circle class="tw" cx="34" cy="146" r="3" fill="#7a4a8c"/>
-<g transform="rotate(-4 98.0 88.0)" filter="url(#s)"><rect x="50" y="48" width="96" height="80" rx="10" fill="#fff"/><path d="M64 70h68" stroke="#7a4a8c" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/><path d="M64 84h55" stroke="#7a4a8c" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/><path d="M64 98h42" stroke="#7a4a8c" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/><path d="M64 112h59" stroke="#7a4a8c" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/></g><g class="fl"><circle cx="150" cy="86" r="30" fill="#fff" fill-opacity=".4" stroke="#14293a" stroke-width="9"/><path d="M172 108l26 26" stroke="#14293a" stroke-width="13" stroke-linecap="round"/><path d="M134 76a18 18 0 0 1 12-10" stroke="#fff" stroke-width="4" stroke-linecap="round"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Prepare your research: a video, a podcast and a report flow into a clipboard with the CRAAP test — Currency, Relevance, Authority, Accuracy, Purpose — with four ticks and the last one being checked">
+<title>Prepare to do your research: test every source with CRAAP</title>
+<style>
+.wr2-fl{animation:wr2-fl 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wr2-f2{animation-delay:-2s}.wr2-f3{animation-delay:-4s}
+.wr2-tw{animation:wr2-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wr2-t2{animation-delay:-1s}.wr2-t3{animation-delay:-2s}.wr2-t4{animation-delay:-.5s}
+@keyframes wr2-fl{50%{transform:translateY(-4px)}}
+@keyframes wr2-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.wr2-run{stroke-dasharray:3 4;animation:wr2-run 1.3s linear infinite}
+@keyframes wr2-run{to{stroke-dashoffset:-14}}
+.wr2-chk{animation:wr2-chk 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes wr2-chk{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important}}
+</style>
+<defs>
+<linearGradient id="wr2-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6eef9"/><stop offset="1" stop-color="#e6d7ee"/></linearGradient>
+<pattern id="wr2-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#7a4a8c" opacity=".16"/></pattern>
+<radialGradient id="wr2-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="wr2-gs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".22"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient>
+<filter id="wr2-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".17"/><feDropShadow dx="0" dy=".8" stdDeviation=".5" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="wr2-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#14293a" flood-opacity=".16"/></filter>
+<linearGradient id="wr2-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<path id="wr2-st" d="M0-6C.8-1.5 1.5-.8 6 0 1.5.8.8 1.5 0 6-.8 1.5-1.5.8-6 0-1.5-.8-.8-1.5 0-6z"/>
+
+<linearGradient id="wr2-pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#fbf7ef"/></linearGradient>
+<linearGradient id="wr2-brd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9a68ad"/><stop offset="1" stop-color="#5e3570"/></linearGradient>
+<linearGradient id="wr2-clp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9d3da"/><stop offset="1" stop-color="#8fa1ad"/></linearGradient>
+<linearGradient id="wr2-scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a4458"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<radialGradient id="wr2-ok" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#3fbf8a"/><stop offset="1" stop-color="#1f8a5c"/></radialGradient>
+<marker id="wr2-ah" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto"><path d="M1 1l7 4-7 4" fill="none" stroke="#7a4a8c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+
+</defs>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#wr2-bg)"/>
+<clipPath id="wr2-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath>
+<g clip-path="url(#wr2-clip)"><rect width="240" height="180" fill="url(#wr2-dots)"/><ellipse cx="116" cy="74" rx="110" ry="70" fill="url(#wr2-glow)"/></g>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".75" stroke-width="1.2"/>
+<ellipse cx="124" cy="160" rx="80" ry="7" fill="url(#wr2-gs)"/>
+
+<!-- sources: video, podcast, report -->
+<g transform="translate(5 0)">
+<g class="wr2-fl"><g filter="url(#wr2-sh)"><rect x="30" y="38" width="44" height="30" rx="4" fill="url(#wr2-scr)"/></g>
+<rect x="33" y="41" width="38" height="20" rx="2" fill="#2f6db5" fill-opacity=".35"/><circle cx="52" cy="51" r="6.5" fill="#e64626"/><path d="M50 47.8l5 3.2-5 3.2z" fill="#fff"/>
+<rect x="33" y="63.5" width="38" height="2" rx="1" fill="#fff" fill-opacity=".25"/><rect x="33" y="63.5" width="15" height="2" rx="1" fill="#e64626"/></g>
+<g class="wr2-fl wr2-f2"><circle cx="46" cy="96" r="14" fill="#fff" filter="url(#wr2-sh)"/>
+<rect x="42.5" y="86" width="7" height="12" rx="3.5" fill="#7a4a8c"/><path d="M39 94a7 7 0 0 0 14 0M46 101v4M42 105h8" stroke="#14293a" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M58 90a8 8 0 0 1 0 10M61.5 87a12 12 0 0 1 0 16" stroke="#7a4a8c" stroke-opacity=".6" stroke-width="1.2" stroke-linecap="round"/></g>
+<g class="wr2-fl wr2-f3"><g filter="url(#wr2-sh)"><path d="M32 118h22l8 8v26H32z" fill="url(#wr2-pg)"/></g><path d="M54 118v8h8" fill="#e6d7ee"/>
+<path d="M37 130h18M37 136h20M37 142h14" stroke="#b7c6cd" stroke-width="1.8" stroke-linecap="round"/><rect x="36" y="122" width="10" height="4" rx="1" fill="#13887a"/></g>
+<!-- into the test -->
+<path class="wr2-run" d="M78 54C86 58 89 64 93 70" stroke="#7a4a8c" stroke-width="1.6" stroke-linecap="round" marker-end="url(#wr2-ah)"/>
+<path class="wr2-run" d="M64 96h28" stroke="#7a4a8c" stroke-width="1.6" stroke-linecap="round" marker-end="url(#wr2-ah)"/>
+<path class="wr2-run" d="M66 134C78 132 85 126 91 118" stroke="#7a4a8c" stroke-width="1.6" stroke-linecap="round" marker-end="url(#wr2-ah)"/>
+</g>
+<!-- CRAAP clipboard -->
+<g filter="url(#wr2-sh)"><rect x="102" y="32" width="88" height="122" rx="7" fill="url(#wr2-brd)"/></g>
+<rect x="108" y="40" width="76" height="108" rx="3" fill="url(#wr2-pg)"/>
+<rect x="132" y="27" width="28" height="11" rx="3.5" fill="url(#wr2-clp)" stroke="#5b6b78" stroke-width="1"/><circle cx="146" cy="30.5" r="1.8" fill="#5b6b78"/>
+<text x="146" y="51" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="6.5" font-weight="800" fill="#7a4a8c" letter-spacing="1">CRAAP TEST</text>
+<rect x="114" y="56.5" width="13" height="13" rx="3" fill="#13887a"/><text x="120.5" y="66.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9.5" font-weight="900" fill="#fff">C</text><path d="M133 63h30" stroke="#c3d0d6" stroke-width="2.4" stroke-linecap="round"/><circle cx="176" cy="63" r="5" fill="url(#wr2-ok)"/><path d="M173.6 63l1.7 1.7 3-3.2" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="114" y="72.5" width="13" height="13" rx="3" fill="#2f6db5"/><text x="120.5" y="82.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9.5" font-weight="900" fill="#fff">R</text><path d="M133 79h24" stroke="#c3d0d6" stroke-width="2.4" stroke-linecap="round"/><circle cx="176" cy="79" r="5" fill="url(#wr2-ok)"/><path d="M173.6 79l1.7 1.7 3-3.2" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="114" y="88.5" width="13" height="13" rx="3" fill="#e3a843"/><text x="120.5" y="98.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9.5" font-weight="900" fill="#fff">A</text><path d="M133 95h28" stroke="#c3d0d6" stroke-width="2.4" stroke-linecap="round"/><circle cx="176" cy="95" r="5" fill="url(#wr2-ok)"/><path d="M173.6 95l1.7 1.7 3-3.2" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="114" y="104.5" width="13" height="13" rx="3" fill="#e64626"/><text x="120.5" y="114.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9.5" font-weight="900" fill="#fff">A</text><path d="M133 111h22" stroke="#c3d0d6" stroke-width="2.4" stroke-linecap="round"/><circle cx="176" cy="111" r="5" fill="url(#wr2-ok)"/><path d="M173.6 111l1.7 1.7 3-3.2" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="114" y="120.5" width="13" height="13" rx="3" fill="#7a4a8c"/><text x="120.5" y="130.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9.5" font-weight="900" fill="#fff">P</text><path d="M133 127h26" stroke="#c3d0d6" stroke-width="2.4" stroke-linecap="round"/><g class="wr2-chk"><circle cx="176" cy="127" r="5" stroke="#7a4a8c" stroke-width="1.4" stroke-dasharray="2 1.6"/></g>
+<path d="M113 143h30" stroke="#c3d0d6" stroke-width="1" stroke-dasharray="2 2"/>
+<g transform="translate(210 40) scale(0.8)"><use href="#wr2-st" class="wr2-tw" fill="#e3a843"/></g>
+<g transform="translate(92 30) scale(0.6)"><use href="#wr2-st" class="wr2-tw wr2-t2" fill="#7a4a8c"/></g>
+<circle class="wr2-tw wr2-t3" cx="210" cy="126" r="2" fill="#13887a"/>
+<circle class="wr2-tw wr2-t4" cx="84" cy="146" r="1.8" fill="#e64626"/>
+
+</svg>

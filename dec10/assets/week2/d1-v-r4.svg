@@ -1,14 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Choosing a research question">
-<style>.fl{animation:fl 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.f2{animation-delay:-1.7s}.f3{animation-delay:-3.3s}
-.tw{animation:tw 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.t2{animation-delay:-1.4s}
-.sp{animation:sp 9s linear infinite;transform-box:fill-box;transform-origin:center}.pu{animation:pu 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.dr{stroke-dasharray:6 8;animation:dr 1.6s linear infinite}.bl{animation:bl 4s infinite;transform-box:fill-box;transform-origin:center}
-.sw{animation:sw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:top center}
-@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes tw{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.05)}}
-@keyframes sp{to{transform:rotate(360deg)}}@keyframes pu{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}}
-@keyframes dr{to{stroke-dashoffset:-28}}@keyframes bl{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}@keyframes sw{50%{transform:rotate(6deg)}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style><defs><filter id="s" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#14293a" flood-opacity=".16"/></filter></defs>
-<path d="M44 38c22-30 78-34 118-14 34 17 50 54 36 88-14 34-56 50-98 44C54 150 18 118 22 82c2-18 10-32 22-44z" fill="#f1e8f5"/>
-<path class="tw" d="M28 30h12m-6-6v12" stroke="#7a4a8c" stroke-width="2.4" stroke-linecap="round"/><path class="tw t2" d="M204 150h12m-6-6v12" stroke="#2f9a63" stroke-width="2.4" stroke-linecap="round"/>
-<circle class="tw t2" cx="208" cy="40" r="3" fill="#2f9a63"/><circle class="tw" cx="34" cy="146" r="3" fill="#7a4a8c"/>
-<g class="fl"><circle cx="120" cy="92" r="46" fill="#fff" filter="url(#s)"/><circle cx="120" cy="92" r="34" fill="#7a4a8c"/><circle cx="120" cy="92" r="22" fill="#fff"/><circle cx="120" cy="92" r="10" fill="#2f9a63"/></g><path class="dr" d="M196 30L124 88" stroke="#14293a" stroke-width="3" stroke-linecap="round"/><path d="M196 30l-16 2 10 10z" fill="#14293a"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Task details: a search box typing data centres, a fan of seven guiding-question cards with card 4 picked and ticked, and a one-hour clock split into 30 minutes to find a source and 30 minutes to read and prepare">
+<title>Task description and details: choose a guiding question and plan your hour of research</title>
+<style>
+.wr4-fl{animation:wr4-fl 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wr4-f2{animation-delay:-2s}.wr4-f3{animation-delay:-4s}
+.wr4-tw{animation:wr4-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wr4-t2{animation-delay:-1s}.wr4-t3{animation-delay:-2s}.wr4-t4{animation-delay:-.5s}
+@keyframes wr4-fl{50%{transform:translateY(-4px)}}
+@keyframes wr4-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.wr4-cur{animation:wr4-cur 1s steps(2) infinite}
+@keyframes wr4-cur{50%{opacity:0}}
+.wr4-up{animation:wr4-up 4s ease-in-out infinite}
+@keyframes wr4-up{50%{transform:translateY(-3px)}}
+.wr4-hand{animation:wr4-hand 8s linear infinite;transform-box:view-box;transform-origin:186px 74px}
+@keyframes wr4-hand{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important}}
+</style>
+<defs>
+<linearGradient id="wr4-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6eef9"/><stop offset="1" stop-color="#e6d7ee"/></linearGradient>
+<pattern id="wr4-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#7a4a8c" opacity=".16"/></pattern>
+<radialGradient id="wr4-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="wr4-gs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".22"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient>
+<filter id="wr4-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".17"/><feDropShadow dx="0" dy=".8" stdDeviation=".5" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="wr4-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#14293a" flood-opacity=".16"/></filter>
+<linearGradient id="wr4-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<path id="wr4-st" d="M0-6C.8-1.5 1.5-.8 6 0 1.5.8.8 1.5 0 6-.8 1.5-1.5.8-6 0-1.5-.8-.8-1.5 0-6z"/>
+
+<linearGradient id="wr4-card" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f6efe1"/></linearGradient>
+<linearGradient id="wr4-pick" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9a68ad"/><stop offset="1" stop-color="#6a3d7c"/></linearGradient>
+<radialGradient id="wr4-face" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f3eef6"/></radialGradient>
+<radialGradient id="wr4-ok" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#3fbf8a"/><stop offset="1" stop-color="#1f8a5c"/></radialGradient>
+
+</defs>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#wr4-bg)"/>
+<clipPath id="wr4-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath>
+<g clip-path="url(#wr4-clip)"><rect width="240" height="180" fill="url(#wr4-dots)"/><ellipse cx="116" cy="74" rx="110" ry="70" fill="url(#wr4-glow)"/></g>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".75" stroke-width="1.2"/>
+<ellipse cx="112" cy="160" rx="78" ry="7" fill="url(#wr4-gs)"/>
+
+<!-- search box -->
+<g filter="url(#wr4-sh)"><rect x="28" y="30" width="112" height="20" rx="10" fill="#fff"/></g>
+<circle cx="40" cy="39.5" r="4.2" stroke="#7a4a8c" stroke-width="1.8"/><path d="M43 42.5l3 3" stroke="#7a4a8c" stroke-width="2" stroke-linecap="round"/>
+<text x="51" y="43" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="600" fill="#14293a">data centres …</text>
+<rect class="wr4-cur" x="113" y="34.5" width="1.4" height="10" fill="#7a4a8c"/>
+<!-- fan of 7 guiding questions -->
+<g transform="rotate(-27 100 178)"><rect x="85" y="88" width="30" height="42" rx="4" fill="url(#wr4-card)" stroke="#e6d7ee" stroke-width="1" filter="url(#wr4-sh2)"/>
+<circle cx="93" cy="97" r="5.5" fill="#13887a"/><text x="93" y="100" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="900" fill="#fff">1</text>
+<path d="M90 110h20M90 116h14M90 122h17" stroke="#c3d0d6" stroke-width="1.8" stroke-linecap="round"/></g><g transform="rotate(-18 100 178)"><rect x="85" y="88" width="30" height="42" rx="4" fill="url(#wr4-card)" stroke="#e6d7ee" stroke-width="1" filter="url(#wr4-sh2)"/>
+<circle cx="93" cy="97" r="5.5" fill="#2f6db5"/><text x="93" y="100" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="900" fill="#fff">2</text>
+<path d="M90 110h20M90 116h14M90 122h17" stroke="#c3d0d6" stroke-width="1.8" stroke-linecap="round"/></g><g transform="rotate(-9 100 178)"><rect x="85" y="88" width="30" height="42" rx="4" fill="url(#wr4-card)" stroke="#e6d7ee" stroke-width="1" filter="url(#wr4-sh2)"/>
+<circle cx="93" cy="97" r="5.5" fill="#e3a843"/><text x="93" y="100" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="900" fill="#fff">3</text>
+<path d="M90 110h20M90 116h14M90 122h17" stroke="#c3d0d6" stroke-width="1.8" stroke-linecap="round"/></g><g transform="rotate(9 100 178)"><rect x="85" y="88" width="30" height="42" rx="4" fill="url(#wr4-card)" stroke="#e6d7ee" stroke-width="1" filter="url(#wr4-sh2)"/>
+<circle cx="93" cy="97" r="5.5" fill="#e64626"/><text x="93" y="100" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="900" fill="#fff">5</text>
+<path d="M90 110h20M90 116h14M90 122h17" stroke="#c3d0d6" stroke-width="1.8" stroke-linecap="round"/></g><g transform="rotate(18 100 178)"><rect x="85" y="88" width="30" height="42" rx="4" fill="url(#wr4-card)" stroke="#e6d7ee" stroke-width="1" filter="url(#wr4-sh2)"/>
+<circle cx="93" cy="97" r="5.5" fill="#2f7d6b"/><text x="93" y="100" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="900" fill="#fff">6</text>
+<path d="M90 110h20M90 116h14M90 122h17" stroke="#c3d0d6" stroke-width="1.8" stroke-linecap="round"/></g><g transform="rotate(27 100 178)"><rect x="85" y="88" width="30" height="42" rx="4" fill="url(#wr4-card)" stroke="#e6d7ee" stroke-width="1" filter="url(#wr4-sh2)"/>
+<circle cx="93" cy="97" r="5.5" fill="#2f6db5"/><text x="93" y="100" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="900" fill="#fff">7</text>
+<path d="M90 110h20M90 116h14M90 122h17" stroke="#c3d0d6" stroke-width="1.8" stroke-linecap="round"/></g>
+<g class="wr4-up"><g transform="translate(0 -26)"><rect x="85" y="88" width="30" height="42" rx="4" fill="url(#wr4-pick)" filter="url(#wr4-sh)"/>
+<circle cx="100" cy="99" r="6" fill="#fff"/><text x="100" y="102.2" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="900" fill="#7a4a8c">4</text>
+<path d="M91 112h18M91 118h13" stroke="#fff" stroke-opacity=".6" stroke-width="1.8" stroke-linecap="round"/>
+<g transform="translate(114 89)"><circle r="6" fill="url(#wr4-ok)" stroke="#fff" stroke-width="1.4"/><path d="M-2.8 0l2 2 3.6-3.8" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g></g></g>
+<!-- one hour: 30 + 30 minutes -->
+<g filter="url(#wr4-sh)"><circle cx="186" cy="74" r="26" fill="url(#wr4-face)"/></g>
+<path d="M186 74L186.0 53.0A21 21 0 0 1 186.0 95.0z" fill="#13887a"/><path d="M186 74L186.0 95.0A21 21 0 0 1 186.0 53.0z" fill="#7a4a8c"/>
+<circle cx="186" cy="74" r="14" fill="#fff"/>
+<g stroke="#fff" stroke-width="1.2"><path d="M186.0 55.0L186.0 52.5"/><path d="M195.5 57.5L196.8 55.4"/><path d="M202.5 64.5L204.6 63.2"/><path d="M205.0 74.0L207.5 74.0"/><path d="M202.5 83.5L204.6 84.8"/><path d="M195.5 90.5L196.8 92.6"/><path d="M186.0 93.0L186.0 95.5"/><path d="M176.5 90.5L175.2 92.6"/><path d="M169.5 83.5L167.4 84.8"/><path d="M167.0 74.0L164.5 74.0"/><path d="M169.5 64.5L167.4 63.2"/><path d="M176.5 57.5L175.2 55.4"/></g>
+<circle cx="186" cy="74" r="26" stroke="#14293a" stroke-width="2"/>
+<text x="186" y="77.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="900" fill="#14293a">1h</text>
+<path class="wr4-hand" d="M186 59v-5" stroke="#e3a843" stroke-width="2.6" stroke-linecap="round"/>
+<g transform="translate(210 92)"><circle r="7" fill="#13887a" stroke="#fff" stroke-width="1.4"/><text y="2.8" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7" font-weight="900" fill="#fff">30</text></g>
+<g transform="translate(162 92)"><circle r="7" fill="#7a4a8c" stroke="#fff" stroke-width="1.4"/><text y="2.8" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7" font-weight="900" fill="#fff">30</text></g>
+<g transform="translate(184 134)"><g filter="url(#wr4-sh2)"><path d="M-20-11h40a5 5 0 0 1 5 5v11a5 5 0 0 1-5 5H-4l-6 6v-6h-10a5 5 0 0 1-5-5V-6a5 5 0 0 1 5-5z" fill="#fff"/></g>
+<g stroke="#e64626" stroke-width="2.2" stroke-linecap="round"><path d="M-14-1v2M-10-4v8M-6-6v12M-2-3v6M2-5v10M6-2v4M10-4v8M14-1v2"/></g></g>
+<g transform="translate(26 72) scale(0.75)"><use href="#wr4-st" class="wr4-tw" fill="#e3a843"/></g>
+<g transform="translate(218 30) scale(0.6)"><use href="#wr4-st" class="wr4-tw wr4-t2" fill="#7a4a8c"/></g>
+<circle class="wr4-tw wr4-t3" cx="150" cy="22" r="2" fill="#13887a"/>
+<circle class="wr4-tw wr4-t4" cx="34" cy="128" r="1.8" fill="#e64626"/>
+
+</svg>

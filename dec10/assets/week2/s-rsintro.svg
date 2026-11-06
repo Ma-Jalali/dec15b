@@ -1,46 +1,115 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="A book, a video and a web page flow through a magnifying glass into a presentation screen with a four-day timeline">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="Research Summary starts today: a book, a video and a web page with a podcast flow into a magnifying glass that picks out one source with a gold star, then on to a Research Summary screen with a four-step timeline — Day 1 marked TODAY, Day 2, Day 2 and Day 4–5 — where two students stand ready to present">
+<title>Introduction to research summary presentations: your first Research Summary starts today</title>
 <style>
-  .fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; }
-  .tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; }
-  .bl { animation: bl 1.6s steps(2) infinite; } .bl2 { animation-delay: -.5s; } .bl3 { animation-delay: -1.1s; }
-  .flow { stroke-dasharray: 2 14; animation: flow 1.4s linear infinite; } .flow2 { animation-duration: 2.1s; }
-  .rise { animation: rise 7s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .r2 { animation-delay: -2.3s; } .r3 { animation-delay: -4.6s; }
-  .pu { animation: pu 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .pu2 { animation-delay: -1.2s; }
-  .sp { animation: sp 14s linear infinite; transform-box: fill-box; transform-origin: center; }
-  .dash { animation: dash 2.4s linear infinite; }
-  @keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
-  @keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
-  @keyframes bl { 0% { opacity: 1; } 50% { opacity: .25; } }
-  @keyframes flow { to { stroke-dashoffset: -32; } }
-  @keyframes rise { 0% { transform: translateY(12px) scale(.9); opacity: 0; } 30% { opacity: .95; } 100% { transform: translateY(-40px) scale(1.08); opacity: 0; } }
-  @keyframes pu { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-  @keyframes sp { to { transform: rotate(360deg); } }
-  @keyframes dash { to { stroke-dashoffset: -44; } }
-  
-  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+.si-fl{animation:si-fl 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.si-f2{animation-delay:-2s}.si-f3{animation-delay:-4s}
+.si-tw{animation:si-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.si-t2{animation-delay:-1s}.si-t3{animation-delay:-2s}.si-t4{animation-delay:-.5s}
+@keyframes si-fl{50%{transform:translateY(-4px)}}
+@keyframes si-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.si-flow{stroke-dasharray:2 7;animation:si-flow 1.4s linear infinite}
+@keyframes si-flow{to{stroke-dashoffset:-18}}
+.si-bob{animation:si-bob 2.4s ease-in-out infinite}
+@keyframes si-bob{50%{transform:translateY(-3px)}}
+.si-pu{animation:si-pu 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes si-pu{50%{transform:scale(1.15)}}
+.si-mg{animation:si-mg 6s ease-in-out infinite}
+@keyframes si-mg{50%{transform:translate(-3px,3px)}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important}}
 </style>
 <defs>
-  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
-  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
-  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
-  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
-</defs>
-<ellipse cx="222" cy="300" rx="150" ry="12" fill="#14293a" opacity=".07"/>
-<circle cx="220" cy="165" r="138" fill="#f1e8f5"/>
-<circle cx="220" cy="165" r="152" stroke="#7a4a8c" stroke-opacity=".25" stroke-dasharray="2 6" stroke-linecap="round"/>
-<rect x="326" y="30" width="72" height="60" fill="url(#d)"/><rect x="36" y="238" width="60" height="48" fill="url(#d)"/>
-<path class="tw" d="M50 106h22m-11-11v22" stroke="#7a4a8c" stroke-width="2.4" stroke-linecap="round"/>
-<path class="tw tw2" d="M372 236h20m-10-10v20" stroke="#7a4a8c" stroke-width="2.4" stroke-linecap="round"/>
 
-<g class="fl" filter="url(#s2)"><rect x="56" y="70" width="70" height="52" rx="8" fill="#fff"/><rect x="62" y="76" width="58" height="34" rx="4" fill="#7a4a8c"/><path d="M84 84l14 9-14 9z" fill="#fff"/></g>
-<g class="fl fl2" filter="url(#s2)"><path d="M56 150h28a10 10 0 0 1 10 10v44H66a10 10 0 0 1-10-10z" fill="#3a58a0"/><path d="M94 160a10 10 0 0 1 10-10h28v54h-28a10 10 0 0 0-10 10z" fill="#5a78c0"/></g>
-<g class="fl fl3" filter="url(#s2)"><rect x="56" y="228" width="76" height="56" rx="8" fill="#fff"/><rect x="56" y="228" width="76" height="12" rx="6" fill="#2b776e"/><path d="M66 254h50M66 266h36" stroke="#14293a" stroke-opacity=".25" stroke-width="5" stroke-linecap="round"/></g>
-<path class="flow" d="M132 96c40 0 40 70 60 70M140 178h52M136 256c40 0 40-80 56-80" stroke="#7a4a8c" stroke-width="4" stroke-linecap="round"/>
-<g class="pu"><circle cx="208" cy="172" r="26" fill="#fff" fill-opacity=".5" stroke="#14293a" stroke-width="8"/><path d="M226 190l18 18" stroke="#14293a" stroke-width="10" stroke-linecap="round"/></g>
-<g filter="url(#s)"><rect x="252" y="96" width="150" height="104" rx="10" fill="#14293a"/><rect x="260" y="104" width="134" height="86" rx="5" fill="#fbf6ec"/></g>
-<path d="M326 200v52M300 252h52" stroke="#14293a" stroke-width="5" stroke-linecap="round"/>
-<g class="pu"><circle cx="276" cy="150" r="11" fill="#7a4a8c"/><text x="276" y="155" font-family="'Manrope', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="9" fill="#fff" text-anchor="middle">D1</text></g><g class="pu pu2"><circle cx="310" cy="150" r="11" fill="#3a58a0"/><text x="310" y="155" font-family="'Manrope', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="9" fill="#fff" text-anchor="middle">D2</text></g><g class="pu"><circle cx="344" cy="150" r="11" fill="#2b776e"/><text x="344" y="155" font-family="'Manrope', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="9" fill="#fff" text-anchor="middle">D3</text></g><g class="pu pu2"><circle cx="378" cy="150" r="11" fill="#e3a843"/><text x="378" y="155" font-family="'Manrope', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="9" fill="#fff" text-anchor="middle">D4</text></g>
-<path d="M287 150h12M321 150h12M355 150h12" stroke="#14293a" stroke-opacity=".4" stroke-width="3" stroke-linecap="round"/>
-<text x="327" y="126" font-family="'Manrope', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="10" fill="#7a4a8c" text-anchor="middle" letter-spacing="1">RESEARCH SUMMARY</text>
+<linearGradient id="si-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8f1fa"/><stop offset="1" stop-color="#e3d3ec"/></linearGradient>
+<pattern id="si-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1" fill="#7a4a8c" opacity=".12"/></pattern>
+<clipPath id="si-panel"><rect x="16" y="20" width="408" height="304" rx="34"/></clipPath>
+<linearGradient id="si-pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#fbf7ef"/></linearGradient>
+<linearGradient id="si-hd" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8f5ea3"/><stop offset="1" stop-color="#6a3d7c"/></linearGradient>
+<linearGradient id="si-scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a4458"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="si-bkl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f7fc4"/><stop offset="1" stop-color="#2f5a9a"/></linearGradient>
+<linearGradient id="si-bkr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9a68ad"/><stop offset="1" stop-color="#6a3d7c"/></linearGradient>
+<radialGradient id="si-lens" cx=".4" cy=".35" r=".75"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#efe4f4"/></radialGradient>
+<linearGradient id="si-rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34597a"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="si-wood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b98a5a"/><stop offset="1" stop-color="#8a6240"/></linearGradient>
+<radialGradient id="si-gs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".2"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient>
+<linearGradient id="si-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<filter id="si-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".8" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="si-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#14293a" flood-opacity=".16"/></filter>
+<clipPath id="si-lc"><circle cx="188" cy="152" r="29"/></clipPath>
+<marker id="si-ah" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto"><path d="M1 1l7 4-7 4" fill="none" stroke="#7a4a8c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<path id="si-st" d="M0-6C.8-1.5 1.5-.8 6 0 1.5.8.8 1.5 0 6-.8 1.5-1.5.8-6 0-1.5-.8-.8-1.5 0-6z"/>
+
+</defs>
+
+<!-- backdrop -->
+<rect x="16" y="20" width="408" height="304" rx="34" fill="url(#si-bg)"/>
+<rect x="16" y="20" width="408" height="304" rx="34" fill="url(#si-dots)"/>
+<g clip-path="url(#si-panel)">
+<circle cx="70" cy="58" r="74" fill="#7a4a8c" opacity=".06"/>
+<circle cx="404" cy="300" r="64" fill="#13887a" opacity=".08"/>
+<path d="M16 272c70-16 150-12 220 0s130 12 188-6v60H16z" fill="#7a4a8c" opacity=".06"/>
+<ellipse cx="96" cy="292" rx="70" ry="8" fill="url(#si-gs)"/>
+<ellipse cx="336" cy="322" rx="96" ry="12" fill="url(#si-gs)"/>
+<!-- easel -->
+<path d="M300 166l-18 92M352 166l18 92M326 166v86" stroke="url(#si-wood)" stroke-width="5" stroke-linecap="round"/>
+<path d="M292 214h68" stroke="#8a6240" stroke-width="3" stroke-linecap="round"/>
+<g transform="translate(300 254) scale(1.55 1.55)"><path d="M-23 42C-23 25-15 16 0 16S23 25 23 42z" fill="#2f6db5"/><path d="M-23 42C-23 25-15 16 0 16S23 25 23 42z" fill="url(#si-shine)" opacity=".35"/><path d="M-15.5 3C-16.5-11-8.5-16.5 0-16.5S16.5-11 15.5 3C15.5 14 12.5 21 0 26-12.5 21-15.5 14-15.5 3z" fill="#e3a843"/><path d="M-15 10C-17 18-20 22-23 30 -14 26-6 26 0 26 6 26 14 26 23 30 20 22 17 18 15 10 12 20 6 23 0 24-6 23-12 20-15 10z" fill="#e3a843"/><circle r="9.6" fill="#e6b48c"/><path d="M-10.5 1C-10.5-8-5.5-12 0-12S10.5-8 10.5 1C9.5-5 5.5-9.3 0-9.3S-9.5-5-10.5 1z" fill="#e3a843"/><path d="M-9 -4C-6-8.6 6-8.6 9-4" stroke="#fff" stroke-opacity=".25" stroke-width="1"/><circle cx="-3.8" cy="1.2" r="1.35" fill="#14293a"/><circle cx="3.8" cy="1.2" r="1.35" fill="#14293a"/><path d="M-5.6-2.6l3-.6M5.6-2.6l-3-.6" stroke="#14293a" stroke-opacity=".55" stroke-width="1" stroke-linecap="round"/><circle cx="-6.6" cy="4.6" r="1.9" fill="#e64626" opacity=".18"/><circle cx="6.6" cy="4.6" r="1.9" fill="#e64626" opacity=".18"/><path d="M-2.8 5.4Q0 9.6 2.8 5.4z" fill="#8e2f1f"/></g>
+<g transform="translate(374 262) scale(1.5 1.5)"><path d="M-23 42C-23 25-15 16 0 16S23 25 23 42z" fill="#7a4a8c"/><path d="M-23 42C-23 25-15 16 0 16S23 25 23 42z" fill="url(#si-shine)" opacity=".35"/><rect x="-4.2" y="7" width="8.4" height="11" rx="3" fill="#ecc09e"/><path d="M-6 16.5L0 23 6 16.5" stroke="#fff" stroke-opacity=".75" stroke-width="1.4" stroke-linejoin="round"/><circle cx="-10.8" cy="1.5" r="2.5" fill="#ecc09e"/><circle cx="10.8" cy="1.5" r="2.5" fill="#ecc09e"/><circle r="11" fill="#f6d6bb"/><g fill="#6b3e26"><circle cx="-10.5" cy="-3" r="4.2"/><circle cx="-9" cy="-9" r="4.6"/><circle cx="-4" cy="-12.5" r="4.8"/><circle cx="2" cy="-13" r="4.8"/><circle cx="7.5" cy="-10.5" r="4.6"/><circle cx="10.8" cy="-4.5" r="4.2"/><circle cx="0" cy="-8.5" r="5"/></g><circle cx="-3.8" cy="1.2" r="1.35" fill="#14293a"/><circle cx="3.8" cy="1.2" r="1.35" fill="#14293a"/><path d="M-5.6-2.6l3-.6M5.6-2.6l-3-.6" stroke="#14293a" stroke-opacity=".55" stroke-width="1" stroke-linecap="round"/><circle cx="-6.6" cy="4.6" r="1.9" fill="#e64626" opacity=".18"/><circle cx="6.6" cy="4.6" r="1.9" fill="#e64626" opacity=".18"/><path d="M-3 5.6Q0 8.2 3 5.6" stroke="#14293a" stroke-width="1.1" stroke-linecap="round"/></g>
+</g>
+<!-- sources -->
+<g class="si-fl">
+<g filter="url(#si-sh)"><path d="M98 76c-14-6-30-6-44 0v44c14-6 30-6 44 0z" fill="url(#si-bkl)"/><path d="M98 76c14-6 30-6 44 0v44c-14-6-30-6-44 0z" fill="url(#si-bkr)"/></g>
+<path d="M98 80c-12-5-26-5-38 0v38c12-5 26-5 38 0zM98 80c12-5 26-5 38 0v38c-12-5-26-5-38 0z" fill="url(#si-pg)"/>
+<path d="M98 80v38" stroke="#c9b6d4" stroke-width="1"/>
+<g stroke="#c3d0d6" stroke-width="2" stroke-linecap="round"><path d="M66 90c8-2 18-2 26 0M66 98c8-2 18-2 26 0M66 106c8-2 14-2 20 0"/><path d="M104 90c8-2 18-2 26 0M104 98c8-2 18-2 26 0M104 106c8-2 14-2 20 0"/></g>
+</g>
+<g class="si-fl si-f2">
+<g filter="url(#si-sh)"><rect x="56" y="140" width="78" height="50" rx="6" fill="url(#si-scr)"/></g>
+<rect x="61" y="145" width="68" height="34" rx="3" fill="#2f6db5" fill-opacity=".35"/>
+<circle cx="95" cy="162" r="10" fill="#e64626"/><path d="M92 156.5l8 5.5-8 5.5z" fill="#fff"/>
+<rect x="61" y="183" width="68" height="2.6" rx="1.3" fill="#fff" fill-opacity=".25"/><rect x="61" y="183" width="28" height="2.6" rx="1.3" fill="#e64626"/>
+</g>
+<g class="si-fl si-f3">
+<g filter="url(#si-sh)"><rect x="50" y="212" width="80" height="58" rx="5" fill="url(#si-pg)"/></g>
+<path d="M55 212h70a5 5 0 0 1 5 5v5H50v-5a5 5 0 0 1 5-5z" fill="#e6d7ee"/>
+<circle cx="57" cy="217" r="1.6" fill="#e64626"/><circle cx="62.5" cy="217" r="1.6" fill="#e3a843"/><circle cx="68" cy="217" r="1.6" fill="#13887a"/>
+<rect x="57" y="229" width="26" height="18" rx="2" fill="#13887a" fill-opacity=".18"/><path d="M60 243l6-6 4 3 8-8" stroke="#13887a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<g stroke="#c3d0d6" stroke-width="2" stroke-linecap="round"><path d="M89 231h33M89 238h28M89 245h33M57 256h64M57 263h44"/></g>
+<g transform="translate(130 216)"><circle r="11" fill="#fff" filter="url(#si-sh2)"/><rect x="-3" y="-7" width="6" height="10" rx="3" fill="#7a4a8c"/><path d="M-6 0a6 6 0 0 0 12 0M0 6v3" stroke="#14293a" stroke-width="1.4" stroke-linecap="round"/></g>
+</g>
+<!-- flows into the lens -->
+<path class="si-flow" d="M144 100C160 110 164 124 168 132" stroke="#7a4a8c" stroke-width="2" stroke-linecap="round"/>
+<path class="si-flow" d="M138 164C146 162 152 158 158 156" stroke="#7a4a8c" stroke-width="2" stroke-linecap="round"/>
+<path class="si-flow" d="M136 240C152 228 162 200 170 180" stroke="#7a4a8c" stroke-width="2" stroke-linecap="round"/>
+<!-- magnifier: one source -->
+<g class="si-mg">
+<path d="M209 173l18 20" stroke="#14293a" stroke-width="9" stroke-linecap="round"/><path d="M213 177.5l11 12.5" stroke="#e3a843" stroke-width="4" stroke-linecap="round"/>
+<circle cx="188" cy="152" r="29" fill="url(#si-lens)" filter="url(#si-sh2)"/>
+<g clip-path="url(#si-lc)">
+<rect x="172" y="132" width="32" height="40" rx="3" fill="#fff" stroke="#d9c7e2" stroke-width="1"/>
+<rect x="176" y="137" width="14" height="4" rx="1" fill="#7a4a8c"/>
+<path d="M176 147h24M176 153h20M176 159h24M176 165h16" stroke="#c3d0d6" stroke-width="2" stroke-linecap="round"/>
+<rect x="174.5" y="150" width="27" height="6" rx="2" fill="#f2c14e" opacity=".55"/>
+</g>
+<circle cx="188" cy="152" r="29" stroke="url(#si-rim)" stroke-width="5"/>
+<path d="M168 138a22 22 0 0 1 12-10" stroke="#fff" stroke-width="2.6" stroke-linecap="round" opacity=".85"/>
+<g transform="translate(208 128)"><circle r="8" fill="#e3a843" stroke="#fff" stroke-width="1.8"/><path d="M0-4.4l1.3 2.7 3 .4-2.2 2.1.5 3L0 2.4-2.6 3.8l.5-3-2.2-2.1 3-.4z" fill="#fff"/></g>
+</g>
+<path class="si-flow" d="M220 146C226 140 232 136 238 134" stroke="#7a4a8c" stroke-width="2" stroke-linecap="round" marker-end="url(#si-ah)"/>
+<!-- presentation screen -->
+<g filter="url(#si-sh)"><rect x="244" y="52" width="170" height="116" rx="9" fill="url(#si-pg)"/></g>
+<path d="M253 52h152a9 9 0 0 1 9 9v12H244V61a9 9 0 0 1 9-9z" fill="url(#si-hd)"/>
+<text x="329" y="66.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="800" fill="#fff" letter-spacing="1.2">RESEARCH SUMMARY</text>
+<path d="M270 124h120" stroke="#7a4a8c" stroke-opacity=".25" stroke-width="4" stroke-linecap="round"/>
+<path d="M270 124h40" stroke="#7a4a8c" stroke-width="4" stroke-linecap="round"/>
+<g class="si-pu"><circle cx="270" cy="124" r="10.5" fill="#7a4a8c" stroke="#fff" stroke-width="2.2"/></g><text x="270" y="128" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="900" fill="#fff">1</text><text x="270" y="149" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="800" fill="#5b4a66">Day 1</text><g><circle cx="310" cy="124" r="10.5" fill="#13887a" stroke="#fff" stroke-width="2.2"/></g><text x="310" y="128" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="900" fill="#fff">2</text><text x="310" y="149" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="800" fill="#5b4a66">Day 2</text><g><circle cx="350" cy="124" r="10.5" fill="#e3a843" stroke="#fff" stroke-width="2.2"/></g><text x="350" y="128" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="900" fill="#fff">3</text><text x="350" y="149" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="800" fill="#5b4a66">Day 2</text><g><circle cx="390" cy="124" r="10.5" fill="#e64626" stroke="#fff" stroke-width="2.2"/></g><text x="390" y="128" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="900" fill="#fff">4</text><text x="390" y="149" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="800" fill="#5b4a66">Day 4–5</text>
+<g class="si-bob"><rect x="248" y="88" width="44" height="15" rx="7.5" fill="#e3a843"/><path d="M266 102.5h8l-4 5z" fill="#e3a843"/>
+<text x="270" y="98.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="900" fill="#fff" letter-spacing=".8">TODAY</text></g>
+<g transform="translate(398 96)"><path d="M0 8v-18" stroke="#14293a" stroke-width="1.4" stroke-linecap="round"/><path d="M0-10h10l-2.5 3.8L10-2.4H0z" fill="#e64626"/></g>
+<rect x="320" y="160" width="12" height="8" fill="#d9c7e2"/>
+<!-- sparkles -->
+<g transform="translate(212 46)"><use href="#si-st" class="si-tw" fill="#e3a843"/></g>
+<g transform="translate(36 150) scale(.7)"><use href="#si-st" class="si-tw si-t2" fill="#13887a"/></g>
+<g transform="translate(220 262) scale(.75)"><use href="#si-st" class="si-tw si-t3" fill="#7a4a8c"/></g>
+<g transform="translate(160 54) scale(.55)"><use href="#si-st" class="si-tw si-t4" fill="#2f6db5"/></g>
+<circle class="si-tw si-t2" cx="236" cy="210" r="2.4" fill="#e64626" opacity=".7"/>
+<circle class="si-tw" cx="30" cy="96" r="2" fill="#e3a843"/>
 
 </svg>

@@ -1,14 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="SQ3R notes">
-<style>.fl{animation:fl 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.f2{animation-delay:-1.7s}.f3{animation-delay:-3.3s}
-.tw{animation:tw 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.t2{animation-delay:-1.4s}
-.sp{animation:sp 9s linear infinite;transform-box:fill-box;transform-origin:center}.pu{animation:pu 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.dr{stroke-dasharray:6 8;animation:dr 1.6s linear infinite}.bl{animation:bl 4s infinite;transform-box:fill-box;transform-origin:center}
-.sw{animation:sw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:top center}
-@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes tw{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.05)}}
-@keyframes sp{to{transform:rotate(360deg)}}@keyframes pu{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}}
-@keyframes dr{to{stroke-dashoffset:-28}}@keyframes bl{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}@keyframes sw{50%{transform:rotate(6deg)}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style><defs><filter id="s" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#14293a" flood-opacity=".16"/></filter></defs>
-<path d="M44 38c22-30 78-34 118-14 34 17 50 54 36 88-14 34-56 50-98 44C54 150 18 118 22 82c2-18 10-32 22-44z" fill="#dfeee8"/>
-<path class="tw" d="M28 30h12m-6-6v12" stroke="#2b776e" stroke-width="2.4" stroke-linecap="round"/><path class="tw t2" d="M204 150h12m-6-6v12" stroke="#f2c14e" stroke-width="2.4" stroke-linecap="round"/>
-<circle class="tw t2" cx="208" cy="40" r="3" fill="#f2c14e"/><circle class="tw" cx="34" cy="146" r="3" fill="#2b776e"/>
-<g filter="url(#s)"><rect x="70" y="40" width="100" height="112" rx="10" fill="#fff"/><rect x="100" y="32" width="40" height="18" rx="6" fill="#2b776e"/></g><g class="pu" style="animation-delay:-0.0s"><rect x="84" y="62" width="14" height="14" rx="4" fill="#2f9a63" stroke="#2f9a63" stroke-width="2"/><path d="M87 69l3 3 6-6" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/></g><path d="M106 69h46" stroke="#14293a" stroke-opacity=".25" stroke-width="6" stroke-linecap="round"/><g class="pu" style="animation-delay:-0.5s"><rect x="84" y="86" width="14" height="14" rx="4" fill="#2f9a63" stroke="#2f9a63" stroke-width="2"/><path d="M87 93l3 3 6-6" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/></g><path d="M106 93h38" stroke="#14293a" stroke-opacity=".25" stroke-width="6" stroke-linecap="round"/><g class="pu" style="animation-delay:-1.0s"><rect x="84" y="110" width="14" height="14" rx="4" fill="#fff" stroke="#2b776e" stroke-width="2"/></g><path d="M106 117h30" stroke="#14293a" stroke-opacity=".25" stroke-width="6" stroke-linecap="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="The SQ3R cycle: five badges S, Q, R, R, R with small icons for survey, question, read, recite and review, linked by arrows in a circle around a notebook with a Notes column of arrow symbols and a pencil">
+<title>Reading for note taking: SQ3R — Survey, Question, Read, Recite, Review</title>
+<style>
+.wa4-fl{animation:wa4-fl 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wa4-f2{animation-delay:-2s}.wa4-f3{animation-delay:-4s}
+.wa4-tw{animation:wa4-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wa4-t2{animation-delay:-1s}.wa4-t3{animation-delay:-2s}.wa4-t4{animation-delay:-.5s}
+@keyframes wa4-fl{50%{transform:translateY(-4px)}}
+@keyframes wa4-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.wa4-run{stroke-dasharray:3 4;animation:wa4-run 1.4s linear infinite}
+@keyframes wa4-run{to{stroke-dashoffset:-14}}
+.wa4-pn{animation:wa4-pn 2.4s ease-in-out infinite}
+@keyframes wa4-pn{50%{transform:translateX(3px)}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important}}
+</style>
+<defs>
+<linearGradient id="wa4-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8f5f0"/><stop offset="1" stop-color="#d2e9e0"/></linearGradient>
+<pattern id="wa4-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#2f7d6b" opacity=".16"/></pattern>
+<radialGradient id="wa4-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="wa4-gs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".22"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient>
+<filter id="wa4-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".17"/><feDropShadow dx="0" dy=".8" stdDeviation=".5" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="wa4-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#14293a" flood-opacity=".16"/></filter>
+<linearGradient id="wa4-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<path id="wa4-st" d="M0-6C.8-1.5 1.5-.8 6 0 1.5.8.8 1.5 0 6-.8 1.5-1.5.8-6 0-1.5-.8-.8-1.5 0-6z"/>
+
+<radialGradient id="wa4-node" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f3f0e8"/></radialGradient>
+<linearGradient id="wa4-nb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f6efe1"/></linearGradient>
+<linearGradient id="wa4-cov" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a9a89"/><stop offset="1" stop-color="#0f6f63"/></linearGradient>
+<marker id="wa4-ah" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1l7 4-7 4" fill="none" stroke="#13887a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+
+</defs>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#wa4-bg)"/>
+<clipPath id="wa4-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath>
+<g clip-path="url(#wa4-clip)"><rect width="240" height="180" fill="url(#wa4-dots)"/><ellipse cx="116" cy="74" rx="110" ry="70" fill="url(#wa4-glow)"/></g>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".75" stroke-width="1.2"/>
+<ellipse cx="120" cy="160" rx="74" ry="7" fill="url(#wa4-gs)"/>
+
+<circle cx="120" cy="91" r="58" stroke="#13887a" stroke-opacity=".12" stroke-width="9"/>
+<path d="M138.9 36.2A58 58 0 0 1 166.3 56.1" stroke="#13887a" stroke-width="2.2" stroke-linecap="round" marker-end="url(#wa4-ah)"/><path d="M178.0 92.0A58 58 0 0 1 167.5 124.3" stroke="#13887a" stroke-width="2.2" stroke-linecap="round" marker-end="url(#wa4-ah)"/><path d="M137.0 146.5A58 58 0 0 1 103.0 146.5" stroke="#13887a" stroke-width="2.2" stroke-linecap="round" marker-end="url(#wa4-ah)"/><path d="M72.5 124.3A58 58 0 0 1 62.0 92.0" stroke="#13887a" stroke-width="2.2" stroke-linecap="round" marker-end="url(#wa4-ah)"/><path class="wa4-run" d="M73.7 56.1A58 58 0 0 1 101.1 36.2" stroke="#13887a" stroke-width="2.2" stroke-linecap="round" marker-end="url(#wa4-ah)"/>
+<!-- notebook with notes column -->
+<g class="wa4-fl">
+<rect x="95" y="64" width="50" height="58" rx="4" fill="url(#wa4-cov)" transform="translate(2 2)" opacity=".9"/>
+<rect x="95" y="64" width="50" height="58" rx="4" fill="url(#wa4-nb)" filter="url(#wa4-sh)"/>
+<path d="M120 70v47" stroke="#e64626" stroke-opacity=".5" stroke-width="1"/>
+<g stroke="#c3d0d6" stroke-width="2" stroke-linecap="round"><path d="M100 74h16M100 81h14M100 88h16M100 95h12M100 102h15M100 109h11"/></g>
+<text x="124" y="78" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="800" fill="#13887a">→</text>
+<path d="M133 75h7" stroke="#14293a" stroke-opacity=".55" stroke-width="1.6" stroke-linecap="round"/>
+<text x="124.5" y="92" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="800" fill="#e64626">↑</text>
+<path d="M131 89h9" stroke="#14293a" stroke-opacity=".55" stroke-width="1.6" stroke-linecap="round"/>
+<text x="124" y="106" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="800" fill="#2f6db5">∴</text>
+<path d="M132 103h8" stroke="#14293a" stroke-opacity=".55" stroke-width="1.6" stroke-linecap="round"/>
+<circle cx="101" cy="64" r="1.6" fill="#0f6f63"/><path d="M101 64v-4" stroke="#5b6b78" stroke-width="1.4" stroke-linecap="round"/><circle cx="108" cy="64" r="1.6" fill="#0f6f63"/><path d="M108 64v-4" stroke="#5b6b78" stroke-width="1.4" stroke-linecap="round"/><circle cx="115" cy="64" r="1.6" fill="#0f6f63"/><path d="M115 64v-4" stroke="#5b6b78" stroke-width="1.4" stroke-linecap="round"/><circle cx="122" cy="64" r="1.6" fill="#0f6f63"/><path d="M122 64v-4" stroke="#5b6b78" stroke-width="1.4" stroke-linecap="round"/><circle cx="129" cy="64" r="1.6" fill="#0f6f63"/><path d="M129 64v-4" stroke="#5b6b78" stroke-width="1.4" stroke-linecap="round"/><circle cx="136" cy="64" r="1.6" fill="#0f6f63"/><path d="M136 64v-4" stroke="#5b6b78" stroke-width="1.4" stroke-linecap="round"/>
+</g>
+<g class="wa4-pn"><g transform="translate(150 116) rotate(35)"><rect x="-2.2" y="-14" width="4.4" height="16" rx="1" fill="#e3a843"/><path d="M-2.2 2h4.4L0 6z" fill="#f6e2b8"/><path d="M-.8 4.6h1.6L0 6z" fill="#14293a"/><rect x="-2.2" y="-15.5" width="4.4" height="2.6" rx="1" fill="#e64626"/></g></g>
+<g transform="translate(120.0 33.0)"><circle r="15.5" fill="url(#wa4-node)" filter="url(#wa4-sh)"/><circle r="15.5" stroke="#13887a" stroke-width="1.8"/><circle r="11.5" fill="#13887a"/><circle r="11.5" fill="url(#wa4-shine)" opacity=".5"/>
+<text y="4.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="900" fill="#fff">S</text>
+<g transform="translate(11.5 -11.5)"><circle r="6" fill="#14293a" stroke="#fff" stroke-width="1.3"/><circle r="2.2" fill="#fff"/><path d="M-4 0c2-3 6-3 8 0-2 3-6 3-8 0z" stroke="#fff" stroke-width="1"/></g></g><g transform="translate(175.2 73.1)"><circle r="15.5" fill="url(#wa4-node)" filter="url(#wa4-sh)"/><circle r="15.5" stroke="#2f6db5" stroke-width="1.8"/><circle r="11.5" fill="#2f6db5"/><circle r="11.5" fill="url(#wa4-shine)" opacity=".5"/>
+<text y="4.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="900" fill="#fff">Q</text>
+<g transform="translate(11.5 -11.5)"><circle r="6" fill="#14293a" stroke="#fff" stroke-width="1.3"/><text y="2.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="900" fill="#fff">?</text></g></g><g transform="translate(154.1 137.9)"><circle r="15.5" fill="url(#wa4-node)" filter="url(#wa4-sh)"/><circle r="15.5" stroke="#e3a843" stroke-width="1.8"/><circle r="11.5" fill="#e3a843"/><circle r="11.5" fill="url(#wa4-shine)" opacity=".5"/>
+<text y="4.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="900" fill="#fff">R</text>
+<g transform="translate(11.5 -11.5)"><circle r="6" fill="#14293a" stroke="#fff" stroke-width="1.3"/><path d="M-4-2.5c1.5-.6 3-.6 4 .4 1-1 2.5-1 4-.4v5c-1.5-.6-3-.6-4 .4-1-1-2.5-1-4-.4z" fill="#fff"/></g></g><g transform="translate(85.9 137.9)"><circle r="15.5" fill="url(#wa4-node)" filter="url(#wa4-sh)"/><circle r="15.5" stroke="#e64626" stroke-width="1.8"/><circle r="11.5" fill="#e64626"/><circle r="11.5" fill="url(#wa4-shine)" opacity=".5"/>
+<text y="4.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="900" fill="#fff">R</text>
+<g transform="translate(11.5 -11.5)"><circle r="6" fill="#14293a" stroke="#fff" stroke-width="1.3"/><path d="M-3 3l.6-2.4 4-4 1.8 1.8-4 4z" fill="#fff"/></g></g><g transform="translate(64.8 73.1)"><circle r="15.5" fill="url(#wa4-node)" filter="url(#wa4-sh)"/><circle r="15.5" stroke="#7a4a8c" stroke-width="1.8"/><circle r="11.5" fill="#7a4a8c"/><circle r="11.5" fill="url(#wa4-shine)" opacity=".5"/>
+<text y="4.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="900" fill="#fff">R</text>
+<g transform="translate(11.5 -11.5)"><circle r="6" fill="#14293a" stroke="#fff" stroke-width="1.3"/><path d="M-4-3h8a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1H-.5L-3 4.5V2.5h-1a1 1 0 0 1-1-1V-2a1 1 0 0 1 1-1z" fill="#fff"/></g></g>
+<g transform="translate(30 36) scale(0.75)"><use href="#wa4-st" class="wa4-tw" fill="#e3a843"/></g>
+<g transform="translate(212 140) scale(0.7)"><use href="#wa4-st" class="wa4-tw wa4-t2" fill="#7a4a8c"/></g>
+<circle class="wa4-tw wa4-t3" cx="214" cy="38" r="2" fill="#13887a"/>
+<circle class="wa4-tw wa4-t4" cx="26" cy="132" r="1.8" fill="#e64626"/>
+
+</svg>

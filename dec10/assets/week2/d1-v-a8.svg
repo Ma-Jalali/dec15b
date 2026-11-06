@@ -1,14 +1,73 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Flipping cause and effect">
-<style>.fl{animation:fl 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.f2{animation-delay:-1.7s}.f3{animation-delay:-3.3s}
-.tw{animation:tw 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.t2{animation-delay:-1.4s}
-.sp{animation:sp 9s linear infinite;transform-box:fill-box;transform-origin:center}.pu{animation:pu 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.dr{stroke-dasharray:6 8;animation:dr 1.6s linear infinite}.bl{animation:bl 4s infinite;transform-box:fill-box;transform-origin:center}
-.sw{animation:sw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:top center}
-@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes tw{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.05)}}
-@keyframes sp{to{transform:rotate(360deg)}}@keyframes pu{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}}
-@keyframes dr{to{stroke-dashoffset:-28}}@keyframes bl{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}@keyframes sw{50%{transform:rotate(6deg)}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style><defs><filter id="s" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#14293a" flood-opacity=".16"/></filter></defs>
-<path d="M44 38c22-30 78-34 118-14 34 17 50 54 36 88-14 34-56 50-98 44C54 150 18 118 22 82c2-18 10-32 22-44z" fill="#dfeee8"/>
-<path class="tw" d="M28 30h12m-6-6v12" stroke="#2b776e" stroke-width="2.4" stroke-linecap="round"/><path class="tw t2" d="M204 150h12m-6-6v12" stroke="#f2c14e" stroke-width="2.4" stroke-linecap="round"/>
-<circle class="tw t2" cx="208" cy="40" r="3" fill="#f2c14e"/><circle class="tw" cx="34" cy="146" r="3" fill="#2b776e"/>
-<g class="fl"><path d="M70 60h40v-10a10 10 0 0 1 20 0v10h40v40h-10a10 10 0 0 0 0 20h10v40h-40v-10a10 10 0 0 0-20 0v10H70v-40h10a10 10 0 0 0 0-20H70z" fill="#2b776e" filter="url(#s)" transform="translate(0 -6) scale(.9) translate(13 10)"/></g><g transform="translate(178 54)" filter="url(#s)"><g class="pu"><circle r="20" fill="#f2c14e"/><path d="M-8 0h16M0-8v16" stroke="#fff" stroke-width="5" stroke-linecap="round"/></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Flip it, swap it: an effect card with a CO₂ cloud now comes first and a cause card with a phone comes second, with curved arrows showing the swap, and two phrase chips, due to and because of, that can replace each other">
+<title>Language focus: flip cause and effect, and swap the phrases</title>
+<style>
+.wa8-fl{animation:wa8-fl 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wa8-f2{animation-delay:-2s}.wa8-f3{animation-delay:-4s}
+.wa8-tw{animation:wa8-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wa8-t2{animation-delay:-1s}.wa8-t3{animation-delay:-2s}.wa8-t4{animation-delay:-.5s}
+@keyframes wa8-fl{50%{transform:translateY(-4px)}}
+@keyframes wa8-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.wa8-run{stroke-dasharray:4 4;animation:wa8-run 1.3s linear infinite}
+@keyframes wa8-run{to{stroke-dashoffset:-16}}
+.wa8-sw{animation:wa8-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes wa8-sw{0%,40%,100%{transform:rotate(0)}60%,80%{transform:rotate(180deg)}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important}}
+</style>
+<defs>
+<linearGradient id="wa8-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8f5f0"/><stop offset="1" stop-color="#d2e9e0"/></linearGradient>
+<pattern id="wa8-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#2f7d6b" opacity=".16"/></pattern>
+<radialGradient id="wa8-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="wa8-gs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".22"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient>
+<filter id="wa8-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".17"/><feDropShadow dx="0" dy=".8" stdDeviation=".5" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="wa8-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#14293a" flood-opacity=".16"/></filter>
+<linearGradient id="wa8-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<path id="wa8-st" d="M0-6C.8-1.5 1.5-.8 6 0 1.5.8.8 1.5 0 6-.8 1.5-1.5.8-6 0-1.5-.8-.8-1.5 0-6z"/>
+
+<linearGradient id="wa8-c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a9a89"/><stop offset="1" stop-color="#0f6f63"/></linearGradient>
+<linearGradient id="wa8-e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f06a4a"/><stop offset="1" stop-color="#c8401f"/></linearGradient>
+<linearGradient id="wa8-ph" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a4458"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="wa8-cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e6ecef"/></linearGradient>
+<marker id="wa8-at" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1l7 4-7 4" fill="none" stroke="#e64626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="wa8-ab" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1l7 4-7 4" fill="none" stroke="#13887a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+
+</defs>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#wa8-bg)"/>
+<clipPath id="wa8-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath>
+<g clip-path="url(#wa8-clip)"><rect width="240" height="180" fill="url(#wa8-dots)"/><ellipse cx="116" cy="74" rx="110" ry="70" fill="url(#wa8-glow)"/></g>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".75" stroke-width="1.2"/>
+<ellipse cx="120" cy="160" rx="82" ry="7" fill="url(#wa8-gs)"/>
+
+<!-- flip arrows -->
+<path class="wa8-run" d="M154 30C140 14 100 14 86 30" stroke="#e64626" stroke-width="2" stroke-linecap="round" marker-end="url(#wa8-at)"/>
+<path class="wa8-run" d="M86 104C100 118 140 118 154 104" stroke="#13887a" stroke-width="2" stroke-linecap="round" marker-end="url(#wa8-ab)"/>
+<!-- effect first, cause second -->
+<g transform="translate(72 66)">
+<g filter="url(#wa8-sh)"><rect x="-29" y="-27" width="58" height="56" rx="10" fill="#fff"/></g>
+<rect x="-29" y="-27" width="58" height="56" rx="10" stroke="url(#wa8-e)" stroke-width="2"/>
+<rect x="-23" y="-34" width="46" height="12" rx="6" fill="url(#wa8-e)"/>
+<text y="-25.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="6.6" font-weight="800" fill="#fff" letter-spacing=".8">EFFECT</text>
+<g transform="translate(0 2)"><path d="M-16 8h29a7.5 7.5 0 0 0 1-15 10.5 10.5 0 0 0-19-4 8 8 0 0 0-11.5 6.5 6.5 6.5 0 0 0 .5 12.5z" fill="url(#wa8-cl)" stroke="#c9d3da" stroke-width="1"/>
+<text x="-1" y="4.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="800" fill="#14293a">CO<tspan font-size="5.5" dy="1.8">2</tspan></text>
+<path d="M-10 13c0 3 2 3 2 6M0 13c0 3 2 3 2 6M10 13c0 3 2 3 2 6" stroke="#9fb0bb" stroke-width="1.2" stroke-linecap="round"/></g>
+<circle cx="22" cy="21" r="6.5" fill="#14293a" stroke="#fff" stroke-width="1.4"/><text x="22" y="24" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="800" fill="#fff">1</text>
+</g>
+<g transform="translate(168 66)">
+<g filter="url(#wa8-sh)"><rect x="-29" y="-27" width="58" height="56" rx="10" fill="#fff"/></g>
+<rect x="-29" y="-27" width="58" height="56" rx="10" stroke="url(#wa8-c)" stroke-width="2"/>
+<rect x="-23" y="-34" width="46" height="12" rx="6" fill="url(#wa8-c)"/>
+<text y="-25.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="6.6" font-weight="800" fill="#fff" letter-spacing=".8">CAUSE</text>
+<g transform="translate(0 1)"><rect x="-9" y="-16" width="18" height="32" rx="4" fill="url(#wa8-ph)"/><rect x="-6.5" y="-12" width="13" height="24" rx="2" fill="#1a9a89"/>
+<rect x="-4.5" y="-9" width="9" height="3" rx="1.5" fill="#fff"/><rect x="-2.5" y="-4" width="7" height="3" rx="1.5" fill="#e3a843"/><rect x="-4.5" y="1" width="6" height="3" rx="1.5" fill="#fff"/>
+<path d="M12-8a8 8 0 0 1 0 10M15-11a12 12 0 0 1 0 16" stroke="#13887a" stroke-width="1.4" stroke-linecap="round"/></g>
+<circle cx="22" cy="21" r="6.5" fill="#14293a" stroke="#fff" stroke-width="1.4"/><text x="22" y="24" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="800" fill="#fff">2</text>
+</g>
+<g transform="translate(120 66)"><circle r="12" fill="#fff" filter="url(#wa8-sh2)"/><g class="wa8-sw"><path d="M-6-2.5h11M2-6l3.5 3.5L2 1M6 2.5H-5M-2-1l-3.5 3.5L-2 6" stroke="#14293a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+<!-- swap the phrase -->
+<g filter="url(#wa8-sh2)"><rect x="36" y="128" width="62" height="18" rx="9" fill="#2f6db5"/><rect x="142" y="128" width="62" height="18" rx="9" fill="#7a4a8c"/></g>
+<text x="67" y="140.5" text-anchor="middle" font-family="Georgia, serif" font-size="9.5" font-weight="700" font-style="italic" fill="#fff">due to</text>
+<text x="173" y="140.5" text-anchor="middle" font-family="Georgia, serif" font-size="9.5" font-weight="700" font-style="italic" fill="#fff">because of</text>
+<path d="M108 133.5h24l-4-3.5M132 140.5h-24l4 3.5" stroke="#14293a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(30 46) scale(0.8)"><use href="#wa8-st" class="wa8-tw" fill="#e3a843"/></g>
+<g transform="translate(214 112) scale(0.65)"><use href="#wa8-st" class="wa8-tw wa8-t2" fill="#7a4a8c"/></g>
+<circle class="wa8-tw wa8-t3" cx="210" cy="30" r="2" fill="#13887a"/>
+<circle class="wa8-tw wa8-t4" cx="26" cy="104" r="1.8" fill="#e64626"/>
+
+</svg>

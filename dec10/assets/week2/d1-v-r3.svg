@@ -1,14 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Discussing summaries">
-<style>.fl{animation:fl 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.f2{animation-delay:-1.7s}.f3{animation-delay:-3.3s}
-.tw{animation:tw 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.t2{animation-delay:-1.4s}
-.sp{animation:sp 9s linear infinite;transform-box:fill-box;transform-origin:center}.pu{animation:pu 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.dr{stroke-dasharray:6 8;animation:dr 1.6s linear infinite}.bl{animation:bl 4s infinite;transform-box:fill-box;transform-origin:center}
-.sw{animation:sw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:top center}
-@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes tw{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.05)}}
-@keyframes sp{to{transform:rotate(360deg)}}@keyframes pu{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}}
-@keyframes dr{to{stroke-dashoffset:-28}}@keyframes bl{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}@keyframes sw{50%{transform:rotate(6deg)}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style><defs><filter id="s" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#14293a" flood-opacity=".16"/></filter></defs>
-<path d="M44 38c22-30 78-34 118-14 34 17 50 54 36 88-14 34-56 50-98 44C54 150 18 118 22 82c2-18 10-32 22-44z" fill="#f1e8f5"/>
-<path class="tw" d="M28 30h12m-6-6v12" stroke="#7a4a8c" stroke-width="2.4" stroke-linecap="round"/><path class="tw t2" d="M204 150h12m-6-6v12" stroke="#2f9a63" stroke-width="2.4" stroke-linecap="round"/>
-<circle class="tw t2" cx="208" cy="40" r="3" fill="#2f9a63"/><circle class="tw" cx="34" cy="146" r="3" fill="#7a4a8c"/>
-<g class="fl"><g transform="translate(76 104) scale(0.9)"><circle cy="-16" r="13" fill="#7a4a8c"/><path d="M-22 34c0-22 10-32 22-32s22 10 22 32z" fill="#7a4a8c" opacity=".85"/></g></g><g class="fl f2"><g transform="translate(120 96) scale(1.0)"><circle cy="-16" r="13" fill="#2f9a63"/><path d="M-22 34c0-22 10-32 22-32s22 10 22 32z" fill="#2f9a63" opacity=".85"/></g></g><g class="fl f3"><g transform="translate(164 104) scale(0.9)"><circle cy="-16" r="13" fill="#7a4a8c"/><path d="M-22 34c0-22 10-32 22-32s22 10 22 32z" fill="#7a4a8c" opacity=".85"/></g></g><g filter="url(#s)"><rect x="94" y="28" width="52" height="28" rx="14" fill="#14293a"/><path d="M116 56l-8 14 20-14z" fill="#14293a"/><circle cx="106.0" cy="42.0" r="3.5" fill="#fff"/><circle cx="120.0" cy="42.0" r="3.5" fill="#fff"/><circle cx="134.0" cy="42.0" r="3.5" fill="#fff"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Why summarise? A long source is squeezed by an arrow into a short summary card with three badges — focused, accurate, in your own words — while a group of three students discusses it">
+<title>Individual research and summary: why we summarise and what makes a good summary</title>
+<style>
+.wr3-fl{animation:wr3-fl 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wr3-f2{animation-delay:-2s}.wr3-f3{animation-delay:-4s}
+.wr3-tw{animation:wr3-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wr3-t2{animation-delay:-1s}.wr3-t3{animation-delay:-2s}.wr3-t4{animation-delay:-.5s}
+@keyframes wr3-fl{50%{transform:translateY(-4px)}}
+@keyframes wr3-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.wr3-sq{animation:wr3-sq 3s ease-in-out infinite;transform-box:fill-box;transform-origin:left center}
+@keyframes wr3-sq{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.8)}}
+.wr3-dot{animation:wr3-dot 1.4s ease-in-out infinite}.wr3-d2{animation-delay:.2s}.wr3-d3{animation-delay:.4s}
+@keyframes wr3-dot{50%{opacity:.3}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important}}
+</style>
+<defs>
+<linearGradient id="wr3-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6eef9"/><stop offset="1" stop-color="#e6d7ee"/></linearGradient>
+<pattern id="wr3-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#7a4a8c" opacity=".16"/></pattern>
+<radialGradient id="wr3-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="wr3-gs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".22"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient>
+<filter id="wr3-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".17"/><feDropShadow dx="0" dy=".8" stdDeviation=".5" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="wr3-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#14293a" flood-opacity=".16"/></filter>
+<linearGradient id="wr3-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<path id="wr3-st" d="M0-6C.8-1.5 1.5-.8 6 0 1.5.8.8 1.5 0 6-.8 1.5-1.5.8-6 0-1.5-.8-.8-1.5 0-6z"/>
+
+<linearGradient id="wr3-pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#fbf7ef"/></linearGradient>
+<linearGradient id="wr3-arr" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9a68ad"/><stop offset="1" stop-color="#7a4a8c"/></linearGradient>
+
+</defs>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#wr3-bg)"/>
+<clipPath id="wr3-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath>
+<g clip-path="url(#wr3-clip)"><rect width="240" height="180" fill="url(#wr3-dots)"/><ellipse cx="116" cy="74" rx="110" ry="70" fill="url(#wr3-glow)"/></g>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".75" stroke-width="1.2"/>
+<ellipse cx="120" cy="160" rx="82" ry="7" fill="url(#wr3-gs)"/>
+
+<!-- the long source -->
+<g transform="rotate(-5 52 64)">
+<rect x="34" y="28" width="44" height="70" rx="3" fill="#f0e6f4" transform="translate(4 3)"/>
+<rect x="34" y="28" width="44" height="70" rx="3" fill="url(#wr3-pg)" filter="url(#wr3-sh)"/>
+<rect x="37" y="32" width="20" height="4" rx="1" fill="#7a4a8c"/>
+<g stroke="#c3d0d6" stroke-width="2" stroke-linecap="round"><path d="M37 40h30" /><path d="M37 46h34" /><path d="M37 52h26" /><path d="M37 58h32" /><path d="M37 64h34" /><path d="M37 70h22" /><path d="M37 76h30" /><path d="M37 82h28" /><path d="M37 88h18" /></g>
+</g>
+<!-- squeeze arrow -->
+<g class="wr3-sq"><path d="M86 52l20 4v-6l14 10-14 10v-6l-20 4z" fill="url(#wr3-arr)"/></g>
+<!-- the short summary -->
+<g class="wr3-fl"><g filter="url(#wr3-sh)"><rect x="128" y="38" width="66" height="36" rx="6" fill="url(#wr3-pg)"/></g>
+<rect x="128" y="38" width="66" height="36" rx="6" stroke="#7a4a8c" stroke-opacity=".35" stroke-width="1.2"/>
+<text x="135" y="50" font-family="'Helvetica Neue', Arial, sans-serif" font-size="6.5" font-weight="800" fill="#7a4a8c" letter-spacing=".8">SUMMARY</text>
+<path d="M135 58h50M135 65h36" stroke="#7a4a8c" stroke-opacity=".45" stroke-width="2.4" stroke-linecap="round"/>
+<g transform="translate(150 82)"><circle r="6.5" fill="#13887a" stroke="#fff" stroke-width="1.4"/><circle r="3.6" stroke="#fff" stroke-width="1.2"/><circle r="1.3" fill="#fff"/></g><g transform="translate(166 82)"><circle r="6.5" fill="#2f6db5" stroke="#fff" stroke-width="1.4"/><path d="M-2.6 0l1.8 1.8 3.4-3.6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(182 82)"><circle r="6.5" fill="#e3a843" stroke="#fff" stroke-width="1.4"/><path d="M-2.6 2.6l.5-2 3.2-3.2 1.5 1.5-3.2 3.2z" fill="#fff"/></g></g>
+<!-- the group talks -->
+<g transform="translate(70 126) scale(0.8 0.8)"><path d="M-23 42C-23 25-15 16 0 16S23 25 23 42z" fill="#2f6db5"/><path d="M-23 42C-23 25-15 16 0 16S23 25 23 42z" fill="url(#wr3-shine)" opacity=".35"/><rect x="-4.2" y="7" width="8.4" height="11" rx="3" fill="#74482d"/><path d="M-6 16.5L0 23 6 16.5" stroke="#fff" stroke-opacity=".75" stroke-width="1.4" stroke-linejoin="round"/><circle cx="-10.8" cy="1.5" r="2.5" fill="#74482d"/><circle cx="10.8" cy="1.5" r="2.5" fill="#74482d"/><circle r="11" fill="#8a5a3c"/><path d="M-11.6 0C-12.4-10-6.5-14.8 0-14.8 7-14.8 12.4-10 11.6 0 10.2-5.5 6-8 0-7.6-5-7.3-9.3-5-11.6 0z" fill="#1d1512"/><circle cx="-3.8" cy="1.2" r="1.35" fill="#14293a"/><circle cx="3.8" cy="1.2" r="1.35" fill="#14293a"/><path d="M-5.6-2.6l3-.6M5.6-2.6l-3-.6" stroke="#14293a" stroke-opacity=".55" stroke-width="1" stroke-linecap="round"/><circle cx="-6.6" cy="4.6" r="1.9" fill="#e64626" opacity=".18"/><circle cx="6.6" cy="4.6" r="1.9" fill="#e64626" opacity=".18"/><path d="M-3 5.6Q0 8.2 3 5.6" stroke="#14293a" stroke-width="1.1" stroke-linecap="round"/></g><g transform="translate(170 126) scale(0.8 0.8)"><path d="M-23 42C-23 25-15 16 0 16S23 25 23 42z" fill="#13887a"/><path d="M-23 42C-23 25-15 16 0 16S23 25 23 42z" fill="url(#wr3-shine)" opacity=".35"/><path d="M-12.5-1C-13.5-12-7-15.5 0-15.5S13.5-12 12.5-1L13.5 19C8 22-8 22-13.5 19z" fill="#c98d4a"/><rect x="-4.2" y="7" width="8.4" height="11" rx="3" fill="#ecc09e"/><path d="M-6 16.5L0 23 6 16.5" stroke="#fff" stroke-opacity=".75" stroke-width="1.4" stroke-linejoin="round"/><circle cx="-10.8" cy="1.5" r="2.5" fill="#ecc09e"/><circle cx="10.8" cy="1.5" r="2.5" fill="#ecc09e"/><circle r="11" fill="#f6d6bb"/><path d="M-11.2-2C-10.5-11-4.5-13.8 1-13.8 6.5-13.8 11-11 11.4-3 8-8.5 2-9.5-3.5-8.6-7-8-9.5-6-11.2-2z" fill="#c98d4a"/><circle cx="-3.8" cy="1.2" r="1.35" fill="#14293a"/><circle cx="3.8" cy="1.2" r="1.35" fill="#14293a"/><path d="M-5.6-2.6l3-.6M5.6-2.6l-3-.6" stroke="#14293a" stroke-opacity=".55" stroke-width="1" stroke-linecap="round"/><circle cx="-6.6" cy="4.6" r="1.9" fill="#e64626" opacity=".18"/><circle cx="6.6" cy="4.6" r="1.9" fill="#e64626" opacity=".18"/><path d="M-3 5.6Q0 8.2 3 5.6" stroke="#14293a" stroke-width="1.1" stroke-linecap="round"/></g><g transform="translate(120 120) scale(0.86 0.86)"><path d="M-23 42C-23 25-15 16 0 16S23 25 23 42z" fill="#e64626"/><path d="M-23 42C-23 25-15 16 0 16S23 25 23 42z" fill="url(#wr3-shine)" opacity=".35"/><rect x="-4.2" y="7" width="8.4" height="11" rx="3" fill="#d39d74"/><path d="M-6 16.5L0 23 6 16.5" stroke="#fff" stroke-opacity=".75" stroke-width="1.4" stroke-linejoin="round"/><circle cx="-10.8" cy="1.5" r="2.5" fill="#d39d74"/><circle cx="10.8" cy="1.5" r="2.5" fill="#d39d74"/><circle r="11" fill="#e6b48c"/><g fill="#2b2220"><circle cx="-10.5" cy="-3" r="4.2"/><circle cx="-9" cy="-9" r="4.6"/><circle cx="-4" cy="-12.5" r="4.8"/><circle cx="2" cy="-13" r="4.8"/><circle cx="7.5" cy="-10.5" r="4.6"/><circle cx="10.8" cy="-4.5" r="4.2"/><circle cx="0" cy="-8.5" r="5"/></g><circle cx="-3.8" cy="1.2" r="1.35" fill="#14293a"/><circle cx="3.8" cy="1.2" r="1.35" fill="#14293a"/><path d="M-5.6-2.6l3-.6M5.6-2.6l-3-.6" stroke="#14293a" stroke-opacity=".55" stroke-width="1" stroke-linecap="round"/><circle cx="-6.6" cy="4.6" r="1.9" fill="#e64626" opacity=".18"/><circle cx="6.6" cy="4.6" r="1.9" fill="#e64626" opacity=".18"/><path d="M-2.8 5.4Q0 9.6 2.8 5.4z" fill="#8e2f1f"/></g>
+<g transform="translate(96 98)"><g class="wr3-dot"><circle r="1.6" fill="#7a4a8c"/></g></g>
+<g transform="translate(144 98)"><g class="wr3-dot wr3-d2"><circle r="1.6" fill="#7a4a8c"/></g></g>
+<g transform="translate(30 112) scale(0.75)"><use href="#wr3-st" class="wr3-tw" fill="#e3a843"/></g>
+<g transform="translate(210 112) scale(0.65)"><use href="#wr3-st" class="wr3-tw wr3-t2" fill="#7a4a8c"/></g>
+<circle class="wr3-tw wr3-t3" cx="112" cy="28" r="2" fill="#13887a"/>
+<circle class="wr3-tw wr3-t4" cx="208" cy="36" r="1.8" fill="#e64626"/>
+
+</svg>

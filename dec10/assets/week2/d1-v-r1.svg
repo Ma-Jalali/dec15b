@@ -1,14 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="The task timeline">
-<style>.fl{animation:fl 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.f2{animation-delay:-1.7s}.f3{animation-delay:-3.3s}
-.tw{animation:tw 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.t2{animation-delay:-1.4s}
-.sp{animation:sp 9s linear infinite;transform-box:fill-box;transform-origin:center}.pu{animation:pu 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.dr{stroke-dasharray:6 8;animation:dr 1.6s linear infinite}.bl{animation:bl 4s infinite;transform-box:fill-box;transform-origin:center}
-.sw{animation:sw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:top center}
-@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes tw{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.05)}}
-@keyframes sp{to{transform:rotate(360deg)}}@keyframes pu{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}}
-@keyframes dr{to{stroke-dashoffset:-28}}@keyframes bl{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}@keyframes sw{50%{transform:rotate(6deg)}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style><defs><filter id="s" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#14293a" flood-opacity=".16"/></filter></defs>
-<path d="M44 38c22-30 78-34 118-14 34 17 50 54 36 88-14 34-56 50-98 44C54 150 18 118 22 82c2-18 10-32 22-44z" fill="#f1e8f5"/>
-<path class="tw" d="M28 30h12m-6-6v12" stroke="#7a4a8c" stroke-width="2.4" stroke-linecap="round"/><path class="tw t2" d="M204 150h12m-6-6v12" stroke="#2f9a63" stroke-width="2.4" stroke-linecap="round"/>
-<circle class="tw t2" cx="208" cy="40" r="3" fill="#2f9a63"/><circle class="tw" cx="34" cy="146" r="3" fill="#7a4a8c"/>
-<g class="fl" filter="url(#s)"><path d="M48 60l48-16 48 16 48-16v88l-48 16-48-16-48 16z" fill="#fff"/><path d="M96 44v88M144 60v88" stroke="#7a4a8c" stroke-opacity=".3" stroke-width="3"/></g><path class="dr" d="M60 110c30-30 60 10 90-20s30-30 40-34" stroke="#7a4a8c" stroke-width="4" fill="none" stroke-linecap="round"/><g class="pu"><path d="M120 86c-12-12-12-30 0-32s12 20 0 32z" fill="#2f9a63"/><circle cx="120" cy="64" r="5" fill="#fff"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="The Research Summary on one road: 1 Day 1 research one source (marked TODAY), 2 Day 2 share your summary, 3 prepare a group presentation, 4 Day 4–5 present, ending at a finish flag">
+<title>What is a Research Summary? The whole task — and where you are today</title>
+<style>
+.wr1-fl{animation:wr1-fl 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wr1-f2{animation-delay:-2s}.wr1-f3{animation-delay:-4s}
+.wr1-tw{animation:wr1-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wr1-t2{animation-delay:-1s}.wr1-t3{animation-delay:-2s}.wr1-t4{animation-delay:-.5s}
+@keyframes wr1-fl{50%{transform:translateY(-4px)}}
+@keyframes wr1-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.wr1-run{stroke-dasharray:2 6;animation:wr1-run 1.4s linear infinite}
+@keyframes wr1-run{to{stroke-dashoffset:-16}}
+.wr1-bob{animation:wr1-bob 2.4s ease-in-out infinite}
+@keyframes wr1-bob{50%{transform:translateY(-3px)}}
+.wr1-wv{animation:wr1-wv 3s ease-out infinite;opacity:0;transform-box:fill-box;transform-origin:center}
+@keyframes wr1-wv{0%{opacity:0;transform:scale(.8)}30%{opacity:.7}100%{opacity:0;transform:scale(1.5)}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important}}
+</style>
+<defs>
+<linearGradient id="wr1-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6eef9"/><stop offset="1" stop-color="#e6d7ee"/></linearGradient>
+<pattern id="wr1-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#7a4a8c" opacity=".16"/></pattern>
+<radialGradient id="wr1-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="wr1-gs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".22"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient>
+<filter id="wr1-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".17"/><feDropShadow dx="0" dy=".8" stdDeviation=".5" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="wr1-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#14293a" flood-opacity=".16"/></filter>
+<linearGradient id="wr1-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<path id="wr1-st" d="M0-6C.8-1.5 1.5-.8 6 0 1.5.8.8 1.5 0 6-.8 1.5-1.5.8-6 0-1.5-.8-.8-1.5 0-6z"/>
+
+<radialGradient id="wr1-node" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f3f0e8"/></radialGradient>
+<linearGradient id="wr1-road" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7a4a8c"/><stop offset="1" stop-color="#e64626"/></linearGradient>
+<linearGradient id="wr1-pin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9a68ad"/><stop offset="1" stop-color="#6a3d7c"/></linearGradient>
+
+</defs>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#wr1-bg)"/>
+<clipPath id="wr1-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath>
+<g clip-path="url(#wr1-clip)"><rect width="240" height="180" fill="url(#wr1-dots)"/><ellipse cx="116" cy="74" rx="110" ry="70" fill="url(#wr1-glow)"/></g>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".75" stroke-width="1.2"/>
+<ellipse cx="120" cy="160" rx="82" ry="7" fill="url(#wr1-gs)"/>
+
+<!-- the road -->
+<path d="M30 130C33.3 127.7 38.7 122.7 50 116C61.3 109.3 81.7 92.0 98 90C114.3 88.0 132.7 108.3 148 104C163.3 99.7 179.0 72.7 190 64C201.0 55.3 210.0 54.0 214 52" stroke="#fff" stroke-width="11" stroke-linecap="round"/>
+<path d="M30 130C33.3 127.7 38.7 122.7 50 116C61.3 109.3 81.7 92.0 98 90C114.3 88.0 132.7 108.3 148 104C163.3 99.7 179.0 72.7 190 64C201.0 55.3 210.0 54.0 214 52" stroke="url(#wr1-road)" stroke-opacity=".2" stroke-width="11" stroke-linecap="round"/>
+<path class="wr1-run" d="M30 130C33.3 127.7 38.7 122.7 50 116C61.3 109.3 81.7 92.0 98 90C114.3 88.0 132.7 108.3 148 104C163.3 99.7 179.0 72.7 190 64C201.0 55.3 210.0 54.0 214 52" stroke="url(#wr1-road)" stroke-width="2.2" stroke-linecap="round"/>
+<!-- finish flag -->
+<g transform="translate(214 52)"><path d="M0 0v-24" stroke="#14293a" stroke-width="1.6" stroke-linecap="round"/><path d="M0-24h12l-3 4.5 3 4.5H0z" fill="#e64626"/><path d="M3-24v9M6-24v9" stroke="#fff" stroke-opacity=".45" stroke-width="1"/></g>
+<g transform="translate(50 116)"><circle class="wr1-wv" r="16" stroke="#7a4a8c" stroke-width="2"/><circle r="16" fill="url(#wr1-node)" filter="url(#wr1-sh)"/><circle r="16" stroke="#7a4a8c" stroke-width="2"/><circle r="12.5" fill="#7a4a8c" fill-opacity=".1"/><rect x="-7" y="-8" width="11" height="14" rx="1.5" fill="#fff" stroke="#7a4a8c" stroke-width="1.3"/><path d="M-4.5-4h6M-4.5-1h4" stroke="#7a4a8c" stroke-width="1.1" stroke-linecap="round"/><circle cx="3" cy="2.5" r="3.6" fill="#f6eef9" stroke="#14293a" stroke-width="1.5"/><path d="M5.6 5.1l3 3" stroke="#14293a" stroke-width="2" stroke-linecap="round"/>
+<circle cx="-11.5" cy="-11.5" r="6" fill="#14293a" stroke="#fff" stroke-width="1.4"/><text x="-11.5" y="-8.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="800" fill="#fff">1</text>
+<text y="27" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7" font-weight="800" fill="#5b4a66">Day 1</text></g><g transform="translate(98 90)"><circle r="16" fill="url(#wr1-node)" filter="url(#wr1-sh)"/><circle r="16" stroke="#13887a" stroke-width="2"/><circle r="12.5" fill="#13887a" fill-opacity=".1"/><path d="M-9-7h10a2.5 2.5 0 0 1 2.5 2.5v4.5A2.5 2.5 0 0 1 1 2.5h-5l-3.5 3v-3h-1.5A2.5 2.5 0 0 1-11.5 0v-4.5A2.5 2.5 0 0 1-9-7z" fill="#13887a"/><path d="M3-1h6a2.2 2.2 0 0 1 2.2 2.2V5A2.2 2.2 0 0 1 9 7.2h-.5v2.5L5.5 7.2H3A2.2 2.2 0 0 1 .8 5V1.2A2.2 2.2 0 0 1 3-1z" fill="#fff" stroke="#13887a" stroke-width="1.3"/><circle cx="-6" cy="-2.3" r=".9" fill="#fff"/><circle cx="-3" cy="-2.3" r=".9" fill="#fff"/><circle cx="0" cy="-2.3" r=".9" fill="#fff"/>
+<circle cx="-11.5" cy="-11.5" r="6" fill="#14293a" stroke="#fff" stroke-width="1.4"/><text x="-11.5" y="-8.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="800" fill="#fff">2</text>
+<text y="27" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7" font-weight="800" fill="#5b4a66">Day 2</text></g><g transform="translate(148 104)"><circle r="16" fill="url(#wr1-node)" filter="url(#wr1-sh)"/><circle r="16" stroke="#e3a843" stroke-width="2"/><circle r="12.5" fill="#e3a843" fill-opacity=".1"/><rect x="-8" y="-9" width="16" height="9" rx="1.5" fill="#fff" stroke="#e3a843" stroke-width="1.3"/><path d="M-5-3.5l2.5-2 2 1.5 3.5-3" stroke="#e3a843" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-6" cy="3.5" r="2.2" fill="#7a4a8c"/><circle cx="0" cy="3" r="2.4" fill="#13887a"/><circle cx="6" cy="3.5" r="2.2" fill="#2f6db5"/><path d="M-9.5 9.5a3.5 3.5 0 0 1 7 0M-3.8 9.5a3.8 3.8 0 0 1 7.6 0M2.5 9.5a3.5 3.5 0 0 1 7 0" fill="#c3d0d6"/>
+<circle cx="-11.5" cy="-11.5" r="6" fill="#14293a" stroke="#fff" stroke-width="1.4"/><text x="-11.5" y="-8.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="800" fill="#fff">3</text>
+<text y="27" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7" font-weight="800" fill="#5b4a66">Day 2+</text></g><g transform="translate(190 64)"><circle r="16" fill="url(#wr1-node)" filter="url(#wr1-sh)"/><circle r="16" stroke="#e64626" stroke-width="2"/><circle r="12.5" fill="#e64626" fill-opacity=".1"/><rect x="-10" y="-9" width="20" height="13" rx="1.5" fill="#fff" stroke="#e64626" stroke-width="1.4"/><rect x="-6.5" y="-4" width="3" height="5" rx=".6" fill="#e64626" opacity=".55"/><rect x="-1.5" y="-6.5" width="3" height="7.5" rx=".6" fill="#e64626"/><rect x="3.5" y="-3" width="3" height="4" rx=".6" fill="#e3a843"/><path d="M0 4v4.5M-4 10l4-1.5 4 1.5" stroke="#e64626" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="-11.5" cy="-11.5" r="6" fill="#14293a" stroke="#fff" stroke-width="1.4"/><text x="-11.5" y="-8.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8" font-weight="800" fill="#fff">4</text>
+<text y="27" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7" font-weight="800" fill="#5b4a66">Day 4–5</text></g>
+<!-- you are here -->
+<g class="wr1-bob">
+<g filter="url(#wr1-sh2)"><rect x="28" y="66" width="44" height="15" rx="7.5" fill="url(#wr1-pin)"/><path d="M46 80.5h8l-4 5z" fill="#6a3d7c"/></g>
+<text x="50" y="76.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="7.5" font-weight="900" fill="#fff" letter-spacing=".8">TODAY</text>
+</g>
+<g transform="translate(34 44) scale(0.75)"><use href="#wr1-st" class="wr1-tw" fill="#e3a843"/></g>
+<g transform="translate(140 46) scale(0.7)"><use href="#wr1-st" class="wr1-tw wr1-t2" fill="#7a4a8c"/></g>
+<circle class="wr1-tw wr1-t3" cx="112" cy="140" r="2" fill="#13887a"/>
+<circle class="wr1-tw wr1-t4" cx="206" cy="128" r="1.8" fill="#e64626"/>
+
+</svg>

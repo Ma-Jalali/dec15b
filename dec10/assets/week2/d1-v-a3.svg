@@ -1,14 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Annotating a text">
-<style>.fl{animation:fl 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.f2{animation-delay:-1.7s}.f3{animation-delay:-3.3s}
-.tw{animation:tw 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.t2{animation-delay:-1.4s}
-.sp{animation:sp 9s linear infinite;transform-box:fill-box;transform-origin:center}.pu{animation:pu 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.dr{stroke-dasharray:6 8;animation:dr 1.6s linear infinite}.bl{animation:bl 4s infinite;transform-box:fill-box;transform-origin:center}
-.sw{animation:sw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:top center}
-@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes tw{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.05)}}
-@keyframes sp{to{transform:rotate(360deg)}}@keyframes pu{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}}
-@keyframes dr{to{stroke-dashoffset:-28}}@keyframes bl{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}@keyframes sw{50%{transform:rotate(6deg)}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style><defs><filter id="s" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#14293a" flood-opacity=".16"/></filter></defs>
-<path d="M44 38c22-30 78-34 118-14 34 17 50 54 36 88-14 34-56 50-98 44C54 150 18 118 22 82c2-18 10-32 22-44z" fill="#dfeee8"/>
-<path class="tw" d="M28 30h12m-6-6v12" stroke="#2b776e" stroke-width="2.4" stroke-linecap="round"/><path class="tw t2" d="M204 150h12m-6-6v12" stroke="#f2c14e" stroke-width="2.4" stroke-linecap="round"/>
-<circle class="tw t2" cx="208" cy="40" r="3" fill="#f2c14e"/><circle class="tw" cx="34" cy="146" r="3" fill="#2b776e"/>
-<g class="fl" filter="url(#s)"><path d="M60 52c20-8 40-8 60 0v76c-20-8-40-8-60 0z" fill="#fff"/><path d="M120 52c20-8 40-8 60 0v76c-20-8-40-8-60 0z" fill="#fff"/></g><path d="M72 68h36M132 68h36" stroke="#2b776e" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/><path d="M72 82h36M132 82h36" stroke="#2b776e" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/><path d="M72 96h36M132 96h36" stroke="#2b776e" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/><path d="M72 110h36M132 110h36" stroke="#2b776e" stroke-opacity=".35" stroke-width="5" stroke-linecap="round"/><g class="fl f2"><circle cx="176" cy="54" r="18" fill="none" stroke="#f2c14e" stroke-width="7"/><path d="M190 68l16 16" stroke="#f2c14e" stroke-width="9" stroke-linecap="round"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Annotated reading: paragraph B with 53.6% highlighted in yellow, a word circled in red and a word underlined in blue, arrows to a Notes margin with !!!, a question mark and handwritten comments, and a yellow highlighter pen">
+<title>Annotated reading: highlight, circle, underline and talk back to the text in the margin</title>
+<style>
+.wa3-fl{animation:wa3-fl 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wa3-f2{animation-delay:-2s}.wa3-f3{animation-delay:-4s}
+.wa3-tw{animation:wa3-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wa3-t2{animation-delay:-1s}.wa3-t3{animation-delay:-2s}.wa3-t4{animation-delay:-.5s}
+@keyframes wa3-fl{50%{transform:translateY(-4px)}}
+@keyframes wa3-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.wa3-dr{stroke-dasharray:60;animation:wa3-dr 4s ease-in-out infinite}
+@keyframes wa3-dr{0%{stroke-dashoffset:60}40%,100%{stroke-dashoffset:0}}
+.wa3-pn{animation:wa3-pn 4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes wa3-pn{0%,100%{transform:translate(0,0)}40%{transform:translate(-4px,-3px)}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important}}
+</style>
+<defs>
+<linearGradient id="wa3-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8f5f0"/><stop offset="1" stop-color="#d2e9e0"/></linearGradient>
+<pattern id="wa3-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#2f7d6b" opacity=".16"/></pattern>
+<radialGradient id="wa3-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="wa3-gs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".22"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient>
+<filter id="wa3-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".17"/><feDropShadow dx="0" dy=".8" stdDeviation=".5" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="wa3-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#14293a" flood-opacity=".16"/></filter>
+<linearGradient id="wa3-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<path id="wa3-st" d="M0-6C.8-1.5 1.5-.8 6 0 1.5.8.8 1.5 0 6-.8 1.5-1.5.8-6 0-1.5-.8-.8-1.5 0-6z"/>
+
+<linearGradient id="wa3-pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#fbf7ef"/></linearGradient>
+<linearGradient id="wa3-hl" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f7d774"/><stop offset="1" stop-color="#f2c14e"/></linearGradient>
+<linearGradient id="wa3-pen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f6cf62"/><stop offset=".55" stop-color="#e3a843"/><stop offset="1" stop-color="#c98d2c"/></linearGradient>
+<marker id="wa3-ah" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto"><path d="M1 1l7 4-7 4" fill="none" stroke="#14293a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+
+</defs>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#wa3-bg)"/>
+<clipPath id="wa3-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath>
+<g clip-path="url(#wa3-clip)"><rect width="240" height="180" fill="url(#wa3-dots)"/><ellipse cx="116" cy="74" rx="110" ry="70" fill="url(#wa3-glow)"/></g>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".75" stroke-width="1.2"/>
+<ellipse cx="112" cy="158" rx="78" ry="7" fill="url(#wa3-gs)"/>
+
+<!-- page behind -->
+<rect x="46" y="30" width="138" height="126" rx="5" fill="#eef3f1" transform="rotate(4 115 93)" filter="url(#wa3-sh2)"/>
+<!-- annotated page -->
+<g transform="rotate(-2 107 87)">
+<rect x="38" y="24" width="138" height="128" rx="5" fill="url(#wa3-pg)" filter="url(#wa3-sh)"/>
+<path d="M132 32v112" stroke="#13887a" stroke-opacity=".35" stroke-width="1" stroke-dasharray="2 2.5"/>
+<text x="154" y="37" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="5.5" font-weight="800" fill="#13887a" letter-spacing=".8">NOTES</text>
+<circle cx="54" cy="40" r="7.5" fill="#13887a"/><text x="54" y="43.6" text-anchor="middle" font-family="Georgia, serif" font-size="10" font-weight="700" fill="#fff">B</text>
+<g stroke="#c3d0d6" stroke-width="2.6" stroke-linecap="round">
+<path d="M67 37h58M67 44h46"/><path d="M48 54h78"/><path d="M90 65h36"/><path d="M48 76h72"/><path d="M48 87h20M110 87h16"/><path d="M48 98h76"/><path d="M48 109h10M96 109h30"/><path d="M48 120h70"/><path d="M48 131h54"/><path d="M48 142h40"/>
+</g>
+<!-- highlight with figure -->
+<rect x="46" y="59" width="40" height="11" rx="2.5" fill="url(#wa3-hl)" opacity=".85"/>
+<text x="66" y="67.6" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8.2" font-weight="800" fill="#14293a">53.6%</text>
+<!-- circled word -->
+<path d="M74 87h30" stroke="#5b6b78" stroke-width="2.6" stroke-linecap="round"/>
+<ellipse cx="89" cy="87" rx="19" ry="6.8" stroke="#e64626" stroke-width="1.6" transform="rotate(-4 89 87)"/>
+<!-- underlined word -->
+<path d="M62 109h28" stroke="#5b6b78" stroke-width="2.6" stroke-linecap="round"/>
+<path d="M60 113.5c4-2 6 2 10 0s6 2 10 0 6 2 10 0" stroke="#2f6db5" stroke-width="1.5" stroke-linecap="round"/>
+<!-- arrows to the margin -->
+<path class="wa3-dr" d="M87 60C100 50 118 50 136 55" stroke="#14293a" stroke-width="1.2" stroke-linecap="round" marker-end="url(#wa3-ah)"/>
+<path class="wa3-dr" d="M108 83C118 78 126 78 137 80" stroke="#14293a" stroke-width="1.2" stroke-linecap="round" marker-end="url(#wa3-ah)"/>
+<path class="wa3-dr" d="M92 116C108 122 124 118 137 110" stroke="#14293a" stroke-width="1.2" stroke-linecap="round" marker-end="url(#wa3-ah)"/>
+<!-- margin notes -->
+<rect x="139" y="50" width="28" height="13" rx="6.5" fill="#e3a843"/><text x="153" y="60.2" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="900" fill="#fff" letter-spacing="1">!!!</text>
+<circle cx="146" cy="82" r="7" fill="#e64626"/><text x="146" y="85.8" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="900" fill="#fff">?</text>
+<path d="M156 79.5h8M156 84h6" stroke="#e64626" stroke-opacity=".55" stroke-width="1.3" stroke-linecap="round"/>
+<path d="M141 108c3-1.5 5 1.5 8 0s5 1.5 8 0 4 1 7 0M141 114c3-1.5 5 1.5 8 0s5 1.5 9 0" stroke="#2f6db5" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M141 128c3-1.5 5 1.5 8 0s5 1.5 9 0M141 134c3-1.5 5 1.5 7 0" stroke="#9fb3bf" stroke-width="1.2" stroke-linecap="round"/>
+</g>
+<!-- highlighter -->
+<g class="wa3-pn"><g transform="translate(184 120) rotate(-38)" filter="url(#wa3-sh)">
+<rect x="-6" y="-8" width="12" height="38" rx="3.5" fill="url(#wa3-pen)"/>
+<rect x="-6.6" y="16" width="13.2" height="16" rx="3.5" fill="#14293a"/>
+<rect x="-6.6" y="16" width="13.2" height="3" fill="#2a4458"/>
+<path d="M-5-8h10l-1.5-6h-7z" fill="#5b6b78"/><path d="M-3.5-14h7l-1.5-5-5.5 2z" fill="#f2c14e"/>
+<rect x="-3.6" y="-4" width="2" height="18" rx="1" fill="#fff" opacity=".45"/>
+</g></g>
+<g transform="translate(26 46) scale(0.8)"><use href="#wa3-st" class="wa3-tw" fill="#e3a843"/></g>
+<g transform="translate(210 40) scale(0.7)"><use href="#wa3-st" class="wa3-tw wa3-t2" fill="#13887a"/></g>
+<circle class="wa3-tw wa3-t3" cx="214" cy="84" r="2" fill="#e64626"/>
+<circle class="wa3-tw wa3-t4" cx="24" cy="120" r="1.8" fill="#2f6db5"/>
+
+</svg>
