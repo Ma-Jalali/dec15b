@@ -94,3 +94,4 @@
 [data-course="dec10"] .figure figcaption b { flex: none; }
 [data-course="dec10"] .figure figcaption span { flex: 1 1 240px; }
 @media (max-width: 640px) { [data-course="dec10"] .home-today { display: flex; border-radius: 18px; } }
+[data-course="dec10"] .week-head p { max-width: 96ch; text-wrap: pretty; }

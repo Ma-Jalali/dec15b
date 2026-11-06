@@ -1,0 +1,54 @@
+/* DEC10 · My workspace (v5.1): one colour per tab carried through the header, a line that says what the tab is for,
+   calmer section labels and a small illustrated summary on To-dos. Loaded after css/planner.css. */
+[data-course="dec10"] .pl { --tc: #14293a; --tc-bg: #eef1f4; }
+[data-course="dec10"] .pl[data-tab="notebook"] { --tc: #b07d12; --tc-bg: #fbf3e2; }
+[data-course="dec10"] .pl[data-tab="notes"] { --tc: #13887a; --tc-bg: #e8f5f2; }
+[data-course="dec10"] .pl[data-tab="calendar"] { --tc: #2f6db5; --tc-bg: #eef4fc; }
+[data-course="dec10"] .pl[data-tab="todos"] { --tc: #d4583a; --tc-bg: #fdeee9; }
+
+/* ── the header: a calm card with a hairline in the tab's colour ── */
+[data-course="dec10"] .pl-head { position: relative; overflow: hidden; padding: 12px 14px 12px 14px; border-radius: 22px; }
+[data-course="dec10"] .pl-head::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: linear-gradient(90deg, var(--tc), color-mix(in srgb, var(--tc) 30%, transparent) 70%, transparent); transition: background .3s; }
+[data-course="dec10"] .pl-head::after { content: ""; position: absolute; right: -60px; top: -80px; width: 260px; height: 200px; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--tc) 10%, transparent), transparent); pointer-events: none; transition: background .3s; }
+[data-course="dec10"] .pl-brand { width: 46px; height: 46px; }
+[data-course="dec10"] .pl-title > div { display: grid; grid-template-columns: auto auto; justify-content: start; align-items: center; column-gap: 10px; row-gap: 2px; }
+[data-course="dec10"] .pl-title h1 { font-size: 1.32rem; }
+[data-course="dec10"] .pl-sub { grid-column: 1 / -1; margin: 0; font: 600 .8rem/1.3 var(--sans); color: var(--muted); }
+[data-course="dec10"] .pl-sub::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 7px; border-radius: 50%; vertical-align: 1px; background: var(--tc); box-shadow: 0 0 0 3px color-mix(in srgb, var(--tc) 18%, transparent); transition: background .3s, box-shadow .3s; }
+
+/* ── the tabs: each has its colour; the open one is a raised white pill with a filled icon tile ── */
+[data-course="dec10"] .pl-tabs { position: relative; z-index: 1; padding: 5px; gap: 4px; background: rgba(20, 41, 58, .05); box-shadow: inset 0 1px 2px rgba(20, 41, 58, .06); }
+[data-course="dec10"] .pl-tabs button { --c: #14293a; gap: 9px; padding: 6px 14px 6px 6px; color: var(--ink-2); transition: background .2s, box-shadow .2s, color .2s; }
+[data-course="dec10"] .pl-tabs button[data-tab="notebook"] { --c: #b07d12; }
+[data-course="dec10"] .pl-tabs button[data-tab="notes"] { --c: #13887a; }
+[data-course="dec10"] .pl-tabs button[data-tab="calendar"] { --c: #2f6db5; }
+[data-course="dec10"] .pl-tabs button[data-tab="todos"] { --c: #d4583a; }
+[data-course="dec10"] .pl-tabs button .pl-i { box-sizing: content-box; width: 15px; height: 15px; padding: 6px; border-radius: 50%; opacity: 1; color: var(--c); background: color-mix(in srgb, var(--c) 12%, #fff); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 16%, transparent); transition: background .2s, color .2s; }
+[data-course="dec10"] .pl-tabs button:hover:not([aria-selected="true"]) { background: rgba(255, 255, 255, .7); }
+[data-course="dec10"] .pl-tabs button[aria-selected="true"] { background: #fff; color: var(--ink); box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(20, 41, 58, .06), 0 1px 2px rgba(20, 41, 58, .08), 0 8px 18px -10px rgba(20, 41, 58, .45); }
+[data-course="dec10"] .pl-tabs button[aria-selected="true"] .pl-i { color: #fff; background: linear-gradient(150deg, color-mix(in srgb, var(--c) 72%, #fff), var(--c)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 4px 8px -4px var(--c); }
+[data-course="dec10"] .pl-tabs .pl-tabn { min-width: 18px; padding: 2px 6px; border-radius: 999px; background: color-mix(in srgb, var(--c) 12%, #fff); color: var(--c); font: 800 .66rem/1.2 var(--sans); text-align: center; }
+[data-course="dec10"] .pl-tabs button[aria-selected="true"] .pl-tabn { background: var(--c); color: #fff; }
+[data-course="dec10"] .pl-status { position: relative; z-index: 1; }
+
+/* ── To-dos: centred, with a little desk in the summary card ── */
+[data-course="dec10"] .pl-todos { max-width: 980px; margin-inline: auto; width: 100%; box-sizing: border-box; }
+[data-course="dec10"] .pl-tsum { position: relative; overflow: hidden; padding: 14px 18px; background: linear-gradient(120deg, #fff 30%, var(--tc-bg)); }
+[data-course="dec10"] .pl-tsum-art { order: 5; width: 168px; height: auto; margin: -10px -6px -14px 4px; }
+[data-course="dec10"] .pl-tgroup .pl-h { padding: 0 2px 6px; border-bottom: 1px dashed color-mix(in srgb, currentColor 22%, transparent); font-size: .7rem; letter-spacing: .12em; }
+[data-course="dec10"] .pl-tgroup .pl-h small { padding: 1px 7px; border-radius: 999px; background: color-mix(in srgb, currentColor 10%, #fff); font-weight: 800; }
+[data-course="dec10"] .pl-add { box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(20, 41, 58, .08), 0 8px 18px -14px rgba(20, 41, 58, .5); }
+[data-course="dec10"] .pl-add:focus-within { box-shadow: inset 0 1px 0 #fff, 0 0 0 2px color-mix(in srgb, var(--tc) 55%, transparent), 0 10px 22px -14px rgba(20, 41, 58, .55); }
+
+@media (max-width: 900px) {
+  [data-course="dec10"] .pl-tsum-art { display: none; }
+  [data-course="dec10"] .pl-tabs button { padding: 5px 10px 5px 5px; }
+}
+@media (max-width: 640px) {
+  [data-course="dec10"] .pl-sub { display: none; }
+  [data-course="dec10"] .pl-add, [data-course="dec10"] .pl-add:focus-within { box-shadow: none; }
+  [data-course="dec10"] .pl-tstats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; }
+  [data-course="dec10"] .pl-tstat { min-width: 0; padding-inline: 4px; }
+  [data-course="dec10"] .pl-tstat span { white-space: normal; text-align: center; font-size: .54rem; }
+}
+@media (prefers-reduced-motion: reduce) { [data-course="dec10"] .pl-head::before, [data-course="dec10"] .pl-tabs button { transition: none; } }

@@ -42,7 +42,12 @@ window.DEC15Picker = (() => {
       <linearGradient id="pk-rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b4d68"/><stop offset=".5" stop-color="#14293a"/><stop offset="1" stop-color="#0a1824"/></linearGradient>
       <linearGradient id="pk-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1c2"/><stop offset=".35" stop-color="#f0c35a"/><stop offset=".7" stop-color="#c88a1e"/><stop offset="1" stop-color="#f6d27a"/></linearGradient>
       <radialGradient id="pk-peg" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff7d6"/><stop offset=".5" stop-color="#f0c35a"/><stop offset="1" stop-color="#a86f14"/></radialGradient>
-      <filter id="pk-sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#14293a" flood-opacity=".35"/></filter>
+      <filter id="pk-soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="16"/></filter>
+      <filter id="pk-tight" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="3.5"/></filter>
+      <radialGradient id="pk-floor" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".34"/><stop offset=".6" stop-color="#14293a" stop-opacity=".12"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient>
+      <linearGradient id="pk-post" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0c1c29"/><stop offset=".35" stop-color="#2c4d68"/><stop offset=".55" stop-color="#1b3549"/><stop offset="1" stop-color="#0a1824"/></linearGradient>
+      <linearGradient id="pk-base" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b4d68"/><stop offset="1" stop-color="#0d1f2d"/></linearGradient>
+      <linearGradient id="pk-spec" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient>
       <filter id="pk-blur" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="0" class="pk-mb"/></filter>
     </defs>`;
 
@@ -61,11 +66,27 @@ window.DEC15Picker = (() => {
         <section class="pk-stage" aria-label="The wheel">
           <div class="pk-rays" aria-hidden="true"></div>
           <div class="pk-wheel-wrap">
-            <svg class="pk-wheel" viewBox="0 0 500 500" role="img" aria-label="${list.length ? 'A wheel with ' + list.length + ' names' : 'An empty wheel'}">
+            <svg class="pk-wheel" viewBox="0 0 500 600" role="img" aria-label="${list.length ? 'A wheel with ' + list.length + ' names' : 'An empty wheel'}">
               ${WHEEL_DEFS}
-              <ellipse cx="${C}" cy="${C + R + 34}" rx="${R * .8}" ry="12" fill="#14293a" opacity=".12"/>
-              <circle cx="${C}" cy="${C}" r="${R + 30}" fill="url(#pk-rim)" filter="url(#pk-sh)"/>
+              <ellipse cx="${C}" cy="${C + R + 96}" rx="${R * .8}" ry="20" fill="url(#pk-floor)"/>
+              <ellipse cx="${C}" cy="${C + R + 91}" rx="${R * .52}" ry="6" fill="#0a1824" opacity=".28" filter="url(#pk-tight)"/>
+              <g class="pk-stand">
+                <path d="M${C - 15} ${C}h30l18 ${R + 58}h-66z" fill="url(#pk-post)"/>
+                <path d="M${C - 3} ${C}h4l6 ${R + 58}h-6z" fill="#fff" opacity=".12"/>
+                <rect x="${C - 122}" y="${C + R + 70}" width="244" height="20" rx="10" fill="#0a1824"/>
+                <rect x="${C - 122}" y="${C + R + 70}" width="244" height="8" rx="4" fill="#fff" opacity=".07"/>
+                <rect x="${C - 108}" y="${C + R + 56}" width="216" height="26" rx="13" fill="url(#pk-base)"/>
+                <rect x="${C - 108}" y="${C + R + 56}" width="216" height="26" rx="13" fill="none" stroke="url(#pk-gold)" stroke-width="2"/>
+                <path d="M${C - 94} ${C + R + 62}h188" stroke="#fff" stroke-opacity=".22" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="${C - 80}" cy="${C + R + 69}" r="3.4" fill="url(#pk-peg)"/><circle cx="${C + 80}" cy="${C + R + 69}" r="3.4" fill="url(#pk-peg)"/>
+              </g>
+              <circle cx="${C}" cy="${C + 26}" r="${R + 30}" fill="#0a1824" opacity=".26" filter="url(#pk-soft)"/>
+              <circle cx="${C}" cy="${C + 6}" r="${R + 30}" fill="#0a1824" opacity=".32" filter="url(#pk-tight)"/>
+              <circle cx="${C}" cy="${C}" r="${R + 30}" fill="url(#pk-rim)"/>
               <circle cx="${C}" cy="${C}" r="${R + 29}" fill="none" stroke="url(#pk-gold)" stroke-width="2.5"/>
+              <circle cx="${C}" cy="${C}" r="${R + 23.5}" fill="none" stroke="#000" stroke-opacity=".25" stroke-width="1"/>
+              <circle cx="${C}" cy="${C}" r="${R + 10.5}" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="1"/>
+              <path d="M${C - R - 22} ${C - 40}A${R + 24} ${R + 24} 0 0 1 ${C + 40} ${C - R - 22}" fill="none" stroke="url(#pk-spec)" stroke-width="6" stroke-linecap="round" opacity=".55"/>
               <circle cx="${C}" cy="${C}" r="${R + 5}" fill="none" stroke="url(#pk-gold)" stroke-width="5"/>
               <g class="pk-bulbs">${bulbs()}</g>
               <g class="pk-rot" style="transform:rotate(${rot}deg)" filter="url(#pk-blur)">${wheelSVG(list)}</g>

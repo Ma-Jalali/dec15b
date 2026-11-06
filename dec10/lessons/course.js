@@ -14,7 +14,7 @@ window.DEC15_COURSE = {
   code: 'DEC10',
   title: 'Direct Entry Course · 10 weeks',
   topic: 'Academic English',
-  intro: 'Ten weeks of academic English. Pick up where you left off, or open any lesson below.',
+  intro: '',   // no line under the title on the course map
   heroImage: 'dec10/assets/week1/hero-d10w1d1.svg',
   heroAlt: 'Illustration: profit, people and planet as three overlapping circles on a tablet, with outline notes in a notebook.',
   // The course card under the logo in the side panel.
@@ -92,7 +92,7 @@ window.DEC15_COURSE = {
   weeks: [
     {
       n: 1, theme: 'Foundation: sustainability frameworks',
-      summary: 'Three frameworks for thinking about sustainability — the triple bottom line, IPAT and the DTM — and the skills to learn from them: note-taking, paraphrasing, summarising and the Academic Success Toolkit.',
+      summary: 'Three sustainability frameworks — the triple bottom line, IPAT and the DTM — with note-taking, paraphrasing, summarising and the Academic Success Toolkit.',
       image: 'dec10/assets/week1/hero-d10w1d1.svg',
       imageAlt: 'Illustration: profit, people and planet as three overlapping circles on a tablet, with outline notes in a notebook.',
       days: [
@@ -120,7 +120,7 @@ window.DEC15_COURSE = {
     },
     {
       n: 2, theme: 'Our digital footprint',
-      summary: 'The hidden environmental cost of the internet, data centres and AI. Read, listen and compare sources to speak about cause and effect; give your first Research Summary group presentation; learn to ask good questions, give feedback, monitor your own learning and think critically.',
+      summary: 'The hidden cost of the internet, data centres and AI: compare sources, give your first Research Summary presentation, and learn to question, give feedback and think critically.',
       image: 'dec10/assets/week2/hero-d10w2d1.svg',
       imageAlt: 'Illustration: a phone, a laptop and a game controller connected by glowing lines to a data centre and a cloud of carbon dioxide.',
       days: [

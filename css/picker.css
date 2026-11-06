@@ -124,3 +124,10 @@
   background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, .4), transparent 50%), var(--wc, #e3a843); box-shadow: 0 0 0 5px #fff, 0 12px 22px -8px rgba(20, 41, 58, .6); }
 @media (max-width: 640px) { .pk-pointer { right: -14px; width: 54px; margin-top: -22px; } }
 @media (prefers-reduced-motion: reduce) { .pk-rays, .pk-bulb .pk-lamp, .pk-bulb .pk-glow, .pk-hub, .pk-pointer.flick { animation: none !important; } }
+
+/* v5.1: the wheel stands on a pedestal; the drawing is 500 × 600, the wheel's centre is 250/600 down */
+.pk-wheel-wrap { aspect-ratio: 5 / 6; width: min(100%, 540px); }
+.pk-page:fullscreen .pk-wheel-wrap { width: min(100%, 68vh); }
+.pk-hub, .pk-win { top: 41.6667%; }
+.pk-pointer { top: 41.6667%; }
+.pk-stage { padding-bottom: 18px; }
