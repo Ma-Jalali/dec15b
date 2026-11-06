@@ -1,14 +1,85 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="A phone with chat bubbles and a cloud of CO₂">
-<style>.fl{animation:fl 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.f2{animation-delay:-1.7s}.f3{animation-delay:-3.3s}
-.tw{animation:tw 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.t2{animation-delay:-1.4s}
-.sp{animation:sp 9s linear infinite;transform-box:fill-box;transform-origin:center}.pu{animation:pu 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.dr{stroke-dasharray:6 8;animation:dr 1.6s linear infinite}.bl{animation:bl 4s infinite;transform-box:fill-box;transform-origin:center}
-.sw{animation:sw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:top center}
-@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}@keyframes tw{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.05)}}
-@keyframes sp{to{transform:rotate(360deg)}}@keyframes pu{0%,100%{transform:scale(1)}15%{transform:scale(1.12)}30%{transform:scale(1)}}
-@keyframes dr{to{stroke-dashoffset:-28}}@keyframes bl{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}@keyframes sw{50%{transform:rotate(6deg)}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style><defs><filter id="s" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#14293a" flood-opacity=".16"/></filter></defs>
-<path d="M44 38c22-30 78-34 118-14 34 17 50 54 36 88-14 34-56 50-98 44C54 150 18 118 22 82c2-18 10-32 22-44z" fill="#dfeee8"/>
-<path class="tw" d="M28 30h12m-6-6v12" stroke="#2b776e" stroke-width="2.4" stroke-linecap="round"/><path class="tw t2" d="M204 150h12m-6-6v12" stroke="#f2c14e" stroke-width="2.4" stroke-linecap="round"/>
-<circle class="tw t2" cx="208" cy="40" r="3" fill="#f2c14e"/><circle class="tw" cx="34" cy="146" r="3" fill="#2b776e"/>
-<g class="fl" filter="url(#s)"><rect x="92" y="34" width="62" height="112" rx="12" fill="#14293a"/><rect x="98" y="44" width="50" height="86" rx="5" fill="#2b776e"/><rect x="104" y="54" width="30" height="10" rx="5" fill="#fff"/><rect x="112" y="72" width="30" height="10" rx="5" fill="#f2c14e"/><rect x="104" y="90" width="24" height="10" rx="5" fill="#fff"/></g><g class="fl f2"><path d="M150 72a14 14 0 0 1 3-27 20 20 0 0 1 37-4 16 16 0 0 1 17 20 12 12 0 0 1-4 11z" fill="#c9d3da" filter="url(#s)"/><text x="176" y="64" font-family="'Manrope', 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" fill="#14293a" text-anchor="middle">CO₂</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="My digital day: a phone at 07:00 full of colourful apps with a red badge counting 12, a laptop playing a video and a game controller, under a dotted arc from sunrise to night, and a CO₂ cloud with a question mark">
+<title>Warmer: my digital day — count your devices and apps, then guess their carbon cost</title>
+<style>
+.wa1-fl{animation:wa1-fl 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wa1-f2{animation-delay:-2s}.wa1-f3{animation-delay:-4s}
+.wa1-tw{animation:wa1-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.wa1-t2{animation-delay:-1s}.wa1-t3{animation-delay:-2s}.wa1-t4{animation-delay:-.5s}
+@keyframes wa1-fl{50%{transform:translateY(-4px)}}
+@keyframes wa1-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.wa1-arc{stroke-dasharray:2 5;animation:wa1-arc 2s linear infinite}
+@keyframes wa1-arc{to{stroke-dashoffset:-14}}
+.wa1-dat{stroke-dasharray:1.5 5;animation:wa1-arc 1.2s linear infinite}
+.wa1-bd{animation:wa1-bd 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes wa1-bd{0%,70%,100%{transform:scale(1)}80%{transform:scale(1.2)}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important}}
+</style>
+<defs>
+<linearGradient id="wa1-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8f5f0"/><stop offset="1" stop-color="#d2e9e0"/></linearGradient>
+<pattern id="wa1-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#2f7d6b" opacity=".16"/></pattern>
+<radialGradient id="wa1-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="wa1-gs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".22"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient>
+<filter id="wa1-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".17"/><feDropShadow dx="0" dy=".8" stdDeviation=".5" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="wa1-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#14293a" flood-opacity=".16"/></filter>
+<linearGradient id="wa1-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<path id="wa1-st" d="M0-6C.8-1.5 1.5-.8 6 0 1.5.8.8 1.5 0 6-.8 1.5-1.5.8-6 0-1.5-.8-.8-1.5 0-6z"/>
+
+<linearGradient id="wa1-ph" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a4458"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="wa1-scr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f9a8a"/><stop offset="1" stop-color="#0f6b61"/></linearGradient>
+<radialGradient id="wa1-sun" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#fff1c4"/><stop offset=".6" stop-color="#f2c45e"/><stop offset="1" stop-color="#e3a843"/></radialGradient>
+<linearGradient id="wa1-lap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b5a72"/><stop offset="1" stop-color="#1d3547"/></linearGradient>
+<linearGradient id="wa1-cl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d9e2e8"/></linearGradient>
+<linearGradient id="wa1-pad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9a68ad"/><stop offset="1" stop-color="#6a3d7c"/></linearGradient>
+
+</defs>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#wa1-bg)"/>
+<clipPath id="wa1-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath>
+<g clip-path="url(#wa1-clip)"><rect width="240" height="180" fill="url(#wa1-dots)"/><ellipse cx="116" cy="74" rx="110" ry="70" fill="url(#wa1-glow)"/></g>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".75" stroke-width="1.2"/>
+<ellipse cx="118" cy="158" rx="80" ry="7" fill="url(#wa1-gs)"/>
+
+<!-- the day: sunrise to night -->
+<path class="wa1-arc" d="M50 62Q120-12 190 62" stroke="#2f7d6b" stroke-opacity=".55" stroke-width="1.6" stroke-linecap="round"/>
+<g transform="translate(42 66)"><circle r="15" fill="#f6c766" opacity=".18"/><g stroke="#e3a843" stroke-width="1.6" stroke-linecap="round"><path d="M0-14v-3M0 14v3M-14 0h-3M14 0h3M-10-10l-2-2M10-10l2-2M-10 10l-2 2M10 10l2 2"/></g><circle r="9" fill="url(#wa1-sun)"/><circle cx="-3" cy="-3" r="2.4" fill="#fff" opacity=".55"/></g>
+<g transform="translate(198 66)"><circle r="14" fill="#7a4a8c" opacity=".1"/><path d="M3-9a9.5 9.5 0 1 0 6 15A8 8 0 0 1 3-9z" fill="#4a3a74"/><path d="M-4-4a6 6 0 0 0 0 7" stroke="#fff" stroke-opacity=".3" stroke-width="1.2" stroke-linecap="round"/></g>
+<g transform="translate(212 52)"><use href="#wa1-st" class="wa1-tw wa1-t2" fill="#7a4a8c" transform="scale(.45)"/></g>
+<!-- laptop -->
+<g class="wa1-fl wa1-f2" filter="url(#wa1-sh)">
+<rect x="31" y="100" width="54" height="36" rx="3.5" fill="url(#wa1-lap)"/>
+<rect x="34.5" y="103.5" width="47" height="29" rx="1.5" fill="#f4f8f6"/>
+<rect x="34.5" y="103.5" width="47" height="5.5" fill="#13887a"/>
+<circle cx="37.5" cy="106.2" r="1" fill="#fff"/><circle cx="40.8" cy="106.2" r="1" fill="#fff" opacity=".7"/>
+<rect x="38" y="112" width="20" height="16" rx="1.5" fill="#d7ece6"/><path d="M45.5 116.5l5 3.5-5 3.5z" fill="#13887a"/>
+<path d="M61 113h17M61 117h13M61 121h16M61 125h10" stroke="#a9bcc6" stroke-width="1.4" stroke-linecap="round"/>
+<path d="M25 136h66l-3.5 4.8H28.5z" fill="#c7d3da"/><path d="M52 136h12l-1 1.6H53z" fill="#9fb0bb"/>
+</g>
+<!-- game controller -->
+<g class="wa1-fl wa1-f3" filter="url(#wa1-sh)">
+<path d="M166 124h28c7 0 10 6 11 13s-1 11-5 11-6-5-10-7h-20c-4 2-6 7-10 7s-6-4-5-11 4-13 11-13z" fill="url(#wa1-pad)"/>
+<path d="M168 127h24" stroke="#fff" stroke-opacity=".3" stroke-width="1.2" stroke-linecap="round"/>
+<path d="M170 132v7M166.5 135.5h7" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+<circle cx="190" cy="133" r="1.8" fill="#e3a843"/><circle cx="194.5" cy="136.5" r="1.8" fill="#e64626"/><circle cx="186" cy="137" r="1.8" fill="#4fc3a8"/>
+</g>
+<!-- CO2 cloud with a question -->
+<path class="wa1-dat" d="M146 80C152 82 156 86 160 90" stroke="#13887a" stroke-width="1.8" stroke-linecap="round"/>
+<g class="wa1-fl">
+<g filter="url(#wa1-sh2)"><path d="M166 104h34a9 9 0 0 0 1-18 12 12 0 0 0-22-5 9 9 0 0 0-13 7 8 8 0 0 0 0 16z" fill="url(#wa1-cl)" transform="translate(-6 2)"/></g>
+<text x="179" y="99" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="800" fill="#14293a">CO<tspan font-size="6.5" dy="2">2</tspan></text>
+<circle cx="205" cy="90" r="6.5" fill="#e3a843" stroke="#fff" stroke-width="1.4"/><text x="205" y="93.2" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="800" fill="#fff">?</text>
+</g>
+<!-- phone (focal) -->
+<g filter="url(#wa1-sh)">
+<rect x="96" y="38" width="48" height="108" rx="10" fill="url(#wa1-ph)"/>
+<rect x="99.5" y="45" width="41" height="94" rx="6.5" fill="url(#wa1-scr)"/>
+</g>
+<rect x="114" y="40.5" width="12" height="2.4" rx="1.2" fill="#0b1824"/>
+<text x="120" y="63" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="800" fill="#fff" letter-spacing=".3">07:00</text>
+<path d="M110 68.5h20" stroke="#fff" stroke-opacity=".45" stroke-width="1.2" stroke-linecap="round"/>
+<g transform="translate(108.5 82.0)"><rect x="-5" y="-5" width="10" height="10" rx="2.8" fill="#2fae6b"/><path d="M-3-2.6h6a1.6 1.6 0 0 1 1.6 1.6v2.6A1.6 1.6 0 0 1 3 3.2H-.6L-3 5V3.2a1.6 1.6 0 0 1-1.6-1.6V-1a1.6 1.6 0 0 1 1.6-1.6z" fill="#fff"/></g><g transform="translate(120.0 82.0)"><rect x="-5" y="-5" width="10" height="10" rx="2.8" fill="#e64626"/><path d="M-1.8-3l4.6 3-4.6 3z" fill="#fff"/></g><g transform="translate(131.5 82.0)"><rect x="-5" y="-5" width="10" height="10" rx="2.8" fill="#7a4a8c"/><path d="M-1.4 2.6V-3.2l3.6-1v5.2" stroke="#fff" stroke-width="1.2" stroke-linejoin="round"/><circle cx="-2.4" cy="2.6" r="1.4" fill="#fff"/><circle cx="1.2" cy="1.6" r="1.4" fill="#fff"/></g><g transform="translate(108.5 94.5)"><rect x="-5" y="-5" width="10" height="10" rx="2.8" fill="#2f6db5"/><rect x="-3.6" y="-2.6" width="7.2" height="5.2" rx="1" fill="#fff"/><path d="M-3.4-2.2L0 .6l3.4-2.8" stroke="#2f6db5" stroke-width=".9"/></g><g transform="translate(120.0 94.5)"><rect x="-5" y="-5" width="10" height="10" rx="2.8" fill="#e3a843"/><circle r="3.2" stroke="#fff" stroke-width="1.3"/><path d="M0-1.8V0l1.2 1" stroke="#fff" stroke-width="1.1" stroke-linecap="round"/></g><g transform="translate(131.5 94.5)"><rect x="-5" y="-5" width="10" height="10" rx="2.8" fill="#f2f6f8"/><path d="M-3.4 1.6l2-2 1.6 1.4 3.2-3.4" stroke="#13887a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+<rect x="104" y="122" width="32" height="11" rx="5.5" fill="#fff" fill-opacity=".22"/>
+<circle cx="111" cy="127.5" r="2.3" fill="#fff"/><circle cx="120" cy="127.5" r="2.3" fill="#fff" opacity=".8"/><circle cx="129" cy="127.5" r="2.3" fill="#fff" opacity=".6"/>
+<path d="M101.5 50c4-3 10-4 16-3" stroke="#fff" stroke-opacity=".22" stroke-width="2" stroke-linecap="round"/>
+<g class="wa1-bd"><circle cx="143" cy="41" r="7.5" fill="#e64626" stroke="#fff" stroke-width="1.6"/><text x="143" y="44.2" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="800" fill="#fff">12</text></g>
+<g transform="translate(32 38) scale(0.7)"><use href="#wa1-st" class="wa1-tw wa1-t3" fill="#13887a"/></g>
+<g transform="translate(212 112) scale(0.75)"><use href="#wa1-st" class="wa1-tw wa1-t4" fill="#e3a843"/></g>
+<circle class="wa1-tw" cx="26" cy="124" r="2" fill="#2f6db5"/>
+
+</svg>
