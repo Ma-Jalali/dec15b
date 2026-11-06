@@ -123,6 +123,7 @@ const PRECACHE = [
   "css/guide.css?v=5.1",
   "css/kit.css?v=5.1",
   "css/lab.css?v=5.1",
+  "css/lesson.css?v=5.1",
   "css/library.css?v=5.1",
   "css/liquid.css?v=5.1",
   "css/menubar.css?v=5.1",
