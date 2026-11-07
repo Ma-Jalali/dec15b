@@ -547,7 +547,8 @@ function stagePage(s) {
   const idx = s.activities.findIndex(a => a.id === activeId);
   const doneCount = s.activities.filter(a => state.done[a.id]).length;
   const complete = doneCount === s.activities.length;
-  return `<header class="stage-head${complete ? ' is-complete' : ''}">
+  const back = course.id === 'dec10' ? `<a class="stage-back" href="${L('overview')}">${icon('left')}${esc(whereLong())}<small>Back to the day</small></a>` : '';
+  return `${back}<header class="stage-head${complete ? ' is-complete' : ''}">
       <span class="stage-numeral${code(s).length > 2 ? ' is-code' : ''}" aria-hidden="true">${esc(code(s))}</span>
       <div class="stage-copy">
         <span class="eyebrow">${s.code ? `Teacher’s Book ${esc(navCode(s.code))}<span class="sep"></span>` : ''}Stage ${Number(s.number)} of ${lesson.sections.length}<span class="sep"></span>${esc(s.subtitle)}</span>

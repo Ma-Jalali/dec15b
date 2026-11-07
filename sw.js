@@ -115,6 +115,7 @@ const PRECACHE = [
   "css/detail.css?v=5.2",
   "css/dictionary.css?v=5.2",
   "css/downloads.css?v=5.2",
+  "css/finish.css?v=5.2",
   "css/fonts.css?v=5.2",
   "css/forms.css?v=5.2",
   "css/fresh.css?v=5.2",
