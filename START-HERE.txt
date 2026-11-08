@@ -789,3 +789,15 @@ v6.1 (DEC10 Weeks 3, 4 and 5 — fifteen new days)
   lovelocal · s51 · s52. Teacher highlights that are answers are left out of the transcripts.
 - Answers that the Teacher's Book does not give are labelled "Suggested" in the pages.
 - Fix: a "choose" block with four or more options showed "undefined" instead of the letter D (js/app.js).
+
+v6.2 (DEC10 Week 3 more active; Week 5 follows the revised weekly map)
+- Week 3, all five days: more movement and student-centred work — stand-up/sit-down, opinion line-ups, four corners,
+  gallery walks, jigsaws with 60-second teach-backs, inner/outer circle rotations, hot seat, snowball, human sentences,
+  rotating group roles (chair, timekeeper, language monitor, reporter, devil's advocate), team points, a "Say it like an
+  academic" phrase, a "Use it" step and an exit ticket in each stage. Presentation days give the audience live jobs.
+  Some activities need paper cards or posters the teacher makes from the on-page lists.
+- Week 5 (revised weekly map 16.10.2026): W5 D2 4A Listening to write 120 min (was 75; 45 min of new practice on the same
+  lecture); 6A "Prepare to write"; W5 D3 7A 45 min (was 60), 9A Seminar 90 min (was 75); W5 D5 renamed
+  "Listening and Reading to Write Assessment".
+- No saved-work id was renamed or removed; protected texts, questions and answer keys are unchanged.
+- The bingo block takes an optional label (e.g. "Who said it?") instead of "Find someone who…" (js/kit.js).
