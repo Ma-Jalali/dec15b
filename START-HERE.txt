@@ -801,3 +801,8 @@ v6.2 (DEC10 Week 3 more active; Week 5 follows the revised weekly map)
   "Listening and Reading to Write Assessment".
 - No saved-work id was renamed or removed; protected texts, questions and answer keys are unchanged.
 - The bingo block takes an optional label (e.g. "Who said it?") instead of "Find someone who…" (js/kit.js).
+
+v6.3 (DEC10 Week 3 Day 1: five teaching diagrams redrawn)
+- d1-camera (observation vs evaluation), d1-green-sectors (eight sector scenes; a proper three-arrow recycling symbol),
+  d1-group-roles (four detailed role characters; curved rotation arrows with real heads), d1-heart-head (hand clearly on
+  heart / on head), d1-jigsaw (expert groups → mixed tables with six curved arrows). Same text as before.

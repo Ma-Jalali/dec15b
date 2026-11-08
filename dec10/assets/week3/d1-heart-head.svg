@@ -1,25 +1,266 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" fill="none" role="img" aria-label="Two students. Left: hand on heart means feeling, for example I’m nervous about the presentation — a real feeling word, an adjective. Right: hand on head means thought, for example I feel like you are not listening to me — feel plus like, that, as if or you.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" fill="none" role="img" aria-label="Feeling or thought? Show it with your hand! Two illustrated students in two cards. Left card, Hand on heart = FEELING: a nervous girl with worried eyebrows, a wavy mouth and a sweat drop presses her hand flat on her chest, where a glowing heart shines. Her speech bubble says “I’m nervous about the presentation.” with the word nervous highlighted; the note says a real feeling word (adjective). Right card, Hand on head = THOUGHT: a thinking boy with one raised eyebrow looks up and rests his hand on the top of his head while thought bubbles rise above him. His speech bubble says “I feel like you are not listening to me.” with feel like highlighted; the note says feel + like / that / as if / you.">
 <title>Feeling or thought</title>
 <style>
-.w3d1hh-fl{animation:w3d1hh-fl 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1hh-d1{animation-delay:-1.3s}.w3d1hh-d2{animation-delay:-2.6s}.w3d1hh-d3{animation-delay:-3.9s}
-.w3d1hh-pu{animation:w3d1hh-pu 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.w3d1hh-dr{stroke-dasharray:8 8;animation:w3d1hh-dr 1.4s linear infinite}
-.w3d1hh-sp{animation:w3d1hh-sp 12s linear infinite;transform-box:view-box;transform-origin:500px 230px}
-.w3d1hh-tw{animation:w3d1hh-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.w3d1hh-pu{animation:w3d1hh-pu 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.w3d1hh-gl{animation:w3d1hh-gl 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.w3d1hh-fl{animation:w3d1hh-fl 4.5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.w3d1hh-up{animation:w3d1hh-up 3.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.w3d1hh-up2{animation-delay:-1.8s}
+.w3d1hh-tw{animation:w3d1hh-tw 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.w3d1hh-t2{animation-delay:-.9s}.w3d1hh-t3{animation-delay:-1.8s}
 .w3d1hh-bl{animation:w3d1hh-bl 5s infinite;transform-box:fill-box;transform-origin:center}
+.w3d1hh-sw{animation:w3d1hh-sw 2.6s ease-in infinite;transform-box:fill-box;transform-origin:center}
+.w3d1hh-dt{animation:w3d1hh-dt 1.5s ease-in-out infinite}
+.w3d1hh-d2{animation-delay:.25s}.w3d1hh-d3{animation-delay:.5s}
+@keyframes w3d1hh-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+@keyframes w3d1hh-gl{0%,100%{opacity:.75;transform:scale(.94)}50%{opacity:1;transform:scale(1.06)}}
 @keyframes w3d1hh-fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-@keyframes w3d1hh-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
-@keyframes w3d1hh-dr{to{stroke-dashoffset:-32}}
-@keyframes w3d1hh-sp{to{transform:rotate(360deg)}}
-@keyframes w3d1hh-tw{0%,100%{opacity:.3;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
-@keyframes w3d1hh-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w3d1hh-up{0%{transform:translateY(4px);opacity:.25}50%{opacity:1}100%{transform:translateY(-6px);opacity:.25}}
+@keyframes w3d1hh-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes w3d1hh-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w3d1hh-sw{0%,20%{transform:translateY(0);opacity:1}100%{transform:translateY(8px);opacity:.2}}
+@keyframes w3d1hh-dt{0%,100%{opacity:.35}50%{opacity:1}}
 @media (prefers-reduced-motion: reduce){*{animation:none!important}}
-</style><defs>
-<linearGradient id="w3d1hh-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbf1ea"/><stop offset="1" stop-color="#f3e1d3"/></linearGradient>
-<pattern id="w3d1hh-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.1" fill="#b0512a" fill-opacity=".16"/></pattern>
-<linearGradient id="w3d1hh-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".65"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-<filter id="w3d1hh-sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#14293a" flood-opacity=".16"/></filter>
-<filter id="w3d1hh-sh2" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".14"/></filter>
-<marker id="w3d1hh-ah" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L10 5L0 10z" fill="#e3a843"/></marker>
-</defs><rect width="1000" height="420" fill="url(#w3d1hh-bg)"/><rect width="1000" height="420" fill="url(#w3d1hh-dots)"/><text x="500" y="42" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="800" fill="#14293a" text-anchor="middle">Feeling or thought? Show it with your hand!</text><g filter="url(#w3d1hh-sh)"><rect x="40" y="70" width="420" height="320" rx="26" fill="#fff"/></g><rect x="40" y="70" width="420" height="12" rx="6" fill="#b0512a"/><g><g transform="translate(140 340) scale(1.25)"><ellipse cx="0" cy="2" rx="22" ry="5" fill="#14293a" fill-opacity=".12"/><path d="M-9 0v-34M9 0v-34" stroke="#2c3e55" stroke-width="8" stroke-linecap="round"/><path d="M-20 -36c0-26 8-38 20-38s20 12 20 38z" fill="#b0512a"/><path d="M-20 -36c0-26 8-38 20-38s20 12 20 38z" fill="url(#w3d1hh-shine)" opacity=".5"/><path d="M-16 -64q-6 18 8 22" stroke="#b0512a" stroke-width="9" stroke-linecap="round" fill="none"/><circle cx="-6" cy="-48" r="6" fill="#f2c9a5"/><circle cx="0" cy="-90" r="17" fill="#f2c9a5"/><path d="M-17 -92c0-14 8-20 17-20s17 6 17 20c-6-6-12-8-17-8s-11 2-17 8z" fill="#3b2a20"/><g class="w3d1hh-bl"><circle cx="-6" cy="-89" r="2" fill="#14293a"/><circle cx="6" cy="-89" r="2" fill="#14293a"/></g><path d="M-5 -81q5 4 10 0" stroke="#14293a" stroke-width="1.8" fill="none" stroke-linecap="round"/></g></g><g class="w3d1hh-pu"><path d="M132 262c-8-10 4-20 10-12 6-8 18 2 10 12l-10 10z" fill="#f05a5a"/></g><text x="320" y="140" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="800" fill="#3b4a5c" text-anchor="middle">Hand on heart</text><text x="320" y="172" font-family="Manrope, Arial, sans-serif" font-size="30" font-weight="800" fill="#b0512a" text-anchor="middle">FEELING</text><rect x="220" y="200" width="220" height="92" rx="16" fill="#b0512a" fill-opacity=".1"/><text x="330" y="236" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="800" fill="#b0512a" text-anchor="middle">“I’m nervous about</text><text x="330" y="262" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="800" fill="#b0512a" text-anchor="middle">the presentation.”</text><text x="330" y="330" font-family="Manrope, Arial, sans-serif" font-size="14" font-weight="700" fill="#3b4a5c" text-anchor="middle">a real feeling word (adjective)</text><g filter="url(#w3d1hh-sh)"><rect x="540" y="70" width="420" height="320" rx="26" fill="#fff"/></g><rect x="540" y="70" width="420" height="12" rx="6" fill="#3a58a0"/><g><g transform="translate(640 340) scale(1.25)"><ellipse cx="0" cy="2" rx="22" ry="5" fill="#14293a" fill-opacity=".12"/><path d="M-9 0v-34M9 0v-34" stroke="#2c3e55" stroke-width="8" stroke-linecap="round"/><path d="M-20 -36c0-26 8-38 20-38s20 12 20 38z" fill="#3a58a0"/><path d="M-20 -36c0-26 8-38 20-38s20 12 20 38z" fill="url(#w3d1hh-shine)" opacity=".5"/><path d="M16 -64q16 -12 6 -40" stroke="#3a58a0" stroke-width="9" stroke-linecap="round" fill="none"/><circle cx="16" cy="-104" r="6" fill="#f2c9a5"/><circle cx="0" cy="-90" r="17" fill="#f2c9a5"/><path d="M-17 -92c0-14 8-20 17-20s17 6 17 20c-6-6-12-8-17-8s-11 2-17 8z" fill="#3b2a20"/><g class="w3d1hh-bl"><circle cx="-6" cy="-89" r="2" fill="#14293a"/><circle cx="6" cy="-89" r="2" fill="#14293a"/></g><path d="M-5 -81q5 4 10 0" stroke="#14293a" stroke-width="1.8" fill="none" stroke-linecap="round"/></g></g><g class="w3d1hh-tw"><circle cx="690" cy="150" r="8" fill="#fff" stroke="#3a58a0" stroke-width="3"/><circle cx="706" cy="128" r="12" fill="#fff" stroke="#3a58a0" stroke-width="3"/></g><text x="820" y="140" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="800" fill="#3b4a5c" text-anchor="middle">Hand on head</text><text x="820" y="172" font-family="Manrope, Arial, sans-serif" font-size="30" font-weight="800" fill="#3a58a0" text-anchor="middle">THOUGHT</text><rect x="720" y="200" width="220" height="92" rx="16" fill="#3a58a0" fill-opacity=".1"/><text x="830" y="236" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="800" fill="#3a58a0" text-anchor="middle">“I feel like you are</text><text x="830" y="262" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="800" fill="#3a58a0" text-anchor="middle">not listening to me.”</text><text x="830" y="330" font-family="Manrope, Arial, sans-serif" font-size="14" font-weight="700" fill="#3b4a5c" text-anchor="middle">feel + like / that / as if / you</text>
+</style>
+<defs>
+<linearGradient id="w3d1hh-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbf3ea"/><stop offset="1" stop-color="#f2e2d2"/></linearGradient>
+<pattern id="w3d1hh-dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.1" fill="#b0512a" fill-opacity=".14"/></pattern>
+<pattern id="w3d1hh-knit" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 0l3.5 3.5L7 0M0 3.5L3.5 7 7 3.5" stroke="#000" stroke-opacity=".07" stroke-width="1"/></pattern>
+<pattern id="w3d1hh-ln" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><path d="M0 0v12" stroke="#fff" stroke-opacity=".5" stroke-width="2"/></pattern>
+<linearGradient id="w3d1hh-card" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fdf9f4"/></linearGradient>
+<radialGradient id="w3d1hh-skin" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fde0c6"/><stop offset=".7" stop-color="#f2c29d"/><stop offset="1" stop-color="#e3a77f"/></radialGradient>
+<linearGradient id="w3d1hh-skn2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f9d6b9"/><stop offset="1" stop-color="#e6ad86"/></linearGradient>
+<linearGradient id="w3d1hh-clay" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d06a3c"/><stop offset=".55" stop-color="#b0512a"/><stop offset="1" stop-color="#8a3a18"/></linearGradient>
+<linearGradient id="w3d1hh-blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5677c4"/><stop offset=".55" stop-color="#3a58a0"/><stop offset="1" stop-color="#283f7a"/></linearGradient>
+<linearGradient id="w3d1hh-hairA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6a4330"/><stop offset="1" stop-color="#2e1b12"/></linearGradient>
+<linearGradient id="w3d1hh-hairB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b4256"/><stop offset="1" stop-color="#14182a"/></linearGradient>
+<linearGradient id="w3d1hh-heart" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8f86"/><stop offset=".6" stop-color="#e8424a"/><stop offset="1" stop-color="#b8232f"/></linearGradient>
+<radialGradient id="w3d1hh-glow"><stop offset="0" stop-color="#ffd27a" stop-opacity=".95"/><stop offset=".45" stop-color="#ff9a86" stop-opacity=".55"/><stop offset="1" stop-color="#ff9a86" stop-opacity="0"/></radialGradient>
+<radialGradient id="w3d1hh-blobA" cx=".5" cy=".45"><stop offset="0" stop-color="#e9a07c" stop-opacity=".45"/><stop offset="1" stop-color="#e9a07c" stop-opacity="0"/></radialGradient>
+<radialGradient id="w3d1hh-blobB" cx=".5" cy=".45"><stop offset="0" stop-color="#8fa6dc" stop-opacity=".45"/><stop offset="1" stop-color="#8fa6dc" stop-opacity="0"/></radialGradient>
+<linearGradient id="w3d1hh-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<filter id="w3d1hh-sh" x="-10%" y="-10%" width="120%" height="125%"><feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#14293a" flood-opacity=".16"/></filter>
+<filter id="w3d1hh-sh2" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".16"/></filter>
+<filter id="w3d1hh-sh3" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="1" dy="3" stdDeviation="2.5" flood-color="#3a1a0c" flood-opacity=".28"/></filter>
+<clipPath id="w3d1hh-cA"><rect x="20" y="80" width="470" height="382" rx="26"/></clipPath>
+<clipPath id="w3d1hh-cB"><rect x="510" y="80" width="470" height="382" rx="26"/></clipPath>
+<!-- reusable hand: wrist at 0,0, fingers pointing up (-y) -->
+<g id="w3d1hh-hand">
+<path d="M-12 -8C-22 -12-27 -20-25 -29" stroke="#c98d68" stroke-width="10.5" stroke-linecap="round"/>
+<path d="M-12 -8C-22 -12-27 -20-25 -29" stroke="url(#w3d1hh-skn2)" stroke-width="8" stroke-linecap="round"/>
+<path d="M-15 3C-17 -9-17 -19-15 -27H15C17 -18 16 -8 13 3C5 8-7 8-15 3Z" fill="url(#w3d1hh-skn2)" stroke="#c98d68" stroke-width="1.3"/>
+<rect x="-15" y="-45" width="7.6" height="23" rx="3.8" fill="url(#w3d1hh-skn2)" stroke="#c98d68" stroke-width="1.3"/>
+<rect x="-7.3" y="-50" width="7.6" height="28" rx="3.8" fill="url(#w3d1hh-skn2)" stroke="#c98d68" stroke-width="1.3"/>
+<rect x=".4" y="-49" width="7.6" height="27" rx="3.8" fill="url(#w3d1hh-skn2)" stroke="#c98d68" stroke-width="1.3"/>
+<rect x="8.1" y="-43" width="7.4" height="21" rx="3.7" fill="url(#w3d1hh-skn2)" stroke="#c98d68" stroke-width="1.3"/>
+<path d="M-12.5 -40h3M-4.8 -45h3M2.9 -44h3M10.4 -38h3" stroke="#fbe6d4" stroke-width="2.2" stroke-linecap="round"/>
+<path d="M-8 -14q8 4 16 0" stroke="#d99d77" stroke-width="1.3" stroke-linecap="round" opacity=".7"/>
+</g>
+</defs>
+
+<rect width="1000" height="480" fill="url(#w3d1hh-bg)"/>
+<rect width="1000" height="480" fill="url(#w3d1hh-dots)"/>
+
+<!-- title band -->
+<g filter="url(#w3d1hh-sh2)"><rect x="196" y="16" width="608" height="50" rx="25" fill="#14293a"/></g>
+<rect x="196" y="16" width="608" height="25" rx="12.5" fill="url(#w3d1hh-shine)" opacity=".18"/>
+<text x="500" y="49" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="800" fill="#fff" text-anchor="middle">Feeling or thought? Show it with your hand!</text>
+<g class="w3d1hh-tw"><path d="M172 41l3 -8 3 8 8 3 -8 3 -3 8 -3 -8 -8 -3z" fill="#e3a843"/></g>
+<g class="w3d1hh-tw w3d1hh-t2"><path d="M822 41l3 -8 3 8 8 3 -8 3 -3 8 -3 -8 -8 -3z" fill="#e3a843"/></g>
+
+<!-- ================= LEFT CARD: FEELING ================= -->
+<g filter="url(#w3d1hh-sh)"><rect x="20" y="80" width="470" height="382" rx="26" fill="url(#w3d1hh-card)"/></g>
+<g clip-path="url(#w3d1hh-cA)">
+<rect x="20" y="80" width="470" height="14" fill="#b0512a"/>
+<rect x="20" y="94" width="470" height="3" fill="#8a3a18" opacity=".25"/>
+<circle cx="142" cy="320" r="150" fill="url(#w3d1hh-blobA)"/>
+<circle cx="142" cy="320" r="104" stroke="#b0512a" stroke-opacity=".12" stroke-width="2" stroke-dasharray="3 7"/>
+<!-- girl -->
+<g transform="translate(142 268)">
+ <!-- back hair -->
+ <path d="M-47 -6C-56 -56-30 -72 0 -72C30 -72 56 -56 47 -6L52 46C46 58 30 58 24 44H-24C-30 58-46 58-52 46Z" fill="url(#w3d1hh-hairA)"/>
+ <!-- torso / sweater -->
+ <path d="M-86 220V130C-86 88-66 74-36 67L-14 62H14L36 67C66 74 86 88 86 130V220Z" fill="url(#w3d1hh-clay)"/>
+ <path d="M-86 220V130C-86 88-66 74-36 67L-14 62H14L36 67C66 74 86 88 86 130V220Z" fill="url(#w3d1hh-knit)"/>
+ <path d="M-80 112C-78 90-62 78-38 72" stroke="#fff" stroke-opacity=".3" stroke-width="4" stroke-linecap="round"/>
+ <path d="M44 168q-8 22-2 50M-24 186q5 12 3 30M66 120q-6 12-4 26" stroke="#6e2c10" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/>
+ <!-- neck & shirt collar -->
+ <path d="M-14 28V64Q0 74 14 64V28Z" fill="#e3a77f"/>
+ <ellipse cx="0" cy="40" rx="15" ry="6" fill="#cf916b"/>
+ <path d="M-26 64L0 94L26 64Z" fill="#f6f1ea"/>
+ <path d="M-15 60L0 80L-7 90L-26 68Z" fill="#fff" stroke="#d9cfc4" stroke-width="1.2"/>
+ <path d="M15 60L0 80L7 90L26 68Z" fill="#fff" stroke="#d9cfc4" stroke-width="1.2"/>
+ <path d="M-28 64L0 97L28 64" stroke="#8a3a18" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+ <!-- glowing heart on chest -->
+ <circle class="w3d1hh-gl" cx="32" cy="98" r="54" fill="url(#w3d1hh-glow)"/>
+ <g class="w3d1hh-tw"><path d="M74 62l2 -6 2 6 6 2 -6 2 -2 6 -2 -6 -6 -2z" fill="#e3a843"/></g>
+ <g class="w3d1hh-tw w3d1hh-t3"><path d="M-4 66l1.6 -5 1.6 5 5 1.6 -5 1.6 -1.6 5 -1.6 -5 -5 -1.6z" fill="#e3a843"/></g>
+ <g class="w3d1hh-pu"><g transform="translate(32 92)" filter="url(#w3d1hh-sh3)">
+  <path d="M0 15C-24 0-24 -17-12 -20C-5 -22-1 -17 0 -12C1 -17 5 -22 12 -20C24 -17 24 0 0 15Z" fill="url(#w3d1hh-heart)" stroke="#fff" stroke-width="2.5"/>
+  <ellipse cx="-9" cy="-11" rx="4.5" ry="3" transform="rotate(-35 -9 -11)" fill="#fff" opacity=".75"/>
+ </g></g>
+ <!-- arm across chest -->
+ <g filter="url(#w3d1hh-sh3)">
+ <path d="M-70 96C-90 130-84 170-60 186" stroke="#a5481f" stroke-width="31" stroke-linecap="round"/>
+ <path d="M-60 186C-36 186-16 166-2 150" stroke="#b9552a" stroke-width="27" stroke-linecap="round"/>
+ <path d="M-60 186C-36 186-16 166-2 150" stroke="url(#w3d1hh-knit)" stroke-width="27" stroke-linecap="round"/>
+ <path d="M-82 140q8 4 10 14M-58 172q6 -6 14 -6M-40 182q6 -8 14 -8" stroke="#6e2c10" stroke-opacity=".4" stroke-width="2.5" stroke-linecap="round"/>
+ <path d="M-84 120C-84 104-78 98-74 94" stroke="#fff" stroke-opacity=".25" stroke-width="4" stroke-linecap="round"/>
+ <g transform="translate(-2 150) rotate(-48)"><rect x="-14" y="-6" width="28" height="12" rx="5" fill="#8a3a18"/><path d="M-9 -5v10M-4 -5v10M1 -5v10M6 -5v10" stroke="#6e2c10" stroke-opacity=".5" stroke-width="1.2"/></g>
+ <use href="#w3d1hh-hand" transform="translate(4 146) rotate(42) scale(1.12)"/>
+ </g>
+ <!-- head -->
+ <ellipse cx="-38" cy="4" rx="7" ry="10" fill="#eab48e"/>
+ <ellipse cx="38" cy="4" rx="7" ry="10" fill="#eab48e"/>
+ <path d="M-38 -6C-38 30-20 46 0 46C20 46 38 30 38 -6C38 -34 20 -46 0 -46C-20 -46-38 -34-38 -6Z" fill="url(#w3d1hh-skin)"/>
+ <ellipse cx="-24" cy="14" rx="7" ry="4" fill="#f08f80" opacity=".45"/>
+ <ellipse cx="24" cy="14" rx="7" ry="4" fill="#f08f80" opacity=".45"/>
+ <!-- nervous eyes -->
+ <g class="w3d1hh-bl">
+  <ellipse cx="-14" cy="0" rx="7.5" ry="8.5" fill="#fff" stroke="#14293a" stroke-width="1.6"/>
+  <ellipse cx="14" cy="0" rx="7.5" ry="8.5" fill="#fff" stroke="#14293a" stroke-width="1.6"/>
+  <circle cx="-15" cy="2" r="4" fill="#14293a"/><circle cx="13" cy="2" r="4" fill="#14293a"/>
+  <circle cx="-16.5" cy=".3" r="1.5" fill="#fff"/><circle cx="11.5" cy=".3" r="1.5" fill="#fff"/>
+ </g>
+ <path d="M-25 -13Q-16 -15-8 -22M25 -13Q16 -15 8 -22" stroke="#3a2418" stroke-width="3.6" stroke-linecap="round"/>
+ <path d="M1 6q4 6-2 9" stroke="#c98d68" stroke-width="2" stroke-linecap="round"/>
+ <path d="M-11 26q2.75 -3.5 5.5 0t5.5 0 5.5 0 5.5 0" stroke="#8a3a2a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+ <!-- front hair: bob with bangs -->
+ <path d="M-45 6C-51 -44-26 -64 0 -64C26 -64 51 -44 45 6C42 -12 36 -24 26 -31C18 -20 4 -19-6 -27C-14 -19-28 -17-36 -23C-40 -15-43 -5-45 6Z" fill="url(#w3d1hh-hairA)"/>
+ <path d="M-45 2C-48 20-46 36-40 46C-38 30-37 14-39 -2ZM45 2C48 20 46 36 40 46C38 30 37 14 39 -2Z" fill="#3e261a"/>
+ <path d="M-28 -52C-16 -58 4 -59 16 -55M-36 -40C-32 -48-26 -52-20 -55" stroke="#9a6a50" stroke-width="2.6" stroke-linecap="round" opacity=".8"/>
+ <rect x="20" y="-46" width="16" height="6" rx="3" transform="rotate(-28 28 -43)" fill="#e3a843" stroke="#b07d22" stroke-width="1"/>
+ <!-- sweat drop + worry marks -->
+ <g class="w3d1hh-sw"><path d="M50 -34C54 -28 56 -24 56 -21A6 6 0 0 1 44 -21C44 -24 46 -28 50 -34Z" fill="#9fdcf5" stroke="#3a8fb8" stroke-width="1.4"/><ellipse cx="48" cy="-22" rx="1.4" ry="2" fill="#fff"/></g>
+ <path d="M-58 -48l-8 -6M-62 -34l-10 -2M-56 -60l-4 -9" stroke="#b0512a" stroke-width="2.6" stroke-linecap="round"/>
+</g>
+<!-- small floating hearts -->
+<g class="w3d1hh-up"><path d="M222 214c-6 -4-6 -9-2.5 -10 2 -.6 2.5 1 2.5 2 0 -1 .5 -2.6 2.5 -2 3.5 1 3.5 6-2.5 10z" fill="#e8424a"/></g>
+<g class="w3d1hh-up w3d1hh-up2"><path d="M232 330c-5 -3.5-5 -7.5-2 -8.4 1.7 -.5 2 .8 2 1.6 0 -.8.3 -2.1 2 -1.6 3 .9 3 4.9-2 8.4z" fill="#e8424a" opacity=".8"/></g>
+</g>
+
+<!-- left text column -->
+<g filter="url(#w3d1hh-sh2)"><circle cx="276" cy="122" r="17" fill="#b0512a"/></g>
+<path d="M276 131c-9 -5.5-9.5 -12-5 -13.5 2.6 -.8 4.2 1 5 2.6.8 -1.6 2.4 -3.4 5 -2.6 4.5 1.5 4 8-5 13.5z" fill="#fff"/>
+<text x="302" y="128" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="800" fill="#3b4a5c">Hand on heart</text>
+<text x="368" y="170" font-family="Manrope, Arial, sans-serif" font-size="32" font-weight="800" fill="#b0512a" text-anchor="middle" letter-spacing="1">FEELING</text>
+<!-- speech bubble -->
+<g filter="url(#w3d1hh-sh2)">
+ <path d="M274 186H462A16 16 0 0 1 478 202V266A16 16 0 0 1 462 282H274A16 16 0 0 1 258 266V250L216 262L258 230V202A16 16 0 0 1 274 186Z" fill="#fff" stroke="#b0512a" stroke-width="2.5" stroke-linejoin="round"/>
+</g>
+<rect x="348" y="206" width="72" height="22" rx="5" fill="#e3a843" opacity=".5" transform="skewX(-6)" data-m="hlA"/>
+<text x="368" y="223" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="800" fill="#14293a" text-anchor="middle">“I’m <tspan fill="#b0512a" font-weight="900" data-m="nerv">nervous</tspan> about</text>
+<text x="368" y="254" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="800" fill="#14293a" text-anchor="middle">the presentation.”</text>
+<!-- note -->
+<rect x="258" y="312" width="220" height="70" rx="16" fill="#b0512a" fill-opacity=".09" stroke="#b0512a" stroke-opacity=".45" stroke-width="1.6" stroke-dasharray="5 5"/>
+<g transform="translate(282 347)"><circle r="13" fill="#b0512a"/><path d="M-5 -4h10M-5 0h10M-5 4h6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></g>
+<text x="384" y="342" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="700" fill="#3b4a5c" text-anchor="middle">a real feeling word</text>
+<text x="384" y="364" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="700" fill="#3b4a5c" text-anchor="middle">(adjective)</text>
+
+
+<!-- ================= RIGHT CARD: THOUGHT ================= -->
+<g filter="url(#w3d1hh-sh)"><rect x="510" y="80" width="470" height="382" rx="26" fill="url(#w3d1hh-card)"/></g>
+<g clip-path="url(#w3d1hh-cB)">
+<rect x="510" y="80" width="470" height="14" fill="#3a58a0"/>
+<rect x="510" y="94" width="470" height="3" fill="#283f7a" opacity=".25"/>
+<circle cx="616" cy="320" r="150" fill="url(#w3d1hh-blobB)"/>
+<circle cx="616" cy="320" r="104" stroke="#3a58a0" stroke-opacity=".12" stroke-width="2" stroke-dasharray="3 7"/>
+<!-- thought bubbles -->
+<g class="w3d1hh-fl"><g transform="translate(4 24)">
+ <g filter="url(#w3d1hh-sh2)">
+  <path d="M528 126C516 126 512 112 522 106C518 94 532 86 542 92C546 80 566 78 572 90C582 82 598 88 596 100C608 102 608 120 596 122C596 132 580 136 574 128C566 138 548 136 546 128C540 134 528 132 528 126Z" fill="#fff" stroke="#3a58a0" stroke-width="2.5" stroke-linejoin="round"/>
+ </g>
+ <circle class="w3d1hh-dt" cx="546" cy="110" r="5" fill="#3a58a0"/>
+ <circle class="w3d1hh-dt w3d1hh-d2" cx="562" cy="110" r="5" fill="#3a58a0"/>
+ <circle class="w3d1hh-dt w3d1hh-d3" cx="578" cy="110" r="5" fill="#3a58a0"/>
+</g></g>
+<g class="w3d1hh-tw"><circle cx="574" cy="174" r="7" fill="#fff" stroke="#3a58a0" stroke-width="2.5"/></g>
+<g class="w3d1hh-tw w3d1hh-t2"><circle cx="580" cy="190" r="4" fill="#fff" stroke="#3a58a0" stroke-width="2.2"/></g>
+<g class="w3d1hh-tw w3d1hh-t3"><path d="M520 160l2 -6 2 6 6 2 -6 2 -2 6 -2 -6 -6 -2z" fill="#e3a843"/></g>
+<!-- boy -->
+<g transform="translate(616 268)">
+ <!-- hood behind neck -->
+ <path d="M-48 52C-52 30-30 22 0 22C30 22 52 30 48 52L42 76H-42Z" fill="#2c4580"/>
+ <!-- torso / hoodie -->
+ <path d="M-86 220V130C-86 88-66 74-36 67L-14 62H14L36 67C66 74 86 88 86 130V220Z" fill="url(#w3d1hh-blue)"/>
+ <path d="M-86 220V130C-86 88-66 74-36 67L-14 62H14L36 67C66 74 86 88 86 130V220Z" fill="url(#w3d1hh-knit)"/>
+ <path d="M-80 112C-78 90-62 78-38 72" stroke="#fff" stroke-opacity=".3" stroke-width="4" stroke-linecap="round"/>
+ <path d="M-50 220L-42 180H42L50 220Z" fill="#2c4580" stroke="#22386b" stroke-width="2"/>
+ <path d="M-30 170q4 -16-2 -34M34 164q-4 -14 2 -30" stroke="#1d2f5c" stroke-opacity=".4" stroke-width="3" stroke-linecap="round"/>
+ <!-- neck -->
+ <path d="M-14 28V64Q0 74 14 64V28Z" fill="#e3a77f"/>
+ <ellipse cx="0" cy="40" rx="15" ry="6" fill="#cf916b"/>
+ <path d="M-36 64C-30 92 30 92 36 64C24 76-24 76-36 64Z" fill="#22386b"/>
+ <path d="M-12 80L-14 134M12 80L14 126" stroke="#f4efe9" stroke-width="3.2" stroke-linecap="round"/>
+ <rect x="-17" y="132" width="6" height="10" rx="2" fill="#e3a843"/><rect x="11" y="124" width="6" height="10" rx="2" fill="#e3a843"/>
+ <!-- hanging arm (viewer's left) -->
+ <path d="M-72 96C-88 136-88 180-84 226" stroke="#33508f" stroke-width="31" stroke-linecap="round"/>
+ <path d="M-86 120C-86 104-80 98-76 94" stroke="#fff" stroke-opacity=".25" stroke-width="4" stroke-linecap="round"/>
+ <path d="M-78 160q6 4 8 12M-80 196q6 2 8 10" stroke="#1d2f5c" stroke-opacity=".45" stroke-width="2.5" stroke-linecap="round"/>
+ <!-- raised arm: shoulder -> elbow beside head -> forearm over to crown -->
+ <path d="M44 66C56 72 62 80 64 92" stroke="#1d2f5c" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round"/>
+ <g filter="url(#w3d1hh-sh3)">
+ <path d="M64 86C78 58 90 26 94 -10" stroke="#33508f" stroke-width="28" stroke-linecap="round"/>
+ <path d="M94 -10C92 -32 76 -46 52 -50" stroke="#3e5fae" stroke-width="25" stroke-linecap="round"/>
+ <path d="M94 -10C92 -32 76 -46 52 -50" stroke="url(#w3d1hh-knit)" stroke-width="25" stroke-linecap="round"/>
+ <path d="M82 8q6 -6 16 -2M80 46q8 2 12 10M66 66q8 0 12 8" stroke="#1d2f5c" stroke-opacity=".45" stroke-width="2.5" stroke-linecap="round"/>
+ <path d="M102 -20q2 6 0 12" stroke="#1d2f5c" stroke-opacity=".4" stroke-width="2.5" stroke-linecap="round"/>
+ <path d="M78 -42C70 -46 62 -48 56 -49M76 56C80 42 84 28 88 14" stroke="#fff" stroke-opacity=".28" stroke-width="3.5" stroke-linecap="round"/>
+ </g>
+ <!-- head -->
+ <ellipse cx="-38" cy="4" rx="7" ry="10" fill="#eab48e"/>
+ <ellipse cx="38" cy="4" rx="7" ry="10" fill="#eab48e"/>
+ <path d="M-38 -6C-38 30-20 46 0 46C20 46 38 30 38 -6C38 -34 20 -46 0 -46C-20 -46-38 -34-38 -6Z" fill="url(#w3d1hh-skin)"/>
+ <ellipse cx="-24" cy="15" rx="6.5" ry="3.6" fill="#f08f80" opacity=".3"/>
+ <ellipse cx="24" cy="15" rx="6.5" ry="3.6" fill="#f08f80" opacity=".3"/>
+ <!-- thinking eyes looking up-left -->
+ <g class="w3d1hh-bl">
+  <ellipse cx="-14" cy="1" rx="7" ry="7.5" fill="#fff" stroke="#14293a" stroke-width="1.6"/>
+  <ellipse cx="14" cy="1" rx="7" ry="7.5" fill="#fff" stroke="#14293a" stroke-width="1.6"/>
+  <circle cx="-17" cy="-1.5" r="3.8" fill="#14293a"/><circle cx="11" cy="-1.5" r="3.8" fill="#14293a"/>
+  <circle cx="-18.2" cy="-3" r="1.4" fill="#fff"/><circle cx="9.8" cy="-3" r="1.4" fill="#fff"/>
+ </g>
+ <path d="M-25 -15Q-17 -27-6 -20" stroke="#1c2030" stroke-width="3.6" stroke-linecap="round"/>
+ <path d="M7 -14Q16 -17 25 -13" stroke="#1c2030" stroke-width="3.6" stroke-linecap="round"/>
+ <path d="M1 6q4 6-2 9" stroke="#c98d68" stroke-width="2" stroke-linecap="round"/>
+ <path d="M-1 27q7 -5 14 -1" stroke="#8a3a2a" stroke-width="2.6" stroke-linecap="round"/>
+ <!-- spiky short hair -->
+ <path d="M-43 4C-49 -28-42 -52-18 -62C-8 -72 16 -72 28 -62C46 -54 50 -28 43 4C41 -12 35 -22 26 -28C14 -18-4 -20-16 -30C-24 -22-36 -14-43 4Z" fill="url(#w3d1hh-hairB)"/>
+ <path d="M-18 -62l-6 -10 12 4M-2 -68l2 -10 8 8" fill="#252b3e"/>
+ <path d="M-30 -48C-20 -58-6 -62 8 -62" stroke="#5a6480" stroke-width="2.6" stroke-linecap="round" opacity=".8"/>
+ <!-- cuff + open hand resting flat on the crown -->
+ <g transform="translate(54 -49) rotate(12)"><rect x="-6" y="-14" width="12" height="28" rx="5" fill="#22386b"/><path d="M-5 -9h10M-5 -4h10M-5 1h10M-5 6h10" stroke="#14244a" stroke-opacity=".6" stroke-width="1.2"/></g>
+ <g filter="url(#w3d1hh-sh3)"><g transform="translate(0 8)">
+  <g stroke-linecap="round">
+   <path d="M14 -74L-15 -76M12 -68L-21 -67M12 -62L-19 -57M14 -57L-10 -49" stroke="#c98d68" stroke-width="9.6"/>
+   <path d="M14 -74L-15 -76M12 -68L-21 -67M12 -62L-19 -57M14 -57L-10 -49" stroke="#f6cfae" stroke-width="7.2"/>
+   <path d="M30 -52C26 -46 22 -42 16 -40" stroke="#c98d68" stroke-width="9.6"/>
+   <path d="M30 -52C26 -46 22 -42 16 -40" stroke="#f6cfae" stroke-width="7.2"/>
+  </g>
+  <path d="M46 -52C38 -48 22 -50 12 -55C6 -60 6 -72 12 -78C22 -82 36 -78 46 -68C50 -62 50 -56 46 -52Z" fill="url(#w3d1hh-skn2)" stroke="#c98d68" stroke-width="1.3"/>
+  <path d="M-12 -75.8l3 .2M-18 -67h3M-16.5 -57.5l3 -.6M-7.5 -50l2.6 -.9" stroke="#fde8d6" stroke-width="2.2" stroke-linecap="round"/>
+  <circle cx="14" cy="-74" r="1.3" fill="#d99d77"/><circle cx="12.5" cy="-68" r="1.3" fill="#d99d77"/><circle cx="12.5" cy="-62" r="1.3" fill="#d99d77"/><circle cx="14" cy="-57" r="1.3" fill="#d99d77"/>
+  <path d="M22 -70q8 2 14 8" stroke="#d99d77" stroke-width="1.3" stroke-linecap="round" opacity=".7"/>
+ </g></g>
+</g>
+</g>
+
+<!-- right text column -->
+<g filter="url(#w3d1hh-sh2)"><circle cx="766" cy="122" r="17" fill="#3a58a0"/></g>
+<path d="M758 126c-4 0-5 -6-1 -7.5 0 -5 6 -6.5 8 -3 2 -3.5 8 -2 8 2.5 4 1 3 8-1 8z" fill="#fff"/>
+<text x="792" y="128" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="800" fill="#3b4a5c">Hand on head</text>
+<text x="858" y="170" font-family="Manrope, Arial, sans-serif" font-size="32" font-weight="800" fill="#3a58a0" text-anchor="middle" letter-spacing="1">THOUGHT</text>
+<g filter="url(#w3d1hh-sh2)">
+ <path d="M764 186H952A16 16 0 0 1 968 202V266A16 16 0 0 1 952 282H764A16 16 0 0 1 748 266V246L734 254L748 228V202A16 16 0 0 1 764 186Z" fill="#fff" stroke="#3a58a0" stroke-width="2.5" stroke-linejoin="round"/>
+</g>
+<rect x="823" y="206" width="69" height="22" rx="5" fill="#e3a843" opacity=".5" transform="skewX(-6)" data-m="hlB"/>
+<text x="858" y="223" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="800" fill="#14293a" text-anchor="middle">“I <tspan fill="#3a58a0" font-weight="900" data-m="feel">feel like</tspan> you are</text>
+<text x="858" y="254" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="800" fill="#14293a" text-anchor="middle">not listening to me.”</text>
+<rect x="748" y="312" width="220" height="70" rx="16" fill="#3a58a0" fill-opacity=".09" stroke="#3a58a0" stroke-opacity=".45" stroke-width="1.6" stroke-dasharray="5 5"/>
+<g transform="translate(772 347)"><circle r="13" fill="#3a58a0"/><path d="M-5 0h10M0 -5v10" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></g>
+<text x="874" y="342" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="800" fill="#3a58a0" text-anchor="middle">feel +</text>
+<text x="874" y="364" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="700" fill="#3b4a5c" text-anchor="middle">like / that / as if / you</text>
+<!-- "or" badge -->
+<g filter="url(#w3d1hh-sh2)"><circle cx="500" cy="270" r="22" fill="#e3a843" stroke="#fff" stroke-width="4"/></g>
+<text x="500" y="276" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="800" fill="#14293a" text-anchor="middle">or</text>
 </svg>
