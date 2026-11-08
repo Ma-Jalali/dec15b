@@ -248,7 +248,7 @@
               jobPick('a4-job', 1),
               {
                 type: 'bingo',
-                id: 'a4-bingo',
+                id: 'a4-bingo', label: 'Who said it?',
                 title: 'Live task · Presentation bingo: who said it?',
                 hint: 'Everyone plays (the Language spotter leads). When you hear or see it, write the speaker’s name or initial in the square. Four in a row? Don’t shout — raise your hand silently and wait for the end of the talk.',
                 squares: [

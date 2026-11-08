@@ -288,7 +288,7 @@ window.DEC15_LESSON = {
             },
             {
               type: "bingo",
-              id: "p4-bingo",
+              id: "p4-bingo", label: "Who said it?",
               title: "Language spotter bingo · Presentation 4",
               hint: "When a presenter uses the phrase, write their name in the square. Four in a row? Raise your hand quietly — tell the class after the talk.",
               squares: [
