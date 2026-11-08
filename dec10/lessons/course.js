@@ -145,6 +145,90 @@ window.DEC15_COURSE = {
           stages: ['rspres2', 'critical', 'action', 'ipcheck'], tones: ['plum', 'blue', 'teal', 'plum'],
           scripts: ['dec10/lessons/week2/sources.js', 'dec10/lessons/week2/d10w2d5.js'] }
       ]
+    },
+    {
+      n: 3, theme: 'The workforce of the future',
+      summary: 'Green jobs and green skills: read, listen and mediate across sources, give your group Research Summary presentations, take part in the Seminar, and learn academic style, citing, criticality and AI prompting.',
+      image: 'dec10/assets/week3/hero-d10w3d1.svg',
+      imageAlt: 'Illustration: workers walk across a golden skills bridge from an old smoky factory to a green city with wind turbines and solar roofs, while four students talk around a table.',
+      days: [
+        { id: 'd10w3d1', day: 1, status: 'ready', title: 'Green jobs, good teams', art: 'reading',
+          parts: ['1A Building rapport', '2A Reading to speak', '3A AST: Group work skills: Supporting the group', '4A Research summary preparation Homework'],
+          stages: ['rapport', 'reading', 'groupwork', 'rsprep'], tones: ['green', 'teal', 'clay', 'amber'],
+          scripts: ['dec10/lessons/week3/sources.js', 'dec10/lessons/week3/d10w3d1.js'] },
+        { id: 'd10w3d2', day: 2, status: 'ready', title: 'Green skills, real jobs', art: 'listening',
+          parts: ['5A Research summary presentations', '6A Listening to speak', '7A Mediation', '8A AST: Digital literacy: Online communication Homework', '9A Listening Assessment Preparation Homework'],
+          stages: ['rsgroup', 'listening', 'mediation', 'online', 'testlab'], tones: ['plum', 'teal', 'blue', 'green', 'amber'],
+          scripts: ['dec10/lessons/week3/sources.js', 'dec10/lessons/week3/d10w3d2.js'] },
+        { id: 'd10w3d3', day: 3, status: 'ready', title: 'Polish, present, prompt', art: 'writing',
+          parts: ['10A Homework review AST: Digital literacy & online communication', '11A Academic writing skills: Academic style', '12A Seminar: Group 1 Seminar presentation; Opening remarks Group 2', '13A STAR© moment', '14A AST: Digital literacy and AI Homework'],
+          stages: ['online', 'style', 'seminar', 'star', 'aihw'], tones: ['blue', 'clay', 'teal', 'amber', 'plum'],
+          scripts: ['dec10/lessons/week3/sources.js', 'dec10/lessons/week3/d10w3d3.js'] },
+        { id: 'd10w3d4', day: 4, status: 'ready', title: 'Present, question, think again', art: 'group',
+          parts: ['15A Group research summary presentations #1–3', '16A STAR© moment', '19A Interactive Presentation Assessment: Check in', '22A AST: Criticality: Showing flexibility', '17A Citing sources Homework'],
+          stages: ['rspres3', 'star', 'ipcheck', 'flex', 'citing'], tones: ['plum', 'amber', 'teal', 'blue', 'green'],
+          scripts: ['dec10/lessons/week3/sources.js', 'dec10/lessons/week3/d10w3d4.js'] },
+        { id: 'd10w3d5', day: 5, status: 'ready', title: 'Present, plan, discuss', art: 'discussion',
+          parts: ['15A Group research summary presentations #4–5', '18A AST: Feedback literacy - Action plan (2)', '20A Introduction to Interactive Discussion Assessment', '21A Individual question practice', '23A Interactive Discussion: Discussion Skills (1)', '24A Listening & Reading Practice Assessment', '25A Introduction to the Integrated Writing Assessment (IWA) Homework'],
+          stages: ['rspres2', 'action2', 'idintro', 'iqprac', 'discuss', 'lrtest', 'iwa'], tones: ['plum', 'teal', 'blue', 'clay', 'green', 'amber', 'teal'],
+          scripts: ['dec10/lessons/week3/sources.js', 'dec10/lessons/week3/d10w3d5.js'] }
+      ]
+    },
+    {
+      n: 4, theme: 'Eco-tourism',
+      summary: 'Can tourism be good for the planet? Read about eco-tourism and the SDGs, listen to a BBC podcast, explore “bluewashing”, write your Integrated Writing Practice Assessment, and learn nominalisation, citing and voice.',
+      image: 'dec10/assets/week4/hero-d10w4d1.svg',
+      imageAlt: 'Illustration: an eco-lodge on stilts in a rainforest valley beside a turquoise bay, with a whale shark, a sea turtle and hikers on a rope bridge.',
+      days: [
+        { id: 'd10w4d1', day: 1, status: 'ready', title: 'Unpack it, read it, listen for it', art: 'writing',
+          parts: ['1A Integrated Writing workshop (1)', '2A Reading to write', '3A Listening to write: Lead-in', '4A Listening to write Homework'],
+          stages: ['iww1', 'rtw', 'ltwlead', 'ltwhw'], tones: ['green', 'blue', 'teal', 'amber'],
+          scripts: ['dec10/lessons/week4/sources.js', 'dec10/lessons/week4/d10w4d1.js'] },
+        { id: 'd10w4d2', day: 2, status: 'ready', title: 'Listen, synthesise, write', art: 'listening',
+          parts: ['5A Listening to write', '6A Mediation', '7A Integrated Writing Practice Assessment', '8A Integrated writing workshop Homework'],
+          stages: ['listening', 'mediation', 'iwpa', 'workshop'], tones: ['teal', 'blue', 'amber', 'green'],
+          scripts: ['dec10/lessons/week4/sources.js', 'dec10/lessons/week4/d10w4d2.js'] },
+        { id: 'd10w4d3', day: 3, status: 'ready', title: 'Unpack it, say it strongly, present it', art: 'writing',
+          parts: ['9A Integrated writing workshop (2)', '14A Seminar Presentation (Group 2) and Opening Remarks (Group 3)', '11A Integrated Writing workshop Homework'],
+          stages: ['iww2', 'seminar', 'iwwhw'], tones: ['green', 'plum', 'amber'],
+          scripts: ['dec10/lessons/week4/sources.js', 'dec10/lessons/week4/d10w4d3.js'] },
+        { id: 'd10w4d4', day: 4, status: 'ready', title: 'Pack it, cite it, voice it', art: 'writing',
+          parts: ['10A Nominalisation', '12A Citing sources & voice', '13A Integrated writing workshop (3)'],
+          stages: ['nominal', 'citing', 'workshop3'], tones: ['plum', 'teal', 'blue'],
+          scripts: ['dec10/lessons/week4/sources.js', 'dec10/lessons/week4/d10w4d4.js'] },
+        { id: 'd10w4d5', day: 5, status: 'ready', title: 'Plan, prompt, negotiate', art: 'group',
+          parts: ['15A AST: Group work skills', '16A AST: Digital literacy and AI: Using & refining prompts', '17A Interactive Discussion: Discussion and negotiation', '18A STAR© moment'],
+          stages: ['groupwork', 'aiprompts', 'negotiate', 'star'], tones: ['green', 'blue', 'teal', 'amber'],
+          scripts: ['dec10/lessons/week4/sources.js', 'dec10/lessons/week4/d10w4d5.js'] }
+      ]
+    },
+    {
+      n: 5, theme: 'Globalisation',
+      summary: 'Is cultural globalisation harming culture? Read and listen about homogenisation and hybridisation, build your integrated essay step by step, negotiate in discussion, use AI for feedback, and sit the LRW Assessment.',
+      image: 'dec10/assets/week5/hero-d10w5d1.svg',
+      imageAlt: 'Illustration: a globe between grey identical shop fronts and a colourful street of mixed cultures, labelled homogenization and hybridization.',
+      days: [
+        { id: 'd10w5d1', day: 1, status: 'ready', title: 'Same world, mixed cultures', art: 'reading',
+          parts: ['1A Reading to write', '2A Interactive Discussion individual questions', '3A Listening Assessment preparation homework'],
+          stages: ['reading', 'idq', 'testlab'], tones: ['plum', 'teal', 'amber'],
+          scripts: ['dec10/lessons/week5/sources.js', 'dec10/lessons/week5/d10w5d1.js'] },
+        { id: 'd10w5d2', day: 2, status: 'ready', title: 'Hear the voices, weave the sources', art: 'listening',
+          parts: ['4A Listening to write', '5A Mediation', '6A Integrated writing workshop (1)'],
+          stages: ['listening', 'mediation', 'workshop'], tones: ['teal', 'blue', 'clay'],
+          scripts: ['dec10/lessons/week5/sources.js', 'dec10/lessons/week5/d10w5d2.js'] },
+        { id: 'd10w5d3', day: 3, status: 'ready', title: 'Use feedback, write together, discuss', art: 'writing',
+          parts: ['7A Integrated Writing Practice Assessment feedback', '8A Integrated writing workshop (2)', '9A Seminar', '10A AST: Digital literacy and AI: Using AI for feedback homework'],
+          stages: ['iwafb', 'workshop', 'seminar', 'aifb'], tones: ['green', 'plum', 'teal', 'blue'],
+          scripts: ['dec10/lessons/week5/sources.js', 'dec10/lessons/week5/d10w5d3.js'] },
+        { id: 'd10w5d4', day: 4, status: 'ready', title: 'Negotiate, check, rebuild', art: 'writing',
+          parts: ['11A Interactive Discussion: Discussion and negotiation', '12A AST: Digital literacy and AI: Using AI for feedback', '13A Integrated writing workshop (3)'],
+          stages: ['negotiate', 'aifeedback', 'workshop'], tones: ['teal', 'blue', 'plum'],
+          scripts: ['dec10/lessons/week5/sources.js', 'dec10/lessons/week5/d10w5d4.js'] },
+        { id: 'd10w5d5', day: 5, status: 'ready', title: 'LRW Assessment', art: 'assessment',
+          parts: ['14A LRW Assessment'],
+          stages: ['lrw'], tones: ['blue'],
+          scripts: ['dec10/lessons/week5/sources.js', 'dec10/lessons/week5/d10w5d5.js'] }
+      ]
     }
   ]
 };

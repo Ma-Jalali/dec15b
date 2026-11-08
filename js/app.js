@@ -300,7 +300,7 @@ B.quiz = b => {
 };
 B.choose = b => `<section class="block choose">
   <h3 class="block-heading">${b.title}</h3>
-  <div class="choose-options" role="radiogroup" aria-label="${esc(b.title)}">${b.options.map((o, i) => `<button type="button" role="radio" class="choose-option${val(b.id) === o ? ' selected' : ''}" aria-checked="${val(b.id) === o}" data-choose="${b.id}" data-opt="${esc(o)}"><span class="choose-letter">${'ABC'[i]}</span>${esc(o)}</button>`).join('')}</div>
+  <div class="choose-options" role="radiogroup" aria-label="${esc(b.title)}">${b.options.map((o, i) => `<button type="button" role="radio" class="choose-option${val(b.id) === o ? ' selected' : ''}" aria-checked="${val(b.id) === o}" data-choose="${b.id}" data-opt="${esc(o)}"><span class="choose-letter">${'ABCDEFGH'[i]}</span>${esc(o)}</button>`).join('')}</div>
 </section>`;
 const colW = id => { try { const w = JSON.parse(localStorage.getItem('dec15-colw') || '{}')[id]; return Array.isArray(w) ? w : null; } catch (e) { return null; } };
 const setColW = (id, w) => { try { const all = JSON.parse(localStorage.getItem('dec15-colw') || '{}'); if (w) all[id] = w; else delete all[id]; localStorage.setItem('dec15-colw', JSON.stringify(all)); } catch (e) { /* private mode */ } };
