@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" fill="none" role="img" aria-label="Feedback literacy in three stages. Appreciating feedback: defining performance criteria (rubric); understanding feedback from teachers and peers; verbalising how feedback will be used. Making judgements, highlighted as today’s focus: evaluating the quality of your own work and others’; comparing your own work against others and against exemplars. Taking action: explaining how feedback has been applied; documenting actions taken.">
+<title>Feedback literacy: today’s focus is making judgements</title>
+<style>
+.dd4j-fl{animation:dd4j-fl 6s ease-in-out infinite}.dd4j-f2{animation-delay:-2s}.dd4j-f3{animation-delay:-4s}
+@keyframes dd4j-fl{50%{transform:translateY(-4px)}}
+.dd4j-tw{animation:dd4j-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.dd4j-t2{animation-delay:-1s}.dd4j-t3{animation-delay:-2s}
+@keyframes dd4j-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.dd4j-bl{animation:dd4j-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.dd4j-b2{animation-delay:-1.7s}.dd4j-b3{animation-delay:-3.1s}
+@keyframes dd4j-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+.dd4j-dr{stroke-dasharray:5 7;animation:dd4j-dr 1.6s linear infinite}
+@keyframes dd4j-dr{to{stroke-dashoffset:-24}}
+.dd4j-pu{animation:dd4j-pu 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes dd4j-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.dd4j-sp{animation:dd4j-sp 10s linear infinite;transform-box:fill-box;transform-origin:center}.dd4j-sr{animation-direction:reverse}
+@keyframes dd4j-sp{to{transform:rotate(360deg)}}
+.dd4j-sw{animation:dd4j-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes dd4j-sw{50%{transform:rotate(4deg)}}
+.dd4j-gl{animation:dd4j-gl 3s ease-in-out infinite}
+@keyframes dd4j-gl{50%{opacity:.45}}
+.dd4j-dw{stroke-dasharray:400;stroke-dashoffset:400;animation:dd4j-dw 5s ease-in-out infinite}
+@keyframes dd4j-dw{30%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:0;opacity:0}}
+.dd4j-wv{animation:dd4j-wv 5s ease-in-out infinite}
+@keyframes dd4j-wv{50%{transform:translateX(-10px)}}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+<filter id="dd4j-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".15"/><feDropShadow dx="0" dy="1" stdDeviation=".8" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="dd4j-sh2" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#14293a" flood-opacity=".14"/><feDropShadow dx="0" dy="2" stdDeviation="1.6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="dd4j-blur" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="5"/></filter>
+<radialGradient id="dd4j-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="dd4j-pap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#f3ead8"/></linearGradient>
+<linearGradient id="dd4j-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c162"/><stop offset="1" stop-color="#d9962e"/></linearGradient>
+<linearGradient id="dd4j-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c4c68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="dd4j-desk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e6cd"/><stop offset="1" stop-color="#e8c99c"/></linearGradient>
+<pattern id="dd4j-dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="12" cy="12" r="1.3" fill="#14293a" fill-opacity="0.05"/></pattern>
+</defs>
+<rect width="1000" height="520" rx="26" fill="#f4f0fa"/><rect width="1000" height="520" rx="26" fill="url(#dd4j-dots)"/><text x="500" y="44" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="900" fill="#14293a" text-anchor="middle" letter-spacing="2">FEEDBACK LITERACY</text><path d="M40 70H190V170L115 202L40 170z" fill="#4a9fd8"/><text x="115" y="122" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="900" fill="#fff" text-anchor="middle">Appreciating</text><text x="115" y="144" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="900" fill="#fff" text-anchor="middle">feedback</text>
+    <g><g filter="url(#dd4j-sh)"><rect x="210" y="74" width="640" height="112" rx="16" fill="#fff"/></g><rect x="210" y="74" width="640" height="112" rx="16" stroke="#4a9fd8" stroke-width="2"/></g>
+    <circle cx="240" cy="107" r="5" fill="#4a9fd8"/><text x="256" y="113" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="600" fill="#14293a" text-anchor="start">Defining performance criteria for a task (rubric)</text><circle cx="240" cy="141" r="5" fill="#4a9fd8"/><text x="256" y="147" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="600" fill="#14293a" text-anchor="start">Understanding feedback from teachers and peers</text><circle cx="240" cy="175" r="5" fill="#4a9fd8"/><text x="256" y="181" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="600" fill="#14293a" text-anchor="start">Verbalising how feedback will be used</text><path d="M40 216H190V316L115 348L40 316z" fill="#4a3cc0"/><text x="115" y="268" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="900" fill="#fff" text-anchor="middle">Making</text><text x="115" y="290" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="900" fill="#fff" text-anchor="middle">judgements</text>
+    <g class="dd4j-pu"><g filter="url(#dd4j-sh2)"><rect x="210" y="220" width="640" height="112" rx="16" fill="#fff"/></g><rect x="210" y="220" width="640" height="112" rx="16" stroke="#4a3cc0" stroke-width="4"/></g>
+    <circle cx="240" cy="253" r="5" fill="#4a3cc0"/><text x="256" y="259" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="600" fill="#14293a" text-anchor="start">Evaluating the quality of your own work and others’</text><rect x="226" y="272" width="608" height="30" rx="8" fill="#f6dfa8"/><circle cx="240" cy="287" r="5" fill="#4a3cc0"/><text x="256" y="293" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="800" fill="#14293a" text-anchor="start">Comparing your own work against others and against exemplars</text><path d="M40 362H190V462L115 494L40 462z" fill="#8a3c9e"/><text x="115" y="414" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="900" fill="#fff" text-anchor="middle">Taking</text><text x="115" y="436" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="900" fill="#fff" text-anchor="middle">action</text>
+    <g><g filter="url(#dd4j-sh)"><rect x="210" y="366" width="640" height="112" rx="16" fill="#fff"/></g><rect x="210" y="366" width="640" height="112" rx="16" stroke="#8a3c9e" stroke-width="2"/></g>
+    <circle cx="240" cy="399" r="5" fill="#8a3c9e"/><text x="256" y="405" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="600" fill="#14293a" text-anchor="start">Explaining how feedback has been applied / used</text><circle cx="240" cy="433" r="5" fill="#8a3c9e"/><text x="256" y="439" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="600" fill="#14293a" text-anchor="start">Documenting actions taken in response to feedback</text><path class="dd4j-dr" d="M970 268H874" stroke="#e64626" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M887.9 260L874 268L887.9 276" stroke="#e64626" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/><text x="930" y="300" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="900" fill="#c4562f" text-anchor="middle">TODAY</text>
+</svg>

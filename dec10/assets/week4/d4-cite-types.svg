@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" fill="none" role="img" aria-label="Two sentence strips. Internal citation: As Mielly (2023) points out, terms such as sustainable and regenerative tourism lack clear definitions — the source name is part of the sentence. External citation: Ecotourism aligns with a number of Sustainable Development Goals (Spenceley &amp; Rylance, 2021) — the source is outside the sentence grammar, in brackets.">
+<title>Internal and external citations</title>
+<style>
+.dd4e-fl{animation:dd4e-fl 6s ease-in-out infinite}.dd4e-f2{animation-delay:-2s}.dd4e-f3{animation-delay:-4s}
+@keyframes dd4e-fl{50%{transform:translateY(-4px)}}
+.dd4e-tw{animation:dd4e-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.dd4e-t2{animation-delay:-1s}.dd4e-t3{animation-delay:-2s}
+@keyframes dd4e-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.dd4e-bl{animation:dd4e-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.dd4e-b2{animation-delay:-1.7s}.dd4e-b3{animation-delay:-3.1s}
+@keyframes dd4e-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+.dd4e-dr{stroke-dasharray:5 7;animation:dd4e-dr 1.6s linear infinite}
+@keyframes dd4e-dr{to{stroke-dashoffset:-24}}
+.dd4e-pu{animation:dd4e-pu 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes dd4e-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.dd4e-sp{animation:dd4e-sp 10s linear infinite;transform-box:fill-box;transform-origin:center}.dd4e-sr{animation-direction:reverse}
+@keyframes dd4e-sp{to{transform:rotate(360deg)}}
+.dd4e-sw{animation:dd4e-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes dd4e-sw{50%{transform:rotate(4deg)}}
+.dd4e-gl{animation:dd4e-gl 3s ease-in-out infinite}
+@keyframes dd4e-gl{50%{opacity:.45}}
+.dd4e-dw{stroke-dasharray:400;stroke-dashoffset:400;animation:dd4e-dw 5s ease-in-out infinite}
+@keyframes dd4e-dw{30%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:0;opacity:0}}
+.dd4e-wv{animation:dd4e-wv 5s ease-in-out infinite}
+@keyframes dd4e-wv{50%{transform:translateX(-10px)}}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+<filter id="dd4e-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".15"/><feDropShadow dx="0" dy="1" stdDeviation=".8" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="dd4e-sh2" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#14293a" flood-opacity=".14"/><feDropShadow dx="0" dy="2" stdDeviation="1.6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="dd4e-blur" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="5"/></filter>
+<radialGradient id="dd4e-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="dd4e-pap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#f3ead8"/></linearGradient>
+<linearGradient id="dd4e-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c162"/><stop offset="1" stop-color="#d9962e"/></linearGradient>
+<linearGradient id="dd4e-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c4c68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="dd4e-desk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e6cd"/><stop offset="1" stop-color="#e8c99c"/></linearGradient>
+<pattern id="dd4e-dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="12" cy="12" r="1.3" fill="#14293a" fill-opacity="0.05"/></pattern>
+</defs>
+<rect width="1000" height="440" rx="26" fill="#eef7f3"/><rect width="1000" height="440" rx="26" fill="url(#dd4e-dots)"/>
+  <g filter="url(#dd4e-sh)"><rect x="40" y="36" width="102.4" height="32" rx="16" fill="#13887a"/></g><text x="91.2" y="57.8" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">INTERNAL</text><text x="178" y="58" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="700" fill="#0b5a51" text-anchor="start">the name is part of the sentence</text>
+  <g class="dd4e-fl"><g filter="url(#dd4e-sh2)"><rect x="30" y="84" width="940" height="92" rx="16" fill="#fff"/></g><path d="M46 84h4v92h-4a16 16 0 0 1-16-16v-60a16 16 0 0 1 16-16z" fill="#13887a"/><rect x="56" y="104" width="200" height="34" rx="6" fill="#13887a"/><text x="156" y="127" font-family="Manrope, Arial, sans-serif" font-size="19" font-weight="900" fill="#fff" text-anchor="middle">As Mielly (2023)</text><rect x="264" y="104" width="116" height="34" rx="6" fill="#b9cbec"/><text x="322" y="127" font-family="Manrope, Arial, sans-serif" font-size="19" font-weight="800" fill="#3a58a0" text-anchor="middle">points out,</text><text x="392" y="127" font-family="Manrope, Arial, sans-serif" font-size="19" font-weight="600" fill="#14293a" text-anchor="start">terms such as sustainable and regenerative</text><text x="56" y="160" font-family="Manrope, Arial, sans-serif" font-size="19" font-weight="600" fill="#14293a" text-anchor="start">tourism lack clear definitions.</text></g>
+  <text x="270" y="210" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="800" fill="#3a58a0" text-anchor="start">▲ reporting verb</text><text x="60" y="210" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="800" fill="#0b5a51" text-anchor="start">▲ name (year)</text>
+  <g filter="url(#dd4e-sh)"><rect x="40" y="246" width="102.4" height="32" rx="16" fill="#c98a22"/></g><text x="91.2" y="267.8" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">EXTERNAL</text><text x="178" y="268" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="700" fill="#c98a22" text-anchor="start">the name is in brackets, outside the grammar</text>
+  <g class="dd4e-fl dd4e-f2"><g filter="url(#dd4e-sh2)"><rect x="30" y="294" width="940" height="70" rx="16" fill="#fff"/></g><path d="M46 294h4v70h-4a16 16 0 0 1-16-16v-38a16 16 0 0 1 16-16z" fill="#e3a843"/><text x="56" y="336" font-family="Manrope, Arial, sans-serif" font-size="19" font-weight="600" fill="#14293a" text-anchor="start">Ecotourism aligns with a number of Sustainable Development Goals</text><g class="dd4e-pu"><rect x="682" y="314" width="270" height="34" rx="17" fill="#f6dfa8" stroke="#e3a843" stroke-width="2"/></g><text x="817" y="337" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="900" fill="#14293a" text-anchor="middle">(Spenceley &amp; Rylance, 2021).</text></g>
+  <text x="60" y="410" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="700" fill="#14293a" text-anchor="start">In brackets: “&amp;” and a comma before the year.   In the sentence: “and”, year in brackets.</text>
+</svg>
