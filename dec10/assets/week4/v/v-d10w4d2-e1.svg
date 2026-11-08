@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Evaluating the source: a podcast microphone under a magnifying glass, with four focus tags — logic, bias, evidence, completeness">
+<title>Evaluating the source: a podcast microphone under a magnifying glass, with four focus tags — logic, bias, evidence, completeness</title>
+<style>
+.ve1-fl{animation:ve1-fl 6s ease-in-out infinite}.ve1-f2{animation-delay:-2s}.ve1-f3{animation-delay:-4s}
+.ve1-tw{animation:ve1-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.ve1-t2{animation-delay:-1s}.ve1-t3{animation-delay:-2s}
+.ve1-dr{stroke-dasharray:6 8;animation:ve1-dr 1.6s linear infinite}
+.ve1-pu{animation:ve1-pu 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.ve1-sw{animation:ve1-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}
+.ve1-bl{animation:ve1-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.ve1-b2{animation-delay:-1.7s}.ve1-b3{animation-delay:-3.1s}
+.ve1-wv{animation:ve1-wv 2.7s ease-out infinite;transform-box:fill-box;transform-origin:left center}.ve1-w2{animation-delay:.9s}.ve1-w3{animation-delay:1.8s}
+.ve1-sp{animation:ve1-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.ve1-sea{animation:ve1-sea 5s ease-in-out infinite}.ve1-s2{animation-delay:-2.5s}
+.ve1-dw{stroke-dasharray:400;animation:ve1-dw 5s ease-in-out infinite}
+@keyframes ve1-fl{50%{transform:translateY(-4px)}}
+@keyframes ve1-tw{0%,100%{opacity:.3;transform:scale(.65)}50%{opacity:1;transform:scale(1)}}
+@keyframes ve1-dr{to{stroke-dashoffset:-28}}
+@keyframes ve1-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes ve1-sw{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
+@keyframes ve1-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes ve1-wv{0%{opacity:0;transform:scale(.6)}25%{opacity:.9}100%{opacity:0;transform:scale(1.35)}}
+@keyframes ve1-sp{to{transform:rotate(360deg)}}
+@keyframes ve1-sea{50%{transform:translateX(-10px)}}
+@keyframes ve1-dw{0%{stroke-dashoffset:400}55%,100%{stroke-dashoffset:0}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<filter id="ve1-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".7" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="ve1-ss" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="2" stdDeviation="1.6" flood-color="#14293a" flood-opacity=".18"/></filter>
+<pattern id="ve1-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r=".9" fill="#14293a" fill-opacity=".08"/></pattern>
+<radialGradient id="ve1-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="ve1-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe3ef"/><stop offset=".6" stop-color="#e6f4f2"/><stop offset="1" stop-color="#fbf1dc"/></linearGradient>
+<linearGradient id="ve1-seag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fa7b5"/><stop offset="1" stop-color="#1f6f8a"/></linearGradient>
+<linearGradient id="ve1-sand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e2b8"/><stop offset="1" stop-color="#e8c98d"/></linearGradient>
+<linearGradient id="ve1-leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5fae6e"/><stop offset="1" stop-color="#2f7d4b"/></linearGradient>
+<linearGradient id="ve1-blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7fb6f0" stop-opacity=".85"/><stop offset=".5" stop-color="#bfe0ff" stop-opacity=".55"/><stop offset="1" stop-color="#4d89cc" stop-opacity=".8"/></linearGradient>
+</defs>
+<rect x="6" y="6" width="228" height="168" rx="30" fill="#dff1ee"/><rect x="6" y="6" width="228" height="168" rx="30" fill="url(#ve1-dots)"/><ellipse cx="120.0" cy="75.6" rx="100.8" ry="68.4" fill="url(#ve1-glow)"/><circle cx="211.2" cy="28.8" r="21.599999999999998" fill="#2b776e" opacity=".08"/><circle cx="24.0" cy="154.8" r="16.2" fill="#2b776e" opacity=".07"/><g transform="translate(84 92) scale(0.9)"><path d="M-26 6a26 26 0 0 0 52 0" stroke="#14293a" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M0 32v18M-16 52h32" stroke="#14293a" stroke-width="5" stroke-linecap="round"/><rect x="-16" y="-40" width="32" height="56" rx="16" fill="#2b776e"/><path d="M-16-22h32M-16-12h32M-16-2h32" stroke="#fff" stroke-width="2" opacity=".45"/><rect x="-10" y="-34" width="6" height="40" rx="3" fill="#fff" opacity=".35"/><g stroke="#2b776e" stroke-width="4" stroke-linecap="round" fill="none"><path class="ve1-wv" d="M30-24a30 30 0 0 1 0 40"/><path class="ve1-wv ve1-w2" d="M42-32a42 42 0 0 1 0 56"/><path class="ve1-wv ve1-w3" d="M54-40a54 54 0 0 1 0 72"/></g></g><g class="ve1-fl ve1-f2"><g transform="translate(96 82) scale(1.6)"><circle r="16" fill="#e6f4f2" fill-opacity=".6" stroke="#14293a" stroke-width="5"/><path d="M11 11l14 14" stroke="#14293a" stroke-width="7" stroke-linecap="round"/><path d="M-8-6a10 10 0 0 1 8-6" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g></g><g transform="translate(150 24)"><rect width="74" height="24" rx="12" fill="#fff" stroke="#2f7d6b" stroke-width="2"/><text x="37" y="16" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="800" fill="#2f7d6b" text-anchor="middle">Logic</text></g><g transform="translate(150 58)"><rect width="74" height="24" rx="12" fill="#fff" stroke="#c4562f" stroke-width="2"/><text x="37" y="16" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="800" fill="#c4562f" text-anchor="middle">Bias</text></g><g transform="translate(150 92)"><rect width="74" height="24" rx="12" fill="#fff" stroke="#3a58a0" stroke-width="2"/><text x="37" y="16" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="800" fill="#3a58a0" text-anchor="middle">Evidence</text></g><g transform="translate(150 126)"><rect width="74" height="24" rx="12" fill="#fff" stroke="#985c0e" stroke-width="2"/><text x="37" y="16" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="800" fill="#985c0e" text-anchor="middle">Complete?</text></g></svg>

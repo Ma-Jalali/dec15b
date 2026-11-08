@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="A text map: boxes for the introduction, three body paragraphs and the conclusion joined by SO, BUT and AND arrows">
+<title>A text map: boxes for the introduction, three body paragraphs and the conclusion joined by SO, BUT and AND arrows</title>
+<style>
+.vd3-fl{animation:vd3-fl 6s ease-in-out infinite}.vd3-f2{animation-delay:-2s}.vd3-f3{animation-delay:-4s}
+.vd3-tw{animation:vd3-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.vd3-t2{animation-delay:-1s}.vd3-t3{animation-delay:-2s}
+.vd3-dr{stroke-dasharray:6 8;animation:vd3-dr 1.6s linear infinite}
+.vd3-pu{animation:vd3-pu 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.vd3-sw{animation:vd3-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}
+.vd3-bl{animation:vd3-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.vd3-b2{animation-delay:-1.7s}.vd3-b3{animation-delay:-3.1s}
+.vd3-wv{animation:vd3-wv 2.7s ease-out infinite;transform-box:fill-box;transform-origin:left center}.vd3-w2{animation-delay:.9s}.vd3-w3{animation-delay:1.8s}
+.vd3-sp{animation:vd3-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.vd3-sea{animation:vd3-sea 5s ease-in-out infinite}.vd3-s2{animation-delay:-2.5s}
+.vd3-dw{stroke-dasharray:400;animation:vd3-dw 5s ease-in-out infinite}
+@keyframes vd3-fl{50%{transform:translateY(-4px)}}
+@keyframes vd3-tw{0%,100%{opacity:.3;transform:scale(.65)}50%{opacity:1;transform:scale(1)}}
+@keyframes vd3-dr{to{stroke-dashoffset:-28}}
+@keyframes vd3-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes vd3-sw{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
+@keyframes vd3-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes vd3-wv{0%{opacity:0;transform:scale(.6)}25%{opacity:.9}100%{opacity:0;transform:scale(1.35)}}
+@keyframes vd3-sp{to{transform:rotate(360deg)}}
+@keyframes vd3-sea{50%{transform:translateX(-10px)}}
+@keyframes vd3-dw{0%{stroke-dashoffset:400}55%,100%{stroke-dashoffset:0}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<filter id="vd3-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".7" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="vd3-ss" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="2" stdDeviation="1.6" flood-color="#14293a" flood-opacity=".18"/></filter>
+<pattern id="vd3-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r=".9" fill="#14293a" fill-opacity=".08"/></pattern>
+<radialGradient id="vd3-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="vd3-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe3ef"/><stop offset=".6" stop-color="#e6f4f2"/><stop offset="1" stop-color="#fbf1dc"/></linearGradient>
+<linearGradient id="vd3-seag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fa7b5"/><stop offset="1" stop-color="#1f6f8a"/></linearGradient>
+<linearGradient id="vd3-sand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e2b8"/><stop offset="1" stop-color="#e8c98d"/></linearGradient>
+<linearGradient id="vd3-leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5fae6e"/><stop offset="1" stop-color="#2f7d4b"/></linearGradient>
+<linearGradient id="vd3-blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7fb6f0" stop-opacity=".85"/><stop offset=".5" stop-color="#bfe0ff" stop-opacity=".55"/><stop offset="1" stop-color="#4d89cc" stop-opacity=".8"/></linearGradient>
+</defs>
+<rect x="6" y="6" width="228" height="168" rx="30" fill="#e3f1e2"/><rect x="6" y="6" width="228" height="168" rx="30" fill="url(#vd3-dots)"/><ellipse cx="120.0" cy="75.6" rx="100.8" ry="68.4" fill="url(#vd3-glow)"/><circle cx="211.2" cy="28.8" r="21.599999999999998" fill="#2f7d6b" opacity=".08"/><circle cx="24.0" cy="154.8" r="16.2" fill="#2f7d6b" opacity=".07"/><rect x="83" y="18" width="64" height="30" rx="8" fill="#fff" stroke="#2f7d6b" stroke-width="2" filter="url(#vd3-ss)"/><text x="115" y="38" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="800" fill="#14293a" text-anchor="middle">Intro</text><rect x="20" y="74" width="64" height="30" rx="8" fill="#fff" stroke="#2f7d6b" stroke-width="2" filter="url(#vd3-ss)"/><text x="52" y="94" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="800" fill="#14293a" text-anchor="middle">Counter</text><rect x="88" y="74" width="64" height="30" rx="8" fill="#fff" stroke="#2f7d6b" stroke-width="2" filter="url(#vd3-ss)"/><text x="120" y="94" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="800" fill="#14293a" text-anchor="middle">R1</text><rect x="156" y="74" width="64" height="30" rx="8" fill="#fff" stroke="#2f7d6b" stroke-width="2" filter="url(#vd3-ss)"/><text x="188" y="94" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="800" fill="#14293a" text-anchor="middle">R2</text><rect x="83" y="130" width="64" height="30" rx="8" fill="#fff" stroke="#2f7d6b" stroke-width="2" filter="url(#vd3-ss)"/><text x="115" y="150" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="800" fill="#14293a" text-anchor="middle">Concl.</text><path class="vd3-dr" d="M100.0 50.0L60.0 72.0" stroke="#2f7d6b" stroke-width="2.5" stroke-linecap="round"/><path d="M63.8 66.1L60.0 72.0L67.0 72.0" stroke="#2f7d6b" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path class="vd3-dr" d="M115.0 50.0L118.0 72.0" stroke="#c4562f" stroke-width="2.5" stroke-linecap="round"/><path d="M113.8 66.4L118.0 72.0L120.5 65.5" stroke="#c4562f" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path class="vd3-dr" d="M130.0 50.0L180.0 72.0" stroke="#3a58a0" stroke-width="2.5" stroke-linecap="round"/><path d="M173.0 72.6L180.0 72.0L175.7 66.5" stroke="#3a58a0" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path class="vd3-dr" d="M120.0 106.0L116.0 128.0" stroke="#2f7d6b" stroke-width="2.5" stroke-linecap="round"/><path d="M113.8 121.4L116.0 128.0L120.4 122.6" stroke="#2f7d6b" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="66" y="62" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" fill="#2f7d6b" text-anchor="middle">SO</text><text x="132" y="66" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" fill="#c4562f" text-anchor="middle">BUT</text><text x="172" y="58" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" fill="#3a58a0" text-anchor="middle">AND</text></svg>
