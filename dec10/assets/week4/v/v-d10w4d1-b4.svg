@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="An open book with two goal badges rising from it, Goal 2 in yellow and Goal 3 in green, and a magnifying glass skimming the lines.">
+<title>Reading for gist</title>
+<style>
+.vb4-fl{animation:vb4-fl 6s ease-in-out infinite}.vb4-f2{animation-delay:-2s}.vb4-f3{animation-delay:-4s}
+.vb4-tw{animation:vb4-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.vb4-t2{animation-delay:-1s}.vb4-t3{animation-delay:-2s}
+.vb4-pu{animation:vb4-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.vb4-dr{stroke-dasharray:7 7;animation:vb4-dr 1.8s linear infinite}
+.vb4-sw{animation:vb4-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.vb4-bl{animation:vb4-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.vb4-b2{animation-delay:-1.7s}.vb4-b3{animation-delay:-3.1s}
+.vb4-wv{animation:vb4-wv 2.4s ease-in-out infinite}.vb4-w2{animation-delay:-.8s}.vb4-w3{animation-delay:-1.6s}
+.vb4-sl{animation:vb4-sl 9s ease-in-out infinite}
+.vb4-sp{animation:vb4-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+@keyframes vb4-fl{50%{transform:translateY(-5px)}}
+@keyframes vb4-tw{0%,100%{opacity:.35;transform:scale(.65)}50%{opacity:1;transform:scale(1)}}
+@keyframes vb4-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes vb4-dr{to{stroke-dashoffset:-28}}
+@keyframes vb4-sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes vb4-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes vb4-wv{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes vb4-sl{50%{transform:translateX(14px)}}
+@keyframes vb4-sp{to{transform:rotate(360deg)}}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+<linearGradient id="vb4-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#edf2fb"/><stop offset="1" stop-color="#d7e2f6"/></linearGradient>
+<radialGradient id="vb4-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<pattern id="vb4-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r=".9" fill="#3a58a0" fill-opacity=".14"/></pattern>
+<filter id="vb4-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="vb4-blur" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+<linearGradient id="vb4-pap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#f3ead8"/></linearGradient>
+<linearGradient id="vb4-leaf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fbf6b"/><stop offset="1" stop-color="#2f7d4f"/></linearGradient>
+<linearGradient id="vb4-leaf2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ad37a"/><stop offset="1" stop-color="#4c9a3e"/></linearGradient>
+<linearGradient id="vb4-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5fd0d0"/><stop offset="1" stop-color="#1d7fa5"/></linearGradient>
+<linearGradient id="vb4-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe6f5"/><stop offset="1" stop-color="#fdf1d6"/></linearGradient>
+<linearGradient id="vb4-wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c99a62"/><stop offset="1" stop-color="#8a5f34"/></linearGradient>
+<linearGradient id="vb4-tone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a58a0"/><stop offset="1" stop-color="#1f3363"/></linearGradient>
+<radialGradient id="vb4-sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".6" stop-color="#e3a843"/><stop offset="1" stop-color="#e3a843" stop-opacity="0"/></radialGradient>
+
+</defs>
+<clipPath id="vb4-clip"><path d="M52 18C92 4 172 8 204 30c24 16 26 46 20 76-6 32-30 54-70 58-38 4-90 4-118-12C12 136 8 104 14 74c6-28 14-46 38-56z"/></clipPath><path d="M52 18C92 4 172 8 204 30c24 16 26 46 20 76-6 32-30 54-70 58-38 4-90 4-118-12C12 136 8 104 14 74c6-28 14-46 38-56z" fill="url(#vb4-bg)"/><g clip-path="url(#vb4-clip)"><rect width="240" height="180" fill="url(#vb4-dots)"/><ellipse cx="116" cy="72" rx="110" ry="70" fill="url(#vb4-glow)"/></g><path d="M52 18C92 4 172 8 204 30c24 16 26 46 20 76-6 32-30 54-70 58-38 4-90 4-118-12C12 136 8 104 14 74c6-28 14-46 38-56z" stroke="#fff" stroke-opacity=".7" stroke-width="1.2"/><ellipse cx="120" cy="162" rx="92" ry="6" fill="#14293a" opacity=".11" filter="url(#vb4-blur)"/><path d="M30 140q45-16 90 0q45-16 90 0v-70q-45-16-90 0q-45-16-90 0z" fill="url(#vb4-pap)" stroke="#14293a" stroke-opacity=".25" stroke-width="2"/><path d="M120 70v70" stroke="#14293a" stroke-opacity=".25" stroke-width="2"/><path d="M40 84h60" stroke="#c8d4da" stroke-width="3" stroke-linecap="round"/><path d="M40 96h60" stroke="#c8d4da" stroke-width="3" stroke-linecap="round"/><path d="M40 108h60" stroke="#c8d4da" stroke-width="3" stroke-linecap="round"/><path d="M40 120h60" stroke="#c8d4da" stroke-width="3" stroke-linecap="round"/><path d="M130 84h60" stroke="#c8d4da" stroke-width="3" stroke-linecap="round"/><path d="M130 96h60" stroke="#c8d4da" stroke-width="3" stroke-linecap="round"/><path d="M130 108h60" stroke="#c8d4da" stroke-width="3" stroke-linecap="round"/><path d="M130 120h60" stroke="#c8d4da" stroke-width="3" stroke-linecap="round"/><g class="vb4-fl"><rect x="56" y="22" width="44" height="40" rx="6" fill="#d9a53a"/><text x="78" y="50" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="800" fill="#fff" text-anchor="middle">2</text></g><g class="vb4-fl vb4-f2"><rect x="140" y="22" width="44" height="40" rx="6" fill="#4c9a4f"/><text x="162" y="50" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="800" fill="#fff" text-anchor="middle">3</text></g><g class="vb4-fl vb4-f3"><circle cx="190" cy="110" r="16" fill="#fff" fill-opacity=".5" stroke="#14293a" stroke-width="4"/><path d="M201 121l14 14" stroke="#14293a" stroke-width="6" stroke-linecap="round"/></g><path class="vb4-tw " d="M120 19L121.5 22.5L125 24L121.5 25.5L120 29L118.5 25.5L115 24L118.5 22.5z" fill="#e3a843"/></svg>

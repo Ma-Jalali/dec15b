@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Three word cards, unregulated, legislation and AC, next to water ripples spreading from a drop.">
+<title>Homework vocabulary</title>
+<style>
+.vd1-fl{animation:vd1-fl 6s ease-in-out infinite}.vd1-f2{animation-delay:-2s}.vd1-f3{animation-delay:-4s}
+.vd1-tw{animation:vd1-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.vd1-t2{animation-delay:-1s}.vd1-t3{animation-delay:-2s}
+.vd1-pu{animation:vd1-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.vd1-dr{stroke-dasharray:7 7;animation:vd1-dr 1.8s linear infinite}
+.vd1-sw{animation:vd1-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.vd1-bl{animation:vd1-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.vd1-b2{animation-delay:-1.7s}.vd1-b3{animation-delay:-3.1s}
+.vd1-wv{animation:vd1-wv 2.4s ease-in-out infinite}.vd1-w2{animation-delay:-.8s}.vd1-w3{animation-delay:-1.6s}
+.vd1-sl{animation:vd1-sl 9s ease-in-out infinite}
+.vd1-sp{animation:vd1-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+@keyframes vd1-fl{50%{transform:translateY(-5px)}}
+@keyframes vd1-tw{0%,100%{opacity:.35;transform:scale(.65)}50%{opacity:1;transform:scale(1)}}
+@keyframes vd1-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes vd1-dr{to{stroke-dashoffset:-28}}
+@keyframes vd1-sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes vd1-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes vd1-wv{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes vd1-sl{50%{transform:translateX(14px)}}
+@keyframes vd1-sp{to{transform:rotate(360deg)}}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+<linearGradient id="vd1-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fcf5e6"/><stop offset="1" stop-color="#f6e6c2"/></linearGradient>
+<radialGradient id="vd1-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<pattern id="vd1-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r=".9" fill="#b07d12" fill-opacity=".14"/></pattern>
+<filter id="vd1-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="vd1-blur" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+<linearGradient id="vd1-pap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#f3ead8"/></linearGradient>
+<linearGradient id="vd1-leaf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fbf6b"/><stop offset="1" stop-color="#2f7d4f"/></linearGradient>
+<linearGradient id="vd1-leaf2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ad37a"/><stop offset="1" stop-color="#4c9a3e"/></linearGradient>
+<linearGradient id="vd1-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5fd0d0"/><stop offset="1" stop-color="#1d7fa5"/></linearGradient>
+<linearGradient id="vd1-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe6f5"/><stop offset="1" stop-color="#fdf1d6"/></linearGradient>
+<linearGradient id="vd1-wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c99a62"/><stop offset="1" stop-color="#8a5f34"/></linearGradient>
+<linearGradient id="vd1-tone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b07d12"/><stop offset="1" stop-color="#6b4a07"/></linearGradient>
+<radialGradient id="vd1-sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".6" stop-color="#e3a843"/><stop offset="1" stop-color="#e3a843" stop-opacity="0"/></radialGradient>
+
+</defs>
+<clipPath id="vd1-clip"><path d="M52 18C92 4 172 8 204 30c24 16 26 46 20 76-6 32-30 54-70 58-38 4-90 4-118-12C12 136 8 104 14 74c6-28 14-46 38-56z"/></clipPath><path d="M52 18C92 4 172 8 204 30c24 16 26 46 20 76-6 32-30 54-70 58-38 4-90 4-118-12C12 136 8 104 14 74c6-28 14-46 38-56z" fill="url(#vd1-bg)"/><g clip-path="url(#vd1-clip)"><rect width="240" height="180" fill="url(#vd1-dots)"/><ellipse cx="116" cy="72" rx="110" ry="70" fill="url(#vd1-glow)"/></g><path d="M52 18C92 4 172 8 204 30c24 16 26 46 20 76-6 32-30 54-70 58-38 4-90 4-118-12C12 136 8 104 14 74c6-28 14-46 38-56z" stroke="#fff" stroke-opacity=".7" stroke-width="1.2"/><ellipse cx="120" cy="162" rx="92" ry="6" fill="#14293a" opacity=".11" filter="url(#vd1-blur)"/><g class="vd1-fl vd1-f2" transform="rotate(-6 76 44)"><g filter="url(#vd1-sh)"><rect x="26" y="30" width="100" height="28" rx="7" fill="#fff" stroke="#b07d12" stroke-width="2"/></g><text x="76" y="49" font-family="Manrope, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#b07d12" text-anchor="middle">unregulated</text></g><g class="vd1-fl vd1-f3" transform="rotate(4 94 78)"><g filter="url(#vd1-sh)"><rect x="44" y="64" width="100" height="28" rx="7" fill="#fff" stroke="#7a4a8c" stroke-width="2"/></g><text x="94" y="83" font-family="Manrope, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#7a4a8c" text-anchor="middle">legislation</text></g><g class="vd1-fl " transform="rotate(-2 112 112)"><g filter="url(#vd1-sh)"><rect x="62" y="98" width="100" height="28" rx="7" fill="#fff" stroke="#2d7a9a" stroke-width="2"/></g><text x="112" y="117" font-family="Manrope, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#2d7a9a" text-anchor="middle">AC</text></g><ellipse class="vd1-wv vd1-w2" cx="182" cy="118" rx="12" ry="4" stroke="#2d7a9a" stroke-width="2"/><ellipse class="vd1-wv vd1-w3" cx="182" cy="118" rx="24" ry="8" stroke="#2d7a9a" stroke-width="2"/><ellipse class="vd1-wv " cx="182" cy="118" rx="36" ry="12" stroke="#2d7a9a" stroke-width="2"/><circle cx="182" cy="112" r="4" fill="#2d7a9a"/><text x="182" y="156" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" fill="#2d7a9a" text-anchor="middle">ripples</text></svg>
