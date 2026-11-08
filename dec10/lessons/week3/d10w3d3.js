@@ -1396,7 +1396,6 @@ window.DEC15_LESSON = {
               title: "What a Portfolio Submission 1 can look like",
               text: "“Feedback on our Opening Remarks can be put into three categories: [EG <i>content, engagement with the audience and pronunciation</i>]. For content the feedback was [...]. For engagement, the teacher said [...]. For pronunciation, [...]. This feedback tells us that next time, we should ....”"
             },
-            {"type":"do","n":1,"who":"pair","text":"To prepare for the Seminar Presentation next week, Group 2 must complete these tasks. Put them in order."},
             {
               type: "steps",
               title: "Hot seat: Group 2 (5 minutes)",
@@ -1407,6 +1406,7 @@ window.DEC15_LESSON = {
                 {"who":"class","text":"Wrong answer? The class helps: <i>“Actually, I think you need to … before …”</i>"}
               ]
             },
+            {"type":"do","n":1,"who":"pair","text":"To prepare for the Seminar Presentation next week, Group 2 must complete these tasks. Put them in order."},
             {
               type: "order",
               id: "c7-order",
@@ -1470,6 +1470,14 @@ window.DEC15_LESSON = {
           title: "AST: Groupwork reflection",
           goal: "Talk honestly about how your group works together.",
           blocks: [
+            {
+              type: "steps",
+              title: "Group line-up (2 minutes)",
+              items: [
+                {"who":"group","text":"<b>Stand up</b> with your seminar group. Make a short line: one end is “Our group works <b>very well</b>”, the other end is “<b>Not yet</b>”. Stand where you think your group is."},
+                {"who":"group","text":"Each person says <b>why</b> in one sentence. Then sit down and discuss the questions below. The <b>chair</b> asks the questions; the <b>reporter</b> gets ready to tell the class."}
+              ]
+            },
             {
               type: "tabs",
               title: "Discuss these guiding questions",
@@ -1541,7 +1549,10 @@ window.DEC15_LESSON = {
               title: "Before you leave today",
               items: ["Our peer feedback for Group 1 is uploaded (ONE member)","Our Discussion Board post for Group 2 is posted","I know my next task and the deadline"]
             },
-            {"type":"tip","text":"<b>After class:</b> Remember to continue your research for your group’s seminar topic and final Interactive Presentation Assessment."}
+            {"type":"do","n":1,"who":"group","text":"<b>Move your chairs</b> so you sit with your seminar group. Decide one task for each person before you leave."},
+            {"type":"tip","text":"<b>After class:</b> Remember to continue your research for your group’s seminar topic and final Interactive Presentation Assessment."},
+            {"type":"sticky","title":"Say it like an academic","text":"“Building on what Mia said, …” — the easiest way to join any discussion.","color":"pink"},
+            {"type":"fields","fields":[{"id":"c9-exit","label":"Exit ticket · one discussion move I used today + one I will try next time","rows":2,"placeholder":"Today I used “I see your point, but …”. Next time I will try …"}]}
           ]
         }
       ]
@@ -1566,14 +1577,31 @@ window.DEC15_LESSON = {
           title: "What are Teachable STAR Moments?",
           goal: "This time is for you.",
           blocks: [
+            {"type":"sticky","title":"In one line","text":"A STAR moment = <b>your</b> questions + <b>your</b> language needs. You choose — your teacher helps.","color":"yellow"},
             {
-              type: "key",
-              title: "Teachable STAR moments",
-              points: [
-                "At DEC, we’re excited to introduce Teachable STAR moments as part of your curriculum! These can range from an hour to an entire lesson (depending on the week).",
-                "Your teacher might take this time to <b>address specific questions</b> you might have, and <b>address your specific language needs</b>.",
-                "Teachable STAR moments represent a commitment to responsive and adaptive teaching that consider your unique circumstances and learning environments.",
-                "We invite you to actively participate. The best way to do so is by <b>reflecting on your learning needs</b> and <b>talking to your teacher</b> about them. Your feedback matters!"
+              type: "steps",
+              title: "Warm-up · Stand up if … (2 minutes)",
+              items: [
+                {"who":"class","text":"Your teacher reads sentences. <b>Stand up</b> if it is true for you. Sit down before the next one."},
+                {"who":"class","text":"<i>Stand up if … you used a new phrase this week · you still find hedging hard · you wrote an email to a lecturer · you are nervous about tomorrow’s presentation · you have a question about the Seminar.</i>"},
+                {"who":"class","text":"Look around: you are not the only one!"}
+              ]
+            },
+            {
+              type: "toggle",
+              title: "Want more? Read about Teachable STAR moments",
+              hint: "Optional",
+              blocks: [
+                {
+                  type: "key",
+                  title: "Teachable STAR moments",
+                  points: [
+                    "At DEC, we’re excited to introduce Teachable STAR moments as part of your curriculum! These can range from an hour to an entire lesson (depending on the week).",
+                    "Your teacher might take this time to <b>address specific questions</b> you might have, and <b>address your specific language needs</b>.",
+                    "Teachable STAR moments represent a commitment to responsive and adaptive teaching that consider your unique circumstances and learning environments.",
+                    "We invite you to actively participate. The best way to do so is by <b>reflecting on your learning needs</b> and <b>talking to your teacher</b> about them. Your feedback matters!"
+                  ]
+                }
               ]
             }
           ]
@@ -1582,11 +1610,28 @@ window.DEC15_LESSON = {
           id: "s2",
           short: "My needs",
           minutes: 8,
-          grouping: "Alone",
+          grouping: "Class → Alone",
           art: "dec10/assets/week3/v/v-d10w3d3-s2.svg",
           title: "Reflect on your learning needs",
           goal: "What has gone well this week so far? What do you still need help with?",
           blocks: [
+            {
+              type: "steps",
+              title: "Three corners (4 minutes)",
+              items: [
+                {"who":"class","text":"Three corners of the room: <b>“I’m confident”</b> · <b>“Getting there”</b> · <b>“I need help”</b>."},
+                {"who":"class","text":"Your teacher names a topic from the list below (e.g. <i>hedging</i>). <b>Walk to your corner.</b>"},
+                {"who":"pair","text":"Tell someone in your corner <b>why</b> you are there in one sentence. People in the “confident” corner: go and help someone in the “I need help” corner for 30 seconds!"}
+              ]
+            },
+            {
+              type: "figure",
+              src: "dec10/assets/week3/d3-move-corners.svg",
+              size: "wide",
+              alt: "Three corners: the teacher names a topic, for example hedging. Walk to a corner: “I’m confident”, “Getting there” or “I need help”. Students in the confident corner help students in the help corner.",
+              caption: "Walk to your corner. Confident? Help someone."
+            },
+            {"type":"do","n":1,"who":"alone","text":"Back at your desk: record how you feel about each topic. Then write your top two needs."},
             {
               type: "grid",
               id: "s2-grid",
@@ -1656,19 +1701,35 @@ window.DEC15_LESSON = {
                 {"label":"Presenting","text":"help for tomorrow’s group presentations","icon":"search"}
               ]
             },
-            {"type":"do","n":2,"who":"class","text":"Tell your teacher your vote and your question. Your teacher will use them for the rest of the STAR moment."}
+            {"type":"do","n":2,"who":"class","text":"<b>Vote with your feet.</b> Your teacher puts the four topics in four corners. Walk to your choice. The biggest group wins! One person from each corner tells the teacher the group’s question. Your teacher will use them for the rest of the STAR moment."}
           ]
         },
         {
           id: "s4",
           short: "Quick check",
           minutes: 8,
-          grouping: "Pair",
+          grouping: "Speed-dating circles",
           art: "dec10/assets/week3/v/v-d10w3d3-s4.svg",
           title: "Spin and explain",
           goal: "Show what you know — and find out what you need to review.",
           blocks: [
-            {"type":"do","n":1,"who":"pair","text":"Spin both reels. Do the task in <b>30 seconds</b>. If you can’t — that’s useful! Add it to your learning needs."},
+            {
+              type: "steps",
+              title: "Speed-dating circles",
+              items: [
+                {"who":"class","text":"Make two circles: the <b>inner circle</b> faces out, the <b>outer circle</b> faces in. Everyone has a partner."},
+                {"who":"pair","text":"Spin both reels on one phone. Do the task in <b>30 seconds</b>. Your partner spins and does a new task. (2 minutes)"},
+                {"who":"class","text":"Teacher says “Move!” — the <b>outer circle</b> moves one person to the right. New partner, new spin. Three rounds."},
+                {"who":"alone","text":"Couldn’t do a task? That’s useful! Add it to your learning needs."}
+              ]
+            },
+            {
+              type: "figure",
+              src: "dec10/assets/week3/d3-move-circle.svg",
+              size: "wide",
+              alt: "Speed-dating circles seen from above: an inner circle faces an outer circle in pairs. After two minutes the outer circle moves one seat to the right and talks to a new partner.",
+              caption: "Inner circle stays. Outer circle moves one person to the right."
+            },
             {
               type: "spinner",
               id: "s4-spin",
@@ -1689,7 +1750,9 @@ window.DEC15_LESSON = {
                 "I told my teacher my top learning need.",
                 "I will do tonight’s AI homework (prompts, Cogniti, Copilot)."
               ]
-            }
+            },
+            {"type":"sticky","title":"Say it like an academic","text":"“I understand …, but I’m not sure how to …” — the best way to ask for help.","color":"yellow"},
+            {"type":"fields","fields":[{"id":"s4-exit","label":"Exit ticket · the one thing I want to practise before Friday","rows":1,"placeholder":"Hedging in my research summary"}]}
           ]
         }
       ]
@@ -1742,6 +1805,7 @@ window.DEC15_LESSON = {
               title: "Think (or tell a classmate tomorrow)",
               prompts: ["Is artificial intelligence really “intelligent”? Why / why not?","Which AI tools do you already use for study? What for?"]
             },
+            {"type":"do","n":1,"who":"alone","text":"<b>Use it · 30-second voice note.</b> Record yourself answering question 1 on your phone. Use one phrase from the bank below and one hedge (<i>may, tends to, it is likely that</i>). Send it to a study buddy or your group chat."},
             {
               type: "language",
               groups: [
@@ -1898,7 +1962,7 @@ window.DEC15_LESSON = {
                 }
               ]
             },
-            {"type":"do","n":2,"who":"alone","text":"Now build your own prompt about this week’s topic. Use the chips for ideas, then copy it into Cogniti or Copilot (next activities)."},
+            {"type":"do","n":2,"who":"alone","text":"Now build your own prompt about this week’s topic. Use the chips for ideas, then copy it into Cogniti or Copilot (next activities). Choose your level: <b>Bronze</b> — fill Role and Task · <b>Silver</b> — fill all four parts · <b>Gold</b> — try it in Copilot and refine it once with a follow-up."},
             {
               type: "promptbuilder",
               id: "h4-pb",
