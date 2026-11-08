@@ -1,59 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" fill="none" role="img" aria-label="The shape of a presentation. 1 Introduction: greet the audience, introduce yourself, introduce the topic, why it matters, and an outline of the main points. 2 Body: 2–4 main points in the same order as the outline. 3 Conclusion: signal the end, repeat the topic, rephrase the main points, thank the audience and ask for questions.">
-<title>The shape of a presentation. 1 Introduction: greet the audience, introduce yourself, introduce the topic, why it matters, and an outline of the main points. 2 Body: 2–4 main points in the same order as the outline. 3 Conclusion: signal the end, repeat the topic, rephrase the main points, thank the audience and ask for questions.</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" fill="none" role="img" aria-labelledby="p3-t">
+<title id="p3-t">The shape of a presentation in three cards. 1 Introduction: greet the audience, introduce yourself, introduce the topic, why it matters, outline: A → B → C. 2 Body: main point A, main point B, main point C (2–4 main points), in the same order as the outline. 3 Conclusion: signal the end, repeat the topic, rephrase A, B, C, thank the audience, ask for questions. Curved arrows underneath link the outline to the body (“same order”) and the body to the conclusion (“rephrased”).</title>
 <style>
-.fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; } .fl4 { animation-delay: -2.4s; animation-duration: 6.2s; }
-.tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; } .tw3 { animation-delay: -.7s; }
-.pu { animation: pu 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-.dr { stroke-dasharray: 8 10; animation: dr 1.6s linear infinite; }
-.rv { animation: rv .7s cubic-bezier(.2,.7,.2,1) both; }
-.wv { animation: wv 2.6s ease-out infinite; transform-box: fill-box; transform-origin: center; opacity: 0; } .wv2 { animation-delay: .85s; } .wv3 { animation-delay: 1.7s; }
-.sw { animation: sw 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
-.sp { animation: sp 12s linear infinite; transform-box: fill-box; transform-origin: center; }
-.vb { animation: vb .35s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
-.bl { animation: bl 1.6s steps(1) infinite; }
-.gr { animation: gr 4s ease-in-out infinite; transform-box: fill-box; transform-origin: left center; }
-@keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
-@keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
-@keyframes pu { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.1); } 30% { transform: scale(1); } }
-@keyframes dr { to { stroke-dashoffset: -36; } }
-@keyframes rv { from { opacity: 0; transform: translateY(14px); } }
-@keyframes wv { 0% { opacity: 0; transform: scale(.6); } 25% { opacity: .9; } 100% { opacity: 0; transform: scale(1.5); } }
-@keyframes sw { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
-@keyframes sp { to { transform: rotate(360deg); } }
-@keyframes vb { from { transform: scaleY(.55); } to { transform: scaleY(1.15); } }
-@keyframes bl { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
-@keyframes gr { 0%, 100% { transform: scaleX(.35); } 50% { transform: scaleX(1); } }
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv, .wv { opacity: 1 !important; } }
+.p3-fl { animation: p3-fl 6s ease-in-out infinite; } .p3-d1 { animation-delay: -2s; } .p3-d2 { animation-delay: -4s; } .p3-d3 { animation-delay: -1s; }
+@keyframes p3-fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.p3-tw { animation: p3-tw 3.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes p3-tw { 0%, 100% { opacity: .35; transform: scale(.65); } 50% { opacity: 1; transform: scale(1); } }
+.p3-pu { animation: p3-pu 3.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes p3-pu { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+.p3-ring { animation: p3-ring 3.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes p3-ring { 0% { opacity: .55; transform: scale(.9); } 80%, 100% { opacity: 0; transform: scale(1.35); } }
+.p3-flow { animation: p3-flow 1.8s linear infinite; }
+@keyframes p3-flow { to { stroke-dashoffset: -28; } }
+.p3-rv { animation: p3-rv .8s cubic-bezier(.2,.7,.2,1) both; } @keyframes p3-rv { from { opacity: 0; transform: translateY(14px); } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
 </style>
-<defs>
-  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
-  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
-  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
-  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef5f3"/><stop offset="1" stop-color="#f8f4ec"/></linearGradient>
-  <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d3a52"/><stop offset="1" stop-color="#14293a"/></linearGradient>
-</defs>
-<rect width="960" height="330" rx="28" fill="#f3f7f6"/>
-<g class="rv" style="animation-delay:0.0s"><rect x="40" y="36" width="270" height="250" rx="20" fill="#fff" filter="url(#s2)"/><rect x="40" y="36" width="270" height="52" rx="20" fill="#2b776e"/><rect x="40" y="66" width="270" height="22" fill="#2b776e"/><text x="60" y="70" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="18" fill="#fff" text-anchor="start" >1 · Introduction</text>
-<circle cx="68" cy="112" r="5" fill="#2b776e"/><text x="82" y="117" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Greet the audience</text>
-<circle cx="68" cy="148" r="5" fill="#2b776e"/><text x="82" y="153" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Introduce yourself</text>
-<circle cx="68" cy="184" r="5" fill="#2b776e"/><text x="82" y="189" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Introduce the topic</text>
-<circle cx="68" cy="220" r="5" fill="#2b776e"/><text x="82" y="225" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Why it matters</text>
-<circle cx="68" cy="256" r="5" fill="#2b776e"/><text x="82" y="261" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="15" fill="#2b776e" text-anchor="start" >Outline: A → B → C</text>
+<defs><filter id="p3-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#14293a" flood-opacity=".13"/><feDropShadow dx="0" dy="1.5" stdDeviation="1.2" flood-color="#14293a" flood-opacity=".12"/></filter><filter id="p3-sh2" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/><feDropShadow dx="0" dy=".8" stdDeviation=".6" flood-color="#14293a" flood-opacity=".12"/></filter><filter id="p3-shl" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#14293a" flood-opacity=".15"/><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#14293a" flood-opacity=".1"/></filter><filter id="p3-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter><filter id="p3-bl3" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter><linearGradient id="p3-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#fbf8f1"/></linearGradient><linearGradient id="p3-rim" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset=".25" stop-color="#fff" stop-opacity="0"/></linearGradient><linearGradient id="p3-gloss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".32"/><stop offset=".55" stop-color="#fff" stop-opacity=".04"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><radialGradient id="p3-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><radialGradient id="p3-ao" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".22"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient><pattern id="p3-dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="8" cy="8" r="1" fill="#14293a" fill-opacity=".07"/></pattern><linearGradient id="p3-g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3f7f6"/><stop offset="0.55" stop-color="#eef4f2"/><stop offset="1" stop-color="#f5f1ea"/></linearGradient><linearGradient id="p3-g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#44877f"/><stop offset="1" stop-color="#276c65"/></linearGradient><radialGradient id="p3-g3" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#6ba09a"/><stop offset=".6" stop-color="#2b776e"/><stop offset="1" stop-color="#286e67"/></radialGradient><linearGradient id="p3-g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b96644"/><stop offset="1" stop-color="#9c4a29"/></linearGradient><radialGradient id="p3-g5" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#c8856a"/><stop offset=".6" stop-color="#b0512a"/><stop offset="1" stop-color="#a04b29"/></radialGradient><linearGradient id="p3-g6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#526cab"/><stop offset="1" stop-color="#345091"/></linearGradient><radialGradient id="p3-g7" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#758abc"/><stop offset=".6" stop-color="#3a58a0"/><stop offset="1" stop-color="#355294"/></radialGradient></defs>
+<rect width="960" height="330" rx="28" fill="url(#p3-g1)"/>
+<ellipse cx="211" cy="40" rx="403" ry="125" fill="url(#p3-glow)" opacity=".7"/>
+<rect width="960" height="330" rx="28" fill="url(#p3-dots)"/>
+<rect x=".75" y=".75" width="958.5" height="328.5" rx="28" stroke="#14293a" stroke-opacity=".06" stroke-width="1.5"/>
+<g class="p3-rv" style="animation-delay:0.0s">
+<rect x="40" y="36" width="270" height="250" rx="20" fill="url(#p3-paper)" filter="url(#p3-sh)"/><rect x="40.75" y="36.75" width="268.5" height="248.5" rx="19.25" stroke="url(#p3-rim)" stroke-width="1.5"/><rect x="40" y="36" width="270" height="250" rx="20" stroke="#14293a" stroke-opacity=".07"/>
+<path d="M40 56a20 20 0 0 1 20-20h230a20 20 0 0 1 20 20v32H40z" fill="url(#p3-g2)"/><path d="M40 56a20 20 0 0 1 20-20h230a20 20 0 0 1 20 20v8H40z" fill="url(#p3-gloss)"/>
+<text x="60" y="70" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="18" fill="#fff">1 · Introduction</text>
+<circle cx="286" cy="62" r="11" fill="#fff" fill-opacity=".2"/><circle cx="286" cy="62" r="4" fill="#fff"/>
+<circle cx="68" cy="112" r="5.5" fill="url(#p3-g3)"/><text x="82" y="117" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a">Greet the audience</text>
+<circle cx="68" cy="148" r="5.5" fill="url(#p3-g3)"/><text x="82" y="153" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a">Introduce yourself</text>
+<circle cx="68" cy="184" r="5.5" fill="url(#p3-g3)"/><text x="82" y="189" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a">Introduce the topic</text>
+<circle cx="68" cy="220" r="5.5" fill="url(#p3-g3)"/><text x="82" y="225" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a">Why it matters</text>
+<rect x="56" y="240" width="238" height="32" rx="10" fill="#e6efee"/>
+<circle cx="68" cy="256" r="5.5" fill="url(#p3-g3)"/><text x="82" y="261" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="15" fill="#2b776e">Outline: A → B → C</text>
 </g>
-<g class="rv" style="animation-delay:0.25s"><rect x="340" y="36" width="270" height="250" rx="20" fill="#fff" filter="url(#s2)"/><rect x="340" y="36" width="270" height="52" rx="20" fill="#b0512a"/><rect x="340" y="66" width="270" height="22" fill="#b0512a"/><text x="360" y="70" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="18" fill="#fff" text-anchor="start" >2 · Body</text>
-<circle cx="368" cy="112" r="5" fill="#b0512a"/><text x="382" y="117" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Main point A</text>
-<circle cx="368" cy="148" r="5" fill="#b0512a"/><text x="382" y="153" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Main point B</text>
-<circle cx="368" cy="184" r="5" fill="#b0512a"/><text x="382" y="189" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Main point C</text>
-<circle cx="368" cy="220" r="5" fill="#b0512a"/><text x="382" y="225" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >(2–4 main points)</text>
-<circle cx="368" cy="256" r="5" fill="#b0512a"/><text x="382" y="261" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="15" fill="#b0512a" text-anchor="start" >same order as the outline</text>
+<g class="p3-rv" style="animation-delay:0.25s">
+<rect x="340" y="36" width="270" height="250" rx="20" fill="url(#p3-paper)" filter="url(#p3-sh)"/><rect x="340.75" y="36.75" width="268.5" height="248.5" rx="19.25" stroke="url(#p3-rim)" stroke-width="1.5"/><rect x="340" y="36" width="270" height="250" rx="20" stroke="#14293a" stroke-opacity=".07"/>
+<path d="M340 56a20 20 0 0 1 20-20h230a20 20 0 0 1 20 20v32H340z" fill="url(#p3-g4)"/><path d="M340 56a20 20 0 0 1 20-20h230a20 20 0 0 1 20 20v8H340z" fill="url(#p3-gloss)"/>
+<text x="360" y="70" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="18" fill="#fff">2 · Body</text>
+<circle cx="586" cy="62" r="11" fill="#fff" fill-opacity=".2"/><circle cx="586" cy="62" r="4" fill="#fff"/>
+<circle cx="368" cy="112" r="5.5" fill="url(#p3-g5)"/><text x="382" y="117" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a">Main point A</text>
+<circle cx="368" cy="148" r="5.5" fill="url(#p3-g5)"/><text x="382" y="153" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a">Main point B</text>
+<circle cx="368" cy="184" r="5.5" fill="url(#p3-g5)"/><text x="382" y="189" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a">Main point C</text>
+<circle cx="368" cy="220" r="5.5" fill="url(#p3-g5)"/><text x="382" y="225" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a">(2–4 main points)</text>
+<rect x="356" y="240" width="238" height="32" rx="10" fill="#f6eae5"/>
+<circle cx="368" cy="256" r="5.5" fill="url(#p3-g5)"/><text x="382" y="261" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="15" fill="#b0512a">same order as the outline</text>
 </g>
-<g class="rv" style="animation-delay:0.5s"><rect x="640" y="36" width="270" height="250" rx="20" fill="#fff" filter="url(#s2)"/><rect x="640" y="36" width="270" height="52" rx="20" fill="#3a58a0"/><rect x="640" y="66" width="270" height="22" fill="#3a58a0"/><text x="660" y="70" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="18" fill="#fff" text-anchor="start" >3 · Conclusion</text>
-<circle cx="668" cy="112" r="5" fill="#3a58a0"/><text x="682" y="117" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Signal the end</text>
-<circle cx="668" cy="148" r="5" fill="#3a58a0"/><text x="682" y="153" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Repeat the topic</text>
-<circle cx="668" cy="184" r="5" fill="#3a58a0"/><text x="682" y="189" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Rephrase A, B, C</text>
-<circle cx="668" cy="220" r="5" fill="#3a58a0"/><text x="682" y="225" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a" text-anchor="start" >Thank the audience</text>
-<circle cx="668" cy="256" r="5" fill="#3a58a0"/><text x="682" y="261" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="15" fill="#3a58a0" text-anchor="start" >Ask for questions</text>
+<g class="p3-rv" style="animation-delay:0.5s">
+<rect x="640" y="36" width="270" height="250" rx="20" fill="url(#p3-paper)" filter="url(#p3-sh)"/><rect x="640.75" y="36.75" width="268.5" height="248.5" rx="19.25" stroke="url(#p3-rim)" stroke-width="1.5"/><rect x="640" y="36" width="270" height="250" rx="20" stroke="#14293a" stroke-opacity=".07"/>
+<path d="M640 56a20 20 0 0 1 20-20h230a20 20 0 0 1 20 20v32H640z" fill="url(#p3-g6)"/><path d="M640 56a20 20 0 0 1 20-20h230a20 20 0 0 1 20 20v8H640z" fill="url(#p3-gloss)"/>
+<text x="660" y="70" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="18" fill="#fff">3 · Conclusion</text>
+<circle cx="886" cy="62" r="11" fill="#fff" fill-opacity=".2"/><circle cx="886" cy="62" r="4" fill="#fff"/>
+<circle cx="668" cy="112" r="5.5" fill="url(#p3-g7)"/><text x="682" y="117" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a">Signal the end</text>
+<circle cx="668" cy="148" r="5.5" fill="url(#p3-g7)"/><text x="682" y="153" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a">Repeat the topic</text>
+<circle cx="668" cy="184" r="5.5" fill="url(#p3-g7)"/><text x="682" y="189" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a">Rephrase A, B, C</text>
+<circle cx="668" cy="220" r="5.5" fill="url(#p3-g7)"/><text x="682" y="225" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="15" fill="#14293a">Thank the audience</text>
+<rect x="656" y="240" width="238" height="32" rx="10" fill="#e7ebf4"/>
+<circle cx="668" cy="256" r="5.5" fill="url(#p3-g7)"/><text x="682" y="261" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="15" fill="#3a58a0">Ask for questions</text>
 </g>
-<path class="dr" d="M250 268C380 318 440 318 560 268" stroke="#e3a843" stroke-width="3" stroke-linecap="round"/><path class="dr" d="M550 268C680 318 740 318 860 268" stroke="#e3a843" stroke-width="3" stroke-linecap="round"/>
-<text x="480" y="318" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" fill="#b0512a" text-anchor="middle" >same order</text><text x="780" y="318" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" fill="#3a58a0" text-anchor="middle" >rephrased</text>
+<path class="p3-flow" d="M250 274C380 318 440 318 560 274" stroke="#e3a843" stroke-width="3" stroke-dasharray="6 8" stroke-linecap="round"/><path d="M552 270l8 4-5 7" stroke="#e3a843" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path class="p3-flow" d="M550 274C680 318 740 318 860 274" stroke="#e3a843" stroke-width="3" stroke-dasharray="6 8" stroke-linecap="round"/><path d="M852 270l8 4-5 7" stroke="#e3a843" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="436" y="303" width="88" height="22" rx="11" fill="#fff" filter="url(#p3-sh2)"/><text x="480" y="318" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" fill="#b0512a" text-anchor="middle">same order</text>
+<rect x="740" y="303" width="80" height="22" rx="11" fill="#fff" filter="url(#p3-sh2)"/><text x="780" y="318" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="13" fill="#3a58a0" text-anchor="middle">rephrased</text>
+<path class="p3-tw" d="M935 23C936.26 28.74 936.26 28.74 942 30C936.26 31.26 936.26 31.26 935 37C933.74 31.26 933.74 31.26 928 30C933.74 28.74 933.74 28.74 935 23z" fill="#e3a843"/>
+<path class="p3-tw" style="animation-delay:-1.5s" d="M325 17C325.9 21.1 325.9 21.1 330 22C325.9 22.9 325.9 22.9 325 27C324.1 22.9 324.1 22.9 320 22C324.1 21.1 324.1 21.1 325 17z" fill="#2b776e"/>
 </svg>
