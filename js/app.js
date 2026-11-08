@@ -547,7 +547,9 @@ function stagePage(s) {
   const idx = s.activities.findIndex(a => a.id === activeId);
   const doneCount = s.activities.filter(a => state.done[a.id]).length;
   const complete = doneCount === s.activities.length;
-  return `<header class="stage-head${complete ? ' is-complete' : ''}">
+  const back = course.id === 'dec10' ? `<div class="stage-nav"><a class="stage-back" href="${L('overview')}">${icon('left')}${esc(whereLong())}<small>Back to the day</small></a>
+    <nav class="stage-dots" aria-label="Stages of this day">${lesson.sections.map((x, i) => { const dn = x.activities.filter(a => state.done[a.id]).length, all = dn === x.activities.length; return `<a href="${L(x.id)}" class="${x.id === s.id ? 'is-cur' : ''}${all ? ' is-done' : ''}" style="${tone(x)}" title="${esc(code(x))} · ${esc(x.title)}" aria-label="Stage ${i + 1}: ${esc(x.title)}${x.id === s.id ? ' (this stage)' : ''}${all ? ', complete' : ''}"><i>${all ? icon('check') : esc(code(x))}</i></a>`; }).join('')}</nav></div>` : '';
+  return `${back}<header class="stage-head${complete ? ' is-complete' : ''}">
       <span class="stage-numeral${code(s).length > 2 ? ' is-code' : ''}" aria-hidden="true">${esc(code(s))}</span>
       <div class="stage-copy">
         <span class="eyebrow">${s.code ? `Teacher’s Book ${esc(navCode(s.code))}<span class="sep"></span>` : ''}Stage ${Number(s.number)} of ${lesson.sections.length}<span class="sep"></span>${esc(s.subtitle)}</span>
@@ -616,7 +618,7 @@ function overview() {
       <span class="eyebrow">${esc(whereLong())} · ${esc(lesson.duration || 'About 4 hours')}</span>
       <h1>${esc(lesson.title)}</h1>
       <p class="hero-lead">${esc(lesson.journey)}</p>
-      <div class="hero-actions">${continueButton(true)}${done && n ? `<span class="hero-progress"><b>${done} of ${coreActivities.length}</b> activities finished · next: ${esc(stageName(n.s))}</span>` : ''}</div>
+      <div class="hero-actions">${continueButton(true)}${done && n ? `<span class="hero-progress">${course.id === 'dec10' ? (() => { const pct = Math.round(100 * done / coreActivities.length); return `<span class="hero-ring" aria-hidden="true"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5"/><circle cx="18" cy="18" r="15.5" pathLength="100" style="stroke-dasharray:${pct} 100"/></svg><b>${pct}<small>%</small></b></span>`; })() : ''}<span><b>${done} of ${coreActivities.length}</b> activities finished · next: ${esc(stageName(n.s))}</span></span>` : ''}</div>
     </div>
     ${(() => { const wk = course.weeks.find(w => w.n === lesson.week) || {}; return `<figure class="hero-img"><img src="${esc(lesson.image || wk.image || course.heroImage || 'assets/food-editorial.webp')}" width="1400" height="933" alt="${esc(lesson.imageAlt || wk.imageAlt || course.heroAlt || '')}"></figure>`; })()}
   </section>

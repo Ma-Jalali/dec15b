@@ -1,48 +1,62 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" fill="none" role="img" aria-label="After your Interactive Presentation you answer two sets of questions. Set 1, on your content: one clarification question and one probing question. Set 2, on the Academic Success Toolkit: AI, group work, self-regulation, feedback, research or criticality.">
 <title>After your Interactive Presentation you answer two sets of questions. Set 1, on your content: one clarification question and one probing question. Set 2, on the Academic Success Toolkit: AI, group work, self-regulation, feedback, research or criticality.</title>
 <style>
-.fl { animation: fl 5s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .fl2 { animation-delay: -1.7s; } .fl3 { animation-delay: -3.3s; } .fl4 { animation-delay: -2.4s; animation-duration: 6.2s; }
-.tw { animation: tw 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; } .tw2 { animation-delay: -1.4s; } .tw3 { animation-delay: -.7s; }
-.pu { animation: pu 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-.dr { stroke-dasharray: 8 10; animation: dr 1.6s linear infinite; }
-.rv { animation: rv .7s cubic-bezier(.2,.7,.2,1) both; }
-.wv { animation: wv 2.6s ease-out infinite; transform-box: fill-box; transform-origin: center; opacity: 0; } .wv2 { animation-delay: .85s; } .wv3 { animation-delay: 1.7s; }
-.sw { animation: sw 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
-.sp { animation: sp 12s linear infinite; transform-box: fill-box; transform-origin: center; }
-.vb { animation: vb .35s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
-.bl { animation: bl 1.6s steps(1) infinite; }
-.gr { animation: gr 4s ease-in-out infinite; transform-box: fill-box; transform-origin: left center; }
-@keyframes fl { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
-@keyframes tw { 0%, 100% { opacity: .3; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.05); } }
-@keyframes pu { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.1); } 30% { transform: scale(1); } }
-@keyframes dr { to { stroke-dashoffset: -36; } }
-@keyframes rv { from { opacity: 0; transform: translateY(14px); } }
-@keyframes wv { 0% { opacity: 0; transform: scale(.6); } 25% { opacity: .9; } 100% { opacity: 0; transform: scale(1.5); } }
-@keyframes sw { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
-@keyframes sp { to { transform: rotate(360deg); } }
-@keyframes vb { from { transform: scaleY(.55); } to { transform: scaleY(1.15); } }
-@keyframes bl { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
-@keyframes gr { 0%, 100% { transform: scaleX(.35); } 50% { transform: scaleX(1); } }
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .rv, .wv { opacity: 1 !important; } }
+.fl{animation:fl 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.f2{animation-delay:-2s}.f3{animation-delay:-4s}
+.tw{animation:tw 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.t2{animation-delay:-1.1s}.t3{animation-delay:-2.2s}
+.pu{animation:pu 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.p2{animation-delay:-1s}.p3{animation-delay:-2s}
+.ha{animation:ha 3s ease-out infinite;transform-box:fill-box;transform-origin:center}.h2{animation-delay:-1.5s}
+.dr{stroke-dasharray:7 9;animation:dr 2.2s linear infinite}
+.bl{animation:bl 4.6s infinite;transform-box:fill-box;transform-origin:center}.b2{animation-delay:-1.7s}.b3{animation-delay:-3.1s}
+.sw{animation:sw 3.6s ease-in-out infinite;transform-box:fill-box;transform-origin:0% 50%}
+.rk{animation:rk 3.6s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.sh{animation:sh 6s ease-in-out infinite}
+.sp{animation:sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.ri{animation:ri 1.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.st{animation:st 3.4s ease-in-out infinite}.s2{animation-delay:-1.7s}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes tw{0%,100%{opacity:.35;transform:scale(.7)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes pu{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes ha{0%{opacity:.55;transform:scale(.85)}100%{opacity:0;transform:scale(1.45)}}
+@keyframes dr{to{stroke-dashoffset:-32}}
+@keyframes bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes sw{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes rk{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes sh{0%,100%{opacity:0}45%,55%{opacity:.5}}
+@keyframes sp{to{transform:rotate(360deg)}}
+@keyframes ri{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+@keyframes st{0%{opacity:0;transform:translateY(3px)}40%{opacity:.8}100%{opacity:0;transform:translateY(-8px)}}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } .ha{opacity:0} .st{opacity:.6} }
 </style>
-<defs>
-  <filter id="s" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/></filter>
-  <filter id="s2" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".14"/></filter>
-  <pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#14293a" opacity=".16"/></pattern>
-  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef5f3"/><stop offset="1" stop-color="#f8f4ec"/></linearGradient>
-  <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d3a52"/><stop offset="1" stop-color="#14293a"/></linearGradient>
-</defs>
-<rect width="960" height="320" rx="28" fill="#f3f7f6"/>
-<g class="rv"><rect x="36" y="110" width="180" height="100" rx="18" fill="#14293a" filter="url(#s2)"/><text x="126" y="152" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="16" fill="#fff" text-anchor="middle" >Your</text><text x="126" y="176" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="18" fill="#fff" text-anchor="middle" >presentation</text></g>
-<path class="dr" d="M216 140C270 140 270 80 320 80M216 180C270 180 270 240 320 240" stroke="#14293a" stroke-opacity=".4" stroke-width="3" stroke-linecap="round"/>
-<g class="rv" style="animation-delay:.2s"><rect x="320" y="24" width="600" height="120" rx="20" fill="#fff" filter="url(#s2)"/><text x="344" y="58" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="14" fill="#2b776e" text-anchor="start" letter-spacing="1.4">SET 1 · QUESTIONS ON YOUR CONTENT</text>
-<rect x="344" y="74" width="270" height="52" rx="14" fill="#2b776e"/><text x="479" y="98" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="16" fill="#fff" text-anchor="middle" >1 clarification question</text><text x="479" y="116" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="12" fill="#fff" text-anchor="middle" >make it clear</text><rect x="630" y="74" width="270" height="52" rx="14" fill="#d4583a"/><text x="765" y="98" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="16" fill="#fff" text-anchor="middle" >1 probing question</text><text x="765" y="116" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="12" fill="#fff" text-anchor="middle" >go deeper</text></g>
-<g class="rv" style="animation-delay:.4s"><rect x="320" y="176" width="600" height="120" rx="20" fill="#fff" filter="url(#s2)"/><text x="344" y="210" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="14" fill="#7a4a8c" text-anchor="start" letter-spacing="1.4">SET 2 · QUESTIONS ON THE ACADEMIC SUCCESS TOOLKIT</text>
-<g class="fl fl1"><rect x="344" y="228" width="88" height="46" rx="12" fill="#3a58a0"/><text x="388" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle" >AI</text></g>
-<g class="fl fl2"><rect x="440" y="228" width="88" height="46" rx="12" fill="#2b776e"/><text x="484" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle" >Group work</text></g>
-<g class="fl fl3"><rect x="536" y="228" width="88" height="46" rx="12" fill="#2f9a63"/><text x="580" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle" >Self-regulation</text></g>
-<g class="fl fl1"><rect x="632" y="228" width="88" height="46" rx="12" fill="#e3a843"/><text x="676" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle" >Feedback</text></g>
-<g class="fl fl2"><rect x="728" y="228" width="88" height="46" rx="12" fill="#b0512a"/><text x="772" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle" >Research</text></g>
-<g class="fl fl3"><rect x="824" y="228" width="88" height="46" rx="12" fill="#7a4a8c"/><text x="868" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle" >Criticality</text></g>
-</g>
+<defs><filter id="qa-sh" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#14293a" flood-opacity=".11"/><feDropShadow dx="0" dy="1.5" stdDeviation="1.3" flood-color="#14293a" flood-opacity=".13"/></filter><filter id="qa-sm" x="-40%" y="-40%" width="180%" height="190%"><feDropShadow dx="0" dy="3.5" stdDeviation="3.5" flood-color="#14293a" flood-opacity=".17"/><feDropShadow dx="0" dy="1" stdDeviation=".7" flood-color="#14293a" flood-opacity=".14"/></filter><filter id="qa-bl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter><linearGradient id="qa-pap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#fbf8f2"/></linearGradient><radialGradient id="qa-glo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><linearGradient id="qa-gls" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><linearGradient id="qa-bg" x1="0" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#f4f9f7"/><stop offset="1" stop-color="#e9f1ee"/></linearGradient><pattern id="qa-dt" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="8" cy="8" r="1" fill="#2b776e" opacity="0.09"/></pattern><clipPath id="qa-cl"><rect width="960" height="320" rx="28"/></clipPath><linearGradient id="qa-nv" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#2a4560"/><stop offset="1" stop-color="#0f2232"/></linearGradient><linearGradient id="qa-g0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#498a82"/><stop offset="1" stop-color="#286e67"/></linearGradient><linearGradient id="qa-g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#da6f56"/><stop offset="1" stop-color="#c35237"/></linearGradient><linearGradient id="qa-g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#566fad"/><stop offset="1" stop-color="#355295"/></linearGradient><linearGradient id="qa-g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4ca879"/><stop offset="1" stop-color="#2b8e5d"/></linearGradient><linearGradient id="qa-g4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e7b45d"/><stop offset="1" stop-color="#d19b3f"/></linearGradient><linearGradient id="qa-g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bb6948"/><stop offset="1" stop-color="#a24b28"/></linearGradient><linearGradient id="qa-g6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8d639c"/><stop offset="1" stop-color="#704582"/></linearGradient></defs>
+<g clip-path="url(#qa-cl)"><rect width="960" height="320" fill="url(#qa-bg)"/><rect width="960" height="320" fill="url(#qa-dt)"/><ellipse cx="211" cy="38" rx="403" ry="160" fill="url(#qa-glo)" opacity=".75"/><circle cx="902" cy="307" r="134" fill="#2b776e" opacity=".035"/><rect x=".75" y=".75" width="958.5" height="318.5" rx="27.25" stroke="#14293a" stroke-opacity=".06" stroke-width="1.5"/></g>
+<rect x="36" y="110" width="180" height="100" rx="18" fill="url(#qa-nv)" filter="url(#qa-sh)"/><path d="M54 111.6H198" stroke="#fff" stroke-opacity=".3" stroke-width="1.2" stroke-linecap="round"/>
+<rect x="46" y="120" width="160" height="80" rx="12" stroke="#fff" stroke-opacity=".1"/>
+<circle cx="60" cy="132" r="3" fill="#e64626"/><circle class="tw" cx="60" cy="132" r="6" stroke="#e64626" stroke-width="1.2"/>
+<text x="126" y="152" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="16" fill="#fff" text-anchor="middle">Your</text>
+<text x="126" y="176" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="18" fill="#fff" text-anchor="middle">presentation</text>
+<path d="M216 140C270 140 270 80 320 80M216 180C270 180 270 240 320 240" stroke="#14293a" stroke-opacity=".08" stroke-width="7" stroke-linecap="round"/>
+<path class="dr" d="M216 140C270 140 270 80 320 80M216 180C270 180 270 240 320 240" stroke="#14293a" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/>
+<circle cx="316" cy="80" r="4" fill="#2b776e"/><circle cx="316" cy="240" r="4" fill="#7a4a8c"/>
+<rect x="320" y="24" width="600" height="120" rx="20" fill="url(#qa-pap)" stroke="#14293a" stroke-opacity=".07" stroke-width="1" filter="url(#qa-sh)"/><path d="M340 25.6H900" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity=".95"/>
+<rect x="320" y="44" width="5" height="80" rx="2.5" fill="#2b776e" opacity=".7"/>
+<text x="344" y="58" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="14" fill="#2b776e" letter-spacing="1.4">SET 1 · QUESTIONS ON YOUR CONTENT</text>
+<rect x="344" y="74" width="270" height="52" rx="14" fill="url(#qa-g0)" filter="url(#qa-sm)"/><path d="M358 75.6H600" stroke="#fff" stroke-opacity=".35" stroke-width="1.2" stroke-linecap="round"/>
+<g transform="translate(370 100)"><g class="pu"><circle cx="-2" cy="-2" r="7" stroke="#fff" stroke-width="2.6" fill="#fff" fill-opacity=".15"/><path d="M3 3l6 6" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g></g>
+<text x="479" y="98" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="16" fill="#fff" text-anchor="middle">1 clarification question</text>
+<text x="479" y="116" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="12" fill="#fff" text-anchor="middle">make it clear</text>
+<rect x="630" y="74" width="270" height="52" rx="14" fill="url(#qa-g1)" filter="url(#qa-sm)"/><path d="M644 75.6H886" stroke="#fff" stroke-opacity=".35" stroke-width="1.2" stroke-linecap="round"/>
+<g transform="translate(656 100)"><g class="pu p2"><path d="M0-10v14" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><path d="M-6 3l6 8 6-8" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M-9 13h18" stroke="#fff" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/></g></g>
+<text x="765" y="98" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="16" fill="#fff" text-anchor="middle">1 probing question</text>
+<text x="765" y="116" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="500" font-size="12" fill="#fff" text-anchor="middle">go deeper</text>
+<rect x="320" y="176" width="600" height="120" rx="20" fill="url(#qa-pap)" stroke="#14293a" stroke-opacity=".07" stroke-width="1" filter="url(#qa-sh)"/><path d="M340 177.6H900" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity=".95"/>
+<rect x="320" y="196" width="5" height="80" rx="2.5" fill="#7a4a8c" opacity=".7"/>
+<text x="344" y="210" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="14" fill="#7a4a8c" letter-spacing="1.4">SET 2 · QUESTIONS ON THE ACADEMIC SUCCESS TOOLKIT</text>
+<g class="fl "><rect x="344" y="228" width="88" height="46" rx="12" fill="url(#qa-g2)" filter="url(#qa-sm)"/><path d="M354 229.6H422" stroke="#fff" stroke-opacity=".4" stroke-width="1.2" stroke-linecap="round"/><text x="388" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle">AI</text></g>
+<g class="fl f2"><rect x="440" y="228" width="88" height="46" rx="12" fill="url(#qa-g0)" filter="url(#qa-sm)"/><path d="M450 229.6H518" stroke="#fff" stroke-opacity=".4" stroke-width="1.2" stroke-linecap="round"/><text x="484" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle">Group work</text></g>
+<g class="fl f3"><rect x="536" y="228" width="88" height="46" rx="12" fill="url(#qa-g3)" filter="url(#qa-sm)"/><path d="M546 229.6H614" stroke="#fff" stroke-opacity=".4" stroke-width="1.2" stroke-linecap="round"/><text x="580" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle">Self-regulation</text></g>
+<g class="fl "><rect x="632" y="228" width="88" height="46" rx="12" fill="url(#qa-g4)" filter="url(#qa-sm)"/><path d="M642 229.6H710" stroke="#fff" stroke-opacity=".4" stroke-width="1.2" stroke-linecap="round"/><text x="676" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle">Feedback</text></g>
+<g class="fl f2"><rect x="728" y="228" width="88" height="46" rx="12" fill="url(#qa-g5)" filter="url(#qa-sm)"/><path d="M738 229.6H806" stroke="#fff" stroke-opacity=".4" stroke-width="1.2" stroke-linecap="round"/><text x="772" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle">Research</text></g>
+<g class="fl f3"><rect x="824" y="228" width="88" height="46" rx="12" fill="url(#qa-g6)" filter="url(#qa-sm)"/><path d="M834 229.6H902" stroke="#fff" stroke-opacity=".4" stroke-width="1.2" stroke-linecap="round"/><text x="868" y="256" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="12" fill="#fff" text-anchor="middle">Criticality</text></g>
+<path class="tw " d="M940 154Q941.68 158.32 946 160Q941.68 161.68 940 166Q938.32 161.68 934 160Q938.32 158.32 940 154Z" fill="#e3a843"/>
+<path class="tw t2" d="M60 54Q61.68 58.32 66 60Q61.68 61.68 60 66Q58.32 61.68 54 60Q58.32 58.32 60 54Z" fill="#2b776e"/>
 </svg>

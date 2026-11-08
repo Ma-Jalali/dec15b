@@ -1,0 +1,145 @@
+/* DEC10 · the finish (v6.0): light, depth and life on the page itself, so the pages match the new pictures.
+   Loaded last. Everything is additive and scoped to [data-course="dec10"]; the side panel is untouched. */
+
+/* ───────── the lesson's first page: the hero stands on a lit stage ───────── */
+[data-course="dec10"] .hero { overflow: hidden; background: linear-gradient(135deg, #fff 0%, #fbf9f4 55%, #f6f1e7 100%); box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(20, 41, 58, .06), 0 2px 4px rgba(20, 41, 58, .04), 0 24px 48px -36px rgba(20, 41, 58, .45); }
+[data-course="dec10"] .hero::before { content: ""; position: absolute; right: -8%; top: -30%; width: 58%; height: 160%; pointer-events: none;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, #2b776e) 12%, transparent), transparent 70%); }
+[data-course="dec10"] .hero-img { isolation: isolate; }
+[data-course="dec10"] .hero-img::before { content: ""; position: absolute; z-index: -1; left: 10%; right: 10%; bottom: -22px; height: 34px; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(20, 41, 58, .32), rgba(20, 41, 58, .08) 60%, transparent); filter: blur(6px); animation: finFloorHero 9s ease-in-out infinite; }
+[data-course="dec10"] .hero-img::after { content: ""; position: absolute; inset: 0; border-radius: var(--r); pointer-events: none; animation: floaty 9s ease-in-out infinite;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .75), inset 0 0 0 1px rgba(20, 41, 58, .08), inset 0 -40px 60px -50px rgba(20, 41, 58, .18); }
+[data-course="dec10"] .hero-img img { box-shadow: 0 2px 4px rgba(20, 41, 58, .08), 0 18px 36px -18px rgba(20, 41, 58, .45), 0 44px 70px -50px rgba(20, 41, 58, .5) !important; }
+@keyframes finFloorHero { 0%, 100% { transform: scaleX(1); opacity: 1; } 50% { transform: scaleX(.9); opacity: .7; } }
+
+/* the big question: a quiet gold rule and a breathing quote mark */
+[data-course="dec10"] .essay-q-hero::after { content: ""; position: absolute; left: 30px; right: 30px; bottom: 0; height: 3px; border-radius: 3px 3px 0 0;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--gold, #e3a843) 70%, #fff) 30%, var(--gold, #e3a843) 50%, color-mix(in srgb, var(--gold, #e3a843) 70%, #fff) 70%, transparent); }
+[data-course="dec10"] .essay-q-hero::before { animation: finBreathe 6s ease-in-out infinite; }
+@keyframes finBreathe { 50% { opacity: .18; transform: translateY(-3px); } }
+
+/* ───────── the stage cards on "Your day at a glance": each picture sits in a lit alcove ───────── */
+[data-course="dec10"] .journey-art-wrap { position: relative; overflow: hidden; isolation: isolate; background: radial-gradient(80% 70% at 50% 30%, #fff, color-mix(in srgb, var(--accent, #2b776e) 10%, #fff) 70%); }
+[data-course="dec10"] .journey-art-wrap::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--accent, #2b776e) 16%, transparent) 1px, transparent 1.5px) 0 0 / 12px 12px; opacity: .8; }
+[data-course="dec10"] .journey-art-wrap::after { content: ""; position: absolute; left: 22%; right: 22%; bottom: 12px; height: 14px; border-radius: 50%; background: radial-gradient(closest-side, rgba(20, 41, 58, .24), transparent); filter: blur(3px); transition: transform .35s var(--ease), opacity .35s; }
+[data-course="dec10"] .journey-art { filter: drop-shadow(0 10px 12px rgba(20, 41, 58, .16)); }
+[data-course="dec10"] .journey-card:hover .journey-art-wrap::after { transform: scaleX(.86); opacity: .7; }
+[data-course="dec10"] .journey-card::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; pointer-events: none; background: linear-gradient(90deg, var(--accent, #2b776e), color-mix(in srgb, var(--accent, #2b776e) 25%, transparent) 60%, transparent); opacity: 0; transition: opacity .3s; }
+[data-course="dec10"] .journey-card:hover::after, [data-course="dec10"] .journey-card.complete::after { opacity: 1; }
+[data-course="dec10"] .journey-card.complete { box-shadow: 0 0 0 1px rgba(227, 168, 67, .35), 0 10px 24px -18px rgba(176, 125, 18, .5); }
+[data-course="dec10"] .journey-num { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3), 0 4px 8px -4px var(--accent, #2b776e); }
+
+/* ───────── the stage page: a back pill, a softer numeral, the picture on a floor ───────── */
+[data-course="dec10"] .stage-back { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 14px; padding: 7px 14px 7px 9px; border-radius: 999px; text-decoration: none; color: var(--ink-2); font: 700 .84rem/1.2 var(--sans);
+  background: rgba(255, 255, 255, .9); box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(20, 41, 58, .09), 0 1px 2px rgba(20, 41, 58, .06), 0 8px 16px -12px rgba(20, 41, 58, .5); transition: transform .2s, box-shadow .2s, color .2s; }
+[data-course="dec10"] .stage-back .icon { width: 16px; height: 16px; color: var(--accent, #2b776e); transition: transform .2s; }
+[data-course="dec10"] .stage-back small { font-weight: 600; color: var(--muted); }
+[data-course="dec10"] .stage-back small::before { content: "·"; margin: 0 6px 0 2px; color: var(--line-3); }
+[data-course="dec10"] .stage-back:hover { color: var(--ink); transform: translateY(-1px); box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(20, 41, 58, .12), 0 2px 4px rgba(20, 41, 58, .06), 0 12px 22px -12px rgba(20, 41, 58, .55); }
+[data-course="dec10"] .stage-back:hover .icon { transform: translateX(-3px); }
+[data-course="dec10"] .stage-numeral { color: color-mix(in srgb, var(--accent, #2b776e) 10%, transparent); -webkit-text-stroke: 1px color-mix(in srgb, var(--accent, #2b776e) 55%, transparent); opacity: 1; text-shadow: 0 2px 0 rgba(255, 255, 255, .6); }
+[data-course="dec10"] .stage-head::before { background: linear-gradient(90deg, var(--accent, #2b776e), color-mix(in srgb, var(--accent, #2b776e) 45%, #fff) 55%, transparent); }
+[data-course="dec10"] .stage-art-wrap::before { content: ""; position: absolute; left: 14%; right: 14%; bottom: -8px; height: 22px; border-radius: 50%; background: radial-gradient(closest-side, rgba(20, 41, 58, .26), transparent); filter: blur(5px); animation: finFloor 11s ease-in-out infinite; }
+[data-course="dec10"] .stage-art { filter: drop-shadow(0 12px 14px rgba(20, 41, 58, .18)); }
+[data-course="dec10"] .stage-medal { filter: drop-shadow(0 6px 8px rgba(176, 125, 18, .45)); }
+@keyframes finFloor { 0%, 100% { transform: scaleX(1); opacity: 1; } 50% { transform: scaleX(.86); opacity: .65; } }
+
+/* the activity strip: finished coins gleam, the current one has a soft halo */
+[data-course="dec10"] .act-tabs button.is-done .tab-num { background: linear-gradient(160deg, #3fb08f, #1f8a6a) !important; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 3px 6px -3px rgba(31, 138, 106, .7); }
+[data-course="dec10"] .act-tabs button.current .tab-num { background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, .35), transparent 48%), var(--accent, #2b776e) !important; }
+
+/* ───────── the activity header: the picture floats over its own shadow ───────── */
+[data-course="dec10"] .act-head.has-art { position: relative; }
+[data-course="dec10"] .act-head.has-art::after { content: ""; position: absolute; right: 60px; top: calc(50% + 66px); width: 180px; height: 24px; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(20, 41, 58, .2), transparent); filter: blur(5px); animation: finFloor 7s ease-in-out infinite; }
+@media (max-width: 980px) { [data-course="dec10"] .act-head.has-art::after { right: 46px; width: 130px; top: calc(50% + 48px); } }
+@media (max-width: 640px) { [data-course="dec10"] .act-head.has-art::after { right: 50%; transform: translateX(50%); width: 140px; top: 132px; animation: none; } }
+
+/* ───────── the blocks: a few more grams of detail each ───────── */
+/* key point: the lightbulb glows softly */
+[data-course="dec10"] .block.key .key-art { animation: finGlow 5s ease-in-out infinite; }
+@keyframes finGlow { 50% { opacity: .9; filter: drop-shadow(0 0 14px rgba(227, 168, 67, .55)); } }
+/* language bank: phrases are small raised tiles */
+[data-course="dec10"] .lang-group li { background: linear-gradient(180deg, #fff, #f8faff); border: 0; box-shadow: inset 0 1px 0 #fff, inset 0 0 0 1px rgba(58, 88, 160, .16), inset 0 -2px 0 rgba(58, 88, 160, .07), 0 1px 2px rgba(20, 41, 58, .05), 0 6px 12px -10px rgba(20, 41, 58, .45); transition: transform .18s, box-shadow .18s; }
+[data-course="dec10"] .lang-group li:hover { transform: translateY(-1px); box-shadow: inset 0 1px 0 #fff, inset 0 0 0 1px rgba(58, 88, 160, .26), inset 0 -2px 0 rgba(58, 88, 160, .07), 0 2px 4px rgba(20, 41, 58, .06), 0 10px 18px -12px rgba(20, 41, 58, .5); }
+[data-course="dec10"] .lang-group h4 { display: flex; align-items: center; gap: 8px; }
+[data-course="dec10"] .lang-group h4::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 16%, transparent); }
+/* quiz answers: pressable pills; the chosen one has a quiet halo */
+[data-course="dec10"] .option { box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(20, 41, 58, .05), 0 2px 0 rgba(20, 41, 58, .04); transition: transform .15s, box-shadow .15s, background .15s, border-color .15s, color .15s; }
+[data-course="dec10"] .option:hover { transform: translateY(-1px); box-shadow: inset 0 1px 0 #fff, 0 2px 4px rgba(20, 41, 58, .06), 0 8px 14px -10px rgba(20, 41, 58, .5); }
+[data-course="dec10"] .option:active { transform: translateY(1px); box-shadow: inset 0 2px 3px rgba(20, 41, 58, .1); }
+[data-course="dec10"] .option.selected { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 0 0 4px color-mix(in srgb, var(--accent, #2b776e) 16%, transparent), 0 6px 12px -8px var(--accent, #2b776e); }
+/* model: the dashed inner frame gets a small corner tick, like a mounted example */
+[data-course="dec10"] .model::after { content: ""; position: absolute; right: 14px; top: 14px; width: 10px; height: 10px; border-top: 2px solid var(--model, #2f7d6b); border-right: 2px solid var(--model, #2f7d6b); opacity: .45; }
+/* tip: the bulb gets a halo */
+[data-course="dec10"] .block.tip > .icon { filter: drop-shadow(0 0 6px rgba(227, 168, 67, .45)); }
+/* figure captions: a hairline */
+[data-course="dec10"] .figure figcaption { padding-top: 8px; border-top: 1px dashed rgba(20, 41, 58, .12); }
+
+/* ───────── buttons: a sheen sweeps across on hover ───────── */
+[data-course="dec10"] .btn { background-image: linear-gradient(110deg, transparent 38%, rgba(255, 255, 255, .16) 50%, transparent 62%), linear-gradient(180deg, #2c4c68, #14293a) !important; background-size: 250% 100%, 100% 100% !important; background-position: 100% 0, 0 0 !important; background-repeat: no-repeat !important; transition: transform .15s, box-shadow .15s, filter .15s, background-position .55s var(--ease) !important; }
+[data-course="dec10"] .btn:hover { background-position: 0 0, 0 0 !important; }
+[data-course="dec10"] :is(.btn, .btn-quiet, .option, .stage-back, .journey-card, .day-card a, .week-tab):focus-visible { outline: 3px solid color-mix(in srgb, var(--gold, #e3a843) 80%, #fff); outline-offset: 3px; }
+
+/* ───────── form controls: a custom chevron and an accent focus ring ───────── */
+[data-course="dec10"] select { appearance: none; -webkit-appearance: none; padding-right: 32px !important; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314293a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; background-size: 14px; }
+[data-course="dec10"] :is(select, input[type="date"], input[type="text"], input[type="search"], input[type="number"], textarea):focus-visible { outline: none; box-shadow: 0 0 0 2px #fff, 0 0 0 4px color-mix(in srgb, var(--accent, #2b776e) 60%, transparent) !important; }
+
+/* ───────── chrome: scrollbars, the toast, dialogs ───────── */
+[data-course="dec10"] { scrollbar-color: rgba(20, 41, 58, .28) transparent; }
+[data-course="dec10"] main::-webkit-scrollbar, [data-course="dec10"] body::-webkit-scrollbar { width: 10px; }
+[data-course="dec10"] body::-webkit-scrollbar-thumb { border-radius: 10px; background: rgba(20, 41, 58, .22); border: 3px solid transparent; background-clip: padding-box; }
+[data-course="dec10"] body::-webkit-scrollbar-thumb:hover { background: rgba(20, 41, 58, .4); border: 3px solid transparent; background-clip: padding-box; }
+[data-course="dec10"] #toast { background: linear-gradient(180deg, #24435c, #14293a); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .14), 0 0 0 1px rgba(255, 255, 255, .06), 0 20px 40px -20px rgba(20, 41, 58, .8); border: 0; }
+[data-course="dec10"] dialog { box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(20, 41, 58, .08), 0 40px 80px -40px rgba(20, 41, 58, .7), 0 80px 120px -60px rgba(20, 41, 58, .5); }
+[data-course="dec10"] dialog::backdrop { background: radial-gradient(80% 80% at 50% 40%, rgba(20, 41, 58, .42), rgba(14, 28, 40, .62)); backdrop-filter: blur(5px) saturate(.9); }
+
+/* ───────── the page itself: a whisper of paper ───────── */
+[data-course="dec10"] main { position: relative; }
+[data-course="dec10"] .section-title { position: relative; }
+[data-course="dec10"] .section-title::after { content: ""; display: block; width: 72px; height: 4px; margin-top: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--gold, #e3a843), rgba(227, 168, 67, 0)); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-course="dec10"] :is(.hero-img::before, .hero-img::after, .essay-q-hero::before, .stage-art-wrap::before, .act-head.has-art::after, .block.key .key-art) { animation: none !important; }
+  [data-course="dec10"] :is(.btn, .option, .lang-group li, .stage-back) { transition: none !important; }
+}
+@media print { [data-course="dec10"] :is(.stage-back, .hero-img::before, .hero-img::after, .act-head.has-art::after) { display: none !important; } }
+
+/* ───────── v6.0 additions: the course map, the continue card, a progress ring, finer type ───────── */
+/* day cards: the picture sits in a lit, dotted alcove with a floor shadow */
+[data-course="dec10"] .day-art { position: relative; overflow: hidden; isolation: isolate; background: radial-gradient(80% 70% at 50% 28%, #fff, color-mix(in srgb, var(--dc, #2b776e) 9%, #fbf3e4) 70%) !important; }
+[data-course="dec10"] .day-art::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--dc, #2b776e) 15%, transparent) 1px, transparent 1.5px) 0 0 / 12px 12px; }
+[data-course="dec10"] .day-art::after { content: ""; position: absolute; left: 24%; right: 24%; bottom: 8px; height: 12px; border-radius: 50%; background: radial-gradient(closest-side, rgba(20, 41, 58, .22), transparent); filter: blur(3px); transition: transform .35s var(--ease); }
+[data-course="dec10"] .day-art img { position: relative; filter: drop-shadow(0 8px 10px rgba(20, 41, 58, .16)); transition: transform .35s var(--ease); }
+[data-course="dec10"] .day-card.is-ready:hover .day-art img { transform: translateY(-3px) scale(1.03); }
+[data-course="dec10"] .day-card.is-ready:hover .day-art::after { transform: scaleX(.85); }
+[data-course="dec10"] .day-art-soon { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .5) 0 10px, transparent 10px 20px), #f6f1e8 !important; }
+[data-course="dec10"] .day-art-soon::before { display: none; }
+/* the continue card: the picture gets depth too */
+[data-course="dec10"] .resume-art { background: radial-gradient(80% 70% at 50% 30%, #fff, var(--accent-bg, #eef4f2) 75%); box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .06), 0 10px 20px -14px rgba(20, 41, 58, .5); }
+/* a small progress ring beside "x of y activities finished" on the lesson's first page */
+[data-course="dec10"] .hero-ring { position: relative; display: inline-grid; place-items: center; width: 46px; height: 46px; flex: none; }
+[data-course="dec10"] .hero-ring svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+[data-course="dec10"] .hero-ring circle { fill: none; stroke-width: 3.2; stroke: color-mix(in srgb, var(--accent, #2b776e) 16%, #fff); }
+[data-course="dec10"] .hero-ring circle + circle { stroke: var(--accent, #2b776e); stroke-linecap: round; transition: stroke-dasharray .8s var(--ease); }
+[data-course="dec10"] .hero-ring b { font: 700 .78rem/1 var(--sans); color: var(--ink); font-variant-numeric: tabular-nums; }
+[data-course="dec10"] .hero-ring b small { font-size: .55rem; color: var(--muted); margin-left: 1px; }
+[data-course="dec10"] .hero-progress { display: inline-flex; align-items: center; gap: 10px; }
+/* finer type: balanced headings, no orphan words in the lead paragraphs */
+[data-course="dec10"] :is(h1, h2, .journey-title, .day-title, .essay-q blockquote, .act-head h2, .stage-head h1) { text-wrap: balance; }
+[data-course="dec10"] :is(.hero-lead, .stage-outcome, .act-goal, .journey-text, .do-step p, .week-head p, .section-sub, .tip span) { text-wrap: pretty; }
+/* the row above a stage: the back pill on the left, one dot per stage on the right (tap to jump) */
+[data-course="dec10"] .stage-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+[data-course="dec10"] .stage-nav .stage-back { margin: 0; }
+[data-course="dec10"] .stage-dots { display: inline-flex; align-items: center; gap: 6px; padding: 5px; border-radius: 999px; background: rgba(255, 255, 255, .72); box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(20, 41, 58, .07), 0 6px 14px -12px rgba(20, 41, 58, .5); }
+[data-course="dec10"] .stage-dots a { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; text-decoration: none; color: var(--accent, #2b776e); background: color-mix(in srgb, var(--accent, #2b776e) 10%, #fff); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #2b776e) 22%, transparent); transition: transform .18s, box-shadow .18s; }
+[data-course="dec10"] .stage-dots a i { font: 800 .62rem/1 var(--sans); font-style: normal; letter-spacing: .02em; }
+[data-course="dec10"] .stage-dots a i .icon { width: 13px; height: 13px; stroke-width: 2.8; }
+[data-course="dec10"] .stage-dots a:hover { transform: translateY(-1px); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #2b776e) 40%, transparent), 0 6px 12px -8px var(--accent, #2b776e); }
+[data-course="dec10"] .stage-dots a.is-done { color: #fff; background: linear-gradient(160deg, #3fb08f, #1f8a6a); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35); }
+[data-course="dec10"] .stage-dots a.is-cur { color: #fff; background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, .35), transparent 48%), var(--accent, #2b776e); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3), 0 0 0 3px #fff, 0 0 0 4px color-mix(in srgb, var(--accent, #2b776e) 45%, transparent); }
+/* the Language Lab's back pill matches */
+[data-course="dec10"] .lab-back { padding: 7px 14px 7px 9px; font: 700 .84rem/1.2 var(--sans); color: var(--ink-2); background: rgba(255, 255, 255, .9); box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(20, 41, 58, .09), 0 1px 2px rgba(20, 41, 58, .06), 0 8px 16px -12px rgba(20, 41, 58, .5); }
+[data-course="dec10"] .lab-back .icon { color: var(--accent, #2b776e); }
+@media (max-width: 640px) { [data-course="dec10"] .stage-dots a { width: 28px; height: 28px; } }
