@@ -806,3 +806,8 @@ v6.3 (DEC10 Week 3 Day 1: five teaching diagrams redrawn)
 - d1-camera (observation vs evaluation), d1-green-sectors (eight sector scenes; a proper three-arrow recycling symbol),
   d1-group-roles (four detailed role characters; curved rotation arrows with real heads), d1-heart-head (hand clearly on
   heart / on head), d1-jigsaw (expert groups → mixed tables with six curved arrows). Same text as before.
+
+v6.4 (DEC10 Week 3 Day 1: two more diagrams redrawn)
+- d1-skill-distance (a journey: short road with one training stop to sales manager, long road with four stops to software
+  developer; proper arrowheads) and d1-move-corners (top-down classroom, six pinned posters A–F, students on footprint
+  trails with proper arrowheads, scoreboard and 30-second timer). Same text as before.
