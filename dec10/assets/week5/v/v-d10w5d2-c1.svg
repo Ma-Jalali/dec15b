@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="An essay question card “Is cultural globalisation having a negative impact on culture?” with words highlighted in three colours under a magnifying glass, and the label 450–600 words">
+<title>Analyse the question</title>
+<style>
+.v52c1-tw{animation:v52c1-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.v52c1-t2{animation-delay:-1s}.v52c1-t3{animation-delay:-2s}
+.v52c1-fl{animation:v52c1-fl 6s ease-in-out infinite}.v52c1-f2{animation-delay:-2s}.v52c1-f3{animation-delay:-4s}
+.v52c1-bl{animation:v52c1-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.v52c1-b2{animation-delay:-1.7s}.v52c1-b3{animation-delay:-3.2s}
+.v52c1-pu{animation:v52c1-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.v52c1-u2{animation-delay:-1.3s}
+.v52c1-sp{animation:v52c1-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.v52c1-dr{stroke-dasharray:6 8;animation:v52c1-dr 1.6s linear infinite}
+.v52c1-wv{animation:v52c1-wv 2.4s ease-out infinite}.v52c1-w2{animation-delay:-.8s}.v52c1-w3{animation-delay:-1.6s}
+.v52c1-sw{animation:v52c1-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}.v52c1-s2{animation-delay:-2s}
+.v52c1-pen{animation:v52c1-pen 3s ease-in-out infinite}
+.v52c1-spin{animation:v52c1-spin 9s linear infinite}
+@keyframes v52c1-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes v52c1-fl{50%{transform:translateY(-4px)}}
+@keyframes v52c1-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes v52c1-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes v52c1-sp{to{transform:rotate(360deg)}}
+@keyframes v52c1-dr{to{stroke-dashoffset:-28}}
+@keyframes v52c1-wv{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes v52c1-sw{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes v52c1-pen{0%,100%{transform:translate(0,0)}25%{transform:translate(3px,-1px)}50%{transform:translate(6px,1px)}75%{transform:translate(9px,0)}}
+.v52c1-mag{animation:v52c1-mag 6s ease-in-out infinite}@keyframes v52c1-mag{0%,100%{transform:translate(0,0)}50%{transform:translate(-40px,-20px)}}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs><linearGradient id="v52c1-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fcf2ec"/><stop offset="1" stop-color="#f4dccd"/></linearGradient>
+<pattern id="v52c1-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r=".9" fill="#b0512a" fill-opacity=".14"/></pattern>
+<radialGradient id="v52c1-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<filter id="v52c1-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="v52c1-blur" x="-20%" y="-80%" width="140%" height="260%"><feGaussianBlur stdDeviation="4"/></filter>
+<linearGradient id="v52c1-pap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#f3ead8"/></linearGradient>
+<linearGradient id="v52c1-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c162"/><stop offset="1" stop-color="#d9962e"/></linearGradient>
+<linearGradient id="v52c1-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c4c68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="v52c1-main" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ef9c78"/><stop offset="1" stop-color="#b0512a"/></linearGradient>
+<linearGradient id="v52c1-coral" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0694c"/><stop offset="1" stop-color="#c93b20"/></linearGradient>
+<radialGradient id="v52c1-ocean" cx=".38" cy=".32" r=".8"><stop offset="0" stop-color="#8fd3f0"/><stop offset=".6" stop-color="#2f6db5"/><stop offset="1" stop-color="#1d4680"/></radialGradient>
+</defs>
+<clipPath id="v52c1-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#v52c1-bg)"/><g clip-path="url(#v52c1-clip)"><rect width="240" height="180" fill="url(#v52c1-dots)"/><ellipse cx="116" cy="72" rx="110" ry="70" fill="url(#v52c1-glow)"/></g><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".7" stroke-width="1.2"/><ellipse cx="120" cy="160" rx="84" ry="6" fill="#14293a" opacity="0.12" filter="url(#v52c1-blur)"/><g filter="url(#v52c1-sh)"><rect x="22" y="34" width="168" height="96" rx="10" fill="#fff"/></g><rect x="22" y="34" width="168" height="18" rx="10" fill="#14293a"/><rect x="22" y="44" width="168" height="8" fill="#14293a"/><text x="106" y="47" font-family="Manrope, Arial, sans-serif" font-size="8" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="1.2">ESSAY QUESTION</text><rect x="30" y="62" width="14" height="14" rx="3" fill="#e64626" opacity=".3"/><rect x="48" y="62" width="108" height="14" rx="3" fill="#13887a" opacity=".28"/><rect x="114" y="82" width="46" height="14" rx="3" fill="#e3a843" opacity=".5"/><rect x="30" y="102" width="100" height="14" rx="3" fill="#13887a" opacity=".28"/><text x="32" y="73" font-family="Manrope, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#14293a" text-anchor="start">Is cultural globalisation</text><text x="32" y="93" font-family="Manrope, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#14293a" text-anchor="start">having a </text><text x="116" y="93" font-family="Manrope, Arial, sans-serif" font-size="10.5" font-weight="900" fill="#e64626" text-anchor="start">negative</text><text x="32" y="113" font-family="Manrope, Arial, sans-serif" font-size="10.5" font-weight="800" fill="#14293a" text-anchor="start">impact on culture?</text><g class="v52c1-mag"><g><circle cx="166" cy="98" r="18" fill="#fff" fill-opacity=".55" stroke="#14293a" stroke-width="3.96"/><path d="M178.96 110.96l14.4 14.4" stroke="#14293a" stroke-width="6.84" stroke-linecap="round"/><path d="M157 94.4a9.9 9.9 0 0 1 7.2 -6.84" stroke="#2f6db5" stroke-width="2.16" stroke-linecap="round"/></g></g><rect x="128" y="138" width="80" height="18" rx="9" fill="#e64626" filter="url(#v52c1-sh)"/><text x="168" y="150.5" font-family="Manrope, Arial, sans-serif" font-size="8.5" font-weight="900" fill="#fff" text-anchor="middle">450–600 words</text><path class="v52c1-tw " d="M210 26C210.72 29.28 210.72 29.28 214 30C210.72 30.72 210.72 30.72 210 34C209.28 30.72 209.28 30.72 206 30C209.28 29.28 209.28 29.28 210 26z" fill="#e3a843"/><path class="v52c1-tw v52c1-t2" d="M18 137C18.54 139.46 18.54 139.46 21 140C18.54 140.54 18.54 140.54 18 143C17.46 140.54 17.46 140.54 15 140C17.46 139.46 17.46 139.46 18 137z" fill="#e64626"/>
+</svg>

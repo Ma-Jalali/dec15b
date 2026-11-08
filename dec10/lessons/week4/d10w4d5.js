@@ -1,9 +1,8 @@
 /* DEC10 · Week 4 · Day 5 (Friday) — Plan, prompt, negotiate.
-   There is NO Week 4 Teacher's Book. Built from the Week 4 student booklet (W4 D5. 15D role cards, used exactly), the revised
-   weekly map (order + minutes) and the matching Teacher's Book lessons as patterns: W3 D1 3A Group work skills, W3 D3 14
-   Digital literacy & AI, W3 D5 23A Interactive Discussion skills, W5 D4 11A Discussion and negotiation, W3 D3 13A STAR moment.
-   Taught on FRIDAY: 15A AST: Group work skills (60) · 16A AST: Digital literacy and AI: Using & refining prompts (90)
-   · 17A Interactive Discussion: Discussion and negotiation (60) · 18A STAR© moment (30).
+   Built from the Week 4 Teacher's Book (W4 D5. 15A, 16A, 17A, 18A) and the Week 4 student booklet (15D role cards, used exactly),
+   ordered and timed by the revised weekly map. Taught on FRIDAY: 15A AST: Group work skills (60) · 16A AST: Digital literacy
+   and AI: Using & refining prompts (90) · 17A Interactive Discussion: Discussion and negotiation (60) · 18A STAR© moment (30).
+   The two group-work recordings have no audio file in the course: the TB transcripts are shown in folds after listening.
    Protected texts are in sources.js and are never changed here. Activity ids are the keys of saved work — never rename them. */
 window.DEC15_LESSON = {
   id: "d10w4d5",
@@ -11,14 +10,14 @@ window.DEC15_LESSON = {
   day: 5,
   title: "Plan, prompt, negotiate",
   duration: "About 4 hours",
-  question: "Can ecotourism really keep its promises — to nature and to local people?",
-  questionKind: "Big question",
-  questionLabel: "Today’s big question · you will negotiate it in 17A",
-  journey: "Run a real group meeting: agree on goals, plan who does what, check progress and predict problems. Then make AI work better for you — try a prompt, check the answer, refine it. After lunch, negotiate the best way to make ecotourism fair, and finish the week with a STAR moment.",
+  question: "Which strategy would be best to improve the balance between tourism and sustainability?",
+  questionKind: "Negotiation question",
+  questionLabel: "Today’s negotiation task · 17A Interactive Discussion",
+  journey: "Check in with your feelings and needs, listen to a group plan its project and check its progress, then run your own group check-in. Next, play a prompt game and use iterative interaction with Cogniti to research ecotourism. After lunch, look back at your views on ecotourism and negotiate the best way to balance tourism and sustainability. A STAR moment closes the week.",
   image: "dec10/assets/week4/hero-d10w4d5.svg",
   imageAlt: "Illustration: an eco-lodge on a green rainforest coast with a turtle in the bay. In front, four students sit at a round table with a planning board marked Goals, Plan, Progress and Challenges. A laptop shows an AI chat where a prompt grows from version 1 to version 3. Two speech bubbles meet over three option cards, and a gold STAR shines above.",
   finish: {"title":"Week 5","text":"Globalisation and culture: a new reading, a new listening and the three H scenarios"},
-  goalShort: "your group project and the Interactive Discussion",
+  goalShort: "your Interactive Presentation group and the Interactive Discussion",
   sections: [
     {
       id: "groupwork",
@@ -28,151 +27,373 @@ window.DEC15_LESSON = {
       tone: "green",
       art: "dec10/assets/week4/s-d5-groupwork.svg",
       title: "AST: Group work skills",
-      subtitle: "Transactional listening: listen, check, agree — then act",
-      outcome: "You use the language on the role cards to discuss goals, make a plan of action, check progress and predict challenges in a group meeting — and you listen carefully so that every decision is clear.",
+      subtitle: "Check in with yourself, listen to a group at work, then check your own progress",
+      outcome: "You understand group work problems and devise solutions, and you apply problem-solving language and techniques (O-F-N-R and the transactional phrases) to your own group task.",
       activities: [
         {
           id: "a1",
-          short: "Warm-up",
-          minutes: 7,
-          grouping: "Groups of 3–4",
+          short: "Lead-in",
+          minutes: 10,
+          grouping: "Alone",
           art: "dec10/assets/week4/v/v-d10w4d5-a1.svg",
-          title: "Warmer: What makes a good group meeting?",
-          goal: "Think about real group meetings — and meet a new idea: transactional listening.",
+          title: "Lead-In",
+          goal: "Remember the four O-F-N-R stages, then try a short daily practice to notice your own feelings and needs.",
           blocks: [
-            {"type":"do","n":1,"who":"group","text":"Sit with your <b>seminar / Interactive Presentation group</b>. Each person tells the group about one group meeting: a good one or a bad one. <b>One minute each.</b>"},
+            {"type":"do","n":1,"who":"alone","text":"We have learnt about a model of communication which involves 4 stages: <b>O-F-N-R</b>. You have <b>30 seconds</b>: can you remember what each letter represents? Then match."},
             {
-              type: "talk",
-              title: "Talk about a real meeting",
-              prompts: [
-                "What did the group need to decide? Did you decide it?",
-                "Did everyone know <b>what to do</b> and <b>by when</b> at the end?",
-                "Did someone check that they understood? Or did people just nod?",
-                "What was the <b>one thing</b> that made it good (or bad)?"
+              type: "match",
+              id: "a1-match",
+              title: "1. What does each letter represent?",
+              left: ["O · Observation","F · Feelings","N · Needs","R · Request"],
+              right: [
+                "Show you have noticed something (e.g. how the other person feels)",
+                "Say how you feel",
+                "Say what you need",
+                "Make a request for action"
               ]
+            },
+            {
+              type: "figure",
+              src: "dec10/assets/week4/d5-ofnr.svg",
+              size: "wide",
+              alt: "Four stepping stones across a river: O Observation — show you have noticed something; F Feelings — say how you feel; N Needs — say what you need; R Request — make a request for action. Under each stone is an example sentence starter: When I see…, I feel…, I need…, Would you be willing to…?",
+              caption: "O-F-N-R: four steps from a problem to a kind, clear request."
             },
             {
               type: "key",
-              title: "Transactional listening",
+              title: "A daily check-in with yourself",
               points: [
-                "In a <b>transaction</b>, people talk to <b>get something done</b>: agree on a goal, share tasks, set a deadline.",
-                "So you don’t just listen to understand. You listen to <b>check</b>, to <b>confirm</b> and to <b>act</b>.",
-                "At the end of a good meeting, everyone can answer: <b>What are we doing? Who is doing it? By when?</b>"
+                "This quick, simple activity helps you be <b>honest with yourself</b> and notice your own <b>feelings and needs</b>.",
+                "This habit helps you avoid bigger problems later — especially at times of stress.",
+                "Keep your answers <b>private</b>. You do not need to share them."
               ]
             },
             {
-              type: "hotspot",
-              src: "dec10/assets/week4/d5-listen-loop.svg",
-              alt: "A loop with four steps: 1 Listen to the idea, 2 Check what you heard, 3 Confirm the decision, 4 Act on it. In the middle a group sits at a table.",
-              hint: "Tap each step to see a phrase you can use.",
-              spots: [
-                {"x":50,"y":15,"label":"1","title":"Listen","text":"Look at the speaker. Show you are listening: “Right.” “OK, go on.” “That makes sense.”","color":"#2f7d6b"},
-                {"x":85,"y":50,"label":"2","title":"Check","text":"Say it back in your words: “So what you’re saying is … — is that right?”","color":"#3a58a0"},
-                {"x":50,"y":86,"label":"3","title":"Confirm","text":"Make the decision clear: “OK, so we’ve agreed that Kenji will …, by Wednesday.”","color":"#b07d12"},
-                {"x":15,"y":50,"label":"4","title":"Act","text":"Write it down and do it: “I’ll put that in our group chat now.”","color":"#c4562f"}
+              type: "tabs",
+              title: "2. Listen to your teacher and follow the 6 steps",
+              tabs: [
+                {
+                  label: "The 6 steps",
+                  blocks: [
+                    {
+                      type: "steps",
+                      items: [
+                        {"who":"alone","text":"<b>Step 1 · Feeling.</b> How do you feel right now? Close your eyes and notice your chest, stomach, shoulders and throat. Find a <b>feeling</b> (not a thought) in the list. Write it down. Take 2 deep breaths."},
+                        {"who":"alone","text":"<b>Step 2 · Thought.</b> Each feeling comes from a thought. What is making you feel this way? Be honest — nobody will see it."},
+                        {"who":"alone","text":"<b>Step 3 · Observation.</b> What real event is behind this thought? Did someone do something? Just write the <b>facts</b>. Don’t judge."},
+                        {"who":"alone","text":"<b>Step 4 · Need.</b> Which <b>need</b> is connected to your feeling? Find one in the list. Think about why it is important to you."},
+                        {"who":"alone","text":"<b>Step 5 · Request (optional).</b> What specific request could meet this need? It can be for yourself or for someone else."},
+                        {"who":"alone","text":"<b>Step 6 · Feeling check and gratitude.</b> Close your eyes. Has your feeling changed? Say (think) “thank you” to yourself for checking in."}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  label: "Feelings list",
+                  blocks: [
+                    {
+                      type: "language",
+                      title: "Feelings (a guide — just scan it)",
+                      groups: [
+                        {"label":"When needs are met","phrases":["confident · open · safe · secure","engaged · curious · interested","hopeful · encouraged · optimistic","grateful · thankful · appreciative","excited · eager · enthusiastic","peaceful · calm · relaxed · relieved · satisfied"]},
+                        {"label":"When needs are not met","phrases":["afraid · scared · suspicious","annoyed · frustrated · impatient","confused · torn","disconnected · distant · distracted","embarrassed · ashamed · guilty","tired · exhausted · lonely · sad"]}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  label: "Needs list",
+                  blocks: [
+                    {
+                      type: "language",
+                      title: "Needs (a guide — just scan it)",
+                      groups: [
+                        {"label":"Connection","phrases":["acceptance · appreciation · belonging","cooperation · communication · consideration","respect / self-respect · support · trust"]},
+                        {"label":"Physical & peace","phrases":["rest / sleep · food · movement","safety · ease · harmony · order"]},
+                        {"label":"Autonomy & meaning","phrases":["choice · freedom · independence · space","challenge · clarity · competence · growth","learning · purpose · understanding · to matter"]}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              type: "model",
+              title: "Two examples",
+              rows: [
+                ["Feelings","<i>worried</i> · <i>annoyed</i>"],
+                ["Thoughts","<i>I’m going to fail this course.</i> · <i>My flatmate is selfish.</i>"],
+                ["Observations","<i>I have a lot of tasks to do and they’re very challenging for me.</i> · <i>My flatmate finished the last of my milk.</i>"],
+                ["Needs","<i>Confidence & sense of achievement</i> · <i>Consideration & respect</i>"],
+                ["Request","<i>Set aside some time each day for study and focus on using my strengths and improving my weaknesses.</i> · <i>Ask my flatmate to replace the milk next time she goes shopping and suggest putting labels on fridge items.</i>"]
+              ]
+            },
+            {
+              type: "table",
+              id: "a1-tab",
+              title: "My private check-in (only you can see this)",
+              columns: ["Feeling","Thought","Observation","Need","Request"],
+              rows: 1
+            },
+            {"type":"tip","text":"Try this check-in every day for a week, especially before a deadline. It only takes three minutes."}
+          ]
+        },
+        {
+          id: "a2",
+          short: "Matt’s email",
+          minutes: 5,
+          grouping: "Pairs",
+          art: "dec10/assets/week4/v/v-d10w4d5-a2.svg",
+          title: "Initiating Group Work Progress",
+          goal: "Remember Alex, Jamie and Sam’s problem from Week 2, then read Matt’s reply.",
+          blocks: [
+            {
+              type: "talk",
+              title: "Remember Week 2?",
+              prompts: ["In Week 2 (W2 D1. 2) we heard about a problem that 3 students (Alex, Jamie and Sam) were having with their interactive presentation. <b>Can you remember what the issue was?</b>"]
+            },
+            {
+              type: "toggle",
+              title: "Check your memory",
+              hint: "Open after you talk",
+              blocks: [
+                {"type":"tip","text":"They were having trouble <b>setting a time to meet</b> to work on the task AND they had <b>not heard back from one of their groupmates (Matt)</b>."}
+              ]
+            },
+            {"type":"do","n":1,"who":"alone","text":"Read the email reply that Matt wrote to his groupmates. Then answer the questions."},
+            {
+              type: "model",
+              title: "Subject: Interactive Presentation",
+              list: [
+                "Hi everyone,",
+                "I have just spoken to Sam. Firstly, I want to apologize for my delayed response and for not being able to come to class recently. I’ve been managing a few personal matters that have unexpectedly taken up more of my time, which I realise may have caused some inconvenience for our group.",
+                "I appreciate the patience and understanding you've all shown, and I want to assure you that I’m committed to contributing equally to our interactive presentation task. I’ve been keeping up with the coursework independently, and I’m eager to catch up and work together on this task.",
+                "I understand everyone has tight schedules, but that we really need to get together and discuss the task. Since Wednesday and Thursday are out, and Sam will be away on Friday, could we consider meeting online one evening? This might provide us with the flexibility we need. I can make myself available at a time that suits everyone after 9 PM on any weekday or possibly earlier on the weekend if that works better.",
+                "Please let me know what you all think or if there's another option that works better for everyone.",
+                "Thanks for reaching out and coordinating, Sam. Looking forward to hearing from you all soon.",
+                "Best regards, Matt"
+              ]
+            },
+            {
+              type: "quiz",
+              id: "a2-quiz",
+              title: "Read Matt’s email",
+              items: [
+                {"q":"1. Why had Matt not been in contact with the group?","options":["He was on holiday.","He’s been managing a few personal matters that have unexpectedly taken up more of his time.","He did not want to do the task.","He was sick."],"answer":"He’s been managing a few personal matters that have unexpectedly taken up more of his time.","why":"“I’ve been managing a few personal matters that have unexpectedly taken up more of my time …”"},
+                {"q":"2. What solution does Matt suggest to deal with the issue of their busy schedules?","options":["Meet in class on Wednesday.","Meet online one evening (after 9 PM on any weekday, or possibly earlier on the weekend).","Each person works alone.","Ask the teacher for more time."],"answer":"Meet online one evening (after 9 PM on any weekday, or possibly earlier on the weekend).","why":"“… could we consider meeting online one evening? … after 9 PM on any weekday or possibly earlier on the weekend …”"}
               ]
             },
             {
               type: "language",
-              title: "Useful language: show that you are listening",
+              title: "Steal Matt’s phrases: a polite group email",
               groups: [
-                {"label":"Short responses","phrases":["Right. / OK. / I see.","That makes sense.","Good point.","Go on …"]},
-                {"label":"Check","phrases":["So what you’re saying is …?","Do you mean that …?","Sorry, could you say that again?","Just to check — …?"]},
-                {"label":"Confirm","phrases":["OK, so we’ve agreed that …","So, to sum up: … will … by …","Is everyone happy with that?"]}
+                {"label":"Apologise","phrases":["I want to apologize for my delayed response.","I realise this may have caused some inconvenience for our group."]},
+                {"label":"Show commitment","phrases":["I want to assure you that I’m committed to …","I’m eager to catch up and work together on this task."]},
+                {"label":"Suggest a solution","phrases":["Could we consider …?","This might provide us with the flexibility we need.","Please let me know what you all think."]}
               ]
             }
           ]
         },
         {
-          id: "a2",
-          short: "Role cards",
-          minutes: 8,
-          grouping: "Pairs",
-          art: "dec10/assets/week4/v/v-d10w4d5-a2.svg",
-          title: "Transactional listening: the role cards",
-          goal: "Learn the four jobs of a project meeting and the language for each one.",
+          id: "a3",
+          short: "Listening 1",
+          minutes: 10,
+          grouping: "Alone",
+          art: "dec10/assets/week4/v/v-d10w4d5-a3.svg",
+          title: "Transactional Listening 1: Initiating Group Work Progress",
+          goal: "Listen to the group’s Zoom meeting and answer test-style questions.",
+          blocks: [
+            {
+              type: "key",
+              title: "Transactional listening",
+              points: [
+                "Now that the group has heard back from Matt, they organise to have a <b>Zoom meeting</b>.",
+                "In a <b>transaction</b>, people talk to <b>get something done</b>: agree on goals, split tasks, set deadlines.",
+                "Listen for <b>decisions</b>: What? Who? By when?"
+              ]
+            },
+            {
+              type: "hotspot",
+              src: "dec10/assets/week4/d5-listen-loop.svg",
+              alt: "A loop with four steps around a group at a table: 1 Listen to the idea, 2 Check what you heard, 3 Confirm the decision, 4 Act on it.",
+              hint: "Tap each step: this is what good listeners do in a meeting.",
+              spots: [
+                {"x":50,"y":15,"label":"1","title":"Listen","text":"Look at the speaker. Show you are listening: “Right.” “OK, go on.” “That makes sense.”","color":"#2f7d6b"},
+                {"x":85,"y":50,"label":"2","title":"Check","text":"Say it back in your words: “So what you’re saying is … — is that right?”","color":"#3a58a0"},
+                {"x":50,"y":86,"label":"3","title":"Confirm","text":"Make the decision clear: “That gives us a week. What do you all think?”","color":"#b07d12"},
+                {"x":15,"y":50,"label":"4","title":"Act","text":"Do it: “I’ll send out another Zoom meeting invite for the review session on Friday.”","color":"#c4562f"}
+              ]
+            },
+            {"type":"do","n":1,"who":"alone","text":"Read the questions first. Your teacher plays the recording <b>once only</b>. Answer while you listen."},
+            {
+              type: "quiz",
+              id: "a3-quiz",
+              title: "Questions 1, 2 and 6 · Choose one option",
+              items: [
+                {"q":"Question 1 · What did Alex do last night?","options":["A · went to the cinema","B · saw a band","C · went to a party","D · went to the Opera House"],"answer":"B · saw a band","why":"“I saw a fantastic band at the Manning Bar on campus last night!”"},
+                {"q":"Question 2 · Jamie thinks they should address different…","options":["A · …ideas","B · …topics","C · …audiences","D · …perspectives"],"answer":"D · …perspectives","why":"“… address different perspectives on the topic to show depth in our research.”"},
+                {"q":"Question 6 · How do the groupmates feel about the task now?","options":["A · optimistic","B · pessimistic","C · bored","D · worried"],"answer":"A · optimistic","why":"“Yeah, looking forward to seeing what we come up with!” · “Let’s make this a great presentation.”"}
+              ]
+            },
+            {
+              type: "limit",
+              id: "a3-lim",
+              title: "Questions 3, 4 and 5",
+              rule: "NO MORE THAN THREE WORDS",
+              max: 3,
+              items: [
+                {"q":"Question 3 · The four sections of their presentation are historical background, current statistics, case studies, and future …","accept":["predictions"],"model":"predictions"},
+                {"q":"Question 4 · Next Wednesday they will share their …","accept":["drafts","first drafts"],"model":"drafts / first drafts"},
+                {"q":"Question 5 · When will they meet to review?","accept":["Friday","on Friday"],"model":"Friday / on Friday"}
+              ]
+            },
+            {
+              type: "toggle",
+              title: "Transcript · Transactional Listening 1",
+              hint: "Open after listening (created by AI (Cogniti) with human modification)",
+              blocks: [
+                {
+                  type: "chat",
+                  right: "Alex",
+                  lines: [
+                    ["Alex","Hi everyone, I’m glad we could all be here tonight."],
+                    ["Jamie","Hi Alex, hi everyone!"],
+                    ["Sam","Hey guys!"],
+                    ["Matt","Hey, thanks for setting this up, Sam."],
+                    ["Sam","No worries! So, how are you all?"],
+                    ["Alex","Good, but I’m a little tired. I saw a fantastic band at the Manning Bar on campus last night! It was a great show, but I didn’t get to bed until quite late. And then we had class this morning!"],
+                    ["Matt","That sounds fun! Let me know the next time there’s a band playing at the Manning Bar. I love live music!"],
+                    ["Jamie","Yeah! Me too! I hope you’re not too tired for our meeting though, Alex. I’m glad you were able to join us."],
+                    ["Alex","Yeah, well, let’s get into our interactive presentation task then. First, I think we need to make sure we share common goals for this project. What do you all think are the most important things we should try to achieve?"],
+                    ["Matt","I think our main goal should be to present a well-researched argument. We need to ensure our presentation is both informative and engaging."],
+                    ["Jamie","Definitely! And I think it’s also important that we address different perspectives on the topic to show depth in our research."],
+                    ["Sam","Agreed. And to achieve our goals, we should divide the work up effectively. Does anyone have any suggestions on how we can split up the tasks?"],
+                    ["Matt","Well, we could each take a section of the research. For instance, I can take on the historical background, Jamie could handle current statistics, Sam might explore case studies, and Alex, you could work on the future predictions."],
+                    ["Alex","Great suggestion, Matt. I think this plan means we can use our individual strengths."],
+                    ["Jamie","I agree. It feels like a balanced approach."],
+                    ["Sam","Me too, let’s do it!"],
+                    ["Jamie","We could also check each other's sections to make sure they’re consistent and accurate."],
+                    ["Sam","And maybe we can use a shared Google Doc to compile our research. It'll make collaboration easier."],
+                    ["Alex","Perfect! Let’s set some deadlines now. We need to ensure we have enough time to prepare well before the interactive presentation date. How about we share our first drafts by next Wednesday?"],
+                    ["Matt","That gives us a week. It should be enough time. What do you all think?"],
+                    ["Jamie","That works for me. We should also schedule a review session after that."],
+                    ["Sam","How about we review on Friday? It’ll give us a couple of days to make adjustments after the initial drafts."],
+                    ["Alex","That sounds good. I’ll send out another Zoom meeting invite for the review session on Friday. One last thing, communication is key, guys. Let’s make sure to keep each other updated through our group chat."],
+                    ["Matt","Absolutely, staying connected will make this process smoother."],
+                    ["Jamie","Agreed. Thanks for organising, Alex, and it’s good to have you back with the group, Matt!"],
+                    ["Sam","Yeah, looking forward to seeing what we come up with!"],
+                    ["Alex","Thanks, everyone. Let’s make this a great presentation. I’ll follow up with the details and the invites. Have a good evening!"],
+                    ["Matt, Jamie, Sam","Thanks, Alex! Bye!"]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: "a4",
+          short: "Listening 2",
+          minutes: 10,
+          grouping: "Alone → Pairs",
+          art: "dec10/assets/week4/v/v-d10w4d5-a4.svg",
+          title: "Transactional Listening 2: Evaluating Group Work Progress",
+          goal: "Listen to the teacher check in with Alex. How is the group doing?",
+          blocks: [
+            {"type":"tip","text":"Alex had discussed their original problem with their teacher, and the teacher wants to check in with Alex to see that their group is <b>on track</b>."},
+            {
+              type: "figure",
+              src: "dec10/assets/week4/d5-plan-timeline.svg",
+              size: "wide",
+              alt: "The group’s plan of action as a timeline. Four rows: Matt — historical background, Jamie — current statistics, Sam — case studies, Alex — future predictions. Each bar ends at a flag: first drafts by next Wednesday. A star marks the review session on Friday. A chat icon says: keep each other updated in the group chat.",
+              caption: "The group’s plan from Listening 1: <b>what</b>, <b>who</b> and <b>by when</b>."
+            },
+            {"type":"do","n":1,"who":"alone","text":"Read the questions first. Your teacher plays the recording <b>once only</b>."},
+            {
+              type: "limit",
+              id: "a4-lim",
+              title: "Question 1",
+              rule: "NO MORE THAN THREE WORDS",
+              max: 3,
+              items: [
+                {"q":"How does Alex describe their progress?","accept":["significant","significant progress"],"model":"significant","why":"“We’ve made some significant progress.”"}
+              ]
+            },
+            {
+              type: "quiz",
+              id: "a4-quiz",
+              title: "Questions 2–5 · Choose one option",
+              items: [
+                {"q":"Question 2 · What concern does Alex raise?","options":["A · the difficulty of the task","B · the timeline","C · group disagreements","D · feeling nervous"],"answer":"B · the timeline","why":"“Well, one of our main concerns is the timeline.”"},
+                {"q":"Question 3 · How will they deal with this risk?","options":["A · go to the library","B · practise regularly","C · avoid conflict","D · frequent communication"],"answer":"D · frequent communication","why":"“… we’ve agreed to maintain open and frequent communication in our group chat …”"},
+                {"q":"Question 4 · What does the teacher think about the group’s collaboration?","options":["A · It’s not working well","B · It’s got worse than before","C · They’re working together well","D · They will need more help"],"answer":"C · They’re working together well","why":"“It’s great to see you’re working together to ensure your group functions well.”"},
+                {"q":"Question 5 · In the end, how does Alex feel about the teacher?","options":["A · grateful","B · hopeful","C · angry","D · frustrated"],"answer":"A · grateful","why":"“Thank you for your support and advice! It's really helpful.”"}
+              ]
+            },
+            {"type":"do","n":2,"who":"pair","text":"Compare with a partner. Retell Alex’s plan in <b>30 seconds</b>: the four sections, the deadline, the review and the risk."},
+            {
+              type: "toggle",
+              title: "Transcript · Transactional Listening 2",
+              hint: "Open after listening (created by AI (Cogniti) with human modification)",
+              blocks: [
+                {
+                  type: "chat",
+                  right: "Alex",
+                  lines: [
+                    ["Teacher","Hello Alex, how are you today? I wanted to check in and see how everything is going with your group work task. Have you managed to resolve the issues you were having when we last spoke?"],
+                    ["Alex","Hi! Thanks for asking. Yes, we've managed to get in touch with Matt and have scheduled regular meetings to ensure we stay on track. We are aiming to produce a well-researched and engaging presentation."],
+                    ["Teacher","That sounds great! So, have you and the group made some good progress on the task?"],
+                    ["Alex","Certainly. We’ve made some significant progress. We've divided the presentation into four main sections: historical background, current statistics, case studies, and future predictions. Each member is responsible for one section. We have set a deadline for the first drafts by next Wednesday. On Friday, we’ll have a review session where we'll check each other's work to make sure it’s consistent and accurate. We plan to share our research on a Google Doc to work together more easily."],
+                    ["Teacher","It seems like you have a clear structure in place. Can you predict any more potential risks or challenges at this stage?"],
+                    ["Alex","Well, one of our main concerns is the timeline. Balancing this project with our lives and other class work is difficult, and any delays in the first drafts could set us back quite a lot."],
+                    ["Teacher","Yes, that can be a problem, Alex. Do you have any strategies to deal with this risk?"],
+                    ["Alex","Well, we’ve agreed to maintain open and frequent communication in our group chat to quickly address any issues that arise. This should help make sure everyone is contributing effectively."],
+                    ["Teacher","It's good to see that you are thinking ahead and planning for these challenges. It’s important to stay flexible and adjust your plans as needed. How do you plan to ensure that all team members remain engaged and contribute equally?"],
+                    ["Alex","We've assigned sections that line up with each member's strengths and interests to keep everyone motivated. And regular check-ins and updates in our group chat will also help keep everyone accountable."],
+                    ["Teacher","That’s a thoughtful approach, Alex. It’s great to see you’re working together to ensure your group functions well. Keep up the good work, and let me know if you need help or encounter any more difficulties."],
+                    ["Alex","Thank you for your support and advice! It's really helpful. We'll definitely keep you updated on our progress."],
+                    ["Teacher","You’re welcome, Alex! I look forward to seeing how your interactive presentation turns out. Have a great day!"],
+                    ["Alex","You too! Thanks again!"]
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: "a5",
+          short: "Phrases",
+          minutes: 10,
+          grouping: "Pairs (A + B)",
+          art: "dec10/assets/week4/v/v-d10w4d5-a5.svg",
+          title: "Language Focus",
+          goal: "Listen again and catch the group work phrases. Student A and Student B listen for different jobs.",
           blocks: [
             {
               type: "figure",
               src: "dec10/assets/week4/d5-meeting-cycle.svg",
               size: "wide",
               alt: "A project cycle in four steps. Transactional listening 1: Discussing goals (Student A), then Making a plan of action (Student B). Transactional listening 2: Discussing progress (Student A), then Potential challenges (Student B). An arrow goes back to goals.",
-              caption: "Two meetings, four jobs. <b>Meeting 1</b> starts the project. <b>Meeting 2</b> checks it later."
+              caption: "<b>Student A</b> listens for goals (1) and progress (2). <b>Student B</b> listens for the plan (1) and challenges (2)."
             },
-            {"type":"do","n":1,"who":"pair","text":"Read each sentence from your role cards. Which job does it do? Put it in the right box. Say each sentence <b>aloud</b> to your partner as you place it."},
-            {
-              type: "sort",
-              id: "a2-sort",
-              title: "Which role card does each sentence come from?",
-              hint: "<b>Drag</b> each card into a box — or <b>tap</b> a card, then tap a box.",
-              buckets: [
-                {"label":"Discussing goals","text":"Transactional listening 1 · Student A","letter":"G"},
-                {"label":"Making a plan of action","text":"Transactional listening 1 · Student B","letter":"P"},
-                {"label":"Discussing progress","text":"Transactional listening 2 · Student A","letter":"R"},
-                {"label":"Potential challenges","text":"Transactional listening 2 · Student B","letter":"C"}
-              ],
-              items: [
-                {"text":"I think we need to make sure we share common goals for this project.","answer":0,"why":"This starts the project: what do we all want?"},
-                {"text":"What do you (all) think are the most important things we should try to achieve?","answer":0},
-                {"text":"I was really hoping we could achieve/improve…","answer":0},
-                {"text":"Does anyone have any suggestions on how we can split the tasks?","answer":1,"why":"Splitting tasks = the plan of action."},
-                {"text":"Let’s set some deadlines now","answer":1},
-                {"text":"We should also schedule a…","answer":1},
-                {"text":"I wanted to check in and see how everything is going with…(task).","answer":2,"why":"“Check in” = later in the project: how is it going?"},
-                {"text":"We haven’t come as far as I had hoped.","answer":2},
-                {"text":"By now I think we should have finished…","answer":2},
-                {"text":"Can you predict any more potential risks or challenges at this stage?","answer":3,"why":"Risks = things that might go wrong."},
-                {"text":"I’m a little concerned that our group might…","answer":3},
-                {"text":"If we…(verb).., then that should prevent….","answer":3}
-              ]
-            },
-            {"type":"tip","text":"<b>Listen for the grammar.</b> Goals use <b>should / need to / ensure</b>. Plans use <b>could / can / let’s / how about</b>. Progress uses the <b>present perfect</b> (we’ve made, have you managed to). Challenges use <b>might / if … then</b>."}
-          ]
-        },
-        {
-          id: "a3",
-          short: "Meeting 1",
-          minutes: 17,
-          grouping: "Groups of 3–4",
-          art: "dec10/assets/week4/v/v-d10w4d5-a3.svg",
-          title: "Transactional listening 1",
-          goal: "Student A leads the talk about goals. Student B leads the plan of action. Everyone listens, checks and agrees.",
-          blocks: [
             {
               type: "steps",
               items: [
-                {"who":"group","text":"Use your <b>real group project</b> (your seminar or Interactive Presentation). No project yet? Use the practice project: <b>a 10-minute group presentation: “Can ecotourism really help local communities?”</b>"},
-                {"who":"alone","text":"Choose roles. <b>Student A</b> = Discussing goals. <b>Student B</b> = Making a plan of action. Other members = <b>listeners</b> (use the listener card)."},
-                {"who":"group","text":"<b>Part 1 (4 min):</b> Student A asks about goals. Everyone gives one goal. Agree on <b>two or three</b> common goals."},
-                {"who":"group","text":"<b>Part 2 (6 min):</b> Student B leads the plan. Split the tasks, set deadlines and schedule the next meeting."},
-                {"who":"alone","text":"<b>Listeners:</b> check and confirm every decision. At the end, read the plan back to the group."}
-              ]
-            },
-            {
-              type: "chat",
-              title: "Listen to a model meeting first",
-              right: "Lina",
-              lines: [
-                ["Lina","<mark>I think we need to make sure we share common goals for this project.</mark> <mark>What do you all think are the most important things we should try to achieve?</mark>"],
-                ["Kenji","For me, we need clear evidence. <mark>I think our main goal should be to</mark> use all three sources — Spenceley and Rylance, Mielly and the BBC podcast."],
-                ["Sara","Yes, and <mark>I think it’s also important that we</mark> give both sides — the good things and the bluewashing."],
-                ["Tom","So what you’re saying is: good evidence and a balanced view. Is that right?"],
-                ["Lina","Exactly. OK — <mark>does anyone have any suggestions on how we can split the tasks?</mark>"],
-                ["Kenji","<mark>Well, we could each</mark> take one source. <mark>For instance, I can take on</mark> the SDG reading, Sara <mark>could handle</mark> the bluewashing article, and Tom, <mark>you could work on</mark> the podcast notes."],
-                ["Sara","<mark>Great suggestion!</mark> <mark>Let’s set some deadlines now.</mark> <mark>How about we</mark> finish our notes <mark>by next</mark> Tuesday?"],
-                ["Tom","OK, so we’ve agreed: three sources, one each, notes by Tuesday. <mark>We should also schedule a</mark> practice on Wednesday."]
+                {"who":"pair","text":"Work with a partner. Choose who is <b>Student A</b> and who is <b>Student B</b>. Read your phrases (below) for one minute."},
+                {"who":"alone","text":"<b>Student A</b>: listen for phrases for <b>Discussing Goals</b> (Transactional Listening 1) and <b>Discussing Progress</b> (Transactional Listening 2)."},
+                {"who":"alone","text":"<b>Student B</b>: listen for phrases for <b>Making a Plan of Action</b> (Transactional Listening 1) and <b>Potential Challenges</b> (Transactional Listening 2)."},
+                {"who":"pair","text":"Your teacher plays each recording one more time. Tap the phrases you hear in the text below. Then tell your partner which phrases you heard."}
               ]
             },
             {
               type: "tabs",
-              title: "Your role card",
+              title: "The phrases for group work (your booklet table)",
               tabs: [
                 {
-                  label: "Student A · Goals",
+                  label: "A · Goals",
                   blocks: [
                     {
                       type: "language",
-                      title: "Discussing goals (Student A)",
+                      title: "Discussing goals (Student A) · Transactional listening 1",
                       groups: [
                         {
                           label: "Discussing goals",
@@ -191,11 +412,11 @@ window.DEC15_LESSON = {
                   ]
                 },
                 {
-                  label: "Student B · Plan",
+                  label: "B · Plan",
                   blocks: [
                     {
                       type: "language",
-                      title: "Making a plan of action (Student B)",
+                      title: "Making a plan of action (Student B) · Transactional listening 1",
                       groups: [
                         {
                           label: "Making a plan of action",
@@ -217,113 +438,11 @@ window.DEC15_LESSON = {
                   ]
                 },
                 {
-                  label: "Listener card",
+                  label: "A · Progress",
                   blocks: [
                     {
                       type: "language",
-                      title: "Extra: the listener’s job",
-                      groups: [
-                        {"label":"Check","phrases":["So what you’re saying is …, right?","Sorry, who is doing the …?","When exactly is the deadline — Tuesday morning or evening?"]},
-                        {"label":"Confirm","phrases":["OK, so we’ve agreed that …","Let me read the plan back: … will …, by …","Does everyone agree with that?"]},
-                        {"label":"Keep it moving","phrases":["Shall we move on to deadlines?","We have two minutes left — let’s decide.","Can we put that in the group chat?"]}
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              type: "figure",
-              src: "dec10/assets/week4/d5-plan-timeline.svg",
-              size: "wide",
-              alt: "A simple plan of action drawn as a timeline from Friday to the next Friday. Four rows, one per member, each with a coloured task bar and a deadline flag. A star marks the group practice on Wednesday.",
-              caption: "A good plan answers three questions: <b>What?</b> <b>Who?</b> <b>By when?</b>"
-            },
-            {"type":"do","n":2,"who":"group","text":"Write your plan of action together. Every member signs. Then the listener reads it back aloud — does everyone agree?"},
-            {
-              type: "contract",
-              id: "a3-c",
-              kicker: "DEC10 · Week 4 · Transactional listening 1",
-              title: "Our plan of action",
-              intro: "We agree on these goals, tasks and deadlines.",
-              stamp: "Project group",
-              signers: 4,
-              fields: [
-                {"id":"a3-goals","label":"Our common goals","placeholder":"Our main goal is to … We also need to ensure …","rows":2},
-                {"id":"a3-tasks","label":"Who does what","placeholder":"… will take on … · … could handle … · … will work on …","rows":3},
-                {"id":"a3-dead","label":"Our deadlines","placeholder":"Notes by next Tuesday · slides by …","rows":2},
-                {"id":"a3-meet","label":"Our next meeting","placeholder":"Wednesday 3 pm, library / online","rows":1}
-              ]
-            },
-            {
-              type: "language",
-              title: "Go further: more ways to plan (useful at university)",
-              groups: [
-                {"label":"Volunteer","phrases":["I’m happy to take care of …","I’d like to have a go at …","I can look after …, if that’s OK."]},
-                {"label":"Agree politely","phrases":["That works for me.","Sounds good — let’s go with that.","I’m fine with that, as long as …"]},
-                {"label":"Set a clear deadline","phrases":["Could we have it ready by …?","Let’s aim to finish … by the end of …","The final deadline is …, so we need … by …"]}
-              ]
-            }
-          ]
-        },
-        {
-          id: "a4",
-          short: "Meeting 2",
-          minutes: 18,
-          grouping: "Groups of 3–4",
-          art: "dec10/assets/week4/v/v-d10w4d5-a4.svg",
-          title: "Transactional listening 2",
-          goal: "Imagine it is one week later. Student A checks progress. Student B finds risks and agrees on strategies.",
-          blocks: [
-            {
-              type: "steps",
-              items: [
-                {"who":"alone","text":"<b>Swap roles.</b> A new <b>Student A</b> = Discussing progress. A new <b>Student B</b> = Potential challenges. Others = listeners."},
-                {"who":"group","text":"Spin a <b>situation</b> for your group. Imagine this has happened in your project."},
-                {"who":"group","text":"<b>Part 1 (4 min):</b> Student A checks in. Each member says what they have done and what is not finished."},
-                {"who":"group","text":"<b>Part 2 (5 min):</b> Student B asks about risks. Find <b>two</b> challenges and agree on a strategy for each. Write them in the table."},
-                {"who":"group","text":"Spin again and swap roles if you have time."}
-              ]
-            },
-            {
-              type: "spinner",
-              id: "a4-spin",
-              title: "One week later … what has happened?",
-              text: "Spin both reels. Use the situation in your meeting.",
-              reels: [
-                {
-                  label: "Progress",
-                  items: [
-                    "Two members have finished their notes. One hasn’t started.",
-                    "Everyone finished their part — but the parts don’t connect.",
-                    "The slides are ready, but nobody has practised.",
-                    "We have lots of notes on the good side of ecotourism, but nothing on bluewashing.",
-                    "We are on time — but the talk is 15 minutes, not 10."
-                  ]
-                },
-                {
-                  label: "Challenge",
-                  items: [
-                    "One member is sick this week.",
-                    "Nobody replies in the group chat.",
-                    "We can’t find a time when everyone is free.",
-                    "A key article is behind a paywall.",
-                    "Two members disagree about the main message.",
-                    "One member did most of someone else’s part."
-                  ]
-                }
-              ]
-            },
-            {
-              type: "tabs",
-              title: "Your role card",
-              tabs: [
-                {
-                  label: "Student A · Progress",
-                  blocks: [
-                    {
-                      type: "language",
-                      title: "Discussing progress (Student A)",
+                      title: "Discussing progress (Student A) · Transactional listening 2",
                       groups: [
                         {
                           label: "Discussing progress",
@@ -344,11 +463,11 @@ window.DEC15_LESSON = {
                   ]
                 },
                 {
-                  label: "Student B · Challenges",
+                  label: "B · Challenges",
                   blocks: [
                     {
                       type: "language",
-                      title: "Potential challenges (Student B)",
+                      title: "Potential challenges (Student B) · Transactional listening 2",
                       groups: [
                         {
                           label: "Potential challenges",
@@ -366,104 +485,94 @@ window.DEC15_LESSON = {
                       ]
                     }
                   ]
-                },
-                {
-                  label: "Go further",
-                  blocks: [
-                    {
-                      type: "language",
-                      title: "Extra: kind and clear language for problems",
-                      groups: [
-                        {"label":"Ask without blame","phrases":["Is there anything that’s making it hard to finish …?","How can we help you with …?","Would it help if someone …?"]},
-                        {"label":"Say how you feel (NVC from Week 3)","phrases":["When I see …, I feel a bit worried because I need …","Would you be willing to …?"]},
-                        {"label":"Agree on a fix","phrases":["As a back-up plan, …","Let’s give ourselves a buffer of one day.","If … happens, … will step in."]}
-                      ]
-                    }
-                  ]
                 }
+              ]
+            },
+            {
+              type: "spot",
+              id: "a5-spot",
+              label: "Catch the phrases",
+              title: "Parts of the two conversations",
+              hint: "Tap every phrase from the booklet table that you hear. (A and B: tap your own phrases — then check your partner’s.)",
+              paras: [
+                "Alex: Yeah, well, let’s get into our interactive presentation task then. First, [[*I think we need to make sure we share common goals for this project.]] [[*What do you all think are the most important things we should try to achieve?]] Matt: [[*I think our main goal should be to]] present a well-researched argument. [[*We need to ensure]] our presentation is both informative and engaging. Jamie: Definitely! And [[*I think it’s also important that we]] address different perspectives.",
+                "Sam: Agreed. And [[*to achieve our goals, we should]] divide the work up effectively. [[*Does anyone have any suggestions on how we can split up the tasks?]] Matt: [[*Well, we could each]] take a section of the research. [[*For instance, I can take on]] the historical background, Jamie [[*could handle]] current statistics, Sam [[*might explore]] case studies, and Alex, [[*you could work on]] the future predictions. Alex: [[*Great suggestion]], Matt. Sam: [[*And maybe we can]] use a shared Google Doc. Alex: [[*Perfect!]] [[*Let’s set some deadlines now.]] [[*How about we]] share our first drafts [[*by next]] Wednesday? Jamie: [[That works for me.]] [[*We should also schedule a]] review session after that.",
+                "Teacher: [[*I wanted to check in and see how everything is going with]] your group work task. [[*Have you managed to]] resolve the issues? Alex: [[*We are aiming to]] produce a well-researched and engaging presentation. [[*We’ve made some significant progress.]] [[*We've divided the presentation into four main sections]]: … [[*Each member is responsible for]] one section. [[*We have set a deadline for]] the first drafts by next Wednesday.",
+                "Teacher: [[*Can you predict any more potential risks or challenges at this stage?]] Alex: Well, [[*one of our main concerns is]] the timeline. Teacher: [[Yes, that can be a problem, Alex.]] [[*Do you have any strategies to deal with this risk?]] Alex: Well, [[*we’ve agreed to]] maintain open and frequent communication in our group chat [[*to quickly address any issues that arise.]] [[*This should help make sure]] everyone is contributing effectively."
+              ]
+            },
+            {"type":"tip","text":"<b>Grammar to notice.</b> Goals: <b>should / need to / ensure</b>. Plans: <b>could / might / let’s / how about</b>. Progress: <b>present perfect</b> (we’ve made, have you managed to). Challenges: <b>might / if … then</b>."}
+          ]
+        },
+        {
+          id: "a6",
+          short: "Check-in",
+          minutes: 15,
+          grouping: "Alone → Group",
+          art: "dec10/assets/week4/v/v-d10w4d5-a6.svg",
+          title: "Groupwork Check-in",
+          goal: "Meet your own group and discuss your progress on your research — using the phrases and O-F-N-R.",
+          blocks: [
+            {
+              type: "steps",
+              items: [
+                {"who":"alone","text":"<b>Think</b> about questions 1–7 on your own and make some notes (5 min). Think especially about your group’s <b>strengths</b>, <b>areas for growth</b> and <b>potential risks</b>."},
+                {"who":"group","text":"<b>Discuss</b> the questions with your group (10 min). Use the phrases from the Language Focus. Change them to explain your own progress, e.g. “<b>I am</b> aiming to …” / “<b>I haven’t</b> come as far as I had hoped.”"},
+                {"who":"group","text":"If you have any disagreements, try to work through them using the <b>O-F-N-R</b> communication model."}
+              ]
+            },
+            {
+              type: "table",
+              id: "a6-tab",
+              title: "My notes before the meeting",
+              columns: ["Question","My notes"],
+              fixed: [
+                "1. Do you think you are on track with your research?",
+                "2. How have you been working to achieve your goals?",
+                "3. What are your next steps (individually and as a group)?",
+                "4. What do you think are your group’s strengths and areas for growth? (e.g. commitment, equal workload, motivation, deadlines/timing, communication, quality of work)",
+                "5. How can you use and enhance your strengths and improve your areas for growth?",
+                "6. Have you encountered any problems?",
+                "7. Can you predict any potential challenges that might come up? If so, how can you deal with them?"
               ]
             },
             {
               type: "hotspot",
               src: "dec10/assets/week4/d5-risk-matrix.svg",
-              alt: "A risk map. Across: how likely a problem is. Up: how big the effect would be. Sticky notes sit in the boxes: a sick member (low chance, big effect), no reply in the chat (high chance, big effect), a paywall (medium), the talk is too long (high chance, small effect).",
-              hint: "Tap each sticky note. Where would you put your group’s challenges?",
+              alt: "A risk map. Across: how likely a problem is. Up: how big the effect would be. Sticky notes sit in the boxes: delays to first drafts (likely, big effect), a member is sick (not likely, big effect), the talk is too long (likely, small effect), a slide design problem (not likely, small effect).",
+              hint: "Question 7: where do your group’s challenges go? Tap each sticky note.",
               spots: [
-                {"x":72,"y":25,"label":"1","title":"Likely + big effect","text":"Deal with this first! “One of our main concerns is …” → “We’ve agreed to … to quickly address any issues that arise.”","color":"#c4562f"},
+                {"x":72,"y":25,"label":"1","title":"Likely + big effect","text":"Deal with this first! Like Alex: “One of our main concerns is the timeline.” → “We’ve agreed to maintain open and frequent communication … to quickly address any issues that arise.”","color":"#c4562f"},
                 {"x":30,"y":25,"label":"2","title":"Not likely, but big effect","text":"Have a back-up plan: “If someone is sick, then … will step in.”","color":"#b07d12"},
                 {"x":72,"y":68,"label":"3","title":"Likely, small effect","text":"A quick fix is enough: “If we practise with a timer, then that should prevent a long talk.”","color":"#3a58a0"},
-                {"x":30,"y":68,"label":"4","title":"Not likely, small effect","text":"Just keep an eye on it. Don’t spend too much meeting time here.","color":"#2f7d6b"}
-              ]
-            },
-            {
-              type: "table",
-              id: "a4-tab",
-              title: "Our risks and strategies",
-              columns: ["Challenge","How likely? Big or small effect?","Our strategy (If we …, then …)","Who will do it?"],
-              fixed: ["Challenge 1","Challenge 2","Challenge 3"]
-            }
-          ]
-        },
-        {
-          id: "a5",
-          short: "Follow up",
-          minutes: 10,
-          grouping: "Alone → Group",
-          art: "dec10/assets/week4/v/v-d10w4d5-a5.svg",
-          title: "After the meeting: confirm it in writing",
-          goal: "Write a short group-chat message that confirms the decisions — then reflect on your listening.",
-          blocks: [
-            {"type":"do","n":1,"who":"alone","text":"Write the message you will send to your group after today’s meeting. Include the <b>goal</b>, <b>who does what</b>, the <b>deadline</b> and the <b>next meeting</b>. The lights turn on as you use each part."},
-            {
-              type: "detect",
-              id: "a5-msg",
-              title: "Our group chat",
-              label: "Message writer",
-              checks: [
-                {"label":"Greeting + thanks","color":"#2f7d6b","any":["hi ","hello","thanks","thank you"]},
-                {"label":"The goal","color":"#3a58a0","any":["goal","aim","we need to ensure","we are aiming"]},
-                {"label":"Who does what","color":"#8a4f9e","any":["will take on","could handle","will work on","is responsible for","will do","will look after","/\\b(i|you|he|she|[A-Z][a-z]+)\\s*('ll| will)\\b/"]},
-                {"label":"A deadline","color":"#c4562f","any":["by next","by monday","by tuesday","by wednesday","by thursday","by friday","deadline","/by \\d/"]},
-                {"label":"Next meeting","color":"#b07d12","any":["next meeting","meet on","see you on","schedule","let’s meet","let's meet"]}
-              ],
-              items: [
-                {
-                  task: "A message to your group",
-                  rows: 6,
-                  placeholder: "Hi everyone, thanks for today’s meeting! Just to confirm …",
-                  model: "Hi everyone, thanks for a great meeting today! Just to confirm: our main goal is to give a balanced answer, using all three sources. Kenji will take on the SDG reading, Sara will handle the bluewashing article and Tom will work on the podcast notes. The deadline for notes is next Tuesday at 6 pm. Our next meeting is on Wednesday at 3 pm in the library. Let me know if I missed anything. 😊"
-                }
+                {"x":30,"y":68,"label":"4","title":"Not likely, small effect","text":"Keep an eye on it. Don’t spend too much meeting time here.","color":"#2f7d6b"}
               ]
             },
             {
               type: "language",
-              title: "Useful language: online group messages",
+              title: "Go further: talk about YOUR progress",
               groups: [
-                {"label":"Open","phrases":["Hi everyone, thanks for today’s meeting!","Just a quick update on …"]},
-                {"label":"Confirm","phrases":["Just to confirm: …","As we agreed, …","Here is our plan: …"]},
-                {"label":"Close","phrases":["Let me know if I missed anything.","Please reply 👍 when you’ve read this.","See you on …!"]}
+                {"label":"On track?","phrases":["I’m on track with … / I’m a bit behind with …","I’ve finished … but I still need to …","I haven’t come as far as I had hoped, because …"]},
+                {"label":"Strengths & growth","phrases":["One of our strengths is our communication.","An area for growth for us is sharing the workload equally.","We could make better use of …’s strength in …"]},
+                {"label":"Next steps","phrases":["My next step is to …","As a group, we need to … by …","Let’s check in again on …"]},
+                {"label":"O-F-N-R for problems","phrases":["When I see …, I feel … because I need …","Would you be willing to …?","What I’m hearing is … — am I on the right track?"]}
               ]
             },
             {
-              type: "form",
-              id: "a5-form",
-              title: "How well did I listen?",
-              intro: "Be honest. This is for you.",
-              scale: ["Yes","Mostly","Needs work"],
-              cols: ["Example from today"],
-              sections: [
-                {
-                  label: "Transactional listening",
-                  items: [
-                    "I used at least three phrases from my role card.",
-                    "I checked what others said (“So what you’re saying is …?”).",
-                    "I confirmed decisions: what, who and by when.",
-                    "I gave everyone a chance to speak."
-                  ]
-                }
+              type: "contract",
+              id: "a6-c",
+              kicker: "DEC10 · Week 4 · Groupwork check-in",
+              title: "Our next steps",
+              intro: "After our check-in, we agree on these next steps.",
+              stamp: "Presentation group",
+              signers: 4,
+              fields: [
+                {"id":"a6-track","label":"Are we on track? Our progress so far","placeholder":"We’ve made some significant progress: … / We haven’t come as far as we had hoped …","rows":2},
+                {"id":"a6-next","label":"Next steps: who does what, by when","placeholder":"… will … by … · … will … by …","rows":3},
+                {"id":"a6-risk","label":"Our main risk and our strategy","placeholder":"One of our main concerns is … If we …, then that should prevent …","rows":2},
+                {"id":"a6-meet","label":"Our next check-in","placeholder":"e.g. Wednesday 6 pm on Zoom","rows":1}
               ]
-            },
-            {"type":"do","n":2,"who":"group","text":"Read your message aloud to the group. Do the messages match? If not — what did someone miss?"}
+            }
           ]
         }
       ]
@@ -476,271 +585,311 @@ window.DEC15_LESSON = {
       tone: "blue",
       art: "dec10/assets/week4/s-d5-aiprompts.svg",
       title: "AST: Digital literacy and AI: Using & refining prompts",
-      subtitle: "Try a prompt, check the answer, make it better",
-      outcome: "You write a prompt with a role, a task, requirements and instructions, judge the AI answer critically, and refine the prompt step by step — using AI to support your learning, not to replace it.",
+      subtitle: "Prompt, analyse, follow up: iterative interaction with Cogniti",
+      outcome: "You use Cogniti to practise your prompting skills on a specific topic, apply the ‘iterative interaction’ prompting process in a task, and compare it with writing one single prompt.",
       activities: [
         {
           id: "b1",
-          short: "Recap",
-          minutes: 8,
-          grouping: "Pairs",
+          short: "Game",
+          minutes: 20,
+          grouping: "Teams",
           art: "dec10/assets/week4/v/v-d10w4d5-b1.svg",
-          title: "Recap: The structure of a good prompt",
-          goal: "Remember the four key elements of a good prompt from Week 3.",
+          title: "Homework follow-up discussion",
+          goal: "Play a team game to check what you remember from the Week 3 homework module on using prompts.",
           blocks: [
+            {"type":"do","n":1,"who":"class","text":"Make teams. Teams take turns to choose a question from the board. Answer correctly to win the points. The team with the most points wins!"},
             {
-              type: "key",
-              title: "A good prompt has 4 key elements",
-              points: [
-                "<b>Role</b> — “Act as …” Who should the AI pretend to be?",
-                "<b>Task</b> — What do you want the AI to do? Be specific.",
-                "<b>Requirements</b> — What should the output look like? What are the conditions?",
-                "<b>Instructions</b> — How should the AI complete the task? Steps, examples."
+              type: "jeopardy",
+              id: "b1-jp",
+              title: "Using prompts: the Week 3 homework game",
+              teams: 3,
+              seconds: 30,
+              cols: [
+                {
+                  title: "Prompts",
+                  clues: [
+                    {"pts":100,"clue":"What is a prompt and why is it important?","answer":"A word, phrase, question, or keyword entered into AI tools to generate results. It is the instruction that users provide for the AI model to respond to."},
+                    {"pts":200,"clue":"What makes a good prompt?","answer":"It sets the topic and provides clear instructions on the task. It is clear and specific, so the AI understands the user’s requirements and can generate accurate and relevant results."},
+                    {"pts":300,"clue":"Why is it important to write specific prompts?","answer":"Vague or ambiguous prompts can lead to incorrect or irrelevant outputs, as the AI makes assumptions. The quality of the output relies on the specificity and clarity of the prompt."},
+                    {"pts":400,"clue":"What steps are suggested in refining prompts?","answer":"Trial and error: formulate a relevant prompt, consider when completions don’t meet expectations, enhance the clarity of the prompt, and repeat the process."}
+                  ]
+                },
+                {
+                  title: "Prompt elements",
+                  clues: [
+                    {"pts":100,"clue":"Setting a specific ______ in a prompt is crucial as it guides the AI to respond within a certain framework or expertise.","answer":"Role"},
+                    {"pts":200,"clue":"The ______ in a prompt summarizes what the AI is expected to do.","answer":"Task"},
+                    {"pts":300,"clue":"Clear ______ in a prompt are crucial to provide detailed information to the AI, limiting the need for it to make assumptions.","answer":"Requirements"},
+                    {"pts":400,"clue":"______ in a prompt inform the AI on how to complete the task.","answer":"Instructions"}
+                  ]
+                },
+                {
+                  title: "Cogniti",
+                  clues: [
+                    {"pts":100,"clue":"What is Cogniti?","answer":"A special AI tool designed by the University of Sydney for teachers to help their students in specific ways."},
+                    {"pts":200,"clue":"Do you need your Unikey and password to access Cogniti?","answer":"YES!"},
+                    {"pts":300,"clue":"What are some benefits of Cogniti?","answer":"Personalised help, extra resources, 24/7 support, fair access, safe and private."},
+                    {"pts":400,"clue":"Name a Cogniti agent that can be used for your DEC studies.","answer":"Study Skills Tutor · Exam Preparation Agent · Writing Coach (also Vanilla GPT-4)."}
+                  ]
+                },
+                {
+                  title: "Copilot & more",
+                  clues: [
+                    {"pts":100,"clue":"What does the Vanilla GPT-4 agent do?","answer":"It is ChatGPT-4, offered for free to university students, providing general help across various subjects."},
+                    {"pts":200,"clue":"How can you log into Microsoft Copilot?","answer":"By logging into your university email."},
+                    {"pts":300,"clue":"Name one benefit of Copilot with data protection.","answer":"Searches are not linked to individual user accounts · prompts and responses are not saved · no one at Microsoft can view your data."},
+                    {"pts":400,"clue":"Which Cogniti agent helps with an essay introduction and gives examples?","answer":"Writing Coach."}
+                  ]
+                }
               ]
             },
             {
-              type: "hotspot",
-              src: "dec10/assets/week4/d5-prompt-anatomy.svg",
-              alt: "A prompt card cut into four coloured strips: Role, Task, Requirements and Instructions, with an eco-tourism example on each strip. On the side, two extra tags: Context and Format.",
-              hint: "Tap each part of the prompt.",
-              spots: [
-                {"x":12,"y":22,"label":"R","title":"Role","text":"“Act as a friendly university tutor in tourism studies.” A role changes the voice and the level of the answer.","color":"#2f7d6b"},
-                {"x":12,"y":42,"label":"T","title":"Task","text":"“Explain what bluewashing means in ecotourism.” One clear job.","color":"#3a58a0"},
-                {"x":12,"y":62,"label":"Q","title":"Requirements","text":"“Use simple English (B1). Maximum 120 words. Use only the text I paste below.” Requirements stop the AI from guessing.","color":"#8a4f9e"},
-                {"x":12,"y":82,"label":"I","title":"Instructions","text":"“First give a one-sentence definition, then one example from the text, then ask me one question to check I understand.”","color":"#c4562f"},
-                {"x":88,"y":35,"label":"+","title":"New today: context","text":"Tell the AI <b>who you are</b> and <b>why</b> you need it: “I am a DEC student. I am preparing for a group discussion.”","color":"#b07d12"},
-                {"x":88,"y":65,"label":"+","title":"New today: format","text":"Say <b>how</b> it should look: a table, three bullet points, a numbered list, a short quiz.","color":"#2d7a9a"}
-              ]
-            },
-            {"type":"do","n":1,"who":"pair","text":"Match each part of a prompt to its eco-tourism example. Then cover the screen and tell your partner the four elements from memory."},
-            {
-              type: "match",
-              id: "b1-match",
-              title: "Match the element to the example",
-              left: ["Role","Task","Requirements","Instructions"],
-              right: [
-                "Act as an expert in sustainable tourism.",
-                "Summarise the main argument of the paragraph I paste below.",
-                "Use no more than 100 words, in clear B1 English, for a student audience.",
-                "Start with the main idea, then list two supporting points as bullet points."
+              type: "language",
+              title: "Useful language: playing as a team",
+              groups: [
+                {"label":"Choose","phrases":["We’ll take Prompt elements for 300, please.","Let’s go for Cogniti for 200."]},
+                {"label":"Agree on an answer","phrases":["I’m fairly sure it’s …","What do you think — should we say …?","Let’s go with …, then."]},
+                {"label":"Explain","phrases":["It’s important because …","In other words, …"]}
               ]
             }
           ]
         },
         {
           id: "b2",
-          short: "Why refine?",
+          short: "Prompting",
           minutes: 12,
-          grouping: "Pairs",
+          grouping: "Pairs → Class",
           art: "dec10/assets/week4/v/v-d10w4d5-b2.svg",
-          title: "Principles for good prompting: try and refine",
-          goal: "See why your first prompt is only a start — and what is missing in a weak prompt.",
+          title: "Activity 1: Prompting",
+          goal: "Draft a prompt with a partner to get initial ideas for a research task on ecotourism.",
           blocks: [
             {
               type: "key",
-              title: "Principles for good prompting",
+              title: "Your research task",
               points: [
-                "Craft <b>precise and unambiguous</b> instructions.",
-                "<b>Specificity is key!</b> The model will make an assumption on any point you don’t clearly explain.",
-                "<b>Try and refine.</b> There is no hard science to good prompting — it is trial and error."
+                "This week you have been learning about ecotourism. Imagine that your teacher sets you this research task:",
+                "<b>What is the role of sustainability certifications in eco-tourism. Are they effective?</b>",
+                "You will use <b>Cogniti Vanilla</b> to get started (same capabilities as Chat GPT-4)."
               ]
             },
             {
-              type: "figure",
-              src: "dec10/assets/week4/d5-refine-loop.svg",
-              size: "wide",
-              alt: "A loop with four steps around a laptop: 1 Formulate a relevant prompt, 2 Consider where the output doesn’t meet your expectations, 3 Enhance the clarity of the prompt, 4 Repeat. A small counter shows version 1, 2, 3.",
-              caption: "The refining loop: <b>formulate → consider → enhance → repeat</b>."
-            },
-            {
-              type: "chat",
-              title: "Round 1: a simple prompt gets a simple answer",
-              right: "You",
-              lines: [
-                ["You","Tell me about ecotourism."],
-                ["AI assistant","Ecotourism is a type of tourism that focuses on nature. It can have many benefits for the environment and local communities. However, there can also be challenges. Overall, ecotourism is an important topic in today’s world."]
+              type: "hotspot",
+              src: "dec10/assets/week4/d5-prompt-anatomy.svg",
+              alt: "A prompt card cut into four coloured strips: Role, Task, Requirements and Instructions, each with an example about sustainability certifications in ecotourism. On the side, two tags: Context and Format.",
+              hint: "Tap each part of the prompt for an example idea.",
+              spots: [
+                {"x":12,"y":22,"label":"R","title":"Role","text":"e.g. “Act as a university researcher in sustainable tourism.” The role guides the AI to answer within a certain expertise.","color":"#2f7d6b"},
+                {"x":12,"y":42,"label":"T","title":"Task","text":"e.g. “Help me brainstorm initial ideas about the role of sustainability certifications in eco-tourism.”","color":"#3a58a0"},
+                {"x":12,"y":62,"label":"Q","title":"Requirements","text":"e.g. “I am a pre-university student. Use clear English. Include ideas for and against their effectiveness.”","color":"#8a4f9e"},
+                {"x":12,"y":82,"label":"I","title":"Instructions","text":"e.g. “Give the ideas as a mind map in bullet points, then suggest three questions I could research next.”","color":"#c4562f"},
+                {"x":88,"y":35,"label":"+","title":"Context","text":"Who you are and why you need it: “I am preparing for a research task in my academic English course.”","color":"#b07d12"},
+                {"x":88,"y":65,"label":"+","title":"Format","text":"How it should look: bullet points, a table, a mind map, a list of questions.","color":"#2d7a9a"}
               ]
             },
             {
-              type: "talk",
-              title: "What is wrong with this answer?",
-              prompts: [
-                "Is the answer <b>wrong</b>? Or is it just <b>too general</b>?",
-                "What did the AI have to <b>guess</b>? (Who are you? Why do you need it? How long? Which sources?)",
-                "Could you use this answer in a discussion or an essay? Why not?"
-              ]
-            },
-            {
-              type: "chat",
-              title: "Round 2: the same student refines the prompt",
-              right: "You",
-              lines: [
-                ["You","<mark>Act as</mark> a university tutor. <mark>I am a</mark> pre-university student preparing for a group discussion on ecotourism. <mark>Explain</mark> two goals of ecotourism and one problem with it. <mark>Use simple English and no more than 100 words.</mark> <mark>Give the answer as three bullet points.</mark>"],
-                ["AI assistant","• <b>Goal 1:</b> protect nature, for example by funding protected areas.<br>• <b>Goal 2:</b> help local people earn money, for example through jobs and local food.<br>• <b>A problem:</b> some companies use “eco” as a marketing word but do not really help local people. This is sometimes called “bluewashing”."]
-              ]
-            },
-            {"type":"do","n":1,"who":"pair","text":"Each prompt below has <b>one</b> main problem. Which element is weak or missing? Discuss, then choose."},
-            {
-              type: "quiz",
-              id: "b2-quiz",
-              title: "What is the main problem with each prompt?",
-              shared: ["Role","Task","Requirements","Instructions"],
+              type: "steps",
               items: [
-                {"q":"“Write about tourism.”","answer":"Task","why":"The task is too broad: which part of tourism? Ecotourism? Its goals? Its problems? The AI will give a general, shallow answer."},
-                {"q":"“Explain the Sustainable Development Goals.”","answer":"Requirements","why":"Missing requirements: how deep? For which audience? How long? Only the goals linked to tourism? Without this, the answer may be too long or too technical."},
-                {"q":"“Act as a hotel marketing manager and assess whether ecotourism helps local communities.”","answer":"Role","why":"This role may give a narrow or biased view — a marketing manager wants to sell holidays. A tourism researcher or a neutral tutor is a better role."},
-                {"q":"“Summarise Mielly (2023) in 80 words for a B1 student, as a tutor.”","answer":"Instructions","why":"Role, task and requirements are there, but no instructions on how: Start with the main argument? Include an example? Which paragraphs? Should it ask you questions?"}
+                {"who":"pair","text":"In pairs, spend <b>five minutes</b> drafting a prompt to start you on this topic. You want to get <b>initial ideas</b> (like a brainstorm)."},
+                {"who":"pair","text":"Remember to include <b>Role, Task, Requirements, and Instruction</b> in your prompt."},
+                {"who":"pair","text":"Once your prompt is ready, share it in the collaborative document (or on the class wall)."},
+                {"who":"class","text":"As a class, choose one prompt (the one that addresses Role, Task, Requirements, and Instruction best) for your teacher to use."},
+                {"who":"class","text":"Read the output given by the AI."}
+              ]
+            },
+            {
+              type: "promptbuilder",
+              id: "b2-pb",
+              title: "Draft your brainstorm prompt",
+              tryUrl: "https://app.cogniti.ai/",
+              tryLabel: "Open Cogniti",
+              parts: [
+                {"key":"role","label":"Role","lead":"Act as","placeholder":"a university researcher in sustainable tourism","chips":["a university researcher in sustainable tourism","an expert in ecotourism certification","a friendly academic tutor"]},
+                {"key":"task","label":"Task","lead":"Your task is to","placeholder":"help me brainstorm initial ideas on the role of sustainability certifications in eco-tourism and whether they are effective","chips":["help me brainstorm initial ideas on the role of sustainability certifications in eco-tourism","list arguments for and against the effectiveness of eco-certifications","explain what a sustainability certification is"]},
+                {"key":"req","label":"Requirements","lead":"Requirements:","placeholder":"I am a pre-university student. Use clear academic English. Include both sides.","chips":["I am a pre-university student in an academic English course","use clear, simple academic English","include ideas for and against","no more than 250 words"]},
+                {"key":"instr","label":"Instructions","lead":"Instructions:","placeholder":"Give the ideas in bullet points under headings, then suggest three research questions.","chips":["organise the ideas in bullet points under 3–4 headings","give one real example for each heading","finish with three questions I could research next"]}
+              ]
+            },
+            {
+              type: "language",
+              title: "Useful language: choosing the best prompt as a class",
+              groups: [
+                {"label":"Evaluate","phrases":["This prompt has a clear role, but the task is quite vague.","I like this one because the instructions are very specific.","This one is missing the requirements."]},
+                {"label":"Choose","phrases":["I’d vote for number … because …","If we combine … with …, it would be even better."]}
               ]
             }
           ]
         },
         {
           id: "b3",
-          short: "Check it",
-          minutes: 15,
-          grouping: "Pairs",
+          short: "Analyse",
+          minutes: 10,
+          grouping: "Class",
           art: "dec10/assets/week4/v/v-d10w4d5-b3.svg",
-          title: "Evaluate the output",
-          goal: "Read an AI answer like a critical researcher: what is useful, what is wrong, what is missing?",
+          title: "Activity 2: Analysing response",
+          goal: "Read the AI’s first response critically. Is it good? How could the prompt be better?",
           blocks: [
-            {
-              type: "key",
-              title: "Never trust the first answer",
-              points: [
-                "AI can only produce from the information we give it — and its interpretation of our prompt can be flawed.",
-                "AI can sound <b>very sure</b> and still be <b>wrong</b>. It can even invent sources and numbers.",
-                "So you always <b>check the output</b> before you use it."
-              ]
-            },
             {
               type: "figure",
               src: "dec10/assets/week4/d5-output-check.svg",
               alt: "A magnifying glass over an AI answer. Around it are six check tags: Accurate? Relevant? Specific? Real sources? Right level? Fair and balanced?",
               caption: "Six questions to ask about every AI answer."
             },
+            {"type":"do","n":1,"who":"alone","text":"Spend a few minutes reading the initial response you got. Rate it with the six checks."},
             {
-              type: "steps",
-              items: [
-                {"who":"alone","text":"A student asked an AI: <i>“Summarise Spenceley and Rylance (2021) on tourism and the SDGs.”</i> Read the answer below."},
-                {"who":"alone","text":"Open the reading and compare. <b>Tap the five problems</b> in the AI answer: wrong facts, an invented source, a vague phrase."},
-                {"who":"pair","text":"Compare with a partner. For each problem, say <b>which check</b> it fails."}
-              ]
-            },
-            {"type":"sources","ids":["ecosdg"]},
-            {
-              type: "spot",
-              id: "b3-spot",
-              label: "Find the problems",
-              title: "The AI answer",
-              hint: "Tap the phrases that are wrong, invented or too vague. Use the reading to check.",
-              paras: [
-                "In 2015, governments agreed on the Sustainable Development Goals, [[with 17 goals and 169 targets]]. [[*Tourism is only included in Goal 8,]] which is about decent work and economic growth. The authors show that [[tourism can help sustainable agriculture]] by buying local food for hotels and restaurants.",
-                "[[*According to a 2019 World Bank report, ecotourism has created 40 million jobs in Africa]]. Marine-protected areas [[help reduce hunger]], and [[*visiting parks cures depression in all cases]]. The authors also explain that [[*the andBeyond company built hospitals in every country where it works]].",
-                "Overall, [[*ecotourism has many good and bad effects on many different things]]. [[Corporate social responsibility]] by ecotourism companies can improve public health."
+              type: "form",
+              id: "b3-form",
+              title: "Is it a good response?",
+              intro: "Rate the AI’s first response to the class prompt.",
+              scale: ["Yes","Partly","No"],
+              cols: ["Example from the response"],
+              sections: [
+                {
+                  label: "The six checks",
+                  items: [
+                    "Accurate — is the information correct?",
+                    "Relevant — does it answer OUR question about certifications?",
+                    "Specific — does it give examples, not just general ideas?",
+                    "Real sources — can you check where the ideas come from?",
+                    "Right level — is it easy enough to understand?",
+                    "Fair and balanced — does it show both sides (effective / not effective)?"
+                  ]
+                }
               ]
             },
             {
               type: "talk",
-              title: "Which check did it fail?",
+              title: "Discuss as a class",
               prompts: [
-                "Which problem is the most <b>dangerous</b> for your essay? Why?",
-                "How could the student’s <b>prompt</b> stop some of these problems? (Hint: “Use only the text I paste below.”)",
-                "Have you ever seen AI invent something? What happened?"
+                "Is it a good response? Why / why not?",
+                "What changes would the prompt need to generate a more effective response?",
+                "What did the AI have to <b>guess</b> because the prompt did not say it?"
               ]
             },
             {
               type: "language",
               title: "Useful language: talking about AI output",
               groups: [
-                {"label":"It works","phrases":["The output is accurate and relevant to the task.","It gives a clear, specific example.","It matches what the reading says."]},
-                {"label":"It doesn’t work","phrases":["This claim is not supported by the text.","The AI seems to have invented this source.","This is too vague to be useful.","It overgeneralises: “in all cases” is too strong."]},
-                {"label":"Next step","phrases":["I need to check this against the original.","I’ll ask it to use only the text I give it.","I’ll ask for the exact paragraph."]}
+                {"label":"It works","phrases":["The output is relevant to our task.","It gives a clear, specific example of …","It covers both sides of the question."]},
+                {"label":"It doesn’t work","phrases":["This is too general to be useful.","This claim is not supported by any source.","It overgeneralises — “always” is too strong."]},
+                {"label":"Change the prompt","phrases":["The prompt needs a clearer task: …","We should add a requirement: …","We could ask it to focus only on …"]}
               ]
             }
-          ],
-          answers: {
-            title: "Suggested answers",
-            items: [
-              ["“Tourism is only included in Goal 8”","Not accurate. The reading says tourism is in the targets for Goals 8, 12 and 14, and can contribute to all of the goals."],
-              ["“According to a 2019 World Bank report … 40 million jobs”","Invented source and number — they are not in the reading. Check: real sources?"],
-              ["“visiting parks cures depression in all cases”","Overgeneralised. The text says visiting places with biodiversity <i>can prevent</i> health issues like depression. Check: accurate? fair?"],
-              ["“andBeyond … built hospitals in every country”","Not in the text. The text mentions the Africa Foundation supporting a clinic in Mduku and other health projects near andBeyond lodges."],
-              ["“many good and bad effects on many different things”","Too vague to be useful. Check: specific?"]
-            ]
-          }
+          ]
         },
         {
           id: "b4",
-          short: "Refine it",
-          minutes: 20,
-          grouping: "Alone → Pairs",
+          short: "Iterate",
+          minutes: 13,
+          grouping: "Pairs",
           art: "dec10/assets/week4/v/v-d10w4d5-b4.svg",
-          title: "Refining a prompt: role, context, format and constraints",
-          goal: "Learn four moves that make any prompt better — then build your own eco-tourism prompt.",
+          title: "Activity 3: Iterative interaction",
+          goal: "Learn the iterative process: use the AI’s answer to refine your next question.",
           blocks: [
             {
               type: "figure",
-              src: "dec10/assets/week4/d5-prompt-ladder.svg",
+              src: "dec10/assets/week4/d5-refine-loop.svg",
               size: "wide",
-              alt: "A ladder with four rungs going up from a weak prompt to a strong prompt. Rung 1: add a role. Rung 2: add context. Rung 3: add a format. Rung 4: add constraints. A meter on the side goes from Too vague to Strong.",
-              caption: "Each move answers one question the AI would otherwise have to guess."
+              alt: "The iterative process of prompting: Craft prompt, then Analyse response and review prompt, then Use output. A big arrow loops back from Analyse response to Craft prompt.",
+              caption: "Based on the output you get from AI, you <b>refine your prompt</b> to improve the output."
             },
             {
-              type: "pairs",
-              title: "Four refining moves",
-              hint: "Read the weak prompt, then the refined one. Tap the tag to see what changed.",
-              items: [
-                {"from":"Explain bluewashing.","to":"[[Act as a university tutor in tourism studies.]] Explain bluewashing.","tag":"1 · Add a role","note":"The role sets the voice, the level and the kind of knowledge."},
-                {"from":"Act as a tutor. Explain bluewashing.","to":"Act as a tutor. [[I am a pre-university student. I am preparing for a group discussion on ecotourism.]] Explain bluewashing.","tag":"2 · Add context","note":"Who you are and why you need it. Now the AI knows what is useful for you."},
-                {"from":"… Explain bluewashing.","to":"… Explain bluewashing [[in a table with two columns: what companies say / what really happens.]]","tag":"3 · Add a format","note":"Table, bullet points, a numbered list, a short quiz — you decide how it looks."},
-                {"from":"… in a table …","to":"… in a table. [[Use only the article I paste below. Use B1 English. No more than 120 words.]]","tag":"4 · Add constraints","note":"Constraints limit the AI’s guesses. “Use only the text I paste” is the best protection against invented facts."}
+              type: "key",
+              title: "What is iterative interaction?",
+              points: [
+                "A process of communication with a series of <b>back-and-forth exchanges</b>, rather than asking all your questions at once or expecting a complete answer in a single response.",
+                "<b>It’s similar to having a conversation</b>: you ask a question, listen to the answer, and then <b>ask a follow-up question based on the response you received</b>.",
+                "This helps you dig deeper into a topic and clarify any doubts step by step."
               ]
             },
-            {"type":"do","n":1,"who":"alone","text":"Build a prompt that helps you <b>understand</b> one of this week’s texts. Choose a reading below. Tap the ideas (+) or write your own words. Watch the meter."},
-            {"type":"sources","ids":["ecosdg","bluewash"]},
             {
-              type: "promptbuilder",
-              id: "b4-pb",
-              title: "Build a prompt for this week’s reading",
-              tryUrl: "https://copilot.microsoft.com/",
-              tryLabel: "Try it in Copilot",
-              parts: [
-                {"key":"role","label":"Role","lead":"Act as","placeholder":"a friendly university tutor in tourism studies","chips":["a friendly university tutor","an expert in sustainable tourism","a patient English teacher","a critical research partner"]},
-                {"key":"task","label":"Task","lead":"Your task is to","placeholder":"help me understand the main argument of the article I paste below","chips":["help me understand the main argument of the text I paste below","explain the key words in this paragraph","ask me five questions to check that I understand the text","show me the problems with ecotourism that the author describes"]},
-                {"key":"req","label":"Requirements (context + constraints)","lead":"Requirements:","placeholder":"I am a pre-university student. Use simple B1 English. Use only the text I paste.","chips":["I am a pre-university student preparing for a group discussion","use simple B1 English","use only the text I paste below","no more than 150 words","do not write my essay for me"]},
-                {"key":"instr","label":"Instructions (steps + format)","lead":"Instructions:","placeholder":"First give the main idea in one sentence, then three key points as bullet points, then ask me one question.","chips":["first give the main idea in one sentence","then list three key points as bullet points","put the key words in a table: word / meaning / example","finish by asking me one question to check I understand"]}
+              type: "flip",
+              title: "Why use iterative interaction?",
+              hint: "Turn each card over.",
+              items: [
+                {"front":"Complex topics","back":"Some topics have many layers. You explore them one at a time, so you understand each part before moving on."},
+                {"front":"Clarification","back":"If something isn’t clear, a follow-up question clears up the misunderstanding — very helpful when you learn in a new language."},
+                {"front":"Depth of understanding","back":"Each round gives you more detail — like peeling an onion: each layer gives you more insight."}
+              ]
+            },
+            {
+              type: "figure",
+              src: "dec10/assets/week4/d5-onion.svg",
+              alt: "An onion cut in half with four layers. Outer layer: What is eco-tourism? Next: How is sustainability in eco-tourism evaluated? Next: Are certifications effective? Core: My own informed view.",
+              caption: "Each follow-up question takes you one layer deeper."
+            },
+            {"type":"do","n":1,"who":"pair","text":"How do you implement iterative interaction? Put the four steps in order. Then explain them to your partner without looking."},
+            {
+              type: "order",
+              id: "b4-order",
+              title: "How to implement iterative interaction",
+              items: [
+                "Start simple: begin with a basic question, e.g. “What is eco-tourism?”",
+                "Evaluate the response: what is clear, and what needs more explanation?",
+                "Ask follow-up questions: e.g. “Can you explain how sustainability in eco-tourism is evaluated?”",
+                "Repeat as needed: keep asking until you have a strong understanding of the topic."
+              ],
+              ends: ["First","Last"],
+              why: "Start simple → evaluate → ask a follow-up → repeat. This breaks learning into manageable parts and checks understanding at each step."
+            },
+            {
+              type: "chat",
+              ai: true,
+              title: "Iterative interaction in action",
+              right: "You",
+              lines: [
+                ["You","What is eco-tourism?"],
+                ["AI","Eco-tourism is responsible travel to natural areas that conserves the environment and supports the well-being of local people …"],
+                ["You","<mark>Can you explain how sustainability in eco-tourism is evaluated?</mark>"],
+                ["AI","It is often evaluated through sustainability certifications, environmental impact assessments and indicators such as … "],
+                ["You","<mark>You mentioned certifications. Can you give me two examples and explain one criticism of them?</mark>"]
+              ]
+            },
+            {
+              type: "language",
+              title: "Follow-up questions that dig deeper",
+              groups: [
+                {"label":"Clarify","phrases":["Can you explain that in simpler terms?","What do you mean by …?","Can you give me an example of …?"]},
+                {"label":"Go deeper","phrases":["You mentioned … Can you tell me more about …?","What is the evidence for …?","What are the main criticisms of …?"]},
+                {"label":"Check & focus","phrases":["Where does this information come from?","Can you focus only on Australia?","Can you put this in a table: challenge / cause / possible solution?"]}
+              ]
+            }
+          ]
+        },
+        {
+          id: "b5",
+          short: "Try it",
+          minutes: 25,
+          grouping: "Pairs → Class",
+          art: "dec10/assets/week4/v/v-d10w4d5-b5.svg",
+          title: "Activity 4: Trying iterative interaction",
+          goal: "Spend 10 minutes ‘in conversation’ with Vanilla GPT-4, then present your AI findings in 3 minutes.",
+          blocks: [
+            {
+              type: "key",
+              title: "Your new task",
+              points: [
+                "Imagine your teacher has set you this task: <b>Identify the major challenges and barriers to developing and expanding eco-tourism in Australia.</b>",
+                "Start with this question: <b>What are the 3 major challenges to developing eco-tourism in Australia?</b>",
+                "Ask follow-up questions based on the AI’s answers. Aim to explore <b>different parts</b> of the topic."
               ]
             },
             {
               type: "steps",
               items: [
-                {"who":"alone","text":"Press <b>Copy prompt</b>. Open <b>Copilot</b> (log in with your university email: firstname.lastname@sydney.edu.au, and check for the green badge) or <b>Cogniti</b> (app.cogniti.ai, e.g. the Vanilla GPT-4 agent)."},
-                {"who":"alone","text":"Paste your prompt. Then paste <b>one paragraph</b> of the reading under it."},
-                {"who":"pair","text":"Show your partner the output. Use the six checks: is it accurate, relevant, specific, at the right level?"}
+                {"who":"pair","text":"Open <b>Cogniti</b> (app.cogniti.ai → Log in with your university account → Chat with agents → <b>Vanilla GPT-4</b>)."},
+                {"who":"pair","text":"Spend <b>10 minutes</b> in conversation. Ask the first question, then at least <b>four follow-up questions</b>. Write each round in the log."},
+                {"who":"pair","text":"Prepare a <b>3-minute presentation</b> summarising your AI findings."},
+                {"who":"class","text":"2–3 pairs present their AI findings to the class."}
               ]
             },
-            {"type":"tip","text":"<b>No computer access?</b> Swap prompts with a partner. Your partner reads your prompt and says what the AI would still have to <b>guess</b>."}
-          ]
-        },
-        {
-          id: "b5",
-          short: "Prompt lab",
-          minutes: 22,
-          grouping: "Pairs",
-          art: "dec10/assets/week4/v/v-d10w4d5-b5.svg",
-          title: "Prompt lab: refine in three rounds",
-          goal: "Use conversational turns to improve the output — and record what you changed each time.",
-          blocks: [
             {
-              type: "key",
-              title: "Use the conversation",
-              points: [
-                "As you chat with generative AI, the model learns more about what you need.",
-                "Use <b>follow-up prompts</b> to fix one problem at a time.",
-                "Remember: simple prompts lead to simple (and similar) completions."
-              ]
+              type: "table",
+              id: "b5-tab",
+              title: "Our conversation log",
+              columns: ["Round","Our question","Main points in the AI’s answer","Why we asked the next question"],
+              fixed: ["1 · Start","2 · Follow-up","3 · Follow-up","4 · Follow-up","5 · Follow-up"]
             },
-            {"type":"do","n":1,"who":"pair","text":"Which follow-up prompt is the most useful? Bet 1–3 coins on each answer — more coins if you are sure."},
+            {"type":"do","n":1,"who":"pair","text":"Before you present: which follow-up question is the most useful? Bet 1–3 coins on each answer."},
             {
               type: "bet",
               id: "b5-bet",
@@ -748,136 +897,84 @@ window.DEC15_LESSON = {
               coins: 10,
               items: [
                 {
-                  q: "The AI’s explanation of “bluewashing” is full of difficult words.",
-                  options: ["A · Make it better.","B · Can you explain that in simpler terms, at B1 level, with one everyday example?","C · That’s too hard.","D · Write it again."],
-                  answer: "B · Can you explain that in simpler terms, at B1 level, with one everyday example?",
-                  why: "It says exactly what to change (simpler, B1) and adds a format (one example)."
+                  q: "The AI says one challenge is “the large distances between destinations”, but gives no detail.",
+                  options: ["A · Tell me more.","B · You mentioned large distances. How do they make eco-tourism in Australia harder? Give one example.","C · Is that true?","D · Next challenge."],
+                  answer: "B · You mentioned large distances. How do they make eco-tourism in Australia harder? Give one example.",
+                  why: "It refers back to the answer, asks a specific question and asks for an example."
                 },
                 {
-                  q: "The AI gives a number that you cannot find in the article.",
-                  options: ["A · Are you sure?","B · Use only the text I pasted. Which sentence in the text gives this number?","C · Give me more numbers.","D · OK, thanks."],
-                  answer: "B · Use only the text I pasted. Which sentence in the text gives this number?",
-                  why: "A constraint + a request to show the evidence. If there is no sentence, the number was probably invented."
+                  q: "The answer uses many difficult words.",
+                  options: ["A · Make it better.","B · That’s too hard.","C · Can you explain that in simpler terms, in clear B1 English?","D · Write it again."],
+                  answer: "C · Can you explain that in simpler terms, in clear B1 English?",
+                  why: "It says exactly what to change."
                 },
                 {
-                  q: "The summary only talks about the benefits of ecotourism.",
-                  options: ["A · Add problems.","B · Is this good?","C · Now add two problems that the author describes, so the summary is balanced.","D · Write a longer summary."],
-                  answer: "C · Now add two problems that the author describes, so the summary is balanced.",
-                  why: "Specific (two problems), linked to the source (that the author describes) and gives the reason (balanced)."
+                  q: "The AI gives a number but no source.",
+                  options: ["A · OK, thanks.","B · Where does this number come from? Can you name the source so I can check it?","C · Give me more numbers.","D · Are you sure?"],
+                  answer: "B · Where does this number come from? Can you name the source so I can check it?",
+                  why: "AI can invent numbers and sources. Ask for the source — and then check it yourself."
                 }
               ]
             },
             {
               type: "language",
-              title: "Follow-up prompts that work",
+              title: "Useful language: a 3-minute presentation of AI findings",
               groups: [
-                {"label":"Make it simpler","phrases":["Can you explain that in simpler terms?","Rewrite this for a B1 student.","Give me one everyday example."]},
-                {"label":"Make it accurate","phrases":["Use only the text I pasted.","Which sentence in the text says this?","If the text does not say it, write “not in the text”."]},
-                {"label":"Change the format","phrases":["Put this in a table with three columns: …","Give me three bullet points.","Turn this into five quiz questions."]},
-                {"label":"Go deeper","phrases":["What is the strongest counter-argument?","How does this compare with Mielly (2023)?","Ask me questions one at a time to check I understand."]}
+                {"label":"Open","phrases":["We asked Vanilla GPT-4 about the major challenges to developing eco-tourism in Australia.","We started with … and then followed up on …"]},
+                {"label":"Report findings","phrases":["According to the AI, the first major challenge is …","When we asked about …, it explained that …","This links to … in Spenceley and Rylance (2021)."]},
+                {"label":"Be critical","phrases":["However, the AI did not give a source for …, so we would need to check it.","The answer was quite general about …"]},
+                {"label":"Close","phrases":["Overall, the most useful follow-up question was …","Next, we would like to research …"]}
               ]
             },
             {
-              type: "steps",
-              items: [
-                {"who":"pair","text":"<b>Round 1:</b> use your prompt from the last activity. Check the output. What is missing?"},
-                {"who":"pair","text":"<b>Round 2:</b> write <b>one</b> follow-up prompt to fix the biggest problem. Check again."},
-                {"who":"pair","text":"<b>Round 3:</b> one more follow-up. Is the output useful now? Fill in one row per round."}
-              ]
-            },
-            {
-              type: "table",
-              id: "b5-tab",
-              title: "My prompt lab",
-              columns: ["Round","My prompt or follow-up","What was good?","What was missing or wrong?","What I changed next"],
-              fixed: ["Round 1","Round 2","Round 3"]
-            },
-            {
-              type: "scale",
-              id: "b5-scale",
-              title: "How useful was the final output?",
-              statement: "After three rounds, the AI output really helped me understand the text.",
-              ends: ["Not useful","Very useful"]
-            },
-            {
-              type: "talk",
-              title: "Tell another pair",
-              prompts: [
-                "Show your Round 1 and Round 3 outputs. What is the biggest difference?",
-                "Which follow-up prompt made the biggest change?",
-                "Did the AI make any mistakes? How did you find them?"
-              ]
+              type: "tip",
+              text: "<b>Integrity:</b> AI findings are a starting point, not a source. Check them against real academic sources, and acknowledge any tool that contributed to your work."
             }
           ]
         },
         {
           id: "b6",
-          short: "Integrity",
-          minutes: 13,
-          grouping: "Pairs → Class",
+          short: "Evaluate",
+          minutes: 10,
+          grouping: "Groups of 4–5",
           art: "dec10/assets/week4/v/v-d10w4d5-b6.svg",
-          title: "Using AI with academic integrity",
-          goal: "Decide when AI supports your learning — and when it replaces it.",
+          title: "Activity 5: Evaluating the effectiveness of iterative interaction",
+          goal: "Discuss how well iterative interaction worked — compared with one single prompt.",
           blocks: [
+            {"type":"do","n":1,"who":"group","text":"Each group gets a different set of questions. Spin to get your set (or your teacher gives you one). Discuss for <b>5 minutes</b>. Then one student summarises the main points for the class."},
             {
-              type: "key",
-              title: "Do the right thing",
-              policy: true,
-              points: [
-                "Acting with academic integrity means doing the ‘right thing’ even when a shortcut seems easier.",
-                "You must <b>acknowledge</b> where other people <b>or tools</b> have contributed to your work.",
-                "Rules can be different for each task. <b>Always check</b> what is allowed — ask your teacher if you are not sure."
-              ]
-            },
-            {"type":"do","n":1,"who":"pair","text":"Read each use of AI. Does it <b>support</b> your learning, or <b>replace</b> it? Discuss, then sort."},
-            {
-              type: "sort",
-              id: "b6-sort",
-              title: "Support or replace?",
-              buckets: [
-                {"label":"Supports my learning","text":"I still do the thinking and the writing","letter":"✓"},
-                {"label":"Replaces my learning","text":"Not my own work — a risk to integrity","letter":"✗"}
-              ],
-              items: [
-                {"text":"Asking AI to explain a difficult word from the bluewashing article.","answer":0},
-                {"text":"Asking AI for five quiz questions to test my understanding of a reading.","answer":0},
-                {"text":"Asking AI to write my Integrated Writing essay, then handing it in.","answer":1,"why":"The essay is not your own work."},
-                {"text":"Using AI to practise for the Interactive Discussion by arguing against my ideas.","answer":0},
-                {"text":"Copying an AI paragraph into my essay without saying I used AI.","answer":1,"why":"You must acknowledge the tool — and check what the task allows."},
-                {"text":"Using a reference the AI gave me without checking that it is real.","answer":1,"why":"AI can invent sources. Using a fake source is a serious problem."},
-                {"text":"Asking AI to explain my teacher’s feedback in simpler words.","answer":0}
-              ]
+              type: "spinner",
+              id: "b6-spin",
+              title: "Which question set?",
+              reels: [{"label":"Question set","items":["Effectiveness","Improvement strategies","Critical thinking","Transferable skills"]}],
+              note: "Spin once per group. Then open your tab below."
             },
             {
-              type: "checklist",
-              id: "b6-check",
-              title: "Before I use any AI answer, I …",
-              meter: ["ticked","Ready to use AI well!"],
-              items: [
-                "check it against the original text",
-                "check that every source and number is real",
-                "think: does this support my learning, or replace it?",
-                "check what the task allows",
-                "acknowledge the tool if I used it"
-              ]
-            },
-            {
-              type: "fields",
-              title: "My best prompt today",
-              fields: [
-                {"id":"b6-best","label":"Copy your best (final) prompt here","rows":4},
-                {"id":"b6-why","label":"Why does it work? Name two elements or refining moves you used.","placeholder":"It works because it has a clear role … and a constraint: …","rows":2}
+              type: "tabs",
+              title: "The question sets",
+              tabs: [
+                {"label":"Effectiveness","blocks":[{"type":"talk","title":"Effectiveness","prompts":["Did the iterative interaction help you understand the topic better than a traditional Google search might have?","Can you think of an example of a follow-up question greatly improving or deepening your understanding of the topic?","Were there any moments during the iterative interactions where you felt confused or lost? What caused this?"]}]},
+                {"label":"Improvement","blocks":[{"type":"talk","title":"Improvement strategies","prompts":["What types of questions led to the most insightful answers?","How can you formulate better follow-up questions in the future?"]}]},
+                {"label":"Critical thinking","blocks":[{"type":"talk","title":"Critical thinking","prompts":["Can you identify any biases or gaps in the information provided during the interactions? How did you handle these issues?","Did this process influence your independent opinions or conclusions about eco-tourism?"]}]},
+                {"label":"Transferable skills","blocks":[{"type":"talk","title":"Transferable skills","prompts":["Can iterative interaction be applied to other topics in your studies?","Find examples of other uses of this process in DEC.","What did you find most challenging about the iterative interaction, and what did you enjoy the most?"]}]}
               ]
             },
             {
               type: "language",
-              title: "Useful language: saying how you used AI",
+              title: "Useful language: summarising your group’s discussion",
               groups: [
-                {"label":"Describe your use","phrases":["I used Copilot to check my understanding of …","I asked Cogniti to explain the key terms in …"]},
-                {"label":"Show you checked","phrases":["I then compared the output with the original text.","I did not use any AI text in my final answer."]}
+                {"label":"Summarise","phrases":["Our group discussed …","Most of us felt that …","The main point we agreed on was …"]},
+                {"label":"Compare","phrases":["Compared with a single prompt, iterative interaction was more …","Unlike a Google search, it …","It was less useful when …"]},
+                {"label":"Hedge","phrases":["It seems that …","In some cases, …","It may depend on …"]}
               ]
             },
-            {"type":"do","n":2,"who":"class","text":"Share your best prompt with the class wall. Read two classmates’ prompts and react to the one you would like to try."}
+            {
+              type: "fields",
+              fields: [
+                {"id":"b6-sum","label":"Our group’s main points (for the class summary)","rows":3},
+                {"id":"b6-me","label":"One prompting tip I will use again","placeholder":"Next time, I will start simple and then …","rows":2}
+              ]
+            }
           ]
         }
       ]
@@ -890,35 +987,36 @@ window.DEC15_LESSON = {
       tone: "teal",
       art: "dec10/assets/week4/s-d5-negotiate.svg",
       title: "Interactive Discussion: Discussion and negotiation",
-      subtitle: "Have your views on ecotourism changed? Now negotiate the best way forward",
-      outcome: "You review your views on ecotourism critically, use discussion and negotiation skills and language — and sources — in a 10-minute negotiation, and reflect on your performance to plan your next step.",
+      subtitle: "Have your views on ecotourism changed? Then negotiate the best strategy",
+      outcome: "You engage in critical thinking by reviewing your previous views on ecotourism, use skills and language to participate effectively in an interactive discussion, and reflect on your performance to plan for future improvement.",
       activities: [
         {
           id: "c1",
           short: "Views",
-          minutes: 12,
+          minutes: 15,
           grouping: "Alone → Group",
           art: "dec10/assets/week4/v/v-d10w4d5-c1.svg",
           title: "Guided discussion: Have your views changed?",
-          goal: "Look back at your first ideas about ecotourism. Are they the same after a week of reading, listening and writing?",
+          goal: "Look back at your Monday ideas about ecotourism. Are they the same after a week of reading, listening and writing?",
           blocks: [
             {
               type: "key",
-              title: "Showing flexibility",
+              title: "In Monday’s lesson, you discussed these questions and wrote down your ideas:",
+              numbered: true,
               points: [
-                "On Monday, in the <b>Preliminary guided discussion</b>, you talked about ecotourism and wrote down your first ideas.",
-                "Since then you have read <b>Spenceley and Rylance (2021)</b> and <b>Mielly (2023)</b>, listened to <b>Alom (2023)</b> and written an essay.",
-                "A critical thinker can <b>change their mind</b> when they see new evidence — and can explain <b>why</b>."
+                "What do you understand by <i>ecotourism</i>?",
+                "Have you experienced this form of tourism yourself? What is your attitude towards it?",
+                "Who do you think are the various stakeholders? How might their interests conflict with each other?"
               ]
             },
             {
               type: "figure",
               src: "dec10/assets/week4/d5-views-shift.svg",
               size: "wide",
-              alt: "An opinion line from ‘No, ecotourism rarely keeps its promises’ to ‘Yes, it usually keeps its promises’. A grey Monday marker sits on one side, a green Friday marker has moved. Three source cards below push it: Spenceley and Rylance 2021, Mielly 2023, Alom 2023.",
+              alt: "An opinion line from ‘Ecotourism rarely keeps its promises’ to ‘Ecotourism usually keeps its promises’. A grey Monday marker sits on one side, a green Friday marker has moved. Three source cards below push it: Spenceley and Rylance 2021, Mielly 2023, Alom 2023.",
               caption: "Where were you on Monday? Where are you now? <b>What moved you?</b>"
             },
-            {"type":"do","n":1,"who":"alone","text":"Look back at your Monday notes. Move each slider: first where you were on Monday, then where you are now."},
+            {"type":"do","n":1,"who":"alone","text":"Individually, look back at what you wrote down on Monday. Move each slider: first where you were on Monday, then where you are now."},
             {
               type: "scale",
               id: "c1-mon",
@@ -933,24 +1031,24 @@ window.DEC15_LESSON = {
               statement: "Ecotourism can really achieve its goals: it protects nature and helps local people.",
               ends: ["Strongly disagree","Strongly agree"]
             },
-            {"type":"sources","ids":["ecosdg","bluewash"]},
             {
-              type: "talk",
-              title: "Share with your group",
-              prompts: [
-                "How would you answer Monday’s questions now, after reading and listening to different perspectives, and after writing an essay?",
-                "Have your ideas and views changed? <b>Why / why not?</b>",
-                "Which source changed your mind the most — or made you more sure?",
-                "Is there anything you are still <b>not sure</b> about?"
+              type: "fields",
+              title: "Prepare your ideas",
+              fields: [
+                {"id":"c1-now-a","label":"1) How would you answer the questions now, after having read and listened to different perspectives, and after having written an essay?","rows":3},
+                {"id":"c1-chg","label":"2) Have your ideas and views changed? Why / why not?","rows":2}
               ]
             },
+            {"type":"sources","ids":["ecosdg","bluewash","alom"]},
+            {"type":"do","n":2,"who":"group","text":"When you are ready, share your ideas with your group. Each person speaks for <b>one minute</b>. The others ask one follow-up question."},
             {
               type: "language",
               title: "Useful language: talking about a change of view",
               groups: [
                 {"label":"My view changed","phrases":["I used to think …, but after reading …, I now believe …","At first I was quite optimistic about …, but …","… made me rethink my view on …"]},
                 {"label":"My view is the same","phrases":["My view hasn’t really changed. In fact, … confirmed that …","I still believe …, mainly because …"]},
-                {"label":"I’m less sure now","phrases":["I’m less certain than I was. On the one hand …, on the other hand …","It depends on …"]}
+                {"label":"Stakeholders","phrases":["The main stakeholders are local communities, tour operators, tourists and governments.","Their interests might conflict because …","What benefits … may not benefit …"]},
+                {"label":"Not sure","phrases":["I’m less certain than I was. On the one hand …, on the other hand …","It depends on …"]}
               ]
             }
           ]
@@ -958,12 +1056,13 @@ window.DEC15_LESSON = {
         {
           id: "c2",
           short: "Skills",
-          minutes: 13,
+          minutes: 10,
           grouping: "Alone → Pairs",
           art: "dec10/assets/week4/v/v-d10w4d5-c2.svg",
           title: "Negotiation: review the skills and language",
-          goal: "Review the language for discussion, negotiation and referring to sources — and choose what you will practise today.",
+          goal: "Review the skills and language for an interactive discussion — and choose the expressions you will practise today.",
           blocks: [
+            {"type":"tip","text":"A <b>negotiation task</b> will be part of your final <b>Interactive Discussion Task</b>. Today is practice for it."},
             {
               type: "figure",
               src: "dec10/assets/week4/d5-discussion-skills.svg",
@@ -980,7 +1079,7 @@ window.DEC15_LESSON = {
                   blocks: [
                     {
                       type: "language",
-                      title: "Three key discussion skills",
+                      title: "1) Three key discussion skills",
                       groups: [
                         {"label":"Start the discussion","phrases":["Example: Ok, we’ve decided to talk about…","Let’s kick off by looking at…","A good place to begin might be…","I’d like to open the discussion with…"]},
                         {"label":"Introduce ideas","phrases":["Example: According to (name of research) …","(author’s name) suggests that…","(author’s name) highlights that…","Research shows/suggests that…"]},
@@ -994,7 +1093,7 @@ window.DEC15_LESSON = {
                   blocks: [
                     {
                       type: "language",
-                      title: "Discussion skills to encourage negotiation",
+                      title: "2) Discussion skills to encourage negotiation",
                       groups: [
                         {"label":"Building on others’ ideas","phrases":["Example: Building on what you said before, ...","That’s a good point, and I’d add that …","Following on from …’s idea, …"]},
                         {"label":"Asking others for clarification / opinions / justification","phrases":["Example: So, are you suggesting that ...?","What makes you think that?","How would that work in practice?","What do you think, …?"]},
@@ -1008,12 +1107,12 @@ window.DEC15_LESSON = {
                   blocks: [
                     {
                       type: "language",
-                      title: "Referring to sources in academic discussions",
+                      title: "3) Referring to sources in academic discussions",
                       groups: [
-                        {"label":"Mentioning authors to introduce facts, arguments, or opinions","phrases":["[Author] mentions that …","[Author] talks about …","e.g. Mielly talks about the Mbyá Guaraní community in Brazil."]},
-                        {"label":"Agreeing or supporting authors","phrases":["I agree with what [Author] said about …","e.g. I agree with what Spenceley and Rylance said about local food."]},
-                        {"label":"Questioning authors","phrases":["I’m not sure I agree with [Author] that ...","I wonder why [Author] says ..."]},
-                        {"label":"Introducing authors’ ideas or concepts","phrases":["[Author] brings up a good example of …","e.g. Mielly brings up a good example of bluewashing."]}
+                        {"label":"Mentioning authors to introduce facts, arguments, or opinions","phrases":["[Author] mentions that …","[Author] talks about …"]},
+                        {"label":"Agreeing or supporting authors","phrases":["I agree with what [Author] said about …"]},
+                        {"label":"Questioning authors","phrases":["I’m not sure I agree with [Author] that ..."]},
+                        {"label":"Introducing authors’ ideas or concepts","phrases":["[Author] brings up a good example of …"]}
                       ]
                     }
                   ]
@@ -1027,21 +1126,21 @@ window.DEC15_LESSON = {
               title: "Which skill is it?",
               left: ["Start the discussion","Introduce ideas","Take the floor politely","Build on others’ ideas","Ask for justification","Suggest a solution and justify it"],
               right: [
-                "To start us off, I’d say the key question is who really benefits.",
-                "There’s evidence from Spenceley and Rylance which indicates that tourism can support local farmers.",
-                "If I might add here — the money doesn’t always stay in the community.",
-                "Following on from Kenji’s point about jobs, I think training matters too.",
+                "To start us off, I’d say the key question is how many visitors an area can take.",
+                "There’s evidence from Spenceley and Rylance which indicates that tourism can fund conservation.",
+                "If I might add here — certifications are only useful if someone checks them.",
+                "Following on from Kenji’s point about visitor numbers, I think timing matters too.",
                 "Why do you think that option would work better?",
-                "How about independent checks? That would make companies more honest."
+                "How about combining certification incentives with visitor limits? That would protect the most fragile places."
               ]
             },
             {
               type: "fields",
-              title: "What other expressions do you remember? Write down the ones you want to practise today.",
+              title: "What other expressions do you remember? Write down the expressions you would like to practise today.",
               fields: [
-                {"id":"c2-disc","label":"Discussion skills (start · introduce ideas · take the floor)","rows":2},
-                {"id":"c2-neg","label":"Negotiation skills (build on · ask · suggest and justify)","rows":2},
-                {"id":"c2-src","label":"Referring to sources","rows":2}
+                {"id":"c2-disc","label":"1) Discussion skills (start · introduce ideas · take the floor)","rows":2},
+                {"id":"c2-neg","label":"2) Negotiation skills (build on · ask · suggest and justify)","rows":2},
+                {"id":"c2-src","label":"3) Referring to sources","rows":2}
               ]
             }
           ]
@@ -1049,27 +1148,27 @@ window.DEC15_LESSON = {
         {
           id: "c3",
           short: "Negotiate",
-          minutes: 25,
+          minutes: 20,
           grouping: "Groups of 4",
           art: "dec10/assets/week4/v/v-d10w4d5-c3.svg",
           title: "Negotiation task",
-          goal: "Negotiate as a group: which strategy is best to make ecotourism really benefit local communities and nature?",
+          goal: "Negotiate in your group: which strategy would be best to improve the balance between tourism and sustainability?",
           blocks: [
             {
               type: "key",
-              title: "The negotiation task",
+              title: "Which of the strategies below would be best to improve the balance between tourism and sustainability?",
+              numbered: true,
               points: [
-                "<b>Which of the strategies below would be best to make sure ecotourism really benefits local communities and protects nature?</b>",
-                "① Require companies to hold a real dialogue with local and indigenous communities — and get their agreement — before any project starts.",
-                "② Make tourism companies give a fixed share of their income to local projects: food, health, schools and conservation.",
-                "③ Introduce strict, independent checks of “eco” labels, with penalties for companies that bluewash."
+                "Provide government incentives and subsidies to tourism operators that achieve sustainable tourism certifications.",
+                "Restrict numbers of visitors to vulnerable areas.",
+                "Provide government rebates to tourists who meet travel sustainability targets."
               ]
             },
             {
               type: "figure",
               src: "dec10/assets/week4/d5-negotiation-map.svg",
               size: "wide",
-              alt: "A negotiation table seen from above with three option cards: 1 Dialogue and agreement first, 2 A share of income for local projects, 3 Independent eco-label checks. Speech bubbles from four seats point to the cards, and a balance in the middle weighs them.",
+              alt: "A negotiation table seen from above with three option cards: 1 Incentives for certified operators, 2 Limit visitors to vulnerable areas, 3 Rebates for sustainable tourists. Speech bubbles from four seats point to the cards, and a balance in the middle weighs tourism against sustainability.",
               caption: "Evaluate <b>each</b> option. You don’t have to agree — but you must <b>negotiate</b>."
             },
             {
@@ -1083,22 +1182,23 @@ window.DEC15_LESSON = {
                 {"who":"group","text":"Keep the discussion going for 10 minutes."}
               ]
             },
-            {"type":"do","n":1,"who":"alone","text":"<b>Prepare (5 min).</b> Choose your first choice. Find <b>one idea from a source</b> that supports it — and one problem with another option."},
+            {"type":"do","n":1,"who":"alone","text":"<b>Prepare (4 min).</b> Choose your first choice. Think of one reason for it, one idea from a source, and one problem with another option."},
             {
               type: "cards",
               title: "My first choice (before we talk)",
               pick: "c3-pick",
               items: [
-                {"label":"① Dialogue first","text":"Mielly (2023): the ILO C169 agreement requires at least a dialogue with indigenous communities.","icon":"chat"},
-                {"label":"② Share the income","text":"Spenceley and Rylance (2021): local food, jobs and health projects near lodges.","icon":"link"},
-                {"label":"③ Check the labels","text":"Mielly (2023): lax reporting and no enforcement let firms bluewash.","icon":"search"}
+                {"label":"① Incentives for certified operators","text":"Reward tourism operators that achieve sustainable tourism certifications.","icon":"flag"},
+                {"label":"② Restrict visitor numbers","text":"Limit visitors to vulnerable areas.","icon":"users"},
+                {"label":"③ Rebates for tourists","text":"Give money back to tourists who meet travel sustainability targets.","icon":"link"}
               ]
             },
             {"type":"sources","ids":["ecosdg","bluewash"]},
             {
               type: "fields",
               fields: [
-                {"id":"c3-src","label":"My idea from a source","placeholder":"Mielly (2023) mentions that …","rows":2},
+                {"id":"c3-why","label":"My reason","placeholder":"I’d go for … because …","rows":2},
+                {"id":"c3-src","label":"My idea from a source","placeholder":"Mielly (2023) mentions that … / Spenceley and Rylance (2021) talk about …","rows":2},
                 {"id":"c3-prob","label":"One problem with another option","placeholder":"I’m not sure option … would work, because …","rows":2}
               ]
             },
@@ -1115,14 +1215,14 @@ window.DEC15_LESSON = {
             },
             {
               type: "chat",
-              title: "How a negotiation sounds",
+              title: "How a negotiation can sound (the start)",
               lines: [
-                ["Sara","<mark>Ok, we’ve decided to talk about</mark> which strategy would help ecotourism most. I’d like to start with option one. <mark>Mielly mentions that</mark> people in Maricá only found out about the resort when the bulldozers arrived."],
-                ["Kenji","That’s true. <mark>Building on what you said before</mark>, a dialogue is important — but is it enough? Companies can talk and still do what they want."],
-                ["Lina","<mark>So, are you suggesting that</mark> option one is too weak on its own?"],
-                ["Kenji","Exactly. <mark>I’d go for</mark> option three, because Mielly also says lax reporting lets firms bluewash."],
-                ["Tom","<mark>Sorry to jump in, but</mark> what about the money? <mark>Spenceley and Rylance bring up a good example of</mark> the Africa Foundation supporting a clinic. That helps people right now."],
-                ["Sara","<mark>So far, we’ve discussed</mark> dialogue, checks and money. <mark>How about we think about</mark> combining one and three?"]
+                ["Sara","<mark>Ok, we’ve decided to talk about</mark> the best way to balance tourism and sustainability. Shall we look at each option first?"],
+                ["Kenji","I’d go for option one. <mark>Spenceley and Rylance talk about</mark> companies that fund clinics and conservation, so rewarding good operators could encourage more of that."],
+                ["Lina","<mark>Sorry to jump in, but</mark> can we trust certifications? <mark>Mielly mentions that</mark> lax reporting and a lack of enforcement have let firms use bluewashing."],
+                ["Tom","<mark>Building on what you said before</mark>, Lina, that’s why I prefer option two. Limiting visitors protects vulnerable areas directly."],
+                ["Kenji","<mark>So, are you suggesting that</mark> option one is useless?"],
+                ["Tom","Not useless — but weaker on its own. <mark>So far, we’ve discussed</mark> options one and two. <mark>How about we think about</mark> option three?"]
               ]
             },
             {
@@ -1135,21 +1235,21 @@ window.DEC15_LESSON = {
                 {"label":"Agree to disagree","phrases":["I think we see this differently, and that’s OK.","We haven’t reached a consensus, but most of us prefer …"]}
               ]
             },
-            {"type":"do","n":3,"who":"group","text":"<b>Negotiate for 10 minutes.</b> Use a timer. At the end, guess each person’s secret skill. Then tell the class: did you reach a consensus? Which option, and why?"}
+            {"type":"do","n":3,"who":"group","text":"<b>Negotiate for 10 minutes.</b> Use a timer. At the end, guess each person’s secret skill. Tell the class: did you reach a consensus? Which option, and why?"}
           ]
         },
         {
           id: "c4",
           short: "Reflect",
-          minutes: 10,
+          minutes: 15,
           grouping: "Alone → Class",
           art: "dec10/assets/week4/v/v-d10w4d5-c4.svg",
           title: "Reflection",
-          goal: "Think about how well you interacted — and choose what to practise next time.",
+          goal: "Think about how well you interacted — and plan what to practise next time.",
           blocks: [
             {
               type: "key",
-              title: "Interactive Discussion Assessment rubric · Interaction & Engagement",
+              title: "Interactive Discussion Task rubric · Interaction & Engagement",
               points: ["“... effectively interacts and engages in discussions with others’ contributions; occasional lapses in using turn-taking.”"]
             },
             {
@@ -1160,7 +1260,7 @@ window.DEC15_LESSON = {
             },
             {
               type: "fields",
-              title: "Answer the reflection questions",
+              title: "Now answer these reflection questions",
               fields: [
                 {"id":"c4-q1","label":"1. To what extent do you think you effectively interacted and engaged in the discussion?","rows":2},
                 {"id":"c4-q2","label":"2. Which specific discussion skills and language did you use to help you interact effectively?","rows":2},
@@ -1170,7 +1270,17 @@ window.DEC15_LESSON = {
                 {"id":"c4-q6","label":"6. Which specific turn-taking skills and language would you like to use more in your future discussions?","rows":2}
               ]
             },
-            {"type":"do","n":1,"who":"class","text":"Tell the class <b>one</b> thing you did well and <b>one</b> phrase you will use next time."}
+            {
+              type: "language",
+              title: "Useful language: turn-taking",
+              groups: [
+                {"label":"Take a turn","phrases":["Can I just say …","Could I add something to that?"]},
+                {"label":"Give a turn","phrases":["What do you think, …?","…, we haven’t heard from you yet."]},
+                {"label":"Keep your turn","phrases":["Just let me finish this point …","If I could just finish …"]}
+              ]
+            },
+            {"type":"do","n":1,"who":"class","text":"Report back: tell the class <b>one</b> thing you did well and <b>one</b> skill you will use more next time."},
+            {"type":"tip","text":"<b>After class:</b> remember to keep doing research for your Interactive Presentations."}
           ]
         }
       ]
@@ -1199,9 +1309,10 @@ window.DEC15_LESSON = {
               type: "key",
               title: "Teachable STAR moments",
               points: [
-                "Time where your teacher can <b>address specific questions</b> you have, and <b>address your specific language needs</b>.",
-                "They are about responsive, adaptive teaching — lessons tailored to your needs.",
-                "The best way to take part: <b>reflect on your learning needs</b> and <b>talk to your teacher</b> about them. Your feedback matters!"
+                "STAR moments are a key part of the DEC curriculum. They can last from an hour to a whole class.",
+                "They (a) tackle something that <b>most students need help with</b> at the moment, and (b) show how lessons apply directly to <b>your own</b> writing or learning challenges.",
+                "A STAR moment isn’t just any off-topic discussion. It is <b>chosen to meet your learning needs</b>.",
+                "You can and should <b>talk to your teacher</b> about what you’re struggling with and about your own learning needs."
               ]
             }
           ]
@@ -1227,7 +1338,7 @@ window.DEC15_LESSON = {
                 "Citing sources and my own voice",
                 "Integrated writing: planning and writing my essay",
                 "Group work: goals, plans, progress and challenges",
-                "Writing and refining AI prompts",
+                "Writing and refining AI prompts (iterative interaction)",
                 "Negotiating in an Interactive Discussion"
               ],
               columns: ["How do I feel?"],
@@ -1333,7 +1444,7 @@ window.DEC15_LESSON = {
                   title: "AI prompts",
                   clues: [
                     {"pts":100,"clue":"The four key elements of a good prompt.","answer":"What are role, task, requirements and instructions?"},
-                    {"pts":200,"clue":"The best constraint to stop AI inventing facts about a reading.","answer":"What is “Use only the text I paste below”?"},
+                    {"pts":200,"clue":"A series of back-and-forth exchanges with AI, like a conversation, instead of one single prompt.","answer":"What is iterative interaction?"},
                     {"pts":300,"clue":"The four steps of refining: formulate, consider, enhance and …","answer":"What is repeat?"}
                   ]
                 }
@@ -1354,7 +1465,7 @@ window.DEC15_LESSON = {
               type: "fields",
               fields: [
                 {"id":"d5-3","label":"3 things I learned this week","rows":3},
-                {"id":"d5-2","label":"2 useful phrases I will use again","placeholder":"We’ve made some significant progress. · Use only the text I paste below.","rows":2},
+                {"id":"d5-2","label":"2 useful phrases I will use again","placeholder":"We’ve made some significant progress. · Building on what you said before, …","rows":2},
                 {"id":"d5-1","label":"1 question I still have","rows":2}
               ]
             },
@@ -1365,9 +1476,9 @@ window.DEC15_LESSON = {
               title: "Ready for Week 5?",
               meter: ["ticked","Ready for Week 5!"],
               items: [
-                "I sent the follow-up message to my project group.",
-                "I know my task and my deadline from our plan of action.",
-                "I saved my best AI prompt.",
+                "I know our group’s next steps from the check-in.",
+                "I will keep doing research for our Interactive Presentation.",
+                "I saved my conversation log from Cogniti.",
                 "I told my teacher my top learning need."
               ]
             }
@@ -1376,7 +1487,88 @@ window.DEC15_LESSON = {
       ]
     }
   ],
-  extras: [],
+  extras: [
+    {
+      id: "x1",
+      short: "Group message",
+      minutes: 10,
+      grouping: "Alone",
+      art: "dec10/assets/week4/v/v-d10w4d5-x1.svg",
+      title: "After the check-in: confirm it in writing",
+      goal: "Write a short group-chat message that confirms your group’s next steps.",
+      blocks: [
+        {"type":"do","n":1,"who":"alone","text":"Write the message you will send to your group after today’s check-in. Include your <b>progress</b>, <b>who does what</b>, a <b>deadline</b> and the <b>next meeting</b>. The lights turn on as you use each part."},
+        {
+          type: "detect",
+          id: "x1-msg",
+          title: "Our group chat",
+          label: "Message writer",
+          checks: [
+            {"label":"Greeting + thanks","color":"#2f7d6b","any":["hi ","hello","thanks","thank you"]},
+            {"label":"Progress","color":"#3a58a0","any":["progress","so far","on track","we’ve finished","we've finished","we haven’t","we haven't"]},
+            {"label":"Who does what","color":"#8a4f9e","any":["will take on","could handle","will work on","is responsible for","will do","will look after","/\\b(i|you|he|she|[A-Z][a-z]+)\\s*('ll| will)\\b/"]},
+            {"label":"A deadline","color":"#c4562f","any":["by next","by monday","by tuesday","by wednesday","by thursday","by friday","deadline"]},
+            {"label":"Next meeting","color":"#b07d12","any":["next meeting","meet on","see you on","schedule","check-in","check in","let’s meet","let's meet"]}
+          ],
+          items: [
+            {
+              task: "A message to your group",
+              rows: 6,
+              placeholder: "Hi everyone, thanks for today’s check-in! Just to confirm …",
+              model: "Hi everyone, thanks for today’s check-in! So far we’ve made some significant progress. Just to confirm our next steps: Kenji will finish the case study notes and Sara will work on the statistics, both by next Wednesday. I’ll draft the introduction. One of our main concerns is the timeline, so let’s keep each other updated here. Our next meeting is on Friday at 6 pm on Zoom. Let me know if I missed anything."
+            }
+          ]
+        },
+        {
+          type: "language",
+          title: "Useful language: online group messages",
+          groups: [
+            {"label":"Open","phrases":["Hi everyone, thanks for today’s meeting!","Just a quick update on …"]},
+            {"label":"Confirm","phrases":["Just to confirm: …","As we agreed, …","Here is our plan: …"]},
+            {"label":"Close","phrases":["Let me know if I missed anything.","Please reply 👍 when you’ve read this.","See you on …!"]}
+          ]
+        }
+      ]
+    },
+    {
+      id: "x2",
+      short: "AI + integrity",
+      minutes: 8,
+      grouping: "Alone",
+      art: "dec10/assets/week4/v/v-d10w4d5-x2.svg",
+      title: "Using AI with academic integrity",
+      goal: "Decide when AI supports your learning — and when it replaces it.",
+      blocks: [
+        {
+          type: "key",
+          title: "Do the right thing",
+          policy: true,
+          points: [
+            "Acting with academic integrity means doing the ‘right thing’ even when a shortcut seems easier.",
+            "You must <b>acknowledge</b> where other people <b>or tools</b> have contributed to your work.",
+            "Rules can be different for each task. <b>Always check</b> what is allowed — ask your teacher if you are not sure."
+          ]
+        },
+        {
+          type: "sort",
+          id: "x2-sort",
+          title: "Support or replace?",
+          buckets: [
+            {"label":"Supports my learning","text":"I still do the thinking and the writing","letter":"✓"},
+            {"label":"Replaces my learning","text":"Not my own work — a risk to integrity","letter":"✗"}
+          ],
+          items: [
+            {"text":"Asking AI to explain a difficult word from the bluewashing article.","answer":0},
+            {"text":"Asking AI follow-up questions to understand eco-certifications better.","answer":0},
+            {"text":"Asking AI to write my Integrated Writing essay, then handing it in.","answer":1,"why":"The essay is not your own work."},
+            {"text":"Practising for the Interactive Discussion by asking AI to argue against my ideas.","answer":0},
+            {"text":"Copying an AI paragraph into my essay without saying I used AI.","answer":1,"why":"You must acknowledge the tool — and check what the task allows."},
+            {"text":"Using a reference the AI gave me without checking that it is real.","answer":1,"why":"AI can invent sources."}
+          ]
+        }
+      ]
+    }
+  ],
   glossary: [
     ["transactional listening","listening in a conversation that must get something done, e.g. agree a plan","In transactional listening, you check and confirm every decision."],
     ["plan of action","a list of tasks, who does them and by when","Our plan of action has four tasks and two deadlines."],
@@ -1391,6 +1583,12 @@ window.DEC15_LESSON = {
     ["bluewashing","using unclear words like “sustainable” to look responsible without really being responsible","Mielly (2023) describes bluewashing by multinationals."],
     ["consensus","an agreement that everyone in a group accepts","You do not necessarily have to reach a consensus."],
     ["compromise","an agreement where each side gives up a little","What if we combined options one and three as a compromise?"],
-    ["concede","to accept that another person’s point is true","I concede that dialogue alone may not be enough."]
+    ["concede","to accept that another person’s point is true","I concede that certification alone may not be enough."],
+    ["iterative interaction","a series of back-and-forth exchanges with AI, where each question builds on the last answer","Iterative interaction helped us explore the topic step by step."],
+    ["stakeholder","a person or group affected by a decision","Local communities and tour operators are both stakeholders."],
+    ["certification","an official document or label that shows something meets a standard","Sustainability certifications can be hard to check."],
+    ["incentive / subsidy","money or help from the government to encourage an action","Incentives could reward certified operators."],
+    ["rebate","money that is paid back to you","Tourists could get a rebate for low-carbon travel."],
+    ["on track","making the progress you planned","Do you think you are on track with your research?"]
   ]
 };

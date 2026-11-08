@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" fill="none" role="img" aria-label="The Week 5 practice question on a card: “Is cultural globalisation having a negative impact on culture?” (450–600 words). “Is” is marked blue, “cultural globalisation” and “culture” teal, and “negative impact” orange. Below, three possible positions: For (negative), Against (not only negative), Strongly against (positive).">
+<title>Analyse the question</title>
+<style>
+.w5q-fl{animation:w5q-fl 6s ease-in-out infinite}.w5q-f2{animation-delay:-2s}.w5q-f3{animation-delay:-4s}
+@keyframes w5q-fl{50%{transform:translateY(-6px)}}
+.w5q-fs{animation:w5q-fs 5s ease-in-out infinite}
+@keyframes w5q-fs{50%{transform:translateY(-3px)}}
+.w5q-tw{animation:w5q-tw 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w5q-t2{animation-delay:-1.1s}.w5q-t3{animation-delay:-2.2s}
+@keyframes w5q-tw{0%,100%{opacity:.3;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.w5q-bl{animation:w5q-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}
+@keyframes w5q-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+.w5q-pu{animation:w5q-pu 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w5q-p2{animation-delay:-1s}.w5q-p3{animation-delay:-2s}
+@keyframes w5q-pu{50%{transform:scale(1.08)}}
+.w5q-ring{animation:w5q-ring 3.6s ease-out infinite;transform-box:fill-box;transform-origin:center}.w5q-r2{animation-delay:-1.2s}.w5q-r3{animation-delay:-2.4s}
+@keyframes w5q-ring{0%{opacity:0;transform:scale(.85)}30%{opacity:.9}100%{opacity:0;transform:scale(1.15)}}
+.w5q-flow{stroke-dasharray:5 10;animation:w5q-flow 1.4s linear infinite}
+@keyframes w5q-flow{to{stroke-dashoffset:-30}}
+.w5q-draw{stroke-dasharray:400;stroke-dashoffset:400;animation:w5q-draw 5s ease-in-out infinite}
+@keyframes w5q-draw{0%{stroke-dashoffset:400}45%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:0;opacity:0}}
+.w5q-bar{animation:w5q-bar 1.1s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes w5q-bar{50%{transform:scaleY(.4)}}
+.w5q-spin{animation:w5q-spin 12s linear infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes w5q-spin{to{transform:rotate(360deg)}}
+.w5q-sw{animation:w5q-sw 5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes w5q-sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+.w5q-pop{animation:w5q-pop 4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w5q-o2{animation-delay:-1.3s}.w5q-o3{animation-delay:-2.6s}
+@keyframes w5q-pop{0%,20%{transform:scale(0);opacity:0}30%,85%{transform:scale(1);opacity:1}100%{transform:scale(1);opacity:0}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<filter id="w5q-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="11" stdDeviation="9" flood-color="#14293a" flood-opacity=".14"/><feDropShadow dx="0" dy="1.5" stdDeviation="1.2" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="w5q-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#14293a" flood-opacity=".16"/></filter>
+<filter id="w5q-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12"/></filter>
+<pattern id="w5q-dots" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="12" cy="12" r="1.2" fill="#14293a" fill-opacity=".08"/></pattern>
+<radialGradient id="w5q-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="w5q-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f6f0e3"/></linearGradient>
+<linearGradient id="w5q-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3c867"/><stop offset="1" stop-color="#d9962b"/></linearGradient>
+<linearGradient id="w5q-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2d4a66"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="w5q-blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b7fd0"/><stop offset="1" stop-color="#2f4f96"/></linearGradient>
+<linearGradient id="w5q-teal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3fa395"/><stop offset="1" stop-color="#226a61"/></linearGradient>
+<linearGradient id="w5q-clay" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e07a4f"/><stop offset="1" stop-color="#b0482a"/></linearGradient>
+<linearGradient id="w5q-plum" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9d6bb0"/><stop offset="1" stop-color="#6a3d7c"/></linearGradient>
+<linearGradient id="w5q-wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9c99b"/><stop offset="1" stop-color="#cfa46d"/></linearGradient>
+<linearGradient id="w5q-water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe3f5"/><stop offset="1" stop-color="#7cc0e3"/></linearGradient>
+
+</defs>
+
+<rect x="1" y="1" width="998" height="418" rx="26" fill="#f3f6fb"/><rect x="1" y="1" width="998" height="418" rx="26" fill="url(#w5q-dots)"/><g filter="url(#w5q-sh)"><rect x="30" y="30" width="940" height="250" rx="22" fill="#fff"/></g><rect x="30" y="30" width="940" height="44" rx="22" fill="url(#w5q-navy)"/><rect x="30" y="52" width="940" height="22" fill="url(#w5q-navy)"/><text x="500" y="59" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="800" fill="#fff" letter-spacing="1.5">QUESTION · Week 5 integrated writing workshops</text><rect x="155.2" y="100" width="69.4" height="54" rx="12" fill="#3a58a0" fill-opacity=".12"/><path d="M163.2 150h53.4" stroke="#3a58a0" stroke-width="5" stroke-linecap="round"/><text x="189.9" y="140" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="34" font-weight="800" fill="#3a58a0" >Is</text><rect x="238.6" y="100" width="463.8" height="54" rx="12" fill="#2b776e" fill-opacity=".12"/><path d="M246.6 150h447.8" stroke="#2b776e" stroke-width="5" stroke-linecap="round"/><text x="470.6" y="140" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="34" font-weight="800" fill="#2b776e" >cultural globalisation</text><text x="780.6" y="140" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="34" font-weight="600" fill="#14293a" >having</text><text x="197.5" y="216" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="34" font-weight="600" fill="#14293a" >a</text><rect x="226.4" y="176" width="325.8" height="54" rx="12" fill="#c4562f" fill-opacity=".12"/><path d="M234.4 226h309.8" stroke="#c4562f" stroke-width="5" stroke-linecap="round"/><text x="389.3" y="216" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="34" font-weight="800" fill="#c4562f" >negative impact</text><text x="590.9" y="216" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="34" font-weight="600" fill="#14293a" >on</text><rect x="629.6" y="176" width="187.8" height="54" rx="12" fill="#2b776e" fill-opacity=".12"/><path d="M637.6 226h171.8" stroke="#2b776e" stroke-width="5" stroke-linecap="round"/><text x="723.5" y="216" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="34" font-weight="800" fill="#2b776e" >culture?</text><rect x="830" y="236" width="120" height="30" rx="15" fill="#e3a843" fill-opacity=".25"/><text x="890" y="257" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="14" font-weight="800" fill="#14293a" >450–600 words</text><text x="520" y="312" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="900" fill="#7a4a8c" letter-spacing="1">Possible positions</text><g class="w5q-fs w5q-f1"><g filter="url(#w5q-sh2)"><rect x="40.0" y="340.0" width="290.0" height="40.0" rx="20.0" fill="#c4562f"/></g><rect x="43.0" y="342.0" width="284.0" height="15.2" rx="7.6" fill="#fff" fill-opacity=".16"/><text x="185" y="365.76" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="800" fill="#fff" >For: negative</text></g><g class="w5q-fs w5q-f2"><g filter="url(#w5q-sh2)"><rect x="355.0" y="340.0" width="290.0" height="40.0" rx="20.0" fill="#3a58a0"/></g><rect x="358.0" y="342.0" width="284.0" height="15.2" rx="7.6" fill="#fff" fill-opacity=".16"/><text x="500" y="365.76" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="800" fill="#fff" >Against: not only negative</text></g><g class="w5q-fs w5q-f3"><g filter="url(#w5q-sh2)"><rect x="670.0" y="340.0" width="290.0" height="40.0" rx="20.0" fill="#2b776e"/></g><rect x="673.0" y="342.0" width="284.0" height="15.2" rx="7.6" fill="#fff" fill-opacity=".16"/><text x="815" y="365.76" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="800" fill="#fff" >Strongly against: positive</text></g><path class="w5q-tw " d="M50 312C51.44 318.56 51.44 318.56 58 320C51.44 321.44 51.44 321.44 50 328C48.56 321.44 48.56 321.44 42 320C48.56 318.56 48.56 318.56 50 312z" fill="#e3a843"/><path class="w5q-tw w5q-t2" d="M960 323C961.26 328.74 961.26 328.74 967 330C961.26 331.26 961.26 331.26 960 337C958.74 331.26 958.74 331.26 953 330C958.74 328.74 958.74 328.74 960 323z" fill="#7a4a8c"/>
+</svg>

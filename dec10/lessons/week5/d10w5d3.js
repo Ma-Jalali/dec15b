@@ -775,3 +775,688 @@ window.DEC15_LESSON = {
         }
       ]
     },
+
+    /* ───────────────────────── 9A ───────────────────────── */
+    {
+      id: 'seminar',
+      number: '03',
+      code: '9A',
+      minutes: 75,
+      tone: 'teal',
+      art: 'dec10/assets/week5/s-d3-seminar.svg',
+      title: 'Seminar',
+      subtitle: 'Group 3 leads the Seminar · Group 4 opens',
+      outcome: 'You experience delivering a structured presentation to an audience, summarise and paraphrase information and viewpoints from sources, practise a range of speaking skills in a discussion, and make judgments about your peers’ work.',
+      activities: [
+        {
+          id: 'c1',
+          short: 'The steps',
+          minutes: 5,
+          grouping: 'Class',
+          art: 'dec10/assets/week5/v/v-d10w5d3-c1.svg',
+          title: 'Group 3 Seminar presentation, discussion and feedback · Review the steps',
+          goal: 'Know what Group 3 does and what you do — in all four parts.',
+          blocks: [
+            { type: 'do', n: 1, who: 'class', text: 'Seminar Group 3 will deliver today’s Seminar Presentation (10–12 minutes) in response to this question:' },
+            { type: 'model', title: 'Seminar Group 3’s question', text: '<b><i>How can eco-tourism in [your chosen country] be managed to both support conservation and benefit local communities?</i></b>' },
+            {
+              type: 'hotspot',
+              src: 'dec10/assets/week5/d3-seminar-flow.svg',
+              size: 'wide',
+              title: 'Review the steps',
+              hint: 'Tap each part: what Group 3 does (top) and what the rest of the class does (bottom).',
+              alt: 'The Seminar in four parts, about 40 minutes. Part 1: Group 3 presents for 10–12 minutes; the class listens and thinks of feedback. Part 2: the class discusses two questions for 10 minutes; each presenter sits with one group and only listens. Part 3: presenters summarise each group’s discussion in 1–2 minutes. Part 4: Group 3 gets feedback from the teacher; the class discusses and prepares peer feedback.',
+              caption: 'The Seminar: four parts, about 40 minutes.',
+              spots: [
+                { x: 14, y: 30, label: '1', color: '#2b776e', title: 'Part 1 · Presentation', text: '<b>Group 3:</b> give your 10–12-minute presentation: a brief outline of (a) the class reactions/questions and (b) the focus you selected (2–3 minutes); a summary of your research (8–10 minutes); introduce two thought-provoking questions.<br><b>The rest of the class:</b> sit in your seminar groups, download the Peer and Teacher Feedback Tool, and think of feedback FOR THE GROUP.' },
+                { x: 38, y: 30, label: '2', color: '#3a58a0', title: 'Part 2 · Discussion', text: '<b>Group 3:</b> one presenter sits with one discussion group. Listen and take notes for your summary. Do not participate in discussion!<br><b>The rest of the class:</b> discuss the two questions for 10 minutes.' },
+                { x: 62, y: 30, label: '3', color: '#b07d12', title: 'Part 3 · Summary', text: '<b>Group 3:</b> present a 1–2-minute summary of the main points of each group’s discussion.<br><b>The rest of the class:</b> listen to the summary.' },
+                { x: 86, y: 30, label: '4', color: '#8a4f9e', title: 'Part 4 · Feedback', text: '<b>Group 3:</b> sit with your teacher and take notes on the feedback. Ask for clarification.<br><b>The rest of the class:</b> discuss your feedback with the Feedback Tool, decide how to deliver it (video / audio / on the form) and upload it to Group 3’s Portfolio BY THE END OF TODAY — only ONE group member uploads.' }
+              ]
+            },
+            {
+              type: 'sort',
+              id: 'c1-sort',
+              title: 'Who does it?',
+              buckets: [{ label: 'Seminar Group 3', letter: 'G3' }, { label: 'The rest of the class', letter: 'All' }],
+              items: [
+                { text: 'Give a 10–12-minute presentation.', answer: 0 },
+                { text: 'Introduce two thought-provoking questions.', answer: 0 },
+                { text: 'Listen to a discussion and take notes — do not join in.', answer: 0 },
+                { text: 'Summarise each group’s discussion in 1–2 minutes.', answer: 0 },
+                { text: 'Download the Peer and Teacher Feedback Tool.', answer: 1 },
+                { text: 'Discuss the two questions for 10 minutes.', answer: 1 },
+                { text: 'Upload ONE group feedback to the presenting group’s Portfolio by the end of today.', answer: 1 }
+              ]
+            },
+            { type: 'download', id: 'feedback-tool', note: 'Download it now. The tool is general: mark <b>N/A</b> where a part does not fit (for example <b>Question & answer</b> is for Research Summary Presentations, not Seminars). You can add comments for individual presenters on pronunciation and language.' }
+          ]
+        },
+        {
+          id: 'c2',
+          short: 'Part 1 · Listen',
+          minutes: 12,
+          grouping: 'Seminar groups',
+          art: 'dec10/assets/week5/v/v-d10w5d3-c2.svg',
+          title: 'Group 3: Begin the Seminar Presentation · Part 1',
+          goal: 'Follow the presentation and collect feedback ideas for the group.',
+          blocks: [
+            { type: 'do', n: 2, who: 'class', text: 'Group 3: Begin the Seminar Presentation and Discussion.' },
+            { type: 'do', n: 3, who: 'alone', text: 'As you listen to the Seminar Presentation, think of what feedback to provide FOR THE GROUP. Take short notes.' },
+            {
+              type: 'table',
+              id: 'c2-notes',
+              title: 'Listening notes',
+              columns: ['Part of the talk', 'What they said (notes)', 'Feedback idea for the group'],
+              fixed: ['Class reactions/questions + their focus (2–3 min)', 'Research summary · point 1', 'Research summary · point 2', 'Research summary · point 3', 'The two discussion questions']
+            },
+            {
+              type: 'language',
+              title: 'Notes for feedback — quick phrases',
+              groups: [
+                { label: 'Content', phrases: ['clear focus from the Discussion Board', 'good evidence for …', 'needs a source for …', 'link to local communities?'] },
+                { label: 'Delivery', phrases: ['good eye contact', 'read from slides', 'smooth handover', 'clear chunking / stress'] },
+                { label: 'Note symbols', phrases: ['✓ = good', '? = unclear', '→ = leads to', '+ = add more', 'e.g. = example'] }
+              ]
+            },
+            { type: 'tip', text: 'Write the two discussion questions word for word. You need them for Part 2.' }
+          ]
+        },
+        {
+          id: 'c3',
+          short: 'Part 2 · Discuss',
+          minutes: 10,
+          grouping: 'Seminar groups',
+          art: 'dec10/assets/week5/v/v-d10w5d3-c3.svg',
+          title: 'Part 2 · Discuss for 10 minutes the two questions provided by the presenting group',
+          goal: 'Have a real discussion — build on each other’s ideas.',
+          blocks: [
+            {
+              type: 'key',
+              title: 'Two roles in Part 2',
+              points: [
+                '<b>The rest of the class:</b> discuss the two questions for 10 minutes. Talk to each other, not to the presenter.',
+                '<b>Group 3:</b> one presenter sits with one discussion group. Listen and take notes for your summary. Do not participate in discussion — and do not “interview” the group.'
+              ]
+            },
+            { type: 'fields', fields: [{ id: 'c3-qs', label: 'The two questions from Group 3', rows: 2, placeholder: '1 … 2 …' }] },
+            { type: 'do', n: 1, who: 'group', text: 'Spin a discussion move. Use it at least once in the discussion. Spin again when you have used it.' },
+            {
+              type: 'spinner',
+              id: 'c3-spin',
+              title: 'My discussion move',
+              text: 'Everyone spins. Try to use your move naturally.',
+              reels: [{ label: 'Move', items: ['Build on someone’s idea', 'Ask a quiet person for their view', 'Give an example from your country', 'Politely disagree', 'Ask for clarification', 'Bring in a source', 'Sum up the group’s ideas so far'] }]
+            },
+            {
+              type: 'language',
+              title: 'Seminar discussion language',
+              groups: [
+                { label: 'Give your view', phrases: ['From my point of view, …', 'I’d argue that eco-tourism can … as long as …', 'It seems to me that …'] },
+                { label: 'Build on ideas', phrases: ['Building on what … said, …', 'That’s a good point, and I’d add that …', 'Following on from that, …'] },
+                { label: 'Disagree politely', phrases: ['I see what you mean, but …', 'That’s true to some extent, however …', 'I’m not entirely convinced, because …'] },
+                { label: 'Clarify', phrases: ['Sorry, could you explain what you mean by …?', 'So are you saying that …?', 'Can you give an example?'] },
+                { label: 'Include others', phrases: ['What do you think, …?', 'We haven’t heard from … yet.', 'Does anyone see it differently?'] },
+                { label: 'Use examples / sources', phrases: ['In my country, for example, …', 'Group 3 mentioned that …', 'According to the presentation, …'] }
+              ]
+            },
+            {
+              type: 'chat',
+              title: 'Example: a few turns of a good discussion',
+              right: 'Mina',
+              lines: [
+                ['Leo', 'From my point of view, eco-tourism only helps if <mark>local people get the jobs</mark>.'],
+                ['Mina', '<mark>Building on what Leo said</mark>, the money should also pay for protecting the forest.'],
+                ['Sam', '<mark>I see what you mean, but</mark> who decides how the money is spent?'],
+                ['Mina', 'Good question. <mark>What do you think, Aya?</mark> You haven’t said anything yet.'],
+                ['Aya', '<mark>In my country, for example,</mark> villages vote on it every year.']
+              ]
+            }
+          ]
+        },
+        {
+          id: 'c4',
+          short: 'Parts 3–4 · Feedback',
+          minutes: 13,
+          grouping: 'Seminar groups',
+          art: 'dec10/assets/week5/v/v-d10w5d3-c4.svg',
+          title: 'Parts 3 and 4 · Summary and feedback',
+          goal: 'Listen to the summary, then agree on fair and useful feedback for Group 3.',
+          blocks: [
+            { type: 'do', n: 1, who: 'class', text: '<b>Part 3:</b> Group 3 presents a 1–2-minute summary of the main points of each group’s discussion. Listen to the summary. Did they summarise your group fairly?' },
+            { type: 'do', n: 2, who: 'group', text: '<b>Part 4:</b> Group 3 sits with the teacher. Your group discusses your feedback for the presenting group, using the Peer and Teacher Feedback Tool for Presentations.' },
+            {
+              type: 'form',
+              id: 'c4-form',
+              title: 'Our feedback for Group 3',
+              intro: 'Agree on one rating per statement as a group. Mark N/A where a statement does not fit a Seminar.',
+              observe: 'Which group are you giving feedback to?',
+              scale: ['Yes', 'Mostly', 'Needs work', 'N/A'],
+              cols: ['Comments', 'Action plan for further improvement'],
+              send: true,
+              sections: [
+                { label: 'Content delivery', items: ['The problem was clearly stated.', 'The cause/s were clearly stated.', 'Evidence for the cause/s was given.', 'The effect/s were clearly stated.', 'Evidence for the effect/s was given.', 'A solution was clearly stated.', 'Solution was evaluated.'] },
+                { label: 'Flow, visuals and the audience', items: ['We could follow the presentation easily: the ideas were clearly and logically connected.', 'Each group member’s turn flowed naturally and logically from the previous member.', 'Each group member’s contribution was equal in time and content.', 'Visuals were consistent for each group member and across all group members.', 'Body language and eye contact engaged the audience.', 'Visuals were clear and helped the audience understand the main ideas.', 'The presenters engaged the audience.'] },
+                { label: 'Fluency & pronunciation', hint: 'You can add comments for individual presenters.', items: ['Pronunciation was clear and could be easily understood.', 'We could hear the presenters using chunking, pausing and stress in their language.', 'We could hear the presenters using intonation in their speaking (speaking was not ‘flat’).'] },
+                { label: 'Language use', hint: 'You can add comments for individual presenters.', items: ['The grammar used was largely accurate and we could understand the meaning.', 'The vocabulary used was largely accurate and we could understand the meaning.', 'We could hear functional language (EG evaluating; explaining cause/effect; explaining problem).'] },
+                { label: 'Question & answer', hint: 'Usually N/A for a Seminar.', items: ['Answers were given spontaneously.', 'Answers were relevant.', 'Answers were clear.'] }
+              ]
+            },
+            { type: 'choose', id: 'c4-mode', title: 'Decide how you want to deliver your feedback', options: ['Video', 'Audio', 'Directly on the feedback tool form'] },
+            {
+              type: 'language',
+              title: 'Give feedback that helps',
+              groups: [
+                { label: 'Strengths', phrases: ['One thing you did really well was …', 'We liked the way you …', 'Your research on … was very convincing.'] },
+                { label: 'Suggestions', phrases: ['To make it clearer that …, you could …', 'Next time, it might help to …', 'You could strengthen … by adding …'] },
+                { label: 'Soften it', phrases: ['We felt that … was a little …', 'Perhaps you could …', 'It wasn’t always clear …'] },
+                { label: 'Group 3: ask the teacher', phrases: ['Could you give an example of what you mean?', 'Do you mean all of us, or just …?', 'What is the most important thing to change?'] }
+              ]
+            },
+            {
+              type: 'cards',
+              title: 'After class task: reminder',
+              items: [
+                { label: 'Group 3', text: '<b>Submit Portfolio Submission 3:</b> Written summary of, and reflection on, teacher’s and peer feedback on your Seminar presentation.' },
+                { label: 'Group 3', text: '<b>Submit Portfolio Submission 4 (Assessed Task):</b> Video response (see W1 D4 Introducing the Responding to Feedback Video Task) to all the teacher and peer feedback.' },
+                { label: 'Rest of class', text: '<b>Submit Peer Feedback 1 (Additional submission):</b> Discuss what feedback to give the Seminar presenting group (using the Peer and Teacher Feedback Tool) and choose a mode for the feedback (audio, video, written text, completed feedback tool). Upload your feedback to the presenting group’s portfolio.' }
+              ]
+            },
+            { type: 'tip', text: 'Your teacher tells you the due dates. Only ONE group member uploads your group’s feedback — by the end of today.' }
+          ]
+        },
+        {
+          id: 'c5',
+          short: 'Group 4 opens',
+          minutes: 10,
+          grouping: 'Class',
+          art: 'dec10/assets/week5/v/v-d10w5d3-c5.svg',
+          title: 'Group 4 Opening Remarks',
+          goal: 'Listen to Group 4 and write down what you want to know more about.',
+          blocks: [
+            { type: 'model', title: 'Seminar Group 4’s question', text: '<b><i>How can [your chosen country] encourage cultural diversity?</i></b>' },
+            { type: 'do', n: 1, who: 'class', text: 'Review the steps.' },
+            {
+              type: 'hotspot',
+              src: 'dec10/assets/week5/d3-opening-g4.svg',
+              size: 'wide',
+              title: 'Opening Remarks: Group 4 and the rest of the class',
+              hint: 'Tap the numbers.',
+              alt: 'Group 4’s Opening Remarks, 5–7 minutes, in three parts: 1 a brief introduction to the country and why they chose it, 2 causes and/or effects of the issue, 3 possible strategies or solutions. Below, the class listens and writes down what more they want to know.',
+              caption: 'Group 4: 5–7 minutes, three parts.',
+              spots: [
+                { x: 18, y: 32, label: '1', color: '#2b776e', title: 'The country', text: 'A brief introduction to the country you selected and why you chose it.' },
+                { x: 50, y: 32, label: '2', color: '#c4562f', title: 'Causes and/or effects', text: 'Causes and/or effects of the sustainability issue/problem.' },
+                { x: 82, y: 32, label: '3', color: '#3a58a0', title: 'Strategies', text: 'Possible strategies/solutions.' },
+                { x: 50, y: 82, label: '4', color: '#8a4f9e', title: 'The rest of the class', text: 'Pay attention to the group’s opening remarks. While you are listening, write down any more information you would like to know about the country and its issue.' },
+                { x: 88, y: 82, label: '5', color: '#b07d12', title: 'After the talk', text: 'Group 4: the teacher gives you some feedback on your Opening Remarks. Ask for clarification if there’s anything you don’t understand.' }
+              ]
+            },
+            { type: 'do', n: 2, who: 'class', text: 'Group 4: Give your Opening Remarks. Everyone else: take notes.' },
+            {
+              type: 'table',
+              id: 'c5-notes',
+              title: 'Group 4 · notes',
+              columns: ['Part', 'What they said', 'What I want to know more about'],
+              fixed: ['The country + why they chose it', 'Causes and/or effects', 'Possible strategies/solutions']
+            }
+          ]
+        },
+        {
+          id: 'c6',
+          short: 'React & post',
+          minutes: 10,
+          grouping: 'Seminar groups',
+          art: 'dec10/assets/week5/v/v-d10w5d3-c6.svg',
+          title: 'Feedback/Discussion',
+          goal: 'Discuss your reactions and post your group’s questions to the Discussion Board.',
+          blocks: [
+            {
+              type: 'tabs',
+              title: 'What do you do now?',
+              tabs: [
+                {
+                  label: 'Rest of the class',
+                  blocks: [
+                    {
+                      type: 'steps',
+                      items: [
+                        { who: 'group', text: 'Discuss your reactions to the <i>opening remarks</i> presentation content.' },
+                        { who: 'group', text: 'Prepare one or two questions you would like the group to answer about the problem they talked about (gaps in your knowledge you would like filled).' },
+                        { who: 'group', text: 'Post your group’s reactions and questions to the Discussion Board. Do this IN CLASS and do ONE POST PER GROUP.' }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  label: 'Group 3',
+                  blocks: [
+                    { type: 'do', who: 'group', text: 'Sit with your teacher. Listen to the verbal feedback and take notes — you need them for your Portfolio Submission. Ask about anything that is not clear.' },
+                    { type: 'fields', fields: [{ id: 'c6-g3', label: 'Group 3 · teacher feedback notes', rows: 4, placeholder: 'Content: … Engagement: … Pronunciation: … Next time we should …' }] }
+                  ]
+                }
+              ]
+            },
+            {
+              type: 'cards',
+              title: 'Good questions open a gap',
+              items: [
+                { label: 'Weak', text: 'Is cultural diversity good? <i>(yes/no — too easy)</i>' },
+                { label: 'Better', text: 'How does your country support minority languages in schools?' },
+                { label: 'Strong', text: 'Why do some cultural festivals get government money and others do not — and is that fair?' }
+              ]
+            },
+            {
+              type: 'detect',
+              id: 'c6-post',
+              title: 'Write your group’s Discussion Board post',
+              hint: 'One post per group: a reaction + one or two questions.',
+              checks: [
+                { label: 'Reaction', color: '#2b776e', any: ['interesting', 'surprised', 'we liked', 'we found', 'we agree', 'we were', 'impressed', 'reaction'] },
+                { label: 'Open question (how / why / what)', color: '#3a58a0', any: ['how', 'why', 'what', 'to what extent', 'in what way'] },
+                { label: 'Question mark', color: '#b07d12', any: ['?'] }
+              ],
+              items: [{ task: 'Our post', rows: 4, placeholder: 'We found it interesting that … We would like to know: How …? Why …?', model: 'We found it interesting that your country has so many languages. We would like to know: How does the government support small language communities? Why are some festivals more popular with young people than others?' }]
+            },
+            {
+              type: 'language',
+              title: 'Online post language',
+              groups: [
+                { label: 'React', phrases: ['Thanks, Group 4! We found it interesting that …', 'We were surprised to learn that …', 'Your point about … made us think about …'] },
+                { label: 'Ask', phrases: ['We would like to know more about …', 'Could you explain how/why …?', 'To what extent does …?'] }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'c7',
+          short: 'Next week',
+          minutes: 5,
+          grouping: 'Class',
+          art: 'dec10/assets/week5/v/v-d10w5d3-c7.svg',
+          title: 'Preparation for Next Week',
+          goal: 'Know what Group 4 must do before the Seminar next week — and how to write Portfolio Submission 1.',
+          blocks: [
+            {
+              type: 'figure',
+              src: 'dec10/assets/week5/d3-portfolio.svg',
+              size: 'wide',
+              alt: 'Group 4’s path: today the Opening Remarks and teacher feedback; then read the Discussion Board, choose a focus, write two questions and prepare slides; submit Portfolio Submission 1 before the Seminar; Week 6: Seminar Presentation (10–12 minutes); after it: Portfolio Submissions 3 and 4.',
+              caption: 'Group 4: from today to the Seminar in Week 6.'
+            },
+            {
+              type: 'checklist',
+              id: 'c7-g4',
+              title: 'Before the Seminar next week (Group 4)',
+              items: [
+                'Read reactions, comments and questions on the Discussion Board and identify any common themes and interesting ideas.',
+                'Select the focus of your seminar presentation from these comments and questions.',
+                'Think of two thought-provoking questions for the class to discuss in small groups for 10 minutes.',
+                'Prepare your Powerpoint Slides for your Presentation for Week 6 (10–12 minutes).',
+                'Submit Portfolio Submission 1 — BEFORE your Seminar Presentation in Week 6.'
+              ]
+            },
+            { type: 'tip', text: 'Don’t address ALL the questions on the Discussion Board — just choose one or two to focus your research.' },
+            {
+              type: 'model',
+              title: 'Portfolio Submission 1 — a written summary of, and reflection on, the teacher’s verbal feedback on your Opening Remarks',
+              text: '“Feedback on our Opening Remarks can be put into three categories: [E.g. <i>content, engagement with the audience and pronunciation</i>]. For content the feedback was [...]. For engagement, the teacher said [...]. For pronunciation, [...]. This feedback tells us that next time, we should ....”'
+            },
+            {
+              type: 'model',
+              title: 'Reminders for Week 6',
+              text: 'Group 4 - Seminar Presentation: <b>How can [your chosen country] encourage cultural diversity?</b>'
+            }
+          ]
+        },
+        {
+          id: 'c8',
+          short: 'Reflect',
+          minutes: 10,
+          grouping: 'Seminar groups',
+          art: 'dec10/assets/week5/v/v-d10w5d3-c8.svg',
+          title: 'Groupwork reflection',
+          goal: 'Talk honestly about how your group works — then work on your project.',
+          blocks: [
+            {
+              type: 'tabs',
+              title: 'Discuss these guiding questions',
+              tabs: [
+                {
+                  label: 'Today’s presenting group',
+                  blocks: [{
+                    type: 'talk',
+                    prompts: [
+                      'Did any issues come up about working as a group? (e.g., individual tasks, deadlines). If not, why not? If yes, were you able to express your concerns?',
+                      'How successfully do you think you supported each other?',
+                      'Was there a “leader” in your group, who initiated your progress? If so, how did they communicate and discuss their ideas and plans? If not, how did you manage your progress?',
+                      'Can you easily explain all the steps your group took in planning and carrying out the seminar task?'
+                    ]
+                  }]
+                },
+                {
+                  label: 'Other groups',
+                  blocks: [{
+                    type: 'talk',
+                    prompts: [
+                      'What are the strengths of your group work at the moment?',
+                      'Are there any aspects of your groupwork you would like to change or improve?'
+                    ]
+                  }]
+                }
+              ]
+            },
+            {
+              type: 'scale',
+              id: 'c8-me',
+              title: 'Quick check',
+              statement: 'Everyone in our group does a fair share of the work.',
+              ends: ['Not at all', 'Completely'],
+              mid: 'Mostly'
+            },
+            {
+              type: 'language',
+              title: 'Talk about teamwork',
+              groups: [
+                { label: 'Strengths', phrases: ['We’re good at sharing tasks fairly.', 'Everyone meets the deadlines we set.', '… keeps us on track.'] },
+                { label: 'Problems (politely)', phrases: ['Sometimes it’s hard to …', 'We could communicate better about …', 'I felt a bit … when …'] },
+                { label: 'Changes', phrases: ['From now on, we could …', 'Let’s agree to … by …', 'How about we check in every … ?'] }
+              ]
+            },
+            {
+              type: 'fields',
+              fields: [{ id: 'c8-change', label: 'One thing our group will change or keep doing', rows: 2, placeholder: 'From now on, we will …' }]
+            },
+            { type: 'do', n: 2, who: 'group', text: 'Now spend the time left working with your group. <b>Group 4:</b> prepare for your Seminar next week. <b>Other groups:</b> work on your Interactive Presentation research.' }
+          ]
+        }
+      ]
+    },
+
+    /* ───────────────────────── 10A (homework) ───────────────────────── */
+    {
+      id: 'aifb',
+      number: '04',
+      code: '10A',
+      minutes: 40,
+      tone: 'blue',
+      art: 'dec10/assets/week5/s-d3-aifb.svg',
+      title: 'AST: Digital literacy and AI: Using AI for feedback homework',
+      subtitle: 'When AI feedback helps — and when it does not',
+      outcome: 'You can distinguish the advantages and limitations of using AI tools to get feedback on your work, and analyse an assessment rubric with the help of AI.',
+      activities: [
+        {
+          id: 'd1',
+          short: 'Recap',
+          minutes: 5,
+          grouping: 'Alone',
+          art: 'dec10/assets/week5/v/v-d10w5d3-d1.svg',
+          title: 'Recap',
+          goal: 'Remember what you learnt about AI in Weeks 1, 3 and 4.',
+          blocks: [
+            {
+              type: 'figure',
+              src: 'dec10/assets/week5/d3-ai-tools.svg',
+              size: 'wide',
+              alt: 'Digital literacy tools: AI. Five overlapping circles: using tools to support learning, making choices based on relevance for learning, using prompts, critical engagement with AI-generated output, acknowledging use of AI.',
+              caption: 'Digital literacy tools: AI. This week: <b>using AI for feedback</b>.'
+            },
+            {
+              type: 'quiz',
+              id: 'd1-q',
+              title: 'Choose the correct answers',
+              items: [
+                {
+                  q: '1. Which statement is true for using AI in academic context?',
+                  options: ['AI is only useful for entertainment purposes.', 'AI can support academic work by generating ideas, organising information, and providing feedback.', 'AI is not allowed to be used in universities.', 'AI can be used in academic settings, but it only generates answers without any need for refinement.'],
+                  answer: 'AI can support academic work by generating ideas, organising information, and providing feedback.'
+                },
+                {
+                  q: '3. What is the iterative process?',
+                  options: ['A process where you keep asking different questions without evaluating responses.', 'Asking a single question and accepting the first response given by the AI.', 'Engaging in a series of back-and-forth questions, refining each prompt based on the previous response.', 'Using AI to generate a list of topics without needing to follow up.'],
+                  answer: 'Engaging in a series of back-and-forth questions, refining each prompt based on the previous response.'
+                }
+              ]
+            },
+            {
+              type: 'sort',
+              id: 'd1-sort',
+              title: '2. What are some methods or strategies to make a prompt more effective? (Select all that apply)',
+              hint: 'Put each statement in a box.',
+              buckets: [{ label: 'Makes a prompt more effective', letter: '✓' }, { label: 'Does not', letter: '✗' }],
+              items: [
+                { text: 'Including specific instructions, setting a role, and refining through trial and error.', answer: 0 },
+                { text: 'Asking follow-up questions based on the AI’s response.', answer: 0 },
+                { text: 'Keeping prompts as short and general as possible.', answer: 1 },
+                { text: 'Breaking down complex requests into smaller, more focused prompts.', answer: 0 }
+              ]
+            },
+            {
+              type: 'choose',
+              id: 'd1-survey',
+              title: '4. Did you find the iterative process more helpful for understanding a complex topic compared to a traditional search? (Survey style question — no right answer)',
+              options: ['Yes, because it allowed for deeper exploration and clarification through follow-up questions.', 'No, because traditional searches provide all answers at once.', 'No, because the iterative process only works for simple topics.', 'Yes, because it reduces the need to review AI-generated responses.']
+            }
+          ],
+          answers: { title: 'Answers', items: [['1', 'B'], ['2', 'A, B and D'], ['3', 'C'], ['4', 'Your own opinion (survey)']] }
+        },
+        {
+          id: 'd2',
+          short: 'Pros & cons',
+          minutes: 10,
+          grouping: 'Alone',
+          art: 'dec10/assets/week5/v/v-d10w5d3-d2.svg',
+          title: 'Introducing using AI for feedback',
+          goal: 'Know what AI feedback is good for — and where it is weak.',
+          blocks: [
+            {
+              type: 'key',
+              title: 'Why AI feedback?',
+              points: [
+                'Feedback from teachers and classmates helps you improve your writing and speaking.',
+                'Sometimes you need feedback that is <b>immediate</b> and about <b>your own</b> work. AI can help here.',
+                'AI can help you understand <b>assessment rubrics</b> and give instant, customised feedback — so you become a more independent learner.'
+              ]
+            },
+            {
+              type: 'figure',
+              src: 'dec10/assets/week5/d3-ai-balance.svg',
+              size: 'wide',
+              alt: 'A balance scale. On one side, five benefits of AI feedback: immediate, grammar vocabulary and structure, self-editing, paraphrasing and academic tone, adapts to you. On the other side, six limitations: limited understanding of academic topics, formal tone, basic feedback on arguments, unclear help with paraphrasing and plagiarism, misses cultural nuances, risk of relying too much. In the middle: best combined with teachers and your own review.',
+              caption: 'AI feedback: useful, but best <b>with</b> your teacher and your own careful review.'
+            },
+            {
+              type: 'cards',
+              title: 'These are some benefits of using AI for feedback',
+              items: [
+                { label: 'Immediate, On-Demand Feedback', text: 'AI provides instant feedback, allowing students to identify and correct mistakes right away, which keeps their learning momentum strong.' },
+                { label: 'Grammar, Vocabulary, and Structure Support', text: 'AI helps students improve grammar, expand vocabulary, and organise ideas more effectively, supporting their transition to academic English.' },
+                { label: 'Enhanced Self-Editing and Revision Skills', text: 'With AI, students can revise their work multiple times, building independence and developing critical self-editing skills.' },
+                { label: 'Practice with Paraphrasing and Academic Tone', text: 'AI encourages students to paraphrase and use formal language, essential for avoiding plagiarism and maintaining a scholarly tone.' },
+                { label: 'Adaptability for Individual Learning Needs', text: 'AI enables students to work at their own pace, focusing on specific areas they need to improve, fostering a personalized learning experience.' }
+              ]
+            },
+            {
+              type: 'quiz',
+              id: 'd2-tf',
+              title: 'Based on what you just read, are the following statements true or false?',
+              shared: ['True', 'False'],
+              items: [
+                { q: 'AI provides instant feedback, helping students identify and correct mistakes immediately, which supports continuous learning.', answer: 'True' },
+                { q: 'Students can use AI feedback to improve their ideas rather than helping with grammar, vocabulary, and structure.', answer: 'False', why: 'AI can support language learning if used for feedback on grammar, vocabulary and structure.' },
+                { q: 'AI can support students in improving their self-editing skills by allowing them to revise their work multiple times.', answer: 'True' },
+                { q: 'Using AI for feedback does not help students with paraphrasing or maintaining an academic tone.', answer: 'False', why: 'AI feedback can help students keep an academic tone.' }
+              ]
+            },
+            {
+              type: 'flip',
+              title: 'However, there are also limitations of using AI for feedback',
+              hint: 'Turn each card.',
+              items: [
+                { front: 'Limited Understanding of Academic Topics', back: 'AI doesn’t always “get” academic topics or specific areas of study, so sometimes its feedback might miss important ideas or terms that are key to your subject.' },
+                { front: 'Challenges with Formal Academic Tone', back: 'Although AI can help you choose words, it doesn’t always capture the formal, academic style you need. It might give suggestions that don’t sound quite right for university work.' },
+                { front: 'Basic Feedback on Arguments and Critical Thinking', back: 'AI often focuses on grammar and vocabulary but may not give helpful feedback on the strength of your arguments or how well you analyze ideas, which are very important in academic writing.' },
+                { front: 'Unclear Help with Paraphrasing and Plagiarism', back: 'AI isn’t always great at teaching you how to paraphrase correctly or avoid plagiarism. It might not guide you well on how to put things in your own words while giving proper credit to sources.' },
+                { front: 'Misses Cultural or Language Nuances', back: 'For students from different language backgrounds, AI can overlook cultural or language differences that might affect the feedback, giving advice that doesn’t fully fit your style or context.' },
+                { front: 'Risk of Relying Too Much on AI', back: 'Using AI can be helpful, but it’s important not to depend on it too much. Developing your own editing and critical thinking skills is key to becoming a strong academic writer.' }
+              ]
+            },
+            { type: 'sticky', title: 'Remember', text: 'AI is a great tool for quick feedback, but it’s best when combined with help from teachers and your own careful review of your work.', color: 'blue' },
+            {
+              type: 'talk',
+              title: 'Tell a classmate (in class tomorrow, or in a voice message tonight)',
+              prompts: ['Which benefit is most useful for you? Why?', 'Which limitation worries you most? Give an example.']
+            }
+          ]
+        },
+        {
+          id: 'd3',
+          short: 'AI or not?',
+          minutes: 10,
+          grouping: 'Alone',
+          art: 'dec10/assets/week5/v/v-d10w5d3-d3.svg',
+          title: 'Deciding whether to use AI for feedback',
+          goal: 'Read three situations and decide: should the student use AI for feedback?',
+          blocks: [
+            { type: 'do', n: 1, who: 'alone', text: 'Now that we have learnt both the benefits and limitations of using AI for feedback, read the following scenarios and help the students decide whether they should use AI for feedback. Bet coins on how sure you are.' },
+            {
+              type: 'bet',
+              id: 'd3-bet',
+              title: 'Should they use AI for feedback?',
+              items: [
+                {
+                  q: '<b>Scenario 1:</b> Sarah is preparing a short essay for her English class. She’s already drafted her ideas, but she’s not sure if her grammar and vocabulary are strong enough. She wants to check for common mistakes and see if there are suggestions for more academic vocabulary to make her essay sound formal. <b>Should Sarah use AI for feedback in this situation?</b>',
+                  options: ['Yes', 'No'],
+                  answer: 'Yes',
+                  why: 'Yes, Sarah can use AI for feedback here. AI is good at spotting grammar issues and suggesting formal vocabulary, which can help her make her essay more polished and academic.'
+                },
+                {
+                  q: '<b>Scenario 2:</b> Tom has written a persuasive essay for his politics class, where he argues for a specific policy change. He wants feedback on whether his arguments are strong, his evidence is convincing, and if he’s covered different perspectives fairly. <b>Should Tom use AI for feedback in this situation?</b>',
+                  options: ['Yes', 'No'],
+                  answer: 'No',
+                  why: 'No, Tom might not get the best feedback from AI in this case. AI is limited in assessing argument quality and critical analysis. It’s better for Tom to seek feedback from his teacher or a peer, who can give insight into the strength of his arguments and whether his evidence is effective.'
+                },
+                {
+                  q: '<b>Scenario 3:</b> Maria is working on a research summary for her sociology class and needs to paraphrase some of the main ideas from her sources. She also wants to make sure her tone is formal and academic to meet university standards. <b>Should Maria use AI for feedback in this situation?</b>',
+                  options: ['Yes', 'No'],
+                  answer: 'Yes',
+                  why: 'Yes, Maria can benefit from using AI in this case. AI can help her rephrase sentences and check for formal language, which will support her in developing a scholarly tone and practicing paraphrasing to avoid plagiarism.'
+                }
+              ]
+            },
+            {
+              type: 'fields',
+              fields: [{ id: 'd3-me', label: 'Your turn: think of one piece of your own work this week. Should you use AI for feedback on it? Why or why not?', rows: 3, placeholder: 'For my … I would / would not use AI because …' }]
+            },
+            {
+              type: 'language',
+              title: 'Give advice about AI use',
+              groups: [
+                { label: 'Advise', phrases: ['If I were Tom, I would ask …', 'It would be better to …', 'AI is useful for … , but not for …'] },
+                { label: 'Explain why', phrases: ['This is because AI tends to …', 'AI can’t really judge …', 'A teacher or peer can give insight into …'] }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'd4',
+          short: 'AI + rubric',
+          minutes: 15,
+          grouping: 'Alone',
+          art: 'dec10/assets/week5/v/v-d10w5d3-d4.svg',
+          title: 'Using AI to interpret rubrics',
+          goal: 'Write a prompt that helps you understand the Integrated Writing Assessment rubric.',
+          blocks: [
+            {
+              type: 'key',
+              title: 'Why the rubric?',
+              points: ['To get customised feedback from AI, both <b>you</b> and <b>the AI</b> must understand how teachers assess your work.', 'Today: the rubric for the <b>Integrated Writing Assessment</b>.']
+            },
+            {
+              type: 'steps',
+              items: [
+                { who: 'alone', text: '<b>Select an AI Tool:</b> use one of the AI tools introduced earlier in the course, either <b>Copilot</b> or <b>Cogniti’s Vanilla agent</b>.' },
+                { who: 'alone', text: 'If using Copilot, you can attach the rubric file directly. For Cogniti, you will need to copy and paste the rubric text into the chat.' },
+                { who: 'alone', text: 'Write a prompt with the four key elements: Role, Task, Requirements, Instructions.' }
+              ]
+            },
+            {
+              type: 'figure',
+              src: 'dec10/assets/week5/d3-prompt-parts.svg',
+              size: 'wide',
+              alt: 'Four parts of a prompt join like puzzle pieces: Role (act as…), Task (what you want), Requirements (conditions and what the output should look like), Instructions (how to do it, steps, examples). Together with the rubric file they go into the AI tool, which explains the rubric. An arrow loops back: ask follow-up questions.',
+              caption: 'Role + Task + Requirements + Instructions (+ the rubric) → a useful explanation.'
+            },
+            {
+              type: 'tabs',
+              title: 'Sample prompts',
+              tabs: [
+                { label: 'Role', blocks: [{ type: 'model', title: 'Role', text: 'Act as a friendly and helpful English tutor who explains things simply and clearly for someone learning academic writing at a B2 level.' }] },
+                { label: 'Task', blocks: [{ type: 'model', title: 'Task', text: 'Help me understand what my writing rubric means. Focus on four areas: Argumentation, Use of Sources, Connection of Ideas, Vocabulary and Grammar. Explain what I need to do to improve my writing and get a higher score.' }] },
+                { label: 'Requirements', blocks: [{ type: 'model', title: 'Requirements', list: ['Use simple and clear language that is easy for a B2 student to understand.', 'Give examples to show what a good and not-so-good answer looks like for each area.', 'Share tips or advice to help me improve in these areas.', 'Explain any difficult words so I can learn as I go.'] }] },
+                { label: 'Instructions', blocks: [{ type: 'model', title: 'Instructions', list: ['Start by telling me what each part (like Argumentation) means and why it’s important in my writing.', 'Explain the difference between a strong answer and a weak one in that area.', 'Give me an example to show what a good answer looks like.', 'Share one or two tips to help me get better at that part.', 'End with one simple thing I can remember or practice.'] }] }
+              ]
+            },
+            {
+              type: 'promptbuilder',
+              id: 'd4-pb',
+              title: 'Build your rubric prompt',
+              tryUrl: 'https://copilot.microsoft.com/',
+              tryLabel: 'Open Copilot',
+              parts: [
+                { key: 'role', id: 'd4-pb-1', label: 'Role', lead: 'Act as', placeholder: 'a friendly English tutor…', chips: ['a friendly and helpful English tutor', 'an experienced university writing teacher', 'a tutor for B2 students of academic English'] },
+                { key: 'task', id: 'd4-pb-2', label: 'Task', lead: 'Help me', placeholder: 'understand what my writing rubric means…', chips: ['understand what my Integrated Writing Assessment rubric means', 'understand the difference between each level of the rubric', 'focus on Argumentation, Use of Sources, Connection of Ideas, Vocabulary and Grammar'] },
+                { key: 'requirements', id: 'd4-pb-3', label: 'Requirements', lead: 'Make sure you', placeholder: 'use simple language…', chips: ['use simple and clear language for a B2 student', 'give an example of a good and a not-so-good answer for each area', 'explain any difficult words'] },
+                { key: 'instructions', id: 'd4-pb-4', label: 'Instructions', lead: 'Follow these steps:', placeholder: '1 explain each part, 2 …', chips: ['1 explain what each part means, 2 compare a strong and a weak answer, 3 give one or two tips', 'end with one simple thing I can remember or practise'] }
+              ]
+            },
+            {
+              type: 'language',
+              title: 'Follow-up prompts (the iterative process)',
+              groups: [
+                { label: 'Ask for more', phrases: ['Can you give me another example of a strong topic sentence?', 'What would a weak answer look like for Use of Sources?'] },
+                { label: 'Make it simpler', phrases: ['Please explain “cohesive” in simpler words.', 'Can you put that in a short table?'] },
+                { label: 'Check and question', phrases: ['Where in the rubric does it say that?', 'Are you sure? Please check the rubric again.'] }
+              ]
+            },
+            { type: 'do', n: 1, who: 'alone', text: 'Based on AI’s interpretation, answer the questions below.' },
+            {
+              type: 'quiz',
+              id: 'd4-q',
+              title: 'What does the rubric value?',
+              items: [
+                { q: 'Which of these approaches demonstrates strong argumentation?', options: ['Discussing several perspectives briefly, supported by a few examples.', 'Developing a central argument deeply, with detailed evidence and consideration of alternative views.', 'Highlighting key aspects of one perspective while referencing others indirectly.', 'Presenting a general argument that addresses key points without diving into details.'], answer: 'Developing a central argument deeply, with detailed evidence and consideration of alternative views.' },
+                { q: 'What best reflects effective use of sources?', options: ['Including information from multiple sources to strengthen your ideas, with clear integration and original analysis.', 'Summarising the main points of sources directly to give a balanced overview.', 'Referring to sources sparingly to keep the focus on your own ideas.', 'Integrating examples from sources directly into your text with minimal adjustments.'], answer: 'Including information from multiple sources to strengthen your ideas, with clear integration and original analysis.' },
+                { q: 'Which method ensures strong connectivity in writing?', options: ['Linking ideas with simple transitions that emphasize logical relationships between points.', 'Organizing sentences and paragraphs to follow a natural progression of ideas.', 'Using a variety of linking phrases to clarify relationships and enhance flow.', 'Grouping related ideas into paragraphs to create structure and clarity.'], answer: 'Using a variety of linking phrases to clarify relationships and enhance flow.' },
+                { q: 'Which approach demonstrates a strong use of vocabulary?', options: ['Choosing precise terms that fit the context, with a balance of academic and less formal expressions.', 'Using advanced terms occasionally, with consistent use of general vocabulary for most of the text.', 'Relying on familiar terms for clarity, with occasional attempts at less common words.', 'Balancing topic-specific vocabulary with general terms to convey ideas effectively.'], answer: 'Choosing precise terms that fit the context, with a balance of academic and less formal expressions.' },
+                { q: 'What reflects strong grammatical control in academic writing?', options: ['Using a variety of sentence types that show clear relationships between ideas, with few minor errors.', 'Balancing sentence complexity with clarity, emphasizing accurate use of grammar structures.', 'Incorporating advanced grammatical structures when needed, maintaining overall readability.', 'Writing clear and straightforward sentences that minimize errors while avoiding complexity.'], answer: 'Balancing sentence complexity with clarity, emphasizing accurate use of grammar structures.' }
+              ]
+            },
+            { type: 'tip', text: 'Check what the AI says against the real rubric on Canvas — AI can be wrong. If you use AI for your work, follow the course rules and acknowledge your use of AI.' }
+          ],
+          answers: { title: 'Answers', items: [['Argumentation', 'B'], ['Use of sources', 'A'], ['Connectivity', 'C'], ['Vocabulary', 'A'], ['Grammar', 'B']] }
+        }
+      ]
+    }
+  ],
+
+  extras: [],
+  glossary: [
+    ['cultural globalisation', 'the fast movement of ideas, values and culture (films, food, music, fashion) across national borders', 'Cultural globalisation means people around the world watch the same films.'],
+    ['homogenisation', 'when different cultures become more and more alike', 'Critics say global brands lead to cultural homogenisation.'],
+    ['hybridisation', 'mixing global and local cultural elements to make something new', 'Chinese streetwear that mixes global and local styles is an example of hybridisation.'],
+    ['Americanisation', 'the spread of American culture, brands and values around the world', 'Some writers now say the idea of Americanisation is outdated in Asia.'],
+    ['hegemony', 'strong control or influence of one group over others', 'Van Krieken (2016) refers to “American hegemony”.'],
+    ['counterargument', 'an argument against your own position', 'Sample 5.1 puts the counterargument in the last body paragraph.'],
+    ['refutation', 'showing why a counterargument is weak or wrong', 'Start your refutation with “However, …”.'],
+    ['thesis statement', 'the sentence that gives the writer’s position in the introduction', 'Our thesis statement says globalisation is not only negative.'],
+    ['joint construction', 'a text that a group plans and writes together', 'We wrote a joint construction in a shared Google Doc.'],
+    ['rubric', 'a table that shows the criteria and levels used to mark a task', 'Read the IWA rubric before you write.'],
+    ['criterion (pl. criteria)', 'one thing a teacher looks at when marking', 'Use of sources is one criterion in the rubric.'],
+    ['action plan', 'a list of exact things you will do to improve', 'My action plan says I will add the year to every citation.'],
+    ['text map', 'a diagram that shows how the ideas of an essay link together', 'Fill in the grey spaces in the text map.'],
+    ['iterative process', 'asking and improving again and again, step by step', 'The iterative process helped me understand the rubric.'],
+    ['opening remarks', 'a short first presentation that opens a seminar topic', 'Group 4 gave their Opening Remarks today.'],
+    ['portfolio submission', 'a piece of work you upload to your group’s Seminar Portfolio', 'Portfolio Submission 1 is a reflection on the teacher’s feedback.']
+  ]
+};

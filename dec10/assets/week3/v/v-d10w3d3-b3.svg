@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="A teacher holds a feedback list with ticks; a red pen and a speech bubble say “Good ideas — now make it academic”">
+<title>A teacher holds a feedback list with ticks; a red pen and a speech bubble say “Good ideas — now make it academic”</title>
+<style>
+.w3d3b3-fl{animation:w3d3b3-fl 6s ease-in-out infinite}.w3d3b3-f2{animation:w3d3b3-fl 7s ease-in-out -2.5s infinite}.w3d3b3-f3{animation:w3d3b3-fl 5.5s ease-in-out -4s infinite}
+.w3d3b3-tw{animation:w3d3b3-tw 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d3b3-t2{animation-delay:-1.1s}.w3d3b3-t3{animation-delay:-2.2s}
+.w3d3b3-bl{animation:w3d3b3-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.w3d3b3-b2{animation-delay:-1.7s}.w3d3b3-b3{animation-delay:-3.1s}
+.w3d3b3-pu{animation:w3d3b3-pu 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d3b3-p2{animation-delay:-1.6s}
+.w3d3b3-dr{stroke-dasharray:6 8;animation:w3d3b3-dr 1.8s linear infinite}
+.w3d3b3-sp{animation:w3d3b3-sp 24s linear infinite;transform-box:fill-box;transform-origin:center}
+.w3d3b3-ca{animation:w3d3b3-ca 1.1s steps(1) infinite}
+.w3d3b3-sw{animation:w3d3b3-sw 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.w3d3b3-wv{animation:w3d3b3-wv 2.6s ease-out infinite;transform-box:fill-box;transform-origin:left center;opacity:0}.w3d3b3-w2{animation-delay:.85s}.w3d3b3-w3{animation-delay:1.7s}
+.w3d3b3-rv{animation:w3d3b3-rv 5s ease-in-out infinite}
+.w3d3b3-gl{animation:w3d3b3-gl 5s ease-in-out infinite}
+@keyframes w3d3b3-fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes w3d3b3-tw{0%,100%{opacity:.35;transform:scale(.65)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes w3d3b3-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w3d3b3-pu{0%,100%{transform:scale(1)}20%{transform:scale(1.08)}40%{transform:scale(1)}}
+@keyframes w3d3b3-dr{to{stroke-dashoffset:-28}}
+@keyframes w3d3b3-sp{to{transform:rotate(360deg)}}
+@keyframes w3d3b3-ca{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes w3d3b3-sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes w3d3b3-wv{0%{opacity:0;transform:translateX(-4px) scale(.7)}30%{opacity:.9}100%{opacity:0;transform:translateX(8px) scale(1.2)}}
+@keyframes w3d3b3-rv{0%,15%{opacity:0;transform:translateY(6px)}30%,85%{opacity:1;transform:translateY(0)}100%{opacity:0}}
+@keyframes w3d3b3-gl{0%,100%{opacity:.55}50%{opacity:1}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}.w3d3b3-wv{opacity:.8}.w3d3b3-rv{opacity:1}}
+</style>
+<defs>
+<linearGradient id="w3d3b3-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fcf4ee"/><stop offset="1" stop-color="#f6e6dc"/></linearGradient>
+<pattern id="w3d3b3-dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="8" cy="8" r="1" fill="#b0512a" fill-opacity=".11"/></pattern>
+<radialGradient id="w3d3b3-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="w3d3b3-gls" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".5"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="w3d3b3-main" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b0512a"/><stop offset="1" stop-color="#8a3c1d"/></linearGradient>
+<linearGradient id="w3d3b3-pap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f7f4ee"/></linearGradient>
+<linearGradient id="w3d3b3-scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22384d"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="w3d3b3-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd76a"/><stop offset="1" stop-color="#e0a526"/></linearGradient>
+<filter id="w3d3b3-sh" x="-25%" y="-25%" width="150%" height="165%"><feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#14293a" flood-opacity=".13"/><feDropShadow dx="0" dy="1.5" stdDeviation="1.2" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="w3d3b3-sm" x="-40%" y="-40%" width="180%" height="190%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".17"/></filter>
+<filter id="w3d3b3-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8"/></filter>
+<clipPath id="w3d3b3-clip"><path d="M40 16C80 4 166 4 200 22c26 14 32 46 28 76-4 34-22 56-58 64-40 8-98 8-128-6C14 142 8 110 12 80 16 50 18 28 40 16z"/></clipPath>
+</defs>
+<g clip-path="url(#w3d3b3-clip)"><rect width="240" height="180" fill="url(#w3d3b3-bg)"/><rect width="240" height="180" fill="url(#w3d3b3-dots)"/><circle cx="120" cy="82" r="78" fill="url(#w3d3b3-glow)"/><ellipse cx="200" cy="30" rx="50" ry="36" fill="#f6e1d6" opacity=".8" filter="url(#w3d3b3-blur)"/></g>
+<path d="M40 16C80 4 166 4 200 22c26 14 32 46 28 76-4 34-22 56-58 64-40 8-98 8-128-6C14 142 8 110 12 80 16 50 18 28 40 16z" stroke="#b0512a" stroke-opacity=".18" stroke-width="2"/>
+<g transform="translate(58 168) scale(0.9)"><path d="M-15 -52h12v50h-12zM3 -52h12v50h-12z" fill="#2a3646" rx="5"/><ellipse cx="-9" cy="-1" rx="10" ry="4" fill="#14293a"/><ellipse cx="9" cy="-1" rx="10" ry="4" fill="#14293a"/><path d="M-22 -52c0-30 6-42 22-42s22 12 22 42z" fill="#2f7d6b"/><path d="M-22 -52c0-30 6-42 22-42s22 12 22 42z" fill="url(#w3d3b3-gls)" opacity=".35"/><path d="M-7 -93l7 9 7-9" stroke="#fff" stroke-opacity=".6" stroke-width="2.5" fill="none" stroke-linejoin="round"/><path d="M-20 -86q-8 18 -2 34" stroke="#2f7d6b" stroke-width="10" stroke-linecap="round" fill="none"/><circle cx="-21" cy="-49" r="6" fill="#f1c7a5"/><path d="M20 -86q16 2 30 -10" stroke="#2f7d6b" stroke-width="10" stroke-linecap="round" fill="none"/><circle cx="53" cy="-98" r="6" fill="#f1c7a5"/><rect x="-6" y="-100" width="12" height="10" fill="#f1c7a5"/><circle cx="0" cy="-114" r="19" fill="#f1c7a5"/><circle cx="0" cy="-136" r="9" fill="#b9772f"/><path d="M-19 -116c0 -14 8 -20 19 -20s19 6 19 20c-6 -6 -14 -9 -19 -9s-14 3 -19 9z" fill="#b9772f"/><g class="w3d3b3-bl "><ellipse cx="-6.5" cy="-113" rx="2.2" ry="2.6" fill="#14293a"/><ellipse cx="6.5" cy="-113" rx="2.2" ry="2.6" fill="#14293a"/></g><path d="M-5 -106q5 5 10 0" stroke="#8a3b2a" stroke-width="2" stroke-linecap="round" fill="none"/><circle cx="-11" cy="-108" r="3" fill="#e57b6a" opacity=".35"/><circle cx="11" cy="-108" r="3" fill="#e57b6a" opacity=".35"/></g><g class="w3d3b3-fl"><rect x="104" y="40" width="96" height="112" rx="14" fill="url(#w3d3b3-pap)" filter="url(#w3d3b3-sh)"/><circle cx="118" cy="58" r="6" fill="#2f7d6b"/><path d="M115.3 58l1.92 2.04 3.5999999999999996-3.96" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M130 58h52" stroke="#d8c8bc" stroke-width="4" stroke-linecap="round"/><circle cx="118" cy="78" r="6" fill="#2f7d6b"/><path d="M115.3 78l1.92 2.04 3.5999999999999996-3.96" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M130 78h48" stroke="#d8c8bc" stroke-width="4" stroke-linecap="round"/><circle cx="118" cy="98" r="6" fill="#2f7d6b"/><path d="M115.3 98l1.92 2.04 3.5999999999999996-3.96" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M130 98h44" stroke="#d8c8bc" stroke-width="4" stroke-linecap="round"/><circle cx="118" cy="118" r="6" fill="none" stroke="#b0512a" stroke-width="2"/><path d="M130 118h40" stroke="#d8c8bc" stroke-width="4" stroke-linecap="round"/><circle cx="118" cy="138" r="6" fill="none" stroke="#b0512a" stroke-width="2"/><path d="M130 138h36" stroke="#d8c8bc" stroke-width="4" stroke-linecap="round"/></g><g transform="translate(196 150) rotate(-60)"><rect x="0" y="-5" width="34" height="10" rx="2" fill="#c0392b"/><rect x="27.200000000000003" y="-5" width="4.08" height="10" fill="#e8a0a0"/><path d="M0 -5L-12 0L0 5z" fill="#f5deb3"/><path d="M-8 -1.7L-12 0L-8 1.7z" fill="#14293a"/></g><g class="w3d3b3-f3"><g filter="url(#w3d3b3-sm)"><rect x="14" y="14" width="110" height="30" rx="15" fill="#fff" stroke="none" stroke-width="0"/><path d="M29.200000000000003 42L26.200000000000003 60L47.2 42Z" fill="#fff" stroke="none" stroke-width="0" stroke-linejoin="round"/></g><text x="69" y="32.7" font-family="Manrope, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#14293a" text-anchor="middle">Now make it academic!</text></g>
+</svg>

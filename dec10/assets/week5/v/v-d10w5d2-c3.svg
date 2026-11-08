@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Headphones over a notes page with two columns, a minus column for negative impacts and a plus column for positive impacts, and sound waves">
+<title>Listen again for notes on the question</title>
+<style>
+.v52c3-tw{animation:v52c3-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.v52c3-t2{animation-delay:-1s}.v52c3-t3{animation-delay:-2s}
+.v52c3-fl{animation:v52c3-fl 6s ease-in-out infinite}.v52c3-f2{animation-delay:-2s}.v52c3-f3{animation-delay:-4s}
+.v52c3-bl{animation:v52c3-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.v52c3-b2{animation-delay:-1.7s}.v52c3-b3{animation-delay:-3.2s}
+.v52c3-pu{animation:v52c3-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.v52c3-u2{animation-delay:-1.3s}
+.v52c3-sp{animation:v52c3-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.v52c3-dr{stroke-dasharray:6 8;animation:v52c3-dr 1.6s linear infinite}
+.v52c3-wv{animation:v52c3-wv 2.4s ease-out infinite}.v52c3-w2{animation-delay:-.8s}.v52c3-w3{animation-delay:-1.6s}
+.v52c3-sw{animation:v52c3-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}.v52c3-s2{animation-delay:-2s}
+.v52c3-pen{animation:v52c3-pen 3s ease-in-out infinite}
+.v52c3-spin{animation:v52c3-spin 9s linear infinite}
+@keyframes v52c3-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes v52c3-fl{50%{transform:translateY(-4px)}}
+@keyframes v52c3-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes v52c3-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes v52c3-sp{to{transform:rotate(360deg)}}
+@keyframes v52c3-dr{to{stroke-dashoffset:-28}}
+@keyframes v52c3-wv{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes v52c3-sw{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes v52c3-pen{0%,100%{transform:translate(0,0)}25%{transform:translate(3px,-1px)}50%{transform:translate(6px,1px)}75%{transform:translate(9px,0)}}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs><linearGradient id="v52c3-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fcf2ec"/><stop offset="1" stop-color="#f4dccd"/></linearGradient>
+<pattern id="v52c3-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r=".9" fill="#b0512a" fill-opacity=".14"/></pattern>
+<radialGradient id="v52c3-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<filter id="v52c3-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="v52c3-blur" x="-20%" y="-80%" width="140%" height="260%"><feGaussianBlur stdDeviation="4"/></filter>
+<linearGradient id="v52c3-pap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#f3ead8"/></linearGradient>
+<linearGradient id="v52c3-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c162"/><stop offset="1" stop-color="#d9962e"/></linearGradient>
+<linearGradient id="v52c3-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c4c68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="v52c3-main" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ef9c78"/><stop offset="1" stop-color="#b0512a"/></linearGradient>
+<linearGradient id="v52c3-coral" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0694c"/><stop offset="1" stop-color="#c93b20"/></linearGradient>
+<radialGradient id="v52c3-ocean" cx=".38" cy=".32" r=".8"><stop offset="0" stop-color="#8fd3f0"/><stop offset=".6" stop-color="#2f6db5"/><stop offset="1" stop-color="#1d4680"/></radialGradient>
+</defs>
+<clipPath id="v52c3-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#v52c3-bg)"/><g clip-path="url(#v52c3-clip)"><rect width="240" height="180" fill="url(#v52c3-dots)"/><ellipse cx="116" cy="72" rx="110" ry="70" fill="url(#v52c3-glow)"/></g><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".7" stroke-width="1.2"/><ellipse cx="120" cy="162" rx="80" ry="6" fill="#14293a" opacity="0.12" filter="url(#v52c3-blur)"/><g filter="url(#v52c3-sh)"><rect x="60" y="52" width="120" height="104" rx="8" fill="url(#v52c3-pap)"/></g><path d="M120 62v86" stroke="#e1cdb8" stroke-width="2"/><circle cx="90" cy="68" r="9" fill="#e64626"/><path d="M85 68h10" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><circle cx="150" cy="68" r="9" fill="#2f7d6b"/><path d="M145 68h10M150 63v10" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><path d="M70 88h42" stroke="#c9d3dd" stroke-width="2.2" stroke-linecap="round"/><path d="M70 99h42" stroke="#c9d3dd" stroke-width="2.2" stroke-linecap="round"/><path d="M70 110h42" stroke="#c9d3dd" stroke-width="2.2" stroke-linecap="round"/><path d="M70 121h42" stroke="#c9d3dd" stroke-width="2.2" stroke-linecap="round"/><path d="M70 132h25.2" stroke="#c9d3dd" stroke-width="2.2" stroke-linecap="round"/><path d="M130 88h42" stroke="#c9d3dd" stroke-width="2.2" stroke-linecap="round"/><path d="M130 99h42" stroke="#c9d3dd" stroke-width="2.2" stroke-linecap="round"/><path d="M130 110h42" stroke="#c9d3dd" stroke-width="2.2" stroke-linecap="round"/><path d="M130 121h42" stroke="#c9d3dd" stroke-width="2.2" stroke-linecap="round"/><path d="M130 132h25.2" stroke="#c9d3dd" stroke-width="2.2" stroke-linecap="round"/><path d="M76 46v-6a44 30 0 0 1 88 0v6" stroke="#14293a" stroke-width="6" stroke-linecap="round"/><rect x="66" y="34" width="16" height="24" rx="7" fill="url(#v52c3-coral)"/><rect x="158" y="34" width="16" height="24" rx="7" fill="url(#v52c3-coral)"/><path class="v52c3-wv" d="M190 40q8 10 0 20" stroke="#e64626" stroke-width="3" stroke-linecap="round"/><path class="v52c3-wv v52c3-w2" d="M200 34q13 16 0 32" stroke="#e64626" stroke-width="3" stroke-linecap="round"/><path class="v52c3-wv v52c3-w3" d="M50 40q-8 10 0 20" stroke="#e64626" stroke-width="3" stroke-linecap="round"/><g class="v52c3-pen"><g transform="translate(176 140) rotate(-30) scale(0.85)"><rect x="-4" y="-30" width="8" height="30" fill="#f4c542"/><rect x="-4" y="-34" width="8" height="5" fill="#e8806b"/><rect x="-4" y="-30" width="8" height="2.5" fill="#c9d3dd"/><path d="M-4 0h8l-4 8z" fill="#f3d9b1"/><path d="M-1.4 5.4h2.8l-1.4 2.6z" fill="#14293a"/><path d="M-1.5-28v26" stroke="#fff" stroke-opacity=".45" stroke-width="1.2"/></g></g><path class="v52c3-tw " d="M26 106C26.72 109.28 26.72 109.28 30 110C26.72 110.72 26.72 110.72 26 114C25.28 110.72 25.28 110.72 22 110C25.28 109.28 25.28 109.28 26 106z" fill="#e3a843"/><path class="v52c3-tw v52c3-t2" d="M214 97C214.54 99.46 214.54 99.46 217 100C214.54 100.54 214.54 100.54 214 103C213.46 100.54 213.46 100.54 211 100C213.46 99.46 213.46 99.46 214 97z" fill="#e64626"/>
+</svg>

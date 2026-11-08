@@ -929,7 +929,7 @@
                   { label: 'Argument', color: '#2b776e', any: ['one key reason', 'firstly', 'another significant factor', 'additionally'] },
                   { label: 'Evidence', color: '#7a4a8c', any: ['according to', 'research indicates', 'studies have shown', 'data from'] },
                   { label: 'Counterargument', color: '#b0512a', any: ['may be argued', 'while it is true', '/might .* but/'] },
-                  { label: 'Conclusion', color: '#985c0e', any: ['in conclusion', 'to summarize', 'to summarise', 'therefore', 'so,'] }
+                  { label: 'Conclusion', color: '#985c0e', any: ['in conclusion', 'to summarize', 'to summarise', 'therefore', '/(^|[.!?] )So, /u'] }
                 ],
                 items: [{ task: 'Persuade your group to buy your laptop (about 60 seconds when you say it).', placeholder: 'In my opinion, the … is the best choice for students. One key reason is that …', rows: 6 }]
               }

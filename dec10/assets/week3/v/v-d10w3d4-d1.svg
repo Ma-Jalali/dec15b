@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="A friend persuades a student to go to the theatre instead of the cinema">
+<title>A friend persuades a student to go to the theatre instead of the cinema</title>
+<style>.w3d4d1-fl{animation:w3d4d1-fl 5.5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.w3d4d1-fl2{animation:w3d4d1-fl 6.5s ease-in-out -2.5s infinite;transform-box:fill-box;transform-origin:center}
+.w3d4d1-tw{animation:w3d4d1-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d4d1-tw2{animation-delay:-1.5s}
+.w3d4d1-bl{animation:w3d4d1-bl 4.6s infinite;transform-box:fill-box;transform-origin:center}
+.w3d4d1-pu{animation:w3d4d1-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d4d1-pu2{animation-delay:-1.3s}
+.w3d4d1-dr{stroke-dasharray:6 7;animation:w3d4d1-dr 1.5s linear infinite}
+.w3d4d1-sw{animation:w3d4d1-sw 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.w3d4d1-sp{animation:w3d4d1-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.w3d4d1-wv{animation:w3d4d1-wv 2.8s ease-out infinite;transform-box:fill-box;transform-origin:center;opacity:0}.w3d4d1-wv2{animation-delay:1.4s}
+.w3d4d1-rv{animation:w3d4d1-rv .9s ease-out both}.w3d4d1-d1{animation-delay:.15s}.w3d4d1-d2{animation-delay:.3s}.w3d4d1-d3{animation-delay:.45s}.w3d4d1-d4{animation-delay:.6s}
+@keyframes w3d4d1-fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes w3d4d1-tw{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes w3d4d1-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w3d4d1-pu{0%,100%{transform:scale(1)}15%{transform:scale(1.08)}30%{transform:scale(1)}}
+@keyframes w3d4d1-dr{to{stroke-dashoffset:-26}}
+@keyframes w3d4d1-sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes w3d4d1-sp{to{transform:rotate(360deg)}}
+@keyframes w3d4d1-wv{0%{opacity:0;transform:scale(.6)}25%{opacity:.8}100%{opacity:0;transform:scale(1.5)}}
+@keyframes w3d4d1-rv{from{transform:translateY(8px)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.w3d4d1-rv{opacity:1!important}.w3d4d1-wv{opacity:.5!important}}</style>
+<defs>
+<filter id="w3d4d1-sh" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="w3d4d1-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".18"/></filter>
+<pattern id="w3d4d1-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r=".9" fill="#14293a" fill-opacity=".08"/></pattern>
+<linearGradient id="w3d4d1-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9f1fb"/><stop offset=".6" stop-color="#fbfaf7"/><stop offset="1" stop-color="#c3d7f0" stop-opacity=".7"/></linearGradient>
+<linearGradient id="w3d4d1-ta" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b8fd0"/><stop offset="1" stop-color="#2f6db5"/></linearGradient>
+<linearGradient id="w3d4d1-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3c66a"/><stop offset="1" stop-color="#d1922a"/></linearGradient>
+<linearGradient id="w3d4d1-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c4c68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="w3d4d1-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f4f1ea"/></linearGradient>
+<radialGradient id="w3d4d1-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+</defs>
+<path transform="translate(120 94) scale(1)" d="M-76-54c22-30 78-34 118-14 34 17 50 54 36 88-14 34-56 50-98 44-46-6-82-38-78-74 2-18 10-32 22-44z" fill="#e9f1fb" fill-opacity="1"/><path class="w3d4d1-tw" d="M18 30h12M24 24v12" stroke="#2f6db5" stroke-width="2.4" stroke-linecap="round"/><path class="w3d4d1-tw w3d4d1-tw2" d="M208 152h12M214 146v12" stroke="#e3a843" stroke-width="2.4" stroke-linecap="round"/><circle class="w3d4d1-tw" cx="212" cy="34" r="3" fill="#2f6db5"/><circle class="w3d4d1-tw w3d4d1-tw2" cx="28" cy="150" r="3" fill="#e3a843"/><g filter="url(#w3d4d1-sh2)"><rect x="24" y="30" width="62" height="40" rx="6" fill="#55626e"/><path d="M24 40h62" stroke="#fff" stroke-dasharray="4 4" stroke-width="2"/></g><text x="55" y="62" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">cinema</text><g filter="url(#w3d4d1-sh2)"><path d="M150 30h66v40h-66z" fill="#b0512a"/><path d="M150 30q16 22 33 0q17 22 33 0" fill="#7a4a8c"/></g><text x="183" y="62" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">theatre</text><path class="w3d4d1-dr" d="M90 50Q118 34 146 50" stroke="#e3a843" stroke-width="3" stroke-linecap="round"/><path d="M134.0 49.2L146 50L139.2 40.1" stroke="#e3a843" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(80 170) scale(1.1 1.1)">
+<path d="M-25 0C-25 -22 -18 -34 0 -34C18 -34 25 -22 25 0Z" fill="#2f6db5"/><path d="M-25 0C-25 -22 -18 -34 0 -34C-10 -30 -16 -20 -17 0Z" fill="#fff" fill-opacity=".12"/>
+<path d="M-7 -33.5L0 -25.5L7 -33.5" stroke="#fff" stroke-opacity=".65" stroke-width="2" stroke-linejoin="round"/>
+<rect x="-5" y="-41" width="10" height="9" rx="3" fill="#f5d5bb"/>
+<circle cx="0" cy="-52" r="13.5" fill="#f5d5bb"/><path d="M-13.5 -53C-15 -69 15 -71 13.5 -53C9 -60-5-62-13.5-53Z" fill="#2b2b3a"/>
+<g class="w3d4d1-bl"><ellipse cx="-4.6" cy="-51.5" rx="1.6" ry="2.1" fill="#14293a"/><ellipse cx="4.6" cy="-51.5" rx="1.6" ry="2.1" fill="#14293a"/></g>
+<circle cx="-8" cy="-46.5" r="2.4" fill="#ef8f8f" fill-opacity=".35"/><circle cx="8" cy="-46.5" r="2.4" fill="#ef8f8f" fill-opacity=".35"/>
+<circle cx="0" cy="-44.5" r="2" fill="#14293a"/></g><g transform="translate(160 170) scale(-1.1 1.1)">
+<path d="M-25 0C-25 -22 -18 -34 0 -34C18 -34 25 -22 25 0Z" fill="#b0512a"/><path d="M-25 0C-25 -22 -18 -34 0 -34C-10 -30 -16 -20 -17 0Z" fill="#fff" fill-opacity=".12"/>
+<path d="M-7 -33.5L0 -25.5L7 -33.5" stroke="#fff" stroke-opacity=".65" stroke-width="2" stroke-linejoin="round"/>
+<rect x="-5" y="-41" width="10" height="9" rx="3" fill="#a8704a"/>
+<circle cx="0" cy="-52" r="13.5" fill="#a8704a"/><path d="M-14 -53C-17 -73 17 -73 14 -53L15.5 -37C11 -38 11 -46 11.5 -53C4 -60 -6 -60 -11.5 -53C-11 -46 -11 -38 -15.5 -37Z" fill="#8a5a2b"/>
+<g class="w3d4d1-bl"><ellipse cx="-4.6" cy="-51.5" rx="1.6" ry="2.1" fill="#14293a"/><ellipse cx="4.6" cy="-51.5" rx="1.6" ry="2.1" fill="#14293a"/></g>
+<circle cx="-8" cy="-46.5" r="2.4" fill="#ef8f8f" fill-opacity=".35"/><circle cx="8" cy="-46.5" r="2.4" fill="#ef8f8f" fill-opacity=".35"/>
+<ellipse cx="0" cy="-44.5" rx="3.4" ry="2.6" fill="#14293a"/><ellipse cx="0" cy="-43.6" rx="2" ry="1" fill="#e97a7a"/><path d="M17 -26C27 -30 34 -36 42 -42" stroke="#b0512a" stroke-width="8.5" stroke-linecap="round"/><circle cx="44" cy="-44" r="5" fill="#a8704a"/></g>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Three faces with real feelings — excited, anxious, relieved — and a crossed-out thought cloud I feel like…, which is a thought">
+<title>Expressing feelings</title>
+<style>
+.w3d1c5-fl{animation:w3d1c5-fl 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1c5-f2{animation-delay:-2s}.w3d1c5-f3{animation-delay:-4s}
+.w3d1c5-tw{animation:w3d1c5-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1c5-t2{animation-delay:-1s}.w3d1c5-t3{animation-delay:-2s}
+.w3d1c5-sp{animation:w3d1c5-sp 7s linear infinite;transform-box:fill-box;transform-origin:center}.w3d1c5-slow{animation-duration:14s}
+.w3d1c5-pu{animation:w3d1c5-pu 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1c5-p2{animation-delay:-1.2s}
+.w3d1c5-dr{stroke-dasharray:6 7;animation:w3d1c5-dr 1.5s linear infinite}
+.w3d1c5-bl{animation:w3d1c5-bl 5s infinite;transform-box:fill-box;transform-origin:center}.w3d1c5-b2{animation-delay:-1.7s}.w3d1c5-b3{animation-delay:-3.1s}
+.w3d1c5-sw{animation:w3d1c5-sw 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}
+.w3d1c5-ri{animation:w3d1c5-ri 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1c5-r2{animation-delay:-1.7s}.w3d1c5-r3{animation-delay:-3.4s}
+.w3d1c5-dw{stroke-dasharray:400;animation:w3d1c5-dw 6s ease-in-out infinite}
+@keyframes w3d1c5-fl{50%{transform:translateY(-4px)}}
+@keyframes w3d1c5-tw{0%,100%{opacity:.3;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes w3d1c5-sp{to{transform:rotate(360deg)}}
+@keyframes w3d1c5-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes w3d1c5-dr{to{stroke-dashoffset:-26}}
+@keyframes w3d1c5-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w3d1c5-sw{50%{transform:rotate(5deg)}}
+@keyframes w3d1c5-ri{0%{opacity:0;transform:translateY(10px)}25%,70%{opacity:1}100%{opacity:0;transform:translateY(-22px)}}
+@keyframes w3d1c5-dw{0%{stroke-dashoffset:400}40%,100%{stroke-dashoffset:0}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<linearGradient id="w3d1c5-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbefe8"/><stop offset="1" stop-color="#f2d6c6"/></linearGradient>
+<pattern id="w3d1c5-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1" fill="#b0512a" fill-opacity=".14"/></pattern>
+<linearGradient id="w3d1c5-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="w3d1c5-main" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e59a76"/><stop offset="1" stop-color="#b0512a"/></linearGradient>
+<linearGradient id="w3d1c5-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfeaf2"/><stop offset="1" stop-color="#f4fbf6"/></linearGradient>
+<linearGradient id="w3d1c5-leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9fd27f"/><stop offset="1" stop-color="#3f7a3a"/></linearGradient>
+<linearGradient id="w3d1c5-solar" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4d77c9"/><stop offset="1" stop-color="#1f3a78"/></linearGradient>
+<linearGradient id="w3d1c5-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6cf62"/><stop offset="1" stop-color="#d99a2b"/></linearGradient>
+<radialGradient id="w3d1c5-gs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".22"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient>
+<radialGradient id="w3d1c5-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<filter id="w3d1c5-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".18"/><feDropShadow dx="0" dy="1" stdDeviation=".7" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="w3d1c5-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#14293a" flood-opacity=".16"/></filter>
+<marker id="w3d1c5-ah" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1l7 4-7 4" fill="none" stroke="#b0512a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="w3d1c5-an" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1l7 4-7 4" fill="none" stroke="#14293a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<path id="w3d1c5-st" d="M0-6C.8-1.5 1.5-.8 6 0 1.5.8.8 1.5 0 6-.8 1.5-1.5.8-6 0-1.5-.8-.8-1.5 0-6z"/>
+
+</defs>
+<clipPath id="w3d1c5-clip"><rect x="6" y="6" width="228" height="168" rx="26"/></clipPath><rect x="6" y="6" width="228" height="168" rx="26" fill="url(#w3d1c5-bg)"/><rect x="6" y="6" width="228" height="168" rx="26" fill="url(#w3d1c5-dots)"/><g clip-path="url(#w3d1c5-clip)"><circle cx="210" cy="30" r="46" fill="#b0512a" opacity=".08"/><circle cx="26" cy="156" r="38" fill="#e3a843" opacity=".12"/><path d="M6 140c50-12 110-10 160 0s40 6 68-6v40H6z" fill="#b0512a" opacity=".07"/></g><g class="w3d1c5-fl"><g transform="translate(50 40)"><circle r="16" fill="#e3a843" filter="url(#w3d1c5-sh2)"/><circle r="16" fill="url(#w3d1c5-shine)" opacity=".5"/><circle cx="-5" cy="-4" r="2" fill="#14293a"/><circle cx="5" cy="-4" r="2" fill="#14293a"/><path d="M-6 3q6 6 12 0" stroke="#14293a" stroke-width="2" stroke-linecap="round"/></g></g><text x="74" y="44" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="800" fill="#14293a" text-anchor="start">excited</text><g class="w3d1c5-fl w3d1c5-f2"><g transform="translate(50 84)"><circle r="16" fill="#3a58a0" filter="url(#w3d1c5-sh2)"/><circle r="16" fill="url(#w3d1c5-shine)" opacity=".5"/><circle cx="-5" cy="-4" r="2" fill="#14293a"/><circle cx="5" cy="-4" r="2" fill="#14293a"/><path d="M-6 6q6-6 12 0" stroke="#14293a" stroke-width="2" stroke-linecap="round"/></g></g><text x="74" y="88" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="800" fill="#14293a" text-anchor="start">anxious</text><g class="w3d1c5-fl w3d1c5-f3"><g transform="translate(50 128)"><circle r="16" fill="#3f7a3a" filter="url(#w3d1c5-sh2)"/><circle r="16" fill="url(#w3d1c5-shine)" opacity=".5"/><circle cx="-5" cy="-4" r="2" fill="#14293a"/><circle cx="5" cy="-4" r="2" fill="#14293a"/><path d="M-6 3q6 6 12 0" stroke="#14293a" stroke-width="2" stroke-linecap="round"/></g></g><text x="74" y="132" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="800" fill="#14293a" text-anchor="start">relieved</text><g filter="url(#w3d1c5-sh)"><path d="M150 50c-4-16 14-26 26-18 6-12 28-10 30 6 14 0 18 20 6 26 4 14-12 22-22 14-8 10-26 8-30-4-14 2-20-16-10-24z" fill="#fff"/></g><text x="182" y="60" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="800" fill="#8a3c1d" text-anchor="middle">I feel</text><text x="182" y="74" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="800" fill="#8a3c1d" text-anchor="middle">like…</text><path d="M150 46l66 40" stroke="#c4562f" stroke-width="4" stroke-linecap="round" opacity=".85"/><path d="M160 100l4 14M176 104l2 12" stroke="#c9d3dd" stroke-width="3" stroke-linecap="round"/><rect x="150" y="132" width="72" height="22" rx="11.0" fill="#b0512a"/><text x="186.0" y="146.6" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" fill="#fff" text-anchor="middle">= a thought</text>
+</svg>

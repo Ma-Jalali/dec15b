@@ -14,7 +14,7 @@ window.DEC15_LESSON = {
   questionLabel: "Today’s focus · LRW Assessment 1",
   journey: "Today is your first Listening, Reading and Writing (LRW) Assessment. Find out what it checks, tick your checklist, warm up your voice with a partner, and refresh your best listening, reading and writing strategies. Learn the words in exam instructions. Then do the test — and afterwards, reflect on how you worked.",
   image: "dec10/assets/week5/hero-d10w5d5.svg",
-  imageAlt: "Illustration: a calm, sunny exam desk. Headphones with gentle sound waves, an open reading booklet with a magnifying glass, and a writing page with a pen and a tick sit side by side. A clock, a glass of water and a small plant are on the desk, and a student breathes slowly with a soft glowing circle behind her.",
+  imageAlt: "Illustration: a calm, sunny study room. A student sits at a desk with her eyes closed, breathing slowly inside a soft glowing circle. On the desk are a speaker with sound waves, an open book with a magnifying glass, an essay page with a pen and a green tick, and a glass of water. Floating labels say: Listen · predict, Read · skim & scan, Write · plan, cite, check, and breathe 4 · 4 · 4 · 4.",
   finish: {"title":"Week 6","text":"Green chemistry — and the final Seminar presentations"},
   goalShort: "LRW Assessment 1",
   sections: [
@@ -44,22 +44,32 @@ window.DEC15_LESSON = {
               title: "Your teacher and the DEC team give the official instructions",
               points: [
                 "This page does <b>not</b> have the test. It helps you get ready, stay calm and reflect.",
-                "The <b>DEC team</b> decides the time, the room, the order of the parts and the rules. Listen carefully and follow them.",
+                "Follow the <b>DEC team’s</b> instructions on the day. Check the Canvas announcements for this assessment.",
                 "Not sure about something? <b>Ask your teacher before the test starts.</b>"
+              ]
+            },
+            {
+              type: "key",
+              title: "The facts (from the Assessments page)",
+              points: [
+                "<b>Three tests, one after the other, with no break:</b> listening → reading → writing. Your writing uses ideas from the listening and the reading.",
+                "<b>Where:</b> in class, on Canvas, in LockDown Browser. <b>You need:</b> a laptop (not a phone or tablet).",
+                "<b>Paper:</b> 6 blank sheets for notes — they are collected at the end.",
+                "<b>It counts:</b> Week 5 listening 9%, reading 9% and integrated writing 13.5% of your total score. LRW Assessment 2 (Week 9) counts a little more."
               ]
             },
             {
               type: "hotspot",
               src: "dec10/assets/week5/d5-lrw-map.svg",
-              alt: "A map of the LRW Assessment with three connected zones. Zone 1, Listen: headphones and a lecture. Zone 2, Read: an open text. Both send arrows of notes into Zone 3, Write: an essay page with citations. A banner says: your notes from the sources become your evidence.",
+              alt: "A map of the LRW Assessment with three connected cards. Listen: a classroom speaker, about 35 minutes, heard once. Read: an open text, 50 minutes, Texts A, B and C. Write: an essay page with a citation, 90 minutes, 4 sources. Arrows labelled notes flow from Listen and Read into Write. A banner says: three tests, one after the other, no break; your notes become the evidence in your essay.",
               title: "Three skills, one assessment",
               hint: "Tap each number to see what the part checks.",
               size: "wide",
               spots: [
-                {"x":17,"y":46,"label":"1","title":"Listening","text":"You listen to academic input (like this week’s lecture) and take notes. Questions can ask you to <b>complete a sentence</b>, <b>answer in a few words</b> (e.g. <i>no more than 3 words</i>) or <b>choose the best answer</b>.","color":"#2b776e"},
-                {"x":50,"y":46,"label":"2","title":"Reading","text":"You read academic texts and find main ideas and details. Look for <b>paraphrases</b>: the question often uses different words from the text.","color":"#3a58a0"},
-                {"x":83,"y":46,"label":"3","title":"Writing","text":"You write an <b>argument essay</b> that answers a question and uses the <b>sources</b> as evidence — the skills from the Integrated Writing workshops. In Week 5 the practice question asked for <b>450–600 words</b>.","color":"#c4562f"},
-                {"x":50,"y":86,"label":"4","title":"The big idea","text":"Listening and reading are <b>input</b>. Your notes become the <b>evidence</b> in your writing. Good notes = an easier essay.","color":"#7a4a8c"}
+                {"x":17,"y":25.9,"label":"1","title":"Listening · about 35 minutes","text":"<b>Section 1:</b> two short conversations · 10 questions. <b>Section 2:</b> one lecture (10–12 min) in 3 parts · 20 questions. You hear it <b>once only</b>, and there are <b>no headphones</b>. You get time to read the questions first, and 8 minutes to check at the end.","color":"#2b776e"},
+                {"x":50,"y":25.9,"label":"2","title":"Reading · 50 minutes","text":"<b>Part 1:</b> three academic texts (500–700 words each) · 20–21 questions. <b>Part 2:</b> up to 10 questions that need <b>all three</b> texts — find common ideas and draw conclusions. Look for <b>paraphrases</b>: questions often use different words from the text.","color":"#3a58a0"},
+                {"x":83,"y":25.9,"label":"3","title":"Integrated writing · 90 minutes","text":"An argument essay of <b>450–600 words</b>. Plan for about 30 minutes, write for about 60. Use <b>four sources</b>: the lecture + Texts A, B and C. You can see the reading texts, and the lecture is played <b>again</b> 10 minutes after you get the question — take notes (no transcript). Cite <b>all</b> sources in APA 7 (in-text only, no reference list).","color":"#c4562f"},
+                {"x":15,"y":85.7,"label":"4","title":"The big idea","text":"Listening and reading are <b>input</b>. Your notes become the <b>evidence</b> in your writing. Good notes = an easier essay. Question types include multiple choice, short answer, gap-fill and matching.","color":"#7a4a8c"}
               ]
             },
             {
@@ -76,7 +86,7 @@ window.DEC15_LESSON = {
               coins: 10,
               items: [
                 {
-                  q: "The writing question in the Week 5 workshops asked for 450–600 words. What happens if you write only 450 words?",
+                  q: "The essay must be 450–600 words. What happens if you write only 450 words?",
                   options: ["That is fine — only writing below 450 words is a problem","You lose marks — you must write 600","It does not matter how many words you write"],
                   answer: "That is fine — only writing below 450 words is a problem",
                   why: "The Week 5 Teacher’s Book says: it is okay to write only 450 words. Don’t write more just for the sake of it. Answer the question fully and clearly."
@@ -92,6 +102,18 @@ window.DEC15_LESSON = {
                   options: ["copied exactly, without names","paraphrased and cited with author and year","left out — only your opinion counts"],
                   answer: "paraphrased and cited with author and year",
                   why: "<b>Use of Sources</b> is one of the four criteria: e.g. <i>Van Krieken (2016) argues that …</i> or <i>(Hassi &amp; Storti, 2012)</i>."
+                },
+                {
+                  q: "How many times do you hear the listening, and how?",
+                  options: ["Once only — played in the room, no headphones","Twice — with your own headphones","As many times as you like"],
+                  answer: "Once only — played in the room, no headphones",
+                  why: "So use the reading time to <b>predict</b>, and keep listening if you miss one answer."
+                },
+                {
+                  q: "In the writing test, how many sources must you use and cite?",
+                  options: ["One — the one you like best","Four — the lecture + Texts A, B and C","None — it is your opinion"],
+                  answer: "Four — the lecture + Texts A, B and C",
+                  why: "Cite <b>all</b> sources in APA 7 (in-text only) and show how they connect."
                 },
                 {
                   q: "Which of these is NOT one of the four rubric criteria?",
@@ -129,16 +151,18 @@ window.DEC15_LESSON = {
               title: "Tick each one",
               meter: ["ready","Ready — good luck!"],
               items: [
-                "I know the time and the room (or the online link).",
-                "My laptop is charged, and I have my charger.",
-                "My headphones work with my laptop. I tested the sound.",
-                "I can log in. I checked my password today.",
-                "I have my student card.",
-                "I have water, and I will arrive a little early.",
-                "I have heard or read the DEC team’s instructions.",
+                "I have a laptop that works (Windows 8+ or macOS, 4 GB RAM or more). Phones and tablets are not allowed.",
+                "My laptop runs for 3 hours — or I have a power bank. (You cannot plug into the wall.)",
+                "I installed LockDown Browser.",
+                "I did the LockDown Browser practice quiz.",
+                "I read “Language for online assessments”.",
+                "I removed language software (e.g. Sogou, Youdao) and turned off predictive text.",
+                "I checked the Canvas announcements for this assessment.",
+                "I know the time and the room. I will arrive a little early, with water.",
                 "I know my plan: analyse the question → plan → write → cite → check."
               ]
             },
+            {"type":"tip","text":"The links (LockDown Browser, the practice quiz, Language for online assessments) are on the <a href=\"#/assessments\">Assessments</a> page › <b>Get ready</b>."},
             {
               type: "figure",
               src: "dec10/assets/week5/d5-breathe.svg",
@@ -224,7 +248,7 @@ window.DEC15_LESSON = {
               type: "figure",
               src: "dec10/assets/week5/d5-listen-cycle.svg",
               size: "wide",
-              alt: "The listening cycle in four steps with icons. 1 Predict: read the questions and guess the kind of answer. 2 Keywords: underline key words and think of synonyms. 3 Listen and note: write short notes with symbols. 4 Check: count words and check spelling.",
+              alt: "The listening cycle in four steps. Before you listen: 1 Predict — what kind of answer: number, name or reason? 2 Keywords — underline them and think of synonyms. During: 3 Listen and note — once only, short notes with symbols. After: 4 Check — use the 8 minutes at the end to count words and check spelling.",
               caption: "Before, during and after you listen."
             },
             {
@@ -235,6 +259,7 @@ window.DEC15_LESSON = {
                 {"front":"Predict","back":"Read the questions first. Ask: is the answer a <b>number, a name, a noun or a reason</b>? Then you know what to listen for.","tag":"Before"},
                 {"front":"Keywords + synonyms","back":"Underline the key words. The speaker often says them in <b>other words</b>: <i>impose</i> ↔ <i>force onto</i>; <i>dominance</i> ↔ <i>hegemony</i>.","tag":"Before"},
                 {"front":"Signposts","back":"Listen for <i>However, …</i> · <i>Critics argue that …</i> · <i>In other words, …</i> — the answer often comes next.","tag":"During"},
+                {"front":"Once only","back":"You hear the recording <b>once</b>. Missed an answer? Leave it and catch the next one. Go back in the <b>8 minutes</b> at the end.","tag":"During"},
                 {"front":"Word limits","back":"<b>No more than 3 words</b> means 1, 2 or 3 words. Over the limit = zero. Check spelling too.","tag":"After"}
               ]
             },
@@ -319,6 +344,11 @@ window.DEC15_LESSON = {
                 {"label":"Structure","text":"the sentence is built in another way","eg":"powerful cultures shape local ones → local cultures are shaped by powerful ones"}
               ]
             },
+            {
+              type: "sticky",
+              title: "Reading Part 2: all three texts",
+              text: "Some questions need Texts A, B and C together. While you read Part 1, jot down each text’s main idea with its author and year (A: … / B: … / C: …). Then you can find common ideas fast — and you already have notes for your essay."
+            },
             {"type":"do","n":1,"who":"pair","text":"Choose one pair from the game. Explain to your partner <b>how</b> the paraphrase changes the words (synonyms, word form or structure)."},
             {"type":"sources","ids":["threeh"]}
           ]
@@ -335,15 +365,24 @@ window.DEC15_LESSON = {
             {
               type: "hotspot",
               src: "dec10/assets/week5/d5-question.svg",
-              alt: "The Week 5 practice question, “Is cultural globalisation having a negative impact on culture?”, on a card with coloured underlines and four numbered markers.",
+              alt: "The Week 5 practice question, “Is cultural globalisation having a negative impact on culture?” (450–600 words), on a card. “Is” is marked blue, “cultural globalisation” and “culture” teal, “negative impact” orange. Below are three possible positions: For (negative), Against (not only negative), Strongly against (positive).",
               title: "Analyse the question (the Week 5 practice question)",
               hint: "Tap each marker. Do the same five steps with the question in the test.",
               size: "wide",
               spots: [
-                {"x":24,"y":38,"label":"a","title":"Key content words","text":"<b>cultural globalisation</b> · <b>culture</b>. They tell you where to focus your reading and notes.","color":"#2b776e"},
-                {"x":56,"y":38,"label":"b","title":"Limiting words","text":"<b>negative impact</b>. They narrow your answer: focus on whether the impacts are negative.","color":"#c4562f"},
-                {"x":11,"y":38,"label":"c","title":"What is the question asking?","text":"<b>Is …?</b> asks you to <b>evaluate how much</b>: argue whether the impacts are (mostly) negative, with evidence.","color":"#3a58a0"},
-                {"x":50,"y":80,"label":"d","title":"Possible positions","text":"<b>For:</b> it is having a negative impact. <b>Against:</b> it is not only negative. <b>Strongly against:</b> it is having a positive impact.","color":"#7a4a8c"}
+                {"x":47.1,"y":23.8,"label":"a","title":"Key content words","text":"<b>cultural globalisation</b> · <b>culture</b>. They tell you where to focus your reading and notes.","color":"#2b776e"},
+                {"x":38.9,"y":41.9,"label":"b","title":"Limiting words","text":"<b>negative impact</b>. They narrow your answer: focus on whether the impacts are negative.","color":"#c4562f"},
+                {"x":19,"y":23.8,"label":"c","title":"What is the question asking?","text":"<b>Is …?</b> asks you to <b>evaluate how much</b>: argue whether the impacts are (mostly) negative, with evidence.","color":"#3a58a0"},
+                {"x":37.5,"y":72.9,"label":"d","title":"Possible positions","text":"<b>For:</b> it is having a negative impact. <b>Against:</b> it is not only negative. <b>Strongly against:</b> it is having a positive impact.","color":"#7a4a8c"}
+              ]
+            },
+            {
+              type: "key",
+              title: "90 minutes for the writing",
+              compare: [
+                {"label":"Plan · about 30 min","text":"Analyse the question, choose your position, and build your plan from your notes.","eg":"The lecture is played again 10 minutes after you get the question — be ready to take notes."},
+                {"label":"Write · about 60 min","text":"450–600 words. One main point per body paragraph, with evidence from the sources.","eg":"Use all four sources: the lecture + Texts A, B and C."},
+                {"label":"Check · last minutes","text":"Word count, citations, grammar.","eg":"APA 7 in-text citations only — no reference list."}
               ]
             },
             {
@@ -388,8 +427,8 @@ window.DEC15_LESSON = {
                 "My position is clear in the introduction and the conclusion.",
                 "Each body paragraph has one main point and a topic sentence.",
                 "I used ideas from the sources — paraphrased, not copied.",
-                "Every idea from a source has a citation (author, year).",
-                "I have at least the minimum number of words.",
+                "I used all four sources, and every idea from a source has an in-text citation (APA 7, no reference list).",
+                "I have at least 450 words.",
                 "I checked verbs, plurals and spelling."
               ]
             },
@@ -446,7 +485,7 @@ window.DEC15_LESSON = {
               title: "Asking politely about instructions (before the test starts)",
               groups: [
                 {"label":"Check the rules","phrases":["Excuse me, could you tell me how long we have for this part?","Are we allowed to use … ?","Could you repeat the instruction, please?"]},
-                {"label":"Problems","phrases":["Sorry, my headphones aren’t working.","Excuse me, I can’t log in.","Could I have some more paper, please?"]},
+                {"label":"Problems","phrases":["Excuse me, I can’t log in.","Sorry, LockDown Browser has frozen.","Excuse me, my battery is very low."]},
                 {"label":"Check your understanding","phrases":["Just to check — do we write the answer here?","So, we should answer in no more than three words?"]}
               ]
             },
@@ -520,7 +559,7 @@ window.DEC15_LESSON = {
     ["position","your answer or opinion on the question","Make your position clear in the thesis."],
     ["criterion (pl. criteria)","a standard used to judge work","Use of Sources is one criterion of the rubric."],
     ["rubric","a table that shows how work is marked","Read the rubric before you write."],
-    ["invigilator","a person who watches students during a test","Ask the invigilator if your headphones stop working."],
+    ["invigilator","a person who watches students during a test","Tell the invigilator if your laptop stops working."],
     ["reflect","think carefully about what you did and how to improve","Reflect on how you managed your time."]
   ]
 };

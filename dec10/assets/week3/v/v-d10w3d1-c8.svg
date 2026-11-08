@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Four playing cards fanned out: O observe, F feel, N need, R request">
+<title>The OFNR card game</title>
+<style>
+.w3d1c8-fl{animation:w3d1c8-fl 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1c8-f2{animation-delay:-2s}.w3d1c8-f3{animation-delay:-4s}
+.w3d1c8-tw{animation:w3d1c8-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1c8-t2{animation-delay:-1s}.w3d1c8-t3{animation-delay:-2s}
+.w3d1c8-sp{animation:w3d1c8-sp 7s linear infinite;transform-box:fill-box;transform-origin:center}.w3d1c8-slow{animation-duration:14s}
+.w3d1c8-pu{animation:w3d1c8-pu 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1c8-p2{animation-delay:-1.2s}
+.w3d1c8-dr{stroke-dasharray:6 7;animation:w3d1c8-dr 1.5s linear infinite}
+.w3d1c8-bl{animation:w3d1c8-bl 5s infinite;transform-box:fill-box;transform-origin:center}.w3d1c8-b2{animation-delay:-1.7s}.w3d1c8-b3{animation-delay:-3.1s}
+.w3d1c8-sw{animation:w3d1c8-sw 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}
+.w3d1c8-ri{animation:w3d1c8-ri 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1c8-r2{animation-delay:-1.7s}.w3d1c8-r3{animation-delay:-3.4s}
+.w3d1c8-dw{stroke-dasharray:400;animation:w3d1c8-dw 6s ease-in-out infinite}
+@keyframes w3d1c8-fl{50%{transform:translateY(-4px)}}
+@keyframes w3d1c8-tw{0%,100%{opacity:.3;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes w3d1c8-sp{to{transform:rotate(360deg)}}
+@keyframes w3d1c8-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes w3d1c8-dr{to{stroke-dashoffset:-26}}
+@keyframes w3d1c8-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w3d1c8-sw{50%{transform:rotate(5deg)}}
+@keyframes w3d1c8-ri{0%{opacity:0;transform:translateY(10px)}25%,70%{opacity:1}100%{opacity:0;transform:translateY(-22px)}}
+@keyframes w3d1c8-dw{0%{stroke-dashoffset:400}40%,100%{stroke-dashoffset:0}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<linearGradient id="w3d1c8-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbefe8"/><stop offset="1" stop-color="#f2d6c6"/></linearGradient>
+<pattern id="w3d1c8-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1" fill="#b0512a" fill-opacity=".14"/></pattern>
+<linearGradient id="w3d1c8-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="w3d1c8-main" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e59a76"/><stop offset="1" stop-color="#b0512a"/></linearGradient>
+<linearGradient id="w3d1c8-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfeaf2"/><stop offset="1" stop-color="#f4fbf6"/></linearGradient>
+<linearGradient id="w3d1c8-leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9fd27f"/><stop offset="1" stop-color="#3f7a3a"/></linearGradient>
+<linearGradient id="w3d1c8-solar" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4d77c9"/><stop offset="1" stop-color="#1f3a78"/></linearGradient>
+<linearGradient id="w3d1c8-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6cf62"/><stop offset="1" stop-color="#d99a2b"/></linearGradient>
+<radialGradient id="w3d1c8-gs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".22"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient>
+<radialGradient id="w3d1c8-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<filter id="w3d1c8-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".18"/><feDropShadow dx="0" dy="1" stdDeviation=".7" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="w3d1c8-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#14293a" flood-opacity=".16"/></filter>
+<marker id="w3d1c8-ah" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1l7 4-7 4" fill="none" stroke="#b0512a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="w3d1c8-an" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1l7 4-7 4" fill="none" stroke="#14293a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<path id="w3d1c8-st" d="M0-6C.8-1.5 1.5-.8 6 0 1.5.8.8 1.5 0 6-.8 1.5-1.5.8-6 0-1.5-.8-.8-1.5 0-6z"/>
+
+</defs>
+<clipPath id="w3d1c8-clip"><rect x="6" y="6" width="228" height="168" rx="26"/></clipPath><rect x="6" y="6" width="228" height="168" rx="26" fill="url(#w3d1c8-bg)"/><rect x="6" y="6" width="228" height="168" rx="26" fill="url(#w3d1c8-dots)"/><g clip-path="url(#w3d1c8-clip)"><circle cx="210" cy="30" r="46" fill="#b0512a" opacity=".08"/><circle cx="26" cy="156" r="38" fill="#e3a843" opacity=".12"/><path d="M6 140c50-12 110-10 160 0s40 6 68-6v40H6z" fill="#b0512a" opacity=".07"/></g><g transform="rotate(-28 120 210)"><rect x="96" y="36" width="48" height="70" rx="7" fill="#fff" stroke="#13887a" stroke-width="2.5" filter="url(#w3d1c8-sh2)"/><text x="120" y="76" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="800" fill="#13887a" text-anchor="middle">O</text><text x="120" y="96" font-family="Manrope, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#13887a" text-anchor="middle">observe</text></g><g transform="rotate(-9 120 210)"><rect x="96" y="36" width="48" height="70" rx="7" fill="#fff" stroke="#b0512a" stroke-width="2.5" filter="url(#w3d1c8-sh2)"/><text x="120" y="76" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="800" fill="#b0512a" text-anchor="middle">F</text><text x="120" y="96" font-family="Manrope, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#b0512a" text-anchor="middle">feel</text></g><g transform="rotate(10 120 210)"><rect x="96" y="36" width="48" height="70" rx="7" fill="#fff" stroke="#7a4a8c" stroke-width="2.5" filter="url(#w3d1c8-sh2)"/><text x="120" y="76" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="800" fill="#7a4a8c" text-anchor="middle">N</text><text x="120" y="96" font-family="Manrope, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#7a4a8c" text-anchor="middle">need</text></g><g transform="rotate(29 120 210)"><rect x="96" y="36" width="48" height="70" rx="7" fill="#fff" stroke="#3a58a0" stroke-width="2.5" filter="url(#w3d1c8-sh2)"/><text x="120" y="76" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="800" fill="#3a58a0" text-anchor="middle">R</text><text x="120" y="96" font-family="Manrope, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#3a58a0" text-anchor="middle">request</text></g><ellipse cx="120" cy="150" rx="86" ry="14" fill="#fff" opacity=".7"/><g transform="translate(40 40) scale(0.8)"><use href="#w3d1c8-st" class="w3d1c8-tw" fill="#e3a843"/></g><g transform="translate(204 48) scale(0.7)"><use href="#w3d1c8-st" class="w3d1c8-tw w3d1c8-t2" fill="#b0512a"/></g><g transform="translate(212 130) scale(0.6)"><use href="#w3d1c8-st" class="w3d1c8-tw w3d1c8-t3" fill="#3a58a0"/></g>
+</svg>
