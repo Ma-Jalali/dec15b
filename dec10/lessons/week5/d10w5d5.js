@@ -1,5 +1,5 @@
-/* DEC10 · Week 5 · Day 5 — LRW Assessment day.
-   Teacher's Book: W5 D5. 14A LRW Assessment — "Follow instructions from the DEC team." (no lesson content in the TB).
+/* DEC10 · Week 5 · Day 5 — Listening and Reading to Write (LRW) Assessment day.
+   Revised weekly map: W5 D5. 14 Listening and Reading to Write Assessment. Teacher's Book: 14A LRW Assessment — "Follow instructions from the DEC team." (no lesson content in the TB).
    This page has NO test content. It only explains the assessment (from what the Week 3–5 TB say about the LRW and the
    Integrated Writing Assessment), helps students get ready and calm, reviews strategies, and gives a reflection after the test.
    Practice items reuse Week 5 course texts and Week 5 TB questions only. Activity ids are the keys of saved work — never rename them. */
@@ -7,12 +7,12 @@ window.DEC15_LESSON = {
   id: "d10w5d5",
   week: 5,
   day: 5,
-  title: "LRW Assessment",
+  title: "Listening and Reading to Write Assessment",
   duration: "Assessment day",
   question: "How can I show what I really know — calmly, clearly and on time?",
   questionKind: "Focus question",
-  questionLabel: "Today’s focus · LRW Assessment 1",
-  journey: "Today is your first Listening, Reading and Writing (LRW) Assessment. Find out what it checks, tick your checklist, warm up your voice with a partner, and refresh your best listening, reading and writing strategies. Learn the words in exam instructions. Then do the test — and afterwards, reflect on how you worked.",
+  questionLabel: "Today’s focus · Listening and Reading to Write (LRW) Assessment 1",
+  journey: "Today is your first Listening and Reading to Write (LRW) Assessment: you listen, you read, and then you write using ideas from both. Find out what it checks, tick your checklist, warm up your voice with a partner, and refresh your best listening, reading and writing strategies. Learn the words in exam instructions. Then do the test — and afterwards, reflect on how you worked.",
   image: "dec10/assets/week5/hero-d10w5d5.svg",
   imageAlt: "Illustration: a calm, sunny study room. A student sits at a desk with her eyes closed, breathing slowly inside a soft glowing circle. On the desk are a speaker with sound waves, an open book with a magnifying glass, an essay page with a pen and a green tick, and a glass of water. Floating labels say: Listen · predict, Read · skim & scan, Write · plan, cite, check, and breathe 4 · 4 · 4 · 4.",
   finish: {"title":"Week 6","text":"Green chemistry — and the final Seminar presentations"},
@@ -25,9 +25,9 @@ window.DEC15_LESSON = {
       minutes: 60,
       tone: "blue",
       art: "dec10/assets/week5/s-d5-lrw.svg",
-      title: "LRW Assessment",
-      subtitle: "Get ready, stay calm, use your strategies — then reflect",
-      outcome: "You know what the LRW Assessment checks, you are ready on the day, you use your listening, reading and writing strategies, and you reflect on how you worked.",
+      title: "Listening and Reading to Write Assessment",
+      subtitle: "LRW Assessment 1 · get ready, stay calm, use your strategies — then reflect",
+      outcome: "You know what the Listening and Reading to Write (LRW) Assessment checks, you are ready on the day, you use your listening, reading and writing strategies, and you reflect on how you worked.",
       activities: [
         {
           id: "a1",
@@ -35,7 +35,7 @@ window.DEC15_LESSON = {
           minutes: 8,
           grouping: "Alone → pair",
           art: "dec10/assets/week5/v/v-d10w5d5-a1.svg",
-          title: "What is the LRW Assessment?",
+          title: "What is the Listening and Reading to Write (LRW) Assessment?",
           goal: "Understand what the assessment checks, so there are no surprises.",
           blocks: [
             {
@@ -133,7 +133,7 @@ window.DEC15_LESSON = {
                 {"label":"Check you understand","phrases":["Do you know if we can …?","Am I right in thinking that …?","I’m not sure about … — let’s ask the teacher."]}
               ]
             },
-            {"type":"tip","text":"This is <b>LRW Assessment 1</b>. There is a second LRW Assessment in Week 9 — so today is also great practice."}
+            {"type":"tip","text":"This is <b>Listening and Reading to Write (LRW) Assessment 1</b>. There is a second LRW Assessment in Week 9 — so today is also great practice."}
           ]
         },
         {

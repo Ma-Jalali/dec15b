@@ -26,11 +26,20 @@
     send: true, sendLabel: 'Send to the presenter',
     sendHint: 'Send your completed form to the presenter you gave feedback to, so they can save it in their Research & Seminar Presentations – Feedback & Action Plans folder.'
   });
+  /* the audience is never passive: four jobs, rotated after every presentation (the presentation format itself does not change) */
+  const JOBS = [
+    { label: 'Question master', text: 'Collect your group’s questions. Lead the vote. Hold up the C / P / AST card.', icon: 'chat' },
+    { label: 'Evidence detective', text: 'Write every source you hear aloud: name + year. Was one missing?', icon: 'search' },
+    { label: 'Cause → effect tracker', text: 'Note one cause → effect chain for each speaker.', icon: 'link' },
+    { label: 'Language spotter', text: 'Listen for useful phrases: hand-overs, cause and effect, sources.', icon: 'pen' }
+  ];
+  const jobPick = (id, n) => ({ type: 'cards', title: 'My audience job for Group ' + n + ' (tap one)', pick: id, items: JOBS });
   const groupSteps = n => ({
-    type: 'steps', items: [
-      { who: 'group', text: '<b>Step 1 (8–10 min):</b> Group ' + n + ' presents. Listen AND fill in the feedback tool for <b>your allocated presenter</b>. Start thinking of a question.' },
-      { who: 'alone', text: '<b>Step 2 (10 min):</b> write ONE question: <b>clarification</b>, <b>probing</b> or <b>AST</b>. The presenters reflect. Your teacher chooses 3–5 students to ask.' },
-      { who: 'group', text: '<b>Step 3 (5–7 min):</b> share your feedback in your group. Agree on <b>at least one action point</b>. (Your teacher gives feedback to the presenters.)' },
+    type: 'steps', title: 'Group ' + n + ' · what everyone does', items: [
+      { who: 'class', text: '<b>Before:</b> sit with your feedback group. Take a <b>new</b> audience job (pass your old job to the left). Have your three cards ready: <b>C</b>, <b>P</b>, <b>AST</b>.' },
+      { who: 'group', text: '<b>Step 1 (8–10 min):</b> Group ' + n + ' presents. Listen AND fill in the feedback tool for <b>your allocated presenter</b>. Do your audience job too. Start thinking of a question.' },
+      { who: 'alone', text: '<b>Step 2 (10 min):</b> write ONE question: <b>clarification</b>, <b>probing</b> or <b>AST</b>. The presenters reflect. In your group, read your questions aloud and <b>vote</b>: on “3”, point at the best one. Your teacher chooses 3–5 students to ask — <b>hold up your C, P or AST card</b> to show what kind of question you have.' },
+      { who: 'group', text: '<b>Step 3 (5–7 min):</b> share your feedback in your group. The detective, tracker and spotter report first (30 seconds each). Agree on <b>at least one action point</b>. (Your teacher gives feedback to the presenters.)' },
       { who: 'group', text: '<b>Step 4 (5 min):</b> your presenter sits with your group. Give the feedback face to face. Then <b>send</b> the form.' }
     ]
   });
@@ -69,7 +78,7 @@
             grouping: 'Class',
             art: V('a1'),
             title: 'Group Research Summary Presentations',
-            goal: 'Know where today fits — and what is new this week.',
+            goal: 'Know where today fits, what is new this week — and get your audience job.',
             blocks: [
               {
                 type: 'figure',
@@ -86,6 +95,22 @@
                   'Each group presents for <b>8–10 minutes</b> + <b>5 minutes</b> for follow-up questions.',
                   '<b>New this week:</b> as well as <b>probing</b> and <b>clarification</b> questions, you ask <b>AST</b> questions (about the Academic Success Toolkit).',
                   'No mark — just peer and teacher feedback with the <b>Peer and Teacher Presentation Feedback Tool</b>.'
+                ]
+              },
+              {
+                type: 'figure',
+                src: A + 'd4-audience-jobs.svg',
+                size: 'wide',
+                alt: 'An audience group of four sits in front of a presenter. Each audience member has a job badge: Question master with C, P and AST cards; Evidence detective with a magnifying glass writing name and year; Cause and effect tracker with an arrow chain; Language spotter with a phrase card. A circular arrow shows that the jobs rotate after every presentation.',
+                caption: 'Nobody just sits and watches: four audience jobs, a new job for every group.'
+              },
+              {
+                type: 'steps',
+                title: 'Do it now',
+                items: [
+                  { who: 'class', text: '<b>Stand up.</b> Go to your <b>feedback group</b>. Your teacher tells you which presenter your group gives feedback to.' },
+                  { who: 'group', text: 'Give out the four audience jobs. You keep the job for one presentation, then pass it to the left.' },
+                  { who: 'alone', text: 'Make three small cards: <b>C</b>, <b>P</b> and <b>AST</b> (three colours if you can). You will hold one up when you want to ask.' }
                 ]
               },
               {
@@ -123,7 +148,7 @@
                 ]
               },
               { type: 'download', id: 'feedback-tool', note: 'One form for each group you watch today: Groups 1, 2 and 3. Tick <b>Research Summary Presentation</b> at the top and save each form with the group’s name.' },
-              { type: 'do', n: 1, who: 'group', text: 'Run through your talk once, quickly. Each speaker: say your <b>first sentence</b> and your <b>hand-over</b> aloud — don’t read!' },
+              { type: 'do', n: 1, who: 'group', text: '<b>Presenters: stand up</b> in your speaking order, like on the day. Each speaker says your <b>first sentence</b> and your <b>hand-over</b> aloud, then steps back — don’t read! <b>Audience groups:</b> write one question starter on the back of each C / P / AST card.' },
               {
                 type: 'language',
                 title: 'Language for your group presentation',
@@ -135,7 +160,7 @@
                   { label: 'Close + take-away', phrases: ['<b>To sum up</b>, our research shows that …', '<b>The key take-away is</b> …', '<b>One thing we would like to research further is</b> …', '<b>Thank you for listening.</b> We’re happy to take your questions.'] }
                 ]
               },
-              { type: 'do', n: 2, who: 'group', text: '<b>Hot seat.</b> One person spins and asks. The speaker answers in 30 seconds <b>without notes</b>, using a starter. Take turns.' },
+              { type: 'do', n: 2, who: 'group', text: '<b>Hot seat.</b> The speaker <b>stands</b>. One person spins and asks. The speaker answers in 30 seconds <b>without notes</b>, using a starter. Then swap. (Audience groups play too: it is good practice for your own talk tomorrow.)' },
               {
                 type: 'spinner',
                 id: 'a2-spin',
@@ -170,7 +195,8 @@
                   { x: 82, y: 42, label: 'AST', title: 'AST — Academic Success Toolkit', text: 'You ask how the speaker used an academic skill: group work, research, self-regulation, feedback literacy, digital literacy and AI, criticality.<br><i>How did you make sure everyone’s ideas were considered?</i>', color: '#2b776e' }
                 ]
               },
-              { type: 'do', n: 1, who: 'group', text: 'Sort the questions. Then each person reads one aloud with good intonation (voice <b>up</b> on yes/no questions, <b>down</b> on wh- questions).' },
+              { type: 'do', n: 1, who: 'class', text: '<b>Three corners.</b> Corner 1 = C, corner 2 = P, corner 3 = AST. Your teacher reads a question from the list below. <b>Walk</b> to its corner. Wrong corner? Someone in the right corner explains why.' },
+              { type: 'do', n: 2, who: 'group', text: 'Back in your seat: sort the questions to check. Then each person reads one aloud with good intonation (voice <b>up</b> on yes/no questions, <b>down</b> on wh- questions).' },
               {
                 type: 'sort',
                 id: 'a3-sort',
@@ -198,7 +224,8 @@
                   { label: 'Soften your question', phrases: ['<b>I was wondering</b> how you …', '<b>Could you tell us a bit more about</b> …?', '<b>You mentioned</b> … . <b>Why did you</b> …?'] },
                   { label: 'Answer an AST question', phrases: ['<b>To manage our time, we</b> set a deadline for each part.', '<b>We used</b> a shared document <b>so that</b> everyone could add ideas.', '<b>I checked</b> my sources <b>using</b> the CRAAP test.', '<b>At first I thought</b> …, <b>but my research showed</b> …'] }
                 ]
-              }
+              },
+              { type: 'sticky', title: 'Say it like an academic · phrase of the stage', text: '“<b>I was wondering</b> how you decided to focus on … ?” — soft, polite, and it works for C, P and AST questions.' }
             ]
           },
           {
@@ -218,6 +245,31 @@
                 caption: 'Summary of procedure per group presentation — about 30 minutes for each group.'
               },
               groupSteps(1),
+              jobPick('a4-job', 1),
+              {
+                type: 'bingo',
+                id: 'a4-bingo',
+                title: 'Live task · Presentation bingo: who said it?',
+                hint: 'Everyone plays (the Language spotter leads). When you hear or see it, write the speaker’s name or initial in the square. Four in a row? Don’t shout — raise your hand silently and wait for the end of the talk.',
+                squares: [
+                  { text: 'A source said aloud: <b>name + year</b>' },
+                  { text: '“<b>One of the main drivers of</b> …”' },
+                  { text: '“<b>As a result</b>, …”' },
+                  { text: 'A number or a percentage' },
+                  { text: 'A smooth hand-over to the next speaker' },
+                  { text: '“… <b>is likely to lead to</b> …”' },
+                  { text: 'Eye contact with the back of the room' },
+                  { text: 'A clear problem statement' },
+                  { text: '“… <b>due to</b> …”' },
+                  { text: 'A solution' },
+                  { text: 'The solution is evaluated (pros / cons)' },
+                  { text: 'A pause before a key point' },
+                  { text: '“<b>To sum up</b>, …”' },
+                  { text: 'The key take-away' },
+                  { text: 'A cause → effect chain with evidence' },
+                  { text: '“<b>Thank you for listening.</b>”' }
+                ]
+              },
               {
                 type: 'fields',
                 fields: [{ id: 'a4-q', label: 'My question for Group 1 (write C, P or AST first)', rows: 2, placeholder: 'AST: How did you make sure everyone’s ideas were considered?' }]
@@ -245,10 +297,26 @@
             goal: 'Same steps — this time, try a different kind of question.',
             blocks: [
               groupSteps(2),
+              jobPick('a5-job', 2),
+              {
+                type: 'table',
+                id: 'a5-track',
+                title: 'Live task · Cause → effect + evidence tracker (everyone; the detective and the tracker lead)',
+                columns: ['Speaker', 'Cause', '→ Effect', 'Source said aloud? (name + year)'],
+                fixed: ['Speaker 1', 'Speaker 2', 'Speaker 3'],
+                extraRows: true
+              },
               { type: 'choose', id: 'a5-kind', title: 'Challenge: this time I will ask a …', options: ['Clarification question', 'Probing question', 'AST question'] },
               { type: 'fields', fields: [{ id: 'a5-q', label: 'My question for Group 2', rows: 2, placeholder: 'Probing: Why did you choose to focus on …?' }] },
               tool('a5-tool', 2),
-              { type: 'do', n: 1, who: 'group', text: 'Before Step 4, read how one group gives feedback. Notice the <mark>highlighted</mark> moves: praise, suggest, action point, check.' },
+              { type: 'do', n: 1, who: 'class', text: '<b>Class vote</b> (after Step 2): your teacher reads the options. <b>Hands up</b> for one. The winner is Group 2’s “star feature” — say it to them in Step 4.' },
+              { type: 'choose', id: 'a5-vote', title: 'Group 2’s strongest feature was …', options: ['Clear causes and effects', 'Sources said aloud', 'Smooth hand-overs', 'Clear visuals', 'Spontaneous answers to questions'] },
+              {
+                type: 'toggle',
+                title: 'Want more? A model of giving feedback',
+                hint: 'Read it before Step 4 if you are not sure what to say.',
+                blocks: [
+              { type: 'do', n: 2, who: 'group', text: 'Read how one group gives feedback. Notice the <mark>highlighted</mark> moves: praise, suggest, action point, check.' },
               {
                 type: 'chat',
                 title: 'Giving feedback to your presenter — a model',
@@ -263,6 +331,8 @@
                   ['Feedback group', 'Yes! <mark>We’ll send you the form now</mark> so you can save it.']
                 ]
               }
+                ]
+              }
             ]
           },
           {
@@ -275,9 +345,17 @@
             goal: 'Same steps — and make your feedback really useful.',
             blocks: [
               groupSteps(3),
+              jobPick('a6-job', 3),
+              {
+                type: 'fields',
+                title: 'Live task · Catch the take-away',
+                fields: [{ id: 'a6-take', label: 'Group 3’s message in ONE sentence (use a cause → effect phrase)', rows: 2, placeholder: 'Group 3 argued that … is likely to lead to … , so …' }]
+              },
               { type: 'fields', fields: [{ id: 'a6-q', label: 'My question for Group 3', rows: 2, placeholder: 'Clarification: Could you clarify how …?' }] },
               tool('a6-tool', 3),
-              { type: 'do', n: 1, who: 'group', text: 'Before you give your feedback: which comments help a presenter, and which don’t? Sort them.' },
+              { type: 'do', n: 1, who: 'class', text: '<b>Card vote</b> (after Step 2): which question got the most useful answer? On “3”, everyone holds up the card — <b>C</b>, <b>P</b> or <b>AST</b>. The question master counts for your group.' },
+              { type: 'choose', id: 'a6-award', title: 'Best-answer award goes to the …', options: ['Clarification question', 'Probing question', 'AST question'] },
+              { type: 'do', n: 2, who: 'group', text: 'Before you give your feedback: which comments help a presenter, and which don’t? Sort them.' },
               {
                 type: 'sort',
                 id: 'a6-sort',
@@ -338,8 +416,15 @@
                   }
                 ]
               },
+              { type: 'do', n: 1, who: 'class', text: '<b>Opinion line-up.</b> Stand up. One wall = “Not yet”, the other wall = “Yes, easily”. Stand on the line: <i>I answered (or asked) questions spontaneously, without reading.</i> Tell the person next to you why you are standing there. Then sit down and rate yourself.' },
               { type: 'scale', id: 'a7-ans', title: 'Rate yourself', statement: 'I answered (or asked) questions spontaneously, without reading.', ends: ['Not yet', 'Yes, easily'] },
-              { type: 'talk', title: 'Share in your group', prompts: ['The best question I heard today was … because …', 'One thing I will copy from today’s presenters is …', 'One thing I will avoid is …'] },
+              { type: 'do', n: 2, who: 'pair', text: '<b>Walk and talk.</b> Find someone from a <b>different</b> feedback group. Walk to the window and back while you talk. Use the starters below.' },
+              { type: 'talk', title: 'Walk and talk', prompts: ['The best question I heard today was … because …', 'In my audience job, I noticed that …', 'One thing I will copy from today’s presenters is …', 'One thing I will avoid is …'] },
+              {
+                type: 'fields',
+                title: 'Exit ticket',
+                fields: [{ id: 'a7-exit', label: 'One phrase I will use in my next presentation or Q&A', rows: 1, placeholder: 'That’s a good question. What I meant was …' }]
+              },
               {
                 type: 'key',
                 title: 'After class',
@@ -384,7 +469,17 @@
                 type: 'key',
                 title: 'How to take part',
                 points: ['Teachable STAR moments are about responsive, adaptive teaching — lessons tailored to <b>your</b> needs.', 'The best way to take part: <b>reflect on your learning needs</b> and <b>talk to your teacher</b> about them. Your feedback matters!']
-              }
+              },
+              {
+                type: 'steps',
+                title: 'Stand up, sit down',
+                items: [
+                  { who: 'class', text: 'Everyone stands. Your teacher reads a sentence. <b>Sit down</b> if it is <b>not</b> true for you. Stand up again for the next one.' },
+                  { who: 'class', text: '“I have a question about AST questions.” · “I want more practice with cause and effect.” · “I’m not sure how to cite a source.” · “I find it hard to answer questions on the spot.”' },
+                  { who: 'class', text: 'Look around: who is still standing? Those are your helpers — or your partners — in the next activity.' }
+                ]
+              },
+              { type: 'sticky', title: 'Say it like an academic · phrase of the stage', text: '“Could we <b>go over</b> … again, please? I <b>understand</b> …, <b>but not</b> … .”' }
             ]
           },
           {
@@ -420,7 +515,8 @@
                   { id: 'b2-q', label: 'A question I want to ask my teacher', placeholder: 'I’m still not sure how to …', rows: 2 }
                 ]
               },
-              { type: 'do', n: 1, who: 'pair', text: 'Compare with a partner. Do you have the same need? Can your partner help you right now?' }
+              { type: 'do', n: 1, who: 'class', text: '<b>Need mingle.</b> Stand up with your notebook. Walk and ask: “What’s your top need?” Find someone with the <b>same</b> need (or one you can help with). Sit together.' },
+              { type: 'do', n: 2, who: 'pair', text: 'Can you help each other right now? Try for two minutes. What is still not clear goes into your question for the teacher.' }
             ]
           },
           {
@@ -466,7 +562,13 @@
                   { label: 'Academic style', text: 'formal words, no contractions', icon: 'pen' }
                 ]
               },
-              { type: 'do', n: 2, who: 'class', text: 'Tell your teacher your vote and your question. Your teacher will use them for the rest of the STAR moment.' }
+              { type: 'do', n: 2, who: 'class', text: '<b>Sticky-note board.</b> Write your question on a sticky note. Stick it on the board under one of the four topics above. Then walk past the board and put a tick (✓) on <b>two</b> other questions you also want answered.' },
+              { type: 'do', n: 3, who: 'class', text: 'The topic with the most notes and ticks wins. Your teacher answers the top questions in the rest of the STAR moment. Listen and take one note.' },
+              {
+                type: 'fields',
+                title: 'Exit ticket',
+                fields: [{ id: 'b3-exit', label: 'After the STAR moment: one thing I understand better now', rows: 2, placeholder: 'Now I understand that … / I can now …' }]
+              }
             ]
           }
         ]
@@ -503,7 +605,8 @@
                   'After your individual presentation, you answer <b>4–6 follow-up questions</b> about your presentation content and about how you applied your academic skills.'
                 ]
               },
-              { type: 'do', n: 1, who: 'pair', text: 'Close the box above. Explain the task to your partner in <b>three sentences</b>. Then play.' },
+              { type: 'do', n: 1, who: 'pair', text: 'Close the box above. Explain the task to your partner in <b>three sentences</b>.' },
+              { type: 'do', n: 2, who: 'class', text: '<b>Stand up for true.</b> Your teacher reads each sentence below. True? Stand up. False? Stay seated. Then bet your coins on the screen.' },
               {
                 type: 'bet',
                 id: 'c1-bet',
@@ -526,6 +629,7 @@
             title: 'Timeline: check-in',
             goal: 'Where are we on the road to Week 7?',
             blocks: [
+              { type: 'do', n: 1, who: 'class', text: '<b>Human timeline.</b> The front wall is the road: Week 1 on the left, Week 7 on the right. Stand where <b>your own research</b> is now — not where the calendar is. Say to your neighbour: “I’m here because …”.' },
               {
                 type: 'hotspot',
                 src: A + 'd4-ip-road.svg',
@@ -562,6 +666,16 @@
             title: 'Group check-in',
             goal: 'Report your progress, solve problems and ask your teacher.',
             blocks: [
+              {
+                type: 'cards',
+                title: 'Group jobs for this check-in (one each)',
+                items: [
+                  { label: 'Chair', text: 'Calls each speaker. Keeps the talk on progress, problems and next steps.', icon: 'users' },
+                  { label: 'Timekeeper', text: 'One minute per person. Says “30 seconds left”.', icon: 'clock' },
+                  { label: 'Language monitor', text: 'Ticks the progress-update phrases you hear.', icon: 'pen' },
+                  { label: 'Note-taker', text: 'Writes everyone’s next step for the group agreement.', icon: 'list' }
+                ]
+              },
               { type: 'do', n: 1, who: 'alone', text: 'Rate your progress honestly.' },
               {
                 type: 'grid',
@@ -587,6 +701,13 @@
                   { label: 'In progress', phrases: ['<b>I’m still working on</b> …', '<b>I’m stuck on</b> … — any ideas?', '<b>I’m having trouble finding</b> data on …'] },
                   { label: 'Help + next', phrases: ['<b>Why don’t you</b> try …?', '<b>Have you thought about</b> …?', '<b>By next week, I will</b> …', '<b>Could you send me</b> that link?'] }
                 ]
+              },
+              {
+                type: 'checklist',
+                id: 'c3-monitor',
+                title: 'Language monitor: tick the phrases you hear',
+                meter: ['heard', 'Great updates!'],
+                items: ['So far, I have …', 'I’ve managed to …', 'I’m still working on …', 'I’m stuck on … — any ideas?', 'Why don’t you try …?', 'Have you thought about …?', 'By next week, I will …']
               },
               {
                 type: 'spinner',
@@ -627,7 +748,8 @@
                   { id: 'c4-if', label: 'If someone is stuck, we will …', placeholder: 'message the group by Wednesday', rows: 1 }
                 ],
                 signers: 4
-              }
+              },
+              { type: 'do', n: 1, who: 'group', text: '<b>Stand up and say it.</b> Each person stands and says their promise in one sentence: “<b>By next week, I will</b> … .” The group says “Deal!”' }
             ]
           }
         ]
@@ -673,6 +795,22 @@
                   { label: 'Before', phrases: ['<b>At first, I wasn’t keen on</b> … because …', '<b>I was convinced that</b> …'] },
                   { label: 'Persuaded', phrases: ['<b>My friend kept telling me</b> …', '<b>What really convinced me was</b> …', '<b>In the end, I decided to give it a try.</b>'] },
                   { label: 'Opinion', phrases: ['<b>I think it’s fine to change your mind if</b> you get new information.', '<b>Changing your mind isn’t a weakness — it shows</b> …'] }
+                ]
+              },
+              {
+                type: 'figure',
+                src: A + 'd4-opinion-line.svg',
+                size: 'wide',
+                alt: 'An opinion line across the classroom from Strongly disagree to Strongly agree. Students stand at different points on the line. Above them the statement: It is OK to change your mind after making a decision. One student walks from the disagree side towards the middle, with a speech bubble: That’s a fair point.',
+                caption: 'Opinion line-up: stand where you stand — and move if you are persuaded.'
+              },
+              {
+                type: 'steps',
+                title: 'Opinion line-up',
+                items: [
+                  { who: 'class', text: '<b>Stand up.</b> One end of the room = <b>strongly disagree</b>, the other end = <b>strongly agree</b>. Statement: <i>“It is OK to change your mind after making a decision.”</i> Stand on the line.' },
+                  { who: 'pair', text: 'Talk to the person next to you, then to someone from the <b>other end</b>. Give one reason each.' },
+                  { who: 'class', text: 'Persuaded? <b>Move</b> along the line. Anyone who moved says why: “<b>That’s a fair point.</b> I hadn’t considered … .” This is today’s skill: showing flexibility.' }
                 ]
               }
             ]
@@ -722,6 +860,7 @@
             title: 'Activity A critical thinker',
             goal: 'Which quotes come from a critical thinker?',
             blocks: [
+              { type: 'do', n: 1, who: 'class', text: '<b>Stand up, sit down.</b> Your teacher reads a quote. A critical thinker? <b>Stand up.</b> Not a critical thinker? <b>Stay seated.</b> Then sort the cards with your partner to check.' },
               {
                 type: 'sort',
                 id: 'd3-sort',
@@ -788,6 +927,7 @@
                   { text: 'Therefore, it can be concluded that …', answer: 1 }
                 ]
               },
+              { type: 'do', n: 2, who: 'pair', text: '<b>Stand-up speech.</b> Stand up and find a partner from another table. A speaks for 1 minute. B counts on fingers: one finger for each part you hear (stance, argument, evidence, counterargument, conclusion). Five fingers = full marks. Swap.' },
               { type: 'talk', title: 'Your turn (1 minute each)', prompts: ['Give your stance on this: “Every university student should learn green skills.” Use one phrase from each group in the language bank.'] }
             ]
           },
@@ -801,7 +941,7 @@
             goal: 'Learn four kinds of question that test your own position.',
             blocks: [
               { type: 'sticky', title: 'A good critical thinker …', text: '… questions their position by critically exploring the topic with an open mind to the possibility of their position changing.' },
-              { type: 'do', n: 1, who: 'group', text: 'Each question belongs under one heading. Sort them together — say <b>why</b> before you place each card.' },
+              { type: 'do', n: 1, who: 'group', text: '<b>Beat the clock (4 minutes).</b> Each question belongs under one heading. Take turns: one person places a card and says <b>why</b>. The fastest group with the most right wins a team point.' },
               {
                 type: 'sort',
                 id: 'd5-sort',
@@ -827,7 +967,8 @@
                   { text: 'How can we further investigate this issue to gain a deeper understanding?', answer: 3 },
                   { text: 'What new information or research could change my perspective on this matter?', answer: 3 }
                 ]
-              }
+              },
+              { type: 'talk', title: 'Use it (30 seconds)', prompts: ['Choose one question. Ask a classmate about a topic from this week: “<b>How might</b> automation <b>impact different groups of people</b>?”'] }
             ]
           },
           {
@@ -879,7 +1020,8 @@
                   { front: 'My position almost changed', tag: 'almost', back: '“<b>I’m still not fully convinced, but</b> …’s point about … <b>made me think again</b>.”' },
                   { front: 'My position changed', tag: 'change', back: '“<b>My earlier position was based on</b> …, <b>but after</b> hearing …, <b>I can see that</b> …”' }
                 ]
-              }
+              },
+              { type: 'do', n: 1, who: 'pair', text: '<b>Stand up in pairs.</b> A: say a stance (“Online classes are better than face-to-face.”). B: give one counter-point. A: answer with <b>one</b> card — keep, almost, or changed. Swap.' }
             ]
           },
           {
@@ -918,7 +1060,8 @@
                   { label: 'HP Pavilion Plus', blocks: [{ type: 'model', title: 'HP Pavilion Plus', rows: [['Price', '$1199'], ['Battery life', '11hrs'], ['Size', '14”'], ['Ports', '1x HDMI 2.1, 2x USB 3.0 ports, 1x USB 3.1 port, 1x Thunderbolt 4, 1 x 3.5mm combo headphone/microphone'], ['Security', '–'], ['Camera', '5MP IR Camera'], ['Audio', 'Audio by B&O, Dual speakers, HP Audio Boost'], ['Weight', '1.4kg'], ['Special feature', 'Good for media consumption']] }] }
                 ]
               },
-              { type: 'do', n: 2, who: 'alone', text: '<b>Prepare for a discussion.</b> This is the laptop you are trying to persuade your group members to buy. Write your pitch with the sentence starters from <b>Language for presenting / keeping your original stance</b>. Watch the lights turn on.' },
+              { type: 'do', n: 2, who: 'class', text: '<b>Expert huddle (1 minute).</b> Stand up. Find everyone in the class with the <b>same</b> laptop. Share your best argument. Go back to your group.' },
+              { type: 'do', n: 3, who: 'alone', text: '<b>Prepare for a discussion.</b> This is the laptop you are trying to persuade your group members to buy. Write your pitch with the sentence starters from <b>Language for presenting / keeping your original stance</b>. Watch the lights turn on.' },
               {
                 type: 'detect',
                 id: 'd7-pitch',
@@ -944,6 +1087,16 @@
             title: 'Activity 2 Putting it into practice: Discussion 1',
             goal: 'Present your laptop, listen actively and be open to changing your opinion.',
             blocks: [
+              {
+                type: 'cards',
+                title: 'Group jobs (everyone still presents a laptop)',
+                items: [
+                  { label: 'Chair', text: 'Starts, calls each speaker, makes sure everyone asks two questions.', icon: 'users' },
+                  { label: 'Timekeeper', text: 'One minute per pitch. Holds up a hand at 10 seconds.', icon: 'clock' },
+                  { label: 'Devil’s advocate', text: 'Asks the hardest challenge question after every pitch.', icon: 'target' },
+                  { label: 'Language monitor', text: 'Ticks the moves below. Reports the score at the end.', icon: 'pen' }
+                ]
+              },
               {
                 type: 'steps',
                 items: [
@@ -980,6 +1133,13 @@
                   { label: 'Question type', items: ['open-ended: Is there a situation where … might not …?', 'assumption: Are you assuming that …?', 'consequence: What happens in the long term if …?', 'curiosity: What else would we need to know about …?'] }
                 ],
                 note: 'Spin, build a question from both reels, ask it — then listen with an open mind.'
+              },
+              {
+                type: 'checklist',
+                id: 'd8-monitor',
+                title: 'Language monitor: tick each move you hear (one team point each)',
+                meter: ['moves', 'Full score!'],
+                items: ['A stance phrase (In my opinion … / I believe …)', 'Evidence (According to … / Data from …)', 'A counterargument (While it is true that …)', 'An open-ended question (Is there a situation where …?)', 'An assumption question (Are you assuming that …?)', 'A consequence question (What happens in the long term if …?)', 'A polite challenge (I see your point, but …)', 'A concession (That’s a fair point. / I hadn’t thought of that.)']
               }
             ]
           },
@@ -992,7 +1152,15 @@
             title: 'Activity 2 Putting it into practice: Discussion 2',
             goal: 'Conclude with your final position — and say who or what persuaded you.',
             blocks: [
-              { type: 'do', n: 1, who: 'group', text: 'At the end of the discussion, conclude with your final position. Let your group know if:' },
+              {
+                type: 'figure',
+                src: A + 'd4-four-corners.svg',
+                size: 'wide',
+                alt: 'A classroom seen from above with four corners, one for each laptop: MacBook Pro, Microsoft Surface, Dell XPS 14 and HP Pavilion Plus. Students walk from their seats to the corner of the laptop they would buy now. Footprints show one student who moved from the HP corner to the Surface corner, with a bubble: My position changed.',
+                caption: 'Four corners: walk to the laptop you would buy now.'
+              },
+              { type: 'do', n: 1, who: 'class', text: '<b>Four corners.</b> Each corner of the room is one laptop. Stand up and walk to the corner of the laptop you would buy <b>now</b>. Did you leave your own laptop? Say who persuaded you, and why.' },
+              { type: 'do', n: 2, who: 'group', text: 'At the end of the discussion, conclude with your final position. Let your group know if:' },
               { type: 'choose', id: 'd9-pos', title: 'My final position', options: ['My position did not change.', 'My position almost changed.', 'My position changed.'] },
               {
                 type: 'fields',
@@ -1000,7 +1168,12 @@
               },
               { type: 'talk', title: 'Say it to your group', prompts: ['Use one phrase from <b>Language for changing your position</b>.', 'Name the person and the information that persuaded you.'] },
               { type: 'scale', id: 'd9-flex', title: 'How flexible was I?', statement: 'I listened with an open mind and really considered other laptops.', ends: ['Not really', 'Completely'] },
-              { type: 'tip', text: 'In the <b>Interactive Discussion</b> assessment, showing flexibility — and saying clearly why your view changed — is a sign of criticality.' }
+              { type: 'tip', text: 'In the <b>Interactive Discussion</b> assessment, showing flexibility — and saying clearly why your view changed — is a sign of criticality.' },
+              {
+                type: 'fields',
+                title: 'Exit ticket',
+                fields: [{ id: 'd9-exit', label: 'Write one sentence you could say in the Interactive Discussion to show flexibility', rows: 2, placeholder: 'That’s a fair point. I hadn’t considered … , so I would now say …' }]
+              }
             ]
           }
         ]
@@ -1249,7 +1422,8 @@
                   'The University of Sydney Library guide to APA 7th Referencing (University of Sydney Library, n.d.).',
                   'The table of common reporting verbs adapted from Brick, J. (2006). Academic culture: A student’s guide to studying at university. NCELTR, Macquarie University. (Included in your student booklet.)'
                 ]
-              }
+              },
+              { type: 'sticky', title: 'Use it tomorrow', text: 'In your Day 5 presentation or Q&amp;A, say one source aloud with a reporting verb: “<b>Bowen et al. (2018) argue that</b> …”. Your classmates’ evidence detectives will be listening!' }
             ],
             answers: { title: 'Suggested answers', items: [['2. Verbs in the 2024 Digital economy report', '<b>suggest</b> (“Recent data from Google and Meta suggest …”), <b>report</b> (“Google reports that …”) and <b>conclude</b> (“Ludvigsen (2023a, 2023b) concluded that …”). “inform” only appears inside “information”, so it is not a reporting verb there.']] }
           }

@@ -38,7 +38,7 @@ window.DEC15_LESSON = {
           grouping: "Class",
           art: "dec10/assets/week3/v/v-d10w3d5-p1.svg",
           title: "Group Research Summary Presentations",
-          goal: "Know where today fits in the week and what happens.",
+          goal: "Know what happens today — answer with your hands, then bet.",
           blocks: [
             {
               type: "figure",
@@ -57,6 +57,7 @@ window.DEC15_LESSON = {
                 "There is <b>no mark</b> — just peer and teacher feedback with the Peer and Teacher Presentation Feedback Tool."
               ]
             },
+            {"type":"do","n":1,"who":"class","text":"<b>Stand up.</b> Your teacher reads each question below. Show your answer with <b>1, 2 or 3 fingers</b>. Wrong? Sit down. Then bet on your answers here."},
             {
               type: "bet",
               id: "p1-bet",
@@ -76,7 +77,8 @@ window.DEC15_LESSON = {
                   why: "Feedback is for individual speakers. Your teacher allocates one presenter to each watching group."
                 }
               ]
-            }
+            },
+            {"type":"sticky","title":"Phrase of the day · say it like an academic","text":"<b>“One major cause of … is …, and as a result, …”</b><br>Presenters: use it in your talk. Audience: use it in your question.","color":"yellow"}
           ]
         },
         {
@@ -86,7 +88,7 @@ window.DEC15_LESSON = {
           grouping: "Presentation groups",
           art: "dec10/assets/week3/v/v-d10w3d5-p2.svg",
           title: "Last-minute practice and preparation",
-          goal: "Rehearse once more and get ready for AST questions.",
+          goal: "Presenters rehearse. The audience warms them up with questions.",
           blocks: [
             {
               type: "checklist",
@@ -105,7 +107,13 @@ window.DEC15_LESSON = {
               type: "do",
               n: 1,
               who: "group",
-              text: "<b>Groups 4 and 5:</b> run through your talk once. Each speaker practises the <b>first sentence</b> and the <b>hand-over</b>. <b>Other groups:</b> read the question sheet in the next activity."
+              text: "<b>Groups 4 and 5:</b> run through your talk once. Each speaker practises the <b>first sentence</b> and the <b>hand-over</b>."
+            },
+            {
+              type: "do",
+              n: 2,
+              who: "class",
+              text: "<b>Audience — walk and ask.</b> Stand up. Find one person from Group 4 or 5. Spin below and ask them one AST question. Listen, say “Thanks — good luck!” and find a second person. Sit down after 4 minutes."
             },
             {
               type: "language",
@@ -142,9 +150,9 @@ window.DEC15_LESSON = {
             },
             {
               type: "do",
-              n: 2,
+              n: 3,
               who: "group",
-              text: "<b>Hot seat — AST questions.</b> One person spins and asks. The speaker answers about <b>how they prepared</b>, without notes, in 30–45 seconds. Take turns."
+              text: "<b>Hot seat — AST questions.</b> The speaker <b>stands up</b>. Someone spins and asks. The speaker answers about <b>how they prepared</b>, without notes, in 30–45 seconds. Take turns."
             },
             {
               type: "spinner",
@@ -198,7 +206,7 @@ window.DEC15_LESSON = {
           grouping: "Groups",
           art: "dec10/assets/week3/v/v-d10w3d5-p3.svg",
           title: "Summary of procedure per group presentation",
-          goal: "Know the four steps for each group and the three kinds of question.",
+          goal: "Know the four steps, the three kinds of question — and your audience job.",
           blocks: [
             {
               type: "figure",
@@ -207,7 +215,7 @@ window.DEC15_LESSON = {
               alt: "One group presentation, about 30 minutes, in four steps. 1 (8–10 min): the group presents; the audience listens and fills in the feedback tool. 2: the audience writes one clarification, probing or AST question while the group reflects; a few students ask. 3 (5–7 min): the teacher gives the group feedback; the other groups agree on feedback with at least one action point. 4 (5 min): each presenter sits with their feedback group, hears the feedback, and the forms are sent.",
               caption: "Every group: the same four steps, about 30 minutes."
             },
-            {"type":"do","n":1,"who":"group","text":"Open the question sheet. Is each question <b>clarification</b>, <b>probing</b> or <b>AST</b>? Sort them."},
+            {"type":"do","n":1,"who":"class","text":"<b>Point to the corner!</b> Your teacher reads a question. Point: <b>front</b> = clarification ? · <b>left</b> = probing ⤓ · <b>right</b> = AST ★. Then sort the questions here."},
             {"type":"download","id":"ip-questions","note":"The question sheet: <b>clarification</b> and <b>probing</b> questions are about the content; <b>AST</b> questions are about how the group prepared."},
             {
               type: "sort",
@@ -236,6 +244,25 @@ window.DEC15_LESSON = {
                 {"label":"Probing","phrases":["<b>Why do you think</b> …?","<b>What evidence</b> is there that …?","<b>What would happen if</b> …?"]},
                 {"label":"AST","phrases":["<b>How did you decide</b> …?","<b>How did your group overcome</b> …?","<b>In the future, how would you</b> …?"]}
               ]
+            },
+            {"type":"do","n":2,"who":"group","text":"<b>Audience jobs.</b> In your watching group, everyone takes one job for Presentation 4. Tap your job. (You swap jobs for Presentation 5.)"},
+            {
+              type: "figure",
+              src: "dec10/assets/week3/d5-audience-jobs.svg",
+              size: "wide",
+              alt: "Four audience jobs. 1 Feedback scribe: fills in the feedback tool for your presenter. 2 Language spotter: plays phrase bingo and writes the speaker’s name. 3 Evidence hunter: notes one number and its source. 4 Question master: stands up and asks the group’s question. Swap jobs for Presentation 5.",
+              caption: "No passive listeners: every person in the audience has a job."
+            },
+            {
+              type: "cards",
+              title: "My audience job for Presentation 4",
+              pick: "p3-job",
+              items: [
+                {"label":"Feedback scribe","text":"I fill in the Feedback Tool for our presenter."},
+                {"label":"Language spotter","text":"I play phrase bingo: I write the speaker’s name when I hear a phrase."},
+                {"label":"Evidence hunter","text":"I note one number or fact and its source."},
+                {"label":"Question master","text":"I stand up and ask our group’s question."}
+              ]
             }
           ]
         },
@@ -246,15 +273,29 @@ window.DEC15_LESSON = {
           grouping: "Groups",
           art: "dec10/assets/week3/v/v-d10w3d5-p4.svg",
           title: "Presentation 4",
-          goal: "Listen, judge, ask — then give your presenter useful feedback.",
+          goal: "Do your audience job, ask, take a stand — then give your presenter useful feedback.",
           blocks: [
             {
               type: "steps",
+              title: "Mission card · Presentation 4",
               items: [
-                {"who":"group","text":"<b>Group 4 presents</b> (8–10 min). Listen. Fill in the tool for <b>your</b> presenter. Think of a question."},
-                {"who":"alone","text":"<b>Write one question</b> (clarification, probing or AST). Your teacher may choose you to ask it."},
+                {"who":"group","text":"<b>Group 4 presents</b> (8–10 min). Audience: do <b>your job</b> — scribe, spotter, hunter or question master."},
+                {"who":"alone","text":"<b>Everyone writes one question</b> (clarification, probing or AST). Question masters: <b>stand up</b> to ask, like at a real conference."},
+                {"who":"class","text":"<b>Opinion line</b> (2 min): stand on the line for the statement below. Two people explain where they stand."},
                 {"who":"group","text":"<b>Agree on your feedback</b> (5–7 min) while the teacher gives the group feedback. Include at least one action point."},
                 {"who":"group","text":"<b>Give your feedback</b> to your presenter face to face (5 min). Then send the form."}
+              ]
+            },
+            {
+              type: "bingo",
+              id: "p4-bingo",
+              title: "Language spotter bingo · Presentation 4",
+              hint: "When a presenter uses the phrase, write their name in the square. Four in a row? Raise your hand quietly — tell the class after the talk.",
+              squares: [
+                {"text":"Today we’re going to look at …"},{"text":"… is divided into …"},{"text":"First, … Then … Finally, …"},{"text":"One major cause of … is …"},
+                {"text":"… has led to …"},{"text":"… is driving a demand for …"},{"text":"As a result, …"},{"text":"Consequently, …"},
+                {"text":"This is largely due to …"},{"text":"One likely effect is that …"},{"text":"According to …"},{"text":"… found that …"},
+                {"text":"Now I’ll hand over to …"},{"text":"Building on what … said, …"},{"text":"To sum up, …"},{"text":"The key takeaway is …"}
               ]
             },
             {
@@ -309,13 +350,24 @@ window.DEC15_LESSON = {
             },
             {
               type: "fields",
-              fields: [{"id":"p4-q","label":"My question for Group 4","rows":2,"placeholder":"Could you explain what you mean by … ? / Why do you think … ? / How did your group decide … ?"}]
+              fields: [
+                {"id":"p4-q","label":"My question for Group 4","rows":2,"placeholder":"Could you explain what you mean by … ? / Why do you think … ? / How did your group decide … ?"},
+                {"id":"p4-evid","label":"Evidence hunter: one number or fact + its source","rows":1,"placeholder":"9% a year — LinkedIn report (Hyman & Smith, 2023)"}
+              ]
             },
+            {
+              type: "figure",
+              src: "dec10/assets/week3/d5-opinion-line.svg",
+              size: "wide",
+              alt: "An opinion line across the room from Not at all to Completely. Students stand on the line and explain: I was convinced by … because … / I wasn’t sure about … since …",
+              caption: "Stand up and take a stand. Then explain it in one sentence."
+            },
+            {"type":"scale","id":"p4-line","title":"Opinion line","statement":"Group 4’s solution would really work.","ends":["Not at all","Completely"],"mid":"Partly"},
             {
               type: "do",
               n: 1,
               who: "group",
-              text: "Say your feedback face to face. Use the <b>Language for giving peer feedback</b> from Week 1. Use at least <b>three</b> expressions — and start with something positive."
+              text: "Say your feedback face to face. Start with something positive. Use at least <b>three</b> expressions from the bank. Language spotters: tell your presenter which bingo phrases you heard."
             },
             {
               type: "language",
@@ -341,15 +393,26 @@ window.DEC15_LESSON = {
           grouping: "Groups",
           art: "dec10/assets/week3/v/v-d10w3d5-p5.svg",
           title: "Presentation 5",
-          goal: "Same four steps — this time, make your feedback even more specific.",
+          goal: "New job, question points, four corners — and even more specific feedback.",
           blocks: [
+            {"type":"do","n":1,"who":"group","text":"<b>Swap jobs!</b> Pass your job to the person on your left. Scribe → spotter → hunter → question master → scribe."},
             {
               type: "steps",
+              title: "Mission card · Presentation 5",
               items: [
-                {"who":"group","text":"<b>Group 5 presents</b> (8–10 min). Listen. Fill in the tool for <b>your</b> presenter."},
-                {"who":"alone","text":"<b>Write one question.</b> Try a type you did not use for Group 4."},
+                {"who":"group","text":"<b>Group 5 presents</b> (8–10 min). Audience: do your <b>new</b> job."},
+                {"who":"alone","text":"<b>Write one question.</b> Try a type you did not use for Group 4. Question masters stand up to ask."},
+                {"who":"class","text":"<b>Four corners</b> (2 min): walk to the corner for the strongest part of the talk. Tell the people there why."},
                 {"who":"group","text":"<b>Agree on your feedback</b> (5–7 min). Include at least one action point."},
                 {"who":"group","text":"<b>Give your feedback</b> face to face (5 min). Then send the form."}
+              ]
+            },
+            {
+              type: "key",
+              title: "Question points for your team",
+              points: [
+                "Your watching group wins points for each question it asks: <b>clarification = 1</b> · <b>probing = 2</b> · <b>AST = 3</b>.",
+                "A point only counts if the question is <b>clear</b> and <b>polite</b> (use a question starter from the Toolkit)."
               ]
             },
             {
@@ -404,11 +467,21 @@ window.DEC15_LESSON = {
             },
             {
               type: "fields",
-              fields: [{"id":"p5-q","label":"My question for Group 5","rows":2,"placeholder":"Sorry, did you say … ? / What evidence is there that … ? / How did you manage your time … ?"}]
+              fields: [
+                {"id":"p5-q","label":"My question for Group 5","rows":2,"placeholder":"Sorry, did you say … ? / What evidence is there that … ? / How did you manage your time … ?"},
+                {"id":"p5-evid","label":"Evidence hunter: one number or fact + its source","rows":1,"placeholder":"Only one in eight workers … — LinkedIn (Hyman & Smith, 2023)"}
+              ]
+            },
+            {"type":"do","n":2,"who":"class","text":"<b>Four corners.</b> Stand up and walk to the corner for the strongest part of Group 5’s talk. Tell the people there why: “<b>The strongest part was</b> … <b>because</b> …”"},
+            {
+              type: "choose",
+              id: "p5-corner",
+              title: "The strongest part of Group 5’s talk was …",
+              options: ["A · the problem","B · the causes","C · the effects","D · the solution"]
             },
             {
               type: "do",
-              n: 1,
+              n: 3,
               who: "group",
               text: "<b>Role play before you meet your presenter.</b> One person plays the presenter. Practise the feedback chat: <b>praise → one thing to improve → one action point</b>. Then do it for real."
             },
@@ -444,8 +517,9 @@ window.DEC15_LESSON = {
           grouping: "Groups",
           art: "dec10/assets/week3/v/v-d10w3d5-p6.svg",
           title: "Reflection",
-          goal: "Look back, then decide what you will do better next time.",
+          goal: "Walk, talk, look back — then decide what you will do better next time.",
           blocks: [
+            {"type":"do","n":1,"who":"pair","text":"<b>Walk and talk</b> (3 min). Stand up. Find someone from a <b>different</b> group. Walk slowly around the room and talk about your tab’s questions. Then sit down and write."},
             {
               type: "tabs",
               title: "Choose your tab",
@@ -501,6 +575,10 @@ window.DEC15_LESSON = {
                 "I saved the feedback forms I received in my “Research & Seminar Presentations – Feedback & Action Plans” folder.",
                 "After class: I will continue my research for my group’s seminar topic and the final Interactive Presentation Assessment."
               ]
+            },
+            {
+              type: "fields",
+              fields: [{"id":"p6-exit","label":"Exit ticket · one sentence for my next presentation with a cause-and-effect phrase","rows":2,"placeholder":"One major cause of … is …, and as a result, …"}]
             }
           ]
         }
@@ -549,6 +627,7 @@ window.DEC15_LESSON = {
                 {"label":"Next time","phrases":["<b>Next time, I’m going to</b> …","<b>To achieve this, I need to</b> …"]}
               ]
             },
+            {"type":"do","n":3,"who":"class","text":"<b>Opinion line.</b> Stand up. One wall is “Not at all”, the other wall is “Completely”. Stand where you are for the statement below. Tell your neighbour why in 30 seconds. Then sit down and move the slider."},
             {
               type: "scale",
               id: "a1-scale",
@@ -557,7 +636,8 @@ window.DEC15_LESSON = {
               ends: ["Not at all","Completely"],
               mid: "Some of them"
             },
-            {"type":"do","n":3,"who":"alone","text":"Download the <b>Action Plan (2) template</b> from Canvas (Week 3) and save it in the same folder."}
+            {"type":"do","n":4,"who":"alone","text":"Download the <b>Action Plan (2) template</b> from Canvas (Week 3) and save it in the same folder."},
+            {"type":"sticky","title":"Phrase of the day · say it like an academic","text":"<b>“I’ve made progress with …, but I still need to work on …”</b><br>Use it in your plan and in your next tutorial.","color":"green"}
           ]
         },
         {
@@ -577,11 +657,18 @@ window.DEC15_LESSON = {
             },
             {"type":"download","id":"feedback-tool","note":"Use the forms your classmates and your teacher sent you. A spare form is here if you need one."},
             {
-              type: "figure",
-              src: "dec10/assets/week3/d5-progress.svg",
-              size: "wide",
-              alt: "Two small copies of the Content Delivery part of the feedback tool side by side, Week 2 and Week 3. In Week 2, Evidence for the cause/s and Evidence for the effect/s are marked Needs work. In Week 3, Evidence for the cause/s has moved to Mostly, and Evidence for the effect/s is still Needs work. An arrow says: progress, keep working on effects.",
-              caption: "Example: compare your two forms. What moved? What did not?"
+              type: "toggle",
+              title: "Want more? See an example",
+              hint: "Two forms side by side",
+              blocks: [
+                {
+                  type: "figure",
+                  src: "dec10/assets/week3/d5-progress.svg",
+                  size: "wide",
+                  alt: "Two small copies of the Content Delivery part of the feedback tool side by side, Week 2 and Week 3. In Week 2, Evidence for the cause/s and Evidence for the effect/s are marked Needs work. In Week 3, Evidence for the cause/s has moved to Mostly, and Evidence for the effect/s is still Needs work. An arrow says: progress, keep working on effects.",
+                  caption: "Example: compare your two forms. What moved? What did not?"
+                }
+              ]
             },
             {"type":"do","n":2,"who":"alone","text":"Fill in the progress tracker. Then read the <b>Action plan for further improvement</b> section of your forms."},
             {
@@ -595,7 +682,7 @@ window.DEC15_LESSON = {
               type: "fields",
               fields: [{"id":"a2-said","label":"What did people write in “Action plan for further improvement”?","placeholder":"My teacher suggested… My classmates said…","rows":3}]
             },
-            {"type":"do","n":3,"who":"pair","text":"Tell your partner about <b>one aspect that improved</b> and <b>one that still needs work</b>. Your partner asks one follow-up question."},
+            {"type":"do","n":3,"who":"pair","text":"<b>Stand up</b> and find a partner from another group. Tell them <b>one aspect that improved</b> and <b>one that still needs work</b>. Your partner asks one follow-up question. Swap."},
             {
               type: "language",
               title: "Compare your feedback",
@@ -615,7 +702,7 @@ window.DEC15_LESSON = {
           grouping: "Pair",
           art: "dec10/assets/week3/v/v-d10w3d5-a3.svg",
           title: "From feedback to action",
-          goal: "A good action says what, how and when.",
+          goal: "A good action says what, how and when. Race to make vague actions specific.",
           blocks: [
             {
               type: "key",
@@ -636,7 +723,7 @@ window.DEC15_LESSON = {
                 "Put one number and its source on each slide, with no more than 20 words of text."
               ]
             },
-            {"type":"do","n":2,"who":"pair","text":"Make the vague actions specific. Write your version; the lights show what you included. Then read it to your partner."},
+            {"type":"do","n":2,"who":"pair","text":"<b>Beat the clock (2 minutes).</b> Make the vague actions specific. When all three lights are on, <b>stand up</b>! The first three pairs standing read their action to the class — the class says “specific” or “still vague”."},
             {
               type: "detect",
               id: "a3-fix",
@@ -688,8 +775,8 @@ window.DEC15_LESSON = {
             {
               type: "do",
               n: 2,
-              who: "pair",
-              text: "Read your plan to a partner. Your partner asks: <b>“How exactly?”</b> and <b>“When?”</b> Make your plan more specific if needed."
+              who: "class",
+              text: "<b>Plan swap — two rounds.</b> Stand up and find a partner. Read your plan. Your partner asks <b>“How exactly?”</b> and <b>“When?”</b> After 1 minute, swap; then find a new partner. Make your plan more specific if needed."
             },
             {
               type: "checklist",
@@ -703,6 +790,11 @@ window.DEC15_LESSON = {
                 "I kept the goals from Action Plan (1) that I still need.",
                 "I saved my Action Plan (2) in my folder."
               ]
+            },
+            {"type":"do","n":3,"who":"alone","text":"<b>Use it — exit ticket.</b> Write a short message to your teacher about your top action. This is how you write to a lecturer: polite, short and specific."},
+            {
+              type: "fields",
+              fields: [{"id":"a4-email","label":"My message to my teacher","rows":4,"placeholder":"Dear …,\nAfter the Week 3 feedback, my main goal is to … . To do this, I will … before Week 6.\nCould you let me know if …?\nBest regards,\n…"}]
             }
           ]
         }
@@ -726,13 +818,15 @@ window.DEC15_LESSON = {
           grouping: "Groups of three",
           art: "dec10/assets/week3/v/v-d10w3d5-i1.svg",
           title: "Getting to know the Interactive Discussion Assessment · Activity 1",
-          goal: "Each person finds one part of the information.",
+          goal: "Each person becomes the expert on one part of the information.",
           blocks: [
             {
               type: "steps",
               items: [
-                {"who":"alone","text":"Go to the <b>Assessments Overview</b> on Canvas."},
-                {"who":"group","text":"Work in groups of three: <b>Student A</b>, <b>B</b> and <b>C</b>. Open your tab and answer your questions."}
+                {"who":"group","text":"In your home group of three, choose: <b>Student A</b>, <b>B</b> or <b>C</b>."},
+                {"who":"class","text":"<b>Stand up — expert corners.</b> All As go to one corner, all Bs to another, all Cs to a third. Bring your laptop."},
+                {"who":"group","text":"In your expert corner, go to the <b>Assessments Overview</b> on Canvas. Open your tab below and answer your questions <b>together</b> (6 min)."},
+                {"who":"group","text":"Go back to your home group. Now you are the expert."}
               ]
             },
             {
@@ -805,9 +899,9 @@ window.DEC15_LESSON = {
           grouping: "Groups of three",
           art: "dec10/assets/week3/v/v-d10w3d5-i2.svg",
           title: "Activity 2",
-          goal: "Teach your group what you found — then ask your teacher.",
+          goal: "Teach-back in 60 seconds — then ask your teacher.",
           blocks: [
-            {"type":"do","n":1,"who":"group","text":"Share your answers with the other students in your group. A, then B, then C. Listeners: ask one clarification question each."},
+            {"type":"do","n":1,"who":"group","text":"<b>Teach-back in 60 seconds.</b> A, then B, then C: stand up and teach your part in one minute — no reading! Listeners: ask one clarification question each."},
             {
               type: "language",
               title: "Report what you found",
@@ -831,7 +925,7 @@ window.DEC15_LESSON = {
                 }
               ]
             },
-            {"type":"do","n":2,"who":"alone","text":"Prepare one question to ask your teacher about the assessment."},
+            {"type":"do","n":2,"who":"group","text":"Each person writes one question for the teacher. Read them aloud. Your group votes for the <b>best one</b> — the reporter asks it."},
             {"type":"fields","fields":[{"id":"i2-q","label":"My question for the teacher","rows":2,"placeholder":"Could you clarify whether …?"}]}
           ]
         },
@@ -853,6 +947,7 @@ window.DEC15_LESSON = {
                 "<b>What am I not confident about? What do I need to work on?</b> Then decide exactly what you will do about it."
               ]
             },
+            {"type":"do","n":1,"who":"class","text":"<b>Confidence line-up.</b> Stand up. Your teacher reads statement 1. Line up from “Not confident” to “Very confident”. Find someone at the <b>other end</b> and ask: “<b>What do you do to</b> …?” Then sit down and move the three sliders."},
             {"type":"scale","id":"i3-flu","title":"How confident am I?","statement":"I can keep speaking fluently in a group discussion.","ends":["Not confident","Very confident"]},
             {"type":"scale","id":"i3-src","statement":"I can summarise an idea from a text in my own words.","ends":["Not confident","Very confident"]},
             {"type":"scale","id":"i3-brk","statement":"I can fix a communication breakdown (ask, check, rephrase).","ends":["Not confident","Very confident"]},
@@ -874,7 +969,7 @@ window.DEC15_LESSON = {
                 {"id":"i3-work","label":"What I need to work on — and exactly what I will do","rows":3,"placeholder":"I’m not confident about … so I will … every … until …"}
               ]
             },
-            {"type":"do","n":1,"who":"pair","text":"Tell a partner your goal. Your partner asks: <b>“What exactly will you do?”</b>"}
+            {"type":"do","n":2,"who":"pair","text":"<b>Exit ticket.</b> Tell a partner your goal. Your partner asks: <b>“What exactly will you do?”</b> Start with: “<b>One thing I need to work on is</b> …, <b>so I’m going to</b> …”"}
           ]
         }
       ]
@@ -912,7 +1007,8 @@ window.DEC15_LESSON = {
                 {"front":"occupation","back":"a job or type of work","tag":"noun"}
               ]
             },
-            {"type":"do","n":1,"who":"alone","text":"Review <b>Paragraph D</b> of <b>Vidican Auktor (2020)</b>. Focus on understanding the key points the writer is making. You have <b>5 minutes</b>."},
+            {"type":"do","n":1,"who":"pair","text":"<b>Word ping-pong</b> (1 min). One person reads a meaning from the back of a card. The other says the word. Swap."},
+            {"type":"do","n":2,"who":"alone","text":"Review <b>Paragraph D</b> of <b>Vidican Auktor (2020)</b>. Focus on understanding the key points the writer is making. You have <b>5 minutes</b>."},
             {"type":"sources","ids":["vidican"]},
             {
               type: "passage",
@@ -923,7 +1019,8 @@ window.DEC15_LESSON = {
             {
               type: "fields",
               fields: [{"id":"q1-notes","label":"Key points — in my own words (notes only)","rows":3,"placeholder":"green skills = more detail than green jobs → …\n3 ways the green economy changes skills: 1 … 2 … 3 …"}]
-            }
+            },
+            {"type":"do","n":3,"who":"pair","text":"<b>Close the text.</b> Tell your partner the three ways the green economy changes skills in 30 seconds: “<b>First</b>, … <b>Second</b>, … <b>Third</b>, …”"}
           ]
         },
         {
@@ -950,7 +1047,7 @@ window.DEC15_LESSON = {
                 "<b>Personal response:</b> your answer must be <b>relevant</b>, <b>coherent</b> and <b>extended</b> — not simply paraphrased ideas from the text."
               ]
             },
-            {"type":"do","n":1,"who":"pair","text":"Which kind of question is each one? Sort them. Then say why to your partner."},
+            {"type":"do","n":1,"who":"class","text":"<b>Stand up, sit down.</b> Your teacher reads each question below. <b>Stand up</b> if it is about the text. <b>Stay seated</b> if it asks for your personal response. Then sort them here."},
             {
               type: "sort",
               id: "q2-sort",
@@ -964,6 +1061,14 @@ window.DEC15_LESSON = {
                 {"text":"Would you choose a course because it teaches green skills?","answer":1},
                 {"text":"Do you think schools should teach green skills? Why?","answer":1}
               ]
+            },
+            {"type":"do","n":2,"who":"pair","text":"<b>Your turn.</b> Write one question of each kind about Paragraph D. Read them to another pair. They say “text” or “me”."},
+            {
+              type: "fields",
+              fields: [
+                {"id":"q2-own-t","label":"My question about the ideas in the text","rows":1,"placeholder":"According to the writer, why …?"},
+                {"id":"q2-own-me","label":"My personal response question","rows":1,"placeholder":"Would you …? / How do you think …?"}
+              ]
             }
           ]
         },
@@ -974,14 +1079,22 @@ window.DEC15_LESSON = {
           grouping: "Pair",
           art: "dec10/assets/week3/v/v-d10w3d5-q3.svg",
           title: "Answer the individual questions",
-          goal: "Answer one question of each type — clearly and at length.",
+          goal: "Answer one question of each type — clearly and at length — to three different partners.",
           blocks: [
+            {
+              type: "figure",
+              src: "dec10/assets/week3/d5-speed-circle.svg",
+              size: "wide",
+              alt: "Inner and outer circle. Inner circle A asks the question, outer circle B answers for one minute, A gives one tip, then B moves one seat. Then swap roles.",
+              caption: "Inner and outer circle: a new partner every round."
+            },
             {
               type: "steps",
               items: [
-                {"who":"class","text":"Follow your teacher’s instructions: a demo with volunteers, or pair practice."},
-                {"who":"pair","text":"In pairs, one person is the <b>interlocutor</b> (asks the questions) and the other answers. Then swap."},
-                {"who":"pair","text":"Answer each question for about <b>one minute</b>. If you can, video your answers so you can review them later."}
+                {"who":"alone","text":"First, write <b>key words only</b> for both questions (2 min, below)."},
+                {"who":"class","text":"<b>Stand up.</b> Make two circles. <b>Inner circle (A)</b> = the <b>interlocutor</b>: ask Question 1. <b>Outer circle (B)</b>: answer for about <b>one minute</b>."},
+                {"who":"pair","text":"A gives one quick tip. Then <b>B moves one seat</b> to the right. A asks Question 2."},
+                {"who":"class","text":"After two rounds, <b>swap</b>: B asks, A answers. If you can, video one answer so you can review it later."}
               ]
             },
             {
@@ -1047,6 +1160,10 @@ window.DEC15_LESSON = {
               type: "talk",
               title: "Talk about it",
               prompts: ["Which question was harder for you? Why?","What will you do differently next time you answer an individual question?"]
+            },
+            {
+              type: "fields",
+              fields: [{"id":"q4-exit","label":"Exit ticket · say it like an academic: finish the sentence","rows":2,"placeholder":"The writer states that differentiating between green skills and green jobs is important because …"}]
             }
           ]
         }
@@ -1072,14 +1189,15 @@ window.DEC15_LESSON = {
           title: "Part 1 Discussion",
           goal: "Think about why group discussion skills matter at university.",
           blocks: [
-            {"type":"do","n":1,"who":"group","text":"Discuss for <b>5 minutes</b>. Write your group’s ideas. Your teacher may ask you to write them on the whiteboard."},
+            {"type":"do","n":1,"who":"group","text":"Discuss for <b>4 minutes</b>. Write each idea on a <b>sticky note</b> (or a scrap of paper)."},
             {
               type: "talk",
               title: "Discuss",
               prompts: ["Why are group discussion skills essential in university?","Where will you need them — in tutorials, group projects, or a job?"]
             },
             {"type":"fields","fields":[{"id":"d1-ideas","label":"Our group’s ideas","rows":3,"placeholder":"They help us … / Without them, …"}]},
-            {"type":"do","n":2,"who":"group","text":"Compare your ideas with this list. Match each skill to what it gives you. Which ideas did your group have?"},
+            {"type":"do","n":2,"who":"class","text":"<b>Gallery walk</b> (2 min). Stick your notes on the whiteboard. Stand up and read the other groups’ notes. Put a ✓ on the <b>two best</b> ideas that are not yours."},
+            {"type":"do","n":3,"who":"group","text":"Compare your ideas with this list. Match each skill to what it gives you. Which ideas did your group have?"},
             {
               type: "match",
               id: "d1-match",
@@ -1110,6 +1228,7 @@ window.DEC15_LESSON = {
           title: "Part 2 Discussion skills in DEC 10",
           goal: "See all nine skills — and today’s three.",
           blocks: [
+            {"type":"do","n":1,"who":"class","text":"Tap the numbers. Then play <b>Number race</b>: your teacher reads a skill; teams hold up the number with their fingers. First correct team wins a point."},
             {
               type: "hotspot",
               src: "dec10/assets/week3/d5-nine-skills.svg",
@@ -1169,7 +1288,15 @@ window.DEC15_LESSON = {
               alt: "A formula: statement + cohesive device + statement, then say why. Example: Green jobs are generally higher-skilled and less routine than non-green jobs. On the other hand, green and non-green jobs often share similar skills. Why: On the other hand makes a contrast between the differences and similarities.",
               caption: "Statement + cohesive device + statement → say why."
             },
-            {"type":"do","n":2,"who":"group","text":"Take turns. <b>Spin</b> for two statements. Choose a cohesive device that connects them logically. <b>Read the sentence aloud</b> and <b>explain why</b> you chose that device. If the two statements don’t connect, say so and spin again."},
+            {"type":"do","n":2,"who":"class","text":"<b>Human sentence.</b> Three students come to the front. Spin below: one student holds Statement A, one holds Statement B (read them aloud). The third student <b>chooses a cohesive device</b> and stands between them. Class: thumbs up if it fits, thumbs down if not. The device holder explains why."},
+            {
+              type: "figure",
+              src: "dec10/assets/week3/d5-human-sentence.svg",
+              size: "wide",
+              alt: "Human sentence: one student holds Statement A, one holds a cohesive device card (On the other hand,), one holds Statement B. The class shows thumbs up if it fits and the device holder explains why.",
+              caption: "Statement A + device + Statement B. If the two statements don’t connect, say so and spin again."
+            },
+            {"type":"do","n":3,"who":"group","text":"Then in your groups: take turns. Spin, connect, <b>read the sentence aloud</b> and <b>explain why</b> you chose that device."},
             {
               type: "spinner",
               id: "d3-spin",
@@ -1272,7 +1399,7 @@ window.DEC15_LESSON = {
                 {"id":"d4-p2","label":"Key point 2 — in my own words","rows":2}
               ]
             },
-            {"type":"do","n":2,"who":"group","text":"<b>Idea Relay:</b> What did you learn this week about the green economy? Exchange ideas in your group. Follow the structure. Look at the example first."},
+            {"type":"do","n":2,"who":"group","text":"<b>Idea Relay — with a real baton.</b> Use a pen as the baton. Only the person holding it speaks. When you finish, pass it on. What did you learn this week about the green economy? Follow the structure. Look at the example first."},
             {
               type: "chat",
               title: "Example",
@@ -1291,6 +1418,14 @@ window.DEC15_LESSON = {
                 {"who":"alone","text":"<b>Student B:</b> refer to the author → paraphrase one of the author’s points, <b>trying to link it to the previous point</b> → add the author’s other point, using a cohesive device → add your opinion, using a cohesive device."},
                 {"who":"group","text":"<b>Student C, D …:</b> the same. Keep the relay going for two rounds."}
               ]
+            },
+            {"type":"do","n":3,"who":"alone","text":"<b>Language monitor</b> (one person per group, change each round): tick each phrase when you hear it. Report the score at the end."},
+            {
+              type: "checklist",
+              id: "d4-monitor",
+              title: "Language monitor: phrases I heard",
+              meter: ["heard","Great variety!"],
+              items: ["… talks about …","… mentions that …","… explains that …","… argues that …","I agree with what … said about …","I’m not sure I agree with … that …","Yeah, and … also …","But on the other hand, …"]
             },
             {
               type: "talk",
@@ -1320,7 +1455,7 @@ window.DEC15_LESSON = {
               title: "Think first",
               prompts: ["<b>Why</b> do people need to take the floor in a discussion?","<b>When</b> is a good moment to do it?","<b>How</b> can you do it without being rude?"]
             },
-            {"type":"do","n":1,"who":"pair","text":"Polite or too abrupt? Sort the phrases."},
+            {"type":"do","n":1,"who":"class","text":"<b>Say it, show it.</b> Your teacher says each phrase in a real voice. <b>Thumbs up</b> = polite. <b>Thumbs down</b> = too abrupt. Then sort the phrases here."},
             {
               type: "sort",
               id: "d5-sort",
@@ -1338,6 +1473,17 @@ window.DEC15_LESSON = {
                 {"text":"Whatever. Anyway, my point is…","answer":1}
               ]
             },
+            {
+              type: "cards",
+              title: "Group jobs for the discussion — change jobs in round 2",
+              items: [
+                {"label":"Chair","text":"Starts the discussion and keeps it moving."},
+                {"label":"Timekeeper","text":"Says “One minute left” and stops the round."},
+                {"label":"Language monitor","text":"Ticks each polite interjection and source phrase."},
+                {"label":"Devil’s advocate","text":"Gives the other side: “But on the other hand …”"}
+              ]
+            },
+            {"type":"sticky","title":"Game: three tokens each","text":"Each student takes <b>three tokens</b> (coins or paper). Put one in the middle each time you take the floor <b>politely</b>. Goal: use all three. Too abrupt? Take one back!","color":"pink"},
             {"type":"do","n":2,"who":"group","text":"Each student <b>chooses or spins</b> one interjecting expression. One student starts the discussion on the topic. Others take the floor with their expression — as naturally as possible. Remember to (a) <b>refer to sources</b> and (b) <b>connect your ideas</b> to what was said, using cohesive phrases."},
             {
               type: "spinner",
@@ -1382,14 +1528,22 @@ window.DEC15_LESSON = {
           grouping: "Groups",
           art: "dec10/assets/week3/v/v-d10w3d5-d6.svg",
           title: "Review and reflect",
-          goal: "Collect the language you used — and add more.",
+          goal: "Snowball your phrases, sort them — and use them in a tutorial.",
           blocks: [
+            {
+              type: "figure",
+              src: "dec10/assets/week3/d5-snowball.svg",
+              size: "wide",
+              alt: "Phrase snowball in four steps: write one phrase you used today, crumple and throw, catch and read it aloud, the class votes 1, 2 or 3 for the skill.",
+              caption: "Phrase snowball: everyone collects language from everyone."
+            },
+            {"type":"do","n":1,"who":"class","text":"<b>Phrase snowball</b> (4 min). Write one phrase you used or heard today on paper. Crumple it. On the signal, throw! Pick up one snowball, read it aloud. The class shows <b>1, 2 or 3 fingers</b>: which skill is it?"},
             {
               type: "talk",
               title: "Let’s review the language you used from the three activities",
               prompts: ["What did the people who started the discussion say?","What phrases did you use when referring to the authors of the sources?","Did you politely interject to add your ideas to the discussion? How did you do this?"]
             },
-            {"type":"do","n":1,"who":"pair","text":"Which skill does each phrase belong to? Sort them."},
+            {"type":"do","n":2,"who":"pair","text":"Which skill does each phrase belong to? Sort them."},
             {
               type: "sort",
               id: "d6-sort",
@@ -1407,7 +1561,7 @@ window.DEC15_LESSON = {
                 {"text":"If I could take a moment to add…","answer":2}
               ]
             },
-            {"type":"do","n":2,"who":"alone","text":"Add more phrases in each column: phrases you used today, heard from classmates, or already know. Try for <b>three</b> each."},
+            {"type":"do","n":3,"who":"alone","text":"Add more phrases in each column: phrases from the snowballs, from classmates, or ones you already know. Try for <b>three</b> each."},
             {
               type: "model",
               title: "Discussion skills & useful language · Student Booklet",
@@ -1437,6 +1591,11 @@ window.DEC15_LESSON = {
               title: "I can …",
               meter: ["ticked","Skills 1–3 unlocked!"],
               items: ["start a discussion with a short, linked opinion.","introduce an idea from a source in a less formal, spoken style.","take the floor politely and link my point to what was said."]
+            },
+            {"type":"sticky","title":"Phrase of the day · say it like an academic","text":"<b>“Sorry to jump in, but Hyman and Smith talk about …”</b><br>Take the floor and bring in a source in one move.","color":"green"},
+            {
+              type: "fields",
+              fields: [{"id":"d6-exit","label":"Exit ticket · your first turn in next week’s tutorial on green skills (start + source + link)","rows":3,"placeholder":"To start us off, I’d say … . Bowen et al. talk about … . As a result, …"}]
             }
           ]
         }
@@ -1517,7 +1676,7 @@ window.DEC15_LESSON = {
                 {"id":"t2-next","label":"One thing I will do about it next week","rows":2,"placeholder":"I will … every … before …"}
               ]
             },
-            {"type":"tip","text":"Next class, tell a partner your hardest part and your plan in <b>30 seconds</b>: “The hardest part for me was … so next week I’m going to …”"}
+            {"type":"tip","text":"Next class: <b>stand up and find a partner</b>. Tell them your hardest part and your plan in <b>30 seconds</b>: “The hardest part for me was … so next week I’m going to …”"}
           ]
         }
       ]
@@ -1637,7 +1796,8 @@ window.DEC15_LESSON = {
               type: "talk",
               title: "Bring to class",
               prompts: ["Which paragraph was hardest to label? Why?","How does the word “Therefore” at the start of Body 2 connect the two body paragraphs?"]
-            }
+            },
+            {"type":"sticky","title":"Phrase of the day · say it like an academic","text":"<b>“The most significant barrier to … will undoubtedly be …”</b><br>From the Introduction of Sample 3.1. A strong way to state a thesis.","color":"blue"}
           ],
           answers: {
             items: [

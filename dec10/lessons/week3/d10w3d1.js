@@ -43,6 +43,7 @@ window.DEC15_LESSON = {
           title: "Find someone who … (the future of work)",
           goal: "Walk, ask and listen. Find a different classmate for each square.",
           blocks: [
+            { type: "sticky", title: "Say it like an academic · phrase of the day", text: "<b>“That’s interesting — could you tell me a bit more about …?”</b><br>Use it all day: in the bingo, in your reading group and in your group meeting this afternoon.", color: "green" },
             { type: "do", n: 1, who: "class", text: "Stand up. Ask a classmate a question from one square. If they say <b>yes</b>, write their name in the square — then ask <b>one follow-up question</b>." },
             { type: "do", n: 2, who: "class", text: "Use each classmate only <b>once</b>. Four in a row = <b>BINGO!</b> Shout it out." },
             {
@@ -86,12 +87,14 @@ window.DEC15_LESSON = {
           id: "r2",
           short: "Jobs of 2040",
           minutes: 10,
-          grouping: "Groups of 3–4",
+          grouping: "Two lines → rotate",
           art: "dec10/assets/week3/v/v-d10w3d1-r2.svg",
           title: "Spin a job of the future",
-          goal: "Imagine a future job and talk about it for one minute.",
+          goal: "Speed-chat: imagine a future job and talk about it for one minute with a new partner each round.",
           blocks: [
-            { type: "do", n: 1, who: "group", text: "Spin the wheel. You get a job from the year <b>2040</b> and a question. Talk for <b>one minute</b>. Then the next person spins." },
+            { type: "do", n: 1, who: "class", text: "Stand up. Make <b>two lines</b> that face each other. The person opposite you is your partner." },
+            { type: "do", n: 2, who: "pair", text: "One partner spins and gets a job from the year <b>2040</b> and a question. Talk for <b>one minute</b>. Your partner asks one follow-up question. Swap." },
+            { type: "do", n: 3, who: "class", text: "Your teacher claps: <b>one line moves one place to the left</b>. New partner, new spin. Play <b>three rounds</b>." },
             {
               type: "spinner",
               id: "r2-spin",
@@ -110,7 +113,8 @@ window.DEC15_LESSON = {
                 { label: "Guess", phrases: ["<b>I imagine</b> they spend most of the day …", "<b>My guess is that</b> …", "They <b>might</b> / <b>could</b> …"] },
                 { label: "Your view", phrases: ["<b>I’d love to</b> do this because …", "<b>It’s not really for me</b>, because …", "<b>It depends on</b> …"] }
               ]
-            }
+            },
+            { type: "talk", title: "Use it: a seminar turn", prompts: ["Back in your seat, say one sentence to the class as if you are in a seminar: “<b>One job I think will grow by 2040 is</b> … <b>because</b> …”"] }
           ]
         },
         {
@@ -136,7 +140,8 @@ window.DEC15_LESSON = {
                 { label: "Find common ground", phrases: ["<b>We both seem to think</b> that …", "<b>I agree with you on</b> … at least.", "<b>Fair enough</b> — that’s a good point."] }
               ]
             },
-            { type: "tip", text: "<b>Rapport</b> = a good, friendly connection. Good teams can disagree <b>and</b> keep a good connection. You will practise this again in 3A today." }
+            { type: "tip", text: "<b>Rapport</b> = a good, friendly connection. Good teams can disagree <b>and</b> keep a good connection. You will practise this again in 3A today." },
+            { type: "fields", title: "Exit ticket", fields: [{ id: "r3-exit", label: "One thing I learnt about a classmate + one phrase I used to disagree politely", rows: 2, placeholder: "I found out that Mai … · I said: “I see your point, but …”" }] }
           ]
         }
       ]
@@ -158,13 +163,23 @@ window.DEC15_LESSON = {
           id: "a1",
           short: "Warmer",
           minutes: 10,
-          grouping: "Groups",
+          grouping: "Groups of 5",
           art: "dec10/assets/week3/v/v-d10w3d1-a1.svg",
           title: "Warmer",
-          goal: "Read five definitions of “green jobs” and find what they have in common.",
+          goal: "Share five definitions of “green jobs” — one each — and find what they have in common.",
           blocks: [
+            { type: "sticky", title: "Say it like an academic · phrase of the day", text: "<b>“This leads to …” / “As a result, …”</b><br>Today you link causes and effects. Try to use one of these every time you speak in this stage.", color: "blue" },
             { type: "figure", src: "dec10/assets/week3/d1-green-sectors.svg", size: "wide", alt: "Green jobs can be in old and new sectors. Left, traditional sectors: agriculture, manufacturing, construction and administration. Right, new and emerging sectors: renewable energy, energy efficiency, recycling and research. In the middle, a leaf with the shared goals: protect the environment, cut pollution and waste, use less energy and water, decent work.", caption: "Green jobs are not only in new sectors. Old sectors can be green too." },
-            { type: "do", n: 1, who: "group", text: "Read the definitions of “green jobs”. What do they have in common? Find <b>three</b> things." },
+            {
+              type: "steps",
+              title: "One definition each",
+              items: [
+                { who: "group", text: "Groups of five. Each person takes <b>one</b> definition below (person 1 = ILO, person 2 = UNEP …)." },
+                { who: "alone", text: "Read <b>only your definition</b> (1 minute). Circle 2–3 key ideas." },
+                { who: "group", text: "Tell your group your key ideas in <b>20 seconds</b>. Don’t read — look up and talk!" },
+                { who: "group", text: "Together: what do the definitions have in common? Find <b>three</b> things and write them below." }
+              ]
+            },
             {
               type: "cards",
               title: "Figure 1: Common definitions of green jobs",
@@ -179,6 +194,15 @@ window.DEC15_LESSON = {
             { type: "fields", fields: [{ id: "a1-common", label: "1. What the definitions have in common", rows: 3, placeholder: "They all talk about … / Most of them mention …" }] },
             { type: "do", n: 2, who: "pair", text: "Based on the definitions, make a list of green jobs that you know with a partner. Who can make the longest list in <b>2 minutes</b>?" },
             { type: "fields", fields: [{ id: "a1-jobs", label: "2. Green jobs we know", rows: 2, placeholder: "solar installer, …" }] },
+            { type: "do", n: 3, who: "class", text: "<b>Stand up, everyone.</b> A student reads a job from the cards. <b>Stay standing</b> = green job · <b>sit down</b> = not green · <b>half-way</b> = it depends. Tell the person next to you why, using one definition." },
+            {
+              type: "cards",
+              title: "Stand up or sit down? Green or not?",
+              items: [
+                { text: "Solar installer" }, { text: "Secretary in a solar energy company" }, { text: "Secretary in an oil company" }, { text: "Electric-bus driver" },
+                { text: "Bank manager" }, { text: "Farmer" }, { text: "Recycling plant worker" }, { text: "Fashion designer" }
+              ]
+            },
             { type: "talk", title: "Discuss in your group", prompts: ["3. What do you think the differences between a green job and a non-green job?", "Is a secretary in a solar energy company a green worker? Why / why not?"] },
             {
               type: "language",
@@ -205,9 +229,18 @@ window.DEC15_LESSON = {
           grouping: "Pair",
           art: "dec10/assets/week3/v/v-d10w3d1-a2.svg",
           title: "Vocabulary · Activity 1",
-          goal: "Learn nine terms that help you understand “green jobs”.",
+          goal: "Learn nine terms that help you understand “green jobs” — by quizzing each other on your feet.",
           blocks: [
             { type: "tip", text: "These terms help you understand green jobs, but they <b>might not be in the reading</b>. They come from the same research (Bowen et al., 2018)." },
+            {
+              type: "steps",
+              title: "Quiz – quiz – trade",
+              items: [
+                { who: "class", text: "<b>Stand up.</b> Take one term from the list below (your teacher gives you a card, or choose one). Read its definition." },
+                { who: "pair", text: "Find a partner. Read your definition in <b>your own words</b>. Your partner guesses the term. Swap." },
+                { who: "pair", text: "<b>Trade terms</b> and find a new partner. Do it with <b>three</b> partners, then sit down and do the matching to check." }
+              ]
+            },
             {
               type: "match",
               id: "a2-m",
@@ -255,6 +288,7 @@ window.DEC15_LESSON = {
           blocks: [
             { type: "do", n: 1, who: "group", text: "Make teams of <b>2–3</b>. Choose a <b>runner</b>. The runner gets one definition from the teacher and runs back to the team." },
             { type: "do", n: 2, who: "group", text: "The team finds the word in the paragraph. The runner runs back to check. Correct? Take the next definition. Wrong? Try again!" },
+            { type: "do", n: 3, who: "class", text: "<b>Team points:</b> first team with all seven words = <b>3 points</b>, second = 2, third = 1. Change the runner after every two words." },
             { type: "sources", ids: ["greening"] },
             {
               type: "limit",
@@ -283,7 +317,8 @@ window.DEC15_LESSON = {
                 { front: "labour market", back: "the jobs and workers in a country. A <b>structural impact on</b> the labour market = a deep, long-term change", tag: "economics" },
                 { front: "-intensive", back: "routine-intensive · skill-intensive · energy-intensive = uses <b>a lot of</b> …", tag: "word part" }
               ]
-            }
+            },
+            { type: "talk", title: "Use it: a tutorial answer", prompts: ["Your tutor asks: “What do we know about green skills?” Answer in one sentence with <b>patchy</b> or <b>skill distance</b>. E.g. “Research on green skills is still <b>patchy</b>, so …”"] }
           ]
         },
         {
@@ -310,7 +345,7 @@ window.DEC15_LESSON = {
                 { text: "data from the O*NET database", answer: 1, why: "O*NET comes later, in Paragraph D." }
               ]
             },
-            { type: "do", n: 2, who: "pair", text: "Tell your partner the two similarities in <b>one sentence each</b>. Use: “Both Paragraph A and the ILO definition mention …”" }
+            { type: "do", n: 2, who: "pair", text: "<b>Race:</b> when you and your partner agree on the two similarities, <b>stand up</b>. The first pair standing says them to the class in <b>one sentence each</b>: “Both Paragraph A and the ILO definition mention …”" }
           ],
           answers: { items: [["Two key similarities", "Improving well-being and social equity; contribute to environmental sustainability."]] }
         },
@@ -325,6 +360,16 @@ window.DEC15_LESSON = {
           blocks: [
             { type: "figure", src: "dec10/assets/week3/d1-jigsaw.svg", size: "wide", alt: "Jigsaw reading in two steps. Step 1, expert groups: Group 1 reads paragraphs 1–2, Group 2 reads paragraphs 3–4, Group 3 reads paragraphs 5–6, and each group compares notes. Step 2, new mixed groups: one expert from each group sits together and shares their part, so everyone learns the whole text.", caption: "Step 1: read and take notes with your expert group. Step 2 (next activity): teach your part to a new group." },
             { type: "do", n: 1, who: "group", text: "You will be divided into three groups. Read <b>only your section</b>. Annotate it (highlight, ?, !!!) and complete your note-taking table." },
+            {
+              type: "steps",
+              title: "Give everyone a job in your expert group",
+              items: [
+                { who: "group", text: "<b>Reader</b> reads each paragraph aloud, slowly. Everyone follows and annotates." },
+                { who: "group", text: "<b>Question master</b> asks after each paragraph: “What is the main idea? Where is the evidence?”" },
+                { who: "group", text: "<b>Note checker</b> makes sure everyone has the same key notes in the table." },
+                { who: "group", text: "<b>Timekeeper</b> says “5 minutes left” — you must be ready to teach your part in the next activity!" }
+              ]
+            },
             { type: "sources", ids: ["greening"] },
             {
               type: "tabs",
@@ -383,7 +428,8 @@ window.DEC15_LESSON = {
               title: "Group discussion",
               items: [
                 { who: "group", text: "First, discuss with the members of your group who have read the same section as you. Compare your notes and ideas. Try to summarise or paraphrase the main ideas together." },
-                { who: "group", text: "Next, form new groups where each member has read a different section. Take turns to share the ideas from your section and listen to what others have learned." },
+                { who: "class", text: "<b>Stand up and move.</b> Form new groups where each member has read a different section (find a 1, a 2 and a 3)." },
+                { who: "group", text: "<b>Teach-back in 60 seconds:</b> each expert teaches their section from notes — no reading from the text. A listener times you." },
                 { who: "group", text: "Listeners: ask <b>one question</b> to each expert and add the answers to your notes." }
               ]
             },
@@ -414,12 +460,23 @@ window.DEC15_LESSON = {
           id: "a7",
           short: "Questions",
           minutes: 20,
-          grouping: "Alone → Pair",
+          grouping: "Alone → Pair → Teams on the move",
           art: "dec10/assets/week3/v/v-d10w3d1-a7.svg",
           title: "Building understanding",
-          goal: "Read the whole text again and answer test-style questions.",
+          goal: "Answer test-style questions alone, then prove your answers on your feet with your team.",
           blocks: [
             { type: "tip", text: "Test tactic: answer from your <b>notes</b> first. Then check in the text. Underline the words in the paragraph that prove your answer." },
+            {
+              type: "steps",
+              title: "How this works",
+              items: [
+                { who: "alone", text: "<b>8 minutes:</b> answer Questions 1–8 below, like in a test." },
+                { who: "pair", text: "Compare with a partner. Different answer? Find the proof words in the text." },
+                { who: "class", text: "<b>Move to the paragraph (Q1–4):</b> six posters, A–F, are on the walls. Your teacher reads a question. Walk to the paragraph that answers it. One person at each poster reads the proof words. Right poster = <b>1 team point</b>." },
+                { who: "class", text: "<b>Four corners (Q5–8):</b> the corners are A, B, C and D. Stand in the corner of your answer. Each corner has 30 seconds to convince the others. You can change corners!" }
+              ]
+            },
+            { type: "figure", src: "dec10/assets/week3/d1-move-corners.svg", size: "wide", alt: "A classroom seen from above with six paragraph posters, A to F, on the walls. In the middle a question card: Question 1, data on skills is still limited — where is it? Students walk to the poster they think answers it. A scoreboard shows team points and a timer shows 30 seconds.", caption: "Move to the paragraph — then prove it with the words in the text." },
             { type: "sources", ids: ["greening"] },
             {
               type: "quiz",
@@ -445,7 +502,14 @@ window.DEC15_LESSON = {
                 { q: "8. According to the author “the term ‘green’ should be considered as a continuum rather than a binary characteristic” because green jobs", options: ["A. either fully meet environmental standards or they do not.", "B. can vary in how environmentally focused they are.", "C. will eventually replace non-green jobs in the economy.", "D. require a very different skillset from their counterparts."], answer: "B. can vary in how environmentally focused they are.", why: "“green jobs vary in ‘greenness’ … with very few jobs consisting solely of green tasks.”" }
               ]
             },
-            { type: "figure", src: "dec10/assets/week3/d1-continuum.svg", size: "wide", alt: "Two ways to see green jobs. Top, binary: a switch with only two options, green or not green. Bottom, continuum: a colour bar from grey to deep green, with jobs placed along it — an office secretary, a sales manager, an energy adviser, a solar installer — showing that jobs can be a little green or very green.", caption: "Question 8 in a picture: “green” is a <b>continuum</b>, not a <b>binary</b> characteristic." },
+            {
+              type: "toggle",
+              title: "Want more? Question 8 in a picture",
+              hint: "Open after you check your answers.",
+              blocks: [
+                { type: "figure", src: "dec10/assets/week3/d1-continuum.svg", size: "wide", alt: "Two ways to see green jobs. Top, binary: a switch with only two options, green or not green. Bottom, continuum: a colour bar from grey to deep green, with jobs placed along it — an office secretary, a sales manager, an energy adviser, a solar installer — showing that jobs can be a little green or very green.", caption: "Question 8 in a picture: “green” is a <b>continuum</b>, not a <b>binary</b> characteristic." }
+              ]
+            },
             { type: "talk", title: "Explain to a partner", prompts: ["Choose one question you found hard. Show your partner the words in the text that prove the answer.", "Which wrong option was the best “trap”? Why did it look right?"] },
             {
               type: "language",
@@ -477,7 +541,8 @@ window.DEC15_LESSON = {
               right: ["Difficulty for policymakers to assess the effects of environmental policies.", "4. Green job classification becomes necessary.", "2. It influences the content of re-training programs.", "Workers in non-green jobs may require extensive training"]
             },
             { type: "figure", src: "dec10/assets/week3/d1-cause-chain.svg", size: "wide", alt: "A causal chain. The issue: the difficulty in defining green jobs. Cause: lack of a clear definition for green jobs leads to difficulty for policymakers to assess the effects of environmental policies. Because the definition influences policy decisions, green job classification becomes necessary. Similar skills influence the content of re-training programmes. Different skill sets mean workers in non-green jobs may require extensive training.", caption: "The causal chain: each effect can become the cause of the next step." },
-            { type: "do", n: 1, who: "pair", text: "For each cause and effect, identify the specific sentences in the paragraph that indicate the relationship. Tap the phrases that help illustrate this relationship." },
+            { type: "do", n: 1, who: "class", text: "<b>Listen and stand:</b> one student reads Paragraphs A and B aloud, slowly. <b>Stand up</b> (then sit again) every time you hear a cause-and-effect word or phrase. How many did the class catch?" },
+            { type: "do", n: 2, who: "pair", text: "For each cause and effect, identify the specific sentences in the paragraph that indicate the relationship. Tap the phrases that help illustrate this relationship." },
             {
               type: "spot",
               id: "a8-spot",
@@ -568,7 +633,9 @@ window.DEC15_LESSON = {
                 { label: "new sentence (As a result, / Consequently,)", any: ["as a result,", "consequently", "therefore", "for this reason"], color: "#b07d12" }
               ],
               items: [{ task: "My cause-and-effect sentences", rows: 5, placeholder: "Uncertainty about which jobs qualify as green jobs leads to …", model: "Uncertainty about which jobs qualify as “green jobs” leads to challenges for employers in designing relevant training programmes. Due to the shift towards renewable energy industries, governments struggle to create effective labour policies. Emerging technologies disrupt traditional job markets. As a result, traditional industries face increased pressure to innovate and adapt." }]
-            }
+            },
+            { type: "do", n: 2, who: "group", text: "<b>Pair meets pair:</b> read your best sentence to another pair. They vote for the clearest one — it goes on the board." },
+            { type: "talk", title: "Use it: answer your tutor", prompts: ["Your tutor asks: “Why is it hard to train workers for green jobs?” Answer in <b>two sentences</b> with <b>two different</b> linkers."] }
           ],
           answers: { title: "Suggested answers", items: [["Possible pairs (more than one match is possible)", "Uncertainty about which jobs qualify as “green jobs” → Employers face challenges in designing relevant job training programs. · The shift towards renewable energy industries → Governments struggle to create effective labor policies. · Lack of standardized criteria for green job classification across industries → Job seekers find it difficult to determine necessary qualifications. · Emerging technologies disrupt traditional job markets → Traditional industries face increased pressure to innovate and adapt. · Lack of a clear definition → It influences the content of re-training programs / Definition of green jobs influences policy decisions."]] }
         },
@@ -586,6 +653,7 @@ window.DEC15_LESSON = {
               type: "steps",
               title: "Research using O*NET",
               items: [
+                { who: "group", text: "Give jobs: <b>chair</b> (keeps everyone talking), <b>searcher</b> (uses O*NET), <b>timekeeper</b>, <b>reporter</b> (speaks at the end)." },
                 { who: "group", text: "Your teacher gives your group a <b>non-green job</b> and a <b>green job</b>. (No pair yet? Try a <b>marketing manager</b> → <b>sustainability specialist</b>, or a <b>roofer</b> → <b>solar photovoltaic installer</b>.)" },
                 { who: "group", text: "Search for both jobs on <b>O*NET OnLine</b> (onetonline.org). Green jobs have a small green leaf icon." },
                 { who: "group", text: "Focus on these key areas: skills required, education and training required, work experience needed, job tasks and work context. Add notes to the table." }
@@ -600,7 +668,8 @@ window.DEC15_LESSON = {
             },
             { type: "talk", title: "Critical Thinking Questions", prompts: ["<b>Skill Differences:</b> What are the key differences in skills between the non-green job and the green job?", "<b>Retraining Needs:</b> How much retraining would someone need to move from the non-green job to the green job?", "<b>Job Growth Potential:</b> How is the green job market growing, and what is the demand for green skills compared to the non-green job?", "<b>Challenges and Opportunities:</b> What challenges and benefits would someone experience when transitioning to the green job?"] },
             { type: "scale", id: "a10-scale", title: "Agree as a group", statement: "The move from our non-green job to our green job is easy.", ends: ["Very hard: big skill distance", "Easy: small skill distance"] },
-            { type: "do", n: 1, who: "pair", text: "<b>Role play (3 minutes):</b> Student A is a worker in the non-green job. Student B is a <b>careers adviser</b>. A asks for advice about moving to the green job; B uses your O*NET notes. Then swap." },
+            { type: "do", n: 1, who: "class", text: "<b>Human line:</b> one wall = very hard, the other wall = easy. Each group stands together at its place. Reporters explain in <b>30 seconds</b>: “Our move is … because …”" },
+            { type: "do", n: 2, who: "pair", text: "<b>Role play (3 minutes):</b> Student A is a worker in the non-green job. Student B is a <b>careers adviser</b>. A asks for advice about moving to the green job; B uses your O*NET notes. Then swap." },
             {
               type: "language",
               title: "Evaluate the transition",
@@ -610,7 +679,8 @@ window.DEC15_LESSON = {
                 { label: "Careers adviser", phrases: ["<b>Have you thought about</b> …?", "<b>One option would be to</b> …", "<b>You already have</b> strong … skills, <b>so</b> …", "<b>The good news is that</b> …"] },
                 { label: "Worker", phrases: ["<b>I’m worried that</b> …", "<b>How long would it take to</b> …?", "<b>Would I need</b> a new qualification?"] }
               ]
-            }
+            },
+            { type: "fields", title: "Exit ticket", fields: [{ id: "a10-exit", label: "One cause-and-effect sentence about green jobs you could use in your research summary tomorrow", rows: 2, placeholder: "Due to …, many workers … As a result, …" }] }
           ]
         }
       ]
@@ -637,7 +707,9 @@ window.DEC15_LESSON = {
           title: "Getting to know your group members",
           goal: "Know your own group work strengths and areas for growth — and your partner’s.",
           blocks: [
+            { type: "sticky", title: "Say it like an academic · phrase of the day", text: "<b>“Would you be willing to …?”</b><br>The polite way to ask your group for help. By the end of this stage you will use it in a real message to your group.", color: "pink" },
             { type: "do", n: 1, who: "group", text: "Sit with your <b>seminar / interactive presentation group</b>." },
+            { type: "figure", src: "dec10/assets/week3/d1-group-roles.svg", size: "wide", alt: "Four group role cards around a rotate arrow. Chair: invites everyone to speak — What do you think? Timekeeper: watches the clock — Two minutes left. Language monitor: ticks the phrases people use — You used 4 phrases! Reporter: tells the class the result — Our group found that … The roles change every activity.", caption: "Choose roles now. After every activity, pass your role to the person on your left." },
             {
               type: "sort",
               id: "c1-sort",
@@ -657,7 +729,7 @@ window.DEC15_LESSON = {
             },
             { type: "do", n: 2, who: "alone", text: "Reflect on your group work skills. Write down <b>3 – 5</b> strengths and areas for growth. You have <b>5 minutes</b>." },
             { type: "table", id: "c1-me", title: "My group work skills", columns: ["Strengths", "Areas for growth"], rows: 4 },
-            { type: "do", n: 3, who: "pair", text: "Share what you have written with someone else in your group. Make sure you listen carefully and take note of what your partner has said." },
+            { type: "do", n: 3, who: "pair", text: "<b>Walk and talk:</b> stand up with someone else in your group and walk slowly around the room for 2 minutes. Share what you have written. Listen carefully and take note of what your partner has said." },
             { type: "fields", fields: [{ id: "c1-partner", label: "My partner’s strengths and areas for growth (notes)", rows: 2 }] },
             { type: "do", n: 4, who: "group", text: "Come together as a group and tell other group members what you learnt about your partner. Who could <b>support</b> whom? (E.g. a confident speaker helps a nervous presenter practise.)" },
             {
@@ -681,6 +753,15 @@ window.DEC15_LESSON = {
           title: "Introduction to a communication model · Activity 1 Discussion",
           goal: "Talk about how to make group work safe and useful for everyone.",
           blocks: [
+            {
+              type: "steps",
+              title: "Snowball fight",
+              items: [
+                { who: "alone", text: "Write <b>one idea</b> for Question 1 on a piece of paper (1 minute). Make it into a ball." },
+                { who: "group", text: "Throw your snowball (gently!) into the middle of the group. Pick up a different one." },
+                { who: "group", text: "Read it aloud. Add to it: “<b>Yes, and …</b>”. The chair makes sure everyone reads one." }
+              ]
+            },
             { type: "talk", title: "Discuss these two questions first", prompts: ["1. How can you achieve a safe and comfortable environment when doing a group task?", "2. How is giving feedback to your group members useful?"] },
             {
               type: "language",
@@ -720,6 +801,7 @@ window.DEC15_LESSON = {
                 ["Sam", "When I see you haven’t responded to our messages for one week, I feel anxious and concerned because it makes it hard for us to plan effectively and I need reassurance that we will meet our deadlines and complete our work on time. Would you be willing to call me in the morning to discuss our group tasks? This might help us work more efficiently as a team."]
               ]
             },
+            { type: "do", n: 1, who: "group", text: "<b>Hot seat:</b> one student is <b>Matt</b> and sits in the middle. Two students read Jamie’s and Sam’s messages <b>aloud</b> to Matt. Matt says how he feels after each one and what he will do next." },
             { type: "talk", title: "Discuss", prompts: ["1. Which response do you think would be received well? Why?", "2. What do you notice about the different language choices? What is included in Sam’s response that isn’t included in Jamie’s?", "Imagine you are Matt. How do you feel after each message? What do you do next?"] },
             { type: "figure", src: "dec10/assets/week3/d1-nvc-cycle.svg", alt: "Nonviolent Communication (NVC): a cycle of four parts. Observation: the concrete actions we observe with our senses without judgement. Feeling: how we feel in relation to what we observe. Need: the needs or values behind our feelings. Request: the concrete action we would like taken to meet the needs expressed.", caption: "Nonviolent Communication (NVC), developed by psychologist Dr Marshall Rosenberg." },
             {
@@ -745,6 +827,7 @@ window.DEC15_LESSON = {
           blocks: [
             { type: "key", title: "An observation is …", points: ["a factual, specific description of what has taken place: the <b>who, what, where and when</b>.", "<b>non-judgmental</b>: exactly what you see and hear, without your beliefs and opinions.", "It helps to pretend you are a <b>camera</b> that is registering something without any opinion."] },
             { type: "figure", src: "dec10/assets/week3/d1-camera.svg", size: "wide", alt: "Observation versus evaluation. Left, a camera records: I noticed that you looked at your phone five times during the meeting yesterday. Right, a judge’s gavel with a thought cloud: Omar is always on his phone during meetings. Words like always, never and every time are crossed out.", caption: "Camera words (facts, numbers, times) vs judge words (always, never, too …)." },
+            { type: "do", n: 1, who: "group", text: "<b>Camera or judge? Stand up or sit down.</b> The chair reads each statement below aloud. <b>Stand up</b> = observation (camera). <b>Stay sitting</b> = evaluation (judge). Then sort them here to record your answers." },
             {
               type: "sort",
               id: "c4-sort",
@@ -806,6 +889,8 @@ window.DEC15_LESSON = {
           goal: "Say a real feeling — not a thought dressed up as a feeling.",
           blocks: [
             { type: "talk", title: "1. Revisit Sam’s response", prompts: ["What kinds of words are used to express feelings?", "Could the word ‘feel’ be replaced with the word ‘think’?"] },
+            { type: "figure", src: "dec10/assets/week3/d1-heart-head.svg", size: "wide", alt: "Two students. Left: hand on heart means feeling, for example I’m nervous about the presentation — a real feeling word, an adjective. Right: hand on head means thought, for example I feel like you are not listening to me — feel plus like, that, as if or you.", caption: "Heart = feeling · head = thought." },
+            { type: "do", n: 1, who: "group", text: "<b>Show it with your hand:</b> the chair reads sentences a–j aloud. Everyone shows the answer at the same time: <b>hand on heart</b> = feeling, <b>hand on head</b> = thought. Then tap your answers in the quiz." },
             {
               type: "quiz",
               id: "c5-quiz",
@@ -852,6 +937,7 @@ window.DEC15_LESSON = {
           blocks: [
             { type: "key", title: "Feelings point to needs", points: ["Feeling hungry → the need for <b>food</b>.", "Feeling sad → a need for <b>support</b> or <b>connection</b>.", "Feeling frustrated → a need for <b>change</b> or <b>autonomy</b>."] },
             { type: "figure", src: "dec10/assets/week3/d1-needs-cloud.svg", size: "wide", alt: "A word cloud of needs in five groups based on Maslow’s hierarchy. Physical: food, water, sleep, shelter, rest, air. Safety and security: stability, reliability, order, consistency, protection, structure. Connection: cooperation, inclusion, support, reassurance, understanding, belonging, empathy, trust. Self-esteem: respect, recognition, acknowledgement, appreciation, achievement. Self-actualisation: purpose, creativity, growth, meaning, autonomy, freedom, discovery.", caption: "1. Look at the needs. What do you notice about these words? (They are all abstract <b>nouns</b>.)" },
+            { type: "do", n: 1, who: "class", text: "<b>Human pyramid:</b> five places in the room are the five levels (Physical near the door … Self-Actualisation at the window). Take one need card from your teacher (or one word below). Walk to its level and say: “I’m <i>reassurance</i> — I’m a <i>connection</i> need.” Then sort the words here." },
             {
               type: "sort",
               id: "c6-sort",
@@ -925,6 +1011,9 @@ window.DEC15_LESSON = {
                 { task: "c. You should pull your weight.", rows: 2 }
               ]
             },
+            { type: "figure", src: "dec10/assets/week3/d1-speed-circle.svg", size: "wide", alt: "Speed circle. Students sit in an inner and an outer circle facing each other. The outer student reads a demand, for example Don’t talk while I’m speaking! The inner student turns it into a request: Would you be willing to wait until I finish, please? After 30 seconds the outer circle moves one seat.", caption: "Speed circle: 30 seconds per demand, then the outer circle moves one seat." },
+            { type: "do", n: 1, who: "class", text: "<b>Speed circle:</b> make an inner and an outer circle. Outer: spin and read the demand in a cross voice. Inner: turn it into a request with all three keys in <b>30 seconds</b>. Outer circle moves one seat. Swap circles after three rounds." },
+            { type: "spinner", id: "c7-spin", title: "Demands for the speed circle", text: "Spin a demand. Turn it into a request: choice + positive verb + clear and specific.", reels: [{ label: "Demand", items: ["Don’t be late again.", "Stop changing my slides.", "You should answer the group chat.", "Don’t interrupt me.", "You must read the article before the meeting.", "Stop talking about other things in our meetings."] }] },
             {
               type: "pairs",
               items: [
@@ -999,7 +1088,7 @@ window.DEC15_LESSON = {
                 { text: "Would you be willing to put your phone away for the next 10 minutes and hear what I have to say?", answer: 4 }
               ]
             },
-            { type: "do", n: 1, who: "group", text: "Read your five complete statements <b>aloud</b> to each other — with a calm, friendly voice." },
+            { type: "do", n: 1, who: "group", text: "Read your five complete statements <b>aloud</b> to each other — with a calm, friendly voice. The <b>language monitor</b> listens and ticks O, F, N and R for each speaker." },
             { type: "spinner", id: "c8-spin", title: "Speed round: OFNR in 30 seconds", text: "Spin a group-work problem. Say a full OFNR statement in 30 seconds. The group checks: O? F? N? R?", reels: [{ label: "Problem", items: ["One member always arrives 15 minutes late.", "Nobody has read the article before the meeting.", "One person changed the slides without asking.", "A member hasn’t sent their part of the summary.", "Two people talk at the same time in every meeting.", "The group chat is full of jokes, not planning."] }] },
             { type: "tip", text: "The aim is not to guess the feeling of another person — it is to become familiar and comfortable with the language of NVC." }
           ]
@@ -1041,7 +1130,7 @@ window.DEC15_LESSON = {
               avoid: [{ label: "Blame (your fault / should / always)", any: ["your fault", "should", "always", "never"] }],
               items: [{ task: "My OFNR statement (I am … Jonathan / Rachel)", rows: 5, placeholder: "When I hear you say that …, I feel … because I need … Would you be willing to …?" }]
             },
-            { type: "do", n: 3, who: "pair", text: "<b>Role play:</b> replay the scene. A is Jonathan or Rachel and says the OFNR statement. B answers kindly, starting with “What I’m hearing is …”. Then swap." },
+            { type: "do", n: 3, who: "pair", text: "<b>Role play — stand up and act it:</b> replay the scene. A is Jonathan or Rachel and says the OFNR statement. B answers kindly, starting with “What I’m hearing is …”. Then swap." },
             {
               type: "language",
               title: "Doing NVC in the heat of the moment",
@@ -1051,6 +1140,9 @@ window.DEC15_LESSON = {
                 { label: "Respond with empathy", phrases: ["<b>I understand it is difficult for you</b> with your other responsibilities.", "<b>It sounds like</b> flexibility <b>is really important to you</b>."] }
               ]
             },
+            { type: "do", n: 4, who: "alone", text: "<b>Use it for real:</b> write a short message to your real seminar group (in Chats or by email). Make one OFNR request about your next meeting — e.g. a time, a task or a deadline." },
+            { type: "fields", fields: [{ id: "c9-use", label: "My message to my group", rows: 4, placeholder: "Hi everyone, I noticed that we haven’t chosen a time to meet this week. I feel a bit worried because I need … Would you be willing to …?" }] },
+            { type: "scale", id: "c9-exit", title: "Exit ticket", statement: "I can turn a complaint into a polite OFNR request.", ends: ["Not yet", "Yes, easily"] },
             { type: "tip", text: "Don’t expect to be an expert in this after one lesson. It takes lots of practice. Be kind to yourself and acknowledge your progress." }
           ],
           answers: {
@@ -1168,6 +1260,7 @@ window.DEC15_LESSON = {
                 { who: "alone", text: "<b>Round 3:</b> say it to a friend, a family member — or the mirror. Look up from your notes." }
               ]
             },
+            { type: "key", title: "Choose your level", points: ["<b>Bronze:</b> you can say your summary from notes in about 2 minutes.", "<b>Silver:</b> + you use two cause-and-effect linkers and name the source (author, year).", "<b>Gold:</b> + send a 30-second voice note or your one-sentence summary to a classmate in Chats, and ask one question about theirs."] },
             { type: "checklist", id: "h3-check", title: "Make sure", items: ["My summary is clearly focused on my guiding question.", "I am confident my summary accurately represents the source ideas.", "It is in my own words, with cause-and-effect language.", "I refer to the source (author, year).", "I speak from notes — I don’t read."] },
             { type: "scale", id: "h3-ready", title: "How ready are you for tomorrow?", statement: "I can give my 2-minute summary from notes without reading.", ends: ["Not yet", "Totally ready"] },
             { type: "key", title: "Tomorrow, first thing", points: ["Bring your <b>notes</b> (not a script).", "You share your summary in a group, then your group plans a presentation for Thursday or Friday.", "Keep researching for your group’s <b>Seminar</b> topic and the final <b>Interactive Presentation</b> too."] }
