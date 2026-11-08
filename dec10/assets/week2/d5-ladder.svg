@@ -30,29 +30,26 @@
 <defs><filter id="ld-sh" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#14293a" flood-opacity=".11"/><feDropShadow dx="0" dy="1.5" stdDeviation="1.3" flood-color="#14293a" flood-opacity=".13"/></filter><filter id="ld-sm" x="-40%" y="-40%" width="180%" height="190%"><feDropShadow dx="0" dy="3.5" stdDeviation="3.5" flood-color="#14293a" flood-opacity=".17"/><feDropShadow dx="0" dy="1" stdDeviation=".7" flood-color="#14293a" flood-opacity=".14"/></filter><filter id="ld-bl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter><linearGradient id="ld-pap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#fbf8f2"/></linearGradient><radialGradient id="ld-glo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><linearGradient id="ld-gls" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><linearGradient id="ld-bg" x1="0" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#eef3fb"/><stop offset="1" stop-color="#dde7f6"/></linearGradient><pattern id="ld-dt" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="8" cy="8" r="1" fill="#2f6db5" opacity="0.09"/></pattern><clipPath id="ld-cl"><rect width="640" height="360" rx="22"/></clipPath><linearGradient id="ld-g0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9cbfeb"/><stop offset="1" stop-color="#7ea1cf"/></linearGradient><linearGradient id="ld-g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#729cd6"/><stop offset="1" stop-color="#547fb9"/></linearGradient><linearGradient id="ld-g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#527ac1"/><stop offset="1" stop-color="#335ca4"/></linearGradient><linearGradient id="ld-g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d5e9c"/><stop offset="1" stop-color="#1f4080"/></linearGradient><linearGradient id="ld-g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#da7158"/><stop offset="1" stop-color="#bf5036"/></linearGradient><linearGradient id="ld-g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2cdae"/><stop offset="1" stop-color="#e5bd9e"/></linearGradient></defs>
 <g clip-path="url(#ld-cl)"><rect width="640" height="360" fill="url(#ld-bg)"/><rect width="640" height="360" fill="url(#ld-dt)"/><ellipse cx="141" cy="43" rx="269" ry="180" fill="url(#ld-glo)" opacity=".75"/><circle cx="602" cy="346" r="151" fill="#2f6db5" opacity=".035"/><rect x=".75" y=".75" width="638.5" height="358.5" rx="21.25" stroke="#14293a" stroke-opacity=".06" stroke-width="1.5"/></g>
 <ellipse cx="330" cy="296" rx="290" ry="8" fill="#14293a" opacity="0.18" filter="url(#ld-bl)"/>
-<path d="M194 242l8-6v50l-8 6z" fill="#6482a8"/>
-<path d="M76 236l8-6h112l-2 6z" fill="#b6d0f0"/>
+<path d="M78 238l8-8h106l-8 8z" fill="#b6d0f0"/>
 <rect x="70" y="236" width="124" height="54" rx="10" fill="url(#ld-g0)" filter="url(#ld-sh)"/>
 <path d="M80 237.6H184" stroke="#fff" stroke-opacity=".45" stroke-width="1.4" stroke-linecap="round"/><rect x="70" y="236" width="124" height="54" rx="10" fill="url(#ld-gls)" opacity=".5"/>
 <text x="132" y="260" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="15" fill="#fff" text-anchor="middle">Simple</text>
 <text x="132" y="278" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="11" fill="#fff" text-anchor="middle" opacity=".92">basic knowledge</text>
 <g class="fl "><rect x="74" y="186" width="116" height="34" rx="8" fill="url(#ld-pap)" filter="url(#ld-sm)" stroke="#8fb6e8" stroke-opacity=".3"/><path d="M126 220l6 6 6-6z" fill="#fbf8f2"/><text x="132" y="208" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="11" fill="#14293a" text-anchor="middle">a. What group?</text></g>
-<path d="M324 188l8-6v104l-8 6z" fill="#426698"/>
-<path d="M206 182l8-6h112l-2 6z" fill="#97b6e0"/>
+<path d="M208 184l8-8h106l-8 8z" fill="#97b6e0"/>
 <rect x="200" y="182" width="124" height="108" rx="10" fill="url(#ld-g1)" filter="url(#ld-sh)"/>
 <path d="M210 183.6H314" stroke="#fff" stroke-opacity=".45" stroke-width="1.4" stroke-linecap="round"/><rect x="200" y="182" width="124" height="108" rx="10" fill="url(#ld-gls)" opacity=".5"/>
 <text x="262" y="206" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="15" fill="#fff" text-anchor="middle">Less simple</text>
 <text x="262" y="224" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="11" fill="#fff" text-anchor="middle" opacity=".92">a little logic</text>
 <g class="fl f2"><rect x="204" y="132" width="116" height="34" rx="8" fill="url(#ld-pap)" filter="url(#ld-sm)" stroke="#5f8fd0" stroke-opacity=".3"/><path d="M256 166l6 6 6-6z" fill="#fbf8f2"/><text x="262" y="154" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="11" fill="#14293a" text-anchor="middle">b. Which is different?</text></g>
-<path d="M454 134l8-6v158l-8 6z" fill="#294b87"/>
-<path d="M336 128l8-6h112l-2 6z" fill="#7f9dd1"/>
+<path d="M338 130l8-8h106l-8 8z" fill="#7f9dd1"/>
 <rect x="330" y="128" width="124" height="162" rx="10" fill="url(#ld-g2)" filter="url(#ld-sh)"/>
 <path d="M340 129.6H444" stroke="#fff" stroke-opacity=".45" stroke-width="1.4" stroke-linecap="round"/><rect x="330" y="128" width="124" height="162" rx="10" fill="url(#ld-gls)" opacity=".5"/>
 <text x="392" y="152" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="15" fill="#fff" text-anchor="middle">More complex</text>
 <text x="392" y="170" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="11" fill="#fff" text-anchor="middle" opacity=".92">justify your answer</text>
 <g class="fl f3"><rect x="334" y="78" width="116" height="34" rx="8" fill="url(#ld-pap)" filter="url(#ld-sm)" stroke="#3a68b8" stroke-opacity=".3"/><path d="M386 112l6 6 6-6z" fill="#fbf8f2"/><text x="392" y="100" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="11" fill="#14293a" text-anchor="middle">c. Why?</text></g>
-<path d="M584 80l8-6v212l-8 6z" fill="#18356a"/>
-<path d="M466 74l8-6h112l-2 6z" fill="#7088b6"/>
+<path d="M582 78l8-8v212l-8 8z" fill="#18356a"/>
+<path d="M468 76l8-8h114l-8 8z" fill="#7088b6"/>
 <rect x="460" y="74" width="124" height="216" rx="10" fill="url(#ld-g3)" filter="url(#ld-sh)"/>
 <path d="M470 75.6H574" stroke="#fff" stroke-opacity=".45" stroke-width="1.4" stroke-linecap="round"/><rect x="460" y="74" width="124" height="216" rx="10" fill="url(#ld-gls)" opacity=".5"/>
 <text x="522" y="98" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="15" fill="#fff" text-anchor="middle">Most complex</text>

@@ -8,11 +8,12 @@
 .dr{stroke-dasharray:6 8;animation:dr 1.6s linear infinite}@keyframes dr{to{stroke-dashoffset:-28}}
 .gl{animation:gl 3s ease-in-out infinite}@keyframes gl{0%,100%{opacity:.4}50%{opacity:1}}
 .pu{animation:pu 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}@keyframes pu{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-.st{animation:st 3.4s ease-in-out infinite;opacity:0}.st2{animation-delay:-1.1s}.st3{animation-delay:-2.2s}@keyframes st{0%{opacity:0;transform:translateY(6px)}40%{opacity:.6}100%{opacity:0;transform:translateY(-22px)}}
+.st{animation:st 3.4s ease-in-out infinite;opacity:0}.st2{animation-delay:-1.1s}.st3{animation-delay:-2.2s}@keyframes st{0%{opacity:0;transform:translateY(6px)}40%{opacity:.6}100%{opacity:0;transform:translateY(-22px)}}@media (prefers-reduced-motion: reduce){.st{opacity:.45}}
 @media (prefers-reduced-motion: reduce){*{animation:none !important}.rv,.pop{opacity:1 !important}}</style>
 <defs><filter id="rd-sh" x="-25%" y="-25%" width="150%" height="170%"><feGaussianBlur in="SourceAlpha" stdDeviation="9"/><feOffset dy="10" result="a"/><feFlood flood-color="#4a2f14" flood-opacity=".13"/><feComposite in2="a" operator="in" result="A"/><feGaussianBlur in="SourceAlpha" stdDeviation="1.6"/><feOffset dy="2" result="b"/><feFlood flood-color="#4a2f14" flood-opacity=".16"/><feComposite in2="b" operator="in" result="B"/><feMerge><feMergeNode in="A"/><feMergeNode in="B"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <filter id="rd-ss" x="-25%" y="-25%" width="150%" height="170%"><feGaussianBlur in="SourceAlpha" stdDeviation="4"/><feOffset dy="4" result="a"/><feFlood flood-color="#4a2f14" flood-opacity=".14"/><feComposite in2="a" operator="in" result="A"/><feGaussianBlur in="SourceAlpha" stdDeviation=".8"/><feOffset dy="1.2" result="b"/><feFlood flood-color="#4a2f14" flood-opacity=".18"/><feComposite in2="b" operator="in" result="B"/><feMerge><feMergeNode in="A"/><feMergeNode in="B"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <filter id="rd-bl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8"/></filter>
+<filter id="rd-bb" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="28"/></filter>
 <pattern id="rd-dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="1.2" fill="#4a2f14" opacity=".09"/></pattern>
 <linearGradient id="rd-hi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/></linearGradient>
 <linearGradient id="rd-paper" x1="0" y1="0" x2=".4" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f7f3ea"/></linearGradient>
