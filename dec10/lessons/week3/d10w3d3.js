@@ -1305,9 +1305,18 @@ window.DEC15_LESSON = {
                       type: "steps",
                       items: [
                         {"who":"group","text":"Discuss your reactions to the <i>opening remarks</i> presentation content. Everyone says at least one sentence."},
-                        {"who":"group","text":"Prepare one or two questions you would like the group to answer about the problem they talked about (gaps in your knowledge you would like filled)."},
+                        {"who":"alone","text":"<b>Question snowball.</b> On a piece of paper, write <b>one</b> question you would like the group to answer about the problem they talked about (a gap in your knowledge). Make it into a paper ball."},
+                        {"who":"group","text":"<b>Stand up.</b> Throw your ball <b>gently</b> into the middle of your group. Everyone picks up a different ball and reads the question aloud."},
+                        {"who":"group","text":"Choose the best one or two questions (use the coin bet below to test them)."},
                         {"who":"group","text":"Post your group’s reactions and questions to the Discussion Board. Do this IN CLASS and do ONE POST PER GROUP."}
                       ]
+                    },
+                    {
+                      type: "figure",
+                      src: "dec10/assets/week3/d3-move-snowball.svg",
+                      size: "wide",
+                      alt: "Question snowball: each student writes one question for Group 2 on paper, makes a paper ball and throws it gently into the middle. Everyone picks up one ball, opens it and reads the question aloud. The group chooses the best two questions to post.",
+                      caption: "Write, throw gently, pick up, read aloud, choose the best two."
                     },
                     {
                       type: "language",
@@ -1388,6 +1397,16 @@ window.DEC15_LESSON = {
               text: "“Feedback on our Opening Remarks can be put into three categories: [EG <i>content, engagement with the audience and pronunciation</i>]. For content the feedback was [...]. For engagement, the teacher said [...]. For pronunciation, [...]. This feedback tells us that next time, we should ....”"
             },
             {"type":"do","n":1,"who":"pair","text":"To prepare for the Seminar Presentation next week, Group 2 must complete these tasks. Put them in order."},
+            {
+              type: "steps",
+              title: "Hot seat: Group 2 (5 minutes)",
+              items: [
+                {"who":"class","text":"Group 2 sits on chairs at the front — the <b>hot seats</b>."},
+                {"who":"alone","text":"Everyone else: ask Group 2 <b>one</b> question about their plan. <i>“What will you do first?” · “When will you submit Portfolio Submission 1?” · “How many questions will you choose from the Discussion Board?”</i>"},
+                {"who":"group","text":"Group 2 answers — any member can answer, but everyone must answer at least once!"},
+                {"who":"class","text":"Wrong answer? The class helps: <i>“Actually, I think you need to … before …”</i>"}
+              ]
+            },
             {
               type: "order",
               id: "c7-order",
