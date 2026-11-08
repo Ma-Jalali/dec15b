@@ -59,7 +59,7 @@
 
 </g></g><clipPath id="dt5-cl0"><circle cx="58" cy="148" r="24"/></clipPath>
 <text x="94" y="154" font-family="Manrope, Arial, sans-serif" font-size="19" font-weight="800" fill="#14293a">Matt</text>
-<rect x="232" y="130" width="470" height="36" rx="18" fill="#2f7d6b" fill-opacity=".18"/><rect x="232" y="130" width="470" height="36" rx="18" fill="#2f7d6b" class="dt5-grow" style="animation-delay:0s"/><text x="250" y="154" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="800" fill="#fff">historical background</text><g transform="translate(718 164)"><path d="M0 0v-30" stroke="#14293a" stroke-width="2.4" stroke-linecap="round"/><path d="M0-30h18l-5 6 5 6H0z" fill="#2f7d6b"/></g></g><g><circle cx="58" cy="210" r="24" fill="#fff" filter="url(#dt5-sh2)"/><g clip-path="url(#dt5-cl1)"><g transform="translate(58 208) scale(0.7)">
+<rect x="232" y="130" width="470" height="36" rx="18" fill="#2f7d6b" /><text x="250" y="154" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="800" fill="#fff">historical background</text><g transform="translate(718 164)"><path d="M0 0v-30" stroke="#14293a" stroke-width="2.4" stroke-linecap="round"/><path d="M0-30h18l-5 6 5 6H0z" fill="#2f7d6b"/></g></g><g><circle cx="58" cy="210" r="24" fill="#fff" filter="url(#dt5-sh2)"/><g clip-path="url(#dt5-cl1)"><g transform="translate(58 208) scale(0.7)">
 <path d="M-19 -2c-2-20 8-31 19-31s21 11 19 31l3 26c-6 4-12 4-16 0h-12c-4 4-10 4-16 0z" fill="#2a1d17"/>
 <path d="M-22 70c0-26 8-46 22-46s22 20 22 46z" fill="#3a58a0"/>
 <path d="M-6 24h12l-6 10z" fill="#fff" fill-opacity=".85"/>
@@ -75,7 +75,7 @@
 
 </g></g><clipPath id="dt5-cl1"><circle cx="58" cy="210" r="24"/></clipPath>
 <text x="94" y="216" font-family="Manrope, Arial, sans-serif" font-size="19" font-weight="800" fill="#14293a">Jamie</text>
-<rect x="232" y="192" width="480" height="36" rx="18" fill="#3a58a0" fill-opacity=".18"/><rect x="232" y="192" width="480" height="36" rx="18" fill="#3a58a0" class="dt5-grow" style="animation-delay:-0.4s"/><text x="250" y="216" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="800" fill="#fff">current statistics</text><g transform="translate(718 226)"><path d="M0 0v-30" stroke="#14293a" stroke-width="2.4" stroke-linecap="round"/><path d="M0-30h18l-5 6 5 6H0z" fill="#3a58a0"/></g></g><g><circle cx="58" cy="272" r="24" fill="#fff" filter="url(#dt5-sh2)"/><g clip-path="url(#dt5-cl2)"><g transform="translate(58 270) scale(0.7)">
+<rect x="232" y="192" width="480" height="36" rx="18" fill="#3a58a0" /><text x="250" y="216" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="800" fill="#fff">current statistics</text><g transform="translate(718 226)"><path d="M0 0v-30" stroke="#14293a" stroke-width="2.4" stroke-linecap="round"/><path d="M0-30h18l-5 6 5 6H0z" fill="#3a58a0"/></g></g><g><circle cx="58" cy="272" r="24" fill="#fff" filter="url(#dt5-sh2)"/><g clip-path="url(#dt5-cl2)"><g transform="translate(58 270) scale(0.7)">
 
 <path d="M-22 70c0-26 8-46 22-46s22 20 22 46z" fill="#8a4f9e"/>
 <path d="M-6 24h12l-6 10z" fill="#fff" fill-opacity=".85"/>
@@ -91,7 +91,7 @@
 
 </g></g><clipPath id="dt5-cl2"><circle cx="58" cy="272" r="24"/></clipPath>
 <text x="94" y="278" font-family="Manrope, Arial, sans-serif" font-size="19" font-weight="800" fill="#14293a">Sam</text>
-<rect x="232" y="254" width="470" height="36" rx="18" fill="#8a4f9e" fill-opacity=".18"/><rect x="232" y="254" width="470" height="36" rx="18" fill="#8a4f9e" class="dt5-grow" style="animation-delay:-0.8s"/><text x="250" y="278" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="800" fill="#fff">case studies</text><g transform="translate(718 288)"><path d="M0 0v-30" stroke="#14293a" stroke-width="2.4" stroke-linecap="round"/><path d="M0-30h18l-5 6 5 6H0z" fill="#8a4f9e"/></g></g><g><circle cx="58" cy="334" r="24" fill="#fff" filter="url(#dt5-sh2)"/><g clip-path="url(#dt5-cl3)"><g transform="translate(58 332) scale(0.7)">
+<rect x="232" y="254" width="470" height="36" rx="18" fill="#8a4f9e" /><text x="250" y="278" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="800" fill="#fff">case studies</text><g transform="translate(718 288)"><path d="M0 0v-30" stroke="#14293a" stroke-width="2.4" stroke-linecap="round"/><path d="M0-30h18l-5 6 5 6H0z" fill="#8a4f9e"/></g></g><g><circle cx="58" cy="334" r="24" fill="#fff" filter="url(#dt5-sh2)"/><g clip-path="url(#dt5-cl3)"><g transform="translate(58 332) scale(0.7)">
 <circle cx="0" cy="-30" r="9" fill="#8a5a2b"/>
 <path d="M-22 70c0-26 8-46 22-46s22 20 22 46z" fill="#c4562f"/>
 <path d="M-6 24h12l-6 10z" fill="#fff" fill-opacity=".85"/>
@@ -107,7 +107,7 @@
 
 </g></g><clipPath id="dt5-cl3"><circle cx="58" cy="334" r="24"/></clipPath>
 <text x="94" y="340" font-family="Manrope, Arial, sans-serif" font-size="19" font-weight="800" fill="#14293a">Alex</text>
-<rect x="232" y="316" width="480" height="36" rx="18" fill="#c4562f" fill-opacity=".18"/><rect x="232" y="316" width="480" height="36" rx="18" fill="#c4562f" class="dt5-grow" style="animation-delay:-1.2000000000000002s"/><text x="250" y="340" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="800" fill="#fff">future predictions</text><g transform="translate(718 350)"><path d="M0 0v-30" stroke="#14293a" stroke-width="2.4" stroke-linecap="round"/><path d="M0-30h18l-5 6 5 6H0z" fill="#c4562f"/></g></g>
+<rect x="232" y="316" width="480" height="36" rx="18" fill="#c4562f" /><text x="250" y="340" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="800" fill="#fff">future predictions</text><g transform="translate(718 350)"><path d="M0 0v-30" stroke="#14293a" stroke-width="2.4" stroke-linecap="round"/><path d="M0-30h18l-5 6 5 6H0z" fill="#c4562f"/></g></g>
 <path d="M718 110v270" stroke="#c4562f" stroke-width="3" stroke-dasharray="6 6"/>
 <rect x="640" y="388" width="156" height="34" rx="17" fill="#c4562f"/><text x="718" y="411" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="800" fill="#fff" text-anchor="middle">first drafts: Wed</text>
 <g class="dt5-pu"><path d="M874.0 200.0L881.9 219.1L902.5 220.7L886.8 234.2L891.6 254.3L874.0 243.5L856.4 254.3L861.2 234.2L845.5 220.7L866.1 219.1z" fill="url(#dt5-gold)" filter="url(#dt5-sh)"/></g>

@@ -60,7 +60,7 @@
 <path d="M-5 7q5 5 10 0" stroke="#7a3a2a" stroke-width="2" stroke-linecap="round"/>
 
 </g>
-<g transform="translate(200 146)" class="vb5-fl"><circle r="18" fill="#fff" stroke="#c4562f" stroke-width="3"/><path d="M0-12A12 12 0 1 1 -10.4 6L0 0z" fill="#c4562f" fill-opacity=".8"/><text y="34" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" fill="#14293a" text-anchor="middle">3 min</text></g>
+<g transform="translate(200 128)" class="vb5-fl"><circle r="18" fill="#fff" stroke="#c4562f" stroke-width="3"/><path d="M0-12A12 12 0 1 1 -10.4 6L0 0z" fill="#c4562f" fill-opacity=".8"/><text y="34" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" fill="#14293a" text-anchor="middle">3 min</text></g>
 </g>
 <rect x="6.5" y="6.5" width="227" height="167" rx="30" stroke="#14293a" stroke-opacity=".08"/>
 </svg>
