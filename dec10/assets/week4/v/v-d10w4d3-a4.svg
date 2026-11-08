@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Five coloured building blocks stacked into an essay: introduction, body 1, body 2, body 3, conclusion">
+<title>Five coloured building blocks stacked into an essay: introduction, body 1, body 2, body 3, conclusion</title>
+<style>
+.w4d3a4-fl{animation:w4d3a4-fl 6s ease-in-out infinite}.w4d3a4-f2{animation-delay:-2s}.w4d3a4-f3{animation-delay:-4s}
+.w4d3a4-tw{animation:w4d3a4-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w4d3a4-t2{animation-delay:-1s}.w4d3a4-t3{animation-delay:-2s}
+.w4d3a4-bl{animation:w4d3a4-bl 5s infinite;transform-box:fill-box;transform-origin:center}.w4d3a4-b2{animation-delay:-1.7s}.w4d3a4-b3{animation-delay:-3.1s}
+.w4d3a4-pu{animation:w4d3a4-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w4d3a4-p2{animation-delay:-1.3s}
+.w4d3a4-dr{stroke-dasharray:7 8;animation:w4d3a4-dr 1.8s linear infinite}
+.w4d3a4-sw{animation:w4d3a4-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}.w4d3a4-s2{animation-delay:-2s}
+.w4d3a4-sp{animation:w4d3a4-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.w4d3a4-ti{animation:w4d3a4-ti 5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}
+.w4d3a4-in{animation:w4d3a4-in 7s ease-in-out infinite}.w4d3a4-i2{animation-delay:-2.3s}.w4d3a4-i3{animation-delay:-4.6s}
+@keyframes w4d3a4-fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes w4d3a4-tw{0%,100%{opacity:.3;transform:scale(.6)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes w4d3a4-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w4d3a4-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes w4d3a4-dr{to{stroke-dashoffset:-30}}
+@keyframes w4d3a4-sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes w4d3a4-sp{to{transform:rotate(360deg)}}
+@keyframes w4d3a4-ti{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes w4d3a4-in{0%,100%{opacity:.55}50%{opacity:1}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<linearGradient id="w4d3a4-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef7f2"/><stop offset="1" stop-color="#d8ebe2"/></linearGradient>
+<pattern id="w4d3a4-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="1" fill="#2f7d6b" fill-opacity=".14"/></pattern>
+<filter id="w4d3a4-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".8" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="w4d3a4-sh2" x="-10%" y="-10%" width="120%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#14293a" flood-opacity=".14"/></filter>
+<radialGradient id="w4d3a4-glow" cx=".5" cy=".4" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="w4d3a4-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ad7e3"/><stop offset="1" stop-color="#3d9fb8"/></linearGradient>
+<linearGradient id="w4d3a4-lf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7cc08a"/><stop offset="1" stop-color="#3f8f5a"/></linearGradient>
+<linearGradient id="w4d3a4-pp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f3f6f8"/></linearGradient>
+</defs>
+<rect width="240" height="180" rx="14" fill="url(#w4d3a4-bg)"/><rect width="240" height="180" rx="14" fill="url(#w4d3a4-dots)"/><ellipse cx="120" cy="68" rx="108" ry="76" fill="url(#w4d3a4-glow)"/>
+<g class="w4d3a4-fl w4d3a4-f1"><rect x="53.0" y="128" width="134" height="22" rx="6" fill="#3a58a0" filter="url(#w4d3a4-sh)"/><text x="120" y="143.5" font-family="Manrope, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#fff" text-anchor="middle">Intro</text></g><g class="w4d3a4-fl w4d3a4-f2"><rect x="49.0" y="102" width="142" height="22" rx="6" fill="#c4562f" filter="url(#w4d3a4-sh)"/><text x="120" y="117.5" font-family="Manrope, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#fff" text-anchor="middle">Body 1</text></g><g class="w4d3a4-fl w4d3a4-f3"><rect x="45.0" y="76" width="150" height="22" rx="6" fill="#2f7d6b" filter="url(#w4d3a4-sh)"/><text x="120" y="91.5" font-family="Manrope, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#fff" text-anchor="middle">Body 2</text></g><g class="w4d3a4-fl w4d3a4-f1"><rect x="49.0" y="50" width="142" height="22" rx="6" fill="#7a4a8c" filter="url(#w4d3a4-sh)"/><text x="120" y="65.5" font-family="Manrope, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#fff" text-anchor="middle">Body 3</text></g><g class="w4d3a4-fl w4d3a4-f2"><rect x="53.0" y="24" width="134" height="22" rx="6" fill="#b07d12" filter="url(#w4d3a4-sh)"/><text x="120" y="39.5" font-family="Manrope, Arial, sans-serif" font-size="12.5" font-weight="800" fill="#fff" text-anchor="middle">Conclusion</text></g><path d="M30 20l8 8M210 20l-8 8" stroke="#e3a843" stroke-width="3" stroke-linecap="round"/><path class="w4d3a4-tw w4d3a4-t2" d="M26 144Q27.08 148.92 32 150Q27.08 151.08 26 156Q24.92 151.08 20 150Q24.92 148.92 26 144Z" fill="#e3a843"/><path class="w4d3a4-tw w4d3a4-t3" d="M214 135Q214.9 139.1 219 140Q214.9 140.9 214 145Q213.1 140.9 209 140Q213.1 139.1 214 135Z" fill="#2f7d6b"/>
+</svg>

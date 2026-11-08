@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="A video player with a play button; three puzzle pieces from three sources fly in and click together into one shape">
+<title>Academic skills: what is synthesis?</title>
+<style>
+.v52b2-tw{animation:v52b2-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.v52b2-t2{animation-delay:-1s}.v52b2-t3{animation-delay:-2s}
+.v52b2-fl{animation:v52b2-fl 6s ease-in-out infinite}.v52b2-f2{animation-delay:-2s}.v52b2-f3{animation-delay:-4s}
+.v52b2-bl{animation:v52b2-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.v52b2-b2{animation-delay:-1.7s}.v52b2-b3{animation-delay:-3.2s}
+.v52b2-pu{animation:v52b2-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.v52b2-u2{animation-delay:-1.3s}
+.v52b2-sp{animation:v52b2-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.v52b2-dr{stroke-dasharray:6 8;animation:v52b2-dr 1.6s linear infinite}
+.v52b2-wv{animation:v52b2-wv 2.4s ease-out infinite}.v52b2-w2{animation-delay:-.8s}.v52b2-w3{animation-delay:-1.6s}
+.v52b2-sw{animation:v52b2-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}.v52b2-s2{animation-delay:-2s}
+.v52b2-pen{animation:v52b2-pen 3s ease-in-out infinite}
+.v52b2-spin{animation:v52b2-spin 9s linear infinite}
+@keyframes v52b2-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes v52b2-fl{50%{transform:translateY(-4px)}}
+@keyframes v52b2-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes v52b2-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes v52b2-sp{to{transform:rotate(360deg)}}
+@keyframes v52b2-dr{to{stroke-dashoffset:-28}}
+@keyframes v52b2-wv{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes v52b2-sw{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes v52b2-pen{0%,100%{transform:translate(0,0)}25%{transform:translate(3px,-1px)}50%{transform:translate(6px,1px)}75%{transform:translate(9px,0)}}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs><linearGradient id="v52b2-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef2fa"/><stop offset="1" stop-color="#dbe4f5"/></linearGradient>
+<pattern id="v52b2-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r=".9" fill="#3a58a0" fill-opacity=".14"/></pattern>
+<radialGradient id="v52b2-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<filter id="v52b2-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="v52b2-blur" x="-20%" y="-80%" width="140%" height="260%"><feGaussianBlur stdDeviation="4"/></filter>
+<linearGradient id="v52b2-pap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#f3ead8"/></linearGradient>
+<linearGradient id="v52b2-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c162"/><stop offset="1" stop-color="#d9962e"/></linearGradient>
+<linearGradient id="v52b2-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c4c68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="v52b2-main" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fa8dc"/><stop offset="1" stop-color="#3a58a0"/></linearGradient>
+<linearGradient id="v52b2-coral" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0694c"/><stop offset="1" stop-color="#c93b20"/></linearGradient>
+<radialGradient id="v52b2-ocean" cx=".38" cy=".32" r=".8"><stop offset="0" stop-color="#8fd3f0"/><stop offset=".6" stop-color="#2f6db5"/><stop offset="1" stop-color="#1d4680"/></radialGradient>
+</defs>
+<clipPath id="v52b2-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#v52b2-bg)"/><g clip-path="url(#v52b2-clip)"><rect width="240" height="180" fill="url(#v52b2-dots)"/><ellipse cx="116" cy="72" rx="110" ry="70" fill="url(#v52b2-glow)"/></g><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".7" stroke-width="1.2"/><ellipse cx="120" cy="162" rx="84" ry="6" fill="#14293a" opacity="0.12" filter="url(#v52b2-blur)"/><g filter="url(#v52b2-sh)"><rect x="26" y="30" width="104" height="70" rx="8" fill="url(#v52b2-navy)"/></g><rect x="32" y="36" width="92" height="52" rx="4" fill="#26407a"/><g class="v52b2-pu"><circle cx="78" cy="62" r="14" fill="#e64626"/><path d="M73 55l12 7-12 7z" fill="#fff"/></g><rect x="32" y="92" width="92" height="3" rx="1.5" fill="#55758f"/><rect x="32" y="92" width="40" height="3" rx="1.5" fill="#e3a843"/><g filter="url(#v52b2-sh)"><path d="M136 96L170 96L170 108.9A4.8 4.8 0 1 1 170 117.1L170 130L136 130L136 96z" fill="#2f6db5"/><path d="M170 96L204 96L204 130L170 130L170 117.1A4.8 4.8 0 1 0 170 108.9L170 96z" fill="#13887a"/></g><g class="v52b2-fl"><g filter="url(#v52b2-sh)"><path d="M150 40L184 40L184 74L171.1 74A4.8 4.8 0 1 1 162.9 74L150 74L150 40z" fill="#e3a843"/></g><text x="167" y="61" font-family="Manrope, Arial, sans-serif" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">1</text></g><text x="153" y="117" font-family="Manrope, Arial, sans-serif" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">2</text><text x="189" y="117" font-family="Manrope, Arial, sans-serif" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">3</text><rect x="52" y="122" width="62" height="18" rx="9" fill="#fff" stroke="#2f6db5" stroke-width="1.4" filter="url(#v52b2-sh)"/><text x="83" y="134.5" font-family="Manrope, Arial, sans-serif" font-size="9" font-weight="900" fill="#2f6db5" text-anchor="middle">synthesis</text><path class="v52b2-tw " d="M210 26C210.72 29.28 210.72 29.28 214 30C210.72 30.72 210.72 30.72 210 34C209.28 30.72 209.28 30.72 206 30C209.28 29.28 209.28 29.28 210 26z" fill="#e3a843"/><path class="v52b2-tw v52b2-t2" d="M26 122.5C26.63 125.37 26.63 125.37 29.5 126C26.63 126.63 26.63 126.63 26 129.5C25.37 126.63 25.37 126.63 22.5 126C25.37 125.37 25.37 125.37 26 122.5z" fill="#2f6db5"/><path class="v52b2-tw v52b2-t3" d="M140 17C140.54 19.46 140.54 19.46 143 20C140.54 20.54 140.54 20.54 140 23C139.46 20.54 139.46 20.54 137 20C139.46 19.46 139.46 19.46 140 17z" fill="#e64626"/>
+</svg>

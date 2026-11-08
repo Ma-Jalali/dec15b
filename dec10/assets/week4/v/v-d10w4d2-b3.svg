@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Two students explain words to each other: one gives clues in a speech bubble, the other guesses with a question mark; word cards float above">
+<title>Two students explain words to each other: one gives clues in a speech bubble, the other guesses with a question mark; word cards float above</title>
+<style>
+.vb3-fl{animation:vb3-fl 6s ease-in-out infinite}.vb3-f2{animation-delay:-2s}.vb3-f3{animation-delay:-4s}
+.vb3-tw{animation:vb3-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.vb3-t2{animation-delay:-1s}.vb3-t3{animation-delay:-2s}
+.vb3-dr{stroke-dasharray:6 8;animation:vb3-dr 1.6s linear infinite}
+.vb3-pu{animation:vb3-pu 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.vb3-sw{animation:vb3-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}
+.vb3-bl{animation:vb3-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.vb3-b2{animation-delay:-1.7s}.vb3-b3{animation-delay:-3.1s}
+.vb3-wv{animation:vb3-wv 2.7s ease-out infinite;transform-box:fill-box;transform-origin:left center}.vb3-w2{animation-delay:.9s}.vb3-w3{animation-delay:1.8s}
+.vb3-sp{animation:vb3-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.vb3-sea{animation:vb3-sea 5s ease-in-out infinite}.vb3-s2{animation-delay:-2.5s}
+.vb3-dw{stroke-dasharray:400;animation:vb3-dw 5s ease-in-out infinite}
+@keyframes vb3-fl{50%{transform:translateY(-4px)}}
+@keyframes vb3-tw{0%,100%{opacity:.3;transform:scale(.65)}50%{opacity:1;transform:scale(1)}}
+@keyframes vb3-dr{to{stroke-dashoffset:-28}}
+@keyframes vb3-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes vb3-sw{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
+@keyframes vb3-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes vb3-wv{0%{opacity:0;transform:scale(.6)}25%{opacity:.9}100%{opacity:0;transform:scale(1.35)}}
+@keyframes vb3-sp{to{transform:rotate(360deg)}}
+@keyframes vb3-sea{50%{transform:translateX(-10px)}}
+@keyframes vb3-dw{0%{stroke-dashoffset:400}55%,100%{stroke-dashoffset:0}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<filter id="vb3-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".7" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="vb3-ss" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="2" stdDeviation="1.6" flood-color="#14293a" flood-opacity=".18"/></filter>
+<pattern id="vb3-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r=".9" fill="#14293a" fill-opacity=".08"/></pattern>
+<radialGradient id="vb3-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="vb3-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe3ef"/><stop offset=".6" stop-color="#e6f4f2"/><stop offset="1" stop-color="#fbf1dc"/></linearGradient>
+<linearGradient id="vb3-seag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fa7b5"/><stop offset="1" stop-color="#1f6f8a"/></linearGradient>
+<linearGradient id="vb3-sand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e2b8"/><stop offset="1" stop-color="#e8c98d"/></linearGradient>
+<linearGradient id="vb3-leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5fae6e"/><stop offset="1" stop-color="#2f7d4b"/></linearGradient>
+<linearGradient id="vb3-blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7fb6f0" stop-opacity=".85"/><stop offset=".5" stop-color="#bfe0ff" stop-opacity=".55"/><stop offset="1" stop-color="#4d89cc" stop-opacity=".8"/></linearGradient>
+</defs>
+<rect x="6" y="6" width="228" height="168" rx="30" fill="#e2e9f7"/><rect x="6" y="6" width="228" height="168" rx="30" fill="url(#vb3-dots)"/><ellipse cx="120.0" cy="75.6" rx="100.8" ry="68.4" fill="url(#vb3-glow)"/><circle cx="211.2" cy="28.8" r="21.599999999999998" fill="#3a58a0" opacity=".08"/><circle cx="24.0" cy="154.8" r="16.2" fill="#3a58a0" opacity=".07"/><g class="vb3-fl"><g transform="translate(78 16) rotate(-6)"><rect width="84" height="30" rx="8" fill="#fff" filter="url(#vb3-ss)"/><text x="42" y="20" font-family="Manrope, Arial, sans-serif" font-size="14" font-weight="800" fill="#3a58a0" text-anchor="middle">sheen</text></g></g><g class="vb3-fl vb3-f2"><g transform="translate(150 44) rotate(5)"><rect width="74" height="26" rx="8" fill="#3a58a0"/><text x="37" y="18" font-family="Manrope, Arial, sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle">evict</text></g></g><g class="vb3-fl vb3-f3"><g transform="translate(14 46) rotate(-4)"><rect width="74" height="26" rx="8" fill="#e3a843"/><text x="37" y="18" font-family="Manrope, Arial, sans-serif" font-size="13" font-weight="800" fill="#14293a" text-anchor="middle">shirk</text></g></g><g transform="translate(70 174) scale(0.62)"><path d="M-34 40C-36 6-24-12 0-12 24-12 36 6 34 40z" fill="#3a58a0"/><path d="M-8-12l8 10 8-10" fill="#fff" opacity=".85"/><path d="M-30-6c-6 14-8 26-6 38" stroke="#3a58a0" stroke-width="12" stroke-linecap="round"/><path d="M30-6c14-2 26-4 38-12" stroke="#3a58a0" stroke-width="12" stroke-linecap="round"/><circle cx="70" cy="-19" r="6" fill="#a86b45"/><rect x="-6" y="-24" width="12" height="14" rx="5" fill="#a86b45"/><g transform="translate(0 -44)"><circle r="20" fill="#a86b45"/><circle cx="-20" cy="2" r="4" fill="#a86b45"/><circle cx="20" cy="2" r="4" fill="#a86b45"/><path d="M-19-6C-20-24-4-30 6-27 18-24 22-12 19-4 14-14 2-16-6-14-12-12-16-10-19-6z" fill="#2b1d16"/><g class="vb3-bl vb3-b2"><circle cx="-7" cy="0" r="2.4" fill="#14293a"/><circle cx="7" cy="0" r="2.4" fill="#14293a"/></g><circle cx="-12" cy="6" r="3" fill="#e88a7a" opacity=".35"/><circle cx="12" cy="6" r="3" fill="#e88a7a" opacity=".35"/><path d="M-5 7q5 7 10 0z" stroke="#8a3a2a" stroke-width="2" stroke-linecap="round" fill="#8a3a2a"/></g></g><g transform="translate(176 174) scale(0.62)"><path d="M-34 40C-36 6-24-12 0-12 24-12 36 6 34 40z" fill="#e3a843"/><path d="M-8-12l8 10 8-10" fill="#fff" opacity=".85"/><path d="M-30-6c-6 14-8 26-6 38M30-6c6 14 8 26 6 38" stroke="#e3a843" stroke-width="12" stroke-linecap="round"/><rect x="-6" y="-24" width="12" height="14" rx="5" fill="#f2c9a0"/><g transform="translate(0 -44)"><circle r="20" fill="#f2c9a0"/><circle cx="-20" cy="2" r="4" fill="#f2c9a0"/><circle cx="20" cy="2" r="4" fill="#f2c9a0"/><circle cx="0" cy="-30" r="8" fill="#5a3a22"/><path d="M-19-6C-20-24-4-30 6-27 18-24 22-12 19-4 14-14 2-16-6-14-12-12-16-10-19-6z" fill="#5a3a22"/><g class="vb3-bl vb3-b3"><circle cx="-7" cy="0" r="2.4" fill="#14293a"/><circle cx="7" cy="0" r="2.4" fill="#14293a"/></g><circle cx="-12" cy="6" r="3" fill="#e88a7a" opacity=".35"/><circle cx="12" cy="6" r="3" fill="#e88a7a" opacity=".35"/><path d="M-3 8a3 3 0 1 0 6 0a3 3 0 1 0-6 0" stroke="#8a3a2a" stroke-width="2" stroke-linecap="round" fill="#8a3a2a"/></g></g><circle cx="206" cy="96" r="14" fill="#fff" filter="url(#vb3-ss)"/><text x="206" y="102" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="800" fill="#c4562f" text-anchor="middle">?</text></svg>

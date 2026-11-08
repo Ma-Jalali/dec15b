@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="The four parts of the seminar as numbered steps above a peer feedback tool on a clipboard">
+<title>The four parts of the seminar as numbered steps above a peer feedback tool on a clipboard</title>
+<style>
+.w4d3b1-fl{animation:w4d3b1-fl 6s ease-in-out infinite}.w4d3b1-f2{animation-delay:-2s}.w4d3b1-f3{animation-delay:-4s}
+.w4d3b1-tw{animation:w4d3b1-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w4d3b1-t2{animation-delay:-1s}.w4d3b1-t3{animation-delay:-2s}
+.w4d3b1-bl{animation:w4d3b1-bl 5s infinite;transform-box:fill-box;transform-origin:center}.w4d3b1-b2{animation-delay:-1.7s}.w4d3b1-b3{animation-delay:-3.1s}
+.w4d3b1-pu{animation:w4d3b1-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w4d3b1-p2{animation-delay:-1.3s}
+.w4d3b1-dr{stroke-dasharray:7 8;animation:w4d3b1-dr 1.8s linear infinite}
+.w4d3b1-sw{animation:w4d3b1-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}.w4d3b1-s2{animation-delay:-2s}
+.w4d3b1-sp{animation:w4d3b1-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.w4d3b1-ti{animation:w4d3b1-ti 5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}
+.w4d3b1-in{animation:w4d3b1-in 7s ease-in-out infinite}.w4d3b1-i2{animation-delay:-2.3s}.w4d3b1-i3{animation-delay:-4.6s}
+@keyframes w4d3b1-fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes w4d3b1-tw{0%,100%{opacity:.3;transform:scale(.6)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes w4d3b1-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w4d3b1-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes w4d3b1-dr{to{stroke-dashoffset:-30}}
+@keyframes w4d3b1-sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes w4d3b1-sp{to{transform:rotate(360deg)}}
+@keyframes w4d3b1-ti{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes w4d3b1-in{0%,100%{opacity:.55}50%{opacity:1}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<linearGradient id="w4d3b1-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f5eff9"/><stop offset="1" stop-color="#e6dcf0"/></linearGradient>
+<pattern id="w4d3b1-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="1" fill="#7a4a8c" fill-opacity=".14"/></pattern>
+<filter id="w4d3b1-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".8" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="w4d3b1-sh2" x="-10%" y="-10%" width="120%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#14293a" flood-opacity=".14"/></filter>
+<radialGradient id="w4d3b1-glow" cx=".5" cy=".4" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="w4d3b1-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ad7e3"/><stop offset="1" stop-color="#3d9fb8"/></linearGradient>
+<linearGradient id="w4d3b1-lf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7cc08a"/><stop offset="1" stop-color="#3f8f5a"/></linearGradient>
+<linearGradient id="w4d3b1-pp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f3f6f8"/></linearGradient>
+</defs>
+<rect width="240" height="180" rx="14" fill="url(#w4d3b1-bg)"/><rect width="240" height="180" rx="14" fill="url(#w4d3b1-dots)"/><ellipse cx="120" cy="68" rx="108" ry="76" fill="url(#w4d3b1-glow)"/>
+<path d="M34 60H206" stroke="#14293a" stroke-opacity=".2" stroke-width="4" stroke-linecap="round"/><g class="w4d3b1-pu w4d3b1-p1"><circle cx="34" cy="60" r="16" fill="#7a4a8c"/><text x="34" y="65.4" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="800" fill="#fff" text-anchor="middle">1</text></g><g class="w4d3b1-pu w4d3b1-p2"><circle cx="91" cy="60" r="16" fill="#2f7d6b"/><text x="91" y="65.4" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="800" fill="#fff" text-anchor="middle">2</text></g><g class="w4d3b1-pu w4d3b1-p1"><circle cx="148" cy="60" r="16" fill="#c4562f"/><text x="148" y="65.4" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="800" fill="#fff" text-anchor="middle">3</text></g><g class="w4d3b1-pu w4d3b1-p2"><circle cx="205" cy="60" r="16" fill="#3a58a0"/><text x="205" y="65.4" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="800" fill="#fff" text-anchor="middle">4</text></g><g class="w4d3b1-fl"><rect x="74" y="88" width="92" height="80" rx="8" fill="#e3a843" filter="url(#w4d3b1-sh)"/><rect x="82" y="96" width="76" height="66" rx="4" fill="#fff"/><rect x="104" y="82" width="32" height="12" rx="4" fill="#14293a"/><rect x="90" y="108" width="40" height="5" rx="2.5" fill="#c9d3dd"/><rect x="138" y="103" width="12" height="12" rx="3" stroke="#2f7d6b" stroke-width="2"/><rect x="90" y="125" width="40" height="5" rx="2.5" fill="#c9d3dd"/><rect x="138" y="120" width="12" height="12" rx="3" stroke="#2f7d6b" stroke-width="2"/><rect x="90" y="142" width="40" height="5" rx="2.5" fill="#c9d3dd"/><rect x="138" y="137" width="12" height="12" rx="3" stroke="#2f7d6b" stroke-width="2"/><path d="M140 109l3 3l5 -6M140 126l3 3l5 -6" stroke="#2f7d6b" stroke-width="2.4" stroke-linecap="round"/></g><path class="w4d3b1-tw w4d3b1-t2" d="M214 114Q215.08 118.92 220 120Q215.08 121.08 214 126Q212.92 121.08 208 120Q212.92 118.92 214 114Z" fill="#e3a843"/>
+</svg>

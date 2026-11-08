@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="A locked door labelled You should… beside an open green door with a golden key labelled Would you be willing…?">
+<title>Making requests</title>
+<style>
+.w3d1c7-fl{animation:w3d1c7-fl 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1c7-f2{animation-delay:-2s}.w3d1c7-f3{animation-delay:-4s}
+.w3d1c7-tw{animation:w3d1c7-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1c7-t2{animation-delay:-1s}.w3d1c7-t3{animation-delay:-2s}
+.w3d1c7-sp{animation:w3d1c7-sp 7s linear infinite;transform-box:fill-box;transform-origin:center}.w3d1c7-slow{animation-duration:14s}
+.w3d1c7-pu{animation:w3d1c7-pu 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1c7-p2{animation-delay:-1.2s}
+.w3d1c7-dr{stroke-dasharray:6 7;animation:w3d1c7-dr 1.5s linear infinite}
+.w3d1c7-bl{animation:w3d1c7-bl 5s infinite;transform-box:fill-box;transform-origin:center}.w3d1c7-b2{animation-delay:-1.7s}.w3d1c7-b3{animation-delay:-3.1s}
+.w3d1c7-sw{animation:w3d1c7-sw 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}
+.w3d1c7-ri{animation:w3d1c7-ri 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1c7-r2{animation-delay:-1.7s}.w3d1c7-r3{animation-delay:-3.4s}
+.w3d1c7-dw{stroke-dasharray:400;animation:w3d1c7-dw 6s ease-in-out infinite}
+@keyframes w3d1c7-fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes w3d1c7-tw{0%,100%{opacity:.3;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes w3d1c7-sp{to{transform:rotate(360deg)}}
+@keyframes w3d1c7-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes w3d1c7-dr{to{stroke-dashoffset:-26}}
+@keyframes w3d1c7-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w3d1c7-sw{0%,100%{transform:rotate(0)}50%{transform:rotate(5deg)}}
+@keyframes w3d1c7-ri{0%{opacity:0;transform:translateY(10px)}25%,70%{opacity:1}100%{opacity:0;transform:translateY(-22px)}}
+@keyframes w3d1c7-dw{0%{stroke-dashoffset:400}40%,100%{stroke-dashoffset:0}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<linearGradient id="w3d1c7-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbefe8"/><stop offset="1" stop-color="#f2d6c6"/></linearGradient>
+<pattern id="w3d1c7-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1" fill="#b0512a" fill-opacity=".14"/></pattern>
+<linearGradient id="w3d1c7-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="w3d1c7-main" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e59a76"/><stop offset="1" stop-color="#b0512a"/></linearGradient>
+<linearGradient id="w3d1c7-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfeaf2"/><stop offset="1" stop-color="#f4fbf6"/></linearGradient>
+<linearGradient id="w3d1c7-leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9fd27f"/><stop offset="1" stop-color="#3f7a3a"/></linearGradient>
+<linearGradient id="w3d1c7-solar" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4d77c9"/><stop offset="1" stop-color="#1f3a78"/></linearGradient>
+<linearGradient id="w3d1c7-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6cf62"/><stop offset="1" stop-color="#d99a2b"/></linearGradient>
+<radialGradient id="w3d1c7-gs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".22"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient>
+<radialGradient id="w3d1c7-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<filter id="w3d1c7-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".18"/><feDropShadow dx="0" dy="1" stdDeviation=".7" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="w3d1c7-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#14293a" flood-opacity=".16"/></filter>
+<marker id="w3d1c7-ah" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1l7 4-7 4" fill="none" stroke="#b0512a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="w3d1c7-an" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1l7 4-7 4" fill="none" stroke="#14293a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<path id="w3d1c7-st" d="M0-6C.8-1.5 1.5-.8 6 0 1.5.8.8 1.5 0 6-.8 1.5-1.5.8-6 0-1.5-.8-.8-1.5 0-6z"/>
+
+</defs>
+<clipPath id="w3d1c7-clip"><rect x="6" y="6" width="228" height="168" rx="26"/></clipPath><rect x="6" y="6" width="228" height="168" rx="26" fill="url(#w3d1c7-bg)"/><rect x="6" y="6" width="228" height="168" rx="26" fill="url(#w3d1c7-dots)"/><g clip-path="url(#w3d1c7-clip)"><circle cx="210" cy="30" r="46" fill="#b0512a" opacity=".08"/><circle cx="26" cy="156" r="38" fill="#e3a843" opacity=".12"/><path d="M6 140c50-12 110-10 160 0s40 6 68-6v40H6z" fill="#b0512a" opacity=".07"/></g><g filter="url(#w3d1c7-sh)"><rect x="34" y="30" width="70" height="120" rx="4" fill="#8a3c1d"/></g><rect x="40" y="36" width="58" height="108" rx="3" fill="#a5532c"/><circle cx="90" cy="92" r="4" fill="#e3a843"/><g filter="url(#w3d1c7-sh)"><rect x="134" y="30" width="70" height="120" rx="4" fill="#fdf3e2"/></g><path d="M134 30l40 10v120l-40-10z" fill="#3f7a3a"/><circle cx="166" cy="98" r="3.5" fill="#e3a843"/><rect x="54" y="74" width="30" height="24" rx="4" fill="#7a8590"/><path d="M60 74v-8a9 9 0 0 1 18 0v8" stroke="#7a8590" stroke-width="4"/><g class="w3d1c7-sw"><g transform="translate(206 128) rotate(-30)"><circle r="8" fill="none" stroke="url(#w3d1c7-gold)" stroke-width="4"/><path d="M8 0h18m-6 0v6m-6-6v5" stroke="#d99a2b" stroke-width="4" stroke-linecap="round"/></g></g><rect x="28" y="154" width="82" height="18" rx="9.0" fill="#8a3c1d"/><text x="69.0" y="166.24" font-family="Manrope, Arial, sans-serif" font-size="9" font-weight="800" fill="#fff" text-anchor="middle">You should…</text><rect x="128" y="154" width="96" height="18" rx="9.0" fill="#3f7a3a"/><text x="176.0" y="165.88" font-family="Manrope, Arial, sans-serif" font-size="8" font-weight="800" fill="#fff" text-anchor="middle">Would you be willing…?</text><g transform="translate(216 30) scale(0.8)"><use href="#w3d1c7-st" class="w3d1c7-tw" fill="#e3a843"/></g>
+</svg>

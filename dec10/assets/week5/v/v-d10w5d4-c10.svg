@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="A dial from ALL (red) to SOME (green): the needle swings to the cautious side, and word chips say “can” and “probably”.">
+<title>Hedging: turn the dial down</title>
+<style>
+.w54c10-tw{animation:w54c10-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w54c10-t2{animation-delay:-1s}.w54c10-t3{animation-delay:-2s}
+.w54c10-fl{animation:w54c10-fl 6s ease-in-out infinite}.w54c10-f2{animation-delay:-2s}.w54c10-f3{animation-delay:-4s}
+.w54c10-bl{animation:w54c10-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.w54c10-b2{animation-delay:-1.7s}.w54c10-b3{animation-delay:-3.2s}.w54c10-b4{animation-delay:-2.4s}
+.w54c10-pu{animation:w54c10-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w54c10-p2{animation-delay:-.9s}.w54c10-p3{animation-delay:-1.7s}
+.w54c10-dr{stroke-dasharray:6 7;animation:w54c10-dr 1.8s linear infinite}
+.w54c10-sp{animation:w54c10-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.w54c10-sw{animation:w54c10-sw 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.w54c10-tk{animation:w54c10-tk 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.w54c10-wv{animation:w54c10-wv 2.4s ease-in-out infinite}.w54c10-w2{animation-delay:-.8s}.w54c10-w3{animation-delay:-1.6s}
+.w54c10-dw{stroke-dasharray:400;stroke-dashoffset:400;animation:w54c10-dw 6s ease-in-out infinite}
+@keyframes w54c10-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes w54c10-fl{50%{transform:translateY(-4px)}}
+@keyframes w54c10-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w54c10-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@keyframes w54c10-dr{to{stroke-dashoffset:-26}}
+@keyframes w54c10-sp{to{transform:rotate(360deg)}}
+@keyframes w54c10-sw{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes w54c10-tk{0%,100%{transform:rotate(0)}50%{transform:rotate(-10deg)}}
+@keyframes w54c10-wv{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes w54c10-dw{0%{stroke-dashoffset:400}40%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:-400}}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs><linearGradient id="w54c10-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4eef9"/><stop offset="1" stop-color="#e4d8ef"/></linearGradient>
+<pattern id="w54c10-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r=".8" fill="#7a4a8c" fill-opacity=".14"/></pattern>
+<radialGradient id="w54c10-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<filter id="w54c10-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="w54c10-blur" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+<linearGradient id="w54c10-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c162"/><stop offset="1" stop-color="#d9962e"/></linearGradient>
+<linearGradient id="w54c10-main" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#93619f"/><stop offset="1" stop-color="#7a4a8c"/></linearGradient>
+<linearGradient id="w54c10-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f7f2e8"/></linearGradient>
+<linearGradient id="w54c10-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c4c68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="w54c10-clay" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0694c"/><stop offset="1" stop-color="#c94a2c"/></linearGradient>
+<marker id="w54c10-ar" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#14293a"/></marker>
+<marker id="w54c10-arm" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7a4a8c"/></marker>
+</defs>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#w54c10-bg)"/><clipPath id="w54c10-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath><g clip-path="url(#w54c10-clip)"><rect width="240" height="180" fill="url(#w54c10-dots)"/><ellipse cx="115.19999999999999" cy="72" rx="110.4" ry="70.2" fill="url(#w54c10-glow)"/></g><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".7" stroke-width="1.2"/><ellipse cx="120" cy="140" rx="70" ry="6" fill="#14293a" opacity="0.12" filter="url(#w54c10-blur)"/><path d="M40 120A80 80 0 0 1 200 120" stroke="#dccbe8" stroke-width="18" stroke-linecap="round" fill="none"/><path d="M40 120A80 80 0 0 1 92 45" stroke="#2f7d6b" stroke-width="18" stroke-linecap="round" fill="none"/><path d="M148 45A80 80 0 0 1 200 120" stroke="#e64626" stroke-width="18" stroke-linecap="round" fill="none"/><text x="52" y="146" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="900" fill="#2f7d6b" text-anchor="middle">SOME</text><text x="188" y="146" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="900" fill="#e64626" text-anchor="middle">ALL</text><g class="w54c10-sw" style="transform-origin:120px 120px;transform-box:view-box"><g transform="rotate(-40 120 120)"><path d="M120 120V60" stroke="#14293a" stroke-width="5" stroke-linecap="round"/></g></g><circle cx="120" cy="120" r="9" fill="#14293a"/><circle cx="120" cy="120" r="3.5" fill="#e3a843"/><g class="w54c10-fl"><g><rect x="22" y="20" width="37.8" height="21" rx="10.5" fill="#2f7d6b"/><text x="40.9" y="34.46" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="800" fill="#fff" text-anchor="middle">can</text></g></g><g class="w54c10-fl w54c10-f2"><g><rect x="150" y="18" width="70.8" height="21" rx="10.5" fill="#7a4a8c"/><text x="185.4" y="32.46" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="800" fill="#fff" text-anchor="middle">probably</text></g></g><path class="w54c10-tw " d="M120 19.5C120.81 23.19 120.81 23.19 124.5 24C120.81 24.81 120.81 24.81 120 28.5C119.19 24.81 119.19 24.81 115.5 24C119.19 23.19 119.19 23.19 120 19.5z" fill="#e3a843"/><path class="w54c10-tw w54c10-t2" d="M224 86.5C224.63 89.37 224.63 89.37 227.5 90C224.63 90.63 224.63 90.63 224 93.5C223.37 90.63 223.37 90.63 220.5 90C223.37 89.37 223.37 89.37 224 86.5z" fill="#7a4a8c"/>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" fill="none" role="img" aria-label="An onion cut in half with four layers. Outer layer: What is eco-tourism? Next: How is sustainability in eco-tourism evaluated? Next: Are certifications effective? Core: my own informed view.">
+<title>An onion cut in half with four layers. Outer layer: What is eco-tourism? Next: How is sustainability in eco-tourism evaluated? Next: Are certifications effective? Core: my own informed view.</title>
+<style>
+.dn5-fl{animation:dn5-fl 6s ease-in-out infinite}.dn5-f2{animation-delay:-2s}.dn5-f3{animation-delay:-4s}
+@keyframes dn5-fl{50%{translate:0 -6px}}
+.dn5-tw{animation:dn5-tw 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.dn5-t2{animation-delay:-1.1s}.dn5-t3{animation-delay:-2.2s}
+@keyframes dn5-tw{0%,100%{opacity:.35;scale:.6}50%{opacity:1;scale:1}}
+.dn5-bl{animation:dn5-bl 4.6s infinite;transform-box:fill-box;transform-origin:center}.dn5-b2{animation-delay:-1.6s}.dn5-b3{animation-delay:-3.1s}
+@keyframes dn5-bl{0%,93%,100%{scale:1 1}96%{scale:1 .1}}
+.dn5-pu{animation:dn5-pu 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes dn5-pu{0%,100%{scale:1}50%{scale:1.08}}
+.dn5-dr{stroke-dasharray:6 9;animation:dn5-dr 1.6s linear infinite}
+@keyframes dn5-dr{to{stroke-dashoffset:-30}}
+.dn5-sp{animation:dn5-sp 30s linear infinite;transform-box:fill-box;transform-origin:center}
+@keyframes dn5-sp{to{rotate:360deg}}
+.dn5-sw{animation:dn5-sw 5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes dn5-sw{50%{rotate:3deg}}
+.dn5-wv{animation:dn5-wv 3s ease-out infinite;transform-box:fill-box;transform-origin:center}.dn5-w2{animation-delay:-1s}
+@keyframes dn5-wv{0%{opacity:0;scale:.7}30%{opacity:.9}100%{opacity:0;scale:1.3}}
+.dn5-ty{animation:dn5-ty 1.4s steps(1) infinite}.dn5-y2{animation-delay:-.45s}.dn5-y3{animation-delay:-.9s}
+@keyframes dn5-ty{0%,100%{opacity:1}50%{opacity:.2}}
+.dn5-sl{animation:dn5-sl 9s ease-in-out infinite}
+@keyframes dn5-sl{50%{translate:14px 0}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style><defs>
+<linearGradient id="dn5-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f1fa"/><stop offset="1" stop-color="#f6f1fa"/></linearGradient>
+<pattern id="dn5-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r=".9" fill="#14293a" fill-opacity=".08"/></pattern>
+<radialGradient id="dn5-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="dn5-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f6f1e6"/></linearGradient>
+<linearGradient id="dn5-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7d27a"/><stop offset=".55" stop-color="#e3a843"/><stop offset="1" stop-color="#c4831f"/></linearGradient>
+<linearGradient id="dn5-leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6fbf8b"/><stop offset="1" stop-color="#2f7d6b"/></linearGradient>
+<linearGradient id="dn5-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc7d6"/><stop offset="1" stop-color="#2d7a9a"/></linearGradient>
+<linearGradient id="dn5-screen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef3fb"/><stop offset="1" stop-color="#dfe8f6"/></linearGradient>
+<filter id="dn5-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".8" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="dn5-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="2.5" stdDeviation="2.2" flood-color="#14293a" flood-opacity=".18"/></filter>
+<filter id="dn5-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"/></filter>
+
+</defs>
+<rect width="960" height="460" rx="24" fill="#f6f1fa"/><rect width="960" height="460" rx="24" fill="url(#dn5-dots)"/>
+
+<g transform="translate(250 250)">
+<ellipse cx="0" cy="190" rx="170" ry="16" fill="#14293a" fill-opacity=".1"/>
+<path d="M0 -200C162 -108 180 90 0 180C-180 90 -162 -108 0 -200z" fill="#e9d3ef" stroke="#fff" stroke-width="4"/><path d="M0 -160C126 -84 140 70 0 140C-140 70 -126 -84 0 -160z" fill="#dcbde6" stroke="#fff" stroke-width="4"/><path d="M0 -120C90 -60 100 50 0 100C-100 50 -90 -60 0 -120z" fill="#c99fd8" stroke="#fff" stroke-width="4"/><path d="M0 -80C54 -36 60 30 0 60C-60 30 -54 -36 0 -80z" fill="#a974bd" stroke="#fff" stroke-width="4"/>
+<path d="M0 -200c-6-26 4-44 16-56M0 -200c4-20 20-30 34-34" stroke="#3f7a3a" stroke-width="6" stroke-linecap="round"/>
+<path d="M0.0 -16.0L6.9 0.5L24.7 2.0L11.1 13.6L15.3 31.0L0.0 21.7L-15.3 31.0L-11.1 13.6L-24.7 2.0L-6.9 0.5z" fill="url(#dn5-gold)" class="dn5-pu"/>
+</g>
+<defs><marker id="dn5-a" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#14293a"/></marker></defs>
+<g class="dn5-fl dn5-f1"><path d="M420 90H500" stroke="#14293a" stroke-width="2.5" stroke-dasharray="4 5"/><rect x="500" y="60" width="420" height="58" rx="29" fill="#fff" stroke="#e9d3ef" stroke-width="4" filter="url(#dn5-sh2)"/><circle cx="532" cy="89" r="18" fill="#e9d3ef"/><text x="532" y="96" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="900" fill="#14293a" text-anchor="middle">1</text><text x="560" y="96" font-family="Manrope, Arial, sans-serif" font-size="19" font-weight="800" fill="#14293a">What is eco-tourism?</text></g><g class="dn5-fl dn5-f2"><path d="M395 180H500" stroke="#14293a" stroke-width="2.5" stroke-dasharray="4 5"/><rect x="500" y="150" width="420" height="58" rx="29" fill="#fff" stroke="#dcbde6" stroke-width="4" filter="url(#dn5-sh2)"/><circle cx="532" cy="179" r="18" fill="#dcbde6"/><text x="532" y="186" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="900" fill="#14293a" text-anchor="middle">2</text><text x="560" y="186" font-family="Manrope, Arial, sans-serif" font-size="19" font-weight="800" fill="#14293a">How is sustainability evaluated?</text></g><g class="dn5-fl dn5-f3"><path d="M360 270H500" stroke="#14293a" stroke-width="2.5" stroke-dasharray="4 5"/><rect x="500" y="240" width="420" height="58" rx="29" fill="#fff" stroke="#c99fd8" stroke-width="4" filter="url(#dn5-sh2)"/><circle cx="532" cy="269" r="18" fill="#c99fd8"/><text x="532" y="276" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="900" fill="#14293a" text-anchor="middle">3</text><text x="560" y="276" font-family="Manrope, Arial, sans-serif" font-size="19" font-weight="800" fill="#14293a">Are certifications effective?</text></g><g class="dn5-fl dn5-f1"><path d="M290 360H500" stroke="#14293a" stroke-width="2.5" stroke-dasharray="4 5"/><rect x="500" y="330" width="420" height="58" rx="29" fill="#fff" stroke="#a974bd" stroke-width="4" filter="url(#dn5-sh2)"/><circle cx="532" cy="359" r="18" fill="#a974bd"/><text x="532" y="366" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="900" fill="#14293a" text-anchor="middle">★</text><text x="560" y="366" font-family="Manrope, Arial, sans-serif" font-size="19" font-weight="800" fill="#14293a">My own informed view</text></g>
+<text x="710" y="36" font-family="Manrope, Arial, sans-serif" font-size="21" font-weight="800" fill="#14293a" text-anchor="middle">Each follow-up goes one layer deeper</text>
+</svg>

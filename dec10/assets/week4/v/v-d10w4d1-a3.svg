@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="An essay page split into four coloured paragraphs, each linked by a dotted line to a label: Intro, Body 1, Body 2, Conclusion.">
+<title>Analysing rhetorical function by paragraph</title>
+<style>
+.va3-fl{animation:va3-fl 6s ease-in-out infinite}.va3-f2{animation-delay:-2s}.va3-f3{animation-delay:-4s}
+.va3-tw{animation:va3-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.va3-t2{animation-delay:-1s}.va3-t3{animation-delay:-2s}
+.va3-pu{animation:va3-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.va3-dr{stroke-dasharray:7 7;animation:va3-dr 1.8s linear infinite}
+.va3-sw{animation:va3-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.va3-bl{animation:va3-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.va3-b2{animation-delay:-1.7s}.va3-b3{animation-delay:-3.1s}
+.va3-wv{animation:va3-wv 2.4s ease-in-out infinite}.va3-w2{animation-delay:-.8s}.va3-w3{animation-delay:-1.6s}
+.va3-sl{animation:va3-sl 9s ease-in-out infinite}
+.va3-sp{animation:va3-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+@keyframes va3-fl{50%{transform:translateY(-5px)}}
+@keyframes va3-tw{0%,100%{opacity:.35;transform:scale(.65)}50%{opacity:1;transform:scale(1)}}
+@keyframes va3-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes va3-dr{to{stroke-dashoffset:-28}}
+@keyframes va3-sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes va3-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes va3-wv{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes va3-sl{50%{transform:translateX(14px)}}
+@keyframes va3-sp{to{transform:rotate(360deg)}}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+<linearGradient id="va3-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9f5ec"/><stop offset="1" stop-color="#d3ecda"/></linearGradient>
+<radialGradient id="va3-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<pattern id="va3-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r=".9" fill="#2f7d4f" fill-opacity=".14"/></pattern>
+<filter id="va3-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="va3-blur" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+<linearGradient id="va3-pap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#f3ead8"/></linearGradient>
+<linearGradient id="va3-leaf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fbf6b"/><stop offset="1" stop-color="#2f7d4f"/></linearGradient>
+<linearGradient id="va3-leaf2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ad37a"/><stop offset="1" stop-color="#4c9a3e"/></linearGradient>
+<linearGradient id="va3-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5fd0d0"/><stop offset="1" stop-color="#1d7fa5"/></linearGradient>
+<linearGradient id="va3-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe6f5"/><stop offset="1" stop-color="#fdf1d6"/></linearGradient>
+<linearGradient id="va3-wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c99a62"/><stop offset="1" stop-color="#8a5f34"/></linearGradient>
+<linearGradient id="va3-tone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f7d4f"/><stop offset="1" stop-color="#1d4d33"/></linearGradient>
+<radialGradient id="va3-sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".6" stop-color="#e3a843"/><stop offset="1" stop-color="#e3a843" stop-opacity="0"/></radialGradient>
+
+</defs>
+<clipPath id="va3-clip"><path d="M52 18C92 4 172 8 204 30c24 16 26 46 20 76-6 32-30 54-70 58-38 4-90 4-118-12C12 136 8 104 14 74c6-28 14-46 38-56z"/></clipPath><path d="M52 18C92 4 172 8 204 30c24 16 26 46 20 76-6 32-30 54-70 58-38 4-90 4-118-12C12 136 8 104 14 74c6-28 14-46 38-56z" fill="url(#va3-bg)"/><g clip-path="url(#va3-clip)"><rect width="240" height="180" fill="url(#va3-dots)"/><ellipse cx="116" cy="72" rx="110" ry="70" fill="url(#va3-glow)"/></g><path d="M52 18C92 4 172 8 204 30c24 16 26 46 20 76-6 32-30 54-70 58-38 4-90 4-118-12C12 136 8 104 14 74c6-28 14-46 38-56z" stroke="#fff" stroke-opacity=".7" stroke-width="1.2"/><ellipse cx="120" cy="162" rx="92" ry="6" fill="#14293a" opacity=".11" filter="url(#va3-blur)"/><g filter="url(#va3-sh)"><rect x="34" y="26" width="96" height="132" rx="8" fill="url(#va3-pap)" /></g><rect x="42" y="34" width="80" height="24" rx="5" fill="#2d7a9a" opacity=".2"/><path d="M48 42h62M48 50h48" stroke="#2d7a9a" stroke-width="3" stroke-linecap="round"/><g class="va3-fl va3-f2"><rect x="150" y="38" width="62" height="16" rx="8" fill="#2d7a9a"/><text x="181.0" y="49.5" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" fill="#fff" text-anchor="middle">Intro</text></g><path class="va3-dr" d="M124 46H148" stroke="#2d7a9a" stroke-width="2"/><rect x="42" y="65" width="80" height="24" rx="5" fill="#b07d12" opacity=".2"/><path d="M48 73h62M48 81h48" stroke="#b07d12" stroke-width="3" stroke-linecap="round"/><g class="va3-fl va3-f3"><rect x="150" y="69" width="62" height="16" rx="8" fill="#b07d12"/><text x="181.0" y="80.5" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" fill="#fff" text-anchor="middle">Body 1</text></g><path class="va3-dr" d="M124 77H148" stroke="#b07d12" stroke-width="2"/><rect x="42" y="96" width="80" height="24" rx="5" fill="#e0673f" opacity=".2"/><path d="M48 104h62M48 112h48" stroke="#e0673f" stroke-width="3" stroke-linecap="round"/><g class="va3-fl "><rect x="150" y="100" width="62" height="16" rx="8" fill="#e0673f"/><text x="181.0" y="111.5" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" fill="#fff" text-anchor="middle">Body 2</text></g><path class="va3-dr" d="M124 108H148" stroke="#e0673f" stroke-width="2"/><rect x="42" y="127" width="80" height="24" rx="5" fill="#2f7d4f" opacity=".2"/><path d="M48 135h62M48 143h48" stroke="#2f7d4f" stroke-width="3" stroke-linecap="round"/><g class="va3-fl va3-f2"><rect x="150" y="131" width="62" height="16" rx="8" fill="#2f7d4f"/><text x="181.0" y="142.5" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" fill="#fff" text-anchor="middle">Concl.</text></g><path class="va3-dr" d="M124 139H148" stroke="#2f7d4f" stroke-width="2"/><path class="va3-tw " d="M214 19L215.5 22.5L219 24L215.5 25.5L214 29L212.5 25.5L209 24L212.5 22.5z" fill="#e3a843"/><path class="va3-tw va3-t2" d="M28 146L29.2 148.8L32 150L29.2 151.2L28 154L26.8 151.2L24 150L26.8 148.8z" fill="#2f7d4f"/></svg>

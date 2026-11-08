@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Reading once for gist: an article titled Bluewashing with a quick-read stopwatch and a shiny blue resort icon">
+<title>Reading once for gist: an article titled Bluewashing with a quick-read stopwatch and a shiny blue resort icon</title>
+<style>
+.vb4-fl{animation:vb4-fl 6s ease-in-out infinite}.vb4-f2{animation-delay:-2s}.vb4-f3{animation-delay:-4s}
+.vb4-tw{animation:vb4-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.vb4-t2{animation-delay:-1s}.vb4-t3{animation-delay:-2s}
+.vb4-dr{stroke-dasharray:6 8;animation:vb4-dr 1.6s linear infinite}
+.vb4-pu{animation:vb4-pu 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.vb4-sw{animation:vb4-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}
+.vb4-bl{animation:vb4-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.vb4-b2{animation-delay:-1.7s}.vb4-b3{animation-delay:-3.1s}
+.vb4-wv{animation:vb4-wv 2.7s ease-out infinite;transform-box:fill-box;transform-origin:left center}.vb4-w2{animation-delay:.9s}.vb4-w3{animation-delay:1.8s}
+.vb4-sp{animation:vb4-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.vb4-sea{animation:vb4-sea 5s ease-in-out infinite}.vb4-s2{animation-delay:-2.5s}
+.vb4-dw{stroke-dasharray:400;animation:vb4-dw 5s ease-in-out infinite}
+@keyframes vb4-fl{50%{transform:translateY(-4px)}}
+@keyframes vb4-tw{0%,100%{opacity:.3;transform:scale(.65)}50%{opacity:1;transform:scale(1)}}
+@keyframes vb4-dr{to{stroke-dashoffset:-28}}
+@keyframes vb4-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes vb4-sw{0%,100%{transform:rotate(-2.5deg)}50%{transform:rotate(2.5deg)}}
+@keyframes vb4-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes vb4-wv{0%{opacity:0;transform:scale(.6)}25%{opacity:.9}100%{opacity:0;transform:scale(1.35)}}
+@keyframes vb4-sp{to{transform:rotate(360deg)}}
+@keyframes vb4-sea{50%{transform:translateX(-10px)}}
+@keyframes vb4-dw{0%{stroke-dashoffset:400}55%,100%{stroke-dashoffset:0}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<filter id="vb4-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".7" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="vb4-ss" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="2" stdDeviation="1.6" flood-color="#14293a" flood-opacity=".18"/></filter>
+<pattern id="vb4-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r=".9" fill="#14293a" fill-opacity=".08"/></pattern>
+<radialGradient id="vb4-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="vb4-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe3ef"/><stop offset=".6" stop-color="#e6f4f2"/><stop offset="1" stop-color="#fbf1dc"/></linearGradient>
+<linearGradient id="vb4-seag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fa7b5"/><stop offset="1" stop-color="#1f6f8a"/></linearGradient>
+<linearGradient id="vb4-sand" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e2b8"/><stop offset="1" stop-color="#e8c98d"/></linearGradient>
+<linearGradient id="vb4-leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5fae6e"/><stop offset="1" stop-color="#2f7d4b"/></linearGradient>
+<linearGradient id="vb4-blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7fb6f0" stop-opacity=".85"/><stop offset=".5" stop-color="#bfe0ff" stop-opacity=".55"/><stop offset="1" stop-color="#4d89cc" stop-opacity=".8"/></linearGradient>
+</defs>
+<rect x="6" y="6" width="228" height="168" rx="30" fill="#e2e9f7"/><rect x="6" y="6" width="228" height="168" rx="30" fill="url(#vb4-dots)"/><ellipse cx="120.0" cy="75.6" rx="100.8" ry="68.4" fill="url(#vb4-glow)"/><circle cx="211.2" cy="28.8" r="21.599999999999998" fill="#3a58a0" opacity=".08"/><circle cx="24.0" cy="154.8" r="16.2" fill="#3a58a0" opacity=".07"/><g transform="translate(40 26)"><rect width="110" height="136" rx="8" fill="#fff" filter="url(#vb4-sh)"/><text x="55" y="24" font-family="Manrope, Arial, sans-serif" font-size="13" font-weight="800" fill="#3a58a0" text-anchor="middle">Bluewashing</text><rect x="12" y="36" width="86" height="4" rx="2" fill="#14293a" opacity=".14"/><rect x="12" y="48" width="72" height="4" rx="2" fill="#14293a" opacity=".14"/><rect x="12" y="60" width="58" height="4" rx="2" fill="#14293a" opacity=".14"/><rect x="12" y="72" width="86" height="4" rx="2" fill="#14293a" opacity=".14"/><rect x="12" y="84" width="72" height="4" rx="2" fill="#14293a" opacity=".14"/><rect x="12" y="96" width="58" height="4" rx="2" fill="#14293a" opacity=".14"/><rect x="12" y="108" width="86" height="4" rx="2" fill="#14293a" opacity=".14"/><rect x="12" y="120" width="72" height="4" rx="2" fill="#14293a" opacity=".14"/><rect class="vb4-dw" x="10" y="34" width="90" height="8" rx="3" fill="none" stroke="#e3a843" stroke-width="2"/></g><g transform="translate(182 64)"><circle r="26" fill="#14293a"/><circle r="22" fill="#fff"/><path d="M0 -18v5" transform="rotate(0)" stroke="#14293a" stroke-width="2" stroke-linecap="round" opacity=".6"/><path d="M0 -18v5" transform="rotate(30)" stroke="#14293a" stroke-width="2" stroke-linecap="round" opacity=".6"/><path d="M0 -18v5" transform="rotate(60)" stroke="#14293a" stroke-width="2" stroke-linecap="round" opacity=".6"/><path d="M0 -18v5" transform="rotate(90)" stroke="#14293a" stroke-width="2" stroke-linecap="round" opacity=".6"/><path d="M0 -18v5" transform="rotate(120)" stroke="#14293a" stroke-width="2" stroke-linecap="round" opacity=".6"/><path d="M0 -18v5" transform="rotate(150)" stroke="#14293a" stroke-width="2" stroke-linecap="round" opacity=".6"/><path d="M0 -18v5" transform="rotate(180)" stroke="#14293a" stroke-width="2" stroke-linecap="round" opacity=".6"/><path d="M0 -18v5" transform="rotate(210)" stroke="#14293a" stroke-width="2" stroke-linecap="round" opacity=".6"/><path d="M0 -18v5" transform="rotate(240)" stroke="#14293a" stroke-width="2" stroke-linecap="round" opacity=".6"/><path d="M0 -18v5" transform="rotate(270)" stroke="#14293a" stroke-width="2" stroke-linecap="round" opacity=".6"/><path d="M0 -18v5" transform="rotate(300)" stroke="#14293a" stroke-width="2" stroke-linecap="round" opacity=".6"/><path d="M0 -18v5" transform="rotate(330)" stroke="#14293a" stroke-width="2" stroke-linecap="round" opacity=".6"/><path d="M0 0V-12.100000000000001" stroke="#14293a" stroke-width="3" stroke-linecap="round"/><g class="vb4-sp"><path d="M0 0V-17.6" stroke="#3a58a0" stroke-width="2" stroke-linecap="round"/></g><circle r="3" fill="#3a58a0"/></g><g transform="translate(184 140)"><rect x="-22" y="-34" width="44" height="34" rx="3" fill="#f4efe6"/><rect x="-22" y="-34" width="44" height="34" rx="3" fill="url(#vb4-blue)"/><path d="M-16-26l10-6" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g><g transform="translate(214 112) scale(0.9)"><path class="vb4-tw vb4-t2" d="M0-7C1-2 2-1 7 0 2 1 1 2 0 7-1 2-2 1-7 0-2-1-1-2 0-7z" fill="#e3a843"/></g></svg>

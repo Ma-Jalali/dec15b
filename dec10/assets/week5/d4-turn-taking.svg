@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" fill="none" role="img" aria-label="A turn-taking cycle with four stages around a speech bubble: take the floor, hold the floor, hand over, and bring others in, each with an example phrase.">
+<title>Turn-taking</title>
+<style>
+.w54dturnta-tw{animation:w54dturnta-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w54dturnta-t2{animation-delay:-1s}.w54dturnta-t3{animation-delay:-2s}
+.w54dturnta-fl{animation:w54dturnta-fl 6s ease-in-out infinite}.w54dturnta-f2{animation-delay:-2s}.w54dturnta-f3{animation-delay:-4s}
+.w54dturnta-bl{animation:w54dturnta-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.w54dturnta-b2{animation-delay:-1.7s}.w54dturnta-b3{animation-delay:-3.2s}.w54dturnta-b4{animation-delay:-2.4s}
+.w54dturnta-pu{animation:w54dturnta-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w54dturnta-p2{animation-delay:-.9s}.w54dturnta-p3{animation-delay:-1.7s}
+.w54dturnta-dr{stroke-dasharray:6 7;animation:w54dturnta-dr 1.8s linear infinite}
+.w54dturnta-sp{animation:w54dturnta-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.w54dturnta-sw{animation:w54dturnta-sw 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.w54dturnta-tk{animation:w54dturnta-tk 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.w54dturnta-wv{animation:w54dturnta-wv 2.4s ease-in-out infinite}.w54dturnta-w2{animation-delay:-.8s}.w54dturnta-w3{animation-delay:-1.6s}
+.w54dturnta-dw{stroke-dasharray:400;stroke-dashoffset:400;animation:w54dturnta-dw 6s ease-in-out infinite}
+@keyframes w54dturnta-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes w54dturnta-fl{50%{transform:translateY(-4px)}}
+@keyframes w54dturnta-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w54dturnta-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@keyframes w54dturnta-dr{to{stroke-dashoffset:-26}}
+@keyframes w54dturnta-sp{to{transform:rotate(360deg)}}
+@keyframes w54dturnta-sw{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes w54dturnta-tk{0%,100%{transform:rotate(0)}50%{transform:rotate(-10deg)}}
+@keyframes w54dturnta-wv{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes w54dturnta-dw{0%{stroke-dashoffset:400}40%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:-400}}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs><linearGradient id="w54dturnta-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eaf6f3"/><stop offset="1" stop-color="#d3ebe4"/></linearGradient>
+<pattern id="w54dturnta-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r=".8" fill="#2b776e" fill-opacity=".14"/></pattern>
+<radialGradient id="w54dturnta-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<filter id="w54dturnta-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="w54dturnta-blur" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+<linearGradient id="w54dturnta-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c162"/><stop offset="1" stop-color="#d9962e"/></linearGradient>
+<linearGradient id="w54dturnta-main" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#13887a"/><stop offset="1" stop-color="#2b776e"/></linearGradient>
+<linearGradient id="w54dturnta-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f7f2e8"/></linearGradient>
+<linearGradient id="w54dturnta-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c4c68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="w54dturnta-clay" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0694c"/><stop offset="1" stop-color="#c94a2c"/></linearGradient>
+<marker id="w54dturnta-ar" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#14293a"/></marker>
+<marker id="w54dturnta-arm" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2b776e"/></marker>
+</defs>
+<rect width="1000" height="480" rx="24" fill="#eaf6f3"/><rect width="1000" height="480" rx="24" fill="url(#w54dturnta-dots)"/><g class="w54dturnta-sp" style="transform-origin:500px 240px;transform-box:view-box"><ellipse cx="500" cy="240" rx="300" ry="150" stroke="#2b776e" stroke-opacity=".35" stroke-width="3" stroke-dasharray="10 12" fill="none"/></g><path d="M640 110Q730 120 760 180" stroke="#2b776e" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#w54dturnta-ar)"/><path d="M760 310Q740 370 640 380" stroke="#2f6db5" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#w54dturnta-ar)"/><path d="M360 380Q260 370 240 310" stroke="#e64626" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#w54dturnta-ar)"/><path d="M240 170Q260 110 360 110" stroke="#7a4a8c" stroke-width="3" stroke-linecap="round" fill="none" marker-end="url(#w54dturnta-ar)"/><g class="w54dturnta-pu"><g class=""><g filter="url(#w54dturnta-sh)"><rect x="430" y="196" width="140" height="86" rx="13" fill="#fff"/><path d="M460.8 280L458 293L480.4 280z" fill="#fff"/></g></g><circle cx="470" cy="239" r="7" fill="#2b776e"/><circle cx="500" cy="239" r="7" fill="#2f6db5"/><circle cx="530" cy="239" r="7" fill="#e64626"/></g><rect x="350" y="38" width="300" height="84" rx="18" fill="#fff" stroke="#2b776e" stroke-width="3" filter="url(#w54dturnta-sh)"/><rect x="350" y="38" width="12" height="84" rx="6" fill="#2b776e"/><text x="376" y="72" font-family="Manrope, Arial, sans-serif" font-size="20" font-weight="800" fill="#2b776e">Take the floor</text><text x="376" y="102" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="600" fill="#14293a" font-style="italic">“Can I just say …”</text><rect x="670" y="198" width="300" height="84" rx="18" fill="#fff" stroke="#2f6db5" stroke-width="3" filter="url(#w54dturnta-sh)"/><rect x="670" y="198" width="12" height="84" rx="6" fill="#2f6db5"/><text x="696" y="232" font-family="Manrope, Arial, sans-serif" font-size="20" font-weight="800" fill="#2f6db5">Hold the floor</text><text x="696" y="262" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="600" fill="#14293a" font-style="italic">“Let me just finish my point …”</text><rect x="350" y="358" width="300" height="84" rx="18" fill="#fff" stroke="#e64626" stroke-width="3" filter="url(#w54dturnta-sh)"/><rect x="350" y="358" width="12" height="84" rx="6" fill="#e64626"/><text x="376" y="392" font-family="Manrope, Arial, sans-serif" font-size="20" font-weight="800" fill="#e64626">Hand over</text><text x="376" y="422" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="600" fill="#14293a" font-style="italic">“What do you think, …?”</text><rect x="30" y="198" width="300" height="84" rx="18" fill="#fff" stroke="#7a4a8c" stroke-width="3" filter="url(#w54dturnta-sh)"/><rect x="30" y="198" width="12" height="84" rx="6" fill="#7a4a8c"/><text x="56" y="232" font-family="Manrope, Arial, sans-serif" font-size="20" font-weight="800" fill="#7a4a8c">Bring others in</text><text x="56" y="262" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="600" fill="#14293a" font-style="italic">“We haven’t heard from … yet.”</text>
+</svg>

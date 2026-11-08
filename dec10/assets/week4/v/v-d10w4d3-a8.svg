@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="A source card next to a gauge from negative to positive: evaluating ideas in sources">
+<title>A source card next to a gauge from negative to positive: evaluating ideas in sources</title>
+<style>
+.w4d3a8-fl{animation:w4d3a8-fl 6s ease-in-out infinite}.w4d3a8-f2{animation-delay:-2s}.w4d3a8-f3{animation-delay:-4s}
+.w4d3a8-tw{animation:w4d3a8-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w4d3a8-t2{animation-delay:-1s}.w4d3a8-t3{animation-delay:-2s}
+.w4d3a8-bl{animation:w4d3a8-bl 5s infinite;transform-box:fill-box;transform-origin:center}.w4d3a8-b2{animation-delay:-1.7s}.w4d3a8-b3{animation-delay:-3.1s}
+.w4d3a8-pu{animation:w4d3a8-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w4d3a8-p2{animation-delay:-1.3s}
+.w4d3a8-dr{stroke-dasharray:7 8;animation:w4d3a8-dr 1.8s linear infinite}
+.w4d3a8-sw{animation:w4d3a8-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}.w4d3a8-s2{animation-delay:-2s}
+.w4d3a8-sp{animation:w4d3a8-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.w4d3a8-ti{animation:w4d3a8-ti 5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}
+.w4d3a8-in{animation:w4d3a8-in 7s ease-in-out infinite}.w4d3a8-i2{animation-delay:-2.3s}.w4d3a8-i3{animation-delay:-4.6s}
+@keyframes w4d3a8-fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes w4d3a8-tw{0%,100%{opacity:.3;transform:scale(.6)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes w4d3a8-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w4d3a8-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes w4d3a8-dr{to{stroke-dashoffset:-30}}
+@keyframes w4d3a8-sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes w4d3a8-sp{to{transform:rotate(360deg)}}
+@keyframes w4d3a8-ti{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes w4d3a8-in{0%,100%{opacity:.55}50%{opacity:1}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<linearGradient id="w4d3a8-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef7f2"/><stop offset="1" stop-color="#d8ebe2"/></linearGradient>
+<pattern id="w4d3a8-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="1" fill="#2f7d6b" fill-opacity=".14"/></pattern>
+<filter id="w4d3a8-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".8" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="w4d3a8-sh2" x="-10%" y="-10%" width="120%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#14293a" flood-opacity=".14"/></filter>
+<radialGradient id="w4d3a8-glow" cx=".5" cy=".4" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="w4d3a8-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ad7e3"/><stop offset="1" stop-color="#3d9fb8"/></linearGradient>
+<linearGradient id="w4d3a8-lf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7cc08a"/><stop offset="1" stop-color="#3f8f5a"/></linearGradient>
+<linearGradient id="w4d3a8-pp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f3f6f8"/></linearGradient>
+</defs>
+<rect width="240" height="180" rx="14" fill="url(#w4d3a8-bg)"/><rect width="240" height="180" rx="14" fill="url(#w4d3a8-dots)"/><ellipse cx="120" cy="68" rx="108" ry="76" fill="url(#w4d3a8-glow)"/>
+<g><g transform="translate(76 92) rotate(-5)"><rect x="-46.0" y="-59.0" width="92" height="118" rx="4.0" fill="url(#w4d3a8-pp)" filter="url(#w4d3a8-sh)"/><rect x="-46.0" y="-59.0" width="92" height="6.0" rx="2" fill="#3a58a0"/><text x="0" y="-38.48" font-family="Manrope, Arial, sans-serif" font-size="9" font-weight="800" fill="#14293a" text-anchor="middle">Source</text><rect x="-33.1" y="-29.8" width="66.2" height="3.0" rx="1.5" fill="#b9c6d2"/><rect x="-33.1" y="-13.0" width="66.2" height="3.0" rx="1.5" fill="#b9c6d2"/><rect x="-33.1" y="0.5" width="53.0" height="9.4" rx="3.0" fill="#9fd8c0" fill-opacity=".55"/><rect x="-33.1" y="3.8" width="46.0" height="3.0" rx="1.5" fill="#b9c6d2"/><rect x="-33.1" y="20.6" width="66.2" height="3.0" rx="1.5" fill="#b9c6d2"/><rect x="-33.1" y="37.3" width="66.2" height="3.0" rx="1.5" fill="#b9c6d2"/></g></g><g transform="translate(170 96)"><path d="M-46 0A46 46 0 0 1 46 0" stroke="#e6e9ee" stroke-width="14" stroke-linecap="round"/><path d="M-46 0A46 46 0 0 1 0 -46" stroke="#d2553f" stroke-width="14" stroke-linecap="round" stroke-opacity=".8"/><path d="M0 -46A46 46 0 0 1 46 0" stroke="#2f7d6b" stroke-width="14" stroke-linecap="round" stroke-opacity=".85"/><g class="w4d3a8-ti" style="transform-origin:0 0"><path d="M0 0L28 -30" stroke="#14293a" stroke-width="5" stroke-linecap="round"/></g><circle r="7" fill="#14293a"/><text x="-46" y="26" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="800" fill="#d2553f" text-anchor="middle">−</text><text x="46" y="26" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="800" fill="#2f7d6b" text-anchor="middle">+</text></g><path class="w4d3a8-tw w4d3a8-t2" d="M214 144Q215.08 148.92 220 150Q215.08 151.08 214 156Q212.92 151.08 208 150Q212.92 148.92 214 144Z" fill="#e3a843"/><path class="w4d3a8-tw w4d3a8-t3" d="M140 15Q140.9 19.1 145 20Q140.9 20.9 140 25Q139.1 20.9 135 20Q139.1 19.1 140 15Z" fill="#2f7d6b"/>
+</svg>

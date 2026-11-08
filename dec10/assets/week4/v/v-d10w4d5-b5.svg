@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="A pair presents AI findings on a small screen with a three-minute timer and a map of Australia">
+<title>A pair presents AI findings on a small screen with a three-minute timer and a map of Australia</title>
+<style>
+.vb5-fl{animation:vb5-fl 6s ease-in-out infinite}.vb5-f2{animation-delay:-2s}.vb5-f3{animation-delay:-4s}
+@keyframes vb5-fl{50%{translate:0 -6px}}
+.vb5-tw{animation:vb5-tw 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.vb5-t2{animation-delay:-1.1s}.vb5-t3{animation-delay:-2.2s}
+@keyframes vb5-tw{0%,100%{opacity:.35;scale:.6}50%{opacity:1;scale:1}}
+.vb5-bl{animation:vb5-bl 4.6s infinite;transform-box:fill-box;transform-origin:center}.vb5-b2{animation-delay:-1.6s}.vb5-b3{animation-delay:-3.1s}
+@keyframes vb5-bl{0%,93%,100%{scale:1 1}96%{scale:1 .1}}
+.vb5-pu{animation:vb5-pu 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes vb5-pu{0%,100%{scale:1}50%{scale:1.08}}
+.vb5-dr{stroke-dasharray:6 9;animation:vb5-dr 1.6s linear infinite}
+@keyframes vb5-dr{to{stroke-dashoffset:-30}}
+.vb5-sp{animation:vb5-sp 30s linear infinite;transform-box:fill-box;transform-origin:center}
+@keyframes vb5-sp{to{rotate:360deg}}
+.vb5-sw{animation:vb5-sw 5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes vb5-sw{50%{rotate:3deg}}
+.vb5-wv{animation:vb5-wv 3s ease-out infinite;transform-box:fill-box;transform-origin:center}.vb5-w2{animation-delay:-1s}
+@keyframes vb5-wv{0%{opacity:0;scale:.7}30%{opacity:.9}100%{opacity:0;scale:1.3}}
+.vb5-ty{animation:vb5-ty 1.4s steps(1) infinite}.vb5-y2{animation-delay:-.45s}.vb5-y3{animation-delay:-.9s}
+@keyframes vb5-ty{0%,100%{opacity:1}50%{opacity:.2}}
+.vb5-sl{animation:vb5-sl 9s ease-in-out infinite}
+@keyframes vb5-sl{50%{translate:14px 0}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style><defs>
+<linearGradient id="vb5-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#edf2fb"/><stop offset="1" stop-color="#d9e3f5"/></linearGradient>
+<pattern id="vb5-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r=".9" fill="#14293a" fill-opacity=".08"/></pattern>
+<radialGradient id="vb5-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="vb5-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f6f1e6"/></linearGradient>
+<linearGradient id="vb5-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7d27a"/><stop offset=".55" stop-color="#e3a843"/><stop offset="1" stop-color="#c4831f"/></linearGradient>
+<linearGradient id="vb5-leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6fbf8b"/><stop offset="1" stop-color="#2f7d6b"/></linearGradient>
+<linearGradient id="vb5-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc7d6"/><stop offset="1" stop-color="#2d7a9a"/></linearGradient>
+<linearGradient id="vb5-screen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef3fb"/><stop offset="1" stop-color="#dfe8f6"/></linearGradient>
+<filter id="vb5-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".8" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="vb5-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="2.5" stdDeviation="2.2" flood-color="#14293a" flood-opacity=".18"/></filter>
+<filter id="vb5-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"/></filter>
+
+</defs>
+<clipPath id="vb5-clip"><rect x="6" y="6" width="228" height="168" rx="30"/></clipPath>
+<g clip-path="url(#vb5-clip)"><rect x="0" y="0" width="240" height="180" rx="30" fill="url(#vb5-bg)"/>
+<rect x="0" y="0" width="240" height="180" rx="30" fill="url(#vb5-dots)"/>
+<circle cx="50" cy="40" r="50" fill="#fff" fill-opacity="0.55" filter="url(#vb5-blur)"/><circle cx="200" cy="150" r="60" fill="#3a58a0" fill-opacity="0.14" filter="url(#vb5-blur)"/>
+
+<g filter="url(#vb5-sh)"><rect x="66" y="26" width="140" height="88" rx="8" fill="#fff"/></g>
+<path d="M98 56c8-10 24-12 34-6 6-6 18-4 22 4 8 2 14 10 12 20-2 12-14 20-26 18-10 6-26 4-34-4-10-2-14-14-8-24z" fill="#e3a843"/><path d="M150 96l6 8" stroke="#e3a843" stroke-width="6" stroke-linecap="round"/>
+<text x="136" y="44" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" fill="#3a58a0" text-anchor="middle">3 challenges</text>
+<g transform="translate(40 120) scale(0.82)">
+
+<path d="M-22 70c0-26 8-46 22-46s22 20 22 46z" fill="#3a58a0"/>
+<path d="M-6 24h12l-6 10z" fill="#fff" fill-opacity=".85"/>
+<path d="M15 28 36 30" stroke="#3a58a0" stroke-width="9" stroke-linecap="round"/><circle cx="39" cy="30" r="5.5" fill="#a86b45"/><path d="M-15 28-20 52" stroke="#2e4680" stroke-width="9" stroke-linecap="round"/>
+<rect x="-5" y="12" width="10" height="12" rx="4" fill="#97603e"/>
+<circle cx="0" cy="0" r="17" fill="#a86b45"/>
+<ellipse cx="-17" cy="2" rx="3" ry="4.5" fill="#9b623f"/><ellipse cx="17" cy="2" rx="3" ry="4.5" fill="#9b623f"/>
+<path d="M-17 -5c-1-15 8-23 18-23 11 0 18 8 17 21-4-7-11-10-18-10-7 0-13 4-17 12z" fill="#2a1d17"/>
+<g class="vb5-bl "><ellipse cx="-6" cy="0" rx="2.1" ry="2.7" fill="#1d1a1a"/><ellipse cx="6" cy="0" rx="2.1" ry="2.7" fill="#1d1a1a"/></g>
+<circle cx="-5.2" cy="-1" r=".8" fill="#fff"/><circle cx="6.8" cy="-1" r=".8" fill="#fff"/>
+<ellipse cx="-10" cy="6" rx="3" ry="1.8" fill="#e8846b" fill-opacity=".35"/><ellipse cx="10" cy="6" rx="3" ry="1.8" fill="#e8846b" fill-opacity=".35"/>
+<path d="M-5 7q5 5 10 0" stroke="#7a3a2a" stroke-width="2" stroke-linecap="round"/>
+
+</g>
+<g transform="translate(200 128)" class="vb5-fl"><circle r="18" fill="#fff" stroke="#c4562f" stroke-width="3"/><path d="M0-12A12 12 0 1 1 -10.4 6L0 0z" fill="#c4562f" fill-opacity=".8"/><text y="34" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" fill="#14293a" text-anchor="middle">3 min</text></g>
+</g>
+<rect x="6.5" y="6.5" width="227" height="167" rx="30" stroke="#14293a" stroke-opacity=".08"/>
+</svg>

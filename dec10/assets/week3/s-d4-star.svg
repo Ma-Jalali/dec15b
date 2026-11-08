@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" fill="none" role="img" aria-label="A big golden star; a student asks the teacher a question and the teacher answers with a lightbulb">
+<title>A big golden star; a student asks the teacher a question and the teacher answers with a lightbulb</title>
+<style>.w3d4sd4star-fl{animation:w3d4sd4star-fl 5.5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.w3d4sd4star-fl2{animation:w3d4sd4star-fl 6.5s ease-in-out -2.5s infinite;transform-box:fill-box;transform-origin:center}
+.w3d4sd4star-tw{animation:w3d4sd4star-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d4sd4star-tw2{animation-delay:-1.5s}
+.w3d4sd4star-bl{animation:w3d4sd4star-bl 4.6s infinite;transform-box:fill-box;transform-origin:center}
+.w3d4sd4star-pu{animation:w3d4sd4star-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d4sd4star-pu2{animation-delay:-1.3s}
+.w3d4sd4star-dr{stroke-dasharray:6 7;animation:w3d4sd4star-dr 1.5s linear infinite}
+.w3d4sd4star-sw{animation:w3d4sd4star-sw 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.w3d4sd4star-sp{animation:w3d4sd4star-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.w3d4sd4star-wv{animation:w3d4sd4star-wv 2.8s ease-out infinite;transform-box:fill-box;transform-origin:center;opacity:0}.w3d4sd4star-wv2{animation-delay:1.4s}
+.w3d4sd4star-rv{animation:w3d4sd4star-rv .9s ease-out both}.w3d4sd4star-d1{animation-delay:.15s}.w3d4sd4star-d2{animation-delay:.3s}.w3d4sd4star-d3{animation-delay:.45s}.w3d4sd4star-d4{animation-delay:.6s}
+@keyframes w3d4sd4star-fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes w3d4sd4star-tw{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes w3d4sd4star-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w3d4sd4star-pu{0%,100%{transform:scale(1)}15%{transform:scale(1.08)}30%{transform:scale(1)}}
+@keyframes w3d4sd4star-dr{to{stroke-dashoffset:-26}}
+@keyframes w3d4sd4star-sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes w3d4sd4star-sp{to{transform:rotate(360deg)}}
+@keyframes w3d4sd4star-wv{0%{opacity:0;transform:scale(.6)}25%{opacity:.8}100%{opacity:0;transform:scale(1.5)}}
+@keyframes w3d4sd4star-rv{from{transform:translateY(8px)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.w3d4sd4star-rv{opacity:1!important}.w3d4sd4star-wv{opacity:.5!important}}</style>
+<defs>
+<filter id="w3d4sd4star-sh" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="w3d4sd4star-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".18"/></filter>
+<pattern id="w3d4sd4star-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r=".9" fill="#14293a" fill-opacity=".08"/></pattern>
+<linearGradient id="w3d4sd4star-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbf3e2"/><stop offset=".6" stop-color="#fbfaf7"/><stop offset="1" stop-color="#f3dca8" stop-opacity=".7"/></linearGradient>
+<linearGradient id="w3d4sd4star-ta" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e3a843"/><stop offset="1" stop-color="#b07d12"/></linearGradient>
+<linearGradient id="w3d4sd4star-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3c66a"/><stop offset="1" stop-color="#d1922a"/></linearGradient>
+<linearGradient id="w3d4sd4star-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c4c68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="w3d4sd4star-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f4f1ea"/></linearGradient>
+<radialGradient id="w3d4sd4star-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+</defs>
+<rect x="6" y="6" width="428" height="328" rx="38" fill="url(#w3d4sd4star-bg)"/><rect x="6" y="6" width="428" height="328" rx="38" fill="url(#w3d4sd4star-dots)"/><circle class="w3d4sd4star-wv" cx="220" cy="130" r="90" stroke="#e3a843" stroke-width="4"/><circle class="w3d4sd4star-wv w3d4sd4star-wv2" cx="220" cy="130" r="90" stroke="#e3a843" stroke-width="4"/><g filter="url(#w3d4sd4star-sh)"><path class="w3d4sd4star-pu" d="M220.0 38.0L244.3 96.5L307.5 101.6L259.4 142.8L274.1 204.4L220.0 171.4L165.9 204.4L180.6 142.8L132.5 101.6L195.7 96.5Z" fill="url(#w3d4sd4star-gold)" stroke-linejoin="round"/></g><text x="220" y="146" font-family="Manrope, Arial, sans-serif" font-size="30" font-weight="800" fill="#fff" text-anchor="middle">STAR</text><g transform="translate(90 328) scale(1.6 1.6)">
+<path d="M-25 0C-25 -22 -18 -34 0 -34C18 -34 25 -22 25 0Z" fill="#e3a843"/><path d="M-25 0C-25 -22 -18 -34 0 -34C-10 -30 -16 -20 -17 0Z" fill="#fff" fill-opacity=".12"/>
+<path d="M-7 -33.5L0 -25.5L7 -33.5" stroke="#fff" stroke-opacity=".65" stroke-width="2" stroke-linejoin="round"/>
+<rect x="-5" y="-41" width="10" height="9" rx="3" fill="#d9a17a"/>
+<circle cx="0" cy="-52" r="13.5" fill="#d9a17a"/><path d="M-14 -53C-17 -73 17 -73 14 -53L15.5 -37C11 -38 11 -46 11.5 -53C4 -60 -6 -60 -11.5 -53C-11 -46 -11 -38 -15.5 -37Z" fill="#5a3a22"/>
+<g class="w3d4sd4star-bl"><ellipse cx="-4.6" cy="-51.5" rx="1.6" ry="2.1" fill="#14293a"/><ellipse cx="4.6" cy="-51.5" rx="1.6" ry="2.1" fill="#14293a"/></g>
+<circle cx="-8" cy="-46.5" r="2.4" fill="#ef8f8f" fill-opacity=".35"/><circle cx="8" cy="-46.5" r="2.4" fill="#ef8f8f" fill-opacity=".35"/>
+<ellipse cx="0" cy="-44.5" rx="3.4" ry="2.6" fill="#14293a"/><ellipse cx="0" cy="-43.6" rx="2" ry="1" fill="#e97a7a"/><g class="w3d4sd4star-sw"><path d="M17 -27C25 -36 29 -48 31 -60" stroke="#e3a843" stroke-width="8.5" stroke-linecap="round"/><circle cx="31.5" cy="-63" r="5.2" fill="#d9a17a"/></g></g><g transform="translate(350 328) scale(-1.6 1.6)">
+<path d="M-25 0C-25 -22 -18 -34 0 -34C18 -34 25 -22 25 0Z" fill="#14293a"/><path d="M-25 0C-25 -22 -18 -34 0 -34C-10 -30 -16 -20 -17 0Z" fill="#fff" fill-opacity=".12"/>
+<path d="M-7 -33.5L0 -25.5L7 -33.5" stroke="#fff" stroke-opacity=".65" stroke-width="2" stroke-linejoin="round"/>
+<rect x="-5" y="-41" width="10" height="9" rx="3" fill="#7a4a2e"/>
+<circle cx="0" cy="-52" r="13.5" fill="#7a4a2e"/><path d="M-13.5 -53C-15 -69 15 -71 13.5 -53C9 -60-5-62-13.5-53Z" fill="#3a2a4a"/>
+<g class="w3d4sd4star-bl"><ellipse cx="-4.6" cy="-51.5" rx="1.6" ry="2.1" fill="#14293a"/><ellipse cx="4.6" cy="-51.5" rx="1.6" ry="2.1" fill="#14293a"/></g>
+<circle cx="-8" cy="-46.5" r="2.4" fill="#ef8f8f" fill-opacity=".35"/><circle cx="8" cy="-46.5" r="2.4" fill="#ef8f8f" fill-opacity=".35"/>
+<path d="M-4.5 -45.5Q0 -41.5 4.5 -45.5" stroke="#14293a" stroke-width="1.6" stroke-linecap="round"/><g class="w3d4sd4star-sw"><path d="M17 -27C27 -33 31 -45 30 -56" stroke="#14293a" stroke-width="8.5" stroke-linecap="round"/><circle cx="30" cy="-60" r="5.4" fill="#7a4a2e"/></g></g><g class="w3d4sd4star-fl" filter="url(#w3d4sd4star-sh2)"><rect x="30" y="40" width="90" height="40" rx="14" fill="#fff"/><path d="M106 79l6 12-16-12z" fill="#fff"/><text x="75" y="64.32" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="800" fill="#14293a" text-anchor="middle">I’m not sure…</text></g><g class="w3d4sd4star-fl2"><circle cx="372" cy="62" r="20" fill="#e3a843"/><rect x="363" y="80" width="18" height="12" rx="3" fill="#97a3ad"/></g><path class="w3d4sd4star-tw" d="M60 142C61.44 148.56 61.44 148.56 68 150C61.44 151.44 61.44 151.44 60 158C58.56 151.44 58.56 151.44 52 150C58.56 148.56 58.56 148.56 60 142Z" fill="#e3a843"/><path class="w3d4sd4star-tw w3d4sd4star-tw2" d="M400 144C401.08 148.92 401.08 148.92 406 150C401.08 151.08 401.08 151.08 400 156C398.92 151.08 398.92 151.08 394 150C398.92 148.92 398.92 148.92 400 144Z" fill="#7a4a8c"/>
+</svg>

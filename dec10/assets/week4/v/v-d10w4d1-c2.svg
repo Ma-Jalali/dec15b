@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Three speech bubbles, Wi-Fi, pool and towels, flow into one summary card that starts Most of us.">
+<title>Summarise your discussion</title>
+<style>
+.vc2-fl{animation:vc2-fl 6s ease-in-out infinite}.vc2-f2{animation-delay:-2s}.vc2-f3{animation-delay:-4s}
+.vc2-tw{animation:vc2-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.vc2-t2{animation-delay:-1s}.vc2-t3{animation-delay:-2s}
+.vc2-pu{animation:vc2-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.vc2-dr{stroke-dasharray:7 7;animation:vc2-dr 1.8s linear infinite}
+.vc2-sw{animation:vc2-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.vc2-bl{animation:vc2-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.vc2-b2{animation-delay:-1.7s}.vc2-b3{animation-delay:-3.1s}
+.vc2-wv{animation:vc2-wv 2.4s ease-in-out infinite}.vc2-w2{animation-delay:-.8s}.vc2-w3{animation-delay:-1.6s}
+.vc2-sl{animation:vc2-sl 9s ease-in-out infinite}
+.vc2-sp{animation:vc2-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+@keyframes vc2-fl{50%{transform:translateY(-5px)}}
+@keyframes vc2-tw{0%,100%{opacity:.35;transform:scale(.65)}50%{opacity:1;transform:scale(1)}}
+@keyframes vc2-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes vc2-dr{to{stroke-dashoffset:-28}}
+@keyframes vc2-sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes vc2-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes vc2-wv{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes vc2-sl{50%{transform:translateX(14px)}}
+@keyframes vc2-sp{to{transform:rotate(360deg)}}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+<linearGradient id="vc2-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e6f4ef"/><stop offset="1" stop-color="#cfe9e1"/></linearGradient>
+<radialGradient id="vc2-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<pattern id="vc2-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r=".9" fill="#13887a" fill-opacity=".14"/></pattern>
+<filter id="vc2-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="vc2-blur" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+<linearGradient id="vc2-pap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#f3ead8"/></linearGradient>
+<linearGradient id="vc2-leaf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fbf6b"/><stop offset="1" stop-color="#2f7d4f"/></linearGradient>
+<linearGradient id="vc2-leaf2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ad37a"/><stop offset="1" stop-color="#4c9a3e"/></linearGradient>
+<linearGradient id="vc2-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5fd0d0"/><stop offset="1" stop-color="#1d7fa5"/></linearGradient>
+<linearGradient id="vc2-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe6f5"/><stop offset="1" stop-color="#fdf1d6"/></linearGradient>
+<linearGradient id="vc2-wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c99a62"/><stop offset="1" stop-color="#8a5f34"/></linearGradient>
+<linearGradient id="vc2-tone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#13887a"/><stop offset="1" stop-color="#0b4f47"/></linearGradient>
+<radialGradient id="vc2-sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".6" stop-color="#e3a843"/><stop offset="1" stop-color="#e3a843" stop-opacity="0"/></radialGradient>
+
+</defs>
+<clipPath id="vc2-clip"><path d="M52 18C92 4 172 8 204 30c24 16 26 46 20 76-6 32-30 54-70 58-38 4-90 4-118-12C12 136 8 104 14 74c6-28 14-46 38-56z"/></clipPath><path d="M52 18C92 4 172 8 204 30c24 16 26 46 20 76-6 32-30 54-70 58-38 4-90 4-118-12C12 136 8 104 14 74c6-28 14-46 38-56z" fill="url(#vc2-bg)"/><g clip-path="url(#vc2-clip)"><rect width="240" height="180" fill="url(#vc2-dots)"/><ellipse cx="116" cy="72" rx="110" ry="70" fill="url(#vc2-glow)"/></g><path d="M52 18C92 4 172 8 204 30c24 16 26 46 20 76-6 32-30 54-70 58-38 4-90 4-118-12C12 136 8 104 14 74c6-28 14-46 38-56z" stroke="#fff" stroke-opacity=".7" stroke-width="1.2"/><ellipse cx="120" cy="162" rx="92" ry="6" fill="#14293a" opacity=".11" filter="url(#vc2-blur)"/><g filter="url(#vc2-sh)"><rect x="20" y="30" width="56" height="28" rx="12" fill="#fff"/><path d="M32 57l-6 12 14-12z" fill="#fff"/></g><g filter="url(#vc2-sh)"><rect x="92" y="20" width="56" height="28" rx="12" fill="#fff"/><path d="M104 47l-6 12 14-12z" fill="#fff"/></g><g filter="url(#vc2-sh)"><rect x="164" y="30" width="56" height="28" rx="12" fill="#fff"/><path d="M196 57l6 12 14-12z" fill="#fff"/></g><text x="48" y="49" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" fill="#13887a" text-anchor="middle">Wi-Fi</text><text x="120" y="39" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" fill="#e0673f" text-anchor="middle">pool</text><text x="192" y="49" font-family="Manrope, Arial, sans-serif" font-size="10" font-weight="800" fill="#4c7a2e" text-anchor="middle">towels?</text><path class="vc2-dr" d="M48.0 70.0Q76.0 85.0 104.0 100.0" stroke="#13887a" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M98.2 100.3L104.0 100.0L101.0 95.0" stroke="#13887a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path class="vc2-dr" d="M120.0 60.0Q120.0 78.0 120.0 96.0" stroke="#e0673f" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M117.0 91.0L120.0 96.0L123.0 91.0" stroke="#e0673f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path class="vc2-dr" d="M192.0 70.0Q164.0 85.0 136.0 100.0" stroke="#4c7a2e" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M139.0 95.0L136.0 100.0L141.8 100.3" stroke="#4c7a2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><g filter="url(#vc2-sh)"><rect x="70" y="102" width="100" height="44" rx="8" fill="#fff" /></g><text x="120" y="120" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="800" fill="#14293a" text-anchor="middle">Most of us…</text><path d="M82 132h76" stroke="#c8d4da" stroke-width="3" stroke-linecap="round"/><path class="vc2-tw " d="M196 115L197.5 118.5L201 120L197.5 121.5L196 125L194.5 121.5L191 120L194.5 118.5z" fill="#e3a843"/></svg>

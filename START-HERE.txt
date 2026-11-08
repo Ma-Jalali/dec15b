@@ -777,3 +777,15 @@ v2.69 (precision details: course map, Class board, Readings, Word pairs, Chats, 
 - Chats: avatars get a white ring and a soft sheen; the open chat shows a teal ring.
 - My notebook: the "words written" and "highlights" tiles carry a faint pen and highlighter icon.
 - Stage and lesson art panels, the empty board and empty notebook: a quiet spotlight behind the drawing.
+
+v6.1 (DEC10 Weeks 3, 4 and 5 — fifteen new days)
+- DEC10 Week 3 "The workforce of the future", Week 4 "Eco-tourism" and Week 5 "Globalisation" are ready
+  (dec10/lessons/week3/ … week5/, ids d10w3d1 … d10w5d5; pictures in dec10/assets/week3/ … week5/).
+- Order and minutes follow the revised teacher weekly map (version 16.10.2026) for Weeks 3–4: e.g. W3 19A and 22A move to
+  Thursday, 15A runs over Thursday (#1–3) and Friday (#4–5), W3 23A is 70 min (warmer cut), W4 9A 150, W4 14A 90 on Wednesday,
+  W4 13A 105. Week 5 follows its Teacher's Book.
+- Protected texts (readings, transcripts, sample essays) are in each week's sources.js and are copied exactly:
+  Week 3 greening · greenskills · vidican · nvc; Week 4 ecosdg · bluewash · alom · s31 · s41 · s42; Week 5 threeh · w5listen ·
+  lovelocal · s51 · s52. Teacher highlights that are answers are left out of the transcripts.
+- Answers that the Teacher's Book does not give are labelled "Suggested" in the pages.
+- Fix: a "choose" block with four or more options showed "undefined" instead of the letter D (js/app.js).
