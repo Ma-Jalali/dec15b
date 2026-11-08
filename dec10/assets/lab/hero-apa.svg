@@ -103,7 +103,7 @@
 </g>
 
 <!-- plant -->
-<g transform="translate(36 56)">
+<g transform="translate(0 56)">
 <ellipse cx="1290" cy="852" rx="70" ry="10" fill="#4a2416" opacity=".22" filter="url(#ha-bl)"/>
 <g class="ha-lf"><path d="M1290 770c-40-30-56-80-36-120c22 30 40 70 36 120z" fill="url(#ha-leaf)"/></g>
 <g class="ha-lf ha-l2"><path d="M1292 770c30-40 70-60 100-56c-14 34-50 56-100 56z" fill="url(#ha-leaf)"/></g>
