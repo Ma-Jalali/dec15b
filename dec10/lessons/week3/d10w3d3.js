@@ -2124,8 +2124,9 @@ window.DEC15_LESSON = {
           grouping: "Alone",
           art: "dec10/assets/week3/v/v-d10w3d3-h7.svg",
           title: "Preparing for class",
-          goal: "Make notes on your understanding of three concepts.",
+          goal: "Make notes on your understanding of three concepts — ready to teach a classmate tomorrow.",
           blocks: [
+            {"type":"do","n":1,"who":"alone","text":"Write short notes — key words only. <b>Tomorrow:</b> you will explain one of these to a classmate in <b>60 seconds</b> (teach-back). Your classmate chooses which one!"},
             {
               type: "fields",
               fields: [
@@ -2156,7 +2157,8 @@ window.DEC15_LESSON = {
                 "I know what our group needs to do next for the Seminar and the Interactive Presentation."
               ]
             },
-            {"type":"tip","text":"Group 2: your Seminar is next week. Group 3: your Opening Remarks are next week. Everyone: your final Interactive Presentation builds on this research."}
+            {"type":"tip","text":"Group 2: your Seminar is next week. Group 3: your Opening Remarks are next week. Everyone: your final Interactive Presentation builds on this research."},
+            {"type":"sticky","title":"Say it like an academic","text":"“This summary was produced with the help of Copilot and checked against the original source.” — acknowledge your AI use.","color":"green"}
           ]
         }
       ]
