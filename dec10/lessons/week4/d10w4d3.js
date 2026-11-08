@@ -2389,7 +2389,7 @@ window.DEC15_LESSON = {
               "type": "figure",
               "src": "dec10/assets/week4/d3-portfolio-path.svg",
               "size": "wide",
-              "alt": "A path with five stops for a seminar group: Opening Remarks (this week for Group 3); Portfolio Submission 1 — a summary of and reflection on the teacher’s feedback; read the Discussion Board and choose a focus; prepare slides and two discussion questions; Seminar Presentation next week, followed by Portfolio Submissions 3 and 4.",
+              "alt": "Group 3’s path: 1 Opening Remarks this week; 2 Portfolio Submission 1 — a reflection on the teacher’s feedback; 3 the Discussion Board — choose one or two ideas, and Portfolio Submission 2 on how you chose them; 4 prepare slides and two thought-provoking questions; 5 the Seminar Presentation in Week 5, then reflect on the feedback and record a video response.",
               "caption": "Group 3’s path from today’s Opening Remarks to next week’s Seminar."
             },
             {
