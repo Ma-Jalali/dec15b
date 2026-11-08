@@ -509,7 +509,7 @@ window.DEC15_LESSON = {
               id: "b4-sp2",
               label: "Spot it · vocabulary",
               title: "2 · Informal vocabulary",
-              hint: "Find 12: idioms, phrasal verbs and chatty phrases from speech, and vague words (not precise).",
+              hint: "Find 10: idioms, phrasal verbs and chatty phrases from speech, and vague words (not precise).",
               paras: [
                 "(1) The job market is really changing, and one of the [[*great]] new trends is that there are more sustainability consultants. (2) Sustainability consultants are [[*stepping into the spotlight]], helping companies that want to be more eco-friendly and follow the rules about [[the environment]]. (3) They help businesses [[*figure out]] how to use resources wisely. (4) And they teach them how to [[*take care of]] the planet while still making a profit. (5) Why are they becoming so popular?",
                 "(6) I think sustainability consultants do [[*a lot]] to help companies plan for the future. (7) This isn't just about avoiding [[fines]] or negative press. (8) It's about being responsible for their [[environmental and social impact]]. (9) [[*As we all know]], everyone from tech firms to banks, can see the value of bringing sustainability [[*into the mix]]. (10) As Holt says, this trend towards a workforce that [[*cares about]] both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to [[*put]] sustainability [[*at the top of their list]]."
