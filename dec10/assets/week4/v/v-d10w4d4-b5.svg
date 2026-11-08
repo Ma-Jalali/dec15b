@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Puzzle pieces connect: As Yu (2022) explains, + the role of governments is limited. Other pieces show According to and that.">
+<title>Sentence patterns for reporting verbs</title>
+<style>
+.v4b5-fl{animation:v4b5-fl 6s ease-in-out infinite}.v4b5-f2{animation-delay:-2s}.v4b5-f3{animation-delay:-4s}
+@keyframes v4b5-fl{50%{transform:translateY(-4px)}}
+.v4b5-tw{animation:v4b5-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.v4b5-t2{animation-delay:-1s}.v4b5-t3{animation-delay:-2s}
+@keyframes v4b5-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.v4b5-bl{animation:v4b5-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.v4b5-b2{animation-delay:-1.7s}.v4b5-b3{animation-delay:-3.1s}
+@keyframes v4b5-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+.v4b5-dr{stroke-dasharray:5 7;animation:v4b5-dr 1.6s linear infinite}
+@keyframes v4b5-dr{to{stroke-dashoffset:-24}}
+.v4b5-pu{animation:v4b5-pu 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes v4b5-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.v4b5-sp{animation:v4b5-sp 10s linear infinite;transform-box:fill-box;transform-origin:center}.v4b5-sr{animation-direction:reverse}
+@keyframes v4b5-sp{to{transform:rotate(360deg)}}
+.v4b5-sw{animation:v4b5-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes v4b5-sw{50%{transform:rotate(4deg)}}
+.v4b5-gl{animation:v4b5-gl 3s ease-in-out infinite}
+@keyframes v4b5-gl{50%{opacity:.45}}
+.v4b5-dw{stroke-dasharray:400;stroke-dashoffset:400;animation:v4b5-dw 5s ease-in-out infinite}
+@keyframes v4b5-dw{30%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:0;opacity:0}}
+.v4b5-wv{animation:v4b5-wv 5s ease-in-out infinite}
+@keyframes v4b5-wv{50%{transform:translateX(-10px)}}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+<filter id="v4b5-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".15"/><feDropShadow dx="0" dy="1" stdDeviation=".8" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="v4b5-sh2" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#14293a" flood-opacity=".14"/><feDropShadow dx="0" dy="2" stdDeviation="1.6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="v4b5-blur" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="5"/></filter>
+<radialGradient id="v4b5-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="v4b5-pap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#f3ead8"/></linearGradient>
+<linearGradient id="v4b5-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c162"/><stop offset="1" stop-color="#d9962e"/></linearGradient>
+<linearGradient id="v4b5-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c4c68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="v4b5-desk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e6cd"/><stop offset="1" stop-color="#e8c99c"/></linearGradient>
+<linearGradient id="v4b5-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef7f3"/><stop offset="1" stop-color="#d9ece5"/></linearGradient><pattern id="v4b5-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="0.8" fill="#13887a" fill-opacity="0.13"/></pattern><clipPath id="v4b5-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath>
+</defs>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#v4b5-bg)"/><g clip-path="url(#v4b5-clip)"><rect width="240" height="180" fill="url(#v4b5-dots)"/><ellipse cx="116" cy="72" rx="110" ry="70" fill="url(#v4b5-glow)"/></g><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".7" stroke-width="1.2"/><ellipse cx="120" cy="160" rx="82" ry="6" fill="#14293a" opacity=".1" filter="url(#v4b5-blur)"/><g class="v4b5-fl"><g filter="url(#v4b5-sh)"><path d="M20 50h92v8a5 5 0 0 1 0 10v8h-92v-8a5 5 0 0 0 0-10z" fill="#13887a"/></g><text x="66" y="67" font-family="Manrope, Arial, sans-serif" font-size="7.5" font-weight="800" fill="#fff" text-anchor="middle">As Yu (2022) explains,</text></g><g class="v4b5-fl v4b5-f2"><g filter="url(#v4b5-sh)"><path d="M118 50h104v8a5 5 0 0 1 0 10v8h-104v-8a5 5 0 0 0 0-10z" fill="#fff"/></g><text x="170" y="67" font-family="Manrope, Arial, sans-serif" font-size="7.5" font-weight="800" fill="#14293a" text-anchor="middle">the role … is limited.</text></g>
+    <g class="v4b5-fl v4b5-f3"><g filter="url(#v4b5-sh)"><path d="M20 96h80v8a5 5 0 0 1 0 10v8h-80v-8a5 5 0 0 0 0-10z" fill="#3a58a0"/></g><text x="60" y="113" font-family="Manrope, Arial, sans-serif" font-size="7.5" font-weight="800" fill="#fff" text-anchor="middle">According to Yu (2022),</text></g><g filter="url(#v4b5-sh)"><path d="M106 96h46v8a5 5 0 0 1 0 10v8h-46v-8a5 5 0 0 0 0-10z" fill="#e3a843"/></g><text x="129" y="113" font-family="Manrope, Arial, sans-serif" font-size="7.5" font-weight="800" fill="#fff" text-anchor="middle">that …</text><g filter="url(#v4b5-sh)"><path d="M158 96h64v8a5 5 0 0 1 0 10v8h-64v-8a5 5 0 0 0 0-10z" fill="#fff"/></g><text x="190" y="113" font-family="Manrope, Arial, sans-serif" font-size="7.5" font-weight="800" fill="#14293a" text-anchor="middle">+ noun clause</text>
+    <g filter="url(#v4b5-sh)"><rect x="97.6" y="27" width="44.8" height="14" rx="7" fill="#14293a"/></g><text x="120" y="36.5" font-family="Manrope, Arial, sans-serif" font-size="7" font-weight="800" fill="#fff" text-anchor="middle">PATTERNS</text><g transform="translate(196 128) scale(0.48)"><path d="M-24 62C-24 38-14 24 0 24C14 24 24 38 24 62z" fill="#13887a"/><path d="M6 24.6C17 27 24 39 24 62H12C13 45 11 33 6 24.6z" fill="#14293a" opacity=".13"/><rect x="-5" y="9" width="10" height="16" rx="4" fill="#a8714f"/><path d="M-6 24L0 30L6 24z" fill="#a8714f"/><circle r="14" fill="#a8714f"/><circle cx="-12" cy="-6" r="6" fill="#2b1d16"/><circle cx="-8" cy="-13" r="7" fill="#2b1d16"/><circle cx="0" cy="-16" r="7.5" fill="#2b1d16"/><circle cx="8" cy="-14" r="7" fill="#2b1d16"/><circle cx="13" cy="-7" r="6" fill="#2b1d16"/><circle cx="-14" cy="1" r="4" fill="#2b1d16"/><circle cx="14" cy="0" r="4" fill="#2b1d16"/><g class="v4b5-bl"><ellipse cx="-5.2" cy="2.4" rx="1.7" ry="2.1" fill="#14293a"/><ellipse cx="5.2" cy="2.4" rx="1.7" ry="2.1" fill="#14293a"/><circle cx="-4.6" cy="1.8" r=".55" fill="#fff"/><circle cx="5.8" cy="1.8" r=".55" fill="#fff"/></g><path d="M-7.6-2.8q2.4-1.6 4.8 0M2.8-2.8q2.4-1.6 4.8 0" stroke="#14293a" stroke-width="1.2" stroke-linecap="round" opacity=".8"/><circle cx="-9" cy="7.2" r="2.5" fill="#e8806b" opacity=".3"/><circle cx="9" cy="7.2" r="2.5" fill="#e8806b" opacity=".3"/><path d="M-4 7.6q4 4 8 0" stroke="#14293a" stroke-width="1.5" stroke-linecap="round"/></g>
+    <path class="v4b5-tw" d="M30 35C30.9 39.1 30.9 39.1 35 40C30.9 40.9 30.9 40.9 30 45C29.1 40.9 29.1 40.9 25 40C29.1 39.1 29.1 39.1 30 35z" fill="#e3a843"/><path class="v4b5-tw v4b5-t2" d="M220 80C220.72 83.28 220.72 83.28 224 84C220.72 84.72 220.72 84.72 220 88C219.28 84.72 219.28 84.72 216 84C219.28 83.28 219.28 83.28 220 80z" fill="#13887a"/><path class="v4b5-tw v4b5-t3" d="M26 120.4C26.648 123.352 26.648 123.352 29.6 124C26.648 124.648 26.648 124.648 26 127.6C25.352 124.648 25.352 124.648 22.4 124C25.352 123.352 25.352 123.352 26 120.4z" fill="#e64626"/>
+</svg>

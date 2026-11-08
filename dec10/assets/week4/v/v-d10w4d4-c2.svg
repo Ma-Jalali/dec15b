@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="An introduction paragraph shown as four sentence bars, three gold for the writer’s voice and one teal for sources, under a magnifying glass.">
+<title>Look at the introduction</title>
+<style>
+.v4c2-fl{animation:v4c2-fl 6s ease-in-out infinite}.v4c2-f2{animation-delay:-2s}.v4c2-f3{animation-delay:-4s}
+@keyframes v4c2-fl{50%{transform:translateY(-4px)}}
+.v4c2-tw{animation:v4c2-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.v4c2-t2{animation-delay:-1s}.v4c2-t3{animation-delay:-2s}
+@keyframes v4c2-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+.v4c2-bl{animation:v4c2-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.v4c2-b2{animation-delay:-1.7s}.v4c2-b3{animation-delay:-3.1s}
+@keyframes v4c2-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+.v4c2-dr{stroke-dasharray:5 7;animation:v4c2-dr 1.6s linear infinite}
+@keyframes v4c2-dr{to{stroke-dashoffset:-24}}
+.v4c2-pu{animation:v4c2-pu 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes v4c2-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.v4c2-sp{animation:v4c2-sp 10s linear infinite;transform-box:fill-box;transform-origin:center}.v4c2-sr{animation-direction:reverse}
+@keyframes v4c2-sp{to{transform:rotate(360deg)}}
+.v4c2-sw{animation:v4c2-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes v4c2-sw{50%{transform:rotate(4deg)}}
+.v4c2-gl{animation:v4c2-gl 3s ease-in-out infinite}
+@keyframes v4c2-gl{50%{opacity:.45}}
+.v4c2-dw{stroke-dasharray:400;stroke-dashoffset:400;animation:v4c2-dw 5s ease-in-out infinite}
+@keyframes v4c2-dw{30%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:0;opacity:0}}
+.v4c2-wv{animation:v4c2-wv 5s ease-in-out infinite}
+@keyframes v4c2-wv{50%{transform:translateX(-10px)}}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs>
+<filter id="v4c2-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".15"/><feDropShadow dx="0" dy="1" stdDeviation=".8" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="v4c2-sh2" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#14293a" flood-opacity=".14"/><feDropShadow dx="0" dy="2" stdDeviation="1.6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="v4c2-blur" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="5"/></filter>
+<radialGradient id="v4c2-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="v4c2-pap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#f3ead8"/></linearGradient>
+<linearGradient id="v4c2-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c162"/><stop offset="1" stop-color="#d9962e"/></linearGradient>
+<linearGradient id="v4c2-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c4c68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="v4c2-desk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e6cd"/><stop offset="1" stop-color="#e8c99c"/></linearGradient>
+<linearGradient id="v4c2-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef3fb"/><stop offset="1" stop-color="#dbe5f5"/></linearGradient><pattern id="v4c2-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="0.8" fill="#3a58a0" fill-opacity="0.13"/></pattern><clipPath id="v4c2-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath>
+</defs>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#v4c2-bg)"/><g clip-path="url(#v4c2-clip)"><rect width="240" height="180" fill="url(#v4c2-dots)"/><ellipse cx="116" cy="72" rx="110" ry="70" fill="url(#v4c2-glow)"/></g><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".7" stroke-width="1.2"/><ellipse cx="120" cy="160" rx="82" ry="6" fill="#14293a" opacity=".1" filter="url(#v4c2-blur)"/>
+    <g filter="url(#v4c2-sh)"><rect x="36" y="30" width="140" height="104" rx="8" fill="#fff"/></g><path d="M36 38a8 8 0 0 1 8-8h124a8 8 0 0 1 8 8v10h-140z" fill="#3a58a0"/><text x="106" y="46" font-family="Manrope, Arial, sans-serif" font-size="8" font-weight="900" fill="#3a58a0" text-anchor="middle" letter-spacing="1">INTRODUCTION</text>
+    <g class="v4c2-fl v4c2-f1"><rect x="46" y="56" width="110" height="12" rx="6" fill="#e3a843"/><text x="52" y="65" font-family="Manrope, Arial, sans-serif" font-size="7.5" font-weight="900" fill="#fff" text-anchor="start">S1</text></g><g class="v4c2-fl v4c2-f2"><rect x="46" y="74" width="116" height="12" rx="6" fill="#13887a"/><text x="52" y="83" font-family="Manrope, Arial, sans-serif" font-size="7.5" font-weight="900" fill="#fff" text-anchor="start">S2</text></g><g class="v4c2-fl v4c2-f3"><rect x="46" y="92" width="96" height="12" rx="6" fill="#e3a843"/><text x="52" y="101" font-family="Manrope, Arial, sans-serif" font-size="7.5" font-weight="900" fill="#fff" text-anchor="start">S3</text></g><g class="v4c2-fl v4c2-f1"><rect x="46" y="110" width="118" height="12" rx="6" fill="#e3a843"/><text x="52" y="119" font-family="Manrope, Arial, sans-serif" font-size="7.5" font-weight="900" fill="#fff" text-anchor="start">S4</text></g>
+    <g class="v4c2-fl" transform="translate(178 96)"><circle cx="0" cy="0" r="18" fill="#fff" fill-opacity=".55" stroke="#14293a" stroke-width="5.040000000000001"/><path d="M12.959999999999999 12.959999999999999l14.4 14.4" stroke="#14293a" stroke-width="7.56" stroke-linecap="round"/><path d="M-9 -3.6a9.9 9.9 0 0 1 8.1-6.84" stroke="#fff" stroke-width="2.5200000000000005" stroke-linecap="round"/><text x="0" y="4" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="900" fill="#c98a22" text-anchor="middle">S4</text></g>
+    <g filter="url(#v4c2-sh)"><rect x="160" y="27" width="57.4" height="14" rx="7" fill="#c98a22"/></g><text x="188.7" y="36.5" font-family="Manrope, Arial, sans-serif" font-size="7" font-weight="800" fill="#fff" text-anchor="middle">my position</text>
+    <path class="v4c2-tw" d="M30 35C30.9 39.1 30.9 39.1 35 40C30.9 40.9 30.9 40.9 30 45C29.1 40.9 29.1 40.9 25 40C29.1 39.1 29.1 39.1 30 35z" fill="#e3a843"/><path class="v4c2-tw v4c2-t2" d="M220 80C220.72 83.28 220.72 83.28 224 84C220.72 84.72 220.72 84.72 220 88C219.28 84.72 219.28 84.72 216 84C219.28 83.28 219.28 83.28 220 80z" fill="#3a58a0"/><path class="v4c2-tw v4c2-t3" d="M26 120.4C26.648 123.352 26.648 123.352 29.6 124C26.648 124.648 26.648 124.648 26 127.6C25.352 124.648 25.352 124.648 22.4 124C25.352 123.352 25.352 123.352 26 120.4z" fill="#e64626"/>
+</svg>

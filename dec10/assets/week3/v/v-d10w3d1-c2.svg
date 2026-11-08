@@ -10,13 +10,13 @@
 .w3d1c2-sw{animation:w3d1c2-sw 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}
 .w3d1c2-ri{animation:w3d1c2-ri 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1c2-r2{animation-delay:-1.7s}.w3d1c2-r3{animation-delay:-3.4s}
 .w3d1c2-dw{stroke-dasharray:400;animation:w3d1c2-dw 6s ease-in-out infinite}
-@keyframes w3d1c2-fl{50%{transform:translateY(-4px)}}
+@keyframes w3d1c2-fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes w3d1c2-tw{0%,100%{opacity:.3;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
 @keyframes w3d1c2-sp{to{transform:rotate(360deg)}}
 @keyframes w3d1c2-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
 @keyframes w3d1c2-dr{to{stroke-dashoffset:-26}}
 @keyframes w3d1c2-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
-@keyframes w3d1c2-sw{50%{transform:rotate(5deg)}}
+@keyframes w3d1c2-sw{0%,100%{transform:rotate(0)}50%{transform:rotate(5deg)}}
 @keyframes w3d1c2-ri{0%{opacity:0;transform:translateY(10px)}25%,70%{opacity:1}100%{opacity:0;transform:translateY(-22px)}}
 @keyframes w3d1c2-dw{0%{stroke-dashoffset:400}40%,100%{stroke-dashoffset:0}}
 
