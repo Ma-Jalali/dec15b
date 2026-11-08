@@ -1433,6 +1433,7 @@ window.DEC15_LESSON = {
               alt: "The Seminar relay. Week 3 (today): Group 1 Seminar Presentation and Group 2 Opening Remarks. Week 4: Group 2 Seminar Presentation and Group 3 Opening Remarks. Each group passes the baton to the next.",
               caption: "The Seminar relay: each week one group presents and the next group opens."
             },
+            {"type":"do","n":2,"who":"pair","text":"<b>Teach-back in 60 seconds.</b> Look at the relay. Explain to your partner what happens in Week 4 — and what YOUR group does next."},
             {
               type: "model",
               title: "Reminders for Week 4 · Group 2 – Seminar Presentation",
@@ -1444,11 +1445,18 @@ window.DEC15_LESSON = {
               text: "How can eco-tourism in [specific context] be managed to both support conservation and benefit local communities?"
             },
             {
-              type: "cards",
-              title: "Revise in the app",
-              items: [
-                {"label":"W2 D3","text":"<a href=\"#/d10w2d3/opening\">Making Seminar Discussion Questions</a>"},
-                {"label":"W1 D2","text":"<a href=\"#/d10w1d2/seminar\">Introduction to Seminar and Interactive Presentation</a>"}
+              type: "toggle",
+              title: "Want more? Revise in the app",
+              hint: "Optional",
+              blocks: [
+                {
+                  type: "cards",
+                  title: "Revise in the app",
+                  items: [
+                    {"label":"W2 D3","text":"<a href=\"#/d10w2d3/opening\">Making Seminar Discussion Questions</a>"},
+                    {"label":"W1 D2","text":"<a href=\"#/d10w1d2/seminar\">Introduction to Seminar and Interactive Presentation</a>"}
+                  ]
+                }
               ]
             }
           ]
