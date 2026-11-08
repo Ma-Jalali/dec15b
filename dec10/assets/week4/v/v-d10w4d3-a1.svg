@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="A student looks at the highlighted practice question “To what extent …?” with a highlighter and a question bubble">
+<title>A student looks at the highlighted practice question “To what extent …?” with a highlighter and a question bubble</title>
+<style>
+.w4d3a1-fl{animation:w4d3a1-fl 6s ease-in-out infinite}.w4d3a1-f2{animation-delay:-2s}.w4d3a1-f3{animation-delay:-4s}
+.w4d3a1-tw{animation:w4d3a1-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w4d3a1-t2{animation-delay:-1s}.w4d3a1-t3{animation-delay:-2s}
+.w4d3a1-bl{animation:w4d3a1-bl 5s infinite;transform-box:fill-box;transform-origin:center}.w4d3a1-b2{animation-delay:-1.7s}.w4d3a1-b3{animation-delay:-3.1s}
+.w4d3a1-pu{animation:w4d3a1-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w4d3a1-p2{animation-delay:-1.3s}
+.w4d3a1-dr{stroke-dasharray:7 8;animation:w4d3a1-dr 1.8s linear infinite}
+.w4d3a1-sw{animation:w4d3a1-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}.w4d3a1-s2{animation-delay:-2s}
+.w4d3a1-sp{animation:w4d3a1-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.w4d3a1-ti{animation:w4d3a1-ti 5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}
+.w4d3a1-in{animation:w4d3a1-in 7s ease-in-out infinite}.w4d3a1-i2{animation-delay:-2.3s}.w4d3a1-i3{animation-delay:-4.6s}
+@keyframes w4d3a1-fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes w4d3a1-tw{0%,100%{opacity:.3;transform:scale(.6)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes w4d3a1-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w4d3a1-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes w4d3a1-dr{to{stroke-dashoffset:-30}}
+@keyframes w4d3a1-sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes w4d3a1-sp{to{transform:rotate(360deg)}}
+@keyframes w4d3a1-ti{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes w4d3a1-in{0%,100%{opacity:.55}50%{opacity:1}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<linearGradient id="w4d3a1-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef7f2"/><stop offset="1" stop-color="#d8ebe2"/></linearGradient>
+<pattern id="w4d3a1-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="1" fill="#2f7d6b" fill-opacity=".14"/></pattern>
+<filter id="w4d3a1-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".8" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="w4d3a1-sh2" x="-10%" y="-10%" width="120%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#14293a" flood-opacity=".14"/></filter>
+<radialGradient id="w4d3a1-glow" cx=".5" cy=".4" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="w4d3a1-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ad7e3"/><stop offset="1" stop-color="#3d9fb8"/></linearGradient>
+<linearGradient id="w4d3a1-lf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7cc08a"/><stop offset="1" stop-color="#3f8f5a"/></linearGradient>
+<linearGradient id="w4d3a1-pp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f3f6f8"/></linearGradient>
+</defs>
+<rect width="240" height="180" rx="14" fill="url(#w4d3a1-bg)"/><rect width="240" height="180" rx="14" fill="url(#w4d3a1-dots)"/><ellipse cx="120" cy="68" rx="108" ry="76" fill="url(#w4d3a1-glow)"/>
+<g class="w4d3a1-fl"><rect x="28" y="34" width="150" height="62" rx="12" fill="#fff" filter="url(#w4d3a1-sh)"/><text x="103" y="58" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="800" fill="#14293a" text-anchor="middle">To what extent …?</text><rect x="44" y="66" width="56" height="5" rx="2.5" fill="#c4562f"/><rect x="106" y="66" width="56" height="5" rx="2.5" fill="#2f7d6b"/><rect x="44" y="78" width="40" height="5" rx="2.5" fill="#6f8fd0"/><rect x="90" y="78" width="30" height="5" rx="2.5" fill="#e3a843"/></g><g transform="translate(196 112) rotate(28) scale(0.9)"><rect x="-8" y="-50" width="16" height="38" rx="4" fill="#f4d35e"/><rect x="-8" y="-58" width="16" height="10" rx="3" fill="#14293a" fill-opacity=".8"/><path d="M-6 -12H6L4 0H-4Z" fill="#14293a" fill-opacity=".85"/><path d="M-3 0H3L2 5H-2Z" fill="#f4d35e"/></g><g transform="translate(92 178) scale(0.62)"><path d="M-44 0C-44 -40 -30 -58 0 -58C30 -58 44 -40 44 0Z" fill="#2f7d6b"/><path d="M-12 -58L0 -44L12 -58" fill="#fff" fill-opacity=".85"/><rect x="-8" y="-72" width="16" height="16" rx="6" fill="#c98b5e"/><circle cx="0" cy="-98" r="26" fill="#c98b5e"/><circle cx="-26" cy="-96" r="5" fill="#c98b5e"/><circle cx="26" cy="-96" r="5" fill="#c98b5e"/><circle cx="-22" cy="-110" r="10" fill="#2b1d16"/><circle cx="-12" cy="-122" r="10" fill="#2b1d16"/><circle cx="2" cy="-126" r="10" fill="#2b1d16"/><circle cx="16" cy="-120" r="10" fill="#2b1d16"/><circle cx="24" cy="-108" r="10" fill="#2b1d16"/><circle cx="-26" cy="-96" r="10" fill="#2b1d16"/><circle cx="26" cy="-94" r="10" fill="#2b1d16"/><g class="w4d3a1-bl w4d3a1-b2"><ellipse cx="-9" cy="-98" rx="2.6" ry="3.2" fill="#14293a"/><ellipse cx="9" cy="-98" rx="2.6" ry="3.2" fill="#14293a"/></g><path d="M-15 -106q5 -3 9 0M6 -106q5 -3 9 0" stroke="#14293a" stroke-opacity=".6" stroke-width="1.8" stroke-linecap="round"/><circle cx="-15" cy="-89" r="3.5" fill="#e98a63" fill-opacity=".35"/><circle cx="15" cy="-89" r="3.5" fill="#e98a63" fill-opacity=".35"/><path d="M-6 -86q6 6 12 0" stroke="#14293a" stroke-width="2.2" stroke-linecap="round"/></g><g class="w4d3a1-pu" filter="url(#w4d3a1-sh)"><rect x="150" y="108" width="46" height="34" rx="14" fill="#e3a843"/><path d="M168 141L160 156L184 141Z" fill="#e3a843"/></g><text x="173.0" y="132.92" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">?</text><path class="w4d3a1-tw w4d3a1-t2" d="M206 24Q207.08 28.92 212 30Q207.08 31.08 206 36Q204.92 31.08 200 30Q204.92 28.92 206 24Z" fill="#e3a843"/><path class="w4d3a1-tw w4d3a1-t3" d="M22 115Q22.9 119.1 27 120Q22.9 120.9 22 125Q21.1 120.9 17 120Q21.1 119.1 22 115Z" fill="#2f7d6b"/>
+</svg>

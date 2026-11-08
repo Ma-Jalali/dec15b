@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="A group agreement of next steps with signatures and a stopwatch">
+<title>A group agreement of next steps with signatures and a stopwatch</title>
+<style>
+.w4d3b7-fl{animation:w4d3b7-fl 6s ease-in-out infinite}.w4d3b7-f2{animation-delay:-2s}.w4d3b7-f3{animation-delay:-4s}
+.w4d3b7-tw{animation:w4d3b7-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w4d3b7-t2{animation-delay:-1s}.w4d3b7-t3{animation-delay:-2s}
+.w4d3b7-bl{animation:w4d3b7-bl 5s infinite;transform-box:fill-box;transform-origin:center}.w4d3b7-b2{animation-delay:-1.7s}.w4d3b7-b3{animation-delay:-3.1s}
+.w4d3b7-pu{animation:w4d3b7-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w4d3b7-p2{animation-delay:-1.3s}
+.w4d3b7-dr{stroke-dasharray:7 8;animation:w4d3b7-dr 1.8s linear infinite}
+.w4d3b7-sw{animation:w4d3b7-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}.w4d3b7-s2{animation-delay:-2s}
+.w4d3b7-sp{animation:w4d3b7-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.w4d3b7-ti{animation:w4d3b7-ti 5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}
+.w4d3b7-in{animation:w4d3b7-in 7s ease-in-out infinite}.w4d3b7-i2{animation-delay:-2.3s}.w4d3b7-i3{animation-delay:-4.6s}
+@keyframes w4d3b7-fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes w4d3b7-tw{0%,100%{opacity:.3;transform:scale(.6)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes w4d3b7-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w4d3b7-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes w4d3b7-dr{to{stroke-dashoffset:-30}}
+@keyframes w4d3b7-sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes w4d3b7-sp{to{transform:rotate(360deg)}}
+@keyframes w4d3b7-ti{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes w4d3b7-in{0%,100%{opacity:.55}50%{opacity:1}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<linearGradient id="w4d3b7-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f5eff9"/><stop offset="1" stop-color="#e6dcf0"/></linearGradient>
+<pattern id="w4d3b7-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="1" fill="#7a4a8c" fill-opacity=".14"/></pattern>
+<filter id="w4d3b7-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".8" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="w4d3b7-sh2" x="-10%" y="-10%" width="120%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#14293a" flood-opacity=".14"/></filter>
+<radialGradient id="w4d3b7-glow" cx=".5" cy=".4" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="w4d3b7-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ad7e3"/><stop offset="1" stop-color="#3d9fb8"/></linearGradient>
+<linearGradient id="w4d3b7-lf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7cc08a"/><stop offset="1" stop-color="#3f8f5a"/></linearGradient>
+<linearGradient id="w4d3b7-pp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f3f6f8"/></linearGradient>
+</defs>
+<rect width="240" height="180" rx="14" fill="url(#w4d3b7-bg)"/><rect width="240" height="180" rx="14" fill="url(#w4d3b7-dots)"/><ellipse cx="120" cy="68" rx="108" ry="76" fill="url(#w4d3b7-glow)"/>
+<g><g transform="translate(96 92) rotate(-3)"><rect x="-56.0" y="-70.0" width="112" height="140" rx="4.5" fill="url(#w4d3b7-pp)" filter="url(#w4d3b7-sh)"/><rect x="-56.0" y="-70.0" width="112" height="7.0" rx="2" fill="#7a4a8c"/><text x="0" y="-46.4" font-family="Manrope, Arial, sans-serif" font-size="9.520000000000001" font-weight="800" fill="#14293a" text-anchor="middle">Next steps</text><rect x="-40.3" y="-35.3" width="80.6" height="3.5" rx="1.8" fill="#b9c6d2"/><rect x="-40.3" y="-15.4" width="80.6" height="3.5" rx="1.8" fill="#b9c6d2"/><rect x="-40.3" y="4.5" width="56.0" height="3.5" rx="1.8" fill="#b9c6d2"/><rect x="-40.3" y="24.4" width="80.6" height="3.5" rx="1.8" fill="#b9c6d2"/><rect x="-40.3" y="44.3" width="80.6" height="3.5" rx="1.8" fill="#b9c6d2"/></g></g><path d="M58 140c8 -10 14 6 22 -4s10 6 18 -2" stroke="#3a58a0" stroke-width="2.2" fill="none"/><path d="M104 146c6 -8 12 4 18 -4" stroke="#c4562f" stroke-width="2.2" fill="none"/><g transform="translate(192 74)"><rect x="-6" y="-36" width="12" height="8" rx="2" fill="#c4562f"/><circle r="24" fill="#2f7d6b" filter="url(#w4d3b7-sh)"/><circle r="18.72" fill="#fff"/><g class="w4d3b7-sp"><path d="M0 0V-14.399999999999999" stroke="#c4562f" stroke-width="3" stroke-linecap="round"/></g><circle r="3" fill="#14293a"/></g><g class="w4d3b7-pu"><circle cx="186" cy="146" r="18" fill="#c4562f" fill-opacity=".9"/><text x="186" y="150" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="800" fill="#fff" text-anchor="middle">OK</text></g>
+</svg>

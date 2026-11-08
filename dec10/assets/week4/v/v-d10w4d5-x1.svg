@@ -2,25 +2,25 @@
 <title>A phone shows a group chat message confirming the next steps, with ticks</title>
 <style>
 .vx1-fl{animation:vx1-fl 6s ease-in-out infinite}.vx1-f2{animation-delay:-2s}.vx1-f3{animation-delay:-4s}
-@keyframes vx1-fl{50%{transform:translateY(-6px)}}
+@keyframes vx1-fl{50%{translate:0 -6px}}
 .vx1-tw{animation:vx1-tw 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.vx1-t2{animation-delay:-1.1s}.vx1-t3{animation-delay:-2.2s}
-@keyframes vx1-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes vx1-tw{0%,100%{opacity:.35;scale:.6}50%{opacity:1;scale:1}}
 .vx1-bl{animation:vx1-bl 4.6s infinite;transform-box:fill-box;transform-origin:center}.vx1-b2{animation-delay:-1.6s}.vx1-b3{animation-delay:-3.1s}
-@keyframes vx1-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes vx1-bl{0%,93%,100%{scale:1 1}96%{scale:1 .1}}
 .vx1-pu{animation:vx1-pu 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-@keyframes vx1-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes vx1-pu{0%,100%{scale:1}50%{scale:1.08}}
 .vx1-dr{stroke-dasharray:6 9;animation:vx1-dr 1.6s linear infinite}
 @keyframes vx1-dr{to{stroke-dashoffset:-30}}
 .vx1-sp{animation:vx1-sp 30s linear infinite;transform-box:fill-box;transform-origin:center}
-@keyframes vx1-sp{to{transform:rotate(360deg)}}
+@keyframes vx1-sp{to{rotate:360deg}}
 .vx1-sw{animation:vx1-sw 5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
-@keyframes vx1-sw{50%{transform:rotate(3deg)}}
+@keyframes vx1-sw{50%{rotate:3deg}}
 .vx1-wv{animation:vx1-wv 3s ease-out infinite;transform-box:fill-box;transform-origin:center}.vx1-w2{animation-delay:-1s}
-@keyframes vx1-wv{0%{opacity:0;transform:scale(.7)}30%{opacity:.9}100%{opacity:0;transform:scale(1.3)}}
+@keyframes vx1-wv{0%{opacity:0;scale:.7}30%{opacity:.9}100%{opacity:0;scale:1.3}}
 .vx1-ty{animation:vx1-ty 1.4s steps(1) infinite}.vx1-y2{animation-delay:-.45s}.vx1-y3{animation-delay:-.9s}
 @keyframes vx1-ty{0%,100%{opacity:1}50%{opacity:.2}}
 .vx1-sl{animation:vx1-sl 9s ease-in-out infinite}
-@keyframes vx1-sl{50%{transform:translateX(14px)}}
+@keyframes vx1-sl{50%{translate:14px 0}}
 
 @media (prefers-reduced-motion: reduce){*{animation:none!important}}
 </style><defs>

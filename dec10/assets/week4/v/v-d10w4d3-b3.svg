@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Group 3 opens the eco-tourism seminar with a slide of a green landscape and sea, in 5 to 7 minutes">
+<title>Group 3 opens the eco-tourism seminar with a slide of a green landscape and sea, in 5 to 7 minutes</title>
+<style>
+.w4d3b3-fl{animation:w4d3b3-fl 6s ease-in-out infinite}.w4d3b3-f2{animation-delay:-2s}.w4d3b3-f3{animation-delay:-4s}
+.w4d3b3-tw{animation:w4d3b3-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w4d3b3-t2{animation-delay:-1s}.w4d3b3-t3{animation-delay:-2s}
+.w4d3b3-bl{animation:w4d3b3-bl 5s infinite;transform-box:fill-box;transform-origin:center}.w4d3b3-b2{animation-delay:-1.7s}.w4d3b3-b3{animation-delay:-3.1s}
+.w4d3b3-pu{animation:w4d3b3-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w4d3b3-p2{animation-delay:-1.3s}
+.w4d3b3-dr{stroke-dasharray:7 8;animation:w4d3b3-dr 1.8s linear infinite}
+.w4d3b3-sw{animation:w4d3b3-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}.w4d3b3-s2{animation-delay:-2s}
+.w4d3b3-sp{animation:w4d3b3-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.w4d3b3-ti{animation:w4d3b3-ti 5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}
+.w4d3b3-in{animation:w4d3b3-in 7s ease-in-out infinite}.w4d3b3-i2{animation-delay:-2.3s}.w4d3b3-i3{animation-delay:-4.6s}
+@keyframes w4d3b3-fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes w4d3b3-tw{0%,100%{opacity:.3;transform:scale(.6)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes w4d3b3-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w4d3b3-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes w4d3b3-dr{to{stroke-dashoffset:-30}}
+@keyframes w4d3b3-sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes w4d3b3-sp{to{transform:rotate(360deg)}}
+@keyframes w4d3b3-ti{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes w4d3b3-in{0%,100%{opacity:.55}50%{opacity:1}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<linearGradient id="w4d3b3-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f5eff9"/><stop offset="1" stop-color="#e6dcf0"/></linearGradient>
+<pattern id="w4d3b3-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="1" fill="#7a4a8c" fill-opacity=".14"/></pattern>
+<filter id="w4d3b3-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".8" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="w4d3b3-sh2" x="-10%" y="-10%" width="120%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#14293a" flood-opacity=".14"/></filter>
+<radialGradient id="w4d3b3-glow" cx=".5" cy=".4" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="w4d3b3-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ad7e3"/><stop offset="1" stop-color="#3d9fb8"/></linearGradient>
+<linearGradient id="w4d3b3-lf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7cc08a"/><stop offset="1" stop-color="#3f8f5a"/></linearGradient>
+<linearGradient id="w4d3b3-pp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f3f6f8"/></linearGradient>
+</defs>
+<rect width="240" height="180" rx="14" fill="url(#w4d3b3-bg)"/><rect width="240" height="180" rx="14" fill="url(#w4d3b3-dots)"/><ellipse cx="120" cy="68" rx="108" ry="76" fill="url(#w4d3b3-glow)"/>
+<g transform="translate(148 64)"><rect x="-4" y="40.0" width="8" height="44.0" fill="#9fb0c0"/><path d="M-40 84.0H40" stroke="#9fb0c0" stroke-width="6" stroke-linecap="round"/><rect x="-65.0" y="-40.0" width="130" height="80" rx="8" fill="#14293a" filter="url(#w4d3b3-sh)"/><rect x="-57.0" y="-32.0" width="114" height="64" rx="4" fill="#fbfdff"/><path d="M-50 22L-20 -6L0 10L22 -12L50 22Z" fill="#7cc08a"/><circle cx="34" cy="-16" r="8" fill="#e3a843"/><path d="M-50 22H50" stroke="#3d9fb8" stroke-width="5"/></g><g transform="translate(50 150) scale(0.56)"><path d="M-44 0C-44 -40 -30 -58 0 -58C30 -58 44 -40 44 0Z" fill="#2f7d6b"/><path d="M-12 -58L0 -44L12 -58" fill="#fff" fill-opacity=".85"/><rect x="-8" y="-72" width="16" height="16" rx="6" fill="#f2c9a4"/><path d="M-30 -96C-34 -70 -30 -60 -22 -56H22C30 -60 34 -70 30 -96Z" fill="#7a4a2a"/><circle cx="0" cy="-98" r="26" fill="#f2c9a4"/><circle cx="-26" cy="-96" r="5" fill="#f2c9a4"/><circle cx="26" cy="-96" r="5" fill="#f2c9a4"/><path d="M-27 -98C-28 -126 -6 -130 2 -128C18 -126 28 -116 27 -98C14 -106 4 -116 -2 -114C-12 -110 -20 -106 -27 -98Z" fill="#7a4a2a"/><g class="w4d3b3-bl w4d3b3-b3"><ellipse cx="-9" cy="-98" rx="2.6" ry="3.2" fill="#14293a"/><ellipse cx="9" cy="-98" rx="2.6" ry="3.2" fill="#14293a"/></g><path d="M-15 -106q5 -3 9 0M6 -106q5 -3 9 0" stroke="#14293a" stroke-opacity=".6" stroke-width="1.8" stroke-linecap="round"/><circle cx="-15" cy="-89" r="3.5" fill="#e98a63" fill-opacity=".35"/><circle cx="15" cy="-89" r="3.5" fill="#e98a63" fill-opacity=".35"/><ellipse class="w4d3b3-pu" cx="0" cy="-85" rx="5" ry="3.6" fill="#14293a"/><path d="M34 -40C48 -60 52 -82 46 -100" stroke="#2f7d6b" stroke-width="16" stroke-linecap="round"/><circle cx="46" cy="-104" r="8" fill="#f2c9a4"/></g><g transform="translate(212 140)"><rect x="-6" y="-30" width="12" height="8" rx="2" fill="#c4562f"/><circle r="18" fill="#2f7d6b" filter="url(#w4d3b3-sh)"/><circle r="14.040000000000001" fill="#fff"/><g class="w4d3b3-sp"><path d="M0 0V-10.799999999999999" stroke="#c4562f" stroke-width="3" stroke-linecap="round"/></g><circle r="3" fill="#14293a"/><text x="0" y="8.1" font-family="Manrope, Arial, sans-serif" font-size="5.76" font-weight="800" fill="#14293a" text-anchor="middle">5–7</text></g><g filter="url(#w4d3b3-sh)"><rect x="16" y="14" width="64" height="26" rx="13.0" fill="#fff"/><path d="M46 39L70 54L62 39Z" fill="#fff"/></g><text x="48.0" y="31.68" font-family="Manrope, Arial, sans-serif" font-size="13" font-weight="700" fill="#7a4a8c" text-anchor="middle">Why?</text><path class="w4d3b3-tw w4d3b3-t2" d="M222 14Q223.08 18.92 228 20Q223.08 21.08 222 26Q220.92 21.08 216 20Q220.92 18.92 222 14Z" fill="#e3a843"/>
+</svg>

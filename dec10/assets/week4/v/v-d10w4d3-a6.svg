@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="A paragraph whose sentences are tagged BUT, BECAUSE, AND and SO">
+<title>A paragraph whose sentences are tagged BUT, BECAUSE, AND and SO</title>
+<style>
+.w4d3a6-fl{animation:w4d3a6-fl 6s ease-in-out infinite}.w4d3a6-f2{animation-delay:-2s}.w4d3a6-f3{animation-delay:-4s}
+.w4d3a6-tw{animation:w4d3a6-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w4d3a6-t2{animation-delay:-1s}.w4d3a6-t3{animation-delay:-2s}
+.w4d3a6-bl{animation:w4d3a6-bl 5s infinite;transform-box:fill-box;transform-origin:center}.w4d3a6-b2{animation-delay:-1.7s}.w4d3a6-b3{animation-delay:-3.1s}
+.w4d3a6-pu{animation:w4d3a6-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w4d3a6-p2{animation-delay:-1.3s}
+.w4d3a6-dr{stroke-dasharray:7 8;animation:w4d3a6-dr 1.8s linear infinite}
+.w4d3a6-sw{animation:w4d3a6-sw 4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}.w4d3a6-s2{animation-delay:-2s}
+.w4d3a6-sp{animation:w4d3a6-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.w4d3a6-ti{animation:w4d3a6-ti 5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}
+.w4d3a6-in{animation:w4d3a6-in 7s ease-in-out infinite}.w4d3a6-i2{animation-delay:-2.3s}.w4d3a6-i3{animation-delay:-4.6s}
+@keyframes w4d3a6-fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes w4d3a6-tw{0%,100%{opacity:.3;transform:scale(.6)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes w4d3a6-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w4d3a6-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes w4d3a6-dr{to{stroke-dashoffset:-30}}
+@keyframes w4d3a6-sw{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes w4d3a6-sp{to{transform:rotate(360deg)}}
+@keyframes w4d3a6-ti{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes w4d3a6-in{0%,100%{opacity:.55}50%{opacity:1}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<linearGradient id="w4d3a6-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eef7f2"/><stop offset="1" stop-color="#d8ebe2"/></linearGradient>
+<pattern id="w4d3a6-dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="1" fill="#2f7d6b" fill-opacity=".14"/></pattern>
+<filter id="w4d3a6-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".8" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="w4d3a6-sh2" x="-10%" y="-10%" width="120%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#14293a" flood-opacity=".14"/></filter>
+<radialGradient id="w4d3a6-glow" cx=".5" cy=".4" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="w4d3a6-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ad7e3"/><stop offset="1" stop-color="#3d9fb8"/></linearGradient>
+<linearGradient id="w4d3a6-lf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7cc08a"/><stop offset="1" stop-color="#3f8f5a"/></linearGradient>
+<linearGradient id="w4d3a6-pp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f3f6f8"/></linearGradient>
+</defs>
+<rect width="240" height="180" rx="14" fill="url(#w4d3a6-bg)"/><rect width="240" height="180" rx="14" fill="url(#w4d3a6-dots)"/><ellipse cx="120" cy="68" rx="108" ry="76" fill="url(#w4d3a6-glow)"/>
+<g><g transform="translate(84 94) rotate(-3)"><rect x="-55.0" y="-70.0" width="110" height="140" rx="4.4" fill="url(#w4d3a6-pp)" filter="url(#w4d3a6-sh)"/></g></g><rect x="42" y="46" width="84" height="7" rx="3.5" fill="#b9c6d2" transform="rotate(-3 84 94)"/><g class="w4d3a6-fl w4d3a6-f1"><rect x="146" y="37" width="70" height="22" rx="11.0" fill="#c4562f"/><text x="181.0" y="52.14" font-family="Manrope, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#fff" text-anchor="middle">BUT</text></g><path d="M128 48H144" stroke="#c4562f" stroke-width="2.5" stroke-linecap="round"/><rect x="42" y="76" width="84" height="7" rx="3.5" fill="#b9c6d2" transform="rotate(-3 84 94)"/><g class="w4d3a6-fl w4d3a6-f2"><rect x="146" y="67" width="70" height="22" rx="11.0" fill="#3a58a0"/><text x="181.0" y="82.14" font-family="Manrope, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#fff" text-anchor="middle">BECAUSE</text></g><path d="M128 78H144" stroke="#3a58a0" stroke-width="2.5" stroke-linecap="round"/><rect x="42" y="106" width="84" height="7" rx="3.5" fill="#b9c6d2" transform="rotate(-3 84 94)"/><g class="w4d3a6-fl w4d3a6-f3"><rect x="146" y="97" width="70" height="22" rx="11.0" fill="#7a4a8c"/><text x="181.0" y="112.14" font-family="Manrope, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#fff" text-anchor="middle">AND</text></g><path d="M128 108H144" stroke="#7a4a8c" stroke-width="2.5" stroke-linecap="round"/><rect x="42" y="136" width="84" height="7" rx="3.5" fill="#b9c6d2" transform="rotate(-3 84 94)"/><g class="w4d3a6-fl w4d3a6-f1"><rect x="146" y="127" width="70" height="22" rx="11.0" fill="#2f7d6b"/><text x="181.0" y="142.14" font-family="Manrope, Arial, sans-serif" font-size="11.5" font-weight="800" fill="#fff" text-anchor="middle">SO</text></g><path d="M128 138H144" stroke="#2f7d6b" stroke-width="2.5" stroke-linecap="round"/><path class="w4d3a6-tw w4d3a6-t3" d="M222 20Q223.08 24.92 228 26Q223.08 27.08 222 32Q220.92 27.08 216 26Q220.92 24.92 222 20Z" fill="#e3a843"/>
+</svg>
