@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="An hourglass: the top half narrows from background to thesis (introduction) and the bottom half widens from the thesis to a future statement (conclusion); an essay page with colour bands stands beside it.">
+<title>The shape of an introduction and a conclusion</title>
+<style>
+.w54c1-tw{animation:w54c1-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w54c1-t2{animation-delay:-1s}.w54c1-t3{animation-delay:-2s}
+.w54c1-fl{animation:w54c1-fl 6s ease-in-out infinite}.w54c1-f2{animation-delay:-2s}.w54c1-f3{animation-delay:-4s}
+.w54c1-bl{animation:w54c1-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.w54c1-b2{animation-delay:-1.7s}.w54c1-b3{animation-delay:-3.2s}.w54c1-b4{animation-delay:-2.4s}
+.w54c1-pu{animation:w54c1-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w54c1-p2{animation-delay:-.9s}.w54c1-p3{animation-delay:-1.7s}
+.w54c1-dr{stroke-dasharray:6 7;animation:w54c1-dr 1.8s linear infinite}
+.w54c1-sp{animation:w54c1-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.w54c1-sw{animation:w54c1-sw 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.w54c1-tk{animation:w54c1-tk 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.w54c1-wv{animation:w54c1-wv 2.4s ease-in-out infinite}.w54c1-w2{animation-delay:-.8s}.w54c1-w3{animation-delay:-1.6s}
+.w54c1-dw{stroke-dasharray:400;stroke-dashoffset:400;animation:w54c1-dw 6s ease-in-out infinite}
+@keyframes w54c1-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes w54c1-fl{50%{transform:translateY(-4px)}}
+@keyframes w54c1-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w54c1-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@keyframes w54c1-dr{to{stroke-dashoffset:-26}}
+@keyframes w54c1-sp{to{transform:rotate(360deg)}}
+@keyframes w54c1-sw{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes w54c1-tk{0%,100%{transform:rotate(0)}50%{transform:rotate(-10deg)}}
+@keyframes w54c1-wv{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes w54c1-dw{0%{stroke-dashoffset:400}40%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:-400}}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs><linearGradient id="w54c1-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4eef9"/><stop offset="1" stop-color="#e4d8ef"/></linearGradient>
+<pattern id="w54c1-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r=".8" fill="#7a4a8c" fill-opacity=".14"/></pattern>
+<radialGradient id="w54c1-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<filter id="w54c1-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="w54c1-blur" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+<linearGradient id="w54c1-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c162"/><stop offset="1" stop-color="#d9962e"/></linearGradient>
+<linearGradient id="w54c1-main" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#93619f"/><stop offset="1" stop-color="#7a4a8c"/></linearGradient>
+<linearGradient id="w54c1-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f7f2e8"/></linearGradient>
+<linearGradient id="w54c1-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c4c68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="w54c1-clay" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0694c"/><stop offset="1" stop-color="#c94a2c"/></linearGradient>
+<marker id="w54c1-ar" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#14293a"/></marker>
+<marker id="w54c1-arm" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7a4a8c"/></marker>
+</defs>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#w54c1-bg)"/><clipPath id="w54c1-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath><g clip-path="url(#w54c1-clip)"><rect width="240" height="180" fill="url(#w54c1-dots)"/><ellipse cx="115.19999999999999" cy="72" rx="110.4" ry="70.2" fill="url(#w54c1-glow)"/></g><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".7" stroke-width="1.2"/><ellipse cx="78" cy="160" rx="44" ry="6" fill="#14293a" opacity="0.12" filter="url(#w54c1-blur)"/><rect x="34" y="20" width="88" height="8" rx="4" fill="#9a6b3c"/><rect x="34" y="146" width="88" height="8" rx="4" fill="#9a6b3c"/><path d="M40 28h76L84 87 116 146H40L72 87z" fill="#fff" fill-opacity=".55" stroke="#7a4a8c" stroke-width="2"/><path d="M44 32h68l-6 11H50z" fill="#e3a843"/><path d="M52 46h52l-6 11H58z" fill="#13887a"/><path d="M61 60h34l-7 12H68z" fill="#e64626"/><path d="M70 75h16l-4 8h-8z" fill="#7a4a8c"/><path d="M74 92h8l5 9H69z" fill="#e64626"/><path d="M66 106h24l6 12H60z" fill="#93619f"/><path d="M57 123h42l8 19H49z" fill="#e3a843"/><g class="w54c1-wv"><path d="M78 84v8" stroke="#e3a843" stroke-width="2" stroke-dasharray="2 2"/></g><g class="w54c1-fl"><g filter="url(#w54c1-sh)"><path d="M149 26H202L212 36V143a3 3 0 0 1-3 3H149a3 3 0 0 1-3-3V29a3 3 0 0 1 3-3z" fill="url(#w54c1-paper)"/></g><path d="M202 26L212 36H202z" fill="#e8dfcf"/><rect x="152" y="34" width="54" height="18" rx="3" fill="#e3a843" fill-opacity=".22"/><rect x="152" y="34" width="4" height="18" rx="2" fill="#e3a843"/><path d="M161 39h32.3" stroke="#e3a843" stroke-width="1.6" stroke-linecap="round"/><path d="M161 45h22.8" stroke="#e3a843" stroke-width="1.6" stroke-linecap="round"/><rect x="152" y="56" width="54" height="22" rx="3" fill="#13887a" fill-opacity=".22"/><rect x="152" y="56" width="4" height="22" rx="2" fill="#13887a"/><path d="M161 61h32.3" stroke="#13887a" stroke-width="1.6" stroke-linecap="round"/><path d="M161 67h35.0" stroke="#13887a" stroke-width="1.6" stroke-linecap="round"/><path d="M161 73h22.8" stroke="#13887a" stroke-width="1.6" stroke-linecap="round"/><rect x="152" y="81" width="54" height="22" rx="3" fill="#2f6db5" fill-opacity=".22"/><rect x="152" y="81" width="4" height="22" rx="2" fill="#2f6db5"/><path d="M161 86h32.3" stroke="#2f6db5" stroke-width="1.6" stroke-linecap="round"/><path d="M161 92h35.0" stroke="#2f6db5" stroke-width="1.6" stroke-linecap="round"/><path d="M161 98h22.8" stroke="#2f6db5" stroke-width="1.6" stroke-linecap="round"/><rect x="152" y="106" width="54" height="16" rx="3" fill="#e64626" fill-opacity=".22"/><rect x="152" y="106" width="4" height="16" rx="2" fill="#e64626"/><path d="M161 111h32.3" stroke="#e64626" stroke-width="1.6" stroke-linecap="round"/><path d="M161 117h22.8" stroke="#e64626" stroke-width="1.6" stroke-linecap="round"/><rect x="152" y="125" width="54" height="14" rx="3" fill="#7a4a8c" fill-opacity=".22"/><rect x="152" y="125" width="4" height="14" rx="2" fill="#7a4a8c"/><path d="M161 130h22.8" stroke="#7a4a8c" stroke-width="1.6" stroke-linecap="round"/></g><path class="w54c1-tw " d="M134 15.5C134.81 19.19 134.81 19.19 138.5 20C134.81 20.81 134.81 20.81 134 24.5C133.19 20.81 133.19 20.81 129.5 20C133.19 19.19 133.19 19.19 134 15.5z" fill="#e3a843"/><path class="w54c1-tw w54c1-t2" d="M26 86.5C26.63 89.37 26.63 89.37 29.5 90C26.63 90.63 26.63 90.63 26 93.5C25.37 90.63 25.37 90.63 22.5 90C25.37 89.37 25.37 89.37 26 86.5z" fill="#7a4a8c"/><path class="w54c1-tw w54c1-t3" d="M222 156.5C222.63 159.37 222.63 159.37 225.5 160C222.63 160.63 222.63 160.63 222 163.5C221.37 160.63 221.37 160.63 218.5 160C221.37 159.37 221.37 159.37 222 156.5z" fill="#e64626"/>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Test practice: four answer bubbles A, B, C and D; a stack of gold coins is bet on answer B, which has a green tick, and a magnifier finds the proof in a paragraph.">
+<title>Test practice: four answer bubbles A, B, C and D; a stack of gold coins is bet on answer B, which has a green tick, and a magnifier finds the proof in a paragraph.</title>
+<style>
+.w5d1a8-fl{animation:w5d1a8-fl 6s ease-in-out infinite}.w5d1a8-f2{animation-delay:-2s}.w5d1a8-f3{animation-delay:-4s}
+.w5d1a8-tw{animation:w5d1a8-tw 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w5d1a8-t2{animation-delay:-1.1s}.w5d1a8-t3{animation-delay:-2.2s}
+.w5d1a8-bl{animation:w5d1a8-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.w5d1a8-b2{animation-delay:-1.9s}.w5d1a8-b3{animation-delay:-3.1s}
+.w5d1a8-pu{animation:w5d1a8-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w5d1a8-p2{animation-delay:-1.3s}
+.w5d1a8-dr{stroke-dasharray:6 9;animation:w5d1a8-dr 1.6s linear infinite}
+.w5d1a8-sp{animation:w5d1a8-sp 18s linear infinite;transform-box:fill-box;transform-origin:center}
+.w5d1a8-sw{animation:w5d1a8-sw 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}.w5d1a8-s2{animation-delay:-1.7s}
+.w5d1a8-dw{stroke-dasharray:400;stroke-dashoffset:400;animation:w5d1a8-dw 5s ease-in-out infinite}
+@keyframes w5d1a8-fl{50%{transform:translateY(-5px)}}
+@keyframes w5d1a8-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes w5d1a8-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w5d1a8-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes w5d1a8-dr{to{stroke-dashoffset:-30}}
+@keyframes w5d1a8-sp{to{transform:rotate(360deg)}}
+@keyframes w5d1a8-sw{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+@keyframes w5d1a8-dw{0%{stroke-dashoffset:400}45%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:-400}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<filter id="w5d1a8-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="w5d1a8-shl" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#14293a" flood-opacity=".15"/><feDropShadow dx="0" dy="2" stdDeviation="1.6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="w5d1a8-blur" x="-30%" y="-80%" width="160%" height="260%"><feGaussianBlur stdDeviation="5"/></filter>
+<pattern id="w5d1a8-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r=".9" fill="#7a4a8c" fill-opacity=".14"/></pattern>
+<linearGradient id="w5d1a8-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4eef9"/><stop offset="1" stop-color="#e6dcf0"/></linearGradient>
+<radialGradient id="w5d1a8-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="w5d1a8-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f7f1e4"/></linearGradient>
+<linearGradient id="w5d1a8-main" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b48cc4"/><stop offset="1" stop-color="#7a4a8c"/></linearGradient>
+<linearGradient id="w5d1a8-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c162"/><stop offset="1" stop-color="#d9962e"/></linearGradient>
+<linearGradient id="w5d1a8-ink" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c4c68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<radialGradient id="w5d1a8-sea" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#7fc0e8"/><stop offset="1" stop-color="#2f6db5"/></radialGradient>
+<radialGradient id="w5d1a8-hl" cx=".3" cy=".25" r=".6"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+
+</defs>
+<clipPath id="w5d1a8-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#w5d1a8-bg)"/><g clip-path="url(#w5d1a8-clip)"><rect width="240" height="180" fill="url(#w5d1a8-dots)"/><ellipse cx="116" cy="72" rx="110" ry="70" fill="url(#w5d1a8-glow)"/></g><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".7" stroke-width="1.2"/><ellipse cx="120" cy="160" rx="84" ry="6" fill="#14293a" opacity=".1" filter="url(#w5d1a8-blur)"/>
+<g class=""><circle cx="54" cy="62" r="17" fill="#fff" filter="url(#w5d1a8-sh)"/><circle cx="54" cy="62" r="17" stroke="#c9d3dc" stroke-width="2"/><text x="54" y="68" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="900" fill="#14293a" text-anchor="middle">A</text></g><g class="w5d1a8-pu"><circle cx="98" cy="62" r="17" fill="#2f7d6b" filter="url(#w5d1a8-sh)"/><circle cx="98" cy="62" r="17" stroke="#2f7d6b" stroke-width="2"/><text x="98" y="68" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="900" fill="#fff" text-anchor="middle">B</text></g><g class=""><circle cx="142" cy="62" r="17" fill="#fff" filter="url(#w5d1a8-sh)"/><circle cx="142" cy="62" r="17" stroke="#c9d3dc" stroke-width="2"/><text x="142" y="68" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="900" fill="#14293a" text-anchor="middle">C</text></g><g class=""><circle cx="186" cy="62" r="17" fill="#fff" filter="url(#w5d1a8-sh)"/><circle cx="186" cy="62" r="17" stroke="#c9d3dc" stroke-width="2"/><text x="186" y="68" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="900" fill="#14293a" text-anchor="middle">D</text></g>
+<g transform="translate(98 104)"><ellipse cx="0" cy="30" rx="13" ry="5" fill="#d9962e"/><ellipse cx="0" cy="28" rx="13" ry="5" fill="url(#w5d1a8-gold)"/><ellipse cx="0" cy="24" rx="13" ry="5" fill="#d9962e"/><ellipse cx="0" cy="22" rx="13" ry="5" fill="url(#w5d1a8-gold)"/><ellipse cx="0" cy="18" rx="13" ry="5" fill="#d9962e"/><ellipse cx="0" cy="16" rx="13" ry="5" fill="url(#w5d1a8-gold)"/><ellipse cx="0" cy="12" rx="13" ry="5" fill="#d9962e"/><ellipse cx="0" cy="10" rx="13" ry="5" fill="url(#w5d1a8-gold)"/></g>
+<path d="M98 98L98 84" stroke="#e3a843" stroke-width="2.4" stroke-linecap="round"/><path d="M100.6 89.4L98 84L95.4 89.4" stroke="#e3a843" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="translate(150 106)"><rect width="66" height="50" rx="5" fill="url(#w5d1a8-paper)" filter="url(#w5d1a8-sh)"/><text x="8" y="14" font-family="Manrope, Arial, sans-serif" font-size="8" font-weight="800" fill="#7a4a8c">para. A</text><path d="M8 22h41" stroke="#c9d3dc" stroke-width="1.8" stroke-linecap="round"/><path d="M8 30h41.5" stroke="#c9d3dc" stroke-width="1.8" stroke-linecap="round"/><path d="M8 38h30" stroke="#c9d3dc" stroke-width="1.8" stroke-linecap="round"/><rect x="8" y="27" width="34" height="6" rx="2" fill="#f7dc5c" opacity=".8"/></g>
+<g class="w5d1a8-sw"><g transform="translate(196 124) rotate(-20)"><circle r="11" fill="#fff" fill-opacity=".5" stroke="#14293a" stroke-width="3"/><rect x="-3" y="11" width="6" height="16" rx="3" fill="#14293a"/></g></g>
+<path class="w5d1a8-tw" d="M30 107.5C30.8 111.2 30.8 111.2 34.5 112C30.8 112.8 30.8 112.8 30 116.5C29.2 112.8 29.2 112.8 25.5 112C29.2 111.2 29.2 111.2 30 107.5z" fill="#e3a843"/><path class="w5d1a8-tw w5d1a8-t2" d="M214 34C214.7 37.3 214.7 37.3 218 38C214.7 38.7 214.7 38.7 214 42C213.3 38.7 213.3 38.7 210 38C213.3 37.3 213.3 37.3 214 34z" fill="#7a4a8c"/><path class="w5d1a8-tw w5d1a8-t3" d="M140 18.5C140.6 21.4 140.6 21.4 143.5 22C140.6 22.6 140.6 22.6 140 25.5C139.4 22.6 139.4 22.6 136.5 22C139.4 21.4 139.4 21.4 140 18.5z" fill="#2f7d6b"/>
+</svg>

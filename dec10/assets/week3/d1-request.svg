@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" fill="none" role="img" aria-label="Demand versus request. A demand is a closed, locked door: You should pull your weight. A request is an open door with three golden keys: choice (Would you be willing), a positive verb (to call me), clear and specific (in the morning to discuss our group tasks). The other person can say no, so they are more willing to say yes.">
+<title>Requests, not demands</title>
+<style>
+.w3d1rq-fl{animation:w3d1rq-fl 6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1rq-f2{animation-delay:-2s}.w3d1rq-f3{animation-delay:-4s}
+.w3d1rq-tw{animation:w3d1rq-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1rq-t2{animation-delay:-1s}.w3d1rq-t3{animation-delay:-2s}
+.w3d1rq-sp{animation:w3d1rq-sp 7s linear infinite;transform-box:fill-box;transform-origin:center}.w3d1rq-slow{animation-duration:14s}
+.w3d1rq-pu{animation:w3d1rq-pu 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1rq-p2{animation-delay:-1.2s}
+.w3d1rq-dr{stroke-dasharray:6 7;animation:w3d1rq-dr 1.5s linear infinite}
+.w3d1rq-bl{animation:w3d1rq-bl 5s infinite;transform-box:fill-box;transform-origin:center}.w3d1rq-b2{animation-delay:-1.7s}.w3d1rq-b3{animation-delay:-3.1s}
+.w3d1rq-sw{animation:w3d1rq-sw 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:bottom center}
+.w3d1rq-ri{animation:w3d1rq-ri 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w3d1rq-r2{animation-delay:-1.7s}.w3d1rq-r3{animation-delay:-3.4s}
+.w3d1rq-dw{stroke-dasharray:400;animation:w3d1rq-dw 6s ease-in-out infinite}
+@keyframes w3d1rq-fl{50%{transform:translateY(-4px)}}
+@keyframes w3d1rq-tw{0%,100%{opacity:.3;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes w3d1rq-sp{to{transform:rotate(360deg)}}
+@keyframes w3d1rq-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes w3d1rq-dr{to{stroke-dashoffset:-26}}
+@keyframes w3d1rq-bl{0%,92%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w3d1rq-sw{50%{transform:rotate(5deg)}}
+@keyframes w3d1rq-ri{0%{opacity:0;transform:translateY(10px)}25%,70%{opacity:1}100%{opacity:0;transform:translateY(-22px)}}
+@keyframes w3d1rq-dw{0%{stroke-dashoffset:400}40%,100%{stroke-dashoffset:0}}
+
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+<defs>
+<linearGradient id="w3d1rq-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbefe8"/><stop offset="1" stop-color="#f2d6c6"/></linearGradient>
+<pattern id="w3d1rq-dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1" fill="#b0512a" fill-opacity=".14"/></pattern>
+<linearGradient id="w3d1rq-shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="w3d1rq-main" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e59a76"/><stop offset="1" stop-color="#b0512a"/></linearGradient>
+<linearGradient id="w3d1rq-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfeaf2"/><stop offset="1" stop-color="#f4fbf6"/></linearGradient>
+<linearGradient id="w3d1rq-leaf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9fd27f"/><stop offset="1" stop-color="#3f7a3a"/></linearGradient>
+<linearGradient id="w3d1rq-solar" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4d77c9"/><stop offset="1" stop-color="#1f3a78"/></linearGradient>
+<linearGradient id="w3d1rq-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6cf62"/><stop offset="1" stop-color="#d99a2b"/></linearGradient>
+<radialGradient id="w3d1rq-gs" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#14293a" stop-opacity=".22"/><stop offset="1" stop-color="#14293a" stop-opacity="0"/></radialGradient>
+<radialGradient id="w3d1rq-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<filter id="w3d1rq-sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#14293a" flood-opacity=".18"/><feDropShadow dx="0" dy="1" stdDeviation=".7" flood-color="#14293a" flood-opacity=".1"/></filter>
+<filter id="w3d1rq-sh2" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#14293a" flood-opacity=".16"/></filter>
+<marker id="w3d1rq-ah" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1l7 4-7 4" fill="none" stroke="#b0512a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="w3d1rq-an" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M1 1l7 4-7 4" fill="none" stroke="#14293a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<path id="w3d1rq-st" d="M0-6C.8-1.5 1.5-.8 6 0 1.5.8.8 1.5 0 6-.8 1.5-1.5.8-6 0-1.5-.8-.8-1.5 0-6z"/>
+
+</defs>
+<rect width="1000" height="460" rx="24" fill="#fbf6f2"/><rect width="1000" height="460" rx="24" fill="url(#w3d1rq-dots)" opacity=".7"/><text x="200" y="54" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="800" fill="#8a3c1d" text-anchor="middle">DEMAND</text><text x="660" y="54" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="800" fill="#2c5a29" text-anchor="middle">REQUEST</text><g filter="url(#w3d1rq-sh)"><rect x="120" y="80" width="160" height="260" rx="8" fill="#8a3c1d"/></g><rect x="132" y="92" width="136" height="236" rx="6" fill="#a5532c"/><rect x="170" y="196" width="60" height="48" rx="8" fill="#7a8590"/><path d="M182 196v-16a18 18 0 0 1 36 0v16" stroke="#7a8590" stroke-width="7" fill="none"/><g filter="url(#w3d1rq-sh2)"><rect x="60" y="360" width="280" height="56" rx="16" fill="#fff"/></g><text x="200" y="395" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="700" fill="#8a3c1d" text-anchor="middle">“You should pull your weight.”</text><g filter="url(#w3d1rq-sh)"><rect x="430" y="80" width="160" height="260" rx="8" fill="#fdf3e2"/></g><path d="M430 80l70 18v260l-70-18z" fill="#3f7a3a"/><circle cx="486" cy="220" r="6" fill="#e3a843"/><g class="w3d1rq-sw"><g transform="translate(640 120)"><circle r="14" fill="none" stroke="url(#w3d1rq-gold)" stroke-width="6"/><path d="M14 0h26m-8 0v8m-8-8v7" stroke="#d99a2b" stroke-width="6" stroke-linecap="round"/></g></g><g filter="url(#w3d1rq-sh2)"><rect x="700" y="84" width="270" height="72" rx="14" fill="#fff"/></g><rect x="700" y="84" width="8" height="72" rx="4" fill="#13887a"/><text x="722" y="112" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="800" fill="#13887a" text-anchor="start">Choice</text><text x="722" y="138" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="600" fill="#14293a" text-anchor="start">Would you be willing</text><g class="w3d1rq-sw"><g transform="translate(640 220)"><circle r="14" fill="none" stroke="url(#w3d1rq-gold)" stroke-width="6"/><path d="M14 0h26m-8 0v8m-8-8v7" stroke="#d99a2b" stroke-width="6" stroke-linecap="round"/></g></g><g filter="url(#w3d1rq-sh2)"><rect x="700" y="184" width="270" height="72" rx="14" fill="#fff"/></g><rect x="700" y="184" width="8" height="72" rx="4" fill="#3a58a0"/><text x="722" y="212" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="800" fill="#3a58a0" text-anchor="start">Positive verb</text><text x="722" y="238" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="600" fill="#14293a" text-anchor="start">to call me</text><g class="w3d1rq-sw"><g transform="translate(640 320)"><circle r="14" fill="none" stroke="url(#w3d1rq-gold)" stroke-width="6"/><path d="M14 0h26m-8 0v8m-8-8v7" stroke="#d99a2b" stroke-width="6" stroke-linecap="round"/></g></g><g filter="url(#w3d1rq-sh2)"><rect x="700" y="284" width="270" height="72" rx="14" fill="#fff"/></g><rect x="700" y="284" width="8" height="72" rx="4" fill="#7a4a8c"/><text x="722" y="312" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="800" fill="#7a4a8c" text-anchor="start">Clear and specific</text><text x="722" y="334" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="600" fill="#14293a" text-anchor="start">in the morning to</text><text x="722" y="352" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="600" fill="#14293a" text-anchor="start">discuss our group tasks</text><text x="510" y="395" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="800" fill="#2c5a29" text-anchor="middle">They can say no → they are more willing to say yes.</text>
+</svg>

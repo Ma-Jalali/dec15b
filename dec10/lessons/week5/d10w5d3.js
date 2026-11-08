@@ -482,12 +482,12 @@ window.DEC15_LESSON = {
               alt: 'A body paragraph built like a tower of five blocks: topic sentence, explanation with a source, example, consequence (so…), and a link back to the thesis. Arrows show old–new information: the end of one sentence becomes the start of the next.',
               caption: 'Topic sentence → evidence → example → so what? → link.',
               spots: [
-                { x: 22, y: 17, label: '1', color: '#7a4a8c', title: 'Topic sentence', text: 'One main idea that links to your thesis. E.g. “One positive impact of globalisation is that …”' },
-                { x: 22, y: 34, label: '2', color: '#3a58a0', title: 'Explanation + source', text: 'Explain the idea with paraphrased evidence: “According to Van Krieken (2016), …”, “Hassi and Storti (2012) describe …”.' },
-                { x: 22, y: 51, label: '3', color: '#2b776e', title: 'Example', text: 'A real example from a source: “For instance, …”, “One example of this is …”.' },
-                { x: 22, y: 68, label: '4', color: '#b0512a', title: 'So what?', text: 'Show the consequence: “Consequently, …”, “As a result, …”, “This means that …”.' },
-                { x: 22, y: 85, label: '5', color: '#985c0e', title: 'Link back', text: 'Connect to your position: “Ultimately, …”, “Clearly, …”.' },
-                { x: 73, y: 50, label: '6', color: '#7a4a8c', title: 'Old → new information', text: 'Start a new sentence with something the reader already knows (old), then add the new idea. E.g. “… a blend of cultures. <b>This blending</b> creates new identities.”' }
+                { x: 11, y: 17, label: '1', color: '#7a4a8c', title: 'Topic sentence', text: 'One main idea that links to your thesis. E.g. “One positive impact of globalisation is that …”' },
+                { x: 11, y: 34, label: '2', color: '#3a58a0', title: 'Explanation + source', text: 'Explain the idea with paraphrased evidence: “According to Van Krieken (2016), …”, “Hassi and Storti (2012) describe …”.' },
+                { x: 11, y: 51, label: '3', color: '#2b776e', title: 'Example', text: 'A real example from a source: “For instance, …”, “One example of this is …”.' },
+                { x: 11, y: 68, label: '4', color: '#b0512a', title: 'So what?', text: 'Show the consequence: “Consequently, …”, “As a result, …”, “This means that …”.' },
+                { x: 11, y: 85, label: '5', color: '#985c0e', title: 'Link back', text: 'Connect to your position: “Ultimately, …”, “Clearly, …”.' },
+                { x: 60, y: 25, label: '6', color: '#7a4a8c', title: 'Old → new information', text: 'Start a new sentence with something the reader already knows (old), then add the new idea. E.g. “… a blend of cultures. <b>This blending</b> creates new identities.”' }
               ]
             },
             {

@@ -8,7 +8,7 @@ window.DEC15_LESSON = {
   week: 5,
   day: 5,
   title: "LRW Assessment",
-  duration: "Assessment day · about 60 minutes before and after the test",
+  duration: "Assessment day",
   question: "How can I show what I really know — calmly, clearly and on time?",
   questionKind: "Focus question",
   questionLabel: "Today’s focus · LRW Assessment 1",
@@ -367,12 +367,12 @@ window.DEC15_LESSON = {
               src: "dec10/assets/week5/d5-question.svg",
               alt: "The Week 5 practice question, “Is cultural globalisation having a negative impact on culture?” (450–600 words), on a card. “Is” is marked blue, “cultural globalisation” and “culture” teal, “negative impact” orange. Below are three possible positions: For (negative), Against (not only negative), Strongly against (positive).",
               title: "Analyse the question (the Week 5 practice question)",
-              hint: "Tap each marker. Do the same five steps with the question in the test.",
+              hint: "Tap each marker. Then do the same with the question in the test.",
               size: "wide",
               spots: [
-                {"x":47.1,"y":23.8,"label":"a","title":"Key content words","text":"<b>cultural globalisation</b> · <b>culture</b>. They tell you where to focus your reading and notes.","color":"#2b776e"},
-                {"x":38.9,"y":41.9,"label":"b","title":"Limiting words","text":"<b>negative impact</b>. They narrow your answer: focus on whether the impacts are negative.","color":"#c4562f"},
-                {"x":19,"y":23.8,"label":"c","title":"What is the question asking?","text":"<b>Is …?</b> asks you to <b>evaluate how much</b>: argue whether the impacts are (mostly) negative, with evidence.","color":"#3a58a0"},
+                {"x":47.1,"y":21.9,"label":"a","title":"Key content words","text":"<b>cultural globalisation</b> · <b>culture</b>. They tell you where to focus your reading and notes.","color":"#2b776e"},
+                {"x":38.9,"y":42.9,"label":"b","title":"Limiting words","text":"<b>negative impact</b>. They narrow your answer: focus on whether the impacts are negative.","color":"#c4562f"},
+                {"x":19,"y":21.9,"label":"c","title":"What is the question asking?","text":"<b>Is …?</b> asks you to <b>evaluate how much</b>: argue whether the impacts are (mostly) negative, with evidence.","color":"#3a58a0"},
                 {"x":37.5,"y":72.9,"label":"d","title":"Possible positions","text":"<b>For:</b> it is having a negative impact. <b>Against:</b> it is not only negative. <b>Strongly against:</b> it is having a positive impact.","color":"#7a4a8c"}
               ]
             },

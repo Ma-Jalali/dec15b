@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Feedback speech cards on the left are joined by lines to evaluation labels on the right: a green tick for useful, specific feedback and a red cross for vague feedback such as “Your ideas are confusing”.">
+<title>Match feedback to its evaluation</title>
+<style>
+.w54b3-tw{animation:w54b3-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w54b3-t2{animation-delay:-1s}.w54b3-t3{animation-delay:-2s}
+.w54b3-fl{animation:w54b3-fl 6s ease-in-out infinite}.w54b3-f2{animation-delay:-2s}.w54b3-f3{animation-delay:-4s}
+.w54b3-bl{animation:w54b3-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.w54b3-b2{animation-delay:-1.7s}.w54b3-b3{animation-delay:-3.2s}.w54b3-b4{animation-delay:-2.4s}
+.w54b3-pu{animation:w54b3-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w54b3-p2{animation-delay:-.9s}.w54b3-p3{animation-delay:-1.7s}
+.w54b3-dr{stroke-dasharray:6 7;animation:w54b3-dr 1.8s linear infinite}
+.w54b3-sp{animation:w54b3-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.w54b3-sw{animation:w54b3-sw 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.w54b3-tk{animation:w54b3-tk 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.w54b3-wv{animation:w54b3-wv 2.4s ease-in-out infinite}.w54b3-w2{animation-delay:-.8s}.w54b3-w3{animation-delay:-1.6s}
+.w54b3-dw{stroke-dasharray:400;stroke-dashoffset:400;animation:w54b3-dw 6s ease-in-out infinite}
+@keyframes w54b3-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes w54b3-fl{50%{transform:translateY(-4px)}}
+@keyframes w54b3-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w54b3-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@keyframes w54b3-dr{to{stroke-dashoffset:-26}}
+@keyframes w54b3-sp{to{transform:rotate(360deg)}}
+@keyframes w54b3-sw{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes w54b3-tk{0%,100%{transform:rotate(0)}50%{transform:rotate(-10deg)}}
+@keyframes w54b3-wv{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes w54b3-dw{0%{stroke-dashoffset:400}40%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:-400}}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs><linearGradient id="w54b3-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#edf2fb"/><stop offset="1" stop-color="#d9e4f5"/></linearGradient>
+<pattern id="w54b3-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r=".8" fill="#3a58a0" fill-opacity=".14"/></pattern>
+<radialGradient id="w54b3-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<filter id="w54b3-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="w54b3-blur" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+<linearGradient id="w54b3-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c162"/><stop offset="1" stop-color="#d9962e"/></linearGradient>
+<linearGradient id="w54b3-main" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f6db5"/><stop offset="1" stop-color="#3a58a0"/></linearGradient>
+<linearGradient id="w54b3-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f7f2e8"/></linearGradient>
+<linearGradient id="w54b3-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c4c68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="w54b3-clay" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0694c"/><stop offset="1" stop-color="#c94a2c"/></linearGradient>
+<marker id="w54b3-ar" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#14293a"/></marker>
+<marker id="w54b3-arm" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#3a58a0"/></marker>
+</defs>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#w54b3-bg)"/><clipPath id="w54b3-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath><g clip-path="url(#w54b3-clip)"><rect width="240" height="180" fill="url(#w54b3-dots)"/><ellipse cx="115.19999999999999" cy="72" rx="110.4" ry="70.2" fill="url(#w54b3-glow)"/></g><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".7" stroke-width="1.2"/><g class="w54b3-fl w54b3-f1"><g class=""><g filter="url(#w54b3-sh)"><rect x="22" y="30" width="70" height="30" rx="11.538461538461538" fill="#fbf7ef"/></g></g><path d="M30 41h44.2" stroke="#b6c9ea" stroke-width="1.6" stroke-linecap="round"/><path d="M30 48h31.2" stroke="#b6c9ea" stroke-width="1.6" stroke-linecap="round"/></g><g class="w54b3-fl w54b3-f2"><g class=""><g filter="url(#w54b3-sh)"><rect x="22" y="72" width="70" height="30" rx="11.538461538461538" fill="#fbf7ef"/></g></g><path d="M30 83h44.2" stroke="#f1b4a4" stroke-width="1.6" stroke-linecap="round"/><path d="M30 90h31.2" stroke="#f1b4a4" stroke-width="1.6" stroke-linecap="round"/></g><g class="w54b3-fl w54b3-f3"><g class=""><g filter="url(#w54b3-sh)"><rect x="22" y="114" width="70" height="30" rx="11.538461538461538" fill="#fbf7ef"/></g></g><path d="M30 125h44.2" stroke="#b6c9ea" stroke-width="1.6" stroke-linecap="round"/><path d="M30 132h31.2" stroke="#b6c9ea" stroke-width="1.6" stroke-linecap="round"/></g><path class="w54b3-dr" d="M94 45C120 45 124 129 148 129" stroke="#2f7d6b" stroke-width="2.2" stroke-linecap="round"/><path class="w54b3-dr" d="M94 87C120 87 124 45 148 45" stroke="#e64626" stroke-width="2.2" stroke-linecap="round"/><path class="w54b3-dr" d="M94 129C120 129 124 87 148 87" stroke="#2f6db5" stroke-width="2.2" stroke-linecap="round"/><rect x="150" y="32" width="66" height="26" rx="13" fill="#fff" filter="url(#w54b3-sh)"/><g transform="translate(164 45) scale(0.75)"><circle r="8" fill="#e64626"/><path d="M-3 -3l6 6M3 -3l-6 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></g><path d="M176 42h27.2" stroke="#c6d5f0" stroke-width="1.6" stroke-linecap="round"/><path d="M176 48h19.2" stroke="#c6d5f0" stroke-width="1.6" stroke-linecap="round"/><rect x="150" y="74" width="66" height="26" rx="13" fill="#fff" filter="url(#w54b3-sh)"/><g transform="translate(164 87) scale(0.75)"><circle r="8" fill="#2f7d6b"/><path d="M-3.6 .2l2.6 2.6 4.8-5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g><path d="M176 84h27.2" stroke="#c6d5f0" stroke-width="1.6" stroke-linecap="round"/><path d="M176 90h19.2" stroke="#c6d5f0" stroke-width="1.6" stroke-linecap="round"/><rect x="150" y="116" width="66" height="26" rx="13" fill="#fff" filter="url(#w54b3-sh)"/><g transform="translate(164 129) scale(0.75)"><circle r="8" fill="#2f6db5"/><path d="M-3.6 .2l2.6 2.6 4.8-5" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></g><path d="M176 126h27.2" stroke="#c6d5f0" stroke-width="1.6" stroke-linecap="round"/><path d="M176 132h19.2" stroke="#c6d5f0" stroke-width="1.6" stroke-linecap="round"/><path class="w54b3-tw " d="M120 15.5C120.81 19.19 120.81 19.19 124.5 20C120.81 20.81 120.81 20.81 120 24.5C119.19 20.81 119.19 20.81 115.5 20C119.19 19.19 119.19 19.19 120 15.5z" fill="#e3a843"/><path class="w54b3-tw w54b3-t2" d="M224 146.5C224.63 149.37 224.63 149.37 227.5 150C224.63 150.63 224.63 150.63 224 153.5C223.37 150.63 223.37 150.63 220.5 150C223.37 149.37 223.37 149.37 224 146.5z" fill="#2f6db5"/><path class="w54b3-tw w54b3-t3" d="M24 157C24.54 159.46 24.54 159.46 27 160C24.54 160.54 24.54 160.54 24 163C23.46 160.54 23.46 160.54 21 160C23.46 159.46 23.46 159.46 24 157z" fill="#e64626"/>
+</svg>

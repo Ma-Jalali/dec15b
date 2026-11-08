@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" role="img" aria-label="Two voices: a pen speech bubble for the writer’s own claim and a book speech bubble with “(2012)” for ideas from sources; brackets show an external citation.">
+<title>Voice and in-text citations</title>
+<style>
+.w54c8-tw{animation:w54c8-tw 3s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w54c8-t2{animation-delay:-1s}.w54c8-t3{animation-delay:-2s}
+.w54c8-fl{animation:w54c8-fl 6s ease-in-out infinite}.w54c8-f2{animation-delay:-2s}.w54c8-f3{animation-delay:-4s}
+.w54c8-bl{animation:w54c8-bl 4.8s infinite;transform-box:fill-box;transform-origin:center}.w54c8-b2{animation-delay:-1.7s}.w54c8-b3{animation-delay:-3.2s}.w54c8-b4{animation-delay:-2.4s}
+.w54c8-pu{animation:w54c8-pu 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}.w54c8-p2{animation-delay:-.9s}.w54c8-p3{animation-delay:-1.7s}
+.w54c8-dr{stroke-dasharray:6 7;animation:w54c8-dr 1.8s linear infinite}
+.w54c8-sp{animation:w54c8-sp 14s linear infinite;transform-box:fill-box;transform-origin:center}
+.w54c8-sw{animation:w54c8-sw 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.w54c8-tk{animation:w54c8-tk 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.w54c8-wv{animation:w54c8-wv 2.4s ease-in-out infinite}.w54c8-w2{animation-delay:-.8s}.w54c8-w3{animation-delay:-1.6s}
+.w54c8-dw{stroke-dasharray:400;stroke-dashoffset:400;animation:w54c8-dw 6s ease-in-out infinite}
+@keyframes w54c8-tw{0%,100%{opacity:.35;transform:scale(.6)}50%{opacity:1;transform:scale(1)}}
+@keyframes w54c8-fl{50%{transform:translateY(-4px)}}
+@keyframes w54c8-bl{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes w54c8-pu{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@keyframes w54c8-dr{to{stroke-dashoffset:-26}}
+@keyframes w54c8-sp{to{transform:rotate(360deg)}}
+@keyframes w54c8-sw{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes w54c8-tk{0%,100%{transform:rotate(0)}50%{transform:rotate(-10deg)}}
+@keyframes w54c8-wv{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes w54c8-dw{0%{stroke-dashoffset:400}40%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:-400}}
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs><linearGradient id="w54c8-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4eef9"/><stop offset="1" stop-color="#e4d8ef"/></linearGradient>
+<pattern id="w54c8-dots" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r=".8" fill="#7a4a8c" fill-opacity=".14"/></pattern>
+<radialGradient id="w54c8-glow" cx=".5" cy=".42" r=".55"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<filter id="w54c8-sh" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#14293a" flood-opacity=".16"/><feDropShadow dx="0" dy="1" stdDeviation=".6" flood-color="#14293a" flood-opacity=".12"/></filter>
+<filter id="w54c8-blur" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+<linearGradient id="w54c8-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c162"/><stop offset="1" stop-color="#d9962e"/></linearGradient>
+<linearGradient id="w54c8-main" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#93619f"/><stop offset="1" stop-color="#7a4a8c"/></linearGradient>
+<linearGradient id="w54c8-paper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f7f2e8"/></linearGradient>
+<linearGradient id="w54c8-navy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c4c68"/><stop offset="1" stop-color="#14293a"/></linearGradient>
+<linearGradient id="w54c8-clay" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0694c"/><stop offset="1" stop-color="#c94a2c"/></linearGradient>
+<marker id="w54c8-ar" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#14293a"/></marker>
+<marker id="w54c8-arm" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7a4a8c"/></marker>
+</defs>
+<path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" fill="url(#w54c8-bg)"/><clipPath id="w54c8-clip"><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z"/></clipPath><g clip-path="url(#w54c8-clip)"><rect width="240" height="180" fill="url(#w54c8-dots)"/><ellipse cx="115.19999999999999" cy="72" rx="110.4" ry="70.2" fill="url(#w54c8-glow)"/></g><path d="M44 20C82 6 164 6 198 24c26 14 32 44 28 74-4 34-22 56-58 64-40 8-96 8-126-6C16 144 10 112 14 82c4-30 6-50 30-62z" stroke="#fff" stroke-opacity=".7" stroke-width="1.2"/><g class="w54c8-fl"><g class=""><g filter="url(#w54c8-sh)"><rect x="20" y="26" width="96" height="54" rx="13" fill="#fff"/><path d="M41.120000000000005 78L39.2 91L54.56 78z" fill="#fff"/></g></g><path d="M30 42h51.0" stroke="#dccbe8" stroke-width="2.4" stroke-linecap="round"/><path d="M30 51h55.2" stroke="#dccbe8" stroke-width="2.4" stroke-linecap="round"/><path d="M30 60h36.0" stroke="#dccbe8" stroke-width="2.4" stroke-linecap="round"/></g><g transform="translate(86 70) rotate(-40)"><rect x="0" y="-4" width="34" height="8" rx="1.5" fill="#e3a843"/><rect x="27" y="-4" width="7" height="8" fill="#e8806b"/><rect x="25" y="-4" width="2.5" height="8" fill="#c9d3dd"/><path d="M0 -4L-9 0L0 4z" fill="#f3d9b1"/><path d="M-6 -1.3L-9 0L-6 1.3z" fill="#14293a"/></g><g class="w54c8-fl w54c8-f2"><g class=""><g filter="url(#w54c8-sh)"><rect x="124" y="58" width="96" height="54" rx="13" fill="#fff"/><path d="M185.44 110L200.8 123L198.88 110z" fill="#fff"/></g></g><path d="M136 72h14v20h-14z" fill="#2f6db5"/><path d="M150 72h14v20h-14z" fill="#13887a"/><path d="M150 72v20" stroke="#fff" stroke-width="1.5"/><text x="192" y="86" font-family="Manrope, Arial, sans-serif" font-size="11" font-weight="900" fill="#7a4a8c" text-anchor="middle">(2012)</text><path d="M136 102h42.0" stroke="#b6c9ea" stroke-width="2.4" stroke-linecap="round"/></g><ellipse cx="60" cy="166" rx="26" ry="6" fill="#14293a" opacity="0.12" filter="url(#w54c8-blur)"/><g transform="translate(60 120) scale(0.72)"><path d="M-26 64C-26 39-16 25 0 25C16 25 26 39 26 64z" fill="#7a4a8c"/><path d="M6 25.6C18 27.5 26 40 26 64H13C14 46 12 34 6 25.6z" fill="#14293a" opacity=".13"/><path d="M-15 31C-19 36-21 44-21 52" stroke="#fff" stroke-opacity=".28" stroke-width="2" stroke-linecap="round"/><rect x="-5" y="9" width="10" height="17" rx="4" fill="#56331f"/><path d="M-6.5 25L0 31.5L6.5 25z" fill="#56331f"/><circle cx="-14.6" cy="2.5" r="3.3" fill="#56331f"/><circle cx="14.6" cy="2.5" r="3.3" fill="#56331f"/><circle r="15" fill="#6b4129"/><path d="M-15.5 0C-16.5-12-8-18.5 1-18.5C10.5-18.5 16.5-12 15.5-1C12.5-6 9-9 3-10C-2-7-9-7-15.5 0z" fill="#120c08"/><g class="w54c8-bl "><ellipse cx="-5.2" cy="2.6" rx="1.75" ry="2.1" fill="#14293a"/><ellipse cx="5.2" cy="2.6" rx="1.75" ry="2.1" fill="#14293a"/><circle cx="-4.6" cy="1.9" r=".55" fill="#fff"/><circle cx="5.8" cy="1.9" r=".55" fill="#fff"/></g><path d="M-7.6-2.8q2.4-1.6 4.8 0M2.8-2.8q2.4-1.6 4.8 0" stroke="#120c08" stroke-width="1.3" stroke-linecap="round" fill="none"/><circle cx="-9" cy="7.4" r="2.6" fill="#e8806b" opacity=".3"/><circle cx="9" cy="7.4" r="2.6" fill="#e8806b" opacity=".3"/><ellipse class="w54c8-tk" cx="0" cy="9" rx="3" ry="2.4" fill="#14293a"/></g><path class="w54c8-tw " d="M226 25.5C226.81 29.19 226.81 29.19 230.5 30C226.81 30.81 226.81 30.81 226 34.5C225.19 30.81 225.19 30.81 221.5 30C225.19 29.19 225.19 29.19 226 25.5z" fill="#e3a843"/><path class="w54c8-tw w54c8-t2" d="M130 146.5C130.63 149.37 130.63 149.37 133.5 150C130.63 150.63 130.63 150.63 130 153.5C129.37 150.63 129.37 150.63 126.5 150C129.37 149.37 129.37 149.37 130 146.5z" fill="#7a4a8c"/><path class="w54c8-tw w54c8-t3" d="M22 97C22.54 99.46 22.54 99.46 25 100C22.54 100.54 22.54 100.54 22 103C21.46 100.54 21.46 100.54 19 100C21.46 99.46 21.46 99.46 22 97z" fill="#e64626"/>
+</svg>
