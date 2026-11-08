@@ -477,7 +477,7 @@ window.DEC15_LESSON = {
               type: "choose",
               id: "p5-corner",
               title: "The strongest part of Group 5’s talk was …",
-              options: ["A · the problem","B · the causes","C · the effects","D · the solution"]
+              options: ["the problem","the causes","the effects","the solution"]
             },
             {
               type: "do",

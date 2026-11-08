@@ -4,7 +4,9 @@
    11A Academic writing skills: Academic style (90) · 12A Seminar: Group 1 Seminar presentation; Opening remarks Group 2 (90) ·
    13A STAR© moment (30) · 14A AST: Digital literacy and AI Homework (60, with the "Ongoing research" reminder).
    Texts from the Teacher's Book (the research summary drafts, the email, the academic integrity text) are copied exactly.
-   Activity ids are the keys of saved work — never rename them. */
+   Activity ids are the keys of saved work — never rename them.
+   Round 2 (student-centred): movement games (stand up/sit down, mingles, line-ups, corners, speed-dating circles,
+   snowball, gallery walks, human sentence), group roles, "Use it" steps, phrase-of-the-day stickies and exit tickets. */
 window.DEC15_LESSON = {
   id: "d10w3d3",
   week: 3,
@@ -146,7 +148,7 @@ window.DEC15_LESSON = {
           id: "a2",
           short: "Team phrases",
           minutes: 12,
-          grouping: "Group → Class",
+          grouping: "Class mingle → Group",
           art: "dec10/assets/week3/v/v-d10w3d3-a2.svg",
           title: "Activity 2 · Appropriate language for online collaboration",
           goal: "Mingle with your homework phrases, find your team and choose the class favourites.",
