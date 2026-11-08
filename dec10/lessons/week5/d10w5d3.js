@@ -1,5 +1,6 @@
 /* DEC10 · Week 5 · Day 3 — Use feedback, write together, discuss.
-   Built from the Week 5 Teacher's Book (no revised weekly map for Week 5: TB order and timings).
+   Built from the Week 5 Teacher's Book; timings follow the revised weekly map: 7A 45 min (not 60 as in the TB), 8A 105 min,
+   9A 90 min (not 75 as in the TB — the extra 15 min are c9 audience jobs and c10 question gallery walk).
    W5 D3. 7A Integrated Writing Practice Assessment feedback · 8A Integrated writing workshop (2) · 9A Seminar ·
    10A AST: Digital literacy and AI: Using AI for feedback homework.
    Protected texts (Hassi & Storti 2012, Van Krieken 2016, Crysell et al. 2023, Samples 5.1 and 5.2) are in sources.js and are never changed here.
@@ -26,7 +27,7 @@ window.DEC15_LESSON = {
       id: 'iwafb',
       number: '01',
       code: '7A',
-      minutes: 60,
+      minutes: 45,
       tone: 'green',
       art: 'dec10/assets/week5/s-d3-iwafb.svg',
       title: 'Integrated Writing Practice Assessment feedback',
@@ -36,7 +37,7 @@ window.DEC15_LESSON = {
         {
           id: 'a1',
           short: 'View feedback',
-          minutes: 10,
+          minutes: 7,
           grouping: 'Alone → Pair',
           art: 'dec10/assets/week5/v/v-d10w5d3-a1.svg',
           title: 'Activity 1 View your feedback',
@@ -84,9 +85,9 @@ window.DEC15_LESSON = {
             },
             {
               type: 'talk',
-              title: 'Tell your partner (2 minutes)',
+              title: 'Stand up and tell a partner (2 minutes)',
               prompts: [
-                'What is <b>one thing</b> your teacher liked?',
+                '<b>Stand up</b> and find a partner from another table. What is <b>one thing</b> your teacher liked?',
                 'Is there a comment you do not understand? Ask your partner what it might mean.',
                 'Were you surprised? Why or why not?'
               ]
@@ -105,7 +106,7 @@ window.DEC15_LESSON = {
         {
           id: 'a2',
           short: 'Match to rubric',
-          minutes: 30,
+          minutes: 22,
           grouping: 'Alone → Pair',
           art: 'dec10/assets/week5/v/v-d10w5d3-a2.svg',
           title: 'Activity 2 Apply the feedback to the rubric',
@@ -128,7 +129,7 @@ window.DEC15_LESSON = {
                 { x: 88, y: 46, label: '5', color: '#c4562f', title: 'Grammar', text: 'Do you use a range of sentence types? Are they accurate and clear, with only a few small errors?' }
               ]
             },
-            { type: 'do', n: 2, who: 'alone', text: 'Match each piece of feedback to the corresponding criterion. Practise first: where does each comment belong?' },
+            { type: 'do', n: 2, who: 'pair', text: 'Match each piece of feedback to the corresponding criterion. <b>Beat the clock:</b> practise first with a partner — 3 minutes for the 10 comments below.' },
             {
               type: 'sort',
               id: 'a2-sort',
@@ -172,7 +173,7 @@ window.DEC15_LESSON = {
                 ['Exact', 'In paragraph 2, <b>four sentences</b> had subject–verb agreement errors (“globalisation have”).']
               ]
             },
-            { type: 'do', n: 4, who: 'pair', text: 'Explain your table to a partner. Your partner asks “What exactly do you mean?” for every general answer.' },
+            { type: 'do', n: 4, who: 'pair', text: '<b>Walk and talk (4 minutes).</b> Explain your table to a partner. Your partner asks “What exactly do you mean?” for every general answer.' },
             {
               type: 'language',
               title: 'Explain your feedback to a classmate',
@@ -199,7 +200,7 @@ window.DEC15_LESSON = {
         {
           id: 'a3',
           short: 'Action plan',
-          minutes: 20,
+          minutes: 16,
           grouping: 'Alone → Pair',
           art: 'dec10/assets/week5/v/v-d10w5d3-a3.svg',
           title: 'Activity 3 Make an action plan',
@@ -240,14 +241,21 @@ window.DEC15_LESSON = {
               ]
             },
             {
-              type: 'pairs',
-              title: 'From general to specific',
-              hint: 'The highlighted words make each action specific.',
-              items: [
-                { from: 'Improve my grammar.', to: '[[Check that every sentence has a subject and a main verb]] before I share my paragraph.', tag: 'Grammar' },
-                { from: 'Use more sources.', to: '[[Use at least two sources in each body paragraph]], with the author and year.', tag: 'Sources' },
-                { from: 'Make my essay flow.', to: '[[Start each new sentence with old information]] and use one linking phrase between ideas.', tag: 'Connection' },
-                { from: 'Better vocabulary.', to: '[[Replace “big”, “thing” and “a lot of”]] with words from my Week 5 vocabulary list.', tag: 'Vocabulary' }
+              type: 'toggle',
+              title: 'Want more? From general to specific',
+              hint: 'Four examples of how to make an action specific.',
+              blocks: [
+                {
+                  type: 'pairs',
+                  title: 'From general to specific',
+                  hint: 'The highlighted words make each action specific.',
+                  items: [
+                    { from: 'Improve my grammar.', to: '[[Check that every sentence has a subject and a main verb]] before I share my paragraph.', tag: 'Grammar' },
+                    { from: 'Use more sources.', to: '[[Use at least two sources in each body paragraph]], with the author and year.', tag: 'Sources' },
+                    { from: 'Make my essay flow.', to: '[[Start each new sentence with old information]] and use one linking phrase between ideas.', tag: 'Connection' },
+                    { from: 'Better vocabulary.', to: '[[Replace “big”, “thing” and “a lot of”]] with words from my Week 5 vocabulary list.', tag: 'Vocabulary' }
+                  ]
+                }
               ]
             },
             { type: 'do', n: 1, who: 'alone', text: 'Based on your answers to Questions 3 and 4 in Activity 2, write down:' },
@@ -781,7 +789,7 @@ window.DEC15_LESSON = {
       id: 'seminar',
       number: '03',
       code: '9A',
-      minutes: 75,
+      minutes: 90,
       tone: 'teal',
       art: 'dec10/assets/week5/s-d3-seminar.svg',
       title: 'Seminar',
@@ -830,6 +838,57 @@ window.DEC15_LESSON = {
               ]
             },
             { type: 'download', id: 'feedback-tool', note: 'Download it now. The tool is general: mark <b>N/A</b> where a part does not fit (for example <b>Question & answer</b> is for Research Summary Presentations, not Seminars). You can add comments for individual presenters on pronunciation and language.' }
+          ]
+        },
+        {
+          id: 'c9',
+          short: 'Audience jobs',
+          minutes: 5,
+          grouping: 'Seminar groups',
+          art: 'dec10/assets/week5/v/v-d10w5d3-c9.svg',
+          title: 'Be an active audience · Audience jobs',
+          goal: 'Take one listening job, so your group has useful, exact feedback for Group 3.',
+          blocks: [
+            {
+              type: 'key',
+              title: 'Good feedback starts with good listening',
+              points: ['Everyone listens to everything — but you watch <b>one thing</b> very closely.', 'Together, your group covers the whole Feedback Tool.']
+            },
+            {
+              type: 'cards',
+              title: 'Four audience jobs',
+              items: [
+                { label: 'Evidence detective', text: 'Is the problem / cause / effect / solution clear? Is there <b>evidence</b> and a source for each point?' },
+                { label: 'Delivery watcher', text: 'Eye contact, body language, visuals, smooth handovers, equal turns.' },
+                { label: 'Language spotter', text: 'Clear pronunciation, chunking and stress. Write down <b>two good phrases</b> and one error.' },
+                { label: 'Question maker', text: 'Write the two discussion questions word for word. Think of <b>one follow-up question</b> of your own.' }
+              ]
+            },
+            {
+              type: 'steps',
+              items: [
+                { who: 'group', text: 'In your seminar group, spin for a job — or agree on one each. (Groups of 3: one person takes two jobs.)' },
+                { who: 'class', text: '<b>Stand up.</b> Find someone from <b>another group</b> with the same job. In 1 minute, agree on the two things you will listen for. Then sit down in your group.' }
+              ]
+            },
+            {
+              type: 'spinner',
+              id: 'c9-spin',
+              title: 'Spin your audience job',
+              reels: [{ label: 'My job', items: ['Evidence detective', 'Delivery watcher', 'Language spotter', 'Question maker'] }]
+            },
+            {
+              type: 'fields',
+              fields: [{ id: 'c9-job', label: 'My job + the two things I will listen for', rows: 2, placeholder: 'Evidence detective: 1) a source for each cause 2) …' }]
+            },
+            {
+              type: 'language',
+              title: 'Useful language: agree on your focus',
+              groups: [
+                { label: 'Plan with your job partner', phrases: ['Let’s both listen for …', 'Shall we also check whether …?', 'I’ll note the time when …'] },
+                { label: 'Exact feedback notes', phrases: ['At 3:20, the second speaker …', 'The point about … had no source.', 'Good phrase: “…”'] }
+              ]
+            }
           ]
         },
         {
@@ -1064,6 +1123,62 @@ window.DEC15_LESSON = {
               groups: [
                 { label: 'React', phrases: ['Thanks, Group 4! We found it interesting that …', 'We were surprised to learn that …', 'Your point about … made us think about …'] },
                 { label: 'Ask', phrases: ['We would like to know more about …', 'Could you explain how/why …?', 'To what extent does …?'] }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'c10',
+          short: 'Question gallery',
+          minutes: 10,
+          grouping: 'Seminar groups → Class',
+          art: 'dec10/assets/week5/v/v-d10w5d3-c10.svg',
+          title: 'Question gallery walk and dot vote',
+          goal: 'Read every group’s questions for Group 4, make them stronger, and help Group 4 choose a focus.',
+          blocks: [
+            {
+              type: 'steps',
+              title: 'Gallery walk (rest of the class)',
+              items: [
+                { who: 'group', text: 'Write your group’s best question for Group 4 on a big sheet of paper (or a slide on the screen). Big letters! Put it on the wall.' },
+                { who: 'class', text: '<b>Stand up and walk.</b> Read every question. Give each question a sticky note or a pen mark: <b>✓</b> = open and clear, <b>?</b> = not clear, <b>+</b> = a way to improve it.' },
+                { who: 'class', text: '<b>Dot vote:</b> everyone has 2 dots. Put them on the two questions you most want Group 4 to answer. Not your own group’s!' },
+                { who: 'group', text: 'Go back to your sheet. Read the notes and <b>improve your question</b> before you post it to the Discussion Board.' }
+              ]
+            },
+            {
+              type: 'steps',
+              title: 'Group 4: prepare your focus',
+              items: [
+                { who: 'group', text: 'Walk the gallery too. Read the top 3 questions (most dots) aloud to the class.' },
+                { who: 'group', text: 'Say which one or two questions you might choose as your focus — and <b>why</b> (one sentence each).' }
+              ]
+            },
+            {
+              type: 'sort',
+              id: 'c10-sort',
+              title: 'Warm-up: open or closed question?',
+              hint: 'Open questions get a better discussion. Drag or tap each question into a box.',
+              buckets: [{ label: 'Closed (yes/no or one fact)', letter: '✗' }, { label: 'Open (how / why / to what extent)', letter: '✓' }],
+              items: [
+                { text: 'Does your country have festivals?', answer: 0 },
+                { text: 'How many languages are spoken there?', answer: 0 },
+                { text: 'Is cultural diversity important?', answer: 0 },
+                { text: 'How does the government support minority languages in schools?', answer: 1 },
+                { text: 'Why do young people in your country choose global brands over local ones?', answer: 1 },
+                { text: 'To what extent can tourism protect local traditions?', answer: 1 }
+              ]
+            },
+            {
+              type: 'fields',
+              fields: [{ id: 'c10-better', label: 'Our question — before and after the gallery walk', rows: 3, placeholder: 'Before: … After: How …?' }]
+            },
+            {
+              type: 'language',
+              title: 'Useful language: the gallery walk',
+              groups: [
+                { label: 'Comment on a question', phrases: ['This is a really open question — nice.', 'Could you make it more specific? For example, …', 'Maybe start with “To what extent …” instead of “Is …”.'] },
+                { label: 'Group 4: choose a focus', phrases: ['The question that got the most votes was …', 'We are thinking of focusing on … because …', 'This links well to our research on …'] }
               ]
             }
           ]

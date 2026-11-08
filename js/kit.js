@@ -13,7 +13,7 @@
               short answers with a live word counter — over the limit scores zero, as in the test.
      bet      { type: 'bet', id, title?, proof?, coins?: 10, items: [{ q, options, answer, why? }] }
               multiple choice with a confidence bet (1–3 coins per answer): win the coins if right, lose them if wrong.
-     bingo    { type: 'bingo', id, title?, hint?, squares: [{ text, ask? }] }   16 squares (4 × 4)
+     bingo    { type: 'bingo', id, title?, hint?, label?, squares: [{ text, ask? }] }   16 squares (4 × 4); label replaces “Find someone who…”
               find-someone-who: write a classmate's name in a square; four in a row is BINGO.
      squeeze  { type: 'squeeze', id, title?, hint?, items: [{ text, max, model }] }
               turn a sentence into notes in a few characters (symbols, abbreviations), then compare with a model.
@@ -201,7 +201,7 @@ window.createDEC10Kit = function ({ getState, save, rerender, esc, strip, icon, 
   B.bingo = b => {
     const done = b.squares.map((_, i) => !!String(val(`${b.id}-${i}`)).trim()), lines = bingoLines(b), inLine = new Set(lines.flat());
     return `<section class="block kit bingo${fresh('bg-' + b.id)}${lines.length ? ' has-bingo' : ''}" id="bingo-${b.id}">
-      <div class="bg-head"><div><div class="block-label">${icon('users')}Find someone who…</div>${b.title ? `<h3>${b.title}</h3>` : ''}${b.hint ? `<p class="kit-hint">${b.hint}</p>` : ''}</div>
+      <div class="bg-head"><div><div class="block-label">${icon('users')}${esc(b.label || 'Find someone who…')}</div>${b.title ? `<h3>${b.title}</h3>` : ''}${b.hint ? `<p class="kit-hint">${b.hint}</p>` : ''}</div>
         <div class="bg-score" data-bg-score="${b.id}"><b>${done.filter(Boolean).length}</b><small>of 16</small><span class="bg-flag"${lines.length ? '' : ' hidden'}>BINGO!</span></div></div>
       <div class="bg-grid">${b.squares.map((s, i) => `<div class="bg-sq${done[i] ? ' is-done' : ''}${inLine.has(i) ? ' in-line' : ''}" data-bg-sq="${b.id}-${i}" style="--d:${(i % 4 + Math.floor(i / 4)) * 40}ms">
         <p class="bg-text">${s.text}</p>${s.ask ? `<p class="bg-ask">${icon('chat')}${s.ask}</p>` : ''}

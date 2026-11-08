@@ -1,6 +1,7 @@
 /* DEC10 · Week 5 · Day 2 — Hear the voices, weave the sources.
-   Built from the Week 5 Teacher's Book (order and timings as in the book): W5 D2. 4A Listening to write (75 min) ·
-   5A Mediation (90 min, with the 5B reading and the 5C Language Reference) · 6A Integrated writing workshop (1) (30 min, with its homework).
+   Built from the Week 5 Teacher's Book; timings follow the revised weekly map: W5 D2. 4A Listening to write (120 min, not 75 as in the TB —
+   the extra 45 min are more practice with the same lecture: a12 speaking from notes, a11 note-taking gym, a10 signal hunt, a13 opinion line-up) ·
+   5A Mediation (90 min, with the 5B reading and the 5C Language Reference) · 6A Integrated writing workshop (1): Prepare to write (30 min, with its homework).
    Protected texts are in sources.js ("w5listen", "lovelocal", "threeh") and are never changed here.
    Activity ids are the keys of saved work — never rename them. */
 (function () {
@@ -13,12 +14,12 @@ window.DEC15_LESSON = {
   week: 5,
   day: 2,
   title: "Hear the voices, weave the sources",
-  duration: "About 3 hours 15 minutes + homework",
+  duration: "About 4 hours + homework",
   question: "Is cultural globalisation having a negative impact on culture?",
   questionKind: "Essay question",
   questionLabel: "This week’s essay question · you will plan it today and write it with a group",
   wordTarget: "450–600 words",
-  journey: "Take Cornell notes on a University of Sydney lecture about globalisation and culture, catch the language of opinions, learn how a synthesis is different from a summary, read about “fast” and “slow” culture in Asia, and start planning your answer to this week’s essay question.",
+  journey: "Take Cornell notes on a University of Sydney lecture about globalisation and culture, give 60-second mini-lectures from your notes, hunt for lecture signals, catch the language of opinions and take a stand on the opinion line, learn how a synthesis is different from a summary, read about “fast” and “slow” culture in Asia, and start planning your answer to this week’s essay question.",
   image: A + "hero-d10w5d2.svg",
   imageAlt: "Illustration: a large globe in the middle with a burger, a cola cup, a film clapper, music notes and a streetwear hoodie orbiting it. On the left a lecturer speaks from a lectern and a student writes Cornell notes; on the right three source cards fit together like puzzle pieces under the words “synthesis”. Lanterns and a wave of colour blend old and new culture.",
   finish: { title: "Day 3", text: "Your group essay on cultural globalisation — bring your consolidated notes and your position." },
@@ -29,11 +30,11 @@ window.DEC15_LESSON = {
       id: "listening",
       number: "01",
       code: "4A",
-      minutes: 75,
+      minutes: 120,
       tone: "teal",
       art: A + "s-d2-listening.svg",
       title: "Listening to write",
-      subtitle: "A Sydney lecture on globalisation and culture — Cornell notes and the language of opinions",
+      subtitle: "A Sydney lecture on globalisation and culture — Cornell notes, signals, speaking from notes and the language of opinions",
       outcome: "You take effective notes with the Cornell technique to answer questions, and you recognise and use language for expressing opinions and evaluating other people’s opinions.",
       activities: [
         {
@@ -414,6 +415,62 @@ window.DEC15_LESSON = {
           ]
         },
         {
+          id: "a12",
+          short: "Speak from notes",
+          minutes: 10,
+          grouping: "Pairs · rotate",
+          art: V + "a12.svg",
+          title: "Speaking from notes: 60-second mini-lectures",
+          goal: "Use your Cornell notes to explain the lecture out loud — no reading full sentences.",
+          blocks: [
+            {
+              type: "key",
+              title: "Good notes are notes you can speak from",
+              points: [
+                "In a tutorial or a seminar you often explain a lecture from your notes. You look at a keyword, then you say a full sentence.",
+                "Example: <b>“McD → efficiency & control”</b> → <i>“Ritzer argues that McDonald’s favours efficiency and control over creativity.”</i>"
+              ]
+            },
+            {
+              type: "steps",
+              title: "Speed-dating mini-lectures",
+              items: [
+                { who: "class", text: "<b>Stand up</b> with your notes. Make two lines (or an inner and an outer circle). Face a partner." },
+                { who: "pair", text: "<b>Round 1 (60 seconds):</b> the inner circle gives a mini-lecture from their notes on <b>their question</b> (Student A: the negative criticisms · Student B: the more positive views). Look at the notes, look up, speak. Don’t read whole lines!" },
+                { who: "pair", text: "Your partner listens and writes <b>three keywords</b> only. Then they ask <b>one question</b> (see the box)." },
+                { who: "pair", text: "Swap: the outer circle speaks for 60 seconds." },
+                { who: "class", text: "The outer circle <b>moves one place</b> to the right. Round 2: talk about the <b>other</b> question this time — use the notes your partner gave you earlier. Round 3 if there is time." }
+              ]
+            },
+            {
+              type: "language",
+              title: "Useful language: a mini-lecture from notes",
+              groups: [
+                { label: "Open", phrases: ["I’m going to talk about …", "The lecture looked at two views of …", "My question was: what are the … criticisms of globalisation?"] },
+                { label: "Turn a note into a sentence", phrases: ["According to critics, …", "Ritzer argues that …", "The lecturer gives the example of … to show that …", "This leads to …"] },
+                { label: "Signpost", phrases: ["First of all, …", "Another point is that …", "On the other hand, …", "To sum up, …"] },
+                { label: "Listener: ask one question", phrases: ["Could you say a bit more about …?", "What example did the lecturer give for …?", "So is the lecturer for or against …?"] }
+              ]
+            },
+            {
+              type: "checklist",
+              id: "a12-check",
+              title: "Partner check: did the speaker …",
+              items: [
+                "look up from the notes most of the time?",
+                "speak in full sentences (not just keywords)?",
+                "name whose idea it was (critics, Ritzer, Appadurai, the lecturer)?",
+                "use at least one signpost (First of all / On the other hand / To sum up)?"
+              ]
+            },
+            {
+              type: "fields",
+              title: "Exit ticket",
+              fields: [{ id: "a12-fix", label: "One heading in my Cornell notes I will add to after speaking — and what I will add", rows: 2, placeholder: "Under “Arjun Appadurai’s thesis” I will add …" }]
+            }
+          ]
+        },
+        {
           id: "a7",
           short: "Test practice",
           minutes: 10,
@@ -507,6 +564,142 @@ window.DEC15_LESSON = {
               prompts: ["Which question was hardest? Was the answer missing from your notes?", "Which heading in your Cornell notes needs more detail next time?"]
             }
           ]
+        },
+        {
+          id: "a11",
+          short: "Note-taking gym",
+          minutes: 12,
+          grouping: "Teams → Pair",
+          art: V + "a11.svg",
+          title: "Note-taking practice: abbreviations race and dictogloss",
+          goal: "Take faster notes with symbols — then rebuild a sentence from the lecture with a partner.",
+          blocks: [
+            { type: "do", n: 1, who: "group", text: "<b>Abbreviations race</b> (2 minutes). In teams, match each note to its meaning. The first team to finish correctly stands up and shouts “Done!” — <b>+1 point</b>." },
+            {
+              type: "match",
+              id: "a11-match",
+              title: "What does the note mean?",
+              hint: "Tap a note, then its meaning. These are real notes on this lecture.",
+              left: ["glob’n", "cult. imp.", "Amer’n", "w/ · w/o", "↑ · ↓", "∴", "e.g. · i.e.", "Δ"],
+              right: ["globalisation", "cultural imperialism", "Americanisation", "with · without", "increase · decrease", "therefore", "for example · that is", "change"]
+            },
+            {
+              type: "steps",
+              title: "Dictogloss: listen once, note little, rebuild together",
+              items: [
+                { who: "alone", text: "Your teacher plays the part about <b>Appadurai’s thesis</b> again, from “In Appadurai’s thesis, media and migration …” (paragraph I in the transcript). <b>Listen once only.</b>" },
+                { who: "alone", text: "Write <b>no more than 15 words</b>. Use symbols and short forms. Pens down when the part ends!" },
+                { who: "pair", text: "With a partner, put your notes together and <b>rebuild the ideas</b> in full sentences. The meaning must be the same; the words can be different." },
+                { who: "pair", text: "Now open the transcript and compare. Give yourselves 1 point for each idea you got." }
+              ]
+            },
+            Object.assign({}, LECTURE, { start: 69, clip: "Appadurai’s thesis · from “In Appadurai’s thesis …” (paragraph I)", transcripts: [["w5listen", "Transcript (open after rebuilding)"]] }),
+            {
+              type: "fields",
+              title: "Our dictogloss",
+              fields: [
+                { id: "a11-notes", label: "My 15-word notes", rows: 2, placeholder: "media + migr. → glob. cult. Δ …" },
+                { id: "a11-rebuild", label: "Our rebuilt text (full sentences)", rows: 4, placeholder: "According to Appadurai, media and migration are …" }
+              ]
+            },
+            {
+              type: "checklist",
+              id: "a11-ideas",
+              title: "Score your ideas (1 point each)",
+              meter: ["ideas", "Note-taking champion!"],
+              items: [
+                "Media and migration are the most important factors.",
+                "Their impact depends on other things: political stability, the economy and how strong the cultural traditions are.",
+                "Globalisation does shape cultures …",
+                "… but the result is not the Americanisation of all cultures.",
+                "Cultural identities are less limited by place and nationality, so new mixed identities are appearing."
+              ]
+            },
+            {
+              type: "language",
+              title: "Useful language: rebuilding with a partner",
+              groups: [
+                { label: "Compare", phrases: ["What did you get after “media and migration”?", "I wrote “≠ Amer’n” — I think that means …", "Did he say … or …?"] },
+                { label: "Rebuild", phrases: ["So the main idea is that …", "Let’s say it in a full sentence: …", "Shall we add “according to Appadurai”?"] }
+              ]
+            },
+            { type: "tip", text: "In the LRW Assessment you hear the lecture <b>once only</b>. Short notes with symbols are faster — and you only need enough to rebuild the idea." }
+          ],
+          answers: {
+            title: "Answers · abbreviations",
+            items: [["glob’n", "globalisation"], ["cult. imp.", "cultural imperialism"], ["Amer’n", "Americanisation"], ["w/ · w/o", "with · without"], ["↑ · ↓", "increase · decrease"], ["∴", "therefore"], ["e.g. · i.e.", "for example · that is"], ["Δ", "change"]]
+          }
+        },
+        {
+          id: "a10",
+          short: "Signal hunt",
+          minutes: 10,
+          grouping: "Teams",
+          art: V + "a10.svg",
+          title: "Listening skill: signal hunt",
+          goal: "Hear the small words that tell you what comes next — a definition, an example, a contrast or an opinion.",
+          blocks: [
+            {
+              type: "key",
+              title: "Signals are road signs",
+              points: [
+                "Lecturers use small phrases to show what is coming next. If you hear the signal, you know what to write.",
+                "<b>“However, …”</b> → a different view is coming. Write it in a new line of your notes!"
+              ]
+            },
+            {
+              type: "sort",
+              id: "a10-sort",
+              title: "1 · What does each signal tell you? (all from this lecture)",
+              hint: "Drag or tap each signal into a box. Then check.",
+              buckets: [
+                { label: "A definition is coming", letter: "D" },
+                { label: "An example is coming", letter: "E" },
+                { label: "A contrast / other view", letter: "C" },
+                { label: "The lecturer’s opinion", letter: "O" }
+              ],
+              items: [
+                { text: "Cultural imperialism refers to …", answer: 0 },
+                { text: "… or we can say …", answer: 0 },
+                { text: "Examples of American cultural imperialism … include …", answer: 1 },
+                { text: "Just like McDonald’s, …", answer: 1 },
+                { text: "In theory, … However, in practice …", answer: [2, 3], why: "It shows a contrast — and it is also the lecturer’s evaluation." },
+                { text: "However, … Appadurai has a more optimistic view …", answer: 2 },
+                { text: "There is little doubt that …", answer: 3 },
+                { text: "Clearly, …", answer: 3 }
+              ]
+            },
+            {
+              type: "steps",
+              title: "2 · Stand up when you hear it!",
+              items: [
+                { who: "group", text: "Make 4 teams. Each team gets one signal type: <b>Definition · Example · Contrast · Opinion</b>." },
+                { who: "class", text: "Your teacher plays the lecture again from <b>1:09</b>. When you hear a signal for <b>your</b> team, <b>stand up</b> quickly. The teacher pauses." },
+                { who: "group", text: "Your team says the signal and <b>what came after it</b> (in your own words) → <b>+1 point</b>. Wrong team stands up? −1!" },
+                { who: "class", text: "Sit down and continue. The team with the most points wins." }
+              ]
+            },
+            Object.assign({}, LECTURE, { start: 69, clip: "from 1:09 to the end · listen for the signals", transcripts: [["w5listen", "Transcript (open after the game)"]] }),
+            {
+              type: "language",
+              title: "Useful language: signals you will hear in lectures",
+              groups: [
+                { label: "Definition", phrases: ["X refers to …", "X, or we can say …", "By X, I mean …", "In other words, …"] },
+                { label: "Example", phrases: ["Examples of X include …", "For instance, …", "Just like …, …", "Take … as an example."] },
+                { label: "Contrast", phrases: ["However, …", "In theory, … However, in practice …", "On the other hand, …", "Rather than …, …"] },
+                { label: "Opinion / evaluation", phrases: ["There is little doubt that …", "Clearly, …", "It’s not surprising then that …", "Chances are …"] }
+              ]
+            },
+            {
+              type: "fields",
+              title: "Use it: say it like an academic",
+              fields: [{ id: "a10-use", label: "Explain one word from the lecture to your partner with a definition signal. Write your sentence here.", rows: 2, placeholder: "Cultural hybridity refers to … In other words, …" }]
+            }
+          ],
+          answers: {
+            title: "Answers · signals",
+            items: [["A definition is coming", "refers to · or we can say"], ["An example is coming", "Examples of … include · Just like McDonald’s"], ["A contrast / other view", "In theory … However, in practice (also the lecturer’s opinion) · However, Appadurai has a more optimistic view"], ["The lecturer’s opinion", "There is little doubt that · Clearly · In theory … However, in practice"]]
+          }
         },
         {
           id: "a8",
@@ -654,6 +847,81 @@ window.DEC15_LESSON = {
                 { label: "Disagree politely", phrases: ["I don’t entirely agree that … because …", "I see your point, but in practice …", "That may be true for …, but not for …"] },
                 { label: "Find an issue", phrases: ["One problem with this view is that …", "This doesn’t take into account …", "Is there any evidence that …?"] }
               ]
+            }
+          ]
+        },
+        {
+          id: "a13",
+          short: "Opinion line",
+          minutes: 13,
+          grouping: "Class → Pairs",
+          art: V + "a13.svg",
+          title: "Opinion line-up and mini-debate",
+          goal: "Take a position, defend it with the lecture and the language of opinions — then argue the other side.",
+          blocks: [
+            {
+              type: "figure",
+              src: A + "d2-views.svg",
+              size: "wide",
+              alt: "A see-saw of views on globalisation and culture. On the left side: critics, proponents of the Americanisation theory and George Ritzer — cultural imperialism, Americanisation, homogenisation. On the right side: Arjun Appadurai — cultural hybridity, heterogeneity, new cultural identities. In the middle, the lecturer’s own view: both unifying and diversifying, depending on the local context.",
+              caption: "Where do you stand? Use these voices as your evidence."
+            },
+            {
+              type: "scale",
+              id: "a13-before",
+              title: "Before: where do you stand?",
+              statement: "Globalisation is making cultures around the world the same.",
+              ends: ["Strongly agree", "Strongly disagree"],
+              mid: "It depends"
+            },
+            {
+              type: "steps",
+              title: "1 · The opinion line (4 minutes)",
+              items: [
+                { who: "class", text: "<b>Stand up.</b> One wall is <b>Strongly agree</b>, the opposite wall is <b>Strongly disagree</b>. Stand on the line where your opinion is." },
+                { who: "class", text: "Talk to the people next to you: why are you standing here? Then 3–4 students (one from each end and the middle) explain to the whole class in <b>one or two sentences</b>." },
+                { who: "class", text: "Each speaker must use <b>one opinion phrase</b> and <b>one voice from the lecture</b> (critics, Ritzer, Appadurai or the lecturer). Changed your mind? <b>Move!</b>" }
+              ]
+            },
+            {
+              type: "steps",
+              title: "2 · Fold the line: mini-debate (7 minutes)",
+              items: [
+                { who: "class", text: "Fold the line: the “agree” end walks to meet the “disagree” end. Now you face a partner with a <b>different</b> opinion." },
+                { who: "pair", text: "<b>Round 1 (90 seconds each):</b> give your view. Your partner introduces your view (<i>“So, according to you, …”</i>) and then evaluates it (<i>“I don’t entirely agree, because …”</i>)." },
+                { who: "pair", text: "<b>Round 2 — devil’s advocate:</b> swap sides! Argue for the opinion you disagree with. Use the same phrases." },
+                { who: "group", text: "In threes, one person is the <b>language monitor</b>: tick each phrase you hear in the checklist below. Change roles each round." }
+              ]
+            },
+            {
+              type: "checklist",
+              id: "a13-monitor",
+              title: "Language monitor: tick each phrase you hear",
+              meter: ["phrases heard", "Full house — great debating!"],
+              items: ["According to …, …", "Critics of … argue that …", "… contends that …", "There is little doubt that …", "In theory, … However, in practice …", "It seems to me that …", "I concur with … when they say …", "I don’t entirely agree that … because …", "Clearly, …"]
+            },
+            {
+              type: "language",
+              title: "Useful language: debating politely",
+              groups: [
+                { label: "Introduce your partner’s view", phrases: ["So, according to you, …", "If I understand you correctly, you think that …", "Your point is that …"] },
+                { label: "Evaluate it", phrases: ["I concur with you when you say …, but …", "I don’t entirely agree that … because …", "That may be true for …, but not for …", "One problem with this view is that …"] },
+                { label: "Use the lecture as evidence", phrases: ["As Ritzer points out, …", "Appadurai would argue that …", "The lecturer concludes that …"] },
+                { label: "Devil’s advocate", phrases: ["Let me play devil’s advocate: …", "Just for the sake of argument, …", "Someone could argue that …"] }
+              ]
+            },
+            {
+              type: "scale",
+              id: "a13-after",
+              title: "After: has your view changed?",
+              statement: "Globalisation is making cultures around the world the same.",
+              ends: ["Strongly agree", "Strongly disagree"],
+              mid: "It depends"
+            },
+            {
+              type: "fields",
+              title: "Exit ticket · one sentence for your essay",
+              fields: [{ id: "a13-exit", label: "Write one sentence for this week’s essay: someone else’s opinion + your evaluation.", rows: 2, placeholder: "Critics of globalisation argue that … However, in practice, …" }]
             }
           ]
         }
@@ -1193,7 +1461,7 @@ window.DEC15_LESSON = {
       tone: "clay",
       art: A + "s-d2-workshop.svg",
       title: "Integrated writing workshop (1)",
-      subtitle: "Analyse the essay question and collect evidence from your notes",
+      subtitle: "Prepare to write",
       outcome: "You have a further understanding of how to plan and develop an argument in an essay, and you can extract relevant ideas from sources to develop an argument.",
       activities: [
         {

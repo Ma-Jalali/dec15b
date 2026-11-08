@@ -213,7 +213,7 @@ window.DEC15_COURSE = {
           stages: ['reading', 'idq', 'testlab'], tones: ['plum', 'teal', 'amber'],
           scripts: ['dec10/lessons/week5/sources.js', 'dec10/lessons/week5/d10w5d1.js'] },
         { id: 'd10w5d2', day: 2, status: 'ready', title: 'Hear the voices, weave the sources', art: 'listening',
-          parts: ['4A Listening to write', '5A Mediation', '6A Integrated writing workshop (1)'],
+          parts: ['4A Listening to write', '5A Mediation', '6A Integrated writing workshop (1): Prepare to write'],
           stages: ['listening', 'mediation', 'workshop'], tones: ['teal', 'blue', 'clay'],
           scripts: ['dec10/lessons/week5/sources.js', 'dec10/lessons/week5/d10w5d2.js'] },
         { id: 'd10w5d3', day: 3, status: 'ready', title: 'Use feedback, write together, discuss', art: 'writing',
@@ -224,8 +224,8 @@ window.DEC15_COURSE = {
           parts: ['11A Interactive Discussion: Discussion and negotiation', '12A AST: Digital literacy and AI: Using AI for feedback', '13A Integrated writing workshop (3)'],
           stages: ['negotiate', 'aifeedback', 'workshop'], tones: ['teal', 'blue', 'plum'],
           scripts: ['dec10/lessons/week5/sources.js', 'dec10/lessons/week5/d10w5d4.js'] },
-        { id: 'd10w5d5', day: 5, status: 'ready', title: 'LRW Assessment', art: 'assessment',
-          parts: ['14A LRW Assessment'],
+        { id: 'd10w5d5', day: 5, status: 'ready', title: 'Listening and Reading to Write Assessment', art: 'assessment',
+          parts: ['14A Listening and Reading to Write Assessment'],
           stages: ['lrw'], tones: ['blue'],
           scripts: ['dec10/lessons/week5/sources.js', 'dec10/lessons/week5/d10w5d5.js'] }
       ]
