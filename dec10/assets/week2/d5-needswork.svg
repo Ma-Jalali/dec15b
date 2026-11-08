@@ -90,5 +90,5 @@
 <rect class="pu p2" x="624" y="210" width="60" height="26" rx="5" fill="url(#nw-g0)" filter="url(#nw-sm)"/>
 <path transform="translate(654 223) scale(1.2)" d="M-5 0l4 4 7-8" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M30 212v22" stroke="#d4583a" stroke-width="3" stroke-linecap="round" opacity=".7"/>
-<g class="rk" transform="translate(700 290)"><path d="M-4 0l-14-26 6-3 14 26-1 6z" fill="url(#nw-g1)"/><path d="M-18-26l6-3-2-4-6 3z" fill="#14293a"/><path d="M1 3l-1-6 2 3z" fill="#14293a"/></g>
+<g transform="translate(700 290)"><g class="rk"><path d="M-4 0l-14-26 6-3 14 26-1 6z" fill="url(#nw-g1)"/><path d="M-18-26l6-3-2-4-6 3z" fill="#14293a"/><path d="M1 3l-1-6 2 3z" fill="#14293a"/></g></g>
 </svg>
