@@ -234,11 +234,11 @@ window.DEC15_LESSON = {
               hint: "Tap a number. Then explain the diagram to your partner in your own words.",
               caption: "Based on Bowen et al. (2018), Fig. 1: Visual representation of job types and O*NET data available for each occupation.",
               spots: [
-                { x: 50, y: 12, label: "1", title: "O*NET-listed occupations", text: "O*NET is a US database with information on every job: its tasks and skills. All jobs are either <b>green</b> or <b>non-green</b>.", color: "#2b776e" },
-                { x: 16, y: 54, label: "2", title: "Increased Demand (ID)", text: "The job stays the same, but we need <b>more</b> of these workers. “Indirectly green”.", color: "#3f7a3a" },
-                { x: 38, y: 54, label: "3", title: "Enhanced Skills (ES)", text: "The job exists, but its tasks and skills <b>change a lot</b>. Example: General and Operations Managers.", color: "#3a58a0" },
-                { x: 60, y: 54, label: "4", title: "New & Emerging (NE)", text: "A <b>brand-new</b> job for the green economy.", color: "#b07d12" },
-                { x: 82, y: 54, label: "5", title: "Green rival", text: "A <b>non-green</b> job with at least one green career changer or career starter — a possible way into the green economy.", color: "#b0512a" }
+                { x: 50, y: 5.5, label: "1", title: "O*NET-listed occupations", text: "O*NET is a US database with information on every job: its tasks and skills. All jobs are either <b>green</b> or <b>non-green</b>.", color: "#2b776e" },
+                { x: 12, y: 47, label: "2", title: "Increased Demand (ID)", text: "The job stays the same, but we need <b>more</b> of these workers. “Indirectly green”.", color: "#3f7a3a" },
+                { x: 32, y: 47, label: "3", title: "Enhanced Skills (ES)", text: "The job exists, but its tasks and skills <b>change a lot</b>. Example: General and Operations Managers.", color: "#3a58a0" },
+                { x: 52, y: 47, label: "4", title: "New & Emerging (NE)", text: "A <b>brand-new</b> job for the green economy.", color: "#b07d12" },
+                { x: 74, y: 47, label: "5", title: "Green rival", text: "A <b>non-green</b> job with at least one green career changer or career starter — a possible way into the green economy.", color: "#b0512a" }
               ]
             },
             { type: "talk", title: "Test each other", prompts: ["Student A says a definition in your own words. Student B says the term. Swap after three.", "Think of a job in your country. Is it ID, ES, NE, green rival or other? Why?"] }
