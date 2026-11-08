@@ -105,3 +105,41 @@
   [data-course="dec10"] :is(.btn, .option, .lang-group li, .stage-back) { transition: none !important; }
 }
 @media print { [data-course="dec10"] :is(.stage-back, .hero-img::before, .hero-img::after, .act-head.has-art::after) { display: none !important; } }
+
+/* ───────── v6.0 additions: the course map, the continue card, a progress ring, finer type ───────── */
+/* day cards: the picture sits in a lit, dotted alcove with a floor shadow */
+[data-course="dec10"] .day-art { position: relative; overflow: hidden; isolation: isolate; background: radial-gradient(80% 70% at 50% 28%, #fff, color-mix(in srgb, var(--dc, #2b776e) 9%, #fbf3e4) 70%) !important; }
+[data-course="dec10"] .day-art::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--dc, #2b776e) 15%, transparent) 1px, transparent 1.5px) 0 0 / 12px 12px; }
+[data-course="dec10"] .day-art::after { content: ""; position: absolute; left: 24%; right: 24%; bottom: 8px; height: 12px; border-radius: 50%; background: radial-gradient(closest-side, rgba(20, 41, 58, .22), transparent); filter: blur(3px); transition: transform .35s var(--ease); }
+[data-course="dec10"] .day-art img { position: relative; filter: drop-shadow(0 8px 10px rgba(20, 41, 58, .16)); transition: transform .35s var(--ease); }
+[data-course="dec10"] .day-card.is-ready:hover .day-art img { transform: translateY(-3px) scale(1.03); }
+[data-course="dec10"] .day-card.is-ready:hover .day-art::after { transform: scaleX(.85); }
+[data-course="dec10"] .day-art-soon { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .5) 0 10px, transparent 10px 20px), #f6f1e8 !important; }
+[data-course="dec10"] .day-art-soon::before { display: none; }
+/* the continue card: the picture gets depth too */
+[data-course="dec10"] .resume-art { background: radial-gradient(80% 70% at 50% 30%, #fff, var(--accent-bg, #eef4f2) 75%); box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .06), 0 10px 20px -14px rgba(20, 41, 58, .5); }
+/* a small progress ring beside "x of y activities finished" on the lesson's first page */
+[data-course="dec10"] .hero-ring { position: relative; display: inline-grid; place-items: center; width: 46px; height: 46px; flex: none; }
+[data-course="dec10"] .hero-ring svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+[data-course="dec10"] .hero-ring circle { fill: none; stroke-width: 3.2; stroke: color-mix(in srgb, var(--accent, #2b776e) 16%, #fff); }
+[data-course="dec10"] .hero-ring circle + circle { stroke: var(--accent, #2b776e); stroke-linecap: round; transition: stroke-dasharray .8s var(--ease); }
+[data-course="dec10"] .hero-ring b { font: 700 .78rem/1 var(--sans); color: var(--ink); font-variant-numeric: tabular-nums; }
+[data-course="dec10"] .hero-ring b small { font-size: .55rem; color: var(--muted); margin-left: 1px; }
+[data-course="dec10"] .hero-progress { display: inline-flex; align-items: center; gap: 10px; }
+/* finer type: balanced headings, no orphan words in the lead paragraphs */
+[data-course="dec10"] :is(h1, h2, .journey-title, .day-title, .essay-q blockquote, .act-head h2, .stage-head h1) { text-wrap: balance; }
+[data-course="dec10"] :is(.hero-lead, .stage-outcome, .act-goal, .journey-text, .do-step p, .week-head p, .section-sub, .tip span) { text-wrap: pretty; }
+/* the row above a stage: the back pill on the left, one dot per stage on the right (tap to jump) */
+[data-course="dec10"] .stage-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+[data-course="dec10"] .stage-nav .stage-back { margin: 0; }
+[data-course="dec10"] .stage-dots { display: inline-flex; align-items: center; gap: 6px; padding: 5px; border-radius: 999px; background: rgba(255, 255, 255, .72); box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(20, 41, 58, .07), 0 6px 14px -12px rgba(20, 41, 58, .5); }
+[data-course="dec10"] .stage-dots a { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; text-decoration: none; color: var(--accent, #2b776e); background: color-mix(in srgb, var(--accent, #2b776e) 10%, #fff); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #2b776e) 22%, transparent); transition: transform .18s, box-shadow .18s; }
+[data-course="dec10"] .stage-dots a i { font: 800 .62rem/1 var(--sans); font-style: normal; letter-spacing: .02em; }
+[data-course="dec10"] .stage-dots a i .icon { width: 13px; height: 13px; stroke-width: 2.8; }
+[data-course="dec10"] .stage-dots a:hover { transform: translateY(-1px); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #2b776e) 40%, transparent), 0 6px 12px -8px var(--accent, #2b776e); }
+[data-course="dec10"] .stage-dots a.is-done { color: #fff; background: linear-gradient(160deg, #3fb08f, #1f8a6a); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35); }
+[data-course="dec10"] .stage-dots a.is-cur { color: #fff; background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, .35), transparent 48%), var(--accent, #2b776e); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3), 0 0 0 3px #fff, 0 0 0 4px color-mix(in srgb, var(--accent, #2b776e) 45%, transparent); }
+/* the Language Lab's back pill matches */
+[data-course="dec10"] .lab-back { padding: 7px 14px 7px 9px; font: 700 .84rem/1.2 var(--sans); color: var(--ink-2); background: rgba(255, 255, 255, .9); box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(20, 41, 58, .09), 0 1px 2px rgba(20, 41, 58, .06), 0 8px 16px -12px rgba(20, 41, 58, .5); }
+[data-course="dec10"] .lab-back .icon { color: var(--accent, #2b776e); }
+@media (max-width: 640px) { [data-course="dec10"] .stage-dots a { width: 28px; height: 28px; } }
