@@ -539,9 +539,9 @@ window.DEC15_LESSON = {
                 {"x":30,"y":36,"label":"2","title":"Ka’Aguy Hovy Porã village","text":"Home of the Mbyá Guaraní community. They may be pushed aside for the resort. They found out how advanced the project was only when the bulldozers arrived.","color":"#2f7d6b"},
                 {"x":19,"y":62,"label":"3","title":"Tupã Nunes · community leader","text":"He had no knowledge of the 2022 agreement signed with the chief (the cacique). In Guarani tradition, the cacique must share information with the community.","color":"#2f7d6b"},
                 {"x":50,"y":20,"label":"4","title":"The local government","text":"Part of the agreement: it promised to find a public area where the community could stay permanently. The community did not know how involved it was.","color":"#3a58a0"},
-                {"x":84,"y":72,"label":"5","title":"The courts","text":"In 2023 local courts suspended the project because of irregularities and conflict. Reasons included pressure on the water system and an illegal environmental licensing process.","color":"#8a4f9e"},
+                {"x":86,"y":78,"label":"5","title":"The courts","text":"In 2023 local courts suspended the project because of irregularities and conflict. Reasons included pressure on the water system and an illegal environmental licensing process.","color":"#8a4f9e"},
                 {"x":52,"y":76,"label":"6","title":"ILO C169","text":"An international agreement on Indigenous and Tribal Peoples, signed by Spain and Brazil. It requires at least a dialogue with indigenous communities before projects that affect them.","color":"#b07d12"},
-                {"x":33,"y":84,"label":"7","title":"Juliana Batista · human rights lawyer","text":"From the Brazilian NGO Instituto Socio-Ambiental. For her, indigenous land rights “take precedence over any other rights.”","color":"#a3416a"}
+                {"x":36,"y":85,"label":"7","title":"Juliana Batista · human rights lawyer","text":"From the Brazilian NGO Instituto Socio-Ambiental. For her, indigenous land rights “take precedence over any other rights.”","color":"#a3416a"}
               ]
             },
             {"type":"do","n":1,"who":"alone","text":"Read the text again and take notes in the note-taking grid. Short notes — key words only."},
@@ -713,9 +713,9 @@ window.DEC15_LESSON = {
               hint: "Tap each person to read the role card. Play for 3 minutes, then swap.",
               size: "wide",
               spots: [
-                {"x":30,"y":52,"label":"A","title":"Role A · The Minister for Tourism","text":"You want good news: jobs, money and a “green” image. But you do not want a scandal later. Ask short, direct questions. Push for a clear answer.","color":"#3a58a0"},
-                {"x":62,"y":46,"label":"B","title":"Role B · The research adviser","text":"Give a fair, balanced answer. Use at least two sources in every answer and say what each source says. Finish with your own position.","color":"#2f7d6b"},
-                {"x":86,"y":60,"label":"C","title":"Role C · The observer","text":"Listen. Did the adviser name the sources, use two sources together, and give a clear position? Give one good point and one tip. Then swap roles.","color":"#b07d12"}
+                {"x":30,"y":53,"label":"A","title":"Role A · The Minister for Tourism","text":"You want good news: jobs, money and a “green” image. But you do not want a scandal later. Ask short, direct questions. Push for a clear answer.","color":"#3a58a0"},
+                {"x":62,"y":59,"label":"B","title":"Role B · The research adviser","text":"Give a fair, balanced answer. Use at least two sources in every answer and say what each source says. Finish with your own position.","color":"#2f7d6b"},
+                {"x":86,"y":66,"label":"C","title":"Role C · The observer","text":"Listen. Did the adviser name the sources, use two sources together, and give a clear position? Give one good point and one tip. Then swap roles.","color":"#b07d12"}
               ]
             },
             {
