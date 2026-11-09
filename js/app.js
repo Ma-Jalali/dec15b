@@ -515,8 +515,14 @@ function cowriteCard(a) {
     <span class="cwc-tx"><b>Writing with a partner or group?</b><small>Open one shared page for your group. Everyone types at the same time and sees each other’s cursor. Choose the same group number as your partners.</small></span>
     <button type="button" class="btn btn-sm" data-cowrite="${a.id}">${icon('pen')}Write together</button></aside>`;
 }
+/* A quiet design mark on activities that have a photocopiable (course.printables): a folded paper corner with a gold
+   leaf on the activity card and a small gold leaf on its tab. Everyone sees it as decoration (no text, aria-hidden);
+   the teacher knows it means "there is a paper version of this activity" (side panel → Photocopiables). */
+const hasPaper = id => !!PR && PR.some(p => p.lesson === lesson.id && (p.activity === id || (p.also || []).includes(id)));
+const PAPER_FOLD = `<span class="act-fold" aria-hidden="true"><svg viewBox="0 0 64 64"><defs><linearGradient id="afd-g" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6e3"/><stop offset="1" stop-color="#efd9a8"/></linearGradient><linearGradient id="afd-l" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3cf72"/><stop offset="1" stop-color="#c98d2c"/></linearGradient></defs><path d="M64 0v64L0 0z" fill="url(#afd-g)"/><path d="M0 0l64 64" stroke="#d9b56a" stroke-width="1.2" opacity=".7"/><path d="M0 0h64v64" fill="none" stroke="#e8cf93" stroke-width="1"/><g transform="translate(43 17) rotate(40)"><path d="M0 9C-6 4-6-4 0-10 6-4 6 4 0 9z" fill="url(#afd-l)"/><path d="M0 9V-8" stroke="#fff7df" stroke-width="1" stroke-linecap="round"/></g><circle cx="52" cy="31" r="1.6" fill="#e3a843"/><circle cx="33" cy="12" r="1.1" fill="#e3a843" opacity=".8"/></svg></span>`;
+const TAB_LEAF = '<i class="tab-leaf" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 11C1.5 8 1.5 3.5 6 1c4.5 2.5 4.5 7 0 10z" fill="currentColor"/><path d="M6 10.5V2.5" stroke="#fff" stroke-width=".9" stroke-linecap="round" opacity=".85"/></svg></i>';
 function activity(a, i, list, section) {
-  return `<article class="activity" id="${a.id}" tabindex="-1" aria-labelledby="h-${a.id}">
+  return `<article class="activity${hasPaper(a.id) ? ' has-fold' : ''}" id="${a.id}" tabindex="-1" aria-labelledby="h-${a.id}">${hasPaper(a.id) ? PAPER_FOLD : ''}
     <header class="act-head${a.art ? ' has-art' : ''}">${a.art ? `<img class="act-art" src="${esc(a.art)}" alt="" width="240" height="180" loading="lazy">` : ''}
       <div class="act-meta"><span class="act-count">${labHere ? esc(a.short) : `Activity ${i + 1}`}<span> / ${labHere ? `step ${i + 1} of ${list.length}` : list.length}</span></span><span class="chip chip-soft">${groupIcon(a.grouping)}${esc(a.grouping)}</span>${a.category ? `<span class="chip chip-soft">${esc(a.category)}</span>` : ''}<button class="timer-btn" data-timer="${a.minutes}" aria-label="Start a ${a.minutes}-minute timer">${icon('clock')}<span>${a.minutes} min</span><small>Start timer</small></button></div>
       <h2 id="h-${a.id}">${esc(a.title)}</h2>
@@ -565,7 +571,7 @@ function stagePage(s) {
       </div>
       <div class="stage-art-wrap"><img class="stage-art" src="${artSrc(s.art)}" alt="" width="220" height="170">${complete ? '<img class="stage-medal" src="assets/art/complete.svg" alt="" width="60" height="70">' : ''}</div>
     </header>
-    <nav class="act-tabs" aria-label="Activities in this stage" style="--done:${doneCount / s.activities.length};--n:${s.activities.length}">${s.activities.map((a, i) => `<button data-jump="${a.id}" class="${a.id === activeId ? 'current' : ''}${state.done[a.id] ? ' is-done' : ''}" aria-current="${a.id === activeId ? 'step' : 'false'}"><span class="tab-num">${state.done[a.id] ? icon('check') : i + 1}</span><span class="tab-text">${esc(a.short)}<small>${a.minutes} min</small></span></button>`).join('')}</nav>
+    <nav class="act-tabs" aria-label="Activities in this stage" style="--done:${doneCount / s.activities.length};--n:${s.activities.length}">${s.activities.map((a, i) => `<button data-jump="${a.id}" class="${a.id === activeId ? 'current' : ''}${state.done[a.id] ? ' is-done' : ''}" aria-current="${a.id === activeId ? 'step' : 'false'}"><span class="tab-num">${state.done[a.id] ? icon('check') : i + 1}</span><span class="tab-text">${esc(a.short)}<small>${a.minutes} min</small></span>${hasPaper(a.id) ? TAB_LEAF : ''}</button>`).join('')}</nav>
     ${activity(s.activities[idx], idx, s.activities, s)}${upNext(s, idx)}`;
 }
 /* A Language Lab lesson: one page, four tabs (Warm-up · Learn · Practise · Use it) */

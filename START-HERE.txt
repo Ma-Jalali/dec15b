@@ -832,3 +832,10 @@ ADD OR EDIT A SHEET
      per, groupSize, extra, pages, duplex; prep; noPrinter) and printPacks. Raise the version, run node tools/build-sw.js.
 WEEK 3: 28 sheets (Day 1: 5 · Day 2: 6 · Day 3: 6 · Day 4: 6 · Day 5: 5). Lessons got one student tip per paper activity;
   no ids, minutes or protected texts changed.
+
+v6.6 (a quiet "paper version" mark for the teacher)
+- Activities that have a photocopiable now carry a small design mark that everyone sees but only the teacher can read:
+  a folded paper corner with a gold leaf (top right of the activity card) and a small gold leaf on the activity's number
+  in the stage tab bar. No text, aria-hidden, not printed. It is driven by course.printables (lesson + activity / also),
+  so new sheets get the mark automatically. Code: hasPaper / PAPER_FOLD / TAB_LEAF in js/app.js; styles at the end of
+  css/downloads.css.

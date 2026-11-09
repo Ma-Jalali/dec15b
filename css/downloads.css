@@ -240,3 +240,18 @@ body:not(.is-teacher) #side-print { display: none !important; }
 .pr-locked { text-align: center; padding: 60px 20px; } .pr-locked svg { width: 56px; color: #b0512a; }
 @media (max-width: 900px) { .pr-how { grid-template-columns: 1fr 1fr; } .pr-top { flex-direction: column; align-items: stretch; } .pr-grid { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .pr-item { grid-template-columns: 1fr; } .pr-item .pr-thumb { width: 130px; } .pr-how { grid-template-columns: 1fr; } }
+
+/* A quiet design mark (no text): activities with a paper version get a folded corner with a gold leaf, and their tab a
+   small gold leaf. Students read it as decoration; the teacher knows it means "Photocopiables has a sheet for this". */
+.activity.has-fold { position: relative; }
+.act-fold { position: absolute; top: 0; right: 0; width: 54px; height: 54px; pointer-events: none; z-index: 2;
+  border-top-right-radius: inherit; overflow: hidden; filter: drop-shadow(-1px 2px 2px rgba(20,41,58,.12)); }
+.act-fold svg { display: block; width: 100%; height: 100%; }
+.act-fold svg g { transform-box: fill-box; transform-origin: 50% 90%; animation: actfold-sway 6s ease-in-out infinite; }
+@keyframes actfold-sway { 0%, 100% { rotate: 0deg; } 50% { rotate: 6deg; } }
+.act-tabs button { position: relative; }
+.tab-leaf { position: absolute; top: 0; left: calc(50% + 13px); width: 14px; height: 14px; color: #d9a43c; display: block; pointer-events: none;
+  filter: drop-shadow(0 1px 1px rgba(20,41,58,.18)); }
+.tab-leaf svg { display: block; width: 100%; height: 100%; }
+@media (prefers-reduced-motion: reduce) { .act-fold svg g { animation: none; } }
+@media print { .act-fold, .tab-leaf { display: none; } }
