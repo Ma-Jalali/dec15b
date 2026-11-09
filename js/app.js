@@ -1079,7 +1079,7 @@ const PR_CUT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strok
 const prButtons = p => `<a class="btn pr-go" href="${esc(p.file)}" target="_blank" rel="noopener">${PR_IC}Open &amp; print</a><a class="btn-quiet" href="${esc(p.file)}" download>${icon('download')}Download PDF</a>`;
 function printCards(a) {
   if (!PR || !state.teacher) return '';
-  const list = PR.filter(p => p.lesson === lesson.id && p.activity === a.id); if (!list.length) return '';
+  const list = PR.filter(p => p.lesson === lesson.id && (p.activity === a.id || (p.also || []).includes(a.id)));   // also: more activities that use the same sheet if (!list.length) return '';
   return list.map(p => { const c = prCopies(p), ready = !!prGet()['r-' + p.id];
     return `<aside class="pr-card${ready ? ' is-ready' : ''}" aria-label="Photocopiable for this activity (teacher only)">
     <a class="pr-thumb" href="${esc(p.file)}" target="_blank" rel="noopener" aria-label="Open the PDF"><img src="${esc(p.thumb)}" alt="" width="105" height="148" loading="lazy">${p.pages > 1 ? `<span>${p.pages} pages</span>` : ''}</a>

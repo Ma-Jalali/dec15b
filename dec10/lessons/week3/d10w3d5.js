@@ -246,6 +246,7 @@ window.DEC15_LESSON = {
               ]
             },
             {"type":"do","n":2,"who":"group","text":"<b>Audience jobs.</b> In your watching group, everyone takes one job for Presentation 4. Tap your job. (You swap jobs for Presentation 5.)"},
+            {"type":"tip","text":"Your teacher may give each person a <b>paper job card</b>, and the language spotter a <b>bingo half-sheet</b>. No paper? Tap your job below and play the bingo on screen in Presentation 4."},
             {
               type: "figure",
               src: "dec10/assets/week3/d5-audience-jobs.svg",
@@ -829,6 +830,7 @@ window.DEC15_LESSON = {
                 {"who":"group","text":"Go back to your home group. Now you are the expert."}
               ]
             },
+            {"type":"tip","text":"Your teacher may give you a <b>paper expert strip</b> (A, B or C) to write on. No paper? Open your tab below and type your answers there."},
             {
               type: "tabs",
               title: "Your role",
@@ -1097,6 +1099,7 @@ window.DEC15_LESSON = {
                 {"who":"class","text":"After two rounds, <b>swap</b>: B asks, A answers. If you can, video one answer so you can review it later."}
               ]
             },
+            {"type":"tip","text":"Your teacher may give the inner circle a <b>paper question card</b> and the outer circle a <b>speaker card</b>. No cards? Read the two questions and the language on this page."},
             {
               type: "cards",
               title: "The individual questions",
@@ -1289,6 +1292,7 @@ window.DEC15_LESSON = {
               caption: "Statement + cohesive device + statement → say why."
             },
             {"type":"do","n":2,"who":"class","text":"<b>Human sentence.</b> Three students come to the front. Spin below: one student holds Statement A, one holds Statement B (read them aloud). The third student <b>chooses a cohesive device</b> and stands between them. Class: thumbs up if it fits, thumbs down if not. The device holder explains why."},
+            {"type":"tip","text":"Your teacher may give out <b>paper cards</b>: Statement A, Statement B and cohesive devices. No cards? Spin below and read the statements from the screen."},
             {
               type: "figure",
               src: "dec10/assets/week3/d5-human-sentence.svg",
@@ -1484,6 +1488,7 @@ window.DEC15_LESSON = {
               ]
             },
             {"type":"sticky","title":"Game: three tokens each","text":"Each student takes <b>three tokens</b> (coins or paper). Put one in the middle each time you take the floor <b>politely</b>. Goal: use all three. Too abrupt? Take one back!","color":"pink"},
+            {"type":"tip","text":"Your teacher may give your group <b>paper tokens</b> with the polite expressions, plus <b>topic</b> and <b>job</b> cards. No paper? Use coins or scraps of paper, and spin below for your topic and expression."},
             {"type":"do","n":2,"who":"group","text":"Each student <b>chooses or spins</b> one interjecting expression. One student starts the discussion on the topic. Others take the floor with their expression — as naturally as possible. Remember to (a) <b>refer to sources</b> and (b) <b>connect your ideas</b> to what was said, using cohesive phrases."},
             {
               type: "spinner",
