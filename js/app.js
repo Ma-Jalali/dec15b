@@ -528,7 +528,7 @@ function activity(a, i, list, section) {
       <h2 id="h-${a.id}">${esc(a.title)}</h2>
       <p class="act-goal">${icon('target')}<span><b>Goal:</b> ${esc(a.goal)}</span></p>
     </header>
-    ${printCards(a)}${cowriteCard(a)}<div class="act-body">${blocksHTML(a)}</div>
+    ${printCards(a)}${moveCard(a)}${cowriteCard(a)}<div class="act-body">${blocksHTML(a)}</div>
     ${answersPanel(a)}
     ${wallOn(a) ? wall.sectionHTML(a) : ''}
     ${section && !labHere && i === list.length - 1 && list.every(x => state.done[x.id]) ? `<div class="stage-done"><img src="assets/art/complete.svg" alt="" width="120" height="140"><div><b>Stage complete!</b><span>You finished all ${list.length} activities in ${esc(stageName(section))}.</span></div></div>` : ''}
@@ -571,7 +571,7 @@ function stagePage(s) {
       </div>
       <div class="stage-art-wrap"><img class="stage-art" src="${artSrc(s.art)}" alt="" width="220" height="170">${complete ? '<img class="stage-medal" src="assets/art/complete.svg" alt="" width="60" height="70">' : ''}</div>
     </header>
-    <nav class="act-tabs" aria-label="Activities in this stage" style="--done:${doneCount / s.activities.length};--n:${s.activities.length}">${s.activities.map((a, i) => `<button data-jump="${a.id}" class="${a.id === activeId ? 'current' : ''}${state.done[a.id] ? ' is-done' : ''}" aria-current="${a.id === activeId ? 'step' : 'false'}"><span class="tab-num">${state.done[a.id] ? icon('check') : i + 1}</span><span class="tab-text">${esc(a.short)}<small>${a.minutes} min</small></span>${hasPaper(a.id) ? TAB_LEAF : ''}</button>`).join('')}</nav>
+    ${stageGuide(s)}<nav class="act-tabs" aria-label="Activities in this stage" style="--done:${doneCount / s.activities.length};--n:${s.activities.length}">${s.activities.map((a, i) => `<button data-jump="${a.id}" class="${a.id === activeId ? 'current' : ''}${state.done[a.id] ? ' is-done' : ''}" aria-current="${a.id === activeId ? 'step' : 'false'}"><span class="tab-num">${state.done[a.id] ? icon('check') : i + 1}</span><span class="tab-text">${esc(a.short)}<small>${a.minutes} min</small></span>${hasPaper(a.id) ? TAB_LEAF : ''}</button>`).join('')}</nav>
     ${activity(s.activities[idx], idx, s.activities, s)}${upNext(s, idx)}`;
 }
 /* A Language Lab lesson: one page, four tabs (Warm-up · Learn · Practise · Use it) */
@@ -641,6 +641,7 @@ function overview() {
     ${(() => { const nx = nextLesson(), inner = `<span class="dayline-bar"></span><span class="dayline-num">${icon(nx ? 'arrow' : 'pen')}</span><span class="dayline-title">${esc(lesson.finish?.title || 'Monday')}</span><span class="dayline-min">${esc(lesson.finish?.text || 'Write the essay')}</span>`;
       return nx ? `<a class="dayline-flag" href="#/${nx.id}" title="${nx.lab ? `Open the next lesson: ${esc(nx.title)}` : `Open Week ${nx.week}, Day ${nx.day}`}">${inner}</a>` : `<div class="dayline-flag">${inner}</div>`; })()}
   </div>
+  ${dayPlaybook()}
   <ol class="journey">${lesson.sections.map(s => { const d = s.activities.filter(a => state.done[a.id]).length; return `<li><a class="journey-card${d === s.activities.length ? ' complete' : ''}" style="${tone(s)}" href="${L(s.id)}">
       <span class="journey-art-wrap"><img class="journey-art" src="${artSrc(s.art)}" alt="" width="220" height="170" loading="lazy"></span>
       <span class="journey-body">
@@ -1144,6 +1145,68 @@ if (PR) {
     const w = e.target.closest?.('[data-pr-week]'); if (w) { const m = prGet(); m.week = Number(w.dataset.prWeek); prSet(m); rerender(); }
   });
 }
+/* ───────── DEC10 Teacher's playbook (Teacher view only) ─────────
+   Optional ideas for running a day in a more active, creative way. Data: window.DEC10_PLAYBOOK[lessonId], loaded with the
+   day's scripts (dec10/lessons/weekN/playbook.js):
+     moves:  [{ n, section, activity, title, kind, minutes, why, setup: [..], steps: [..], say: [..], materials: [printable ids],
+                planB, stretch? }]  — about four stand-up moments spread across the four hours
+     stages: { sectionId: { tips: [..], creative?: '…', watch?: [..] } }  — a teacher's guide for each stage
+   Shown only in Teacher view, always as folds (closed until opened). Nothing here changes the lesson: if the teacher
+   skips a moment, the activity on screen is complete as it is. (Like everything on this public site, the file itself is
+   not secret — it is just never shown to students.) */
+const PB = () => window.DEC10_PLAYBOOK?.[lesson.id] || null;
+const PB_WALK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13" cy="4.2" r="2"/><path d="m9.5 21 2.2-6 2.6 2.3V21M7.2 11.5 9.8 8l3.3.6 2.2 3 2.7 1"/><path d="m11.7 15-1.9-7"/></svg>';
+const PB_BOOK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5C6.8 4.5 9.6 4.8 12 6.5c2.4-1.7 5.2-2 8-1v13c-2.8-1-5.6-.7-8 1-2.4-1.7-5.2-2-8-1z"/><path d="M12 6.5v13"/><path d="m15 9 1.2 1.2L18.5 8"/></svg>';
+/* minutes from the start of the day to the start of an activity (day order) */
+function pbStartMin(actId) { let m = 0; for (const s of lesson.sections) for (const a of s.activities) { if (a.id === actId) return m; m += a.minutes || 0; } return null; }
+const pbClock = m => m == null ? '' : `${Math.floor(m / 60)}:${String(m % 60).padStart(2, '0')}`;
+const pbMove = (pb, a) => (pb?.moves || []).filter(m => m.activity === a.id && lesson.sections.some(s => s.id === m.section && s.activities.includes(a)));
+const pbPrintLinks = ids => (ids || []).map(id => (PR || []).find(p => p.id === id)).filter(Boolean)
+  .map(p => `<a class="pb-mat" href="${esc(p.file)}" target="_blank" rel="noopener">${PR_IC}<span><b>${esc(p.title)}</b><small>${esc(p.kind)} · ${prCopies(p)} cop${prCopies(p) === 1 ? 'y' : 'ies'}</small></span></a>`).join('');
+function moveCard(a) {
+  if (!state.teacher) return ''; const pb = PB(); const list = pbMove(pb, a); if (!list.length) return '';
+  const total = pb.moves.length;
+  return list.map(m => `<details class="pb-move">
+    <summary><span class="pb-ic">${PB_WALK}</span><span class="pb-sum"><small>Teacher’s playbook · Stand-up moment ${m.n} of ${total} · optional</small><b>${esc(m.title)}</b>
+      <span class="pb-chips"><i>${esc(m.kind)}</i><i>${icon('clock')}${m.minutes} min</i>${pbStartMin(a.id) != null ? `<i>about ${pbClock(pbStartMin(a.id))} into the day</i>` : ''}</span></span><span class="pb-chev" aria-hidden="true"></span></summary>
+    <div class="pb-body">
+      ${m.why ? `<p class="pb-why">${m.why}</p>` : ''}
+      <div class="pb-cols">
+        ${m.setup?.length ? `<section><h4>Before class</h4><ul>${m.setup.map(x => `<li>${x}</li>`).join('')}</ul></section>` : ''}
+        <section class="pb-steps"><h4>Run it</h4><ol>${(m.steps || []).map(x => `<li>${x}</li>`).join('')}</ol></section>
+      </div>
+      ${m.say?.length ? `<section class="pb-say"><h4>Say it · language to model</h4><ul>${m.say.map(x => `<li>${x}</li>`).join('')}</ul></section>` : ''}
+      ${m.materials?.length ? `<section class="pb-mats"><h4>Materials (Photocopiables)</h4><div>${pbPrintLinks(m.materials)}</div></section>` : ''}
+      ${m.stretch ? `<p class="pb-stretch"><b>Want more?</b> ${m.stretch}</p>` : ''}
+      <p class="pb-planb">${icon('bulb')}<span><b>Prefer not to today?</b> ${m.planB || 'Skip it — the activity on screen is complete as it is.'}</span></p>
+    </div></details>`).join('');
+}
+function stageGuide(s) {
+  if (!state.teacher) return ''; const g = PB()?.stages?.[s.id]; if (!g) return '';
+  return `<details class="pb-guide">
+    <summary><span class="pb-ic">${PB_BOOK}</span><span class="pb-sum"><small>Teacher’s playbook · optional</small><b>Teacher’s guide to ${esc(s.code || code(s))} ${esc(s.title)}</b></span><span class="pb-chev" aria-hidden="true"></span></summary>
+    <div class="pb-body">
+      ${g.tips?.length ? `<section><h4>Make it work</h4><ul>${g.tips.map(x => `<li>${x}</li>`).join('')}</ul></section>` : ''}
+      ${g.creative ? `<section class="pb-creative"><h4>A more creative way</h4><p>${g.creative}</p></section>` : ''}
+      ${g.watch?.length ? `<section class="pb-watch"><h4>Watch out for</h4><ul>${g.watch.map(x => `<li>${x}</li>`).join('')}</ul></section>` : ''}
+    </div></details>`;
+}
+function dayPlaybook() {
+  if (!state.teacher) return ''; const pb = PB(); if (!pb?.moves?.length) return '';
+  const total = lesson.sections.reduce((t, s) => t + s.minutes, 0) || 240;
+  const ms = pb.moves.map(m => ({ m, s: lesson.sections.find(x => x.id === m.section), at: pbStartMin(m.activity) })).filter(x => x.s);
+  return `<section class="pb-day" aria-label="Teacher’s playbook for today (teacher only)">
+    <header><span class="pb-ic">${PB_WALK}</span><div><small>Teacher’s playbook · teacher only · optional</small><h2>Today’s ${ms.length} stand-up moments</h2>
+      <p>Get everyone off their laptops about once an hour. Open a moment for the set-up, steps and language. Skip any of them — every activity also works on screen.</p></div></header>
+    <div class="pb-track" aria-hidden="true">${lesson.sections.map(s => `<span style="${tone(s)};flex:${s.minutes}"><b>${esc(s.code || code(s))}</b></span>`).join('')}
+      ${ms.map(x => `<i style="left:${Math.min(98, Math.max(2, 100 * (x.at ?? 0) / total))}%">${x.m.n}</i>`).join('')}</div>
+    <ol class="pb-list">${ms.map(x => `<li><a href="${L(x.s.id)}" data-pb-go="${esc(x.m.activity)}" data-pb-stage="${esc(x.s.id)}"><span class="pb-n">${x.m.n}</span>
+      <span><b>${esc(x.m.title)}</b><small>${esc(x.s.code || code(x.s))} · ${esc(x.m.kind)} · ${x.m.minutes} min${x.at != null ? ` · about ${pbClock(x.at)} into the day` : ''}</small></span>${icon('arrow')}</a></li>`).join('')}</ol>
+  </section>`;
+}
+/* open the stage on the right activity when a moment is clicked in the day plan */
+document.addEventListener('click', e => { const g = e.target.closest?.('[data-pb-go]'); if (!g) return;
+  state.active[g.dataset.pbStage] = g.dataset.pbGo; save(false); });
 function downloadsPage() {
   const pages = DL.reduce((n, d) => n + (d.pages || 0), 0), got = dlDone();
   return `<div class="dlx-page">

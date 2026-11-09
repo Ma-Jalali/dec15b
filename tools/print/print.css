@@ -6,12 +6,12 @@
    Re-usable parts below: header (.hdr .kicker h1 .namebox), steps (.steps .step), phrase pill (.phrase),
    card grid (.grid .sq), footer (.foot), phrase cards (.cards .card), dark panel (.after .wl), tips (.tips .tip).
    Add your own small classes inside each file's <style> when a sheet needs a special layout (cut-out cards, posters …). */
-@font-face{font-family:Manrope;font-weight:400;src:url('../../../assets/fonts/manrope-normal-400.woff2')}
-@font-face{font-family:Manrope;font-weight:600;src:url('../../../assets/fonts/manrope-normal-600.woff2')}
-@font-face{font-family:Manrope;font-weight:700;src:url('../../../assets/fonts/manrope-normal-700.woff2')}
-@font-face{font-family:Manrope;font-weight:800;src:url('../../../assets/fonts/manrope-normal-800.woff2')}
-@font-face{font-family:Fraunces;font-weight:600;src:url('../../../assets/fonts/fraunces-normal-600.woff2')}
-@font-face{font-family:Fraunces;font-style:italic;font-weight:400;src:url('../../../assets/fonts/fraunces-italic-400.woff2')}
+@font-face{font-family:Manrope;font-weight:400;src:url('../../assets/fonts/manrope-normal-400.woff2')}
+@font-face{font-family:Manrope;font-weight:600;src:url('../../assets/fonts/manrope-normal-600.woff2')}
+@font-face{font-family:Manrope;font-weight:700;src:url('../../assets/fonts/manrope-normal-700.woff2')}
+@font-face{font-family:Manrope;font-weight:800;src:url('../../assets/fonts/manrope-normal-800.woff2')}
+@font-face{font-family:Fraunces;font-weight:600;src:url('../../assets/fonts/fraunces-normal-600.woff2')}
+@font-face{font-family:Fraunces;font-style:italic;font-weight:400;src:url('../../assets/fonts/fraunces-italic-400.woff2')}
 @page{size:A4;margin:0}
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--navy:#14293a;--teal:#13887a;--teal2:#0f6b61;--gold:#e3a843;--clay:#b0512a;--plum:#7a4a8c;--blue:#3a58a0;--leaf:#3f7a3a;--paper:#fbf8f2;--ink:#22313f;--muted:#5b6b7a}

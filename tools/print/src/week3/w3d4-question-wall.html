@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Question wall headers: C / P / AST</title>
+<link rel="stylesheet" href="../../print.css">
+<style>
+  .page{padding:11mm 12mm 10mm;display:flex;flex-direction:column}
+  .page::after{content:"";position:absolute;left:0;right:0;top:0;height:4mm;background:var(--c)}
+  .ptop{display:flex;justify-content:space-between;align-items:center;margin-top:1mm;position:relative}
+  .ptop .kicker{color:var(--muted)}
+  .ptop .kicker b{color:var(--navy)}
+  .col{white-space:nowrap;font-size:9.6pt;font-weight:800;color:var(--c);border:.5mm solid var(--c);border-radius:10mm;padding:1mm 4mm;background:#fff}
+  .head{display:flex;align-items:center;gap:8mm;margin-top:7mm;position:relative}
+  .letter{flex:none;font-family:Fraunces,Georgia,serif;font-weight:600;color:var(--c);width:92mm;height:92mm;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 10%,#fff);border:1.6mm solid color-mix(in srgb,var(--c) 45%,#fff);line-height:1;padding-bottom:3mm}
+  .name{font-size:13pt;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .name b{display:block;font-family:Fraunces,Georgia,serif;font-size:40pt;letter-spacing:0;text-transform:none;color:var(--c);line-height:1.02;margin-top:1mm}
+  .gist{margin-top:3mm;font-size:13pt;font-weight:700;color:var(--navy);line-height:1.3}
+  .starters{margin-top:8mm;background:#fff;border-radius:4mm;padding:5mm 7mm 4mm;box-shadow:0 .6mm 2mm rgba(20,41,58,.13);border-left:2mm solid var(--c);position:relative}
+  .starters h3{font-size:9pt;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--c)}
+  .starters ul{list-style:none;margin-top:1.5mm}
+  .starters li{font-size:16pt;line-height:1.3;padding:2.6mm 0 2.6mm 7mm;position:relative;border-bottom:.25mm dashed #dfe5ea;color:var(--ink)}
+  .starters li:last-child{border-bottom:0}
+  .starters li::before{content:"“";position:absolute;left:0;top:1mm;font-family:Fraunces,Georgia,serif;font-size:22pt;color:color-mix(in srgb,var(--c) 60%,#fff)}
+  .starters li b{color:var(--c)}
+  .drop{flex:1;margin-top:7mm;border:.8mm dashed color-mix(in srgb,var(--c) 55%,#fff);border-radius:6mm;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2mm;position:relative;background:color-mix(in srgb,var(--c) 4%,transparent)}
+  .drop .arrow{width:22mm;height:22mm}
+  .drop .arrow path{fill:none;stroke:color-mix(in srgb,var(--c) 70%,#fff);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .drop p{font-size:14pt;font-weight:800;color:var(--c)}
+  .drop small{font-size:10pt;font-weight:600;color:var(--muted)}
+  .foot{bottom:4mm}
+</style></head><body>
+
+<section class="page" style="--c:#3a58a0">
+  <div class="ptop"><div class="kicker"><b>DEC10</b> Week 3 · Day 4 · 15A · Question wall</div><div class="col">Column 1 of 3</div></div>
+  <div class="head"><div class="letter" style="font-size:230pt">C</div>
+    <div><div class="name">Question type<b>Clarification</b></div><div class="gist">I did not understand something — please tell me exactly.</div></div></div>
+  <div class="starters"><h3>Start your question with</h3><ul>
+    <li><b>What did you mean by</b> “reskilling”?</li>
+    <li><b>Could you clarify how</b> … ?</li>
+    <li><b>Sorry, did you say</b> 50% or 15%?</li>
+  </ul></div>
+  <div class="drop"><svg class="arrow" viewBox="0 0 24 24"><path d="M12 3v16M5 12l7 7 7-7"/></svg><p>Stick your C questions below this sign</p><small>One question per sticky note · write <b>C</b> + your initials in the corner</small></div>
+  <div class="foot"><div>Also a board header for the 15A question relay (a3)</div><div>Question wall · 1 / 3</div></div>
+</section>
+
+<section class="page" style="--c:#7a4a8c">
+  <div class="ptop"><div class="kicker"><b>DEC10</b> Week 3 · Day 4 · 15A · Question wall</div><div class="col">Column 2 of 3</div></div>
+  <div class="head"><div class="letter" style="font-size:230pt">P</div>
+    <div><div class="name">Question type<b>Probing</b></div><div class="gist">Tell me more — explain why, or go deeper.</div></div></div>
+  <div class="starters"><h3>Start your question with</h3><ul>
+    <li><b>Why do you think</b> green jobs will grow so fast?</li>
+    <li><b>How did you come to</b> that conclusion?</li>
+    <li><b>I was wondering why</b> you chose to focus on … ?</li>
+  </ul></div>
+  <div class="drop"><svg class="arrow" viewBox="0 0 24 24"><path d="M12 3v16M5 12l7 7 7-7"/></svg><p>Stick your P questions below this sign</p><small>One question per sticky note · write <b>P</b> + your initials in the corner</small></div>
+  <div class="foot"><div>Also a board header for the 15A question relay (a3)</div><div>Question wall · 2 / 3</div></div>
+</section>
+
+<section class="page" style="--c:#2b776e">
+  <div class="ptop"><div class="kicker"><b>DEC10</b> Week 3 · Day 4 · 15A · Question wall</div><div class="col">Column 3 of 3</div></div>
+  <div class="head"><div class="letter" style="font-size:104pt">AST</div>
+    <div><div class="name">Question type<b>Academic Success Toolkit</b></div><div class="gist">How did you use your academic skills — group work, research, time, feedback, AI, criticality?</div></div></div>
+  <div class="starters"><h3>Start your question with</h3><ul>
+    <li><b>How did you decide</b> who does what?</li>
+    <li><b>How did you check</b> that your sources were reliable?</li>
+    <li><b>Did your research change</b> your view of the topic?</li>
+  </ul></div>
+  <div class="drop"><svg class="arrow" viewBox="0 0 24 24"><path d="M12 3v16M5 12l7 7 7-7"/></svg><p>Stick your AST questions below this sign</p><small>One question per sticky note · write <b>AST</b> + your initials in the corner</small></div>
+  <div class="foot"><div>Also a board header for the 15A question relay (a3)</div><div>Question wall · 3 / 3</div></div>
+</section>
+</body></html>

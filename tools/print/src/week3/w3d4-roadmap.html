@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Our road to Week 7 (group poster)</title>
+<link rel="stylesheet" href="../../print.css">
+<style>
+  .page{padding:9mm 10mm 9mm}
+  .hdr{padding:4mm 6mm 4mm 7mm}
+  h1{font-size:23pt}
+  .namebox{min-width:70mm}
+  .road{position:relative;margin-top:3mm;height:30mm;background:#fff;border-radius:4mm;box-shadow:0 .5mm 1.6mm rgba(20,41,58,.12);overflow:hidden}
+  .road svg{position:absolute;inset:0;width:100%;height:100%}
+  .lanes{margin-top:3mm;display:grid;grid-template-columns:30mm repeat(4,1fr);gap:0;background:#fff;border-radius:4mm;overflow:hidden;box-shadow:0 .6mm 2mm rgba(20,41,58,.13)}
+  .lanes>div{border-bottom:.3mm solid #e3e9ee;border-right:.3mm solid #e3e9ee;padding:2.2mm 2.6mm;min-height:27mm;position:relative}
+  .lanes>div:nth-child(5n){border-right:0}
+  .lanes .h{min-height:0;background:color-mix(in srgb,var(--c) 12%,#fff);font-size:8.4pt;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--c);padding:2mm 2.6mm;border-top:1.3mm solid var(--c)}
+  .lanes .h small{display:block;font-size:8.6pt;letter-spacing:0;text-transform:none;font-weight:600;font-style:italic;color:var(--ink);margin-top:.6mm}
+  .lanes .h.blank{background:#f4f1ea;border-top-color:#c9d2d9}
+  .who{display:flex;flex-direction:column;justify-content:space-between;background:#fbfaf6}
+  .who b{font-size:7pt;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .who span{display:block;border-bottom:.35mm dashed #9fb0bb;height:7mm}
+  .who i{font-style:normal;font-size:7pt;font-weight:700;color:var(--muted)}
+  .cell .mark{position:absolute;right:2mm;bottom:1.6mm;font-size:12pt;font-weight:800;color:color-mix(in srgb,var(--c) 45%,#fff)}
+  .bottom{display:grid;grid-template-columns:1.35fr 1fr;gap:3mm;margin-top:3mm}
+  .box{background:#fff;border-radius:4mm;padding:3.4mm 4mm;box-shadow:0 .6mm 2mm rgba(20,41,58,.13);position:relative;overflow:hidden}
+  .box::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1.6mm;background:var(--c)}
+  .box h3{font-size:10.4pt;font-weight:800;color:var(--c);display:flex;align-items:center;gap:2mm}
+  .box p{font-size:8.6pt;color:var(--muted);font-weight:600;margin-top:.6mm}
+  .lns span{display:block;border-bottom:.3mm dashed #b7c3cc;height:7mm}
+  .sign{display:inline-block;background:var(--c);color:#fff;font-size:7.4pt;letter-spacing:.1em;border-radius:1.2mm;padding:.4mm 2mm}
+  .notes{margin-top:2mm;height:30mm;border:.6mm dashed color-mix(in srgb,var(--c) 50%,#fff);border-radius:3mm;display:grid;place-items:center;font-size:8.6pt;font-weight:700;color:var(--muted);text-align:center;padding:2mm}
+  .phr{display:flex;flex-wrap:wrap;gap:1.6mm;margin-top:3mm}
+  .phr span{font-size:8.4pt;font-weight:700;background:color-mix(in srgb,var(--c) 10%,#fff);color:var(--navy);border-radius:10mm;padding:.9mm 2.6mm}
+  .phr span b{color:var(--c)}
+  .foot{bottom:4mm}
+</style></head><body>
+
+<section class="page">
+  <header class="hdr">
+    <div class="hdr-row">
+      <div>
+        <div class="kicker"><b>DEC10</b> Week 3 · Day 4 · 19A Check in</div>
+        <h1>Our road <i>to Week 7</i></h1>
+      </div>
+      <div class="namebox">Seminar group · our topic<span></span></div>
+    </div>
+  </header>
+
+  <!-- road strip: Week 3 pin → Week 7 flag -->
+  <div class="road">
+    <svg viewBox="0 0 190 30" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M6 22 C 40 6, 70 28, 100 15 S 160 6, 184 14" fill="none" stroke="#d8dee3" stroke-width="7" stroke-linecap="round"/>
+      <path d="M6 22 C 40 6, 70 28, 100 15 S 160 6, 184 14" fill="none" stroke="#fff" stroke-width=".7" stroke-dasharray="3 3"/>
+    </svg>
+    <svg viewBox="0 0 190 30" aria-hidden="true">
+      <g font-family="Manrope,Arial,sans-serif" font-weight="800" font-size="3.6" text-anchor="middle">
+        <circle cx="10" cy="20" r="4.2" fill="#b0512a"/><text x="10" y="21.3" fill="#fff">W3</text><text x="4" y="9" fill="#b0512a" font-size="3.2" text-anchor="start">YOU ARE HERE</text>
+        <circle cx="52" cy="16" r="3.6" fill="#3a58a0"/><text x="52" y="17.3" fill="#fff" font-size="3.2">W4</text>
+        <circle cx="96" cy="16" r="3.6" fill="#3a58a0"/><text x="96" y="17.3" fill="#fff" font-size="3.2">W5</text>
+        <circle cx="140" cy="10" r="3.6" fill="#3a58a0"/><text x="140" y="11.3" fill="#fff" font-size="3.2">W6</text>
+        <path d="M181 15V3l7 3-7 3" fill="#13887a"/><text x="187" y="25" fill="#13887a" font-size="3.2" text-anchor="end">W7 · ASSESSMENT</text>
+        <text x="74" y="27.5" fill="#5b6b7a" font-size="2.8" font-weight="700">research · plan · prepare together</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="lanes" style="--c:#13887a">
+    <div class="h blank">Group member</div>
+    <div class="h" style="--c:#3f7a3a">✓ Done<small>So far, I have …</small></div>
+    <div class="h" style="--c:#b0512a">✗ Stuck on<small>I’m stuck on …</small></div>
+    <div class="h" style="--c:#3a58a0">→ Next step + when<small>By next week, I will …</small></div>
+    <div class="h" style="--c:#7a4a8c">+ Group idea<small>Why don’t you try …?</small></div>
+    <div class="who"><b>Name</b><span></span><i>Strategy:</i></div><div class="cell" style="--c:#3f7a3a"><span class="mark">✓</span></div><div class="cell" style="--c:#b0512a"><span class="mark">✗</span></div><div class="cell" style="--c:#3a58a0"><span class="mark">→</span></div><div class="cell" style="--c:#7a4a8c"><span class="mark">+</span></div>
+    <div class="who"><b>Name</b><span></span><i>Strategy:</i></div><div class="cell" style="--c:#3f7a3a"><span class="mark">✓</span></div><div class="cell" style="--c:#b0512a"><span class="mark">✗</span></div><div class="cell" style="--c:#3a58a0"><span class="mark">→</span></div><div class="cell" style="--c:#7a4a8c"><span class="mark">+</span></div>
+    <div class="who"><b>Name</b><span></span><i>Strategy:</i></div><div class="cell" style="--c:#3f7a3a"><span class="mark">✓</span></div><div class="cell" style="--c:#b0512a"><span class="mark">✗</span></div><div class="cell" style="--c:#3a58a0"><span class="mark">→</span></div><div class="cell" style="--c:#7a4a8c"><span class="mark">+</span></div>
+    <div class="who"><b>Name</b><span></span><i>Strategy:</i></div><div class="cell" style="--c:#3f7a3a"><span class="mark">✓</span></div><div class="cell" style="--c:#b0512a"><span class="mark">✗</span></div><div class="cell" style="--c:#3a58a0"><span class="mark">→</span></div><div class="cell" style="--c:#7a4a8c"><span class="mark">+</span></div>
+  </div>
+
+  <div class="bottom">
+    <div class="box" style="--c:#b0512a">
+      <h3><span class="sign">ROADBLOCK</span> Our biggest problem right now</h3>
+      <div class="lns"><span></span></div>
+      <h3 style="margin-top:2.6mm;color:#13887a">Our solution</h3>
+      <div class="lns"><span></span><span></span></div>
+      <div class="notes">Visitors: stick ONE idea here on a sticky note<br>“Why don’t you try …?” · “Have you thought about …?”</div>
+    </div>
+    <div class="box" style="--c:#3a58a0">
+      <h3>Our question for the teacher</h3>
+      <p>Be specific: “Could you help us with …?”</p>
+      <div class="lns"><span></span><span></span><span></span></div>
+      <h3 style="margin-top:3mm;color:#7a4a8c">Jobs today</h3>
+      <div class="phr"><span><b>Chair</b> calls each speaker</span><span><b>Timekeeper</b> 1 min each</span><span><b>Language monitor</b> ticks phrases</span><span><b>Note-taker</b> writes the lanes</span></div>
+      <div class="phr"><span><b>I’ve managed to</b> …</span><span><b>I’m still working on</b> …</span><span><b>Have you thought about</b> …?</span><span><b>Could you send me</b> …?</span></div>
+    </div>
+  </div>
+
+  <div class="foot"><div>Print on A3 if you can (or A4). One poster per Seminar group · then copy your next steps into the c4 group agreement</div><div>Road to Week 7 · 1 / 1</div></div>
+</section>
+</body></html>
