@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Group role cards</title>
+<link rel="stylesheet" href="../../print.css">
+<style>
+  .hdr{padding:4mm 6mm 4mm 7mm} h1{font-size:22pt}
+  .rot{display:flex;align-items:center;gap:3mm;margin-top:3mm;background:#fff;border-radius:3mm;padding:2.4mm 3.4mm;box-shadow:0 .5mm 1.6mm rgba(20,41,58,.12);font-size:9.6pt;font-weight:600}
+  .rot .ic{--c:#13887a;width:9mm;height:9mm}.rot .ic svg{width:6mm;height:6mm}
+  .rot b{color:var(--teal2)}
+  .cutnote{display:flex;align-items:center;gap:2mm;margin-top:2.6mm;font-size:8pt;font-weight:700;color:var(--muted)} .cutnote .scissors{font-size:12pt}
+  .cut.roles{margin-top:1.5mm;grid-template-columns:1fr 1fr;grid-auto-rows:110mm}
+  .rc{position:relative;background:#fff;padding:5mm 5.5mm 4.5mm;display:flex;flex-direction:column;overflow:hidden}
+  .rc::before{content:"";position:absolute;left:0;right:0;top:0;height:2.2mm;background:var(--c)}
+  .rc .badge{position:absolute;right:-12mm;top:-12mm;width:40mm;height:40mm;border-radius:50%;background:color-mix(in srgb,var(--c) 9%,#fff)}
+  .rc .top{display:flex;align-items:center;gap:3.4mm;position:relative}
+  .rc .ic{width:16mm;height:16mm;border-radius:4mm}.rc .ic svg{width:10.5mm;height:10.5mm}
+  .rc .kind{font-size:7.4pt;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .rc .name{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:25pt;line-height:1;color:var(--c)}
+  .rc .job{margin-top:4mm;font-size:11.8pt;line-height:1.35;font-weight:600;color:var(--navy);position:relative}
+  .rc .job b{color:var(--c)}
+  .rc .say{margin-top:3mm;font-size:7.4pt;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+  .rc ul{list-style:none;margin-top:1mm}
+  .rc li{font-size:12.4pt;line-height:1.3;padding:2.2mm 0 1.7mm 5mm;position:relative;border-bottom:.25mm dashed #dfe5ea}
+  .rc li b{color:var(--c)}
+  .rc li:last-child{border-bottom:0}
+  .rc li::before{content:"“";position:absolute;left:0;top:.2mm;font-family:Fraunces,Georgia,serif;font-size:15pt;color:color-mix(in srgb,var(--c) 60%,#fff)}
+  .rc .tally{margin-top:auto;display:flex;align-items:flex-end;gap:2mm;font-size:7.4pt;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--c)}
+  .rc .tally span{flex:1;height:8mm;border:.3mm dashed #b7c3cc;border-radius:1.6mm}
+  .rc .who{margin-top:auto;display:flex;align-items:flex-end;gap:2mm;font-size:7.4pt;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+  .rc .who span{flex:1;border-bottom:.3mm dashed #b7c3cc;height:6mm}
+</style></head><body>
+
+<section class="page">
+  <header class="hdr"><div class="hdr-row">
+    <div><div class="kicker"><b>DEC10</b> Week 3 · Day 1 · 3A Group work skills</div><h1>Group role cards <i>everyone has a job</i></h1></div>
+    <div class="namebox" style="min-width:44mm">Group<span></span></div>
+  </div></header>
+
+  <div class="rot"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5.3"/><path class="f" d="M19.6 3.4l-.3 4.8-4.6-1.4z"/><path d="M20 12a8 8 0 0 1-14 5.3"/><path class="f" d="M4.4 20.6l.3-4.8 4.6 1.4z"/></svg></span>
+    <span>Each person takes <b>one card</b> and puts it on the table in front of them. After <b>every activity</b>, pass your card to the person on your <b>left</b>. Group of 5? Two people share the language monitor job.</span></div>
+
+  <div class="cutnote"><span class="scissors">✂</span> Cut along the dashed lines · 4 role cards per group</div>
+
+  <div class="cut roles">
+    <div class="rc" style="--c:#13887a"><span class="badge"></span>
+      <div class="top"><div class="ic"><svg viewBox="0 0 24 24"><circle class="fl" cx="12" cy="7" r="3"/><circle cx="12" cy="7" r="3"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/><path d="M2 12.5c1-1.2 2.2-1.6 3.2-1.4M22 12.5c-1-1.2-2.2-1.6-3.2-1.4"/></svg></div><div><div class="kind">Role 1</div><div class="name">Chair</div></div></div>
+      <div class="job">You <b>invite everyone to speak</b> and keep everyone talking. Make sure every person reads or says something.</div>
+      <div class="say">Say</div>
+      <ul><li><b>What do you think</b>, Omar?</li><li><b>We haven’t heard from</b> … yet.</li><li><b>Does anyone have a different view?</b></li></ul>
+      <div class="who">Name<span></span></div>
+    </div>
+
+    <div class="rc" style="--c:#c98d2c"><span class="badge"></span>
+      <div class="top"><div class="ic"><svg viewBox="0 0 24 24"><circle class="fl" cx="12" cy="13" r="8"/><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9.5 2.5h5M12 2.5V5"/></svg></div><div><div class="kind">Role 2</div><div class="name">Timekeeper</div></div></div>
+      <div class="job">You <b>watch the clock</b>. Tell the group how much time is left, and help them finish on time.</div>
+      <div class="say">Say</div>
+      <ul><li><b>Two minutes left.</b></li><li><b>Five minutes left</b> — let’s get ready to share.</li></ul>
+      <div class="who">Name<span></span></div>
+    </div>
+
+    <div class="rc" style="--c:#7a4a8c"><span class="badge"></span>
+      <div class="top"><div class="ic"><svg viewBox="0 0 24 24"><rect class="fl" x="4" y="3" width="16" height="18" rx="2"/><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8l1.5 1.5L12 7M8 14l1.5 1.5L12 13M14 8h3M14 14h3"/></svg></div><div><div class="kind">Role 3</div><div class="name">Language monitor</div></div></div>
+      <div class="job">You <b>listen and tick</b> the useful phrases people use (in the card game: O, F, N and R). Tell the group at the end.</div>
+      <div class="say">Say</div>
+      <ul><li><b>You used 4 phrases!</b></li><li><b>O? F? N? R?</b> — you used all four!</li></ul>
+      <div class="tally">Ticks<span></span></div>
+    </div>
+
+    <div class="rc" style="--c:#3a58a0"><span class="badge"></span>
+      <div class="top"><div class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M8 9h8M8 12.5h5"/></svg></div><div><div class="kind">Role 4</div><div class="name">Reporter</div></div></div>
+      <div class="job">You <b>tell the class the result</b> of your group — short and clear. Take notes so you are ready.</div>
+      <div class="say">Say</div>
+      <ul><li><b>Our group found that</b> …</li><li><b>Our move is</b> … <b>because</b> …</li></ul>
+      <div class="who">Name<span></span></div>
+    </div>
+  </div>
+
+  <div class="foot"><div>DEC10 · Week 3 · Supporting the group</div><div>Group role cards · print one sheet per group</div></div>
+</section>
+</body></html>

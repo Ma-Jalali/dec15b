@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Audience jobs and spotter bingo</title>
+<link rel="stylesheet" href="../../print.css">
+<style>
+.hdr.sm{padding:4mm 6mm 4mm 7mm}.hdr.sm h1{font-size:21pt}
+.steps.two{grid-template-columns:1fr 1fr 1fr}
+.cutwrap{position:relative;margin-top:4mm}
+.cutwrap .scissors{position:absolute;left:-1mm;top:-3.4mm;font-size:11pt;background:var(--paper);padding:0 1mm;z-index:2}
+.cut.jobs{grid-template-columns:1fr 1fr}
+.job{position:relative;background:#fff;height:53.5mm;padding:4mm 4.5mm 3.4mm 6mm;display:flex;flex-direction:column;overflow:hidden}
+.job::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2mm;background:var(--c)}
+.job .top{display:flex;align-items:center;gap:2.6mm}
+.job .ic{width:12mm;height:12mm}.job .ic svg{width:8mm;height:8mm}
+.job .role{font-size:6.8pt;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.job h3{font-size:15pt;font-weight:800;color:var(--c);line-height:1.05}
+.job .set{position:absolute;right:3mm;top:2.6mm;font-size:7pt;font-weight:800;color:#fff;background:var(--c);border-radius:10mm;padding:.6mm 2.2mm;letter-spacing:.06em}
+.job .task{font-size:11pt;font-weight:700;line-height:1.25;margin-top:2.4mm;color:var(--navy)}
+.job .more{font-size:8.6pt;line-height:1.3;margin-top:1.6mm;color:var(--ink)}
+.job .more b{color:var(--c)}
+.job .say{margin-top:auto;font-size:8.6pt;background:color-mix(in srgb,var(--c) 10%,#fff);border-radius:2mm;padding:1.4mm 2.4mm;font-style:italic;color:#33424f}
+.job .say b{font-style:normal;font-size:6.6pt;letter-spacing:.08em;text-transform:uppercase;color:var(--c);margin-right:1.4mm}
+.job .wline{margin-top:auto;display:flex;gap:1.4mm;align-items:flex-end;font-size:7pt;font-weight:800;color:var(--c);text-transform:uppercase;letter-spacing:.06em}
+.job .wline span{flex:1;border-bottom:.3mm dashed #b7c3cc;height:6mm}
+.swap{margin-top:3.5mm;display:flex;align-items:center;gap:2.5mm;background:#fff;border-radius:3mm;padding:2.4mm 3.4mm;box-shadow:0 .5mm 1.6mm rgba(20,41,58,.1);font-size:9.6pt;font-weight:700}
+.swap .chip{border-radius:10mm;padding:.6mm 2.4mm;color:#fff;font-size:8.6pt;font-weight:800}
+/* bingo halves */
+.half{position:relative;padding-top:1mm}
+.half+.half{margin-top:7mm}
+.cutline{position:absolute;left:-11mm;right:-11mm;top:-3mm;border-top:.35mm dashed #9fb0bb}
+.cutline::before{content:"✂";position:absolute;left:8mm;top:-3.4mm;font-size:11pt;color:#9fb0bb;background:var(--paper);padding:0 1mm}
+.bh{display:flex;justify-content:space-between;align-items:flex-end;gap:4mm}
+.bh h2{font-size:17pt}
+.bh .namebox{min-width:56mm;font-size:8.4pt;background:#fff;box-shadow:inset 0 0 0 .3mm rgba(20,41,58,.18)}
+.bh .kick{font-size:7.6pt;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.bgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:2mm;margin-top:2.6mm}
+.bq{position:relative;background:#fff;border-radius:2.6mm;height:26mm;padding:2mm 2.4mm 1.6mm;display:flex;flex-direction:column;box-shadow:0 .5mm 1.5mm rgba(20,41,58,.12);overflow:hidden}
+.bq::before{content:"";position:absolute;left:0;right:0;top:0;height:1.2mm;background:var(--c)}
+.bq p{font-size:10pt;font-weight:800;line-height:1.2;color:var(--navy);margin-top:.8mm;padding-right:4mm}
+.bq .nm{margin-top:auto;display:flex;gap:1mm;align-items:flex-end;font-size:6.4pt;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--c)}
+.bq .nm span{flex:1;border-bottom:.3mm dashed #b7c3cc;height:4.5mm}
+.bq i{position:absolute;right:1.8mm;top:2mm;font-style:normal;font-size:6.4pt;font-weight:800;color:color-mix(in srgb,var(--c) 70%,#fff)}
+.bnote{margin-top:2.2mm;font-size:9pt;font-weight:600;color:var(--muted)}
+.bnote b{color:var(--clay)}
+</style></head><body>
+
+<!-- ============ PAGE 1 · job cards ============ -->
+<section class="page">
+  <header class="hdr sm">
+    <div class="hdr-row">
+      <div>
+        <div class="kicker"><b>DEC10</b> Week 3 · Day 5 · 15A Group research summary presentations</div>
+        <h1>Audience jobs — <i>no passive listeners</i></h1>
+      </div>
+    </div>
+  </header>
+
+  <div class="steps">
+    <div class="step" style="--c:#13887a"><div class="n">1</div><p>In your <b>watching group</b>, each person takes <b>one card</b> for Presentation 4.</p></div>
+    <div class="step" style="--c:#3a58a0"><div class="n">2</div><p>Do <b>your job</b> while the group presents (8–10 min) and in the questions.</p></div>
+    <div class="step" style="--c:#b0512a"><div class="n">3</div><p>Presentation 5: <b>pass your card</b> to the person on your left.</p></div>
+  </div>
+
+  <div class="cutwrap">
+    <span class="scissors">✂</span>
+    <div class="cut jobs">
+      <!-- SET A -->
+      <div class="job" style="--c:#13887a"><span class="set">SET A · 1</span>
+        <div class="top"><span class="ic"><svg viewBox="0 0 24 24"><rect class="fl" x="5" y="3" width="14" height="18" rx="2"/><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3V2h6v1M8.5 9l1.5 1.5L13 7.5M8.5 15l1.5 1.5 3-3M15 9h1M15 15h1"/></svg></span><div><div class="role">Job 1</div><h3>Feedback scribe</h3></div></div>
+        <div class="task">I fill in the Feedback Tool for our presenter.</div>
+        <div class="more">Choose <b>Yes</b>, <b>Mostly</b> or <b>Needs work</b>. Write a short comment and <b>one action point</b>.</div>
+        <div class="say"><b>Say</b>“… was good. To make it even better, you might …”</div></div>
+      <div class="job" style="--c:#7a4a8c"><span class="set">SET A · 2</span>
+        <div class="top"><span class="ic"><svg viewBox="0 0 24 24"><rect class="fl" x="3" y="3" width="18" height="18" rx="2"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/><path d="M10.5 11l1.5 1.5 3-3"/></svg></span><div><div class="role">Job 2</div><h3>Language spotter</h3></div></div>
+        <div class="task">I play phrase bingo: I write the speaker’s name when I hear a phrase.</div>
+        <div class="more">Use the <b>bingo half-sheet</b>. After the talk, tell your presenter <b>which bingo phrases you heard</b>.</div>
+        <div class="say"><b>Listen for</b>“One major cause of … is …”</div></div>
+      <div class="job" style="--c:#c98d2c"><span class="set">SET A · 3</span>
+        <div class="top"><span class="ic"><svg viewBox="0 0 24 24"><circle class="fl" cx="10" cy="10" r="6"/><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5L20 20M8 12V9M10 12V7M12 12v-2"/></svg></span><div><div class="role">Job 3</div><h3>Evidence hunter</h3></div></div>
+        <div class="task">I note one number or fact and its source.</div>
+        <div class="more">Example: <b>9% a year</b> — LinkedIn report (Hyman &amp; Smith, 2023)</div>
+        <div class="wline">Number / fact<span></span></div>
+        <div class="wline" style="margin-top:1.4mm">Source<span></span></div></div>
+      <div class="job" style="--c:#b0512a"><span class="set">SET A · 4</span>
+        <div class="top"><span class="ic"><svg viewBox="0 0 24 24"><circle class="fl" cx="12" cy="5.5" r="2.5"/><circle cx="12" cy="5.5" r="2.5"/><path d="M12 8v7M12 10l-4 3M12 10l5-5M12 15l-3 6M12 15l3 6"/><path d="M18.5 2.5h3v3"/></svg></span><div><div class="role">Job 4</div><h3>Question master</h3></div></div>
+        <div class="task">I stand up and ask our group’s question.</div>
+        <div class="more">Points: <b>clarification = 1</b> · <b>probing = 2</b> · <b>AST = 3</b>. Clear and polite only!</div>
+        <div class="say"><b>Ask</b>“Could you explain …?” · “Why do you think …?” · “How did you decide …?”</div></div>
+      <!-- SET B -->
+      <div class="job" style="--c:#13887a"><span class="set">SET B · 1</span>
+        <div class="top"><span class="ic"><svg viewBox="0 0 24 24"><rect class="fl" x="5" y="3" width="14" height="18" rx="2"/><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3V2h6v1M8.5 9l1.5 1.5L13 7.5M8.5 15l1.5 1.5 3-3M15 9h1M15 15h1"/></svg></span><div><div class="role">Job 1</div><h3>Feedback scribe</h3></div></div>
+        <div class="task">I fill in the Feedback Tool for our presenter.</div>
+        <div class="more">Choose <b>Yes</b>, <b>Mostly</b> or <b>Needs work</b>. Write a short comment and <b>one action point</b>.</div>
+        <div class="say"><b>Say</b>“… was good. To make it even better, you might …”</div></div>
+      <div class="job" style="--c:#7a4a8c"><span class="set">SET B · 2</span>
+        <div class="top"><span class="ic"><svg viewBox="0 0 24 24"><rect class="fl" x="3" y="3" width="18" height="18" rx="2"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/><path d="M10.5 11l1.5 1.5 3-3"/></svg></span><div><div class="role">Job 2</div><h3>Language spotter</h3></div></div>
+        <div class="task">I play phrase bingo: I write the speaker’s name when I hear a phrase.</div>
+        <div class="more">Use the <b>bingo half-sheet</b>. After the talk, tell your presenter <b>which bingo phrases you heard</b>.</div>
+        <div class="say"><b>Listen for</b>“One major cause of … is …”</div></div>
+      <div class="job" style="--c:#c98d2c"><span class="set">SET B · 3</span>
+        <div class="top"><span class="ic"><svg viewBox="0 0 24 24"><circle class="fl" cx="10" cy="10" r="6"/><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5L20 20M8 12V9M10 12V7M12 12v-2"/></svg></span><div><div class="role">Job 3</div><h3>Evidence hunter</h3></div></div>
+        <div class="task">I note one number or fact and its source.</div>
+        <div class="more">Example: <b>9% a year</b> — LinkedIn report (Hyman &amp; Smith, 2023)</div>
+        <div class="wline">Number / fact<span></span></div>
+        <div class="wline" style="margin-top:1.4mm">Source<span></span></div></div>
+      <div class="job" style="--c:#b0512a"><span class="set">SET B · 4</span>
+        <div class="top"><span class="ic"><svg viewBox="0 0 24 24"><circle class="fl" cx="12" cy="5.5" r="2.5"/><circle cx="12" cy="5.5" r="2.5"/><path d="M12 8v7M12 10l-4 3M12 10l5-5M12 15l-3 6M12 15l3 6"/><path d="M18.5 2.5h3v3"/></svg></span><div><div class="role">Job 4</div><h3>Question master</h3></div></div>
+        <div class="task">I stand up and ask our group’s question.</div>
+        <div class="more">Points: <b>clarification = 1</b> · <b>probing = 2</b> · <b>AST = 3</b>. Clear and polite only!</div>
+        <div class="say"><b>Ask</b>“Could you explain …?” · “Why do you think …?” · “How did you decide …?”</div></div>
+    </div>
+  </div>
+
+  <div class="swap">Swap for Presentation 5:
+    <span class="chip" style="background:#13887a">Scribe</span>→<span class="chip" style="background:#7a4a8c">Spotter</span>→<span class="chip" style="background:#c98d2c">Hunter</span>→<span class="chip" style="background:#b0512a">Question master</span>→<span class="chip" style="background:#13887a">Scribe</span></div>
+
+  <div class="foot"><div>DEC10 · Week 3 · Day 5 · Audience jobs</div><div>2 sets per page · cut on the dashed lines</div></div>
+</section>
+
+<!-- ============ PAGE 2 · spotter bingo (two half-sheets) ============ -->
+<section class="page">
+  <div class="half">
+    <div class="bh">
+      <div><div class="kick">DEC10 · Week 3 · Day 5 · 15A · Language spotter</div><h2>Who said it? <i>Bingo · Presentation 4</i></h2></div>
+      <div class="namebox">Spotter’s name<span></span></div>
+    </div>
+    <div class="bgrid">
+      <div class="bq" style="--c:#13887a"><i>01</i><p>Today we’re going to look at …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#13887a"><i>02</i><p>… is divided into …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#13887a"><i>03</i><p>First, … Then … Finally, …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#b0512a"><i>04</i><p>One major cause of … is …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#b0512a"><i>05</i><p>… has led to …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#b0512a"><i>06</i><p>… is driving a demand for …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#b0512a"><i>07</i><p>As a result, …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#b0512a"><i>08</i><p>Consequently, …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#b0512a"><i>09</i><p>This is largely due to …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#b0512a"><i>10</i><p>One likely effect is that …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#3a58a0"><i>11</i><p>According to …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#3a58a0"><i>12</i><p>… found that …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#7a4a8c"><i>13</i><p>Now I’ll hand over to …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#7a4a8c"><i>14</i><p>Building on what … said, …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#c98d2c"><i>15</i><p>To sum up, …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#c98d2c"><i>16</i><p>The key takeaway is …</p><div class="nm">Name<span></span></div></div>
+    </div>
+    <div class="bnote">When a presenter uses the phrase, write their name in the square. <b>Four in a row?</b> Raise your hand quietly — tell the class after the talk.</div>
+  </div>
+
+  <div class="half">
+    <div class="cutline"></div>
+    <div class="bh">
+      <div><div class="kick">DEC10 · Week 3 · Day 5 · 15A · Language spotter</div><h2>Who said it? <i>Bingo · Presentation 5</i></h2></div>
+      <div class="namebox">Spotter’s name<span></span></div>
+    </div>
+    <div class="bgrid">
+      <div class="bq" style="--c:#13887a"><i>01</i><p>Today we’re going to look at …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#13887a"><i>02</i><p>… is divided into …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#13887a"><i>03</i><p>First, … Then … Finally, …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#b0512a"><i>04</i><p>One major cause of … is …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#b0512a"><i>05</i><p>… has led to …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#b0512a"><i>06</i><p>… is driving a demand for …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#b0512a"><i>07</i><p>As a result, …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#b0512a"><i>08</i><p>Consequently, …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#b0512a"><i>09</i><p>This is largely due to …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#b0512a"><i>10</i><p>One likely effect is that …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#3a58a0"><i>11</i><p>According to …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#3a58a0"><i>12</i><p>… found that …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#7a4a8c"><i>13</i><p>Now I’ll hand over to …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#7a4a8c"><i>14</i><p>Building on what … said, …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#c98d2c"><i>15</i><p>To sum up, …</p><div class="nm">Name<span></span></div></div>
+      <div class="bq" style="--c:#c98d2c"><i>16</i><p>The key takeaway is …</p><div class="nm">Name<span></span></div></div>
+    </div>
+    <div class="bnote">When a presenter uses the phrase, write their name in the square. <b>Four in a row?</b> Raise your hand quietly — tell the class after the talk.</div>
+  </div>
+</section>
+</body></html>
