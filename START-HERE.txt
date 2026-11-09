@@ -841,3 +841,16 @@ v6.6 (a quiet "paper version" mark for the teacher)
   css/downloads.css.
 - Note (9 Nov 2026): GitHub Pages' deploy for v6.6 got stuck in GitHub's queue; this small commit re-publishes the site.
   If the live site ever looks older than main, check github.com/Ma-Jalali/dec15b/actions (pages build and deployment).
+
+v6.7 (DEC10 Teacher's playbook — Week 3; print fonts fixed)
+- Teacher view only, always as closed folds, all optional (the lesson on screen is complete without them):
+  * Day overview: "Today's 4 stand-up moments" — a 4-hour track and links; each moment opens the right activity.
+  * In the activity: "Teacher's playbook · Stand-up moment n of 4" — why, before class, run it (timed steps), say it
+    (language to model), materials (links to Photocopiables), want more?, and "Prefer not to today?" (plan B).
+  * Top of every stage: "Teacher's guide to <code> <stage>" — make it work, a more creative way, watch out for.
+- Week 3: 20 stand-up moments (each day: a wall, a board, a group product, a mingle) and 26 stage guides, in
+  dec10/lessons/week3/playbook-d1.js … playbook-d5.js (window.DEC10_PLAYBOOK['d10w3dN'] = { moves, stages }), loaded
+  through each day's scripts in course.js. Moments fit inside existing activity minutes; no timings changed.
+- 10 new photocopiables for the moments (posters, slips, board-race signs): Week 3 now has 38 sheets.
+- Fix: tools/print/print.css pointed one folder too high for the fonts, so sheets printed in fallback fonts. All sheets
+  are rebuilt with Manrope/Fraunces (no page count changed).

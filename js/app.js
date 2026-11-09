@@ -1184,7 +1184,7 @@ function moveCard(a) {
 function stageGuide(s) {
   if (!state.teacher) return ''; const g = PB()?.stages?.[s.id]; if (!g) return '';
   return `<details class="pb-guide">
-    <summary><span class="pb-ic">${PB_BOOK}</span><span class="pb-sum"><small>Teacher’s playbook · optional</small><b>Teacher’s guide to ${esc(code(s))} ${esc(s.title)}</b></span><span class="pb-chev" aria-hidden="true"></span></summary>
+    <summary><span class="pb-ic">${PB_BOOK}</span><span class="pb-sum"><small>Teacher’s playbook · optional</small><b>Teacher’s guide to ${esc(s.code || code(s))} ${esc(s.title)}</b></span><span class="pb-chev" aria-hidden="true"></span></summary>
     <div class="pb-body">
       ${g.tips?.length ? `<section><h4>Make it work</h4><ul>${g.tips.map(x => `<li>${x}</li>`).join('')}</ul></section>` : ''}
       ${g.creative ? `<section class="pb-creative"><h4>A more creative way</h4><p>${g.creative}</p></section>` : ''}
@@ -1198,10 +1198,10 @@ function dayPlaybook() {
   return `<section class="pb-day" aria-label="Teacher’s playbook for today (teacher only)">
     <header><span class="pb-ic">${PB_WALK}</span><div><small>Teacher’s playbook · teacher only · optional</small><h2>Today’s ${ms.length} stand-up moments</h2>
       <p>Get everyone off their laptops about once an hour. Open a moment for the set-up, steps and language. Skip any of them — every activity also works on screen.</p></div></header>
-    <div class="pb-track" aria-hidden="true">${lesson.sections.map(s => `<span style="${tone(s)};flex:${s.minutes}"><b>${esc(code(s))}</b></span>`).join('')}
+    <div class="pb-track" aria-hidden="true">${lesson.sections.map(s => `<span style="${tone(s)};flex:${s.minutes}"><b>${esc(s.code || code(s))}</b></span>`).join('')}
       ${ms.map(x => `<i style="left:${Math.min(98, Math.max(2, 100 * (x.at ?? 0) / total))}%">${x.m.n}</i>`).join('')}</div>
     <ol class="pb-list">${ms.map(x => `<li><a href="${L(x.s.id)}" data-pb-go="${esc(x.m.activity)}" data-pb-stage="${esc(x.s.id)}"><span class="pb-n">${x.m.n}</span>
-      <span><b>${esc(x.m.title)}</b><small>${esc(code(x.s))} · ${esc(x.m.kind)} · ${x.m.minutes} min${x.at != null ? ` · about ${pbClock(x.at)} into the day` : ''}</small></span>${icon('arrow')}</a></li>`).join('')}</ol>
+      <span><b>${esc(x.m.title)}</b><small>${esc(x.s.code || code(x.s))} · ${esc(x.m.kind)} · ${x.m.minutes} min${x.at != null ? ` · about ${pbClock(x.at)} into the day` : ''}</small></span>${icon('arrow')}</a></li>`).join('')}</ol>
   </section>`;
 }
 /* open the stage on the right activity when a moment is clicked in the day plan */
