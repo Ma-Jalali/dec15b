@@ -161,3 +161,82 @@
   .dlx-desk { aspect-ratio: 4 / 3.4; } .dlx-thumb { width: 46%; left: calc(27% + (var(--k) - (var(--n) - 1) / 2) * 24%); } .dlx-desk.is-one .dlx-thumb { width: 52%; left: 24%; } .dlx-pen { width: 90px; } .dlx-thumb span { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .dlx-item { animation: none; } .dlx-thumb { transition: none; } }
+
+/* ───────── DEC10 Photocopiables (teacher only): side link, activity card, #/print page ───────── */
+.t-print { --tc: #b0512a; }
+:is([data-course="dec10"]:not([data-side]), [data-course="dec10"][data-side="light"]) .sidebar .t-print { --tc: #b0512a; }
+body:not(.is-teacher) #side-print { display: none !important; }
+.pr-card, .pr-item { --pc: #b0512a; --pbg: #fbf1ea; }
+.pr-card { display: grid; grid-template-columns: 112px 1fr; gap: 18px; margin: 4px 0 22px; padding: 18px 20px; border-radius: 18px;
+  background: linear-gradient(135deg, #fff 0%, var(--pbg) 100%); border: 1.5px dashed color-mix(in srgb, var(--pc) 45%, #fff);
+  box-shadow: 0 8px 22px -14px rgba(20,41,58,.35); position: relative; }
+.pr-card.is-ready, .pr-item.is-ready { --pc: #2f7d6b; --pbg: #ebf6f2; }
+.pr-thumb { position: relative; display: block; align-self: start; border-radius: 6px; overflow: hidden; background: #fff;
+  box-shadow: 0 1px 0 rgba(20,41,58,.08), 0 10px 22px -10px rgba(20,41,58,.45); transform: rotate(-2deg); transition: transform .2s; }
+.pr-thumb:hover { transform: rotate(0) translateY(-2px); }
+.pr-thumb img { display: block; width: 100%; height: auto; }
+.pr-thumb span { position: absolute; right: 6px; bottom: 6px; font: 800 10px/1 Manrope, sans-serif; background: #14293a; color: #fff; padding: 4px 6px; border-radius: 99px; }
+.pr-label { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font: 800 11px/1.2 Manrope, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--pc); }
+.pr-label svg { width: 18px; height: 18px; }
+.pr-label span { letter-spacing: 0; text-transform: none; font-weight: 700; color: #5b6b7a; background: #fff; border: 1px solid #e3e8ec; padding: 2px 8px; border-radius: 99px; }
+.pr-card h3, .pr-item h3 { margin: 6px 0 4px; font-size: 1.12rem; color: #14293a; }
+.pr-use { margin: 0 0 8px; color: #3b4a5c; font-size: .95rem; }
+.pr-copies { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 8px; font-size: .92rem; color: #14293a; }
+.pr-copies svg { width: 18px; height: 18px; color: var(--pc); }
+.pr-copies b { font-size: 1.05rem; color: var(--pc); }
+.pr-copies span { color: #5b6b7a; }
+.pr-size { font-size: .82rem; font-weight: 700; color: var(--pc); text-decoration: underline dotted; margin-left: 4px; }
+.pr-prep { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 4px; }
+.pr-prep li { display: flex; gap: 8px; align-items: flex-start; font-size: .9rem; color: #3b4a5c; }
+.pr-prep svg { flex: none; width: 16px; height: 16px; margin-top: 2px; color: var(--pc); }
+.pr-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.pr-actions .btn svg, .pr-actions .btn-quiet svg { width: 18px; height: 18px; }
+.pr-go { background: var(--pc) !important; border-color: var(--pc) !important; }
+.pr-ready { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: .9rem; color: #14293a; cursor: pointer; padding: 6px 12px; border-radius: 99px; background: #fff; border: 1px solid #e3e8ec; }
+.pr-ready input { width: 18px; height: 18px; accent-color: #2f7d6b; }
+.is-ready .pr-ready { border-color: #2f7d6b; background: #ebf6f2; color: #1f5f50; }
+.pr-noprint { display: flex; gap: 8px; align-items: flex-start; margin: 12px 0 0; padding: 9px 12px; border-radius: 12px; background: #fff8e8; border: 1px solid #f0dcaa; font-size: .88rem; color: #5a4417; }
+.pr-noprint svg { flex: none; width: 18px; height: 18px; color: #b07d12; margin-top: 1px; }
+@media (max-width: 640px) { .pr-card { grid-template-columns: 1fr; } .pr-card .pr-thumb { width: 110px; } }
+
+.pr-page { max-width: 1120px; margin: 0 auto; padding: 8px 4px 60px; }
+.pr-top { display: flex; justify-content: space-between; gap: 28px; align-items: flex-end; padding: 28px 30px; border-radius: 24px;
+  background: radial-gradient(circle at 92% 0%, rgba(227,168,67,.35), transparent 45%), linear-gradient(125deg, #8a3c1d 0%, #b0512a 45%, #14293a 100%); color: #fff;
+  box-shadow: 0 18px 40px -24px rgba(20,41,58,.6); }
+.pr-top .eyebrow { color: #ffd9b8; }
+.pr-top h1 { margin: 6px 0 8px; font-size: clamp(2rem, 3.4vw, 2.7rem); color: #fff; }
+.pr-top p { margin: 0; max-width: 620px; color: #f6e7dc; line-height: 1.5; }
+.pr-class { flex: none; display: grid; gap: 8px; background: rgba(255,255,255,.96); color: #14293a; border-radius: 18px; padding: 14px 16px; font-weight: 800; font-size: .92rem; }
+.pr-class span { display: flex; align-items: center; gap: 6px; }
+.pr-class input { width: 72px; height: 44px; text-align: center; font: 800 1.4rem Manrope, sans-serif; border: 2px solid #e3c3ad; border-radius: 12px; color: #8a3c1d; }
+.pr-class button { width: 40px; height: 40px; border-radius: 50%; border: 0; background: #fbf1ea; color: #8a3c1d; font: 800 1.3rem/1 Manrope, sans-serif; cursor: pointer; }
+.pr-class small { font-weight: 600; color: #5b6b7a; }
+.pr-how { list-style: none; margin: 18px 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.pr-how li { display: grid; grid-template-columns: 34px 1fr; gap: 2px 10px; padding: 14px; border-radius: 16px; background: #fff; box-shadow: 0 6px 16px -12px rgba(20,41,58,.4); border: 1px solid #edf0f2; }
+.pr-how i { grid-row: span 2; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font: normal 800 1rem Manrope, sans-serif; background: #b0512a; color: #fff; }
+.pr-how b { color: #14293a; } .pr-how span { font-size: .86rem; color: #5b6b7a; line-height: 1.4; }
+.pr-how .is-plan-b { background: #fff8e8; border-color: #f0dcaa; } .pr-how .is-plan-b i { background: #e3a843; color: #14293a; }
+.pr-weeks { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 6px 0 18px; }
+.pr-weeks button { border: 1.5px solid #e3e8ec; background: #fff; border-radius: 14px; padding: 8px 16px; font: 800 .95rem Manrope, sans-serif; color: #14293a; cursor: pointer; display: grid; text-align: left; }
+.pr-weeks button small { font-weight: 600; color: #5b6b7a; font-size: .76rem; }
+.pr-weeks button.is-on { background: #14293a; border-color: #14293a; color: #fff; } .pr-weeks button.is-on small { color: #c9d6e0; }
+.pr-sum { margin-left: auto; font-weight: 700; color: #5b6b7a; font-size: .9rem; }
+.pr-day { margin: 0 0 26px; }
+.pr-day > header { display: flex; align-items: center; gap: 14px; margin: 0 0 12px; padding-bottom: 10px; border-bottom: 2px solid #f1e3d8; }
+.pr-day-n { font: 800 .8rem Manrope, sans-serif; letter-spacing: .1em; text-transform: uppercase; background: #b0512a; color: #fff; border-radius: 99px; padding: 6px 12px; }
+.pr-day h2 { margin: 0; font-size: 1.3rem; color: #14293a; } .pr-day header small { color: #5b6b7a; font-weight: 600; }
+.pr-pack { margin-left: auto; } .pr-pack svg { width: 18px; height: 18px; }
+.pr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(480px, 1fr)); gap: 16px; }
+.pr-item { display: grid; grid-template-columns: 140px 1fr; gap: 18px; padding: 18px; border-radius: 20px; background: #fff; border: 1px solid #edf0f2;
+  box-shadow: 0 10px 26px -18px rgba(20,41,58,.45); position: relative; overflow: hidden; }
+.pr-item::before { content: ""; position: absolute; inset: 0 0 auto; height: 5px; background: var(--pc); }
+.pr-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.pr-chips span { font: 800 .72rem Manrope, sans-serif; padding: 4px 9px; border-radius: 99px; background: var(--pbg); color: var(--pc); display: inline-flex; gap: 4px; align-items: center; }
+.pr-chips svg { width: 13px; height: 13px; }
+.pr-chips .pr-code { background: #14293a; color: #fff; }
+.pr-link { font-weight: 700; font-size: .88rem; color: #14293a; display: inline-flex; gap: 4px; align-items: center; }
+.pr-link svg { width: 16px; height: 16px; }
+.pr-item .pr-ready { margin-top: 10px; }
+.pr-locked { text-align: center; padding: 60px 20px; } .pr-locked svg { width: 56px; color: #b0512a; }
+@media (max-width: 900px) { .pr-how { grid-template-columns: 1fr 1fr; } .pr-top { flex-direction: column; align-items: stretch; } .pr-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .pr-item { grid-template-columns: 1fr; } .pr-item .pr-thumb { width: 130px; } .pr-how { grid-template-columns: 1fr; } }

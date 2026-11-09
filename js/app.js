@@ -33,6 +33,7 @@ const artSrc = name => /[/.]/.test(name) ? name : `assets/art/stage-${name}.svg`
    "Language Lab · Grammar 2" instead of "Week 2 · Day 3". */
 const LAB = course.lab || null;
 const DL = course.downloads?.length ? course.downloads : null;
+const PR = course.printables?.length ? course.printables : null;   // DEC10 photocopiables (teacher only, see course.js)
 const PICK = course.id === 'dec10' && window.DEC15Picker;   // side panel → Name wheel (#/picker), DEC10 only   // side panel → Downloads (#/downloads) and the 'download' lesson block
 const labOf = id => { for (const st of LAB?.strands || []) { const i = st.lessons.findIndex(l => l.id === id); if (i >= 0) return { st, n: i + 1, l: st.lessons[i] }; } return null; };
 const labHere = labOf(lesson.id);
@@ -156,6 +157,7 @@ const guide = window.createDEC15Guide ? window.createDEC15Guide({ esc, icon, day
 if (guide) ['side-calendar', 'side-assess'].forEach(id => { const el = document.getElementById(id); if (el) el.hidden = false; });
 if (LAB) { const el = document.getElementById('side-lab'); if (el) el.hidden = false; }
 if (DL) { const el = document.getElementById('side-downloads'); if (el) el.hidden = false; }
+if (PR) { const el = document.getElementById('side-print'); if (el) el.hidden = false; }   // shown by CSS only for teacher accounts (body.is-teacher)
 if (PICK) { const el = document.getElementById('side-pick'); if (el) el.hidden = false; }
 const kit = window.createDEC10Kit ? window.createDEC10Kit({ getState: () => state, save, rerender: () => rerender(), esc, strip, icon, toast, findBlock, confetti: el => play?.confetti(el) }) : null;
 /* feedback forms, stance scale, quiz board and "Share with classmates" (js/forms.js) */
@@ -520,7 +522,7 @@ function activity(a, i, list, section) {
       <h2 id="h-${a.id}">${esc(a.title)}</h2>
       <p class="act-goal">${icon('target')}<span><b>Goal:</b> ${esc(a.goal)}</span></p>
     </header>
-    ${cowriteCard(a)}<div class="act-body">${blocksHTML(a)}</div>
+    ${printCards(a)}${cowriteCard(a)}<div class="act-body">${blocksHTML(a)}</div>
     ${answersPanel(a)}
     ${wallOn(a) ? wall.sectionHTML(a) : ''}
     ${section && !labHere && i === list.length - 1 && list.every(x => state.done[x.id]) ? `<div class="stage-done"><img src="assets/art/complete.svg" alt="" width="120" height="140"><div><b>Stage complete!</b><span>You finished all ${list.length} activities in ${esc(stageName(section))}.</span></div></div>` : ''}
@@ -1053,6 +1055,89 @@ const DLX_IC = {
   ask: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M10.2 8.6a2 2 0 1 1 2.8 1.8c-.6.3-1 .8-1 1.4M12 13.6h.01"/></svg>',
   send: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12 3 4.5l18 7.5-18 7.5z"/><path d="M4.5 12H12"/></svg>',
 };
+/* ───────── DEC10 Photocopiables (teacher only) ─────────
+   course.printables lists paper versions of class activities (mingles, card sorts, role cards, posters …).
+   - Teacher view ON: a "Photocopiable" card appears at the top of the matching activity (lesson + activity id), with
+     how many copies to print for this class, the preparation steps and a Print button.
+   - Teacher accounts also get Photocopiables in the side panel (#/print): every printable, week by week, with a class-size
+     copy calculator, a "ready" tick per sheet and the day's master pack.
+   - Every printable activity also works on screen, so a broken printer never stops the lesson (noPrinter says how).
+   Students never see these cards or the page. The PDFs are public files on the site (like everything here), only not linked
+   for students. */
+const PR_KEY = CLS.id + '-print', prGet = () => { try { return JSON.parse(localStorage.getItem(PR_KEY) || '{}') || {}; } catch (e) { return {}; } };
+const prSet = m => { try { localStorage.setItem(PR_KEY, JSON.stringify(m)); } catch (e) { /* storage blocked */ } };
+const prSize = () => { const n = Number(prGet().size); return n > 0 && n < 200 ? n : 18; };
+const PR_PER = { student: 'per student', pair: 'per pair', group: 'per group', class: 'for the class', teacher: 'for you' };
+function prCopies(p, n = prSize()) {
+  const g = p.groupSize || 4, base = p.per === 'student' ? n : p.per === 'pair' ? Math.ceil(n / 2) : p.per === 'group' ? Math.ceil(n / g) : 1;
+  return base + (p.extra || 0);
+}
+const prSheets = (p, c) => c * (p.duplex ? Math.ceil((p.pages || 1) / 2) : (p.pages || 1));
+const prHow = (p, c) => `<b>${c}</b> cop${c === 1 ? 'y' : 'ies'} <span>· 1 ${PR_PER[p.per] || 'per student'}${p.per === 'group' ? ` of ${p.groupSize || 4}` : ''} · ${p.pages || 1} page${(p.pages || 1) === 1 ? '' : 's'}${p.duplex ? ', double-sided' : ''} · about ${prSheets(p, c)} sheet${prSheets(p, c) === 1 ? '' : 's'}</span>`;
+const PR_IC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8V3.5h10V8"/><rect x="3.5" y="8" width="17" height="8.5" rx="2"/><path d="M7 13.5h10v7H7z"/><path d="M9.5 16.5h5M9.5 18.5h3"/><circle cx="17.2" cy="10.8" r=".9" fill="currentColor"/></svg>';
+const PR_CUT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6.5" r="2.6"/><circle cx="6" cy="17.5" r="2.6"/><path d="M8.2 8 20 17M8.2 16 20 7"/></svg>';
+const prButtons = p => `<a class="btn pr-go" href="${esc(p.file)}" target="_blank" rel="noopener">${PR_IC}Open &amp; print</a><a class="btn-quiet" href="${esc(p.file)}" download>${icon('download')}Download PDF</a>`;
+function printCards(a) {
+  if (!PR || !state.teacher) return '';
+  const list = PR.filter(p => p.lesson === lesson.id && p.activity === a.id); if (!list.length) return '';
+  return list.map(p => { const c = prCopies(p), ready = !!prGet()['r-' + p.id];
+    return `<aside class="pr-card${ready ? ' is-ready' : ''}" aria-label="Photocopiable for this activity (teacher only)">
+    <a class="pr-thumb" href="${esc(p.file)}" target="_blank" rel="noopener" aria-label="Open the PDF"><img src="${esc(p.thumb)}" alt="" width="105" height="148" loading="lazy">${p.pages > 1 ? `<span>${p.pages} pages</span>` : ''}</a>
+    <div class="pr-body">
+      <div class="pr-label">${PR_IC}Photocopiable<span>Teacher only · students don’t see this</span></div>
+      <h3>${esc(p.title)}</h3><p class="pr-use">${esc(p.use)}</p>
+      <p class="pr-copies">${PR_IC}${prHow(p, c)} <a href="#/print" class="pr-size">class of ${prSize()} · change</a></p>
+      ${p.prep?.length ? `<ul class="pr-prep">${p.prep.map(x => `<li>${/cut/i.test(x) ? PR_CUT : icon('check')}<span>${x}</span></li>`).join('')}</ul>` : ''}
+      <div class="pr-actions">${prButtons(p)}<label class="pr-ready"><input type="checkbox" data-pr-ready="${esc(p.id)}"${ready ? ' checked' : ''}><span>Printed and ready</span></label></div>
+      <p class="pr-noprint">${icon('bulb')}<span><b>No printer today?</b> ${p.noPrinter}</span></p>
+    </div></aside>`; }).join('');
+}
+function printPage() {
+  if (!isTeacher() && !state.teacher) return `<div class="pr-page"><section class="pr-locked">${PR_IC}<h1>Photocopiables</h1><p>This page is for teachers. Sign in with a teacher account to see the printable class activities.</p><a class="btn" href="#/">Back to the course map</a></section></div>`;
+  const m = prGet(), n = prSize(), weeks = [...new Set(PR.map(p => p.week))].sort((x, y) => x - y);
+  const wk = weeks.includes(Number(m.week)) ? Number(m.week) : weeks[0];
+  const items = PR.filter(p => p.week === wk), dayIds = [...new Set(items.map(p => p.lesson))];
+  const ready = items.filter(p => m['r-' + p.id]).length, sheets = items.reduce((t, p) => t + prSheets(p, prCopies(p, n)), 0);
+  const dayOf = id => days.find(d => d.id === id), packs = course.printPacks || {};
+  return `<div class="pr-page">
+  <header class="pr-top">
+    <div><span class="eyebrow">${esc(course.code)} · Teacher only</span><h1>Photocopiables</h1>
+      <p>Paper versions of class activities — mingles, card sorts, role cards and posters — so students get up and work together away from their laptops. Print them before class. Each one is also on the activity page in Teacher view.</p></div>
+    <label class="pr-class">How many students in your class?<span><button type="button" data-pr-size="-1" aria-label="One fewer">−</button><input type="number" min="1" max="99" value="${n}" data-pr-size-input aria-label="Class size"><button type="button" data-pr-size="1" aria-label="One more">+</button></span><small>Copies below are worked out for this number.</small></label>
+  </header>
+  <ol class="pr-how">
+    <li><i>1</i><b>Plan</b><span>Look at tomorrow’s day. Each card says how many copies you need and how to prepare them.</span></li>
+    <li><i>2</i><b>Print</b><span>Open the PDF and print — or print the whole day’s pack once and photocopy it.</span></li>
+    <li><i>3</i><b>Tick it</b><span>Tick “Printed and ready” so you can see at a glance what is still to do.</span></li>
+    <li class="is-plan-b"><i>!</i><b>No printer?</b><span>Every activity also works on screen. Each card says what to do instead.</span></li>
+  </ol>
+  <nav class="pr-weeks" aria-label="Weeks">${weeks.map(w => `<button type="button" data-pr-week="${w}" class="${w === wk ? 'is-on' : ''}" aria-pressed="${w === wk}">Week ${w}<small>${PR.filter(p => p.week === w).length} photocopiable${PR.filter(p => p.week === w).length === 1 ? '' : 's'}</small></button>`).join('')}
+    <span class="pr-sum">${ready} of ${items.length} ready · about ${sheets} sheets of paper for ${n} students</span></nav>
+  ${dayIds.map(id => { const d = dayOf(id), list = items.filter(p => p.lesson === id);
+    return `<section class="pr-day"><header><span class="pr-day-n">Day ${d ? d.day : ''}</span><div><h2>${esc(d ? d.title : id)}</h2><small>${list.length} photocopiable${list.length === 1 ? '' : 's'}</small></div>
+      ${packs[id] ? `<a class="btn-quiet pr-pack" href="${esc(packs[id])}" target="_blank" rel="noopener">${PR_IC}Day pack · one of each</a>` : ''}</header>
+      <div class="pr-grid">${list.map((p, i) => { const c = prCopies(p, n), on = !!m['r-' + p.id];
+        return `<article class="pr-item${on ? ' is-ready' : ''}" style="--i:${i}">
+        <a class="pr-thumb" href="${esc(p.file)}" target="_blank" rel="noopener" aria-label="Open ${esc(p.title)}"><img src="${esc(p.thumb)}" alt="" width="140" height="198" loading="lazy">${p.pages > 1 ? `<span>${p.pages} pages</span>` : ''}</a>
+        <div class="pr-info"><div class="pr-chips"><span class="pr-code">${esc(p.code || '')}</span><span>${esc(p.kind)}</span>${p.minutes ? `<span>${icon('clock')}${p.minutes} min</span>` : ''}</div>
+          <h3>${esc(p.title)}</h3><p class="pr-use">${esc(p.use)}</p>
+          <p class="pr-copies">${PR_IC}${prHow(p, c)}</p>
+          ${p.prep?.length ? `<ul class="pr-prep">${p.prep.map(x => `<li>${/cut/i.test(x) ? PR_CUT : icon('check')}<span>${x}</span></li>`).join('')}</ul>` : ''}
+          <div class="pr-actions">${prButtons(p)}<a class="pr-link" href="#/${esc(p.lesson)}/${esc(p.section)}">Go to the activity ${icon('arrow')}</a></div>
+          <label class="pr-ready"><input type="checkbox" data-pr-ready="${esc(p.id)}"${on ? ' checked' : ''}><span>Printed and ready</span></label>
+          <p class="pr-noprint">${icon('bulb')}<span><b>No printer?</b> ${p.noPrinter}</span></p></div></article>`; }).join('')}</div></section>`; }).join('')}
+  </div>`;
+}
+if (PR) {
+  document.addEventListener('change', e => {
+    const r = e.target.closest?.('[data-pr-ready]'); if (r) { const m = prGet(); if (r.checked) m['r-' + r.dataset.prReady] = Date.now(); else delete m['r-' + r.dataset.prReady]; prSet(m); rerender(); return; }
+    const s = e.target.closest?.('[data-pr-size-input]'); if (s) { const m = prGet(), v = Math.round(Number(s.value)); if (v > 0 && v < 100) { m.size = v; prSet(m); rerender(); } }
+  });
+  document.addEventListener('click', e => {
+    const b = e.target.closest?.('[data-pr-size]'); if (b) { const m = prGet(); m.size = Math.min(99, Math.max(1, prSize() + Number(b.dataset.prSize))); prSet(m); rerender(); return; }
+    const w = e.target.closest?.('[data-pr-week]'); if (w) { const m = prGet(); m.week = Number(w.dataset.prWeek); prSet(m); rerender(); }
+  });
+}
 function downloadsPage() {
   const pages = DL.reduce((n, d) => n + (d.pages || 0), 0), got = dlDone();
   return `<div class="dlx-page">
@@ -1170,7 +1255,7 @@ let navLessonWeek = null;
 function paintNav(route = navRoute) {
   navRoute = route;
   if (route !== 'home' && lesson.week !== navLessonWeek) { navLessonWeek = lesson.week; navWeekOpen = null; }   // a lesson in another week opens its own week
-  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-board', 'board'], ['side-chats', 'chats'], ['side-shared', 'shared'], ['side-calendar', 'calendar'], ['side-assess', 'assessments'], ['side-lab', 'lab'], ['side-downloads', 'downloads'], ['side-pick', 'picker']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
+  [['side-lesson', 'overview'], ['side-readings', 'sources'], ['side-board', 'board'], ['side-chats', 'chats'], ['side-shared', 'shared'], ['side-calendar', 'calendar'], ['side-assess', 'assessments'], ['side-lab', 'lab'], ['side-downloads', 'downloads'], ['side-print', 'print'], ['side-pick', 'picker']].forEach(([id, r]) => { const el = $('#' + id); if (!el) return; el.classList.toggle('active', route === r); if (route === r) el.setAttribute('aria-current', 'page'); else el.removeAttribute('aria-current'); });
   paintLessonNav(route);
   $('#side-home').classList.toggle('active', route === 'home');
   const ws = route === 'planner' || route === 'notebook';   // My workspace: planner + notebook
@@ -1403,6 +1488,7 @@ function parseRoute() {
   if (guide && (h === '/calendar' || h === '/assessments')) return { page: h.slice(1) };
   if (LAB && h === '/lab') return { page: 'lab' };
   if (DL && h === '/downloads') return { page: 'downloads' };
+  if (PR && h === '/print') return { page: 'print' };
   if (PICK && h === '/picker') return { page: 'picker' };
   if (routes.includes(h)) { history.replaceState(null, '', L(h)); return { page: h }; } // old links such as #ai
   const m = h.match(/^\/([\w-]+)(?:\/([\w-]+))?/);
@@ -1421,8 +1507,8 @@ function render() {
   }
   if (r.home && labHere) { location.reload(); return; }   // the course map shows the weekly lesson, so leave the lab lesson
   const route = r.home ? 'home' : r.page;
-  document.body.classList.toggle('is-lab', !!labHere && !['planner', 'notebook', 'lab', 'downloads', 'picker', 'calendar', 'assessments', 'board', 'chats', 'shared'].includes(route));   // a Language Lab lesson page
-  if (!r.home && !labHere && r.page !== 'lab' && r.page !== 'downloads' && r.page !== 'picker') try { localStorage.setItem(CLS.id + '-last-lesson', lesson.id); } catch (e) { /* ignore */ }   // the course map keeps the weekly lesson, not a lab lesson
+  document.body.classList.toggle('is-lab', !!labHere && !['planner', 'notebook', 'lab', 'downloads', 'print', 'picker', 'calendar', 'assessments', 'board', 'chats', 'shared'].includes(route));   // a Language Lab lesson page
+  if (!r.home && !labHere && r.page !== 'lab' && r.page !== 'downloads' && r.page !== 'print' && r.page !== 'picker') try { localStorage.setItem(CLS.id + '-last-lesson', lesson.id); } catch (e) { /* ignore */ }   // the course map keeps the weekly lesson, not a lab lesson
   const done = coreActivities.filter(a => state.done[a.id]).length;
   paintNav(route);
   $('#progress').value = done; $('#progress').max = coreActivities.length;
@@ -1490,6 +1576,17 @@ function render() {
     if (changed) { main.innerHTML = '<div class="pk-root"></div>'; window.DEC15Picker.mount(main.firstChild); window.scrollTo(0, 0); }
     $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher(); document.body.classList.toggle('is-teacher', isTeacher());
     klass?.setWhere('picker', 'Name wheel');
+    return;
+  }
+  if (route === 'print') {   // Photocopiables: printable class activities for the teacher (course.printables)
+    document.body.dataset.page = 'print'; document.body.style.removeProperty('--accent'); document.body.style.removeProperty('--accent-bg');
+    $('#crumb').innerHTML = `<a href="#/" aria-label="${esc(course.code)} course map" title="Course map">${icon('home')}</a><i>/</i><b>Photocopiables</b>`;
+    document.title = `${course.code} · Photocopiables`; paintStatus();
+    const main = $('#main'), changed = main.dataset.route !== route; main.dataset.route = route;
+    main.innerHTML = printPage();
+    if (changed) window.scrollTo(0, 0);
+    $('#teacher-toggle').hidden = !isTeacher(); $('#present-toggle').hidden = !isTeacher(); document.body.classList.toggle('is-teacher', isTeacher());
+    klass?.setWhere('print', 'Photocopiables');
     return;
   }
   if (route === 'downloads') {   // Downloads: forms to download and fill in (course.downloads)

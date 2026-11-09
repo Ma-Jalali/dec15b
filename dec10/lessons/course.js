@@ -48,6 +48,25 @@ window.DEC15_COURSE = {
       when: ['Asking effective individual questions (Week 2, 11A)', 'Research Summary group presentations: ask and answer questions', 'Preparing for the Interactive Presentation (Week 7): practise answering them'],
       how: ['Download the sheet, or print it.', 'Keep it open during presentations.', 'Listen carefully. Start with a <b>clarification</b> question, then <b>probe</b> deeper.', 'Before your own Interactive Presentation, practise answering one question from each box.'] }
   ],
+  /* PHOTOCOPIABLES (teacher only · side panel → Photocopiables, #/print, and a card on the activity in Teacher view).
+     Paper versions of class activities so students stand up and work together away from their laptops.
+     ADD ONE: write tools/print/src/weekN/wNdM-<name>.html (A4 pages, shared tools/print/print.css), run
+       node tools/print/build.js  → dec10/print/weekN/<id>.pdf + <id>.jpg (+ the day pack), then add an entry below.
+     lesson + activity = where the card appears; per = student | pair | group (groupSize) | class | teacher; extra = spare copies;
+     pages + duplex = how many sheets; prep = what to do before class; noPrinter = how the activity runs on screen instead
+     (every printable must also work on screen — a broken printer never stops the lesson).
+     The PDFs are not secret (the site is public); they are just not shown to students. */
+  printPacks: {
+    d10w3d1: 'dec10/print/week3/pack-d10w3d1.pdf'
+  },
+  printables: [
+    { id: 'w3d1-bingo', week: 3, lesson: 'd10w3d1', section: 'rapport', activity: 'r1', code: '1A', kind: 'Class mingle', minutes: 10,
+      title: 'Find someone who … the future of work', per: 'student', extra: 2, pages: 2, duplex: true,
+      file: 'dec10/print/week3/w3d1-bingo.pdf', thumb: 'dec10/print/week3/w3d1-bingo.jpg',
+      use: 'A 16-square bingo grid with a line for a name and a follow-up in every square; useful phrases on the back.',
+      prep: ['Print double-sided (flip on long edge).', 'Bring clipboards or books to lean on — students write standing up.'],
+      noPrinter: 'Students play the same bingo on screen in this activity (the bingo block saves their names). They still stand up and walk with their laptops or phones.' }
+  ],
   /* LANGUAGE LAB (side panel → Language Lab, #/lab): short self-study lessons outside the weekly plan, to fill gaps.
      Built for self-study (a teacher can also use one in class). Every lesson is ONE page with four tabs:
        Warm-up (a short self-check) · Learn · Practise (controlled) · Use it (freer practice). The Lab page shows the strands
