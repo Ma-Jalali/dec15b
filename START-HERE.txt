@@ -811,3 +811,24 @@ v6.4 (DEC10 Week 3 Day 1: two more diagrams redrawn)
 - d1-skill-distance (a journey: short road with one training stop to sales manager, long road with four stops to software
   developer; proper arrowheads) and d1-move-corners (top-down classroom, six pinned posters A–F, students on footprint
   trails with proper arrowheads, scoreboard and 30-second timer). Same text as before.
+
+v6.5 (DEC10 PHOTOCOPIABLES — printable class activities for the teacher; Week 3 done)
+WHY: paper versions of class activities (mingles, card sorts, role cards, posters, question cards, exit tickets) so students
+stand up and work together away from their laptops.
+WHERE THE TEACHER FINDS THEM
+- Side panel → Photocopiables (#/print). Shown only to teacher accounts (profiles.role = 'teacher'). Week tabs, a class-size
+  box (copies are worked out from it: per student / pair / group / class), each sheet with preview, prep steps, Open & print,
+  Download, "Go to the activity", a "Printed and ready" tick (kept on the teacher's device) and a "No printer?" plan B.
+  Each day has a "Day pack · one of each" PDF to print once and photocopy.
+- In the lesson, Teacher view ON: a dashed "Photocopiable · Teacher only" card at the top of the activity that uses the sheet.
+  Students never see the cards or the page. (The PDFs are public files like the rest of the site — just not shown to students.)
+PRINTER BROKEN? Every printable activity still works on screen. Each sheet's card says how ("No printer today?"), and the
+  activity itself has a tip for students: "Your teacher may give you paper cards — no cards? use the ones on this page."
+ADD OR EDIT A SHEET
+  1. Write or edit tools/print/src/weekN/wNdM-<name>.html (A4 <section class="page"> blocks; shared design: tools/print/print.css).
+  2. Run  node tools/print/build.js  (or  node tools/print/build.js wNdM-<name>) → dec10/print/weekN/<id>.pdf + <id>.jpg +
+     the day pack dec10/print/weekN/pack-d10wNdM.pdf. Needs Playwright + poppler-utils (pdfinfo, pdfunite).
+  3. Add/adjust its entry in dec10/lessons/course.js → printables (lesson + activity [+ also] = where the card appears;
+     per, groupSize, extra, pages, duplex; prep; noPrinter) and printPacks. Raise the version, run node tools/build-sw.js.
+WEEK 3: 28 sheets (Day 1: 5 · Day 2: 6 · Day 3: 6 · Day 4: 6 · Day 5: 5). Lessons got one student tip per paper activity;
+  no ids, minutes or protected texts changed.
