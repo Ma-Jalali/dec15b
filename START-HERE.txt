@@ -839,3 +839,5 @@ v6.6 (a quiet "paper version" mark for the teacher)
   in the stage tab bar. No text, aria-hidden, not printed. It is driven by course.printables (lesson + activity / also),
   so new sheets get the mark automatically. Code: hasPaper / PAPER_FOLD / TAB_LEAF in js/app.js; styles at the end of
   css/downloads.css.
+- Note (9 Nov 2026): GitHub Pages' deploy for v6.6 got stuck in GitHub's queue; this small commit re-publishes the site.
+  If the live site ever looks older than main, check github.com/Ma-Jalali/dec15b/actions (pages build and deployment).
