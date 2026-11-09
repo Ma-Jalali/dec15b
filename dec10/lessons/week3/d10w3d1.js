@@ -241,6 +241,7 @@ window.DEC15_LESSON = {
                 { who: "pair", text: "<b>Trade terms</b> and find a new partner. Do it with <b>three</b> partners, then sit down and do the matching to check." }
               ]
             },
+            { type: "tip", text: "Your teacher may give you a paper <b>term card</b> (T1–T9). No cards? Choose one term from the left side of the matching below and read its definition on the right — then play the same way." },
             {
               type: "match",
               id: "a2-m",
@@ -476,6 +477,7 @@ window.DEC15_LESSON = {
                 { who: "class", text: "<b>Four corners (Q5–8):</b> the corners are A, B, C and D. Stand in the corner of your answer. Each corner has 30 seconds to convince the others. You can change corners!" }
               ]
             },
+            { type: "tip", text: "The paper posters show each paragraph in big letters. No posters? Your teacher writes A–F on the board (or points to six places in the room). Walk to the letter, and read the proof words from the reading on your screen." },
             { type: "figure", src: "dec10/assets/week3/d1-move-corners.svg", size: "wide", alt: "A classroom seen from above with six paragraph posters, A to F, on the walls. In the middle a question card: Question 1, data on skills is still limited — where is it? Students walk to the poster they think answers it. A scoreboard shows team points and a timer shows 30 seconds.", caption: "Move to the paragraph — then prove it with the words in the text." },
             { type: "sources", ids: ["greening"] },
             {
@@ -710,6 +712,7 @@ window.DEC15_LESSON = {
             { type: "sticky", title: "Say it like an academic · phrase of the day", text: "<b>“Would you be willing to …?”</b><br>The polite way to ask your group for help. By the end of this stage you will use it in a real message to your group.", color: "pink" },
             { type: "do", n: 1, who: "group", text: "Sit with your <b>seminar / interactive presentation group</b>." },
             { type: "figure", src: "dec10/assets/week3/d1-group-roles.svg", size: "wide", alt: "Four group role cards around a rotate arrow. Chair: invites everyone to speak — What do you think? Timekeeper: watches the clock — Two minutes left. Language monitor: ticks the phrases people use — You used 4 phrases! Reporter: tells the class the result — Our group found that … The roles change every activity.", caption: "Choose roles now. After every activity, pass your role to the person on your left." },
+            { type: "tip", text: "Your teacher may give your group four paper <b>role cards</b> to put on the table. No cards? Use the picture above: say your role aloud, and write it next to your name in your notes." },
             {
               type: "sort",
               id: "c1-sort",
@@ -1058,6 +1061,7 @@ window.DEC15_LESSON = {
                 { who: "group", text: "When a set is complete, another student starts the next set." }
               ]
             },
+            { type: "tip", text: "Your teacher may give your group a set of <b>20 paper cards</b> (O, F, N, R). No cards? Play on screen: one student reads an observation from the sort below, and the group chooses its feeling, need and request together." },
             {
               type: "sort",
               id: "c8-sort",

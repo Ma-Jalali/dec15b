@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>OFNR card game</title>
+<link rel="stylesheet" href="../../print.css">
+<style>
+  .hdr{padding:4mm 6mm 4mm 7mm} h1{font-size:22pt}
+  .hdr .legend{display:flex;gap:1.6mm;flex-wrap:wrap;justify-content:flex-end;position:relative;z-index:1}
+  .hdr .legend span{background:rgba(255,255,255,.95);color:var(--c);border-radius:10mm;padding:1mm 2.6mm;font-size:8.4pt;font-weight:800}
+  .steps{grid-template-columns:repeat(4,1fr);gap:2.4mm}
+  .step p{font-size:8.2pt}
+  .cutnote{display:flex;align-items:center;gap:2mm;margin-top:2.6mm;font-size:8pt;font-weight:700;color:var(--muted)} .cutnote .scissors{font-size:12pt}
+  .cut.ofnr{margin-top:1.5mm;grid-template-columns:1fr 1fr;grid-auto-rows:var(--h,43mm)}
+  .oc{position:relative;background:#fff;padding:3.4mm 4.2mm 3.4mm 6mm;display:flex;flex-direction:column;overflow:hidden}
+  .oc::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2mm;background:var(--c)}
+  .oc .lab{display:flex;align-items:center;gap:2mm}
+  .oc .ic{width:7.5mm;height:7.5mm;border-radius:2mm}.oc .ic svg{width:5mm;height:5mm}
+  .oc .ty{font-size:8pt;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+  .oc .ty b{display:inline-grid;place-items:center;width:5mm;height:5mm;border-radius:50%;background:var(--c);color:#fff;letter-spacing:0;margin-right:.6mm;font-size:7.6pt}
+  .oc .set{margin-left:auto;display:flex;align-items:flex-end;gap:1mm;font-size:6.6pt;font-weight:800;color:#9fb0bb;text-transform:uppercase;letter-spacing:.08em}
+  .oc .set i{display:inline-block;width:7mm;height:5mm;border:.3mm solid #c7d2da;border-radius:1mm}
+  .oc .txt{flex:1;display:flex;align-items:center;font-size:11.6pt;line-height:1.3;font-weight:600;color:var(--navy);margin-top:1.4mm}
+  .oc.short .txt{font-family:Fraunces,Georgia,serif;font-size:20pt;font-weight:600;color:var(--c)}
+  .ptitle{display:flex;justify-content:space-between;align-items:flex-end}
+  .ptitle h2{font-size:19pt}
+  .bottom{display:grid;grid-template-columns:1.15fr 1fr;gap:4mm;margin-top:4mm}
+  .frame{background:#fff;border-radius:3.5mm;padding:3.6mm 4.4mm;box-shadow:0 .5mm 1.6mm rgba(20,41,58,.12)}
+  .frame h3{font-size:10.5pt;font-weight:800;color:var(--navy)}
+  .frame p{font-size:10.5pt;line-height:1.55;margin-top:1.4mm}
+  .frame p b{border-radius:1.2mm;padding:0 1.2mm;color:#fff}
+  .mon table{width:100%;border-collapse:collapse;margin-top:1.6mm;font-size:8.4pt}
+  .mon th{font-weight:800;color:var(--muted);text-align:center;padding:.8mm}
+  .mon th:first-child{text-align:left}
+  .mon td{border-bottom:.3mm dashed #c7d2da;height:7mm}
+  .mon td+td{text-align:center;color:#c7d2da;font-size:11pt}
+</style></head><body>
+
+<section class="page">
+  <header class="hdr"><div class="hdr-row">
+    <div><div class="kicker"><b>DEC10</b> Week 3 · Day 1 · 3A Group work skills</div><h1>The OFNR card game <i>build it together</i></h1></div>
+    <div class="namebox" style="min-width:40mm">Group<span></span></div>
+  </div></header>
+  <div class="steps">
+    <div class="step" style="--c:#13887a"><div class="n">1</div><p>Groups of 4–5 in a circle. Deal <b>4–5 cards</b> each. Keep them <b>secret</b>.</p></div>
+    <div class="step" style="--c:#b0512a"><div class="n">2</div><p>One student reads an <b>O card</b> aloud and puts it on the table.</p></div>
+    <div class="step" style="--c:#7a4a8c"><div class="n">3</div><p>Others offer the best <b>F</b>, then <b>N</b>, then <b>R</b> card. Discuss: which fits best?</p></div>
+    <div class="step" style="--c:#3a58a0"><div class="n">4</div><p>Set complete? Read it aloud calmly. <b>Next student</b> starts a new set.</p></div>
+  </div>
+  <div class="cutnote"><span class="scissors">✂</span> Cut along the dashed lines · 20 cards per set (5 O · 5 F · 5 N · 5 R) · write the set letter in the box</div>
+  <div class="cut ofnr" style="--h:41.5mm">
+<div class="oc" style="--c:#13887a"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><circle class="fl" cx="12" cy="12" r="3.5"/><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3.5"/></svg></span><span class="ty"><b>O</b> Observation</span><span class="set">Set<i></i></span></div><div class="txt">In our group, I have noticed that the same people tend to do most of the tasks.</div></div><div class="oc short" style="--c:#b0512a"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="ty"><b>F</b> Feeling</span><span class="set">Set<i></i></span></div><div class="txt">I feel frustrated</div></div>
+<div class="oc" style="--c:#13887a"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><circle class="fl" cx="12" cy="12" r="3.5"/><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3.5"/></svg></span><span class="ty"><b>O</b> Observation</span><span class="set">Set<i></i></span></div><div class="txt">When I see that the deadlines for the project tasks were missed by a couple of days last week</div></div><div class="oc short" style="--c:#b0512a"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="ty"><b>F</b> Feeling</span><span class="set">Set<i></i></span></div><div class="txt">I feel disappointed</div></div>
+<div class="oc" style="--c:#13887a"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><circle class="fl" cx="12" cy="12" r="3.5"/><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3.5"/></svg></span><span class="ty"><b>O</b> Observation</span><span class="set">Set<i></i></span></div><div class="txt">I noticed that during our last group meeting, some voices were louder than others and not everyone was able to share their ideas.</div></div><div class="oc short" style="--c:#b0512a"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="ty"><b>F</b> Feeling</span><span class="set">Set<i></i></span></div><div class="txt">I feel upset</div></div>
+<div class="oc" style="--c:#13887a"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><circle class="fl" cx="12" cy="12" r="3.5"/><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3.5"/></svg></span><span class="ty"><b>O</b> Observation</span><span class="set">Set<i></i></span></div><div class="txt">When I see our group discussions drift off-topic and go overtime</div></div><div class="oc short" style="--c:#b0512a"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="ty"><b>F</b> Feeling</span><span class="set">Set<i></i></span></div><div class="txt">I feel anxious</div></div>
+<div class="oc" style="--c:#13887a"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><circle class="fl" cx="12" cy="12" r="3.5"/><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3.5"/></svg></span><span class="ty"><b>O</b> Observation</span><span class="set">Set<i></i></span></div><div class="txt">When I see you looking at your phone while I am talking</div></div><div class="oc short" style="--c:#b0512a"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="ty"><b>F</b> Feeling</span><span class="set">Set<i></i></span></div><div class="txt">I feel concerned</div></div>
+  </div>
+  <div class="foot"><div>DEC10 · Week 3 · Nonviolent Communication (Rosenberg)</div><div>OFNR card game · page 1 of 2</div></div>
+</section>
+
+<section class="page">
+  <div class="ptitle"><h2>Need and request cards <i>— cut out</i></h2><div class="cutnote" style="margin:0"><span class="scissors">✂</span> 5 N · 5 R</div></div>
+  <div class="cut ofnr" style="--h:42mm;margin-top:3mm">
+<div class="oc" style="--c:#7a4a8c"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M12 3l9 16H3z"/><path d="M12 3l9 16H3zM7.5 11h9M5.2 15h13.6"/></svg></span><span class="ty"><b>N</b> Need</span><span class="set">Set<i></i></span></div><div class="txt">I value fairness and inclusion</div></div><div class="oc" style="--c:#3a58a0"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M10 9.5a2 2 0 1 1 2.8 1.8c-.6.3-.8.7-.8 1.2M12 14.5h.01"/></svg></span><span class="ty"><b>R</b> Request</span><span class="set">Set<i></i></span></div><div class="txt">Would you be willing to discuss how we might better manage our time together?</div></div>
+<div class="oc" style="--c:#7a4a8c"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M12 3l9 16H3z"/><path d="M12 3l9 16H3zM7.5 11h9M5.2 15h13.6"/></svg></span><span class="ty"><b>N</b> Need</span><span class="set">Set<i></i></span></div><div class="txt">I need connection and acknowledgement</div></div><div class="oc" style="--c:#3a58a0"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M10 9.5a2 2 0 1 1 2.8 1.8c-.6.3-.8.7-.8 1.2M12 14.5h.01"/></svg></span><span class="ty"><b>R</b> Request</span><span class="set">Set<i></i></span></div><div class="txt">Would you be willing to have a designated "time-keeper" who ensures that our discussions remain on track?</div></div>
+<div class="oc" style="--c:#7a4a8c"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M12 3l9 16H3z"/><path d="M12 3l9 16H3zM7.5 11h9M5.2 15h13.6"/></svg></span><span class="ty"><b>N</b> Need</span><span class="set">Set<i></i></span></div><div class="txt">I believe that everyone's input is important for our project's success</div></div><div class="oc" style="--c:#3a58a0"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M10 9.5a2 2 0 1 1 2.8 1.8c-.6.3-.8.7-.8 1.2M12 14.5h.01"/></svg></span><span class="ty"><b>R</b> Request</span><span class="set">Set<i></i></span></div><div class="txt">Would you be willing to put your phone away for the next 10 minutes and hear what I have to say?</div></div>
+<div class="oc" style="--c:#7a4a8c"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M12 3l9 16H3z"/><path d="M12 3l9 16H3zM7.5 11h9M5.2 15h13.6"/></svg></span><span class="ty"><b>N</b> Need</span><span class="set">Set<i></i></span></div><div class="txt">I need more efficiency in meetings so that we can cover everything without taking extra time.</div></div><div class="oc" style="--c:#3a58a0"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M10 9.5a2 2 0 1 1 2.8 1.8c-.6.3-.8.7-.8 1.2M12 14.5h.01"/></svg></span><span class="ty"><b>R</b> Request</span><span class="set">Set<i></i></span></div><div class="txt">Could we review our tasks and make sure we have a balanced workload?</div></div>
+<div class="oc" style="--c:#7a4a8c"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M12 3l9 16H3z"/><path d="M12 3l9 16H3zM7.5 11h9M5.2 15h13.6"/></svg></span><span class="ty"><b>N</b> Need</span><span class="set">Set<i></i></span></div><div class="txt">I need reassurance that we can get things done on time to avoid last-minute stress</div></div><div class="oc" style="--c:#3a58a0"><div class="lab"><span class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M10 9.5a2 2 0 1 1 2.8 1.8c-.6.3-.8.7-.8 1.2M12 14.5h.01"/></svg></span><span class="ty"><b>R</b> Request</span><span class="set">Set<i></i></span></div><div class="txt">Would you be willing to discuss what we can do to ensure everyone gets a chance to speak?</div></div>
+  </div>
+  <div class="bottom">
+    <div class="frame"><h3>Read your set aloud — calm and friendly</h3>
+      <p><b style="background:#13887a">O</b> When I see … / I have noticed that …<br><b style="background:#b0512a">F</b> I feel …<br><b style="background:#7a4a8c">N</b> because I need … / I value …<br><b style="background:#3a58a0">R</b> Would you be willing to …?</p></div>
+    <div class="frame mon"><h3>Language monitor · tick for each speaker</h3>
+      <table><tr><th>Name</th><th>O</th><th>F</th><th>N</th><th>R</th></tr>
+      <tr><td></td><td>○</td><td>○</td><td>○</td><td>○</td></tr><tr><td></td><td>○</td><td>○</td><td>○</td><td>○</td></tr><tr><td></td><td>○</td><td>○</td><td>○</td><td>○</td></tr><tr><td></td><td>○</td><td>○</td><td>○</td><td>○</td></tr></table></div>
+  </div>
+  <div class="foot"><div>Tip: the aim is not to guess the feeling of another person — it is to get comfortable with the language of NVC.</div><div>page 2 of 2</div></div>
+</section>
+</body></html>

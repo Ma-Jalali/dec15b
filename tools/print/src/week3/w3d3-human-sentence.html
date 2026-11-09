@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Human sentence signs</title>
+<link rel="stylesheet" href="../../print.css">
+<style>
+.page.strips{padding:0;display:grid;grid-template-rows:repeat(3,1fr)}
+.strip{position:relative;padding:8mm 12mm 7mm 14mm;display:flex;flex-direction:column;border-bottom:.45mm dashed #9fb0bb;background:#fff}
+.strip:last-child{border-bottom:0}
+.strip::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3mm;background:var(--c)}
+.strip .sc{position:absolute;left:4mm;bottom:-3.3mm;width:6.5mm;height:6.5mm;background:#fff;z-index:2}
+.sc svg{width:6.5mm;height:6.5mm;stroke:#7f929f;fill:none;stroke-width:1.6;stroke-linecap:round}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:8pt;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tag{display:inline-flex;align-items:center;gap:2mm;color:var(--c);font-size:11pt;letter-spacing:.06em}
+.tag .nm{font-family:Fraunces,Georgia,serif;font-size:22pt;letter-spacing:0;text-transform:none;background:color-mix(in srgb,var(--c) 13%,#fff);border-radius:3mm;padding:0 3mm;line-height:1.25}
+.say{margin:auto 0;font-weight:800;color:var(--navy);line-height:1.17}
+.draft{--c:#c4562f}.new{--c:#13887a}.rev{--c:#3a58a0}.teach{--c:#c98d2c}
+.new .say{font-family:Fraunces,Georgia,serif;font-weight:600}
+.hint{font-size:9.5pt;font-weight:700;color:var(--muted)}
+.teach{background:#fffaf0}
+.teach h2{font-size:21pt;margin-top:1mm}
+.teach ol{margin:3mm 0 0 5mm;font-size:12pt;line-height:1.38;font-weight:600}
+.teach ol b{color:#a0671a}
+.teach .qs{display:flex;gap:3mm;margin-top:2.5mm}
+.teach .qs div{flex:1;background:#fff;border:.35mm solid #f0d9a6;border-radius:2.5mm;padding:2mm 3mm;font-family:Fraunces,Georgia,serif;font-style:italic;font-size:10.5pt;color:#7a4b0c}
+</style></head><body>
+
+<!-- PAGE 1 -->
+<section class="page strips">
+  <div class="strip teach">
+    <div class="top"><span><b style="background:var(--gold);color:var(--navy);border-radius:10mm;padding:.4mm 2.4mm;letter-spacing:.06em">DEC10</b> Week 3 · Day 3 · 11A Academic style</span><span>Teacher card · keep</span></div>
+    <h2>Human sentence <i>— 7 volunteers, 3 minutes</i></h2>
+    <ol>
+      <li>Cut the 8 signs. Give signs <b>(5) (6) (7) (8)</b> to four volunteers (orange) and the <b>3 new parts</b> to three more (green).</li>
+      <li>Volunteers stand at the front and read their sign aloud. The class gives instructions to build <b>revised sentence (4)</b>.</li>
+      <li>At the end, show the blue sign: the revised sentence. The class reads it aloud together.</li>
+    </ol>
+    <div class="qs"><div>“Sentence 5, please sit down — it’s a question.”</div><div>“Noun phrase, stand on the left.”</div></div>
+    <span class="sc"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></svg></span>
+  </div>
+  <div class="strip draft">
+    <div class="top"><span class="tag"><span class="nm">(5)</span>Draft sentence</span><span>11A · Human sentence · sign 1 / 8</span></div>
+    <div class="say" style="font-size:46pt">Why are they becoming so popular?</div>
+    <span class="sc"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></svg></span>
+  </div>
+  <div class="strip draft">
+    <div class="top"><span class="tag"><span class="nm">(6)</span>Draft sentence</span><span>11A · Human sentence · sign 2 / 8</span></div>
+    <div class="say" style="font-size:34pt">I think sustainability consultants do a lot to help companies plan for the future.</div>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page strips">
+  <div class="strip draft">
+    <div class="top"><span class="tag"><span class="nm">(7)</span>Draft sentence</span><span>11A · Human sentence · sign 3 / 8</span></div>
+    <div class="say" style="font-size:40pt">This isn't just about avoiding fines or negative press.</div>
+    <span class="sc"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></svg></span>
+  </div>
+  <div class="strip draft">
+    <div class="top"><span class="tag"><span class="nm">(8)</span>Draft sentence</span><span>11A · Human sentence · sign 4 / 8</span></div>
+    <div class="say" style="font-size:37pt">It's about being responsible for their environmental and social impact.</div>
+    <span class="sc"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></svg></span>
+  </div>
+  <div class="strip new">
+    <div class="top"><span class="tag"><span class="nm">A</span>New part · noun phrase</span><span>11A · Human sentence · sign 5 / 8</span></div>
+    <div class="say" style="font-size:44pt">The rising popularity of sustainability consultants</div>
+  </div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page strips">
+  <div class="strip new">
+    <div class="top"><span class="tag"><span class="nm">B</span>New part · cause / effect</span><span>11A · Human sentence · sign 6 / 8</span></div>
+    <div class="say" style="font-size:48pt">can be attributed to</div>
+    <span class="sc"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></svg></span>
+  </div>
+  <div class="strip new">
+    <div class="top"><span class="tag"><span class="nm">C</span>New part · noun phrase</span><span>11A · Human sentence · sign 7 / 8</span></div>
+    <div class="say" style="font-size:34pt">their pivotal role in planning for long-term environmental, legal and social responsibilities</div>
+    <span class="sc"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 7.6L20 18M8.6 16.4L20 6"/></svg></span>
+  </div>
+  <div class="strip rev">
+    <div class="top"><span class="tag"><span class="nm">(4)</span>Revised sentence · show at the end</span><span>11A · Human sentence · sign 8 / 8</span></div>
+    <div class="say" style="font-size:24pt">The rising popularity of sustainability consultants can be attributed to their pivotal role in planning for long-term environmental, legal and social responsibilities.</div>
+    <div class="hint">4 draft sentences → 1 sentence: no question, no ‘I’, a long noun phrase as the subject.</div>
+  </div>
+</section>
+</body></html>

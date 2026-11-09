@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Audience jobs + C / P / AST cards</title>
+<link rel="stylesheet" href="../../print.css">
+<style>
+  .jobs{margin-top:4mm;grid-template-columns:1fr 1fr;background:#fff}
+  .job{position:relative;height:103mm;padding:6mm 6mm 5mm 7mm;display:flex;flex-direction:column}
+  .job::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2mm;background:var(--c)}
+  .job .lab{position:absolute;right:4mm;top:3.5mm;font-size:7pt;font-weight:800;letter-spacing:.08em;color:#9fb0bb}
+  .job .top{display:flex;align-items:center;gap:3mm}
+  .job .ic{width:15mm;height:15mm;border-radius:4mm}
+  .job .ic svg{width:10mm;height:10mm}
+  .job .role{font-size:7.4pt;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .job h3{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:20pt;line-height:1.05;color:var(--c)}
+  .job .task{font-size:15pt;font-weight:700;line-height:1.3;color:var(--navy);margin-top:4mm}
+  .job .when{margin-top:auto;display:flex;flex-direction:column;gap:1.6mm}
+  .job .when div{font-size:9.6pt;line-height:1.3;background:color-mix(in srgb,var(--c) 9%,#fff);border-radius:2.4mm;padding:2mm 2.6mm}
+  .job .when b{color:var(--c)}
+  .job .pass{font-size:8pt;font-weight:800;color:var(--muted);display:flex;align-items:center;gap:1.5mm}
+  .scis{position:absolute;font-size:12pt;color:#9fb0bb;background:var(--paper);line-height:1;padding:0 .6mm}
+  .note{margin-top:2.5mm;font-size:8.6pt;color:var(--muted);font-weight:600;display:flex;justify-content:space-between}
+  /* page 2: C/P/AST cards */
+  .strip{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:.5mm solid var(--teal);padding-bottom:2mm}
+  .strip .kicker{color:var(--teal)}
+  .strip .kicker b{color:var(--navy)}
+  .qcards{margin-top:4mm;grid-template-columns:repeat(3,1fr);background:#fff}
+  .qc{position:relative;height:57.5mm;padding:3.5mm 4mm 3mm;display:flex;flex-direction:column;align-items:center;text-align:center;overflow:hidden}
+  .qc::after{content:"";position:absolute;left:0;right:0;top:0;height:1.8mm;background:var(--c)}
+  .qc .big{font-family:Manrope,Arial,sans-serif;font-weight:800;color:var(--c);line-height:1;margin-top:1.5mm}
+  .qc .name{font-size:9.6pt;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-top:1mm}
+  .qc .eg{font-size:8.6pt;font-style:italic;line-height:1.3;color:var(--ink);margin-top:auto;background:color-mix(in srgb,var(--c) 9%,#fff);border-radius:2mm;padding:1.6mm 2mm;width:100%}
+  .qc .set{position:absolute;left:3mm;top:3mm;font-size:6.6pt;font-weight:800;color:#9fb0bb;letter-spacing:.06em}
+</style></head><body>
+
+<!-- ============ PAGE 1 · four audience jobs ============ -->
+<section class="page">
+  <header class="hdr">
+    <div class="hdr-row">
+      <div>
+        <div class="kicker"><b>DEC10</b> Week 3 · Day 4 · 15A Group research summary presentations</div>
+        <h1>Audience jobs <i>— nobody just sits and watches</i></h1>
+      </div>
+    </div>
+  </header>
+
+  <div class="steps">
+    <div class="step" style="--c:#13887a"><div class="n">1</div><p>Sit with your <b>feedback group</b>. Take <b>one job card</b> each.</p></div>
+    <div class="step" style="--c:#3a58a0"><div class="n">2</div><p>Do your job while the group <b>presents</b> (8–10 min). Notes go in your notebook.</p></div>
+    <div class="step" style="--c:#b0512a"><div class="n">3</div><p>After each presentation, <b>pass your card to the left</b>. New group = new job.</p></div>
+  </div>
+
+  <div class="cut jobs">
+    <div class="job" style="--c:#3a58a0"><span class="lab">JOB 1</span>
+      <div class="top"><div class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M10 9.5a2 2 0 1 1 2.8 1.8c-.6.3-.8.7-.8 1.2M12 14.5h.01"/></svg></div>
+        <div><div class="role">Audience job</div><h3>Question master</h3></div></div>
+      <div class="task">Collect your group’s questions. Lead the vote. Hold up the C / P / AST card.</div>
+      <div class="when">
+        <div><b>Step 2:</b> your group reads its questions aloud and <b>votes</b>: on “3”, point at the best one.</div>
+        <div><b>Report:</b> “In my audience job, I noticed that …”</div>
+        <div class="pass">↻ After this group: pass this card to the left.</div>
+      </div></div>
+    <div class="job" style="--c:#2b776e"><span class="lab">JOB 2</span>
+      <div class="top"><div class="ic"><svg viewBox="0 0 24 24"><circle class="fl" cx="10" cy="10" r="6"/><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5L20 20"/><path d="M7.5 10h5"/></svg></div>
+        <div><div class="role">Audience job</div><h3>Evidence detective</h3></div></div>
+      <div class="task">Write every source you hear aloud: name + year. Was one missing?</div>
+      <div class="when">
+        <div><b>Listen for:</b> “<b>According to</b> … (2018)” · “<b>A report by</b> … <b>found that</b> …”</div>
+        <div><b>Step 3 — report first (30 seconds):</b> “In my audience job, I noticed that …”</div>
+        <div class="pass">↻ After this group: pass this card to the left.</div>
+      </div></div>
+    <div class="job" style="--c:#b0512a"><span class="lab">JOB 3</span>
+      <div class="top"><div class="ic"><svg viewBox="0 0 24 24"><circle class="fl" cx="4.5" cy="12" r="2.5"/><circle cx="4.5" cy="12" r="2.5"/><path d="M7 12h4"/><path class="f" d="M10 9.5l3 2.5-3 2.5z"/><circle class="fl" cx="18" cy="12" r="3.5"/><circle cx="18" cy="12" r="3.5"/></svg></div>
+        <div><div class="role">Audience job</div><h3>Cause → effect tracker</h3></div></div>
+      <div class="task">Note one cause → effect chain for each speaker.</div>
+      <div class="when">
+        <div><b>Listen for:</b> “<b>One of the main drivers of</b> …” · “… <b>is likely to lead to</b> …” · “<b>As a result</b>, …”</div>
+        <div><b>Step 3 — report first (30 seconds):</b> “In my audience job, I noticed that …”</div>
+        <div class="pass">↻ After this group: pass this card to the left.</div>
+      </div></div>
+    <div class="job" style="--c:#7a4a8c"><span class="lab">JOB 4</span>
+      <div class="top"><div class="ic"><svg viewBox="0 0 24 24"><path class="fl" d="M4 20l1-5L15.5 4.5l4 4L9 19z"/><path d="M4 20l1-5L15.5 4.5l4 4L9 19zM13 7l4 4"/></svg></div>
+        <div><div class="role">Audience job</div><h3>Language spotter</h3></div></div>
+      <div class="task">Listen for useful phrases: hand-overs, cause and effect, sources.</div>
+      <div class="when">
+        <div><b>Listen for:</b> “<b>Now I’ll hand over to</b> …” · “… <b>due to</b> …” · “<b>To sum up</b>, …”</div>
+        <div><b>Step 3 — report first (30 seconds):</b> “In my audience job, I noticed that …”</div>
+        <div class="pass">↻ After this group: pass this card to the left.</div>
+      </div></div>
+  </div>
+  <div class="note"><span>✂ Cut along the dashed lines · one set of 4 jobs per feedback group</span><span>Turn over: C / P / AST cards →</span></div>
+
+  <div class="foot"><div>DEC10 · Week 3 · Day 4 · The workforce of the future</div><div>Audience jobs · 1 / 2</div></div>
+</section>
+
+<!-- ============ PAGE 2 · C / P / AST cards ============ -->
+<section class="page">
+  <div class="strip">
+    <div>
+      <div class="kicker"><b>DEC10</b> Week 3 · Day 4 · 15A Question cards</div>
+      <h2>C · P · AST <i>— hold up your card</i></h2>
+    </div>
+    <div style="font-size:9pt;font-weight:600;color:var(--muted);max-width:74mm;text-align:right">Cut out <b>one row</b> each (3 cards). Want to ask? Hold up the card that shows what kind of question you have.</div>
+  </div>
+
+  <div class="cut qcards">
+    <!-- row template x4 -->
+    <div class="qc" style="--c:#3a58a0"><span class="set">A</span><div class="big" style="font-size:52pt">C</div><div class="name">Clarification</div><div class="eg">What did you mean by …?<br>Could you clarify how/when/where/why …?</div></div>
+    <div class="qc" style="--c:#7a4a8c"><span class="set">A</span><div class="big" style="font-size:52pt">P</div><div class="name">Probing</div><div class="eg">Why do you think … is important for your point?<br>How did you come to that conclusion?</div></div>
+    <div class="qc" style="--c:#2b776e"><span class="set">A</span><div class="big" style="font-size:40pt;margin-top:4mm">AST</div><div class="name">Academic Success Toolkit</div><div class="eg">How did you make sure everyone’s ideas were considered?</div></div>
+
+    <div class="qc" style="--c:#3a58a0"><span class="set">B</span><div class="big" style="font-size:52pt">C</div><div class="name">Clarification</div><div class="eg">What did you mean by …?<br>Could you clarify how/when/where/why …?</div></div>
+    <div class="qc" style="--c:#7a4a8c"><span class="set">B</span><div class="big" style="font-size:52pt">P</div><div class="name">Probing</div><div class="eg">Why do you think … is important for your point?<br>How did you come to that conclusion?</div></div>
+    <div class="qc" style="--c:#2b776e"><span class="set">B</span><div class="big" style="font-size:40pt;margin-top:4mm">AST</div><div class="name">Academic Success Toolkit</div><div class="eg">How did you make sure everyone’s ideas were considered?</div></div>
+
+    <div class="qc" style="--c:#3a58a0"><span class="set">C</span><div class="big" style="font-size:52pt">C</div><div class="name">Clarification</div><div class="eg">What did you mean by …?<br>Could you clarify how/when/where/why …?</div></div>
+    <div class="qc" style="--c:#7a4a8c"><span class="set">C</span><div class="big" style="font-size:52pt">P</div><div class="name">Probing</div><div class="eg">Why do you think … is important for your point?<br>How did you come to that conclusion?</div></div>
+    <div class="qc" style="--c:#2b776e"><span class="set">C</span><div class="big" style="font-size:40pt;margin-top:4mm">AST</div><div class="name">Academic Success Toolkit</div><div class="eg">How did you make sure everyone’s ideas were considered?</div></div>
+
+    <div class="qc" style="--c:#3a58a0"><span class="set">D</span><div class="big" style="font-size:52pt">C</div><div class="name">Clarification</div><div class="eg">What did you mean by …?<br>Could you clarify how/when/where/why …?</div></div>
+    <div class="qc" style="--c:#7a4a8c"><span class="set">D</span><div class="big" style="font-size:52pt">P</div><div class="name">Probing</div><div class="eg">Why do you think … is important for your point?<br>How did you come to that conclusion?</div></div>
+    <div class="qc" style="--c:#2b776e"><span class="set">D</span><div class="big" style="font-size:40pt;margin-top:4mm">AST</div><div class="name">Academic Success Toolkit</div><div class="eg">How did you make sure everyone’s ideas were considered?</div></div>
+  </div>
+
+  <div class="phrase" style="margin-top:4mm"><span class="tag">Phrase of the stage</span><q>I was wondering how you decided to focus on … ?</q></div>
+  <div class="note"><span>✂ Cut along the dashed lines · 4 students’ sets (A–D) per page</span><span>Write one question starter on the back of each card.</span></div>
+
+  <div class="foot"><div>DEC10 · Week 3 · Day 4 · The workforce of the future</div><div>C / P / AST cards · 2 / 2</div></div>
+</section>
+</body></html>

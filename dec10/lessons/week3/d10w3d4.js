@@ -113,6 +113,7 @@
                   { who: 'alone', text: 'Make three small cards: <b>C</b>, <b>P</b> and <b>AST</b> (three colours if you can). You will hold one up when you want to ask.' }
                 ]
               },
+              { type: 'tip', text: 'Your teacher may give your group <b>paper job cards</b> and <b>C / P / AST cards</b>. No cards? Choose your job on the screen in each presentation, and make your three cards from paper.' },
               {
                 type: 'bet',
                 id: 'a1-bet',
@@ -246,6 +247,7 @@
               },
               groupSteps(1),
               jobPick('a4-job', 1),
+              { type: 'tip', text: 'Your teacher may give you a <b>paper bingo sheet</b>. No sheet? Play on this page: tap a square and write the speaker’s name or initial.' },
               {
                 type: 'bingo',
                 id: 'a4-bingo', label: 'Who said it?',
@@ -417,6 +419,7 @@
                 ]
               },
               { type: 'do', n: 1, who: 'class', text: '<b>Opinion line-up.</b> Stand up. One wall = “Not yet”, the other wall = “Yes, easily”. Stand on the line: <i>I answered (or asked) questions spontaneously, without reading.</i> Tell the person next to you why you are standing there. Then sit down and rate yourself.' },
+              { type: 'tip', text: 'Your teacher may put two signs on the walls: <b>Not yet</b> and <b>Yes, easily</b>. No signs? Your teacher points to the two walls.' },
               { type: 'scale', id: 'a7-ans', title: 'Rate yourself', statement: 'I answered (or asked) questions spontaneously, without reading.', ends: ['Not yet', 'Yes, easily'] },
               { type: 'do', n: 2, who: 'pair', text: '<b>Walk and talk.</b> Find someone from a <b>different</b> feedback group. Walk to the window and back while you talk. Use the starters below.' },
               { type: 'talk', title: 'Walk and talk', prompts: ['The best question I heard today was … because …', 'In my audience job, I noticed that …', 'One thing I will copy from today’s presenters is …', 'One thing I will avoid is …'] },
@@ -804,6 +807,7 @@
                 alt: 'An opinion line across the classroom from Strongly disagree to Strongly agree. Students stand at different points on the line. Above them the statement: It is OK to change your mind after making a decision. One student walks from the disagree side towards the middle, with a speech bubble: That’s a fair point.',
                 caption: 'Opinion line-up: stand where you stand — and move if you are persuaded.'
               },
+              { type: 'tip', text: 'Your teacher may put two signs at the ends of the room: <b>Strongly disagree</b> and <b>Strongly agree</b>. No signs? Use the picture above: your teacher points to the two ends.' },
               {
                 type: 'steps',
                 title: 'Opinion line-up',
@@ -942,6 +946,7 @@
             blocks: [
               { type: 'sticky', title: 'A good critical thinker …', text: '… questions their position by critically exploring the topic with an open mind to the possibility of their position changing.' },
               { type: 'do', n: 1, who: 'group', text: '<b>Beat the clock (4 minutes).</b> Each question belongs under one heading. Take turns: one person places a card and says <b>why</b>. The fastest group with the most right wins a team point.' },
+              { type: 'tip', text: 'Your teacher may give your group <b>paper cards</b> to sort on the table (4 headings + 13 questions). No cards? Sort the cards on this page together.' },
               {
                 type: 'sort',
                 id: 'd5-sort',
@@ -1050,6 +1055,7 @@
                 ]
               },
               { type: 'do', n: 1, who: 'group', text: 'Groups of up to four. Each person takes a <b>different</b> laptop. Open <b>only your tab</b> — the others are your group’s secret!' },
+              { type: 'tip', text: 'Your teacher may give you a <b>paper laptop card</b> (A–D) and put a laptop sign in each corner for the expert huddle. No cards? Open only your tab below, and your teacher says where each laptop group meets.' },
               {
                 type: 'tabs',
                 title: 'Activity specs — open your allocated laptop only',
@@ -1159,6 +1165,7 @@
                 alt: 'A classroom seen from above with four corners, one for each laptop: MacBook Pro, Microsoft Surface, Dell XPS 14 and HP Pavilion Plus. Students walk from their seats to the corner of the laptop they would buy now. Footprints show one student who moved from the HP corner to the Surface corner, with a bubble: My position changed.',
                 caption: 'Four corners: walk to the laptop you would buy now.'
               },
+              { type: 'tip', text: 'Your teacher may put a laptop sign (A–D) in each corner. No signs? Look at the picture above: your teacher says which corner is which laptop.' },
               { type: 'do', n: 1, who: 'class', text: '<b>Four corners.</b> Each corner of the room is one laptop. Stand up and walk to the corner of the laptop you would buy <b>now</b>. Did you leave your own laptop? Say who persuaded you, and why.' },
               { type: 'do', n: 2, who: 'group', text: 'At the end of the discussion, conclude with your final position. Let your group know if:' },
               { type: 'choose', id: 'd9-pos', title: 'My final position', options: ['My position did not change.', 'My position almost changed.', 'My position changed.'] },

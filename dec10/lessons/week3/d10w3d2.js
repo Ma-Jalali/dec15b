@@ -173,6 +173,7 @@ window.DEC15_LESSON = {
               alt: "Four students around a table, each with a job badge: the speaker standing with notes, the timekeeper with a stopwatch, the question master with a question mark card, and the language monitor with a tick list. A curved arrow shows that the jobs move one place to the left after each turn.",
               caption: "Four jobs, one table. After each speaker, the jobs move <b>one place to the left</b>."
             },
+            {"type":"tip","text":"<b>Paper job cards?</b> Your teacher may give your group a card for each job. Hold your card, then pass it to the left after each speaker. No cards? Use the job cards on this page."},
             {
               type: "cards",
               title: "Group jobs",
@@ -265,6 +266,7 @@ window.DEC15_LESSON = {
               caption: "List ✗ → Group ✓. The audience hears one clear story, not four separate talks."
             },
             {"type":"do","n":1,"who":"group","text":"<b>Human sort — stand up!</b> One side of your table is <b>CAUSE</b>, the other side is <b>EFFECT</b>. Each person reads one finding below aloud and walks to the right side. The group agrees or says “Move!”. Then check on screen."},
+            {"type":"tip","text":"Your teacher may give your group <b>paper cards</b> and two signs, <b>CAUSE</b> and <b>EFFECT</b>, for the table. No cards? Each person chooses one finding in the sort below and reads it from the screen."},
             {
               type: "sort",
               id: "a5-sort",
@@ -300,6 +302,7 @@ window.DEC15_LESSON = {
           goal: "Agree on the structure, the language, the sources, the visuals and the body language.",
           blocks: [
             {"type":"do","n":1,"who":"group","text":"<b>Planning meeting.</b> Choose your job for this meeting. Each job is different — tap yours."},
+            {"type":"tip","text":"Paper job cards from your teacher? Use the four <b>Plan</b> cards: Chair, Timekeeper, Devil’s advocate, Secretary. No cards? Tap your job below."},
             {
               type: "cards",
               title: "My job in the planning meeting",
@@ -669,6 +672,7 @@ window.DEC15_LESSON = {
               alt: "An empty mind map to copy. In the centre: Green skills. One main branch: Definition, with small empty branches for what it is and examples. A second main branch: Impact on labour market, with small empty branches for numbers, the skills gap, greening roles and the future. Arrows and symbols are shown in a key at the bottom.",
               caption: "Copy this shape onto a big piece of paper before you listen."
             },
+            {"type":"tip","text":"Your teacher may give you a <b>printed mind-map sheet</b> with this shape. No sheet? Copy the shape onto any big piece of paper."},
             {"type":"do","n":1,"who":"alone","text":"Watch again. Take notes using the mind map method <b>as you listen</b>. Include: <b>“Green Skills”</b> · <b>Definition</b> · <b>Impact on labour market</b>."},
             {
               type: "listening",
@@ -1138,6 +1142,7 @@ window.DEC15_LESSON = {
               ]
             },
             {"type":"do","n":2,"who":"class","text":"<b>Find your partner — stand up!</b> Your teacher gives each student one card: a <b>word</b> or a <b>meaning</b>. Walk round and say your card. Don’t show it! When you find your partner, stand together and make one sentence with the word."},
+            {"type":"tip","text":"<b>No paper cards today?</b> Your teacher gives each student one word or one meaning from the two matching games below. Remember it (don’t write it on your hand!), then walk round and find your partner."},
             {"type":"do","n":3,"who":"pair","text":"Sit down with your new partner. Check all the words with the two matching games."},
             {
               type: "match",
@@ -1430,6 +1435,7 @@ window.DEC15_LESSON = {
                 }
               ]
             },
+            {"type":"tip","text":"Your teacher may give you a <b>paper role card</b> (A = HR representative, B = job candidate) to hold during the interview. No card? Open the tab for your role above."},
             {
               type: "figure",
               src: "dec10/assets/week3/d2-star-answer.svg",
@@ -1474,6 +1480,7 @@ window.DEC15_LESSON = {
                 {"who":"pair","text":"<b>Round 2.</b> Time permitting, <b>swap roles</b> and do the activity again — try to beat your first interview."}
               ]
             },
+            {"type":"tip","text":"Your teacher may give you a <b>paper feedback sheet</b> (Round 1 and Round 2) and <b>curveball cards</b> for HR. No paper? Use the curveball spinner and the feedback form on this page."},
             {
               type: "figure",
               src: "dec10/assets/week3/d2-movement-interview.svg",

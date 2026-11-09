@@ -114,6 +114,7 @@ window.DEC15_LESSON = {
               ]
             },
             {"type":"do","n":2,"who":"pair","text":"<b>Record the game.</b> These are the cards from Game 1. Sort them in 1 minute, then check. Any surprises?"},
+            {"type":"tip","text":"<b>Paper cards?</b> Your teacher may give each pair a set of Do / Don’t cards. Sort them on the desk first, then check here. No cards? Use the sort on this page."},
             {
               type: "sort",
               id: "a1-sort",
@@ -707,6 +708,7 @@ window.DEC15_LESSON = {
                 {"who":"pair","text":"Found your partner? Stand together. Make one academic sentence about green jobs with the formal phrase. Say it to another pair."}
               ]
             },
+            {"type":"tip","text":"<b>Paper cards?</b> Your teacher may give you one informal or formal card to find your partner. No cards? Your teacher says one informal phrase from the match below — the first person to say the formal partner wins a point."},
             {
               type: "figure",
               src: "dec10/assets/week3/d3-move-mingle.svg",
@@ -817,6 +819,7 @@ window.DEC15_LESSON = {
                 {"who":"class","text":"The class gives instructions: <i>“Sentence 5, please sit down — it’s a question.”</i> · <i>“Noun phrase, stand on the left.”</i> Build revised sentence (4) with people!"}
               ]
             },
+            {"type":"tip","text":"<b>Big paper signs?</b> Your teacher may give the volunteers signs to hold. No signs? Volunteers read their part aloud from the pairs below (or write it on a sheet of paper)."},
             {
               type: "figure",
               src: "dec10/assets/week3/d3-combine.svg",
@@ -1028,6 +1031,7 @@ window.DEC15_LESSON = {
                         {"label":"Language monitor","text":"Tick useful phrases you hear: “According to …”, “This suggests that …”.","icon":"pen"}
                       ]
                     },
+                    {"type":"tip","text":"<b>Paper job cards?</b> Your teacher may give your group four job cards — take one each and write your notes on it. No cards? Choose a job from the cards above and use the notes table below."},
                     {"type":"do","n":2,"who":"alone","text":"Listen to the Seminar Presentation. Take short notes — mostly for <b>your job</b>. In the last column, note a <b>strength</b> or an <b>action</b> for the group’s feedback."},
                     {
                       type: "language",
@@ -1100,6 +1104,7 @@ window.DEC15_LESSON = {
                 {"label":"My role","items":["Starter — opens each question","Builder — adds to others’ ideas","Challenger — politely disagrees","Questioner — asks for examples and reasons","Includer — brings quiet people in","Summariser — sums up before you move on"]}
               ]
             },
+            {"type":"tip","text":"<b>Paper role cards?</b> Your teacher may give your group role cards and a language monitor slip. Deal the cards face down — one each. No cards? Spin the wheel above and use the checklist below."},
             {
               type: "language",
               title: "Discussion moves",
@@ -1634,6 +1639,7 @@ window.DEC15_LESSON = {
               caption: "Walk to your corner. Confident? Help someone."
             },
             {"type":"do","n":1,"who":"alone","text":"Back at your desk: record how you feel about each topic. Then write your top two needs."},
+            {"type":"tip","text":"<b>Paper slip?</b> Your teacher may give you a “My learning needs” slip. Fill it in and hand it to your teacher. No slip? Use the grid and boxes below — your teacher can read your answers."},
             {
               type: "grid",
               id: "s2-grid",
