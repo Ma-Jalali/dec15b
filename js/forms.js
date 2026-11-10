@@ -14,7 +14,7 @@
    The student chooses classmates who have signed in; each of them receives a read-only copy in
    "Shared with me" (#/shared, side panel). Sending again updates the copy. Table: form_shares
    (supabase/migrations/20261010000000_dec15_form_shares.sql). Only sender and recipient can read a share. */
-window.createDEC15Forms = function ({ getState, save, rerender, esc, strip, icon, toast, lesson, tableRows, findBlock, getCloud, getClass, signIn, avatarHTML, locked }) {
+window.createDEC15Forms = function ({ getState, save, rerender, esc, strip, icon, toast, lesson, tableRows, findBlock, getCloud, getClass, signIn, avatarHTML, locked, loadCollab }) {
   const st = () => getState();
   const val = k => st().values[k] ?? '';
   const set = (k, v) => { st().values[k] = v; save(); };
@@ -187,21 +187,25 @@ window.createDEC15Forms = function ({ getState, save, rerender, esc, strip, icon
   function notice(r, again) {
     document.querySelector('.share-notice')?.remove();
     const el = document.createElement('div'); el.className = 'share-notice'; el.setAttribute('role', 'status');
-    el.innerHTML = `<span class="sn-ico" aria-hidden="true">${icon('model')}</span><span><b>${esc(r.sender_name)}</b> ${again ? 'updated' : 'shared'} <b>${esc(r.title)}</b> with you</span><a class="btn btn-sm" href="#/shared/${esc(r.id)}">Open</a><button type="button" class="sn-x" aria-label="Dismiss">×</button>`;
+    el.innerHTML = `<span class="sn-ico" aria-hidden="true">${icon('model')}</span><span><b>${esc(r.sender_name)}</b> ${isLive(r) ? `invited you to a shared table: <b>${esc(r.title)}</b>` : `${again ? 'updated' : 'shared'} <b>${esc(r.title)}</b> with you`}</span><a class="btn btn-sm" href="#/shared/${esc(r.id)}">Open</a><button type="button" class="sn-x" aria-label="Dismiss">×</button>`;
     document.body.append(el); el.querySelector('.sn-x').onclick = () => el.remove(); el.querySelector('a').onclick = () => el.remove();
     setTimeout(() => el.remove(), 25000);
   }
   // re-draw only where it cannot interrupt typing: the shared page, or (after loading) a page with share bars
-  function refresh(first) { if (/^#\/shared/.test(location.hash) || (first && document.querySelector('[data-send-bar]'))) rerender(); }
+  function refresh(first) {
+    const typing = document.activeElement?.matches?.('textarea, input, [contenteditable="true"]');
+    if (/^#\/shared/.test(location.hash) || (first && document.querySelector('[data-send-bar], [data-lt-bar], [data-lt-mode]')) || (!typing && document.querySelector('[data-lt-bar]'))) rerender();
+  }
 
   /* ───────── the "Share with classmates" dialog ───────── */
   let dlg = null, picking = null;
-  function openPicker(id) {
-    const b = findBlock(id), a = actOf.get(id);
+  function openPicker(id, lv) {
+    /* lv (a shared table): { doc?, block?, body? } — no doc yet = start a new one for this block */
+    const b = lv ? lv.block || null : findBlock(id), a = actOf.get(id);
     if (!db()) { toast('Sign in first — then you can share with classmates who have signed in.'); signIn(); return; }
-    const snap = snapshot(b, a);
-    if (!hasContent(snap)) { toast('Fill in the form first. Then share it.'); return; }
-    picking = { id, snap, chosen: new Set() };
+    const snap = lv ? (lv.body || { title: strip(b?.title || 'Shared table'), place: a ? place(a) : '' }) : snapshot(b, a);
+    if (!lv && !hasContent(snap)) { toast('Fill in the form first. Then share it.'); return; }
+    picking = { id, snap, chosen: new Set(), lv };
     if (!dlg) {
       dlg = document.createElement('dialog'); dlg.className = 'send-dialog'; dlg.setAttribute('aria-labelledby', 'sd-title'); document.body.append(dlg);
       dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
@@ -210,17 +214,18 @@ window.createDEC15Forms = function ({ getState, save, rerender, esc, strip, icon
       dlg.addEventListener('submit', e => { e.preventDefault(); doSend(); });
       dlg.addEventListener('click', e => { if (e.target.closest('[data-sd-close]')) dlg.close(); });
     }
-    const already = new Set((outbox.get(id) || []).map(s => s.to)), others = people.filter(p => p.id !== me());
+    const already = new Set(lv ? (lv.doc ? liveRowsOf(lv.doc).map(r => r.sender_id === me() ? r.recipient_id : r.sender_id) : []) : (outbox.get(id) || []).map(s => s.to)), others = people.filter(p => p.id !== me());
     const online = new Set(getClass()?.onlineIds?.() || []);
     dlg.innerHTML = `<form method="dialog" class="sd">
-      <div class="sd-head"><div><span class="eyebrow">Share with classmates</span><h2 id="sd-title">${esc(snap.title)}</h2><small>${esc(snap.place)}</small></div><button type="button" class="sd-x" data-sd-close aria-label="Close">×</button></div>
-      <p class="sd-help">${icon('lock')}<span>Only the people you choose will see a <b>read-only copy</b> in their <b>Shared with me</b> page. Your own copy stays yours. Share again later to send your changes.</span></p>
+      <div class="sd-head"><div><span class="eyebrow">${lv ? (lv.doc ? 'Invite classmates to the shared table' : 'Start a shared table') : 'Share with classmates'}</span><h2 id="sd-title">${esc(snap.title)}</h2><small>${esc(snap.place)}</small></div><button type="button" class="sd-x" data-sd-close aria-label="Close">×</button></div>
+      ${lv ? `<p class="sd-help sd-live">${icon('users')}<span>Choose your group. You will all work on <b>one table</b>, live: everyone can type, and you see each other’s changes at once. They find it in <b>Shared with me</b> and in this lesson. Your own table stays as it is.</span></p>`
+        : `<p class="sd-help">${icon('lock')}<span>Only the people you choose will see a <b>read-only copy</b> in their <b>Shared with me</b> page. Your own copy stays yours. Share again later to send your changes.</span></p>`}
       <label class="sd-find">${icon('search')}<input type="search" placeholder="Find a classmate (${others.length})" data-sd-find aria-label="Find a classmate"></label>
       <ul class="sd-people">${others.map(p => `<li data-name="${esc(String(p.full_name).toLowerCase())}"><label><input type="checkbox" value="${esc(p.id)}" data-sd-person>
         <span class="sd-ava">${avatarHTML({ full_name: p.full_name, avatar_url: p.avatar_url }, '', 'avatar')}${online.has(p.id) ? '<i class="sd-on" title="Online now"></i>' : ''}</span>
-        <span class="sd-name"><b>${esc(p.full_name)}</b>${p.role === 'teacher' ? '<em>Teacher</em>' : ''}${already.has(p.id) ? '<small>Already sent — will be updated</small>' : ''}</span><span class="sd-tick" aria-hidden="true">${icon('check')}</span></label></li>`).join('') || '<li class="sd-none">No classmates have signed in yet.</li>'}</ul>
+        <span class="sd-name"><b>${esc(p.full_name)}</b>${p.role === 'teacher' ? '<em>Teacher</em>' : ''}${already.has(p.id) ? `<small>${lv ? 'Already in this table' : 'Already sent — will be updated'}</small>` : ''}</span><span class="sd-tick" aria-hidden="true">${icon('check')}</span></label></li>`).join('') || '<li class="sd-none">No classmates have signed in yet.</li>'}</ul>
       <p class="sd-empty" hidden>No name matches.</p>
-      <label class="sd-note"><span>Add a short message (optional)</span><textarea rows="2" maxlength="1000" data-sd-note placeholder="e.g. Great discussion! My notes on your group are below."></textarea></label>
+      <label class="sd-note"><span>Add a short message (optional)</span><textarea rows="2" maxlength="1000" data-sd-note placeholder="${lv ? 'e.g. Let’s fill this in together during the discussion!' : 'e.g. Great discussion! My notes on your group are below.'}"></textarea></label>
       <div class="sd-foot"><span class="sd-count" aria-live="polite">Choose one or more people</span><button type="submit" class="btn" data-sd-send disabled>${icon('share')}Send</button></div>
     </form>`;
     dlg.showModal(); setTimeout(() => dlg.querySelector('[data-sd-find]')?.focus(), 30);
@@ -237,6 +242,7 @@ window.createDEC15Forms = function ({ getState, save, rerender, esc, strip, icon
   }
   async function doSend() {
     const c = db(); if (!c || !picking?.chosen.size) return;
+    if (picking.lv) return sendLive(c);
     const btn = dlg.querySelector('[data-sd-send]'); btn.disabled = true; btn.classList.add('is-busy');
     const note = dlg.querySelector('[data-sd-note]').value.trim().slice(0, 1000), { id, snap } = picking;
     const prev = new Map((outbox.get(id) || []).map(s => [s.to, s.id]));
@@ -251,6 +257,91 @@ window.createDEC15Forms = function ({ getState, save, rerender, esc, strip, icon
     const names = [...picking.chosen].map(p => firstName(personName(p)));
     dlg.close(); toast(`Sent to ${names.length > 2 ? names.slice(0, 2).join(', ') + ` and ${names.length - 2} more` : names.join(' and ')}. They will find it in “Shared with me”.`);
     rerender();
+  }
+
+  /* ───────── shared tables (v6.8): one live table for a group ─────────
+     A share row with body.kind 'live' points at a live document (body.doc). block_id is "<table id>@<code>", so one
+     student can start one table per block and still be invited to classmates' tables. */
+  const LS = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } };
+  const isLive = r => r?.body?.kind === 'live' && r.body.doc;
+  const liveRowsOf = doc => [...inbox, ...sentAll].filter(r => isLive(r) && r.body.doc === doc);
+  function livesFor(blockId) {   // the shared tables for this block that I started or was invited to
+    const by = new Map();
+    [...sentAll, ...inbox].filter(r => isLive(r) && r.lesson_id === lesson.id && r.block_id.split('@')[0] === blockId).forEach(r => {
+      const l = by.get(r.body.doc) || { doc: r.body.doc, rows: [], body: r.body, mine: false, owner: '' };
+      l.rows.push(r); if (r.sender_id === me() && r.body.owner === me()) l.mine = true;
+      if (r.body.owner !== me() && r.sender_id === r.body.owner) l.owner = r.sender_name;
+      by.set(r.body.doc, l);
+    });
+    return [...by.values()].map(l => ({ ...l, owner: l.body.owner === me() ? 'You' : l.owner || personName(l.body.owner) }));
+  }
+  function liveWho(l) {   // everyone we know is in this table
+    const ids = new Set([me()]); l.rows.forEach(r => { ids.add(r.sender_id); ids.add(r.recipient_id); });
+    const names = [...ids].filter(Boolean).map(id => id === me() ? 'You' : firstName(personName(id)));
+    (l.body.with || []).forEach(n => { const f = firstName(n); if (!names.includes(f) && f !== firstName(cloud()?.profile?.full_name)) names.push(f); });
+    return names;
+  }
+  const liveSlot = (doc, lessonId, names, title) => `<div class="lt-slot" data-live-table="${esc(doc)}" data-lt-lesson="${esc(lessonId)}" data-lt-names="${names ? 1 : 0}" data-lt-title="${esc(title)}"><p class="lt-wait">Loading the shared table…</p></div>`;
+  /* a table block with live: true in the lesson */
+  function liveTable(b, a, mine) {
+    if (a) actOf.set(b.id, a);
+    const lives = db() ? livesFor(b.id) : [], key = `dec15-lt:${lesson.id}:${b.id}`, pref = LS(key);
+    if (!lives.length) return mine + `<div class="send-bar lt-bar" data-lt-bar="${esc(b.id)}">
+      <div class="sb-art lt-bar-art" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="5" y="9" width="30" height="26" rx="4" fill="#fff" stroke="currentColor" stroke-width="2"/><path d="M5 17h30M15 9v26M25 9v26M5 26h30" stroke="currentColor" stroke-width="1.6"/><circle cx="35" cy="34" r="6.5" fill="#e3a843" stroke="currentColor" stroke-width="1.8"/><circle cx="42" cy="26" r="4.5" fill="#2b776e" stroke="currentColor" stroke-width="1.6"/><circle cx="27" cy="40" r="4.5" fill="#b0512a" stroke="currentColor" stroke-width="1.6"/></svg></div>
+      <div class="sb-tx"><b>Work on one table together</b><small>Start a shared table and invite your group. Everyone types in the same table at the same time — you can style words, change colours and make columns wider. It stays in “Shared with me”.</small></div>
+      <div class="sb-btns"><button type="button" class="btn btn-sm" data-lt-start="${esc(b.id)}">${icon('users')}Start a shared table</button></div></div>`;
+    const cur = pref === 'mine' ? null : lives.find(l => l.doc === pref) || lives[0];
+    const sw = `<div class="lt-switch" role="tablist" aria-label="Which table">
+      ${lives.map(l => `<button type="button" role="tab" aria-selected="${cur?.doc === l.doc}" data-lt-mode="${esc(l.doc)}" data-lt-key="${esc(key)}"><i class="lt-dot"></i>${lives.length > 1 ? `Shared · ${esc(l.owner === 'You' ? 'mine' : firstName(l.owner) + '’s')}` : 'Our shared table'}</button>`).join('')}
+      <button type="button" role="tab" aria-selected="${!cur}" data-lt-mode="mine" data-lt-key="${esc(key)}">My own table</button></div>`;
+    if (!cur) return sw + mine;
+    const row = cur.rows.find(r => r.recipient_id === me()) || cur.rows[0];
+    return `${sw}<section class="block table-block lt-block">${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}
+      ${liveSlot(cur.doc, lesson.id, b.live === 'names', strip(b.title || 'Shared table'))}
+      <div class="lt-meta"><span>${icon('users')}With ${esc(liveWho(cur).join(', '))}</span>
+        <button type="button" class="btn-quiet btn-sm" data-lt-invite="${esc(b.id)}" data-lt-doc="${esc(cur.doc)}">${icon('share')}Invite classmates</button>
+        <a class="btn-quiet btn-sm" href="#/shared/${esc(row.id)}">${icon('open')}Open in Shared with me</a></div></section>`;
+  }
+  async function sendLive(c) {
+    const btn = dlg.querySelector('[data-sd-send]'); btn.disabled = true; btn.classList.add('is-busy');
+    const note = dlg.querySelector('[data-sd-note]').value.trim().slice(0, 1000), { id, lv } = picking;
+    const fail = (msg, e) => { btn.classList.remove('is-busy'); btn.disabled = false; toast(msg); if (e) console.error(e); };
+    let body = lv.body, code;
+    try {
+      await loadCollab();
+      if (!lv.doc) {   // a new table: create it first (columns and rows from the task), then invite
+        const b = lv.block, a = actOf.get(id); code = Math.random().toString(36).slice(2, 10);
+        const doc = `lt:${lesson.id}:${b.id}:${code}`;
+        const ok = await window.DEC15LiveTable.prepare({ docId: doc, lessonId: lesson.id, seed: window.DEC15LiveTable.seedOf(b), names: b.live === 'names', cloud: cloud(), toast, title: strip(b.title || 'Shared table') });
+        if (!ok) return fail('Sorry — the table could not be created. Check your internet and try again.');
+        body = { v: 1, kind: 'live', doc, owner: me(), names: b.live === 'names', title: strip(b.title || a?.title || 'Shared table'), activity: a?.title || '', place: a ? place(a) : '', lesson: lesson.id };
+      } else code = lv.doc.split(':').pop();
+    } catch (e) { return fail('Sorry — the shared table could not open. Check your internet and try again.', e); }
+    const have = new Set(liveRowsOf(body.doc).flatMap(r => [r.sender_id, r.recipient_id]));
+    const names = [...picking.chosen].map(p => personName(p));
+    body = { ...body, with: [...new Set([...(body.with || []), cloud()?.profile?.full_name || '', ...names].filter(Boolean))].slice(0, 30) };
+    const ins = [...picking.chosen].filter(p => !have.has(p)).map(p => ({ recipient_id: p, lesson_id: body.lesson || lesson.id, block_id: `${id}@${code}`.slice(0, 64), title: String(body.title).slice(0, 200), place: String(body.place || '').slice(0, 200), note, body }));
+    if (ins.length) { const r = await c.from('form_shares').insert(ins).select(); if (r.error) return fail('Sorry — the invitations were not sent. Check your internet and try again.', r.error); sentAll = [...(r.data || []), ...sentAll]; }
+    btn.classList.remove('is-busy'); setRows([...inbox, ...sentAll]);
+    if (!lv.doc) LS(`dec15-lt:${lesson.id}:${id}`, body.doc);
+    const first = names.map(firstName);
+    dlg.close(); toast(ins.length ? `${first.length > 2 ? first.slice(0, 2).join(', ') + ` and ${first.length - 2} more` : first.join(' and ')} can now work on the table with you. They find it in “Shared with me”.` : 'They are already in this table.');
+    rerender();
+  }
+  /* find the empty places for shared tables on the page and open the live table there */
+  let hyT = 0;
+  function hydrate() {
+    document.querySelectorAll('[data-live-table]:not(.lt-ready)').forEach(el => {
+      el.classList.add('lt-ready');
+      if (!db()) { el.innerHTML = '<p class="lt-wait">Sign in to open the shared table.</p>'; return; }
+      loadCollab().then(() => { if (el.isConnected) window.DEC15LiveTable.mount(el, { docId: el.dataset.liveTable, lessonId: el.dataset.ltLesson, names: el.dataset.ltNames === '1', title: el.dataset.ltTitle, cloud: cloud(), toast }); })
+        .catch(() => { el.innerHTML = '<p class="lt-wait">The shared table could not open. Check your internet connection.</p>'; });
+    });
+  }
+  if (typeof MutationObserver === 'function') new MutationObserver(() => { cancelAnimationFrame(hyT); hyT = requestAnimationFrame(hydrate); }).observe(document.documentElement, { childList: true, subtree: true });
+  function liveSnap(r) {   // a PDF of the table as it is now
+    const t = window.DEC15LiveTable?.snapshot(r.body.doc); if (!t) return null;
+    return { v: 1, title: r.body.title || r.title, place: r.body.place || r.place, parts: [{ t: 'table', title: r.body.title || r.title, head: t.head, rows: t.rows, rowHead: false }] };
   }
 
   /* ───────── PDF of one form ───────── */
@@ -312,12 +403,12 @@ window.createDEC15Forms = function ({ getState, save, rerender, esc, strip, icon
     if (!loaded) return `${head}<p class="sh-loading">Loading…</p>`;
     const cur = sel ? (inbox.find(r => r.id === sel) || sentAll.find(r => r.id === sel)) : null;
     if (cur) tab = inbox.includes(cur) ? 'in' : 'out';
-    const list = tab === 'in' ? inbox : sentAll;
+    const seenDoc = new Set(), list = (tab === 'in' ? inbox : sentAll).filter(r => !isLive(r) || tab === 'in' || (seenDoc.has(r.body.doc) ? false : seenDoc.add(r.body.doc)));
     if (cur && cur.recipient_id === me() && !cur.read_at) markRead(cur);
-    const card = r => { const mine = r.sender_id === me(), who = mine ? personName(r.recipient_id) : r.sender_name;
+    const card = r => { const mine = r.sender_id === me(), lv = isLive(r), who = mine ? (lv ? liveRowsOf(r.body.doc).filter(x => x.sender_id === me()).map(x => firstName(personName(x.recipient_id))).join(', ') : personName(r.recipient_id)) : r.sender_name;
       return `<li><a class="sh-card${r.id === cur?.id ? ' on' : ''}${!mine && !r.read_at ? ' unread' : ''}" href="#/shared/${esc(r.id)}">${avatarHTML({ full_name: who, avatar_url: people.find(p => p.id === (mine ? r.recipient_id : r.sender_id))?.avatar_url }, '', 'avatar')}
-        <span class="sh-ct"><b>${esc(r.title)}</b><small>${mine ? 'To ' : 'From '}${esc(who)}${!mine && r.sender_role === 'teacher' ? ' · Teacher' : ''}</small><small class="sh-pl">${esc(r.place)}</small></span><time>${esc(when(r.updated_at))}</time></a></li>`; };
-    const detail = cur ? (() => { const mine = cur.sender_id === me(), body = cur.body || { parts: [] };
+        <span class="sh-ct"><b>${lv ? '<i class="sh-live">Live table</i>' : ''}${esc(r.title)}</b><small>${mine ? (lv ? 'With ' : 'To ') : 'From '}${esc(who)}${!mine && r.sender_role === 'teacher' ? ' · Teacher' : ''}</small><small class="sh-pl">${esc(r.place)}</small></span><time>${esc(when(r.updated_at))}</time></a></li>`; };
+    const detail = cur && isLive(cur) ? liveDetail(cur) : cur ? (() => { const mine = cur.sender_id === me(), body = cur.body || { parts: [] };
       return `<article class="sh-detail" aria-label="${esc(cur.title)}"><header class="sh-dh"><div><span class="eyebrow">${esc(cur.place)}</span><h2>${esc(cur.title)}</h2>
         <p class="sh-from">${avatarHTML({ full_name: mine ? personName(cur.recipient_id) : cur.sender_name }, '', 'avatar')}<span>${mine ? `You shared this with <b>${esc(personName(cur.recipient_id))}</b>` : `<b>${esc(cur.sender_name)}</b>${cur.sender_role === 'teacher' ? ' (teacher)' : ''} shared this with you`}<small>${cur.created_at !== cur.updated_at ? 'Updated ' : ''}${esc(when(cur.updated_at))}${mine && cur.read_at ? ' · Seen' : ''}</small></span></p></div></header>
         ${cur.note ? `<p class="sh-note">${icon('chat')}<span>${esc(cur.note)}</span></p>` : ''}
@@ -331,6 +422,18 @@ window.createDEC15Forms = function ({ getState, save, rerender, esc, strip, icon
       <aside class="sh-list"><div class="sh-tabs" role="tablist"><button type="button" role="tab" aria-selected="${tab === 'in'}" data-sh-tab="in">Received${unread() ? ` <i>${unread()}</i>` : ''}</button><button type="button" role="tab" aria-selected="${tab === 'out'}" data-sh-tab="out">Sent by me</button></div>
         <ul>${list.map(card).join('')}</ul></aside>
       <div class="sh-main">${cur ? `<a class="sh-back" href="#/shared">${icon('left')}All shared forms</a>` : ''}${detail}</div></div>`;
+  }
+  function liveDetail(cur) {
+    const mine = cur.sender_id === me(), body = cur.body, l = { rows: liveRowsOf(body.doc), body };
+    return `<article class="sh-detail sh-live-detail" aria-label="${esc(cur.title)}"><header class="sh-dh"><div><span class="eyebrow">${esc(cur.place)}</span><h2><i class="sh-live">Live table</i>${esc(cur.title)}</h2>
+        <p class="sh-from">${avatarHTML({ full_name: mine ? cloud()?.profile?.full_name : cur.sender_name }, '', 'avatar')}<span>${mine ? 'You shared this table' : `<b>${esc(cur.sender_name)}</b>${cur.sender_role === 'teacher' ? ' (teacher)' : ''} invited you to this table`}<small>With ${esc(liveWho(l).join(', '))} · everyone can type, and changes appear at once</small></span></p></div></header>
+        ${cur.note ? `<p class="sh-note">${icon('chat')}<span>${esc(cur.note)}</span></p>` : ''}
+        ${liveSlot(body.doc, body.lesson || cur.lesson_id, body.names, body.title || cur.title)}
+        <footer class="sh-actions"><button type="button" class="btn" data-lt-invite="${esc(cur.block_id.split('@')[0])}" data-lt-doc="${esc(body.doc)}" data-lt-row="${esc(cur.id)}">${icon('share')}Invite classmates</button>
+          ${!mine ? `<button type="button" class="btn-quiet" data-sh-reply="${esc(cur.sender_id)}">${icon('chat')}Message ${esc(firstName(cur.sender_name))}</button>` : ''}
+          <button type="button" class="btn-quiet" data-sh-pdf="${esc(cur.id)}">${icon('download')}Download PDF</button>
+          <a class="btn-quiet" href="#/${esc(cur.lesson_id)}">${icon('open')}Open the lesson</a>
+          <button type="button" class="btn-quiet sh-del" data-sh-del="${esc(cur.id)}">${mine ? 'Stop sharing' : 'Remove from my list'}</button></footer></article>`;
   }
   async function markRead(r) { r.read_at = new Date().toISOString(); paintBadge(); try { await db()?.from('form_shares').update({ read_at: r.read_at }).eq('id', r.id); } catch (e) { /* not important */ } }
 
@@ -348,10 +451,20 @@ window.createDEC15Forms = function ({ getState, save, rerender, esc, strip, icon
       return true; }
     if (d.jpReset) { if (!confirm('Start a new game? Scores will go back to 0.')) return true; const b = findBlock(d.jpReset), s = jpState(b); jpOpen = null; clearInterval(jpTimer); jpSave(b, { used: [], scores: [], teams: s.teams }); rerender(); return true; }
     if (d.sendOpen) { openPicker(d.sendOpen); return true; }
+    if (d.ltStart) { const b = findBlock(d.ltStart); if (b) openPicker(d.ltStart, { block: b }); return true; }
+    if (d.ltInvite) { const r = liveRowsOf(d.ltDoc)[0]; if (r) openPicker(d.ltInvite, { doc: d.ltDoc, body: r.body }); return true; }
+    if (d.ltMode) { LS(d.ltKey, d.ltMode); rerender(); return true; }
     if (d.sendPdf) { pdfOf(d.sendPdf, t); return true; }
     if (d.shTab) { tab = d.shTab; location.hash = '#/shared'; rerender(); return true; }
     if (d.shReply) { getClass()?.message(d.shReply); return true; }
-    if (d.shPdf) { const r = [...inbox, ...sentAll].find(x => x.id === d.shPdf); if (r) { t.classList.add('busy'); pdf(r.body, { by: r.sender_name, to: r.sender_id === me() ? personName(r.recipient_id) : '', when: r.updated_at, note: r.note }).then(() => toast('PDF downloaded.'), e => { console.error(e); toast('Sorry — the PDF could not be created.'); }).finally(() => t.classList.remove('busy')); } return true; }
+    if (d.shPdf) { const r = [...inbox, ...sentAll].find(x => x.id === d.shPdf);
+      if (r && isLive(r)) { const snap = liveSnap(r); if (!snap) { toast('Wait for the table to load, then try again.'); return true; } t.classList.add('busy'); pdf(snap, { when: Date.now() }).then(() => toast('PDF downloaded.'), e => { console.error(e); toast('Sorry — the PDF could not be created.'); }).finally(() => t.classList.remove('busy')); return true; }
+      if (r) { t.classList.add('busy'); pdf(r.body, { by: r.sender_name, to: r.sender_id === me() ? personName(r.recipient_id) : '', when: r.updated_at, note: r.note }).then(() => toast('PDF downloaded.'), e => { console.error(e); toast('Sorry — the PDF could not be created.'); }).finally(() => t.classList.remove('busy')); } return true; }
+    if (d.shDel && isLive([...inbox, ...sentAll].find(x => x.id === d.shDel))) { const r = [...inbox, ...sentAll].find(x => x.id === d.shDel), mine = r.sender_id === me();
+      const ids = mine ? liveRowsOf(r.body.doc).filter(x => x.sender_id === me()).map(x => x.id) : [r.id];
+      if (!confirm(mine ? `Stop sharing the table “${r.title}”? The people you invited will no longer see it in their list.` : `Remove the table “${r.title}” from your list? The others can still use it.`)) return true;
+      db()?.from('form_shares').delete().in('id', ids).then(({ error }) => { if (error) { toast('It could not be removed. Try again.'); return; } setRows([...inbox, ...sentAll].filter(x => !ids.includes(x.id))); paintBadge(); location.hash = '#/shared'; rerender(); });
+      return true; }
     if (d.shDel) { const r = [...inbox, ...sentAll].find(x => x.id === d.shDel), mine = r?.sender_id === me();
       if (!r || !confirm(mine ? `Stop sharing “${r.title}” with ${personName(r.recipient_id)}? They will no longer see it.` : `Remove “${r.title}” from your list? ${r.sender_name} keeps their own copy.`)) return true;
       db()?.from('form_shares').delete().eq('id', r.id).then(({ error }) => { if (error) { toast('It could not be removed. Try again.'); return; } setRows([...inbox, ...sentAll].filter(x => x.id !== r.id)); paintBadge(); location.hash = '#/shared'; rerender(); });
@@ -382,5 +495,5 @@ window.createDEC15Forms = function ({ getState, save, rerender, esc, strip, icon
     return out;
   }
 
-  return { B, register, notebookItems, onClick, onChange, onInput, sendBar, connect, disconnect, pageHTML, paintBadge, unread: () => unread() };
+  return { B, register, notebookItems, onClick, onChange, onInput, sendBar, liveTable, connect, disconnect, pageHTML, paintBadge, unread: () => unread() };
 };

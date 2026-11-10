@@ -1572,7 +1572,7 @@ window.DEC15_LESSON = {
               title: "Discussion skills & useful language · Student Booklet",
               rows: [["1. Start the discussion","Ok, we’ve decided to talk about…"],["2. Introduce ideas","According to (author’s name) …"],["3. Take the floor politely:","Can I just say… [pause]"]]
             },
-            {"type":"table","id":"d6-mine","title":"Add more phrases in each column","columns":["Start the discussion","Introduce ideas","Take the floor politely"],"rows":3},
+            {"type":"table","id":"d6-mine","live":true,"title":"Add more phrases in each column","columns":["Start the discussion","Introduce ideas","Take the floor politely"],"rows":3},
             {
               type: "toggle",
               title: "More phrases to compare",

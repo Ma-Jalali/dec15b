@@ -188,7 +188,7 @@ window.DEC15_LESSON = {
             {"type":"sources","ids":["ecosdg","bluewash","s41","s42"]},
             {
               type: "table",
-              id: "a3-tab",
+              id: "a3-tab", live: true,
               title: "Our nominalised subjects",
               columns: ["Text","Nominalised subject (underline)","Main verb (highlight)","Unpacked in simple words"],
               fixed: ["Example 1","Example 2","Example 3","From another group","From another group"]
