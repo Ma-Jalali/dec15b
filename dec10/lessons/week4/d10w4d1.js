@@ -600,7 +600,7 @@ window.DEC15_LESSON = {
             { type: "do", n: 1, who: "pair", text: "Brainstorm the benefits and drawbacks of tourism. Think about the impacts on the <b>local community</b>, the <b>economy</b> and the <b>environment</b>." },
             {
               type: "table",
-              id: "b2-tab",
+              id: "b2-tab", live: true,
               title: "Tourism: benefits and drawbacks",
               columns: ["Impact on …", "Benefits", "Drawbacks"],
               fixed: ["the local community", "the economy", "the environment"]
@@ -752,14 +752,14 @@ window.DEC15_LESSON = {
             { type: "do", n: 1, who: "group", text: "Read <b>your</b> section carefully. Take notes together in <b>your</b> table only. Use symbols and abbreviations. In the last column, write what <b>you</b> think: any issues? questions? will it work?" },
             {
               type: "table",
-              id: "b5-g2",
+              id: "b5-g2", live: true,
               title: "Groups 1 / 2 / 3 · Goal 2: Zero hunger (Paragraphs B–C)",
               columns: ["Main idea", "Examples & details", "Consequence / impact", "Thoughts / challenges / effectiveness?"],
               fixed: ["1.", "2."]
             },
             {
               type: "table",
-              id: "b5-g3",
+              id: "b5-g3", live: true,
               title: "Groups 4 / 5 / 6 · Goal 3: Good health and wellbeing (Paragraphs D–F)",
               columns: ["Main idea", "Examples, evidence & details", "Consequence / impact", "Thoughts / challenges / effectiveness?"],
               fixed: ["1.", "2.", "3."]
@@ -1052,7 +1052,7 @@ window.DEC15_LESSON = {
             },
             {
               type: "table",
-              id: "b9-tab",
+              id: "b9-tab", live: true,
               title: "Our initiative",
               columns: ["", "Notes"],
               fixed: ["What is it?", "Why was it introduced?", "Appropriateness", "Feasibility", "Effectiveness / unintended consequences"]

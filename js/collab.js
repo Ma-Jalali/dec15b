@@ -445,5 +445,5 @@ window.DEC15Collab = (() => {
     }
     cur = { close };
   }
-  return { open, close: () => cur?.close() };
+  return { open, close: () => cur?.close(), provider };   // provider: also used by the shared table (js/livetable.js)
 })();

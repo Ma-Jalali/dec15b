@@ -302,7 +302,7 @@
               jobPick('a5-job', 2),
               {
                 type: 'table',
-                id: 'a5-track',
+                id: 'a5-track', live: 'names',
                 title: 'Live task · Cause → effect + evidence tracker (everyone; the detective and the tracker lead)',
                 columns: ['Speaker', 'Cause', '→ Effect', 'Source said aloud? (name + year)'],
                 fixed: ['Speaker 1', 'Speaker 2', 'Speaker 3'],
@@ -1114,7 +1114,7 @@
               },
               {
                 type: 'table',
-                id: 'd8-notes',
+                id: 'd8-notes', live: true,
                 title: 'Notes on my group’s laptops',
                 columns: ['Laptop', 'Battery life', 'Weight', 'Security', 'Other features', 'Strong point?'],
                 fixed: ['MacBook Pro', 'Microsoft Surface', 'Dell XPS 14', 'HP Pavilion Plus']

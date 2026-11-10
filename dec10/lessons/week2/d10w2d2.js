@@ -163,7 +163,7 @@ window.DEC15_LESSON = {
             },
             {
               type: "table",
-              id: "a3-tab",
+              id: "a3-tab", live: 'names',
               title: "Our group’s research",
               columns: ["Speaker","Their focus","Main finding","Cause or effect?","My question"],
               fixed: ["Me","Student 2","Student 3","Student 4"]
@@ -255,7 +255,7 @@ window.DEC15_LESSON = {
                 {"text":"More minerals must be mined from the ground.","answer":1}
               ]
             },
-            {"type":"table","id":"a5-tab","title":"Your group template","columns":["Student","Cause","Effect"],"fixed":["1","2","3","4"]},
+            {"type":"table","id":"a5-tab","live":"names","title":"Your group template","columns":["Student","Cause","Effect"],"fixed":["1","2","3","4"]},
             {
               type: "tip",
               text: "Now <b>group</b> the rows: put all the causes together and all the effects together. Which findings are <b>similar</b>? Which are <b>different</b>?"

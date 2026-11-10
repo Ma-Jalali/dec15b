@@ -130,7 +130,7 @@ window.DEC15_LESSON = {
               'Are those criticisms valid?',
               'In your opinion, as they stand, would these frameworks be able to satisfactorily address current sustainability challenges?'
             ] },
-            { type: 'table', id: 'f4-trial', title: 'The trial — use Corvania as your evidence', columns: ['The main criticism', 'Did we see it in the Corvania case?', 'Is it valid?'], fixed: ['Triple bottom line', 'IPAT equation', 'DTM'] },
+            { type: 'table', id: 'f4-trial', live: true, title: 'The trial — use Corvania as your evidence', columns: ['The main criticism', 'Did we see it in the Corvania case?', 'Is it valid?'], fixed: ['Triple bottom line', 'IPAT equation', 'DTM'] },
             { type: 'toggle', title: 'Stuck? Where the criticism comes from', hint: 'Open only if your group needs it', blocks: [
               { type: 'cards', items: [
                 { label: 'DTM · Hanks (2019)', text: 'Built on Western experience; may not fit developing countries; misses population <b>decline</b> (a possible fifth stage). Did it tell you anything about the river?' },

@@ -676,7 +676,7 @@ window.DEC15_LESSON = {
             },
             {
               type: 'table',
-              id: 'b6-tab',
+              id: 'b6-tab', live: true,
               title: 'Peer and AI feedback',
               columns: ['', 'Peer feedback', 'AI feedback'],
               fixed: ['Similar points', 'Different points', 'Most actionable point']

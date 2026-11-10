@@ -186,7 +186,7 @@ window.DEC15_LESSON = {
             },
             {
               type: "table",
-              id: "a3-tab",
+              id: "a3-tab", live: 'names',
               title: "Our group’s research",
               columns: ["Speaker","Their focus","Main finding","Cause or effect?","My question"],
               fixed: ["Me","Student 2","Student 3","Student 4"]
@@ -285,7 +285,7 @@ window.DEC15_LESSON = {
               ]
             },
             {"type":"do","n":2,"who":"group","text":"Now do the same with <b>your own</b> research. Each person says their main finding: “My finding is a <b>cause</b> / an <b>effect</b> because …”. Write it in your row."},
-            {"type":"table","id":"a5-tab","title":"Your group template","columns":["Student","Cause","Effect"],"fixed":["1","2","3","4"]},
+            {"type":"table","id":"a5-tab","live":"names","title":"Your group template","columns":["Student","Cause","Effect"],"fixed":["1","2","3","4"]},
             {
               type: "tip",
               text: "Now <b>group</b> the rows. Put similar causes together. Then put similar effects together. Say: “<b>Both</b> my finding and …’s finding show that …”"

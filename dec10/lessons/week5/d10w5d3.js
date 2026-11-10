@@ -418,7 +418,7 @@ window.DEC15_LESSON = {
             { type: 'do', n: 3, who: 'group', text: 'Work together to add some notes for your group’s main ideas to a shared document.' },
             {
               type: 'table',
-              id: 'b2-plan',
+              id: 'b2-plan', live: true,
               title: 'Structure (add notes here)',
               columns: ['', 'Notes', 'Source(s) (author, year)'],
               fixed: ['Our position', 'Main Idea 1 (Paragraph 1)', 'Main Idea 2 (Paragraph 2)', 'Main Idea 3 (Paragraph 3)']

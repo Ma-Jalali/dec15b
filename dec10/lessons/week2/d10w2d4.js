@@ -137,7 +137,7 @@ window.DEC15_LESSON = {
             },
             {
               type: "table",
-              id: "s2-t",
+              id: "s2-t", live: true,
               title: "Our plan",
               columns: ["Step","What we would do"],
               fixed: [
@@ -250,7 +250,7 @@ window.DEC15_LESSON = {
             },
             {
               type: "table",
-              id: "s4-t",
+              id: "s4-t", live: true,
               title: "Our 1-minute outline",
               columns: ["Part","Our notes (keywords only)"],
               fixed: [
@@ -1218,7 +1218,7 @@ window.DEC15_LESSON = {
             {"type":"do","n":1,"who":"group","text":"Quickly complete the table: what did you learn in each topic? Use dot points."},
             {
               type: "table",
-              id: "q5-ast",
+              id: "q5-ast", live: true,
               columns: ["What we learnt (dot points)"],
               fixed: ["Engagement with AI","Group work","Self-regulating and monitoring","Giving and receiving feedback","Research skills"]
             },

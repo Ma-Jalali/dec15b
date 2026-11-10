@@ -163,7 +163,7 @@ const kit = window.createDEC10Kit ? window.createDEC10Kit({ getState: () => stat
 /* feedback forms, stance scale, quiz board and "Share with classmates" (js/forms.js) */
 /* Chats: the WhatsApp-style page for the class (js/chats.js) */
 const chats = window.createDEC15Chats ? window.createDEC15Chats({ getCloud: () => cloud, getClass: () => klass, esc, icon: (n, c) => icon(n, c), toast, avatarHTML: (p, e, c) => avatarHTML(p, e, c), signIn: () => accountDialog('signin') }) : null;
-const forms = window.createDEC15Forms ? window.createDEC15Forms({ getState: () => state, save, rerender: () => rerender(), esc, strip, icon, toast, lesson, tableRows: b => tableRows(b), findBlock, getCloud: () => cloud, getClass: () => klass, signIn: () => accountDialog('signin'), avatarHTML: (p, e, c) => avatarHTML(p, e, c), locked: () => locked() }) : null;
+const forms = window.createDEC15Forms ? window.createDEC15Forms({ getState: () => state, save, rerender: () => rerender(), esc, strip, icon, toast, lesson, tableRows: b => tableRows(b), findBlock, getCloud: () => cloud, getClass: () => klass, signIn: () => accountDialog('signin'), avatarHTML: (p, e, c) => avatarHTML(p, e, c), locked: () => locked(), loadCollab: () => loadCollab() }) : null;
 
 /* ───────── label registry (for notebook + export) ───────── */
 const labels = {}, owner = {};
@@ -476,7 +476,7 @@ function hasAttempt(a) { registerTables(); return Object.keys(state.values).some
 if (forms) {
   Object.assign(B, forms.B);
   const baseTable = B.table, baseFields = B.fields;
-  B.table = (b, a) => baseTable(b, a) + (b.send && b.id ? forms.sendBar(b, a) : '');
+  B.table = (b, a) => b.live && b.id && forms.liveTable ? forms.liveTable(b, a, baseTable(b, a)) : baseTable(b, a) + (b.send && b.id ? forms.sendBar(b, a) : '');
   B.fields = (b, a) => baseFields(b, a) + (b.send && b.id ? forms.sendBar(b, a) : '');
 }
 function answersPanel(a) {
@@ -1743,7 +1743,9 @@ function loadCollab() {   // the shared editor loads only when "Write together" 
   return collabLoad || (collabLoad = Promise.all([
     document.querySelector('link[href^="css/cowrite.css"]') ? null : add('link', { rel: 'stylesheet', href: 'css/cowrite.css?v=' + cfg.version }),
     window.Tiptap ? null : add('script', { src: 'js/vendor/tiptap.bundle.js?v=' + cfg.version }),
-  ]).then(() => window.DEC15Collab || add('script', { src: 'js/collab.js?v=' + cfg.version })).catch(e => { collabLoad = null; throw e; }));
+    document.querySelector('link[href^="css/livetable.css"]') ? null : add('link', { rel: 'stylesheet', href: 'css/livetable.css?v=' + cfg.version }),
+  ]).then(() => window.DEC15Collab || add('script', { src: 'js/collab.js?v=' + cfg.version }))
+    .then(() => window.DEC15LiveTable || add('script', { src: 'js/livetable.js?v=' + cfg.version })).catch(e => { collabLoad = null; throw e; }));
 }
 /* Re-render without moving the page. Keep what the student just touched (the nearest element with an id) at the same
    place on screen — not just the same scrollY — and hold it there while pictures above it finish loading.

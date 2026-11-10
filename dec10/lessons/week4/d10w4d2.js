@@ -678,7 +678,7 @@ window.DEC15_LESSON = {
             {"type":"do","n":1,"who":"pair","text":"Considering the notes in the matrix: What is the general position of each source on eco-tourism (for, against, positive, critical …)? What indicates this position?"},
             {
               type: "table",
-              id: "b7-pos",
+              id: "b7-pos", live: true,
               title: "Each source’s position",
               columns: ["Source","Position on ecotourism","Evidence / example"],
               fixed: ["Spenceley and Rylance (2021)","Alom (2023)","Mielly (2023)"]

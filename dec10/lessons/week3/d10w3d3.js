@@ -192,7 +192,7 @@ window.DEC15_LESSON = {
             },
             {
               type: "table",
-              id: "a2-tab",
+              id: "a2-tab", live: true,
               title: "Our group’s examples",
               columns: ["Function","Our examples","Best one (say it aloud!)"],
               fixed: ["Suggesting edits","Disagreeing with someone’s edits","Asking questions to clarify something","Giving positive feedback"]
@@ -1136,7 +1136,7 @@ window.DEC15_LESSON = {
                 {
                   label: "Group 1 presenter",
                   blocks: [
-                    {"type":"table","id":"c3-g1","title":"The group I listened to","columns":["Question","Main points","Agree / disagree?","One interesting idea"],"fixed":["Question 1","Question 2"]}
+                    {"type":"table","id":"c3-g1","live":true,"title":"The group I listened to","columns":["Question","Main points","Agree / disagree?","One interesting idea"],"fixed":["Question 1","Question 2"]}
                   ]
                 }
               ]

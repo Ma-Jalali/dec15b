@@ -884,7 +884,7 @@ window.DEC15_LESSON = {
             },
             {
               type: "table",
-              id: "b5-tab",
+              id: "b5-tab", live: true,
               title: "Our conversation log",
               columns: ["Round","Our question","Main points in the AI’s answer","Why we asked the next question"],
               fixed: ["1 · Start","2 · Follow-up","3 · Follow-up","4 · Follow-up","5 · Follow-up"]

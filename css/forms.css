@@ -228,3 +228,19 @@
 }
 @media (prefers-reduced-motion: reduce) { .send-dialog[open], .share-notice, .jp-clue { animation: none; } .ff-meter i { transition: none; } }
 @media print { .send-bar { display: none; } }
+
+/* ───────── Shared table (v6.8): bar, switch and meta in the lesson; chip in Shared with me ───────── */
+.lt-bar { background: linear-gradient(135deg, #eef7f3, #f4f0fb); border-color: #d5e8df; color: #24564b; }
+.lt-bar .sb-tx small b { color: inherit; }
+.lt-switch { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; margin: 6px 0 10px; border-radius: 99px; background: var(--paper, #f5f1e9); border: 1px solid var(--line, rgba(20,41,58,.09)); }
+.lt-switch button { display: inline-flex; align-items: center; gap: 7px; font: inherit; font-size: .84rem; font-weight: 700; color: var(--ink-2, #3d505e); background: transparent; border: 0; border-radius: 99px; padding: 6px 14px; cursor: pointer; }
+.lt-switch button[aria-selected="true"] { background: #fff; color: var(--ink, #14293a); box-shadow: 0 1px 3px rgba(20,41,58,.16); }
+.lt-dot { width: 8px; height: 8px; border-radius: 50%; background: #2fae6b; }
+.lt-block .lt-slot { margin-top: 6px; }
+.lt-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; margin-top: 10px; font-size: .85rem; color: var(--muted, #5d6a74); }
+.lt-meta > span { display: inline-flex; align-items: center; gap: 6px; margin-right: auto; }
+.lt-meta .icon { width: 16px; height: 16px; }
+.sh-live { display: inline-block; font-style: normal; font-size: .64rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: #fff; background: #2f7a52; border-radius: 99px; padding: 2px 8px; margin-right: 7px; vertical-align: 2px; }
+.sh-card.on .sh-live { background: #2fae6b; }
+.sh-live-detail .lt-slot { margin: 14px 0 6px; }
+.sd-live { background: #eef7f3 !important; color: #24564b !important; }

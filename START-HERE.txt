@@ -854,3 +854,20 @@ v6.7 (DEC10 Teacher's playbook — Week 3; print fonts fixed)
 - 10 new photocopiables for the moments (posters, slips, board-race signs): Week 3 now has 38 sheets.
 - Fix: tools/print/print.css pointed one folder too high for the fonts, so sheets printed in fallback fonts. All sheets
   are rebuilt with Manrope/Fraunces (no page count changed).
+
+v6.8 (Shared tables — a group fills in ONE table together, live)
+- A table block with live: true (or live: 'names' — the first column becomes "Name") shows
+  "Work on one table together · Start a shared table". The student chooses classmates; everyone types in the
+  same table at the same time and sees each other's coloured cursor and changes at once.
+- Select words → a small toolbar pops up: bold, italic, underline, strikethrough, text colour, highlight,
+  smaller / larger text, clear. Drag a column edge to make it wider (everyone sees the new width). Full screen button.
+  Add a row / Delete this row (rows the task gives, and all column titles, are protected and cannot be changed).
+- Where students find it: in the lesson (switch "Our shared table / My own table" — their own table is kept as it was)
+  and in "Shared with me" (Received: "LIVE TABLE" card; Sent by me: one card per table). Anyone in the table can invite
+  more classmates; Download PDF gives the table as it is now.
+- No database change: invitations are rows in form_shares (body.kind = 'live', body.doc = the document); the table is a
+  Yjs document in shared_doc_updates, sent over the private "dec15:doc:…" channel (the same engine as "Write together").
+  Code: js/livetable.js, css/livetable.css, forms.js (bar, invite dialog, Shared with me).
+- Switched on for 26 group/pair tables in DEC10, e.g. W3D2 "Our group's research" and "Your group template" (Name column),
+  W3D1 note-taking groups 1–3, W3D3 "Our group's examples", W3D4 live task tracker and laptop notes, plus W1–W2, W4–W5
+  group tables. To add one more: put live: true on the table block (keep its id).

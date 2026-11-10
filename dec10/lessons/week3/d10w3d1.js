@@ -380,21 +380,21 @@ window.DEC15_LESSON = {
                   label: "Group 1 · P1–2",
                   blocks: [
                     { type: "key", title: "Introduction to Green Economy and Green Jobs – P1-2", points: ["Your task: Focus on defining the green economy, its goals, and the general impact on labour markets."] },
-                    { type: "table", id: "a5-g1", title: "Note taking · Group 1", columns: ["Main idea", "Examples/details", "Questions/thoughts?"], fixed: ["Definition", "Goals", "Challenge of defining “green jobs”"] }
+                    { type: "table", id: "a5-g1", live: true, title: "Note taking · Group 1", columns: ["Main idea", "Examples/details", "Questions/thoughts?"], fixed: ["Definition", "Goals", "Challenge of defining “green jobs”"] }
                   ]
                 },
                 {
                   label: "Group 2 · P3–4",
                   blocks: [
                     { type: "key", title: "Challenges in Defining Green Jobs and Skill Requirements – P3-4", points: ["Your task: Focus on the challenges of defining green jobs and the differences in skills between green and non-green jobs."] },
-                    { type: "table", id: "a5-g2", title: "Note taking · Group 2", columns: ["Main idea", "Examples/details", "Questions/thoughts?"], fixed: ["Challenges", "Skills for green jobs", "Skills for non-green jobs"] }
+                    { type: "table", id: "a5-g2", live: true, title: "Note taking · Group 2", columns: ["Main idea", "Examples/details", "Questions/thoughts?"], fixed: ["Challenges", "Skills for green jobs", "Skills for non-green jobs"] }
                   ]
                 },
                 {
                   label: "Group 3 · P5–6",
                   blocks: [
                     { type: "key", title: "Research on Green Skills and Job Transitions P5-6", points: ["Your task: Focus on the research gaps, the O*NET database, and the concept of skill distance for job transitions"] },
-                    { type: "table", id: "a5-g3", title: "Note taking · Group 3", columns: ["Main idea", "Examples/details", "Questions/thoughts?"], fixed: ["Skill distance", "O*NET’s findings"] }
+                    { type: "table", id: "a5-g3", live: true, title: "Note taking · Group 3", columns: ["Main idea", "Examples/details", "Questions/thoughts?"], fixed: ["Skill distance", "O*NET’s findings"] }
                   ]
                 }
               ]
@@ -663,7 +663,7 @@ window.DEC15_LESSON = {
             },
             {
               type: "table",
-              id: "a10-tbl",
+              id: "a10-tbl", live: true,
               title: "Compare the two jobs",
               columns: ["Key area", "Non-green job: …", "Green job: …"],
               fixed: ["Skills required (e.g., technical skills, analytical skills, communication skills)", "Education and training required (e.g., university degree, certifications)", "Work experience needed (e.g., years of experience in the field)", "Job tasks and work context (e.g., day-to-day activities, work environment)"]
