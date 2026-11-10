@@ -112,7 +112,7 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
   }
 
   /* ───────── people and messages ───────── */
-  async function loadPeople() { const c = db(); if (!c) return; const { data } = await c.rpc('class_people', { p_course: CLS.id }); people = data || []; byId = new Map(people.map(p => [p.id, p])); paintPanel(); paintCounts(); announce?.paint(); }
+  async function loadPeople() { const c = db(); if (!c) return; const { data } = await c.rpc('class_people', { p_course: CLS.id }); people = data || []; byId = new Map(people.map(p => [p.id, p])); paintPanel(); paintCounts(); announce?.paint(); document.dispatchEvent(new CustomEvent('dec15:presence')); }
   async function loadMessages() {
     const c = db(); if (!c) return;
     const { data } = await c.from('messages').select('id, sender_id, sender_name, sender_role, recipient_id, kind, body, created_at, read_at').is('group_id', null).eq('course', CLS.id).order('created_at', { ascending: false }).limit(400);
@@ -324,7 +324,7 @@ window.createDEC15Class = function ({ getCloud, lesson, esc, icon, toast, avatar
     connect, disconnect, setWhere, answersLocked, paintCounts, loadCounts, toggle,
     isTeacher, note: ref => (notes ? notes[ref] ?? '' : null), get answersOpen() { return settings.answers_open !== false; },
     message: id => toggle(true, 'chat', id),
-    online: () => online.size, onlineIds: () => [...online.keys()], onlineStudents, typing, onTyping: fn => (typingFns.add(fn), () => typingFns.delete(fn)),
+    people: () => people, online: () => online.size, onlineIds: () => [...online.keys()], onlineStudents, typing, onTyping: fn => (typingFns.add(fn), () => typingFns.delete(fn)),
     done: id => ({ n: counts[id] || 0, of: students || people.filter(p => p.role === 'student').length }),
   };
 };

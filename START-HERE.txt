@@ -871,3 +871,13 @@ v6.8 (Shared tables — a group fills in ONE table together, live)
 - Switched on for 26 group/pair tables in DEC10, e.g. W3D2 "Our group's research" and "Your group template" (Name column),
   W3D1 note-taking groups 1–3, W3D3 "Our group's examples", W3D4 live task tracker and laptop notes, plus W1–W2, W4–W5
   group tables. To add one more: put live: true on the table block (keep its id).
+
+Note (v6.8): the GitHub Pages deploy for v6.8 got stuck; this small change re-publishes the site.
+
+v6.9 (Who has shared? — teacher)
+- Under every activity, in the class discussion, the teacher sees "3 of 18 shared · Who?" (and "3/18" on the closed bar).
+  It counts BOTH ways of sharing: "Share with class" (shared writing) and any class discussion post, question, idea
+  or reply — a student who used the other one by mistake still counts. Teacher posts are not counted.
+- "Who?" opens a list: Shared (name, what they posted, when — click to jump to the post) and Not yet (with who is
+  online now). It updates live. Students do not see it. Code: js/wall.js (whoShared), css/classroom.css; the class
+  list comes from classroom.js (people()).

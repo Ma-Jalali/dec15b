@@ -188,7 +188,8 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
   function miniHTML(thread) {
     if (!cloud()?.user || status !== 'ready') return '';
     const authors = [...new Map(posts.filter(p => p.thread === thread).reverse().map(p => [p.user_id, p])).values()], on = klass()?.online?.() || 0, nu = isOpen(thread) ? 0 : unseen(thread);
-    return `${authors.length ? `<span class="ws-faces">${authors.slice(0, 3).map(p => avatar(p, ' ws-face')).join('')}</span>` : ''}${on > 1 ? `<span class="ws-on">${G.dot}${on}</span>` : ''}${nu ? `<span class="wall-new">${nu} new</span>` : ''}`;
+    const tw = isTeacher() ? whoShared(thread) : null;
+    return `${tw ? `<span class="ws-shared" title="Students who have shared">${G.check}${tw.shared.length}${tw.roster ? '/' + tw.roster : ''}</span>` : ''}${authors.length ? `<span class="ws-faces">${authors.slice(0, 3).map(p => avatar(p, ' ws-face')).join('')}</span>` : ''}${on > 1 ? `<span class="ws-on">${G.dot}${on}</span>` : ''}${nu ? `<span class="wall-new">${nu} new</span>` : ''}`;
   }
   /* the strip under the heading: who posted, who is online, how many finished */
   function statsHTML(thread) {
@@ -198,9 +199,58 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
     const bits = [];
     if (authors.length) bits.push(`<span class="ws-faces">${authors.slice(0, 5).map(p => avatar(p, ' ws-face')).join('')}</span><span><b>${authors.length}</b> ${authors.length === 1 ? 'person' : 'people'} posted</span>`);
     if (on > 1) bits.push(`<span class="ws-on">${G.dot}<b>${on}</b> online now</span>`);
+    if (isTeacher()) { const w = whoShared(thread); bits.unshift(`<button type="button" class="ws-who" data-wall-who="${esc(thread)}" aria-haspopup="dialog">${G.check}<span><b>${w.shared.length}</b>${w.roster ? ` of ${w.roster}` : ''} shared</span><span class="ws-who-go">Who?</span></button>`); }
     if (done.of > 1) bits.push(`<span class="ws-done"><span class="cc-ring" style="--p:${(done.n / done.of).toFixed(3)}" aria-hidden="true"></span><b>${done.n}</b> of ${done.of} finished</span>`);
-    return bits.map(b => `<span class="ws-bit">${b}</span>`).join('');
+    return bits.map(b => b.startsWith('<button') ? b : `<span class="ws-bit">${b}</span>`).join('');
   }
+  /* v6.9 · Who has shared? (teacher) — everyone who posted in this activity's discussion, in any way: "Share with class"
+     (shared writing), a comment, question or idea, or a reply. Students who have not posted yet are listed too. */
+  function whoShared(thread) {
+    const all = posts.filter(p => p.thread === thread && p.author_role !== 'teacher'), by = new Map();
+    all.forEach(p => { const e = by.get(p.user_id) || { id: p.user_id, name: p.author_name, avatar: p.author_avatar, n: 0, kinds: new Set(), last: p, first: p };
+      e.n++; e.kinds.add(p.parent_id ? 'reply' : kind(p)); if (p.created_at > e.last.created_at) e.last = p; by.set(p.user_id, e); });
+    const people = (klass()?.people?.() || []).filter(p => p.role !== 'teacher');
+    const shared = [...by.values()].sort((a, b) => a.name.localeCompare(b.name));
+    const notYet = people.filter(p => !by.has(p.id)).sort((a, b) => String(a.full_name).localeCompare(String(b.full_name)));
+    return { shared, notYet, roster: people.length ? new Set([...people.map(p => p.id), ...by.keys()]).size : 0 };
+  }
+  const KIND_LABEL = { work: 'Shared writing', comment: 'Comment', question: 'Question', idea: 'Idea', reply: 'Reply' };
+  let whoDlg = null, whoThread = null;
+  function whoHTML(thread) {
+    const w = whoShared(thread), online = new Set(klass()?.onlineIds?.() || []), title = document.querySelector(`[data-wall="${CSS.escape(thread)}"]`)?.getAttribute('aria-label')?.replace(/^Class discussion: /, '') || '';
+    const face = (name, url, id) => avatar({ author_name: name, author_avatar: url, user_id: id }, ' whs-ava');
+    return `<div class="whs">
+      <div class="whs-head"><div><span class="eyebrow">Teacher · who has shared?</span><h2 id="whs-title">${esc(title || 'This activity')}</h2>
+        <small>Counts “Share with class” and every class discussion post or reply.</small></div><button type="button" class="whs-x" data-who-close aria-label="Close">×</button></div>
+      <div class="whs-meter" style="--p:${w.roster ? (w.shared.length / w.roster).toFixed(3) : 0}"><span><i></i></span><b>${w.shared.length}${w.roster ? ` of ${w.roster}` : ''}</b> shared</div>
+      <div class="whs-cols">
+        <section class="whs-col whs-yes"><h3>${G.check}Shared <i>${w.shared.length}</i></h3>
+          ${w.shared.length ? `<ul>${w.shared.map(e => `<li><button type="button" data-who-post="${esc(e.last.id)}" title="Show ${esc(e.name.split(' ')[0])}’s latest post">${face(e.name, e.avatar, e.id)}
+            <span class="whs-tx"><b>${esc(e.name)}</b><small>${[...e.kinds].map(k => `<em class="wk-${k}">${KIND_LABEL[k] || 'Post'}</em>`).join('')}${e.n > 1 ? ` · ${e.n} posts` : ''} · ${ago(e.last.created_at)}</small></span></button></li>`).join('')}</ul>`
+            : '<p class="whs-none">Nobody has shared yet.</p>'}</section>
+        <section class="whs-col whs-no"><h3><span class="whs-ring" aria-hidden="true"></span>Not yet <i>${w.notYet.length}</i></h3>
+          ${w.notYet.length ? `<ul>${w.notYet.map(p => `<li><span class="whs-row">${face(p.full_name, p.avatar_url, p.id)}<span class="whs-tx"><b>${esc(p.full_name || 'Student')}</b><small>${online.has(p.id) ? '<span class="whs-on"></span>Online now' : 'Not online'}</small></span></span></li>`).join('')}</ul>`
+            : w.roster ? '<p class="whs-none whs-all">Everyone has shared. 🎉</p>' : '<p class="whs-none">The class list is still loading…</p>'}</section>
+      </div></div>`;
+  }
+  function openWho(thread) {
+    whoThread = thread;
+    if (!whoDlg) {
+      whoDlg = document.createElement('dialog'); whoDlg.className = 'whs-dialog'; whoDlg.setAttribute('aria-labelledby', 'whs-title'); document.body.append(whoDlg);
+      whoDlg.addEventListener('click', e => {
+        if (e.target === whoDlg || e.target.closest('[data-who-close]')) { whoDlg.close(); return; }
+        const b = e.target.closest('[data-who-post]'); if (!b) return;
+        const p = posts.find(x => x.id === b.dataset.whoPost); whoDlg.close(); if (!p) return;
+        expanded.add(p.thread); if (p.parent_id) expanded.add('r:' + p.parent_id); filter[p.thread] = 'all';
+        if (compact() && !isOpen(p.thread)) toggleWall(p.thread, true); else paint();
+        const el = document.getElementById('post-' + p.id); el?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+        el?.classList.add('whs-flash'); setTimeout(() => el?.classList.remove('whs-flash'), 2200);
+      });
+      whoDlg.addEventListener('close', () => { whoThread = null; });
+    }
+    whoDlg.innerHTML = whoHTML(thread); if (!whoDlg.open) whoDlg.showModal();
+  }
+  const paintWho = () => { if (whoDlg?.open && whoThread) whoDlg.innerHTML = whoHTML(whoThread); };
   function typingHTML(thread) {
     const now = Date.now(), who = Object.values(typingNow[thread] || {}).filter(x => now - x.at < 4000).map(x => x.name);
     return who.length ? `<span class="wall-dots-anim" aria-hidden="true"><i></i><i></i><i></i></span>${esc(who.slice(0, 2).join(' and '))}${who.length > 2 ? ` and ${who.length - 2} more` : ''} ${who.length === 1 ? 'is' : 'are'} writing…` : '';
@@ -249,7 +299,7 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
     document.querySelectorAll('[data-wall-mini]').forEach(el => { el.innerHTML = miniHTML(el.dataset.wallMini); });
     if (key && !document.contains(act)) { const t = document.querySelector(`[data-wall-draft="${CSS.escape(key)}"]`); if (t) { t.focus(); t.setSelectionRange(...sel); } }
   }
-  function paintStats() { document.querySelectorAll('[data-wall-stats]').forEach(el => { el.innerHTML = statsHTML(el.dataset.wallStats); }); }
+  function paintStats() { document.querySelectorAll('[data-wall-stats]').forEach(el => { el.innerHTML = statsHTML(el.dataset.wallStats); }); document.querySelectorAll('[data-wall-mini]').forEach(el => { el.innerHTML = miniHTML(el.dataset.wallMini); }); paintWho(); }
   document.addEventListener('dec15:presence', paintStats);
   document.addEventListener('dec15:counts', paintStats);
 
@@ -273,6 +323,7 @@ window.createDEC15Wall = function ({ getCloud, lessonId, esc, toast, icon, signI
     const d = t.dataset;
     if (menuFor && !d.wallMenu && !t.closest('.wall-menu')) { menuFor = null; paint(); }
     if (d.wallToggle) { toggleWall(d.wallToggle); return; }
+    if (d.wallWho) { openWho(d.wallWho); return; }
     if (d.wallMore) { expanded.add(d.wallMore); paint(); return; }
     if (d.wallReact) { react(d.wallReact, d.emoji); return; }
     if (d.wallPicker) { picker = picker === d.wallPicker ? null : d.wallPicker; paint(); return; }
