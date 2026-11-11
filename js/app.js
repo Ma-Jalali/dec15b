@@ -266,9 +266,10 @@ B.tip = b => `<p class="block tip" data-help>${icon('bulb')}<span>${b.text}</spa
 /* rule: one grammar or referencing rule, explained the way a teacher presents it (Language Lab "Learn" tab)
    { type: 'rule', n, title, explain, form?: 'pattern (HTML)', examples?: [['ok' | 'no', 'sentence (HTML)', 'why / fix (HTML)?']], note?, check?: { q, a } }
    pairs?: [['not academic (HTML)', 'academic (HTML)', 'source note?']] shows a calm two-column table (Not academic | Academic) instead of examples. */
-/* group: a section heading for a group of rule cards, bigger than a rule title and not numbered — { type: 'group', title, label?: 'Rules 1–5', goal? } */
-B.group = b => `<div class="block rule-group">${b.label ? `<span class="rg-label">${esc(b.label)}</span>` : ''}<h3 class="rg-title">${esc(b.title)}</h3>${b.goal ? `<p class="rg-goal">${esc(b.goal)}</p>` : ''}</div>`;
-B.rule = b => `<section class="block rule-card${b.pairs ? ' has-pairs' : ''}">
+/* group: a section heading for a group of rule cards, bigger than a rule title and not numbered — { type: 'group', title, label?: 'Rules 1–5', goal?, tone?: 'blue' | 'plum' | 'teal' }
+   rule and group share tone: each group of rules gets one colour (heading, rule chip, card stripe, pattern and check boxes). */
+B.group = b => `<div class="block rule-group${b.tone ? ' tone-' + b.tone : ''}">${b.label ? `<span class="rg-label">${esc(b.label)}</span>` : ''}<h3 class="rg-title">${esc(b.title)}</h3>${b.goal ? `<p class="rg-goal">${esc(b.goal)}</p>` : ''}</div>`;
+B.rule = b => `<section class="block rule-card${b.pairs ? ' has-pairs' : ''}${b.tone ? ' tone-' + b.tone : ''}">
   <header class="rule-head">${b.n != null ? `<span class="rule-n">Rule ${esc(String(b.n))}</span>` : ''}<h3>${b.title}</h3></header>
   ${b.explain ? `<p class="rule-explain">${b.explain}</p>` : ''}
   ${b.form ? `<div class="rule-form"><span>Form</span><p>${b.form}</p></div>` : ''}
