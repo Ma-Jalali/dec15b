@@ -9,7 +9,7 @@
    snowball, gallery walks, human sentence), group roles, "Use it" steps, phrase-of-the-day stickies and exit tickets.
    11A redesign (v7.0, dec10/design/LESSON-DESIGN.md): lead-in linked to university → read for gist (two blocking words only) →
    presentation (feedback, edited version) → controlled practice b9 (choose → complete → correct, with Focus on Vocabulary 2
-   academic words and Essay Activator phrases) → production b8 on each group's own research summary topic. */
+   academic words and Essay Activator phrases) → b8 keeps the Teacher’s Book rewrite as the main task, with an extension on each group’s own research summary topic. */
 window.DEC15_LESSON = {
   id: "d10w3d3",
   week: 3,
@@ -436,8 +436,8 @@ window.DEC15_LESSON = {
           title: "Read a research summary draft",
           goal: "Decide: is this draft written in an appropriate academic register?",
           blocks: [
-            {"type":"do","n":1,"who":"alone","text":"<b>Read (3 minutes).</b> Read this research summary draft written by a DEC student. <b>Is it written in appropriate academic register? Why/why not?</b> Read for the general picture only. You will look at the details later."},
-            {"type":"tip","text":"<b>Two words you may need.</b> <b>sustainability consultant</b>: an expert who advises companies on how to reduce their impact on the environment and society · <b>fines</b>: money you must pay as a punishment for breaking a rule or law."},
+            {"type":"do","n":1,"who":"alone","text":"<b>Read (3 minutes).</b> Read this research summary draft written by a DEC student. <b>Is it written in appropriate academic register? Why/why not?</b>"},
+            {"type":"tip","text":"<b>First read for the general picture only.</b> You will look at the details later. <b>Two words you may need:</b> <b>sustainability consultant</b>: an expert who advises companies on how to reduce their impact on the environment and society · <b>fines</b>: money you must pay as a punishment for breaking a rule or law."},
             {
               type: "passage",
               id: "b2-draft",
@@ -945,12 +945,94 @@ window.DEC15_LESSON = {
           minutes: 14,
           grouping: "Alone → Pair",
           art: "dec10/assets/week3/v/v-d10w3d3-b8.svg",
-          title: "Use it: your own research summary",
-          goal: "Write a short academic paragraph about YOUR group’s research summary topic, using today’s language.",
+          title: "Rewrite the paragraph",
+          goal: "Rewrite the draft in academic style — using your language table, not the edited version.",
           blocks: [
             {
               type: "key",
-              title: "Your turn",
+              title: "The rules",
+              points: [
+                "Rewrite the paragraph using the <b>original draft</b> text and the <b>language table</b> in the previous section.",
+                "<b>Don’t look</b> at the edited version while you write!",
+                "Once finished, check it against the edited version."
+              ]
+            },
+            {
+              type: "toggle",
+              title: "The original draft (to work from)",
+              open: true,
+              blocks: [
+                {
+                  type: "model",
+                  title: "Research Summary (Draft)",
+                  text: "(1) The job market is really changing, and one of the great new trends is that there are more sustainability consultants. (2) Sustainability consultants are stepping into the spotlight, helping companies that want to be more eco-friendly and follow the rules about the environment. (3) They help businesses figure out how to use resources wisely. (4) And they teach them how to take care of the planet while still making a profit. (5) Why are they becoming so popular? (6) I think sustainability consultants do a lot to help companies plan for the future. (7) This isn't just about avoiding fines or negative press. (8) It's about being responsible for their environmental and social impact. (9) As we all know, everyone from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to put sustainability at the top of their list."
+                }
+              ]
+            },
+            {
+              type: "detect",
+              id: "b8-rw",
+              label: "Writing studio",
+              title: "My academic version",
+              hint: "Green lights turn on for academic features. Red lights show informal language that is still there.",
+              checks: [
+                {"label":"Noun phrases","color":"#3a58a0","any":["the emergence of","the rise of","transformation","utilisation","utilization","the demand for","popularity","the efficient use"]},
+                {"label":"Summary noun","color":"#8a4f9e","any":["these experts","these professionals","these consultants","this trend"]},
+                {"label":"Precise vocabulary","color":"#2f7d6b","any":["adhere","regulation","integrat","recognis","recogniz","financial","conservation"]},
+                {"label":"Hedging","color":"#b07d12","any":["it is likely","likely to","/\\bmay\\b/","/\\bmight\\b/","tends to","/\\bcould\\b/"]},
+                {"label":"Reporting verb","color":"#c4562f","any":["/Holt \\(2023\\) (claims|argues|states|suggests|notes|explains|points out)/","according to holt"]}
+              ],
+              avoid: [
+                {"label":"Contraction","any":["/\\b\\w+n['’]t\\b/","/\\bit['’]s\\b/"]},
+                {"label":"‘I’ / ‘we’","any":["/\\bI\\b/u","/\\bwe\\b/","/\\bour\\b/"]},
+                {"label":"Too certain","any":["definitely","really","as we all know"]},
+                {"label":"Phrasal verb / idiom","any":["figure out","take care of","a lot","into the mix","top of their list","spotlight"]},
+                {"label":"And / So / But first","any":["/(^|[.!?]\\s+)(And|So|But)\\b/u"]}
+              ],
+              items: [{"task":"Rewrite the whole paragraph in an academic style.","rows":12,"placeholder":"The employment landscape …"}]
+            },
+            {
+              type: "steps",
+              items: [
+                {"who":"alone","text":"When you finish, scroll up to the <b>edited version</b> and compare. Underline one thing you did well."},
+                {"who":"pair","text":"<b>Peer check.</b> Swap with a partner. You are the <b>language monitor</b>: tick the checklist for <b>their</b> paragraph."}
+              ]
+            },
+            {
+              type: "checklist",
+              id: "b8-peer",
+              title: "Language monitor checklist (for your partner’s paragraph)",
+              items: [
+                "At least two noun phrases (the emergence of …, the efficient use of …)",
+                "A summary noun instead of repeating (these experts …)",
+                "Hedging (it is likely that … / may / tends to)",
+                "Holt (2023) with a reporting verb",
+                "No contractions, no ‘I’, no question, no ‘And/So’ at the start",
+                "A cause (can be attributed to … / is largely due to …)"
+              ]
+            },
+            {
+              type: "steps",
+              title: "Gallery walk (3 minutes)",
+              items: [
+                {"who":"alone","text":"Write your <b>best academic sentence</b> on a sticky note. Stick it on the wall."},
+                {"who":"class","text":"<b>Walk and read.</b> Put a star on the two sentences that sound the most academic."},
+                {"who":"class","text":"The writers of the top sentences read them aloud. The class says which feature makes them strong."}
+              ]
+            },
+            {
+              type: "language",
+              title: "Talk about your rewrite",
+              groups: [
+                {"label":"Explain your changes","phrases":["<b>I replaced</b> “…” <b>with</b> “…” <b>because</b> …","<b>I combined</b> sentences … and … <b>by</b> using …","<b>I added hedging</b>: “it is likely that …”."]},
+                {"label":"Respond to a partner","phrases":["<b>That sounds much more academic.</b>","<b>Could you make</b> this part <b>more precise</b>?","<b>Maybe</b> use a noun phrase <b>here</b>?"]}
+              ]
+            },
+            {"type":"sticky","title":"Say it like an academic","text":"“It is likely that …” — confident, but careful.","color":"green"},
+            {"type":"do","n":1,"who":"alone","text":"<b>Extension: fast finishers, or homework.</b> Now use the same language for <b>your own</b> writing. Write 5–6 sentences about your group’s research summary topic."},
+            {
+              type: "key",
+              title: "Extension: your own research summary",
               points: [
                 "Write <b>5–6 sentences</b> in academic style about the green job or trend in <b>your group’s research summary</b>. If you are not sure, choose a job you would like to do after university.",
                 "Say what is changing, <b>why</b> it is happening, and what is <b>likely</b> to happen next. Use one source with a reporting verb if you have one.",
@@ -990,78 +1072,6 @@ window.DEC15_LESSON = {
               ],
               items: [{"task":"Write 5–6 sentences about your group’s research summary topic.","rows":10,"placeholder":"The emergence of … is transforming … This growth can be attributed to … It is likely that …"}]
             },
-            {"type":"do","n":1,"who":"alone","text":"<b>Need more practice first, or finished early?</b> Rewrite the student’s draft below in academic style. Use your language table and <b>do not look</b> at the edited version. Then compare with it. This is also good homework."},
-            {
-              type: "toggle",
-              title: "The original draft (to work from)",
-              blocks: [
-                {
-                  type: "model",
-                  title: "Research Summary (Draft)",
-                  text: "(1) The job market is really changing, and one of the great new trends is that there are more sustainability consultants. (2) Sustainability consultants are stepping into the spotlight, helping companies that want to be more eco-friendly and follow the rules about the environment. (3) They help businesses figure out how to use resources wisely. (4) And they teach them how to take care of the planet while still making a profit. (5) Why are they becoming so popular? (6) I think sustainability consultants do a lot to help companies plan for the future. (7) This isn't just about avoiding fines or negative press. (8) It's about being responsible for their environmental and social impact. (9) As we all know, everyone from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to put sustainability at the top of their list."
-                }
-              ]
-            },
-            {
-              type: "detect",
-              id: "b8-rw",
-              label: "Writing studio",
-              title: "Extra: my academic version of the draft",
-              hint: "Green lights turn on for academic features. Red lights show informal language that is still there.",
-              checks: [
-                {"label":"Noun phrases","color":"#3a58a0","any":["the emergence of","the rise of","transformation","utilisation","utilization","the demand for","popularity","the efficient use"]},
-                {"label":"Summary noun","color":"#8a4f9e","any":["these experts","these professionals","these consultants","this trend"]},
-                {"label":"Precise vocabulary","color":"#2f7d6b","any":["adhere","regulation","integrat","recognis","recogniz","financial","conservation"]},
-                {"label":"Hedging","color":"#b07d12","any":["it is likely","likely to","/\\bmay\\b/","/\\bmight\\b/","tends to","/\\bcould\\b/"]},
-                {"label":"Reporting verb","color":"#c4562f","any":["/Holt \\(2023\\) (claims|argues|states|suggests|notes|explains|points out)/","according to holt"]}
-              ],
-              avoid: [
-                {"label":"Contraction","any":["/\\b\\w+n['’]t\\b/","/\\bit['’]s\\b/"]},
-                {"label":"‘I’ / ‘we’","any":["/\\bI\\b/u","/\\bwe\\b/","/\\bour\\b/"]},
-                {"label":"Too certain","any":["definitely","really","as we all know"]},
-                {"label":"Phrasal verb / idiom","any":["figure out","take care of","a lot","into the mix","top of their list","spotlight"]},
-                {"label":"And / So / But first","any":["/(^|[.!?]\\s+)(And|So|But)\\b/u"]}
-              ],
-              items: [{"task":"Rewrite the whole paragraph in an academic style.","rows":12,"placeholder":"The employment landscape …"}]
-            },
-            {
-              type: "steps",
-              items: [
-                {"who":"alone","text":"When you finish your own paragraph, read it again. Count your green lights and fix any red ones."},
-                {"who":"pair","text":"<b>Peer check.</b> Swap with a partner from a different group. You are the <b>language monitor</b>: tick the checklist for <b>their</b> paragraph and suggest one improvement."}
-              ]
-            },
-            {
-              type: "checklist",
-              id: "b8-peer",
-              title: "Language monitor checklist (for your partner’s paragraph)",
-              items: [
-                "At least two noun phrases (the emergence of …, the efficient use of …)",
-                "A summary noun instead of repeating (these experts …)",
-                "Hedging (it is likely that … / may / tends to)",
-                "A source with a reporting verb (X (2024) argues that …), if the writer has one",
-                "No contractions, no ‘I’, no question, no ‘And/So’ at the start",
-                "A cause (can be attributed to … / is largely due to …)"
-              ]
-            },
-            {
-              type: "steps",
-              title: "Gallery walk (3 minutes)",
-              items: [
-                {"who":"alone","text":"Write your <b>best academic sentence</b> on a sticky note. Stick it on the wall."},
-                {"who":"class","text":"<b>Walk and read.</b> Put a star on the two sentences that sound the most academic."},
-                {"who":"class","text":"The writers of the top sentences read them aloud. The class says which feature makes them strong."}
-              ]
-            },
-            {
-              type: "language",
-              title: "Talk about your rewrite",
-              groups: [
-                {"label":"Explain your changes","phrases":["<b>I replaced</b> “…” <b>with</b> “…” <b>because</b> …","<b>I combined</b> sentences … and … <b>by</b> using …","<b>I added hedging</b>: “it is likely that …”."]},
-                {"label":"Respond to a partner","phrases":["<b>That sounds much more academic.</b>","<b>Could you make</b> this part <b>more precise</b>?","<b>Maybe</b> use a noun phrase <b>here</b>?"]}
-              ]
-            },
-            {"type":"sticky","title":"Say it like an academic","text":"“It is likely that …” — confident, but careful.","color":"green"},
             {"type":"fields","fields":[{"id":"b8-exit","label":"Exit ticket · one sentence for my own research summary or seminar slides, in academic style","rows":2,"placeholder":"The growth in green jobs can be attributed to …"}]}
           ]
         }

@@ -9,13 +9,41 @@ Reference books in this folder (word lists and headings only; we do not copy rea
 
 ---
 
+## 0. Who designs these lessons, and what we may change
+
+**Design like an experienced CELTA and EAP teacher.** Every stage has a clear aim and a reason to be there. Stages follow a logical order: context → meaning → form → controlled → freer. Use the core ELT techniques:
+- **Meaning:** guessing from context, guided discovery, concept-checking questions (CCQs), and checks on meaning, form and pronunciation (MFP).
+- **Classroom management:** instruction-checking questions (ICQs), pair checks before whole-class feedback, and scaffolding that fades.
+- **Vocabulary:** a lexical approach (collocations, word families).
+- **Lesson shapes:** test-teach-test where it fits, and recycling of language across the week.
+
+Every activity must help students get **ready for the exam and for university**. Cut or shorten anything that does not (often extras around the AST topics) before cutting exam skills.
+
+### What we must NOT change
+- **Reading and listening texts** (the protected sources in `sources.js`).
+- **The reading and listening questions** (gist, detail, note-taking tables), their answers and their order.
+- **Exam and assessment tasks:** writing and speaking test prompts, practice assessments and anything that links to Canvas.
+- **Teacher's Book tasks and model texts.** Keep the TB task as the main task. Our own ideas can come before or after it, or be an extension or homework, but never replace it.
+
+### Where we have freedom
+- **Vocabulary:** which words are taught, how many, and how they are presented and practised (before and after a text).
+- Lead-ins, extra controlled practice, production tasks that personalise the language, classroom management (pairs, mingles, games), language banks and examples.
+
+### Blocking words: few, in context, checked simply
+- Before a reading or listening, teach **only the words that would really block understanding of the text and its questions**. There is no fixed number. It is often 4–7, decided by the text, but **never a long list**. If 15 words are taught before reading, most of them are not blocking words.
+- **Present them in a context:** write a short, simple paragraph (or a few sentences) on the same topic that uses all the words, so students can **guess the meaning from context**. Then run **one simple check** (e.g. matching words to meanings), then go to the text.
+- After the text, add **only a few really useful words** (often 3–5) that students will need for writing or speaking. These are better found in the text itself, then used straight away in a speaking or writing task.
+- Other difficult words in the text can stay in the reading's glossary ("Word meanings"). They do not need to be taught.
+
+---
+
 ## 1. Two lesson shapes
 
 ### A. Task-based lessons (around a reading or a listening)
 Students meet the language in a real-life context, as they would at university.
 
 1. **Lead-in / discussion**: activate what they already know about the topic and build a reason to read or listen.
-2. **Pre-teach blocking words only**: just the few words that would stop understanding of the text, **not all** the new words.
+2. **Pre-teach blocking words only**: just the few words that would stop understanding of the text and its questions, **not all** the new words. Present them in a short context, have students guess them, then check them with one simple activity (see §0).
 3. **Goal-oriented practice on the text**, in this order:
    1. **Gist**: main idea, purpose, best title, matching headings.
    2. **Detail**: specific information, true/false/not given, notes, numbers, reasons.
@@ -72,6 +100,9 @@ Every controlled task needs **suggested answers**. Teacher notes say which steps
 ---
 
 ## 4. Checklist for every DEC10 lesson
+- [ ] No reading or listening text, question or exam task was changed. Teacher's Book tasks are still the main tasks.
+- [ ] Every stage helps students get ready for the exam or for university.
+- [ ] Blocking words: only a few, presented in a context, guessed, then checked with one simple activity.
 - [ ] A clear real-life or university context, introduced in the lead-in.
 - [ ] Reading/listening: only blocking words pre-taught, then gist → detail → a few useful expressions.
 - [ ] PPP: presentation → multiple choice → gap fill → (find the mistake) → production.
