@@ -3,7 +3,10 @@
    Taught on THURSDAY: 15A Group research summary presentations (#1–3, 120 min) · 16A STAR© moment (30) ·
    19A Interactive Presentation Assessment: Check in (30, moved from Day 5) · 22A AST: Criticality: Showing flexibility (60, moved from Day 5) ·
    17A Citing sources Homework. Day 5 continues 15A with presentations #4–5.
-   Activity ids are the keys of saved work — never rename them. */
+   Activity ids are the keys of saved work — never rename them.
+   22A quality pass (v7.3, dec10/design/LESSON-DESIGN.md): TB questions shown directly (no spinners); one opinion line-up
+   (lead-in) and one four corners (final position); stance language practised once, in the pitch; no expert huddle,
+   duplicate scenario picture, devil's advocate, self-rating scale or extra writing box. TB texts, questions and tasks unchanged. */
 (function () {
   const A = 'dec10/assets/week3/';
   const V = id => A + 'v/v-d10w3d4-' + id + '.svg';
@@ -773,23 +776,15 @@
           {
             id: 'd1',
             short: 'Lead-in',
-            minutes: 8,
+            minutes: 7,
             grouping: 'Groups',
             art: V('d1'),
             title: 'Lead-in',
             goal: 'Talk about a time someone persuaded you to try something new.',
             blocks: [
               { type: 'key', title: 'Why this matters', points: ['Showing flexibility is part of <b>criticality</b>. You will be expected to show it in your <b>Interactive Discussion</b> assessment.'] },
-              { type: 'do', n: 1, who: 'group', text: 'Have you ever been persuaded to try something new? e.g. go to the theatre to see a live performance instead of seeing a movie at a cinema? Spin and answer. Everyone speaks once.' },
-              {
-                type: 'spinner',
-                id: 'd1-spin',
-                title: 'Persuaded!',
-                reels: [
-                  { label: 'Question', items: ['What was it?', 'How were you persuaded?', 'How did you make the decision whether you would or wouldn’t try it?', 'Do you think it is okay to change your mind after making a decision?'] },
-                  { label: 'Think about', items: ['food', 'a sport or hobby', 'a phone or app', 'a place to live or study', 'a film, show or book', 'a habit'] }
-                ]
-              },
+              { type: 'do', n: 1, who: 'group', text: 'Have you ever been persuaded to try something new? e.g. go to the theatre to see a live performance instead of seeing a movie at a cinema? Tell your group. Everyone speaks once.' },
+              { type: 'model', title: 'Questions to answer', list: ['What was it? (food, a sport or hobby, an app, a place to study, a habit …)', 'How were you persuaded?', 'How did you make the decision whether you would or wouldn’t try it?'] },
               {
                 type: 'language',
                 title: 'Tell your story',
@@ -807,12 +802,11 @@
                 alt: 'An opinion line across the classroom from Strongly disagree to Strongly agree. Students stand at different points on the line. Above them the statement: It is OK to change your mind after making a decision. One student walks from the disagree side towards the middle, with a speech bubble: That’s a fair point.',
                 caption: 'Opinion line-up: stand where you stand — and move if you are persuaded.'
               },
-              { type: 'tip', text: 'Your teacher may put two signs at the ends of the room: <b>Strongly disagree</b> and <b>Strongly agree</b>. No signs? Use the picture above: your teacher points to the two ends.' },
               {
                 type: 'steps',
-                title: 'Opinion line-up',
+                title: 'Opinion line-up (3 minutes)',
                 items: [
-                  { who: 'class', text: '<b>Stand up.</b> One end of the room = <b>strongly disagree</b>, the other end = <b>strongly agree</b>. Statement: <i>“It is OK to change your mind after making a decision.”</i> Stand on the line.' },
+                  { who: 'class', text: '<b>Last question: do you think it is okay to change your mind after making a decision?</b> Stand up. One end of the room = <b>strongly disagree</b>, the other end = <b>strongly agree</b>. Stand on the line.' },
                   { who: 'pair', text: 'Talk to the person next to you, then to someone from the <b>other end</b>. Give one reason each.' },
                   { who: 'class', text: 'Persuaded? <b>Move</b> along the line. Anyone who moved says why: “<b>That’s a fair point.</b> I hadn’t considered … .” This is today’s skill: showing flexibility.' }
                 ]
@@ -864,7 +858,7 @@
             title: 'Activity A critical thinker',
             goal: 'Which quotes come from a critical thinker?',
             blocks: [
-              { type: 'do', n: 1, who: 'class', text: '<b>Stand up, sit down.</b> Your teacher reads a quote. A critical thinker? <b>Stand up.</b> Not a critical thinker? <b>Stay seated.</b> Then sort the cards with your partner to check.' },
+              { type: 'do', n: 1, who: 'pair', text: 'Which quotes come from a critical thinker? Sort the cards with your partner, then check.' },
               {
                 type: 'sort',
                 id: 'd3-sort',
@@ -884,8 +878,7 @@
                   { text: '“I like to think about whether someone’s views reflect the experience of all groups of people”', answer: 0 },
                   { text: '“I question the authority of evidence before I accept it”', answer: 0 }
                 ]
-              },
-              { type: 'talk', prompts: ['Which quote sounds most like you? Why?'] }
+              }
             ]
           },
           {
@@ -895,7 +888,7 @@
             grouping: 'Pair',
             art: V('d4'),
             title: 'Language for presenting / keeping your original stance',
-            goal: 'State a clear position — in speaking and in writing.',
+            goal: 'Notice how a clear position is stated in speaking and in writing. You will use this language in your pitch.',
             blocks: [
               {
                 type: 'language',
@@ -930,9 +923,7 @@
                   { text: 'So …', answer: 0 },
                   { text: 'Therefore, it can be concluded that …', answer: 1 }
                 ]
-              },
-              { type: 'do', n: 2, who: 'pair', text: '<b>Stand-up speech.</b> Stand up and find a partner from another table. A speaks for 1 minute. B counts on fingers: one finger for each part you hear (stance, argument, evidence, counterargument, conclusion). Five fingers = full marks. Swap.' },
-              { type: 'talk', title: 'Your turn (1 minute each)', prompts: ['Give your stance on this: “Every university student should learn green skills.” Use one phrase from each group in the language bank.'] }
+              }
             ]
           },
           {
@@ -945,7 +936,7 @@
             goal: 'Learn four kinds of question that test your own position.',
             blocks: [
               { type: 'sticky', title: 'A good critical thinker …', text: '… questions their position by critically exploring the topic with an open mind to the possibility of their position changing.' },
-              { type: 'do', n: 1, who: 'group', text: '<b>Beat the clock (4 minutes).</b> Each question belongs under one heading. Take turns: one person places a card and says <b>why</b>. The fastest group with the most right wins a team point.' },
+              { type: 'do', n: 1, who: 'group', text: '<b>Beat the clock (4 minutes).</b> Each question belongs under one heading. Take turns: one person places a card and says <b>why</b>. Keep the questions: you will ask them in the discussion.' },
               { type: 'tip', text: 'Your teacher may give your group <b>paper cards</b> to sort on the table (4 headings + 13 questions). No cards? Sort the cards on this page together.' },
               {
                 type: 'sort',
@@ -972,14 +963,13 @@
                   { text: 'How can we further investigate this issue to gain a deeper understanding?', answer: 3 },
                   { text: 'What new information or research could change my perspective on this matter?', answer: 3 }
                 ]
-              },
-              { type: 'talk', title: 'Use it (30 seconds)', prompts: ['Choose one question. Ask a classmate about a topic from this week: “<b>How might</b> automation <b>impact different groups of people</b>?”'] }
+              }
             ]
           },
           {
             id: 'd6',
             short: 'Change it',
-            minutes: 4,
+            minutes: 6,
             grouping: 'Pair',
             art: V('d6'),
             title: 'Language for changing your position',
@@ -1026,25 +1016,18 @@
                   { front: 'My position changed', tag: 'change', back: '“<b>My earlier position was based on</b> …, <b>but after</b> hearing …, <b>I can see that</b> …”' }
                 ]
               },
-              { type: 'do', n: 1, who: 'pair', text: '<b>Stand up in pairs.</b> A: say a stance (“Online classes are better than face-to-face.”). B: give one counter-point. A: answer with <b>one</b> card — keep, almost, or changed. Swap.' }
+              { type: 'do', n: 1, who: 'pair', text: '<b>Quick practice.</b> A says a stance (“Online classes are better than face-to-face.”). B gives one counter-point. A answers with <b>one</b> card: did not change, almost changed or changed. Swap with a new stance (“Every student needs a laptop.”).' }
             ]
           },
           {
             id: 'd7',
             short: 'Prepare',
-            minutes: 5,
+            minutes: 6,
             grouping: 'Alone',
             art: V('d7'),
             title: 'Activity 2 Putting it into practice: Prepare',
             goal: 'Read the specs for YOUR laptop and prepare to persuade your group.',
             blocks: [
-              {
-                type: 'figure',
-                src: A + 'd4-laptop-needs.svg',
-                size: 'wide',
-                alt: 'The scenario. Your laptop broke. You need one for university. For 10 years you bought the same brand, but friends say there are better options. Key features: long battery life, because not all lecture rooms have power points; lightweight, because you carry it from class to class; security, because you also use it for personal use. Other features will be taken into consideration.',
-                caption: 'The scenario: what do you need from a laptop?'
-              },
               {
                 type: 'key',
                 title: 'Look at the following scenario',
@@ -1055,7 +1038,7 @@
                 ]
               },
               { type: 'do', n: 1, who: 'group', text: 'Groups of up to four. Each person takes a <b>different</b> laptop. Open <b>only your tab</b> — the others are your group’s secret!' },
-              { type: 'tip', text: 'Your teacher may give you a <b>paper laptop card</b> (A–D) and put a laptop sign in each corner for the expert huddle. No cards? Open only your tab below, and your teacher says where each laptop group meets.' },
+              { type: 'tip', text: 'Your teacher may give you a <b>paper laptop card</b> (A–D). No cards? Open only your tab below.' },
               {
                 type: 'tabs',
                 title: 'Activity specs — open your allocated laptop only',
@@ -1066,8 +1049,7 @@
                   { label: 'HP Pavilion Plus', blocks: [{ type: 'model', title: 'HP Pavilion Plus', rows: [['Price', '$1199'], ['Battery life', '11hrs'], ['Size', '14”'], ['Ports', '1x HDMI 2.1, 2x USB 3.0 ports, 1x USB 3.1 port, 1x Thunderbolt 4, 1 x 3.5mm combo headphone/microphone'], ['Security', '–'], ['Camera', '5MP IR Camera'], ['Audio', 'Audio by B&O, Dual speakers, HP Audio Boost'], ['Weight', '1.4kg'], ['Special feature', 'Good for media consumption']] }] }
                 ]
               },
-              { type: 'do', n: 2, who: 'class', text: '<b>Expert huddle (1 minute).</b> Stand up. Find everyone in the class with the <b>same</b> laptop. Share your best argument. Go back to your group.' },
-              { type: 'do', n: 3, who: 'alone', text: '<b>Prepare for a discussion.</b> This is the laptop you are trying to persuade your group members to buy. Write your pitch with the sentence starters from <b>Language for presenting / keeping your original stance</b>. Watch the lights turn on.' },
+              { type: 'do', n: 2, who: 'alone', text: '<b>Prepare for a discussion.</b> This is the laptop you are trying to persuade your group members to buy. Write your pitch with the sentence starters from <b>Language for presenting / keeping your original stance</b>. Link each point to the scenario: battery life, weight and security. Notes are fine: you will <b>say</b> it, not read it.' },
               {
                 type: 'detect',
                 id: 'd7-pitch',
@@ -1087,7 +1069,7 @@
           {
             id: 'd8',
             short: 'Discussion 1',
-            minutes: 20,
+            minutes: 18,
             grouping: 'Groups of 4',
             art: V('d8'),
             title: 'Activity 2 Putting it into practice: Discussion 1',
@@ -1097,10 +1079,8 @@
                 type: 'cards',
                 title: 'Group jobs (everyone still presents a laptop)',
                 items: [
-                  { label: 'Chair', text: 'Starts, calls each speaker, makes sure everyone asks two questions.', icon: 'users' },
                   { label: 'Timekeeper', text: 'One minute per pitch. Holds up a hand at 10 seconds.', icon: 'clock' },
-                  { label: 'Devil’s advocate', text: 'Asks the hardest challenge question after every pitch.', icon: 'target' },
-                  { label: 'Language monitor', text: 'Ticks the moves below. Reports the score at the end.', icon: 'pen' }
+                  { label: 'Language monitor', text: 'Ticks the moves below and reports at the end: which moves did the group use, and which were missing?', icon: 'pen' }
                 ]
               },
               {
@@ -1108,7 +1088,7 @@
                 items: [
                   { who: 'group', text: 'Take turns. Each person presents their laptop in about one minute.' },
                   { who: 'group', text: 'Actively listen to your group members present their device. Be open to changing your opinion on what is the best laptop for students.' },
-                  { who: 'group', text: 'After each pitch, ask at least <b>two questions</b>. Use the questions from <b>Activity 1 Challenging your viewpoint</b> as a guide.' },
+                  { who: 'group', text: 'After each pitch, ask at least <b>two questions</b>. Use the questions from <b>Activity 1 Challenging your viewpoint</b> as a guide. Make sure battery life, weight and security are discussed for every laptop.' },
                   { who: 'alone', text: 'Take notes on the other laptops in the table.' }
                 ]
               },
@@ -1128,17 +1108,6 @@
                   { label: 'Defend your stance', phrases: ['<b>That’s true, however</b> …', '<b>While it is true that</b> it costs more, <b>it is also important to consider</b> …', '<b>Let me put it another way</b> …'] },
                   { label: 'Concede', phrases: ['<b>That’s a fair point.</b>', '<b>I hadn’t thought of that.</b>', '<b>You’re right that</b> … , <b>but</b> …'] }
                 ]
-              },
-              { type: 'do', n: 1, who: 'group', text: 'Stuck? Spin a <b>challenge card</b> and ask the speaker that question.' },
-              {
-                type: 'spinner',
-                id: 'd8-spin',
-                title: 'Challenge card',
-                reels: [
-                  { label: 'Ask about', items: ['battery life', 'weight', 'security', 'price', 'ports', 'the special feature'] },
-                  { label: 'Question type', items: ['open-ended: Is there a situation where … might not …?', 'assumption: Are you assuming that …?', 'consequence: What happens in the long term if …?', 'curiosity: What else would we need to know about …?'] }
-                ],
-                note: 'Spin, build a question from both reels, ask it — then listen with an open mind.'
               },
               {
                 type: 'checklist',
@@ -1165,16 +1134,10 @@
                 alt: 'A classroom seen from above with four corners, one for each laptop: MacBook Pro, Microsoft Surface, Dell XPS 14 and HP Pavilion Plus. Students walk from their seats to the corner of the laptop they would buy now. Footprints show one student who moved from the HP corner to the Surface corner, with a bubble: My position changed.',
                 caption: 'Four corners: walk to the laptop you would buy now.'
               },
-              { type: 'tip', text: 'Your teacher may put a laptop sign (A–D) in each corner. No signs? Look at the picture above: your teacher says which corner is which laptop.' },
               { type: 'do', n: 1, who: 'class', text: '<b>Four corners.</b> Each corner of the room is one laptop. Stand up and walk to the corner of the laptop you would buy <b>now</b>. Did you leave your own laptop? Say who persuaded you, and why.' },
               { type: 'do', n: 2, who: 'group', text: 'At the end of the discussion, conclude with your final position. Let your group know if:' },
               { type: 'choose', id: 'd9-pos', title: 'My final position', options: ['My position did not change.', 'My position almost changed.', 'My position changed.'] },
-              {
-                type: 'fields',
-                fields: [{ id: 'd9-why', label: 'Whose information (almost) persuaded you — or why didn’t it change?', rows: 3, placeholder: 'My earlier position was based on … but after hearing …, I can see that …' }]
-              },
               { type: 'talk', title: 'Say it to your group', prompts: ['Use one phrase from <b>Language for changing your position</b>.', 'Name the person and the information that persuaded you.'] },
-              { type: 'scale', id: 'd9-flex', title: 'How flexible was I?', statement: 'I listened with an open mind and really considered other laptops.', ends: ['Not really', 'Completely'] },
               { type: 'tip', text: 'In the <b>Interactive Discussion</b> assessment, showing flexibility — and saying clearly why your view changed — is a sign of criticality.' },
               {
                 type: 'fields',
