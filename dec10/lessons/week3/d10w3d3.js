@@ -7,9 +7,10 @@
    Activity ids are the keys of saved work — never rename them.
    Round 2 (student-centred): movement games (stand up/sit down, mingles, line-ups, corners, speed-dating circles,
    snowball, gallery walks, human sentence), group roles, "Use it" steps, phrase-of-the-day stickies and exit tickets.
-   11A redesign (v7.0, dec10/design/LESSON-DESIGN.md): lead-in linked to university → read for gist (two blocking words only) →
-   presentation (feedback, edited version) → controlled practice b9 (choose → complete → correct, with Focus on Vocabulary 2
-   academic words and Essay Activator phrases) → b8 keeps the Teacher’s Book rewrite as the main task, with an extension on each group’s own research summary topic. */
+   11A (v7.1, dec10/design/LESSON-DESIGN.md): five clear stages, shown as a chip on each activity —
+   1 Lead-in b1 (same news, three voices → register → goal → TB brainstorm) · 2 Context b2 (Sam’s draft) ·
+   3 Presentation b3 rules, b6 model (no gate now), b7 how · 4 Practice b4 spot, b5 rephrase, b9 choose/complete/correct ·
+   5 Production b8 (TB rewrite; own topic as extension). Activity ids unchanged; TB texts, questions and tasks unchanged. */
 window.DEC15_LESSON = {
   id: "d10w3d3",
   week: 3,
@@ -371,24 +372,46 @@ window.DEC15_LESSON = {
       tone: "clay",
       art: "dec10/assets/week3/s-d3-style.svg",
       title: "Academic writing skills: Academic style",
-      subtitle: "From a chatty draft to an academic research summary",
+      subtitle: "Lead-in → Context → Presentation → Practice → Production",
       outcome: "You can identify features of academic writing, and evaluate and edit your writing for features of academic style.",
       activities: [
         {
           id: "b1",
-          short: "Features",
-          minutes: 8,
+          short: "Lead-in",
+          minutes: 10,
           grouping: "Pair → Class",
+          category: "1 · Lead-in",
           art: "dec10/assets/week3/v/v-d10w3d3-b1.svg",
           title: "Features of academic writing",
-          goal: "Make a list of features that make a text academic.",
+          goal: "Notice how the same idea can sound chatty or academic, then list what makes a text academic.",
           blocks: [
+            {"type":"do","n":1,"who":"pair","text":"<b>Same news, three voices.</b> These three texts say the same thing. Who wrote each one? Match them, then compare with your partner."},
+            {
+              type: "match",
+              id: "b1-who",
+              title: "Who wrote it?",
+              left: [
+                "A · “omg green jobs r SO hot rn 🌱 literally everyone is getting hired lol”",
+                "B · “Green jobs boom as firms race to go eco-friendly”",
+                "C · “The emergence of green occupations can be attributed to stricter environmental regulations (Bawa, 2024).”"
+              ],
+              right: ["a friend’s text message","a news headline","a university research paper"]
+            },
+            {"type":"do","n":2,"who":"class","text":"<b>Stand on the line.</b> One wall is <i>chatty</i>, the other wall is <i>academic</i>. Your teacher reads A, B and C in a mixed order. Walk to where each one belongs on the line below. Then tell a partner: <i>“C sounds academic because …”</i>"},
             {
               type: "key",
               title: "Register",
               points: [
                 "Academic writing requires a certain level of <b>formality</b> and <b>style of language</b> (which we call ‘<b>register</b>’) to make it appropriate for academic contexts.",
                 "In this lesson we will be looking at what makes a text academic."
+              ]
+            },
+            {
+              type: "key",
+              title: "Today’s goal",
+              points: [
+                "You will learn what makes writing academic, then use it to <b>rewrite a student’s paragraph</b>. You need this skill for your <b>research summary</b>, the <b>Integrated Writing</b> task and every university assignment.",
+                "Today’s journey: <b>Lead-in</b> → <b>Context</b> (Sam’s draft) → <b>Presentation</b> (the rules and a model) → <b>Practice</b> → <b>Production</b> (your rewrite)."
               ]
             },
             {
@@ -400,10 +423,11 @@ window.DEC15_LESSON = {
             },
             {
               type: "do",
-              n: 1,
+              n: 3,
               who: "pair",
               text: "<b>Brainstorm (2 minutes).</b> What are some features of academic style in writing? Some of them you have already learnt about in DEC 10 and previous courses. <b>Work together and make a list.</b>"
             },
+            {"type":"tip","text":"<b>Start with text C.</b> What do you notice? A noun phrase (<i>the emergence of</i>), a cause phrase (<i>can be attributed to</i>), a reference (<i>Bawa, 2024</i>) … Add more features you know."},
             {"type":"sticky","title":"For example …","text":"use of noun phrases or nominalisations","color":"yellow"},
             {"type":"fields","fields":[{"id":"b1-list","label":"Our list of features of academic style","rows":6,"placeholder":"1. noun phrases / nominalisations\n2. …\n3. …"}]},
             {
@@ -423,19 +447,20 @@ window.DEC15_LESSON = {
                 {"label":"Say what to avoid","phrases":["Academic writers <b>usually avoid</b> …","… <b>is generally not used in</b> academic writing.","<b>Instead of</b> “…”, <b>it is better to</b> write “…”."]}
               ]
             },
-            {"type":"do","n":2,"who":"class","text":"<b>Use it.</b> Your teacher points at a feature on the board. The first person to stand up says one sentence about it: <i>“Academic writers usually avoid …”</i>. Add any feature you missed to your list."},
-            {"type":"talk","title":"Why it matters at university","prompts":["Where will you need academic style in the next few weeks? Think of your <b>research summary</b>, the <b>Integrated Writing</b> task and your <b>seminar slides</b>.","At university, who will read your writing? What will they think if it sounds like a chat message?"]}
+            {"type":"do","n":4,"who":"alone","text":"Keep your list. You will check it against the teacher’s rules in the Presentation stage."}
           ]
         },
         {
           id: "b2",
-          short: "The draft",
+          short: "Context",
           minutes: 7,
           grouping: "Alone → Pair",
+          category: "2 · Context",
           art: "dec10/assets/week3/v/v-d10w3d3-b2.svg",
           title: "Read a research summary draft",
           goal: "Decide: is this draft written in an appropriate academic register?",
           blocks: [
+            {"type":"sticky","title":"Meet Sam","text":"Sam is a DEC student. Tomorrow he must submit his research summary. Tonight he sends you his draft: “Can you read it? Is it academic enough?”","color":"yellow"},
             {"type":"do","n":1,"who":"alone","text":"<b>Read (3 minutes).</b> Read this research summary draft written by a DEC student. <b>Is it written in appropriate academic register? Why/why not?</b>"},
             {"type":"tip","text":"<b>First read for the general picture only.</b> You will look at the details later. <b>Two words you may need:</b> <b>sustainability consultant</b>: an expert who advises companies on how to reduce their impact on the environment and society · <b>fines</b>: money you must pay as a punishment for breaking a rule or law."},
             {
@@ -483,13 +508,15 @@ window.DEC15_LESSON = {
         },
         {
           id: "b3",
-          short: "Feedback",
+          short: "The rules",
           minutes: 8,
           grouping: "Pair → Class",
+          category: "3 · Presentation",
           art: "dec10/assets/week3/v/v-d10w3d3-b3.svg",
           title: "Teacher feedback on the draft",
           goal: "How many of the teacher’s points did you find? Which ones are new to you?",
           blocks: [
+            {"type":"sticky","title":"Sam’s teacher replies …","text":"Sam also sent his draft to his teacher. Here is the feedback. These points are today’s rules of academic style.","color":"yellow"},
             {
               type: "do",
               n: 1,
@@ -561,177 +588,26 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: "b4",
-          short: "Find it",
-          minutes: 15,
-          grouping: "Pair",
-          art: "dec10/assets/week3/v/v-d10w3d3-b4.svg",
-          title: "Find examples in the draft",
-          goal: "Find the teacher’s points in the student’s writing.",
-          blocks: [
-            {"type":"do","n":1,"who":"pair","text":"<b>Pair race.</b> Look again at the student draft of their research summary. Find examples of the teacher’s points in the student’s writing. Tap the phrases, then check. All 10 right? <b>Stand up!</b> The first three pairs standing win a team point."},
-            {
-              type: "spot",
-              id: "b4-sp1",
-              label: "Spot it · grammar and structure",
-              title: "1 · Grammar, structure and certainty",
-              hint: "Find 10: a contraction, a direct question, ‘I’, ‘And’ or ‘So’ at the start of a sentence, a repeated noun, and words that are too certain (no hedging).",
-              paras: [
-                "(1) The job market is [[*really]] changing, and one of the great new trends is that there are more [[sustainability consultants]]. (2) [[*Sustainability consultants]] are stepping into the spotlight, helping companies that want to be more eco-friendly and follow the rules about the environment. (3) They help businesses figure out how to use resources wisely. (4) [[*And]] they teach them how to take care of the planet [[while still making a profit]]. (5) [[*Why are they becoming so popular?]]",
-                "(6) [[*I think]] sustainability consultants do a lot to help companies [[plan for the future]]. (7) This [[*isn't]] just about avoiding fines or negative press. (8) [[*It's]] about being responsible for their environmental and social impact. (9) As we all know, [[*everyone]] from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate [[(Holt, 2023)]]. (11) [[*So]], moving forward, companies [[*will definitely]] continue to put sustainability at the top of their list."
-              ]
-            },
-            {
-              type: "figure",
-              src: "dec10/assets/week3/d3-certainty.svg",
-              size: "wide",
-              alt: "A certainty meter from 100% to about 30%. At the top, too certain for academic writing: will definitely, always, everyone, really. Below, hedged academic language: is likely to, tends to, may, might, could, it is possible that.",
-              caption: "Hedging: move down the meter. Academic writers show caution."
-            },
-            {"type":"do","n":2,"who":"pair","text":"<b>Round 2 — same race.</b> Sit down first! Now find the informal vocabulary."},
-            {
-              type: "spot",
-              id: "b4-sp2",
-              label: "Spot it · vocabulary",
-              title: "2 · Informal vocabulary",
-              hint: "Find 10: idioms, phrasal verbs and chatty phrases from speech, and vague words (not precise).",
-              paras: [
-                "(1) The job market is really changing, and one of the [[*great]] new trends is that there are more sustainability consultants. (2) Sustainability consultants are [[*stepping into the spotlight]], helping companies that want to be more eco-friendly and follow the rules about [[the environment]]. (3) They help businesses [[*figure out]] how to use resources wisely. (4) And they teach them how to [[*take care of]] the planet while still making a profit. (5) Why are they becoming so popular?",
-                "(6) I think sustainability consultants do [[*a lot]] to help companies plan for the future. (7) This isn't just about avoiding [[fines]] or negative press. (8) It's about being responsible for their [[environmental and social impact]]. (9) [[*As we all know]], everyone from tech firms to banks, can see the value of bringing sustainability [[*into the mix]]. (10) As Holt says, this trend towards a workforce that [[*cares about]] both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to [[*put]] sustainability [[*at the top of their list]]."
-              ]
-            },
-            {
-              type: "steps",
-              title: "Use it · Fix it aloud",
-              items: [
-                {"who":"pair","text":"Student A points to one phrase you found and says the teacher’s point: <i>“‘Figure out’ is a phrasal verb, so it sounds too informal.”</i>"},
-                {"who":"pair","text":"Student B says the sentence again in a more academic way (try — it doesn’t need to be perfect). Swap roles."},
-                {"who":"pair","text":"Bonus: the draft has no nominalisations and one idea is not referenced properly. Can you find where?"}
-              ]
-            },
-            {
-              type: "language",
-              groups: [
-                {"label":"Point to the problem","phrases":["<b>In sentence</b> (4), the writer <b>starts with</b> ‘And’.","“Figure out” <b>is a phrasal verb, so it sounds</b> too informal.","“Will definitely” <b>is too certain — there is no hedging.</b>","<b>This is an example of</b> an idiom."]}
-              ]
-            }
-          ],
-          answers: {
-            title: "Some problematic language (Teacher’s Book)",
-            items: [
-              ["a lack of nominalisations","“The job market is really changing” rather than “Changes in the job market” · “there are more sustainability consultants” rather than “the rise of sustainability consultants” · “how to use” rather than “the efficient use”."],
-              ["simple linking phrases at the start of sentences","Sentence-initial ‘and’ in (4) & sentence-initial ‘so’ in (11)."],
-              ["contractions","‘Isn’t’ in sentence 7 & ‘It’s’ in sentence 8."],
-              ["direct questions","Use of a rhetorical question (5)."],
-              ["repetition","“these professionals” to replace “sustainability consultants” in sentence 2."],
-              ["no hedging","“will definitely” in sentence 11 / “everyone can see” in sentence 9 / “really” in sentence 1."],
-              ["impersonal style","“I think” in sentence 6."],
-              ["idiomatic language","‘stepping into the spotlight’ in sentence 2 or ‘into the mix’ in sentence 9 or ‘at the top of their list’ in sentence 11."],
-              ["lack of specialised vocabulary","Indicated by the absence of words such as “transformation”, “financial”, “adhere,” “regulation”, “reputation”."],
-              ["vague or unclear language","“great” in sentence 1, “do a lot to help” in sentence 6 and “put sustainability” in sentence 11."],
-              ["informal speech, phrasal verbs","“figure out” in sentence 3, “take care of” in sentence 4, “a lot” in sentence 6, “as we all know” in sentence 9, and “cares about” in sentence 10."]
-            ]
-          }
-        },
-        {
-          id: "b5",
-          short: "Rephrase",
-          minutes: 10,
-          grouping: "Groups of 4",
-          art: "dec10/assets/week3/v/v-d10w3d3-b5.svg",
-          title: "Vocabulary analysis",
-          goal: "Try to rewrite informal expressions in a more academic style — your own ideas first, as a team relay.",
-          blocks: [
-            {
-              type: "do",
-              n: 1,
-              who: "pair",
-              text: "Look at the table with the informal language taken from the text. How could you rewrite these expressions in a more academic style? Write your ideas in the middle column. Leave the last column empty for now."
-            },
-            {
-              type: "steps",
-              title: "Rewrite relay (groups of 4)",
-              items: [
-                {"who":"group","text":"Share the lines: Student 1 = a–d · Student 2 = e–h · Student 3 = i–k · Student 4 = l–n. You have <b>4 minutes</b> for your lines."},
-                {"who":"group","text":"<b>Stand up and move one seat to the left.</b> Read the next person’s ideas. Improve <b>one</b> of them (2 minutes)."},
-                {"who":"group","text":"Move back. Read the improvements aloud. Copy the best ideas into your table."}
-              ]
-            },
-            {
-              type: "language",
-              title: "Tools for a more academic version",
-              groups: [
-                {"label":"Use a noun phrase","phrases":["<b>the rise of</b> … · <b>the emergence of</b> … · <b>the growth in</b> …","<b>the efficient use of</b> … · <b>changes in</b> …"]},
-                {"label":"Choose a precise verb","phrases":["follow → <b>comply with / adhere to</b>","help → <b>assist / guide / support</b>","see the value → <b>recognise the importance</b>"]},
-                {"label":"Hedge","phrases":["<b>It is likely that</b> …","companies <b>may / are likely to</b> …","… <b>tends to</b> …"]}
-              ]
-            },
-            {
-              type: "table",
-              id: "b5-tab",
-              title: "Informal language → formal language",
-              columns: ["Informal language","My more academic idea","Formal language (from the edited version)"],
-              fixed: [
-                "a. the job market is really changing",
-                "b. there are more",
-                "c. stepping into the spotlight",
-                "d. follow the rules about the environment",
-                "e. take care of the planet",
-                "f. help businesses figure out",
-                "g. how to use resources wisely",
-                "h. take care of the planet",
-                "i. everyone from tech firms to banks",
-                "j. start to see the value of",
-                "k. bringing sustainability into the mix",
-                "l. cares about",
-                "m. will definitely",
-                "n. continue to put sustainability at the top of their list"
-              ]
-            },
-            {
-              type: "talk",
-              title: "Class vote",
-              prompts: ["Your teacher reads lines a, c and m. Each group shouts out its best idea. The class votes with hands up — and one person says why the winner is better.","Which line was the hardest to rewrite? Why?"]
-            }
-          ]
-        },
-        {
           id: "b6",
-          short: "Edited",
-          minutes: 8,
-          grouping: "Class mingle → Pair",
+          short: "The model",
+          minutes: 7,
+          grouping: "Pair → Class mingle",
+          category: "3 · Presentation",
           art: "dec10/assets/week3/v/v-d10w3d3-b6.svg",
           title: "The edited version",
-          goal: "Find the formal phrases the student used to replace the informal language — first with a card mingle, then in the text.",
+          goal: "Read Sam’s second try and find the formal phrases that replaced the informal language.",
           blocks: [
-            {
-              type: "steps",
-              title: "Find your partner (4 minutes)",
-              items: [
-                {"who":"class","text":"Your teacher gives everyone one card. Half the cards are <b>informal</b> (a–n in the match below), half are <b>formal</b>."},
-                {"who":"class","text":"<b>Stand up.</b> Read your card aloud to classmates: <i>“I have ‘cares about’. Are you my formal partner?”</i>"},
-                {"who":"pair","text":"Found your partner? Stand together. Make one academic sentence about green jobs with the formal phrase. Say it to another pair."}
-              ]
-            },
-            {"type":"tip","text":"<b>Paper cards?</b> Your teacher may give you one informal or formal card to find your partner. No cards? Your teacher says one informal phrase from the match below — the first person to say the formal partner wins a point."},
-            {
-              type: "figure",
-              src: "dec10/assets/week3/d3-move-mingle.svg",
-              size: "wide",
-              alt: "Find your partner: half the class has an informal card, half has a formal card. Stand up, read your card aloud and find your partner, for example “cares about” and “values”, “will definitely” and “it is likely”, “there are more” and “the emergence of”. Stand together and read the academic sentence.",
-              caption: "Informal card + formal card = partners."
-            },
+            {"type":"sticky","title":"Sam’s second try","text":"Sam used the teacher’s feedback and rewrote his paragraph. This is your model: see how each informal phrase became academic.","color":"green"},
             {
               type: "do",
               n: 1,
               who: "pair",
-              text: "Sit down with your partner. Read the student’s rewrite of the paragraph in a more academic style. Identify the phrases the student has used to replace the informal language. Write these in the right-hand column of your table."
+              text: "Sit down with your partner. Read the student’s rewrite of the paragraph in a more academic style. Identify the phrases the student has used to replace the informal language. You will use them again in the Practice stage."
             },
             {
               type: "passage",
               id: "b6-edit",
               title: "Research Summary (Edited)",
-              gate: "Try your own ideas in the table first (the activity before). Then open the edited version.",
               text: "(1) The employment landscape is undergoing significant transformation with the emergence of sustainability consultants. (2) The demand for these experts has grown substantially in the last two years as they assist corporations in adhering to environmental regulations and adopting eco-friendly practices (Bawa, 2024). (3) They guide businesses on the efficient utilization of resources and instilling practices that balance environmental conservation with profitability. (4) The rising popularity of sustainability consultants can be attributed to their pivotal role in planning for long-term environmental, legal and social responsibilities. (5) A diverse range of industries, from technology to financial services, is recognizing the importance of integrating sustainable practices into their commercial operations. (6) Holt (2023) claims that this trend towards a workforce that values both financial success and positive societal impact signals a shift in how businesses operate. (7) It is likely that sustainability will remain a priority for organisations, continuing to shape corporate strategies and operations."
             },
             {
@@ -772,6 +648,23 @@ window.DEC15_LESSON = {
                 "sustainability will remain a priority"
               ]
             },
+            {
+              type: "steps",
+              title: "Find your partner (4 minutes)",
+              items: [
+                {"who":"class","text":"<b>Now stand up!</b> Your teacher gives everyone one card. Half the cards are <b>informal</b> (a–n in the match below), half are <b>formal</b>."},
+                {"who":"class","text":"<b>Stand up.</b> Read your card aloud to classmates: <i>“I have ‘cares about’. Are you my formal partner?”</i>"},
+                {"who":"pair","text":"Found your partner? Stand together. Make one academic sentence about green jobs with the formal phrase. Say it to another pair."}
+              ]
+            },
+            {"type":"tip","text":"<b>Paper cards?</b> Your teacher may give you one informal or formal card to find your partner. No cards? Your teacher says one informal phrase from the match below — the first person to say the formal partner wins a point."},
+            {
+              type: "figure",
+              src: "dec10/assets/week3/d3-move-mingle.svg",
+              size: "wide",
+              alt: "Find your partner: half the class has an informal card, half has a formal card. Stand up, read your card aloud and find your partner, for example “cares about” and “values”, “will definitely” and “it is likely”, “there are more” and “the emergence of”. Stand together and read the academic sentence.",
+              caption: "Informal card + formal card = partners."
+            },
             {"type":"do","n":2,"who":"pair","text":"<b>Read-aloud swap.</b> Student A reads an informal phrase. Student B closes the table and says the formal one from memory. Then swap."}
           ]
         },
@@ -780,6 +673,7 @@ window.DEC15_LESSON = {
           short: "How?",
           minutes: 7,
           grouping: "Pair",
+          category: "3 · Presentation",
           art: "dec10/assets/week3/v/v-d10w3d3-b7.svg",
           title: "Questions about the edited version",
           goal: "See HOW the writer made the paragraph academic.",
@@ -858,10 +752,148 @@ window.DEC15_LESSON = {
           ]
         },
         {
+          id: "b4",
+          short: "Spot it",
+          minutes: 15,
+          grouping: "Pair",
+          category: "4 · Practice",
+          art: "dec10/assets/week3/v/v-d10w3d3-b4.svg",
+          title: "Find examples in the draft",
+          goal: "Find the teacher’s points in the student’s writing.",
+          blocks: [
+            {"type":"do","n":1,"who":"pair","text":"<b>Pair race.</b> Look again at the student draft of their research summary. Find examples of the teacher’s points in the student’s writing. Tap the phrases, then check. All 10 right? <b>Stand up!</b> The first three pairs standing win a team point."},
+            {
+              type: "spot",
+              id: "b4-sp1",
+              label: "Spot it · grammar and structure",
+              title: "1 · Grammar, structure and certainty",
+              hint: "Find 10: a contraction, a direct question, ‘I’, ‘And’ or ‘So’ at the start of a sentence, a repeated noun, and words that are too certain (no hedging).",
+              paras: [
+                "(1) The job market is [[*really]] changing, and one of the great new trends is that there are more [[sustainability consultants]]. (2) [[*Sustainability consultants]] are stepping into the spotlight, helping companies that want to be more eco-friendly and follow the rules about the environment. (3) They help businesses figure out how to use resources wisely. (4) [[*And]] they teach them how to take care of the planet [[while still making a profit]]. (5) [[*Why are they becoming so popular?]]",
+                "(6) [[*I think]] sustainability consultants do a lot to help companies [[plan for the future]]. (7) This [[*isn't]] just about avoiding fines or negative press. (8) [[*It's]] about being responsible for their environmental and social impact. (9) As we all know, [[*everyone]] from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate [[(Holt, 2023)]]. (11) [[*So]], moving forward, companies [[*will definitely]] continue to put sustainability at the top of their list."
+              ]
+            },
+            {
+              type: "figure",
+              src: "dec10/assets/week3/d3-certainty.svg",
+              size: "wide",
+              alt: "A certainty meter from 100% to about 30%. At the top, too certain for academic writing: will definitely, always, everyone, really. Below, hedged academic language: is likely to, tends to, may, might, could, it is possible that.",
+              caption: "Hedging: move down the meter. Academic writers show caution."
+            },
+            {"type":"do","n":2,"who":"pair","text":"<b>Round 2 — same race.</b> Sit down first! Now find the informal vocabulary."},
+            {
+              type: "spot",
+              id: "b4-sp2",
+              label: "Spot it · vocabulary",
+              title: "2 · Informal vocabulary",
+              hint: "Find 10: idioms, phrasal verbs and chatty phrases from speech, and vague words (not precise).",
+              paras: [
+                "(1) The job market is really changing, and one of the [[*great]] new trends is that there are more sustainability consultants. (2) Sustainability consultants are [[*stepping into the spotlight]], helping companies that want to be more eco-friendly and follow the rules about [[the environment]]. (3) They help businesses [[*figure out]] how to use resources wisely. (4) And they teach them how to [[*take care of]] the planet while still making a profit. (5) Why are they becoming so popular?",
+                "(6) I think sustainability consultants do [[*a lot]] to help companies plan for the future. (7) This isn't just about avoiding [[fines]] or negative press. (8) It's about being responsible for their [[environmental and social impact]]. (9) [[*As we all know]], everyone from tech firms to banks, can see the value of bringing sustainability [[*into the mix]]. (10) As Holt says, this trend towards a workforce that [[*cares about]] both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to [[*put]] sustainability [[*at the top of their list]]."
+              ]
+            },
+            {
+              type: "steps",
+              title: "Use it · Fix it aloud",
+              items: [
+                {"who":"pair","text":"Student A points to one phrase you found and says the teacher’s point: <i>“‘Figure out’ is a phrasal verb, so it sounds too informal.”</i>"},
+                {"who":"pair","text":"Student B says the sentence again in a more academic way (try — it doesn’t need to be perfect). Swap roles."},
+                {"who":"pair","text":"Bonus: the draft has no nominalisations and one idea is not referenced properly. Can you find where?"}
+              ]
+            },
+            {
+              type: "language",
+              groups: [
+                {"label":"Point to the problem","phrases":["<b>In sentence</b> (4), the writer <b>starts with</b> ‘And’.","“Figure out” <b>is a phrasal verb, so it sounds</b> too informal.","“Will definitely” <b>is too certain — there is no hedging.</b>","<b>This is an example of</b> an idiom."]}
+              ]
+            }
+          ],
+          answers: {
+            title: "Some problematic language (Teacher’s Book)",
+            items: [
+              ["a lack of nominalisations","“The job market is really changing” rather than “Changes in the job market” · “there are more sustainability consultants” rather than “the rise of sustainability consultants” · “how to use” rather than “the efficient use”."],
+              ["simple linking phrases at the start of sentences","Sentence-initial ‘and’ in (4) & sentence-initial ‘so’ in (11)."],
+              ["contractions","‘Isn’t’ in sentence 7 & ‘It’s’ in sentence 8."],
+              ["direct questions","Use of a rhetorical question (5)."],
+              ["repetition","“these professionals” to replace “sustainability consultants” in sentence 2."],
+              ["no hedging","“will definitely” in sentence 11 / “everyone can see” in sentence 9 / “really” in sentence 1."],
+              ["impersonal style","“I think” in sentence 6."],
+              ["idiomatic language","‘stepping into the spotlight’ in sentence 2 or ‘into the mix’ in sentence 9 or ‘at the top of their list’ in sentence 11."],
+              ["lack of specialised vocabulary","Indicated by the absence of words such as “transformation”, “financial”, “adhere,” “regulation”, “reputation”."],
+              ["vague or unclear language","“great” in sentence 1, “do a lot to help” in sentence 6 and “put sustainability” in sentence 11."],
+              ["informal speech, phrasal verbs","“figure out” in sentence 3, “take care of” in sentence 4, “a lot” in sentence 6, “as we all know” in sentence 9, and “cares about” in sentence 10."]
+            ]
+          }
+        },
+        {
+          id: "b5",
+          short: "Rephrase",
+          minutes: 9,
+          grouping: "Groups of 4",
+          category: "4 · Practice",
+          art: "dec10/assets/week3/v/v-d10w3d3-b5.svg",
+          title: "Vocabulary analysis",
+          goal: "Try to rewrite informal expressions in a more academic style — your own ideas first, as a team relay.",
+          blocks: [
+            {
+              type: "do",
+              n: 1,
+              who: "pair",
+              text: "Look at the table with the informal language taken from the text. How could you rewrite these expressions in a more academic style? Write your ideas in the middle column. <b>Close the edited version</b> and work from memory. At the end, check it and write the formal phrase in the last column."
+            },
+            {
+              type: "steps",
+              title: "Rewrite relay (groups of 4)",
+              items: [
+                {"who":"group","text":"Share the lines: Student 1 = a–d · Student 2 = e–h · Student 3 = i–k · Student 4 = l–n. You have <b>4 minutes</b> for your lines."},
+                {"who":"group","text":"<b>Stand up and move one seat to the left.</b> Read the next person’s ideas. Improve <b>one</b> of them (2 minutes)."},
+                {"who":"group","text":"Move back. Read the improvements aloud. Copy the best ideas into your table."}
+              ]
+            },
+            {
+              type: "language",
+              title: "Tools for a more academic version",
+              groups: [
+                {"label":"Use a noun phrase","phrases":["<b>the rise of</b> … · <b>the emergence of</b> … · <b>the growth in</b> …","<b>the efficient use of</b> … · <b>changes in</b> …"]},
+                {"label":"Choose a precise verb","phrases":["follow → <b>comply with / adhere to</b>","help → <b>assist / guide / support</b>","see the value → <b>recognise the importance</b>"]},
+                {"label":"Hedge","phrases":["<b>It is likely that</b> …","companies <b>may / are likely to</b> …","… <b>tends to</b> …"]}
+              ]
+            },
+            {
+              type: "table",
+              id: "b5-tab",
+              title: "Informal language → formal language",
+              columns: ["Informal language","My more academic idea","Formal language (from the edited version)"],
+              fixed: [
+                "a. the job market is really changing",
+                "b. there are more",
+                "c. stepping into the spotlight",
+                "d. follow the rules about the environment",
+                "e. take care of the planet",
+                "f. help businesses figure out",
+                "g. how to use resources wisely",
+                "h. take care of the planet",
+                "i. everyone from tech firms to banks",
+                "j. start to see the value of",
+                "k. bringing sustainability into the mix",
+                "l. cares about",
+                "m. will definitely",
+                "n. continue to put sustainability at the top of their list"
+              ]
+            },
+            {
+              type: "talk",
+              title: "Class vote",
+              prompts: ["Your teacher reads lines a, c and m. Each group shouts out its best idea. The class votes with hands up — and one person says why the winner is better.","Which line was the hardest to rewrite? Why?"]
+            }
+          ]
+        },
+        {
           id: "b9",
           short: "Practise",
           minutes: 13,
           grouping: "Alone → Pair",
+          category: "4 · Practice",
           art: "dec10/assets/lab/s-practise.svg",
           title: "Practise: choose, complete, correct",
           goal: "Use the academic words from the edited version in new sentences about green jobs. First recognise them, then use them, then find the mistakes.",
@@ -944,10 +976,12 @@ window.DEC15_LESSON = {
           short: "Rewrite",
           minutes: 14,
           grouping: "Alone → Pair",
+          category: "5 · Production",
           art: "dec10/assets/week3/v/v-d10w3d3-b8.svg",
           title: "Rewrite the paragraph",
           goal: "Rewrite the draft in academic style — using your language table, not the edited version.",
           blocks: [
+            {"type":"sticky","title":"Your turn: be Sam’s editor","text":"Close the edited version. Using the rules and your table, write your own academic version of Sam’s draft. Then compare.","color":"green"},
             {
               type: "key",
               title: "The rules",

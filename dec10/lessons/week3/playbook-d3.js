@@ -120,13 +120,14 @@ window.DEC10_PLAYBOOK['d10w3d3'] = {
     },
     style: {
       tips: [
+        'The stage now runs in five clear steps: Lead-in (b1) → Context (b2, Sam’s draft) → Presentation (b3 rules, b6 model, b7 how) → Practice (b4 spot, b5 rephrase, b9 choose/complete/correct) → Production (b8 rewrite). Write the five steps on the board and tick them off, so students always know where they are.',
         'Keep the draft (b2) in view for the whole stage: students return to it in b4, b5 and b8. Ask them to copy it into their digital notebook at the start.',
         'Use the b1 board list as your “checklist board” all stage: tick each feature when it comes up again in b3 and b4.',
-        'In the Rewrite relay (b5), insist on own ideas first: the edited version (b6) is gated for a reason. Walk round and praise brave attempts, not only correct ones.',
+        'Students have already seen the edited version (b6) as the model. In the Rewrite relay (b5), ask them to close it and work from memory, then check. Walk round and praise brave attempts, not only correct ones.',
         'The Human sentence (b7) is the clearest moment for nominalisation — slow down and let the class give the instructions.',
         'Give real writing time in b8 (at least 8 minutes of silence). The gallery walk only works if everyone has a sentence.'
       ],
-      creative: 'Run the stage as a “makeover show”: the draft is the “before” photo, b4 is the diagnosis, b5–b7 are the makeover team at work and b8 is the “after” photo. Put a big BEFORE / AFTER box on the board, write one draft sentence in BEFORE, and fill AFTER bit by bit as the stage goes on (noun phrase, hedge, precise verb). At the end, the class reads both versions aloud — a chatty voice for BEFORE and a lecture voice for AFTER.',
+      creative: 'Run the stage as a “makeover show” with Sam as the guest: the three voices in b1 are the warm-up, Sam’s draft (b2) is the “before” photo, the teacher’s feedback (b3) is the diagnosis, the edited version (b6–b7) is the makeover, b4–b9 are the students’ own training, and b8 is their “after” photo. Put a big BEFORE / AFTER box on the board, write one draft sentence in BEFORE and fill AFTER bit by bit.',
       watch: [
         'Over-correction: students make every sentence long and full of big words. Remind them: academic = precise and careful, not difficult. One clear noun phrase is better than three.',
         'Students change the meaning when they rewrite (e.g. “will definitely” → “will never”). Ask: “Does it still say the same thing, only more carefully?”',
