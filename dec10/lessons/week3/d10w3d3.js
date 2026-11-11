@@ -6,7 +6,10 @@
    Texts from the Teacher's Book (the research summary drafts, the email, the academic integrity text) are copied exactly.
    Activity ids are the keys of saved work — never rename them.
    Round 2 (student-centred): movement games (stand up/sit down, mingles, line-ups, corners, speed-dating circles,
-   snowball, gallery walks, human sentence), group roles, "Use it" steps, phrase-of-the-day stickies and exit tickets. */
+   snowball, gallery walks, human sentence), group roles, "Use it" steps, phrase-of-the-day stickies and exit tickets.
+   11A redesign (v7.0, dec10/design/LESSON-DESIGN.md): lead-in linked to university → read for gist (two blocking words only) →
+   presentation (feedback, edited version) → controlled practice b9 (choose → complete → correct, with Focus on Vocabulary 2
+   academic words and Essay Activator phrases) → production b8 on each group's own research summary topic. */
 window.DEC15_LESSON = {
   id: "d10w3d3",
   week: 3,
@@ -374,7 +377,7 @@ window.DEC15_LESSON = {
         {
           id: "b1",
           short: "Features",
-          minutes: 10,
+          minutes: 8,
           grouping: "Pair → Class",
           art: "dec10/assets/week3/v/v-d10w3d3-b1.svg",
           title: "Features of academic writing",
@@ -420,19 +423,21 @@ window.DEC15_LESSON = {
                 {"label":"Say what to avoid","phrases":["Academic writers <b>usually avoid</b> …","… <b>is generally not used in</b> academic writing.","<b>Instead of</b> “…”, <b>it is better to</b> write “…”."]}
               ]
             },
-            {"type":"do","n":2,"who":"class","text":"<b>Use it.</b> Your teacher points at a feature on the board. The first person to stand up says one sentence about it: <i>“Academic writers usually avoid …”</i>. Add any feature you missed to your list."}
+            {"type":"do","n":2,"who":"class","text":"<b>Use it.</b> Your teacher points at a feature on the board. The first person to stand up says one sentence about it: <i>“Academic writers usually avoid …”</i>. Add any feature you missed to your list."},
+            {"type":"talk","title":"Why it matters at university","prompts":["Where will you need academic style in the next few weeks? Think of your <b>research summary</b>, the <b>Integrated Writing</b> task and your <b>seminar slides</b>.","At university, who will read your writing? What will they think if it sounds like a chat message?"]}
           ]
         },
         {
           id: "b2",
           short: "The draft",
-          minutes: 10,
+          minutes: 7,
           grouping: "Alone → Pair",
           art: "dec10/assets/week3/v/v-d10w3d3-b2.svg",
           title: "Read a research summary draft",
           goal: "Decide: is this draft written in an appropriate academic register?",
           blocks: [
-            {"type":"do","n":1,"who":"alone","text":"<b>Read (3 minutes).</b> Read this research summary draft written by a DEC student. <b>Is it written in appropriate academic register? Why/why not?</b>"},
+            {"type":"do","n":1,"who":"alone","text":"<b>Read (3 minutes).</b> Read this research summary draft written by a DEC student. <b>Is it written in appropriate academic register? Why/why not?</b> Read for the general picture only. You will look at the details later."},
+            {"type":"tip","text":"<b>Two words you may need.</b> <b>sustainability consultant</b>: an expert who advises companies on how to reduce their impact on the environment and society · <b>fines</b>: money you must pay as a punishment for breaking a rule or law."},
             {
               type: "passage",
               id: "b2-draft",
@@ -479,7 +484,7 @@ window.DEC15_LESSON = {
         {
           id: "b3",
           short: "Feedback",
-          minutes: 10,
+          minutes: 8,
           grouping: "Pair → Class",
           art: "dec10/assets/week3/v/v-d10w3d3-b3.svg",
           title: "Teacher feedback on the draft",
@@ -631,7 +636,7 @@ window.DEC15_LESSON = {
         {
           id: "b5",
           short: "Rephrase",
-          minutes: 12,
+          minutes: 10,
           grouping: "Groups of 4",
           art: "dec10/assets/week3/v/v-d10w3d3-b5.svg",
           title: "Vocabulary analysis",
@@ -693,7 +698,7 @@ window.DEC15_LESSON = {
         {
           id: "b6",
           short: "Edited",
-          minutes: 10,
+          minutes: 8,
           grouping: "Class mingle → Pair",
           art: "dec10/assets/week3/v/v-d10w3d3-b6.svg",
           title: "The edited version",
@@ -773,7 +778,7 @@ window.DEC15_LESSON = {
         {
           id: "b7",
           short: "How?",
-          minutes: 8,
+          minutes: 7,
           grouping: "Pair",
           art: "dec10/assets/week3/v/v-d10w3d3-b7.svg",
           title: "Questions about the edited version",
@@ -853,27 +858,142 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: "b8",
-          short: "Rewrite",
-          minutes: 15,
+          id: "b9",
+          short: "Practise",
+          minutes: 13,
           grouping: "Alone → Pair",
-          art: "dec10/assets/week3/v/v-d10w3d3-b8.svg",
-          title: "Rewrite the paragraph",
-          goal: "Rewrite the draft in academic style — using your language table, not the edited version.",
+          art: "dec10/assets/lab/s-practise.svg",
+          title: "Practise: choose, complete, correct",
+          goal: "Use the academic words from the edited version in new sentences about green jobs. First recognise them, then use them, then find the mistakes.",
           blocks: [
             {
               type: "key",
-              title: "The rules",
+              title: "Words that make it academic",
               points: [
-                "Rewrite the paragraph using the <b>original draft</b> text and the <b>language table</b> in the previous section.",
-                "<b>Don’t look</b> at the edited version while you write!",
-                "Once finished, check it against the edited version."
+                "Many of the words in the edited version are on the <b>Academic Word List</b>, the words that appear in university texts in every subject.",
+                "Learn each word with its <b>family</b> (verb → noun) and the words it <b>goes with</b> (collocations). The noun often makes the sentence more academic: <i>how to use resources</i> → <i>the efficient <b>utilisation</b> of resources</i>."
               ]
             },
             {
+              type: "language",
+              title: "Eight words to keep",
+              groups: [
+                {"label":"Verb → noun","phrases":["transform → <b>transformation</b>","emerge → <b>emergence</b>","regulate → <b>regulation</b>","utilise → <b>utilisation</b>","conserve → <b>conservation</b>","integrate → <b>integration</b>","prioritise → <b>priority</b>","finance → <b>financial</b> (adjective)"]},
+                {"label":"Collocations from the edited version","phrases":["<b>undergo</b> (a) significant <b>transformation</b>","<b>adhere to / comply with</b> environmental <b>regulations</b>","the efficient <b>utilisation of</b> resources","the <b>integration of</b> X <b>into</b> Y","<b>remain a priority</b> for organisations"]},
+                {"label":"Cause and certainty (Essay Activator)","phrases":["X <b>can be attributed to</b> Y · X <b>is largely due to</b> Y","<b>It is likely that</b> … · X <b>is likely to</b> …","Holt (2023) <b>argues / suggests that</b> …"]}
+              ]
+            },
+            {"type":"part","n":1,"title":"Choose","goal":"Can you recognise the academic option?"},
+            {"type":"do","n":1,"who":"alone","text":"Choose the option that is <b>most appropriate for academic writing</b>. Then compare with a partner. Do not check until you agree."},
+            {
+              type: "quiz",
+              id: "b9-quiz",
+              items: [
+                {"q":"1. The number of green jobs ___ over the last five years.","options":["has really gone up","has increased substantially","has grown a lot"],"answer":"has increased substantially","why":"A precise verb with a formal adverb. ‘Really’ and ‘a lot’ are informal, and ‘go up’ is a phrasal verb."},
+                {"q":"2. Many companies now employ consultants to help them ___ environmental regulations.","options":["stick to","follow the rules about","adhere to"],"answer":"adhere to","why":"‘Adhere to’ (or ‘comply with’) is the formal verb. ‘Stick to’ is a phrasal verb, and ‘follow the rules about’ is vague."},
+                {"q":"3. The ___ of renewable energy has created new roles in engineering.","options":["emergence","emerge","emerging"],"answer":"emergence","why":"After ‘The … of’ you need a noun. This is nominalisation."},
+                {"q":"4. Consultants advise firms on the efficient ___ of water and energy.","options":["utilise","utilisation","utilised"],"answer":"utilisation","why":"A noun is needed after ‘the efficient … of’."},
+                {"q":"5. The growth in sustainability roles ___ stricter environmental laws.","options":["can be attributed to","is because of","happens because"],"answer":"can be attributed to","why":"Essay Activator, Causes: ‘can be attributed to’ connects a result to its cause in a formal way."},
+                {"q":"6. ___ industries, from technology to finance, now employ sustainability specialists.","options":["Loads of","A diverse range of","A lot of"],"answer":"A diverse range of","why":"‘Loads of’ and ‘a lot of’ belong in speech. ‘A diverse range of’ is precise and academic."},
+                {"q":"7. ___ demand for these professionals will continue to grow.","options":["It is likely that","Everyone knows that","It is definitely true that"],"answer":"It is likely that","why":"Hedging: academic writers show caution. ‘Everyone knows’ and ‘definitely’ are too certain."},
+                {"q":"8. Holt (2023) ___ that businesses are changing how they operate.","options":["thinks","argues","says"],"answer":"argues","why":"A reporting verb that shows the writer’s position. ‘Thinks’ and ‘says’ are too general for academic writing."}
+              ]
+            },
+            {"type":"part","n":2,"title":"Complete","goal":"Can you use the words in a new text?"},
+            {"type":"do","n":2,"who":"alone","text":"Read about another green job. Complete each gap with a word from the box. There are <b>two extra words</b> you do not need."},
+            {
+              type: "cloze",
+              id: "b9-gap",
+              title: "Renewable energy technicians",
+              options: ["transformation","emergence","regulations","attributed","integration","priority","financial","likely","conservation","utilise"],
+              text: "The energy sector is undergoing a significant {{1}}. One clear sign of this is the {{2}} of new roles such as solar and wind technicians. Governments have introduced stricter environmental {{3}}, so companies now need staff who understand them. The growth in these jobs can be {{4}} to the falling cost of renewable technology. In addition, the {{5}} of clean energy into existing power networks requires specialist skills. For many firms, reducing emissions has become a {{6}}, not only for environmental reasons but also for {{7}} ones. It is {{8}} that demand for these workers will continue to rise.",
+              answers: ["transformation","emergence","regulations","attributed","integration","priority","financial","likely"],
+              why: ["undergo a significant <b>transformation</b>: a noun after ‘a significant’.","the <b>emergence</b> of new roles: something new appears.","environmental <b>regulations</b>: official rules (plural noun).","can be <b>attributed</b> to: cause and effect.","the <b>integration</b> of X into Y: a noun after ‘the’.","become a <b>priority</b>: something very important.","<b>financial</b> reasons: an adjective before the noun ‘ones’ (reasons).","It is <b>likely</b> that …: hedging."]
+            },
+            {"type":"part","n":3,"title":"Correct","goal":"Can you find the mistake before your reader does?"},
+            {"type":"do","n":3,"who":"pair","text":"Each sentence has <b>one</b> mistake that a university reader would notice. Find it and write the correct sentence. Student A does 1–4, Student B does 5–8. Then explain your corrections to each other."},
+            {"type":"tip","text":"<b>Short on time?</b> Do Parts 1 and 2 in class and finish Part 3 for homework."},
+            {
+              type: "rewrite",
+              id: "b9-fix",
+              title: "Find the mistake and correct it",
+              hint: "Change only the mistake. The rest of the sentence stays the same.",
+              items: [
+                {"q":"Companies don’t always comply with environmental regulations.","accept":["Companies do not always comply with environmental regulations."],"model":"Companies do not always comply with environmental regulations.","why":"No contractions in academic writing."},
+                {"q":"Stricter laws have effected the way companies operate.","accept":["Stricter laws have affected the way companies operate."],"model":"Stricter laws have affected the way companies operate.","why":"<i>Affect</i> is the verb, and <i>effect</i> is the noun (Essay Activator, Effects)."},
+                {"q":"Researches show that green skills are in high demand.","accept":["Research shows that green skills are in high demand.","Studies show that green skills are in high demand."],"model":"Research shows that green skills are in high demand.","why":"<i>Research</i> is uncountable, so never write ‘researches’ (Essay Activator, Study & Research). Use <i>studies</i> for a plural."},
+                {"q":"There has been an increase of the number of sustainability consultants.","accept":["There has been an increase in the number of sustainability consultants."],"model":"There has been an increase in the number of sustainability consultants.","why":"An increase <b>in</b> something, but an increase <b>of</b> 15% (Essay Activator, Increasing)."},
+                {"q":"Many industries, such as, energy and transport need sustainability experts.","accept":["Many industries, such as energy and transport, need sustainability experts.","Many industries such as energy and transport need sustainability experts."],"model":"Many industries, such as energy and transport, need sustainability experts.","why":"No comma straight after <i>such as</i>. Put the commas around the whole example group (Essay Activator, Giving Examples)."},
+                {"q":"So, the role of sustainability consultants is likely to grow.","accept":["Therefore, the role of sustainability consultants is likely to grow.","As a result, the role of sustainability consultants is likely to grow.","Consequently, the role of sustainability consultants is likely to grow."],"model":"Therefore, the role of sustainability consultants is likely to grow.","why":"Do not start a sentence with <i>So</i>, <i>And</i> or <i>But</i>. Use <i>Therefore</i>, <i>As a result</i> or <i>Consequently</i>."},
+                {"q":"Green jobs will definitely grow in the next decade.","accept":["Green jobs are likely to grow in the next decade.","It is likely that green jobs will grow in the next decade.","Green jobs may grow in the next decade.","Green jobs will likely grow in the next decade."],"model":"Green jobs are likely to grow in the next decade.","why":"<i>Definitely</i> is too certain. Hedge with <i>are likely to</i>, <i>may</i> or <i>It is likely that</i>."},
+                {"q":"Holt (2023) argues that businesses must figure out how to reduce waste.","accept":["Holt (2023) argues that businesses must determine how to reduce waste.","Holt (2023) argues that businesses must identify how to reduce waste.","Holt (2023) argues that businesses must establish how to reduce waste."],"model":"Holt (2023) argues that businesses must determine how to reduce waste.","why":"<i>Figure out</i> is a phrasal verb from speech. Use a precise verb: <i>determine</i>, <i>identify</i> or <i>establish</i>."}
+              ]
+            }
+          ],
+          answers: {
+            title: "Answers",
+            items: [
+              ["Part 1 · Choose","1 has increased substantially · 2 adhere to · 3 emergence · 4 utilisation · 5 can be attributed to · 6 A diverse range of · 7 It is likely that · 8 argues"],
+              ["Part 2 · Complete","1 transformation · 2 emergence · 3 regulations · 4 attributed · 5 integration · 6 priority · 7 financial · 8 likely (extra words: conservation, utilise)"],
+              ["Part 3 · Correct","1 do not · 2 affected · 3 Research shows · 4 an increase in · 5 such as energy and transport, · 6 Therefore, · 7 are likely to grow · 8 determine"]
+            ]
+          }
+        },
+        {
+          id: "b8",
+          short: "Rewrite",
+          minutes: 14,
+          grouping: "Alone → Pair",
+          art: "dec10/assets/week3/v/v-d10w3d3-b8.svg",
+          title: "Use it: your own research summary",
+          goal: "Write a short academic paragraph about YOUR group’s research summary topic, using today’s language.",
+          blocks: [
+            {
+              type: "key",
+              title: "Your turn",
+              points: [
+                "Write <b>5–6 sentences</b> in academic style about the green job or trend in <b>your group’s research summary</b>. If you are not sure, choose a job you would like to do after university.",
+                "Say what is changing, <b>why</b> it is happening, and what is <b>likely</b> to happen next. Use one source with a reporting verb if you have one.",
+                "This can become the opening of your research summary presentation or your seminar slides."
+              ]
+            },
+            {
+              type: "language",
+              title: "Frames for your paragraph",
+              groups: [
+                {"label":"What is changing","phrases":["<b>The emergence of</b> … <b>is transforming</b> …","<b>There has been a significant increase in</b> the demand for …"]},
+                {"label":"Why (cause)","phrases":["<b>This growth can be attributed to</b> …","<b>This is largely due to</b> …"]},
+                {"label":"What next (hedging)","phrases":["<b>It is likely that</b> … will remain a priority for …","… <b>may</b> / <b>are likely to</b> …"]},
+                {"label":"Use a source","phrases":["X (2024) <b>argues / suggests / reports that</b> …","<b>According to</b> X (2024), …"]}
+              ]
+            },
+            {
+              type: "detect",
+              id: "b8-own",
+              label: "Writing studio",
+              title: "My paragraph: my research summary topic",
+              hint: "Green lights turn on for academic features. Red lights show informal language that is still there. Aim for at least four green lights.",
+              checks: [
+                {"label":"Noun phrases","color":"#3a58a0","any":["the emergence of","the rise of","the growth in","transformation","utilisation","utilization","the demand for","integration","an increase in"]},
+                {"label":"Cause","color":"#8a4f9e","any":["attributed to","due to","as a result of","result in","lead to","leads to","contribute to"]},
+                {"label":"Precise vocabulary","color":"#2f7d6b","any":["adhere","comply","regulation","integrat","recognis","recogniz","financial","conservation","priority","diverse"]},
+                {"label":"Hedging","color":"#b07d12","any":["it is likely","likely to","/\\bmay\\b/","/\\bmight\\b/","tends to","/\\bcould\\b/"]},
+                {"label":"Reporting verb","color":"#c4562f","any":["/\\(\\d{4}\\) (claims|argues|states|suggests|notes|explains|reports|points out|found)/","according to"]}
+              ],
+              avoid: [
+                {"label":"Contraction","any":["/\\b\\w+n['’]t\\b/","/\\bit['’]s\\b/"]},
+                {"label":"‘I’ / ‘we’","any":["/\\bI\\b/u","/\\bwe\\b/","/\\bour\\b/"]},
+                {"label":"Too certain","any":["definitely","really","as we all know","everyone knows"]},
+                {"label":"Phrasal verb / idiom","any":["figure out","take care of","a lot","go up","into the mix","top of their list"]},
+                {"label":"And / So / But first","any":["/(^|[.!?]\\s+)(And|So|But)\\b/u"]},
+                {"label":"‘researches’","any":["researches"]}
+              ],
+              items: [{"task":"Write 5–6 sentences about your group’s research summary topic.","rows":10,"placeholder":"The emergence of … is transforming … This growth can be attributed to … It is likely that …"}]
+            },
+            {"type":"do","n":1,"who":"alone","text":"<b>Need more practice first, or finished early?</b> Rewrite the student’s draft below in academic style. Use your language table and <b>do not look</b> at the edited version. Then compare with it. This is also good homework."},
+            {
               type: "toggle",
               title: "The original draft (to work from)",
-              open: true,
               blocks: [
                 {
                   type: "model",
@@ -886,7 +1006,7 @@ window.DEC15_LESSON = {
               type: "detect",
               id: "b8-rw",
               label: "Writing studio",
-              title: "My academic version",
+              title: "Extra: my academic version of the draft",
               hint: "Green lights turn on for academic features. Red lights show informal language that is still there.",
               checks: [
                 {"label":"Noun phrases","color":"#3a58a0","any":["the emergence of","the rise of","transformation","utilisation","utilization","the demand for","popularity","the efficient use"]},
@@ -907,8 +1027,8 @@ window.DEC15_LESSON = {
             {
               type: "steps",
               items: [
-                {"who":"alone","text":"When you finish, scroll up to the <b>edited version</b> and compare. Underline one thing you did well."},
-                {"who":"pair","text":"<b>Peer check.</b> Swap with a partner. You are the <b>language monitor</b>: tick the checklist for <b>their</b> paragraph."}
+                {"who":"alone","text":"When you finish your own paragraph, read it again. Count your green lights and fix any red ones."},
+                {"who":"pair","text":"<b>Peer check.</b> Swap with a partner from a different group. You are the <b>language monitor</b>: tick the checklist for <b>their</b> paragraph and suggest one improvement."}
               ]
             },
             {
@@ -919,8 +1039,9 @@ window.DEC15_LESSON = {
                 "At least two noun phrases (the emergence of …, the efficient use of …)",
                 "A summary noun instead of repeating (these experts …)",
                 "Hedging (it is likely that … / may / tends to)",
-                "Holt (2023) with a reporting verb",
-                "No contractions, no ‘I’, no question, no ‘And/So’ at the start"
+                "A source with a reporting verb (X (2024) argues that …), if the writer has one",
+                "No contractions, no ‘I’, no question, no ‘And/So’ at the start",
+                "A cause (can be attributed to … / is largely due to …)"
               ]
             },
             {
