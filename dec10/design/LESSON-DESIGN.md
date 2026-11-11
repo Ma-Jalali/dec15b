@@ -32,7 +32,13 @@ Every activity must help students get **ready for the exam and for university**.
 ### Blocking words: few, in context, checked simply
 - Before a reading or listening, teach **only the words that would really block understanding of the text and its questions**. There is no fixed number. It is often 4–7, decided by the text, but **never a long list**. If 15 words are taught before reading, most of them are not blocking words.
 - **Present them in a context:** write a short, simple paragraph (or a few sentences) on the same topic that uses all the words, so students can **guess the meaning from context**. Then run **one simple check** (e.g. matching words to meanings), then go to the text.
-- After the text, add **only a few really useful words** (often 3–5) that students will need for writing or speaking. These are better found in the text itself, then used straight away in a speaking or writing task.
+- **After the text (optional, not every lesson):** once students have answered the reading or listening questions, you *may* add **a few** extra words or expressions from the text that are really worth knowing. Only add them when they are genuinely good, never as a long list. The reason can be:
+  - **writing**: an academic collocation, a linking or hedging phrase;
+  - **grammar**: e.g. a useful noun phrase or passive pattern in the text;
+  - **speaking or everyday English**: a natural expression students can use outside class;
+  - **just good to know**.
+
+  Have students find the items in the text, check their meaning simply, and use them straight away if possible (e.g. in the speaking or writing task that follows).
 - Other difficult words in the text can stay in the reading's glossary ("Word meanings"). They do not need to be taught.
 
 ---
@@ -47,7 +53,7 @@ Students meet the language in a real-life context, as they would at university.
 3. **Goal-oriented practice on the text**, in this order:
    1. **Gist**: main idea, purpose, best title, matching headings.
    2. **Detail**: specific information, true/false/not given, notes, numbers, reasons.
-   3. **Useful language from the text**: a **small** number of extra words and expressions that are really worth keeping. Choose a few, not a long list.
+   3. **Useful language from the text (optional, after the questions are answered)**: a **few** extra words or expressions that are really worth keeping, for writing, grammar, everyday English or just because they are good to know. Not every lesson, and never a long list.
 4. **Post-reading / post-listening: the bigger picture**, a speaking or writing task that uses the content and the language, linked to:
    - the course **assessments** (LRW, Integrated Writing, seminar, Interactive Presentation, Interactive Discussion), or
    - **university life** (tutorials, group work, emails to lecturers, office hours).
