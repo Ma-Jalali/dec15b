@@ -161,3 +161,37 @@ a.lab-row:hover .lab-row-st .icon { transform: translateX(2px); }
 .rw-item.is-right { background: #f0f8f3; border-color: #c9e6d3; } .rw-item.is-right input { box-shadow: 0 0 0 1.5px #2f9a63; }
 .rw-item.is-wrong { background: #fdf5f1; border-color: #f3cfc3; } .rw-item.is-wrong input { box-shadow: 0 0 0 1.5px #d4583a; }
 .rw-item .quiz-why { margin: 8px 0 0; }
+
+/* ── Rule cards with before/after pairs (rule.pairs) and group headings (block 'group'): calm, spacious, two columns ── */
+.rule-group { margin: 40px 0 6px; padding-top: 22px; border-top: 2px solid var(--line-2); }
+.act-body > .rule-group:first-child { margin-top: 0; }
+.rg-label { display: block; margin-bottom: 4px; font: 800 .72rem/1.2 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.rg-title { margin: 0; font: 600 1.6rem/1.25 var(--serif); color: var(--ink); }
+.rg-goal { margin: 6px 0 0; color: var(--ink-2); font-size: .98rem; }
+.rule-card.has-pairs { box-shadow: 0 10px 24px -22px rgba(20, 41, 58, .5); padding: 22px 24px 20px; margin: 22px 0; }
+.rule-card.has-pairs .rule-n { background: var(--ink); }
+.rule-card.has-pairs .rule-head h3 { font-size: 1.22rem; }
+.rule-card.has-pairs .rule-form { background: var(--paper); }
+.rule-card.has-pairs .rule-form > span { color: var(--ink-2); box-shadow: 0 0 0 1px var(--line-2); }
+.rule-card.has-pairs .rule-form p b { color: var(--ink); }
+.rule-card.has-pairs .rule-note { background: var(--paper); border-color: var(--line-2); }
+.rule-card.has-pairs .rule-note .icon { color: var(--muted); }
+.rule-pairs { margin: 4px 0 14px; border-top: 1px solid var(--line-2); }
+.rp-head, .rp-row { display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; }
+.rp-head { padding: 10px 0 8px; border-bottom: 1px solid var(--line-2); }
+.rp-head span { font: 800 .7rem/1.2 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.rp-row { padding: 16px 0; border-bottom: 1px solid var(--line); }
+.rp-row p { display: flex; gap: 10px; align-items: flex-start; margin: 0; font-size: 1rem; line-height: 1.6; }
+.rp-row i { flex: none; width: 18px; font: 700 .9rem/1.6 var(--sans); font-style: normal; color: var(--faint, #9aa8b3); }
+.rp-x span { color: var(--ink-2); }
+.rp-v span { color: var(--ink); }
+.rp-row b { font-weight: 700; color: var(--ink); }
+.rp-x b { text-decoration: line-through; text-decoration-color: rgba(20, 41, 58, .35); text-decoration-thickness: 1.5px; }
+.rp-row small { display: block; margin-top: 3px; font-size: .8rem; color: var(--muted); }
+@media (max-width: 700px) {
+  .rp-head { display: none; }
+  .rp-row { grid-template-columns: 1fr; row-gap: 6px; }
+}
+.rule-card.has-pairs .rule-check { border-color: var(--line-2); background: var(--paper); }
+.rule-card.has-pairs .rule-check > summary b { background: var(--ink-2); }
+.rule-card.has-pairs .rule-check > summary::after { color: var(--ink-2); }
