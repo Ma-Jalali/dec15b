@@ -27,6 +27,11 @@ For **every** exercise and block, ask: *Is it useful for the lesson aim? Is ther
 - Practice items must target the lesson aim (e.g. a style lesson practises style, not unrelated accuracy points).
 - Check meaning, not just recognition: if students need a term (e.g. *hedging*), show it before → after and check it.
 
+### Presentation with depth, practice with purpose
+- **Presentation must teach, not just mention.** For each point give: what it is, why it matters, the pattern or form, and **many easy examples**. Use ✗ → ✓ pairs, usually 3–4 per point, on everyday or student topics before course texts. End with a concept check. Students should understand the concept before they practise it.
+- **Practice is organised and purposeful.** Practise the points in the same groups and order as the presentation. In each group go from recognition (choose) to production (correct, gap fill), then finish with one task that mixes all the points. Every item should name or clearly target its rule.
+- Then production: a freer task that uses everything (e.g. the rewrite, a paragraph on the student’s own topic).
+
 ### Connected tabs: bring the text with you
 When an activity needs a text, model or list from an earlier tab (e.g. a weak draft and its academic version, the rules to look for, a model to check against), put a copy of it **in that activity as a fold (toggle)**, so students can open it and compare without going back to the earlier tab.
 - Put the fold **before** the task that needs it. If students must read it during the task, set it to open; if they should try first (e.g. a model answer), label it “Open only after you try”.
@@ -125,6 +130,7 @@ Every controlled task needs **suggested answers**. Teacher notes say which steps
 - [ ] Every stage helps students get ready for the exam or for university.
 - [ ] Quality pass done: every block is useful, nothing is drilled three times, and movement does a real job.
 - [ ] Connected tabs: every text an activity needs from an earlier tab is there as a fold (toggle).
+- [ ] Presentation has depth (many easy ✗ → ✓ examples per point) and practice follows the same groups, from choose to correct to mixed.
 - [ ] Blocking words: only a few, presented in a context, guessed, then checked with one simple activity.
 - [ ] A clear real-life or university context, introduced in the lead-in.
 - [ ] Reading/listening: only blocking words pre-taught, then gist → detail → a few useful expressions.
