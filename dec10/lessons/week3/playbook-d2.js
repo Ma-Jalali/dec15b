@@ -133,8 +133,8 @@ window.DEC10_PLAYBOOK['d10w3d2'] = {
     },
     mediation: {
       tips: [
-        'This is a 2-hour stage: plan a 5-minute break after c4 (the jigsaw) — students will need it before the interview.',
-        'c2 cards (w3d2-pairs): count students before class and remove matching word + meaning pairs so everyone has a partner.',
+        'This is a 2-hour stage: plan a 5-minute break after c9 (useful words, straight after the c4 jigsaw) — students will need it before the interview.',
+        'c2 cards (w3d2-pairs): six blocking words only (12 cards a sheet). Print one sheet for every 12 students; any matching word and meaning are partners, so duplicates are fine.',
         'For the c4 jigsaw, put the expert-group letters (A, B, C) on three tables before class, so students know where to go.',
         'Prepare the two circles of chairs for c7 during the break — moving furniture in class time costs 5 minutes.',
         'In c7, time the rounds out loud (8 min + 2 min feedback) and ring a bell or clap for “Rotate!”.',

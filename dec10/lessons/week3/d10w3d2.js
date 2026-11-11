@@ -3,7 +3,10 @@
    W3 D2. 5A Research summary presentations (30) · 6A Listening to speak (90) · 7A Mediation (120) ·
    8A AST: Digital literacy: Online communication Homework · 9A Listening Assessment Preparation Homework.
    Protected texts are in sources.js ("greening", "greenskills", "vidican") and are never changed here.
-   Activity ids are the keys of saved work — never rename them. */
+   Activity ids are the keys of saved work — never rename them.
+   7A vocabulary (v7.0, dec10/design/LESSON-DESIGN.md): c2 now pre-teaches only six blocking words in a short context
+   (guess → match → mingle); c9 after the reading adds four useful words for the interview. The other words from the
+   Teacher's Book list are tap-meanings in the glossary. The reading, its questions and all other tasks are unchanged. */
 window.DEC15_LESSON = {
   id: "d10w3d2",
   week: 3,
@@ -1112,90 +1115,40 @@ window.DEC15_LESSON = {
         {
           id: "c2",
           short: "Words",
-          minutes: 15,
-          grouping: "Alone → Pair",
+          minutes: 8,
+          grouping: "Alone → Pair → Class",
           art: "dec10/assets/week3/v/v-d10w3d2-c2.svg",
           title: "Vocabulary",
-          goal: "Guess 16 words from context before you read Vidican Auktor (2020).",
+          goal: "Learn the six words you need before you read Vidican Auktor (2020): guess them from a story, then check.",
           blocks: [
             {
               type: "key",
               title: "Today’s new text",
-              points: ["The next three activities use one reading only: <b>Green industrial skills for a sustainable future</b> (Vidican Auktor, 2020)."]
+              points: ["The next three activities use one reading only: <b>Green industrial skills for a sustainable future</b> (Vidican Auktor, 2020).","Before you read, learn only the <b>six words</b> you need to understand the text and answer its questions. Other new words have a meaning you can tap in the text."]
             },
-            {"type":"do","n":1,"who":"alone","text":"Read the sentences. Try to <b>guess</b> the meaning of the words in <b>bold</b> from the context. Don’t use a dictionary!"},
+            {"type":"do","n":1,"who":"alone","text":"Read Mina’s story. Try to <b>guess</b> the meaning of the words in <b>bold</b> from the context. Don’t use a dictionary!"},
             {
-              type: "carousel",
-              title: "Guess from context",
-              slides: [
-                {"title":"1","text":"While the concepts of green jobs and green skills have become widely used in policy and research circles, they often remain <b>vague</b> in terms of the type of employment and tasks/occupations they <b>encompass</b> (van der Ree 2019)."},
-                {"title":"2","text":"Furthermore, there is <b>ambiguity</b> in whether green jobs are simply traditional roles redefined as “green” in the shift towards a low-carbon economy, or new roles created within various sectors."},
-                {"title":"3","text":"The classification is further complicated by <b>inconsistencies</b> in recognizing which activities are truly “green.”"},
-                {"title":"4","text":"These definitions are rather broad and thus present similarities in terms of focusing on activities aimed at <b>preserving</b> and <b>restoring</b> the environment."},
-                {"title":"5","text":"The definition of green jobs includes not only roles directly involved in environmental processes but also traditional jobs influenced by greening efforts, emphasizing the necessity for these jobs to be “<b>decent</b>.”"},
-                {"title":"6","text":"It’s important to explore which skills will be in demand as the economy becomes greener to understand whether the benefits are <b>evenly</b> distributed."},
-                {"title":"7","text":"This effort helps to categorize green jobs and understand their placement within the broader skills <b>spectrum</b>, ranging from high-skilled positions like engineers to low-skilled roles like construction workers."},
-                {"title":"8","text":"This know-how <b>prevails</b> for eco-buildings, renewable energy design and energy-saving R&amp;D projects."},
-                {"title":"9","text":"Examples are environmental <b>compliance</b> inspectors, nuclear monitoring technicians, emergency management directors and legal assistants."},
-                {"title":"10","text":"Skills related to design thinking, creativity, adaptability, <b>resilience</b>, and even <b>empathy</b> have been repeatedly mentioned to be critical by experts at the LKDF Forum 2020."},
-                {"title":"11","text":"Additional training specific for green concepts and practices, <b>upskilling</b>, or adding to existing core skills may be necessary (Mclean et al. 2018), as well as <b>retooling</b> with regards to fields of study and <b>vocational</b> skills (OECD 2017)."}
-              ]
+              type: "model",
+              title: "Mina is looking for a green job",
+              text: "Mina wants a green job after university, but the advice she found online was <b>vague</b>: websites said “help the planet”, but they gave no details. People also used “green job” and “sustainable job” <b>interchangeably</b>, as if the two terms meant exactly the same thing. This created <b>ambiguity</b>: is a bus driver in a city with electric buses doing a green job or not? Her careers adviser explained that green jobs <b>encompass</b> many different roles, from engineers to farmers. She added that a green job must also be <b>decent</b>: safe, fairly paid and with good working conditions. Finally, Mina learned that she may not need a new degree. <b>Upskilling</b>, for example a short course that improves the skills she already has, may be enough."
             },
-            {"type":"do","n":2,"who":"class","text":"<b>Find your partner — stand up!</b> Your teacher gives each student one card: a <b>word</b> or a <b>meaning</b>. Walk round and say your card. Don’t show it! When you find your partner, stand together and make one sentence with the word."},
-            {"type":"tip","text":"<b>No paper cards today?</b> Your teacher gives each student one word or one meaning from the two matching games below. Remember it (don’t write it on your hand!), then walk round and find your partner."},
-            {"type":"do","n":3,"who":"pair","text":"Sit down with your new partner. Check all the words with the two matching games."},
+            {"type":"do","n":2,"who":"pair","text":"Tell your partner what you think each word means. Which words in the story helped you guess?"},
             {
               type: "match",
-              id: "c2-m1",
-              title: "Match the words (1)",
-              left: ["vague","encompass","ambiguity","inconsistency","preserving","restoring","decent","evenly"],
+              id: "c2-pre",
+              title: "Check: match the words to their meanings",
+              left: ["vague","interchangeably","ambiguity","encompass","decent","upskilling"],
               right: [
-                "not clear or specific; lacking definite meaning.",
-                "to include or contain within a larger scope or range.",
-                "uncertainty or lack of clarity in meaning or interpretation.",
-                "a lack of uniformity; contradiction.",
-                "protecting or maintaining something in its original state.",
-                "bringing something back to its original condition.",
-                "acceptable, proper, or good enough in quality or standards.",
-                "in a balanced or equal way."
+                "not clear or specific; without details",
+                "in a way that one can be used instead of the other, with the same meaning",
+                "a situation where something can be understood in more than one way",
+                "to include many different things",
+                "acceptable and of good enough quality (for a job: safe, fairly paid, good conditions)",
+                "learning new skills or improving the skills you already have"
               ]
             },
-            {
-              type: "match",
-              id: "c2-m2",
-              title: "Match the words (2)",
-              left: ["spectrum","prevail","compliance","resilience","empathy","upskilling","retooling","vocational skills"],
-              right: [
-                "used to classify something in terms of its position on a scale between two extreme points.",
-                "a great victory or success; to prove more powerful or dominant.",
-                "following rules, standards, or laws.",
-                "the ability to recover quickly from difficulties or setbacks.",
-                "the ability to understand and share the feelings of others.",
-                "learning new skills or improving existing ones to enhance abilities.",
-                "updating or adapting skills or tools to meet new requirements.",
-                "practical skills and knowledge needed for a specific trade or profession."
-              ]
-            },
-            {
-              type: "talk",
-              title: "Use the words · walk and talk",
-              prompts: [
-                "<b>Stand up with your partner and walk slowly round the room.</b> Ask and answer one question each. Swap partners when your teacher claps.",
-                "Tell your partner about a time you showed <b>resilience</b>.",
-                "Which <b>vocational skills</b> would you like to learn?",
-                "Why is <b>empathy</b> important in a team?",
-                "Do you think you will need <b>upskilling</b> in your future job? Why?"
-              ]
-            },
-            {
-              type: "language",
-              title: "Academic collocations",
-              groups: [
-                {"label":"vague / ambiguity","phrases":["remain vague","a vague definition","there is ambiguity in …","to avoid ambiguity"]},
-                {"label":"skills","phrases":["upskill workers","acquire new skills","close the skills gap","transferable skills"]},
-                {"label":"rules","phrases":["ensure compliance with …","in compliance with the law","meet environmental standards"]}
-              ]
-            }
+            {"type":"do","n":3,"who":"class","text":"<b>Find your partner — stand up!</b> Your teacher gives each student one card: a <b>word</b> or a <b>meaning</b>. Walk round and say your card. Don’t show it! When you find your partner, stand together and make one sentence with the word about <b>green jobs</b>."},
+            {"type":"tip","text":"<b>No paper cards today?</b> Your teacher gives each student one word or one meaning from the matching game above. Remember it, then walk round and find your partner."}
           ]
         },
         {
@@ -1328,6 +1281,49 @@ window.DEC15_LESSON = {
               ["Similar ideas","Green jobs include both new roles and traditional roles that are adapting · green jobs/skills contribute directly or indirectly to sustainability · green skills reduce pollution and preserve natural resources · technical and scientific skills matter."]
             ]
           }
+        },
+        {
+          id: "c9",
+          short: "Useful words",
+          minutes: 7,
+          grouping: "Alone → Pair",
+          art: "dec10/assets/week3/v/v-d10w3d2-c2.svg",
+          title: "Useful words from the text",
+          goal: "Find four useful words in the text. You will use them in today’s job interview and in your own writing.",
+          blocks: [
+            {"type":"do","n":1,"who":"alone","text":"Find these words in Vidican Auktor (2020), paragraphs E, F and G: <b>spectrum</b> (E), <b>compliance</b> (F), <b>resilience</b> (G), <b>vocational skills</b> (G). Read the sentence around each word. What does it mean here?"},
+            {"type":"sources","ids":["vidican"]},
+            {
+              type: "match",
+              id: "c9-m",
+              title: "Check: match the words to their meanings",
+              left: ["spectrum","compliance","resilience","vocational skills"],
+              right: [
+                "a range of different positions between two extremes (e.g. from high-skilled to low-skilled jobs)",
+                "following rules, standards or laws",
+                "the ability to recover quickly from difficulties",
+                "practical skills and knowledge needed for a specific job or trade"
+              ]
+            },
+            {
+              type: "language",
+              title: "Use them with their partners (collocations)",
+              groups: [
+                {"label":"spectrum","phrases":["across the skills <b>spectrum</b>","a broad / wide <b>spectrum</b> of …"]},
+                {"label":"compliance","phrases":["ensure <b>compliance</b> with environmental laws","an environmental <b>compliance</b> inspector"]},
+                {"label":"resilience · vocational skills","phrases":["show / build <b>resilience</b>","develop / acquire <b>vocational skills</b>"]}
+              ]
+            },
+            {
+              type: "talk",
+              title: "Use the words · get ready for the interview",
+              prompts: [
+                "Tell your partner about a time you showed <b>resilience</b>. You can use this as a STAR example in the job interview.",
+                "Which <b>vocational skills</b> would you like to develop for a green job? Why?",
+                "Which green job on the skills <b>spectrum</b> interests you most: a high-skilled or a more practical one?"
+              ]
+            }
+          ]
         },
         {
           id: "c5",
@@ -2018,6 +2014,17 @@ window.DEC15_LESSON = {
     ["vocational skills","practical skills for a specific trade or profession","Vocational skills are learned through practice and training."],
     ["encompass","to include within a larger range","Green jobs encompass traditional roles too."],
     ["compliance","following rules, standards or laws","A compliance manager checks environmental laws."],
+    ["vague","not clear or specific; without details","The advice on green jobs was vague."],
+    ["interchangeably","in a way that one can be used instead of the other, with the same meaning","The two terms are often used interchangeably."],
+    ["ambiguity","a situation where something can be understood in more than one way","There is ambiguity in the definition."],
+    ["decent","acceptable and of good enough quality","Green jobs should also be decent jobs."],
+    ["inconsistencies","differences that should not be there; things that do not agree with each other","There are inconsistencies in how activities are classified."],
+    ["preserving","keeping something safe from harm or change","Preserving forests protects biodiversity."],
+    ["restoring","bringing something back to its earlier, good condition","Restoring wetlands takes many years."],
+    ["evenly","equally, in a fair or balanced way","The benefits may not be evenly distributed."],
+    ["spectrum","a range of different positions between two extremes","Green jobs exist across the skills spectrum."],
+    ["prevails","is the most common or important","This know-how prevails in eco-building projects."],
+    ["empathy","the ability to understand and share the feelings of others","Empathy helps teams work well together."],
     ["resilience","the ability to recover quickly from difficulties","Resilience is one of the skills of the future."],
     ["mind map","notes drawn as a centre with branches of key words","I took notes on the interview as a mind map."],
     ["causal language","words that show a cause or an effect","“Stem from”, “drives” and “leads to” are causal language."],
