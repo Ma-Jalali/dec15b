@@ -7,6 +7,8 @@
    Activity ids are the keys of saved work — never rename them.
    Round 2 (student-centred): movement games (stand up/sit down, mingles, line-ups, corners, speed-dating circles,
    snowball, gallery walks, human sentence), group roles, "Use it" steps, phrase-of-the-day stickies and exit tickets.
+   11A connected tabs (v7.5): folds bring the earlier texts into each tab — draft in b3, b6 and b7; edited version in b7 (open),
+   b5 and b8 (open after trying); the teacher's rules in b4 — so students compare without going back.
    10A quality pass (v7.4): TB homework question shown directly (no spinner); one check (the do/don't sort, no stand-up/sit-down);
    short phrase mingle, TB phrase sort, the comment thread as a model, one use, one takeaway; email with simple peer feedback.
    11A (v7.2, dec10/design/LESSON-DESIGN.md): five clear stages, shown as a chip on each activity —
@@ -402,6 +404,18 @@ window.DEC15_LESSON = {
             },
             {"type":"tip","text":"Tick the points on your list from the Lead-in and in your reply to Sam. Circle the ones that are new for you."},
             {
+              type: "toggle",
+              title: "Sam’s first draft",
+              hint: "Open to find each point in the draft",
+              blocks: [
+                {
+                  type: "model",
+                  title: "Research Summary (Draft)",
+                  text: "(1) The job market is really changing, and one of the great new trends is that there are more sustainability consultants. (2) Sustainability consultants are stepping into the spotlight, helping companies that want to be more eco-friendly and follow the rules about the environment. (3) They help businesses figure out how to use resources wisely. (4) And they teach them how to take care of the planet while still making a profit. (5) Why are they becoming so popular? (6) I think sustainability consultants do a lot to help companies plan for the future. (7) This isn't just about avoiding fines or negative press. (8) It's about being responsible for their environmental and social impact. (9) As we all know, everyone from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to put sustainability at the top of their list."
+                }
+              ]
+            },
+            {
               type: "model",
               title: "Teacher feedback",
               before: "There are a lot of good ideas, and some good grammar, in your writing. However, there are some problems with academic style. Some of the issues I found are:",
@@ -470,6 +484,18 @@ window.DEC15_LESSON = {
               text: "Read the student’s rewrite of the paragraph in a more academic style. Identify the phrases the student has used to replace the informal language. You will use them again in the Practice stage."
             },
             {
+              type: "toggle",
+              title: "Sam’s first draft",
+              hint: "Open to compare it with the edited version below",
+              blocks: [
+                {
+                  type: "model",
+                  title: "Research Summary (Draft)",
+                  text: "(1) The job market is really changing, and one of the great new trends is that there are more sustainability consultants. (2) Sustainability consultants are stepping into the spotlight, helping companies that want to be more eco-friendly and follow the rules about the environment. (3) They help businesses figure out how to use resources wisely. (4) And they teach them how to take care of the planet while still making a profit. (5) Why are they becoming so popular? (6) I think sustainability consultants do a lot to help companies plan for the future. (7) This isn't just about avoiding fines or negative press. (8) It's about being responsible for their environmental and social impact. (9) As we all know, everyone from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to put sustainability at the top of their list."
+                }
+              ]
+            },
+            {
               type: "passage",
               id: "b6-edit",
               title: "Research Summary (Edited)",
@@ -526,6 +552,31 @@ window.DEC15_LESSON = {
           goal: "See HOW the writer made the paragraph academic.",
           blocks: [
             {"type":"do","n":1,"who":"pair","text":"Answer these questions about the edited version of the Research Summary."},
+            {
+              type: "toggle",
+              title: "Sam’s edited version",
+              hint: "Read it while you answer the questions",
+              open: true,
+              blocks: [
+                {
+                  type: "model",
+                  title: "Research Summary (Edited)",
+                  text: "(1) The employment landscape is undergoing significant transformation with the emergence of sustainability consultants. (2) The demand for these experts has grown substantially in the last two years as they assist corporations in adhering to environmental regulations and adopting eco-friendly practices (Bawa, 2024). (3) They guide businesses on the efficient utilization of resources and instilling practices that balance environmental conservation with profitability. (4) The rising popularity of sustainability consultants can be attributed to their pivotal role in planning for long-term environmental, legal and social responsibilities. (5) A diverse range of industries, from technology to financial services, is recognizing the importance of integrating sustainable practices into their commercial operations. (6) Holt (2023) claims that this trend towards a workforce that values both financial success and positive societal impact signals a shift in how businesses operate. (7) It is likely that sustainability will remain a priority for organisations, continuing to shape corporate strategies and operations."
+                }
+              ]
+            },
+            {
+              type: "toggle",
+              title: "Sam’s first draft",
+              hint: "Open to see sentences 5–8 before they were combined",
+              blocks: [
+                {
+                  type: "model",
+                  title: "Research Summary (Draft)",
+                  text: "(1) The job market is really changing, and one of the great new trends is that there are more sustainability consultants. (2) Sustainability consultants are stepping into the spotlight, helping companies that want to be more eco-friendly and follow the rules about the environment. (3) They help businesses figure out how to use resources wisely. (4) And they teach them how to take care of the planet while still making a profit. (5) Why are they becoming so popular? (6) I think sustainability consultants do a lot to help companies plan for the future. (7) This isn't just about avoiding fines or negative press. (8) It's about being responsible for their environmental and social impact. (9) As we all know, everyone from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to put sustainability at the top of their list."
+                }
+              ]
+            },
             {
               type: "quiz",
               id: "b7-quiz",
@@ -588,6 +639,33 @@ window.DEC15_LESSON = {
           blocks: [
             {"type":"do","n":1,"who":"pair","text":"<b>Pair race.</b> Look again at the student draft of their research summary. Find examples of the teacher’s points in the student’s writing. Tap the phrases, then check. All 10 right? <b>Stand up!</b> The first three pairs standing win a team point."},
             {
+              type: "toggle",
+              title: "The teacher’s rules",
+              hint: "Open to check what you are looking for",
+              blocks: [
+                {
+                  type: "model",
+                  title: "Teacher feedback",
+                  before: "There are a lot of good ideas, and some good grammar, in your writing. However, there are some problems with academic style. Some of the issues I found are:",
+                  list: [
+                    "a lack of nominalisations",
+                    "not all ideas from other sources are referenced properly",
+                    "use of simple linking phrases such as ‘and’, ‘but’ and ‘so’, incorrectly placed at the beginning of sentences",
+                    "contractions are not used in academic writing",
+                    "direct questions are generally not used in academic text",
+                    "avoid repetition of words between sentences. Try to use general nouns/summary phrases",
+                    "there is no hedging. Ideas should be expressed with caution, so try to use expressions for degrees of certainty such as modal verbs and adverbs of frequency and possibility. Note that intensifiers (such as <i>really</i>) or some adverbs of frequency (such as <i>always</i> and <i>never</i>) can introduce a level of exaggeration, overgeneralisation or absolute certainty that is not always supported by evidence.",
+                    "academic style is impersonal to maintain an objective tone, so avoid pronouns such as ‘I’, ‘we’, ‘us’ or ‘our’",
+                    "<b>Vocabulary is also a little informal. For example:</b>",
+                    "idiomatic language is generally not used",
+                    "there is a lack of specialized vocabulary which is common in academic writing",
+                    "there is vague or unclear language such as ‘put’ or ‘did’. In academic writing we like to be as precise as possible",
+                    "you are using vocabulary more associated with informal speech, such as phrasal verbs"
+                  ]
+                }
+              ]
+            },
+            {
               type: "spot",
               id: "b4-sp1",
               label: "Spot it · grammar and structure",
@@ -649,6 +727,18 @@ window.DEC15_LESSON = {
               n: 1,
               who: "pair",
               text: "Look at the table with the informal language taken from the text. How could you rewrite these expressions in a more academic style? Write your ideas in the middle column. <b>Close the edited version</b> and work from memory. At the end, check it and write the formal phrase in the last column."
+            },
+            {
+              type: "toggle",
+              title: "Sam’s edited version",
+              hint: "Open only after you try: check and fill in the last column",
+              blocks: [
+                {
+                  type: "model",
+                  title: "Research Summary (Edited)",
+                  text: "(1) The employment landscape is undergoing significant transformation with the emergence of sustainability consultants. (2) The demand for these experts has grown substantially in the last two years as they assist corporations in adhering to environmental regulations and adopting eco-friendly practices (Bawa, 2024). (3) They guide businesses on the efficient utilization of resources and instilling practices that balance environmental conservation with profitability. (4) The rising popularity of sustainability consultants can be attributed to their pivotal role in planning for long-term environmental, legal and social responsibilities. (5) A diverse range of industries, from technology to financial services, is recognizing the importance of integrating sustainable practices into their commercial operations. (6) Holt (2023) claims that this trend towards a workforce that values both financial success and positive societal impact signals a shift in how businesses operate. (7) It is likely that sustainability will remain a priority for organisations, continuing to shape corporate strategies and operations."
+                }
+              ]
             },
             {
               type: "table",
@@ -808,9 +898,21 @@ window.DEC15_LESSON = {
               items: [{"task":"Rewrite the whole paragraph in an academic style.","rows":12,"placeholder":"The employment landscape …"}]
             },
             {
+              type: "toggle",
+              title: "Sam’s edited version",
+              hint: "Open only after you write: compare with your version",
+              blocks: [
+                {
+                  type: "model",
+                  title: "Research Summary (Edited)",
+                  text: "(1) The employment landscape is undergoing significant transformation with the emergence of sustainability consultants. (2) The demand for these experts has grown substantially in the last two years as they assist corporations in adhering to environmental regulations and adopting eco-friendly practices (Bawa, 2024). (3) They guide businesses on the efficient utilization of resources and instilling practices that balance environmental conservation with profitability. (4) The rising popularity of sustainability consultants can be attributed to their pivotal role in planning for long-term environmental, legal and social responsibilities. (5) A diverse range of industries, from technology to financial services, is recognizing the importance of integrating sustainable practices into their commercial operations. (6) Holt (2023) claims that this trend towards a workforce that values both financial success and positive societal impact signals a shift in how businesses operate. (7) It is likely that sustainability will remain a priority for organisations, continuing to shape corporate strategies and operations."
+                }
+              ]
+            },
+            {
               type: "steps",
               items: [
-                {"who":"alone","text":"When you finish, scroll up to the <b>edited version</b> and compare. Underline one thing you did well."},
+                {"who":"alone","text":"When you finish, open <b>Sam’s edited version</b> above and compare. Underline one thing you did well."},
                 {"who":"pair","text":"<b>Peer check.</b> Swap with a partner. You are the <b>language monitor</b>: tick the checklist for <b>their</b> paragraph."}
               ]
             },
