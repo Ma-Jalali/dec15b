@@ -7,8 +7,9 @@
    Activity ids are the keys of saved work — never rename them.
    Round 2 (student-centred): movement games (stand up/sit down, mingles, line-ups, corners, speed-dating circles,
    snowball, gallery walks, human sentence), group roles, "Use it" steps, phrase-of-the-day stickies and exit tickets.
-   11A connected tabs (v7.6): reference folds (plain full-width text, no ‘Model’ box) — draft in b3 and b6; edited version in b7 (open),
-   b5 and b8 (open after trying); the teacher's rules in b4 — so students compare without going back.
+   11A redesign (v7.8): Lead-in → Context → Presentation (b3 ten rules in three groups, each with Sam’s ✗ sentence, an
+   academic ✓ version and a check; b6 the model + which rule; b7 TB questions) → Practice (b9 choose/complete/correct with
+   usable words) → Production (b8 TB rewrite). Spot it (b4) and Rephrase (b5) removed. Reference folds bring earlier texts in.
    10A quality pass (v7.4): TB homework question shown directly (no spinner); one check (the do/don't sort, no stand-up/sit-down);
    short phrase mingle, TB phrase sort, the comment thread as a model, one use, one takeaway; email with simple peer feedback.
    11A (v7.2, dec10/design/LESSON-DESIGN.md): five clear stages, shown as a chip on each activity —
@@ -358,7 +359,7 @@ window.DEC15_LESSON = {
         {
           id: "b2",
           short: "Context",
-          minutes: 6,
+          minutes: 7,
           grouping: "Alone → Pair",
           category: "2 · Context",
           art: "dec10/assets/week3/v/v-d10w3d3-b2.svg",
@@ -388,25 +389,53 @@ window.DEC15_LESSON = {
         {
           id: "b3",
           short: "The rules",
-          minutes: 10,
-          grouping: "Pair → Class",
+          minutes: 18,
+          grouping: "Alone → Pair",
           category: "3 · Presentation",
           art: "dec10/assets/week3/v/v-d10w3d3-b3.svg",
-          title: "Teacher feedback on the draft",
-          goal: "Learn the teacher’s rules of academic style, and understand the four that need a closer look.",
+          title: "Ten rules of academic style",
+          goal: "Learn ten rules of academic style in three groups, each shown with Sam’s sentence and an academic version.",
           blocks: [
-            {"type":"sticky","title":"Sam’s teacher replies …","text":"Sam also sent his draft to his teacher. Here is the feedback. These points are today’s rules of academic style.","color":"yellow"},
+            {"type":"sticky","title":"Sam’s teacher replies …","text":"Sam also sent his draft to his teacher. The teacher’s feedback gives us today’s rules of academic style.","color":"yellow"},
             {
               type: "do",
               n: 1,
               who: "pair",
               text: "Look at the feedback that the student received from their teacher on their draft. How many of the feedback points did you identify earlier? Which ones have you not heard before?"
             },
-            {"type":"tip","text":"Tick the points on your list from the Lead-in and in your reply to Sam. Circle the ones that are new for you."},
+            {
+              type: "toggle",
+              title: "The teacher’s feedback",
+              hint: "From the Teacher’s Book",
+              open: true,
+              ref: true,
+              blocks: [
+                {
+                  type: "text",
+                  title: "Teacher feedback",
+                  before: "There are a lot of good ideas, and some good grammar, in your writing. However, there are some problems with academic style. Some of the issues I found are:",
+                  list: [
+                    "a lack of nominalisations",
+                    "not all ideas from other sources are referenced properly",
+                    "use of simple linking phrases such as ‘and’, ‘but’ and ‘so’, incorrectly placed at the beginning of sentences",
+                    "contractions are not used in academic writing",
+                    "direct questions are generally not used in academic text",
+                    "avoid repetition of words between sentences. Try to use general nouns/summary phrases",
+                    "there is no hedging. Ideas should be expressed with caution, so try to use expressions for degrees of certainty such as modal verbs and adverbs of frequency and possibility. Note that intensifiers (such as <i>really</i>) or some adverbs of frequency (such as <i>always</i> and <i>never</i>) can introduce a level of exaggeration, overgeneralisation or absolute certainty that is not always supported by evidence.",
+                    "academic style is impersonal to maintain an objective tone, so avoid pronouns such as ‘I’, ‘we’, ‘us’ or ‘our’",
+                    "<b>Vocabulary is also a little informal. For example:</b>",
+                    "idiomatic language is generally not used",
+                    "there is a lack of specialized vocabulary which is common in academic writing",
+                    "there is vague or unclear language such as ‘put’ or ‘did’. In academic writing we like to be as precise as possible",
+                    "you are using vocabulary more associated with informal speech, such as phrasal verbs"
+                  ]
+                }
+              ]
+            },
             {
               type: "toggle",
               title: "Sam’s first draft",
-              hint: "Open to find each point in the draft",
+              hint: "Open to see the full draft",
               ref: true,
               blocks: [
                 {
@@ -416,44 +445,16 @@ window.DEC15_LESSON = {
                 }
               ]
             },
-            {
-              type: "model",
-              title: "Teacher feedback",
-              before: "There are a lot of good ideas, and some good grammar, in your writing. However, there are some problems with academic style. Some of the issues I found are:",
-              list: [
-                "a lack of nominalisations",
-                "not all ideas from other sources are referenced properly",
-                "use of simple linking phrases such as ‘and’, ‘but’ and ‘so’, incorrectly placed at the beginning of sentences",
-                "contractions are not used in academic writing",
-                "direct questions are generally not used in academic text",
-                "avoid repetition of words between sentences. Try to use general nouns/summary phrases",
-                "there is no hedging. Ideas should be expressed with caution, so try to use expressions for degrees of certainty such as modal verbs and adverbs of frequency and possibility. Note that intensifiers (such as <i>really</i>) or some adverbs of frequency (such as <i>always</i> and <i>never</i>) can introduce a level of exaggeration, overgeneralisation or absolute certainty that is not always supported by evidence.",
-                "academic style is impersonal to maintain an objective tone, so avoid pronouns such as ‘I’, ‘we’, ‘us’ or ‘our’",
-                "<b>Vocabulary is also a little informal. For example:</b>",
-                "idiomatic language is generally not used",
-                "there is a lack of specialized vocabulary which is common in academic writing",
-                "there is vague or unclear language such as ‘put’ or ‘did’. In academic writing we like to be as precise as possible",
-                "you are using vocabulary more associated with informal speech, such as phrasal verbs"
-              ]
-            },
-            {
-              type: "figure",
-              src: "dec10/assets/week3/d3-style-rules.svg",
-              size: "wide",
-              alt: "Twelve features of academic style in two groups. Grammar and structure: nominalisations, referencing, no sentence-initial and, but, so, no contractions, no direct questions, no repetition (use summary nouns), hedging, impersonal style. Vocabulary: no idioms, specialised words, precise words, no phrasal verbs or chatty words.",
-              caption: "The teacher’s feedback as a checklist: 8 grammar and structure points, 4 vocabulary points."
-            },
-            {"type":"do","n":2,"who":"pair","text":"<b>Four rules need a closer look.</b> Read each <i>before → after</i> example and tap it to see the rule. Then cover the <i>after</i> sentence and say it from memory."},
-            {
-              type: "pairs",
-              title: "Four rules, before and after",
-              items: [
-                {"from":"Companies are using resources more efficiently, and this saves them money.","to":"[[The more efficient use of resources]] saves companies money.","tag":"Nominalisation: turn a verb or a clause into a noun phrase.","note":"Noun phrases carry more information in fewer words and sound more objective."},
-                {"from":"Green jobs will definitely grow in the next ten years.","to":"Green jobs [[are likely to]] grow in the next ten years.","tag":"Hedging: show the right level of certainty.","note":"Use <i>may, might, is likely to, tends to, it is possible that</i>. Avoid <i>definitely, always, never, everyone</i>."},
-                {"from":"Sustainability consultants are in demand. Sustainability consultants help companies follow environmental laws.","to":"Sustainability consultants are in demand. [[These experts]] help companies comply with environmental laws.","tag":"A summary noun (general noun) avoids repetition.","note":"Other examples: <i>these professionals, this trend, this approach</i>."},
-                {"from":"I think green skills are becoming more important.","to":"[[Green skills appear to be]] becoming increasingly important.","tag":"Impersonal style: no ‘I’ or ‘we’. Let the evidence speak.","note":"Other options: <i>Evidence suggests that …, It could be argued that …</i>"}
-              ]
-            },
+            {"type":"do","n":2,"who":"alone","text":"<b>The ten rules.</b> The teacher’s points are organised below as ten rules in three groups. For each rule, read Sam’s sentence (✗) and the academic version (✓). Then try the <b>Check yourself</b> question before you open it."},
+            {"type":"part","n":1,"title":"Structure and grammar","goal":"How academic sentences are built"},
+            {"type": "rule", "n": 1, "title": "Use noun phrases (nominalisation)", "explain": "Academic writers often turn a verb or a whole clause into a <b>noun phrase</b>. It carries more information in fewer words and sounds more objective.", "form": "verb / clause → <b>the + noun + of …</b>  (grow → <b>the growth of</b> · use → <b>the use of</b> · rise → <b>the rise of</b>)", "examples": [["no", "The job market is really changing, and there are more sustainability consultants.", "Sam, sentence 1: two clauses, no noun phrase"], ["ok", "<b>The rise of sustainability consultants</b> is changing the job market."], ["ok", "how to use resources wisely → <b>the efficient use of resources</b>"]], "check": {"q": "Make a noun phrase: <i>Companies are recycling more.</i>", "a": "<i><b>The increase in recycling</b> by companies …</i>"}},
+            {"type": "rule", "n": 2, "title": "Avoid repetition: use a summary noun", "explain": "Do not repeat the same noun in the next sentence. Refer back to it with a <b>summary noun</b> (a general noun after <i>this / these</i>).", "examples": [["no", "(1) … more sustainability consultants. (2) <b>Sustainability consultants</b> are …", "Sam, sentences 1–2"], ["ok", "… more sustainability consultants. <b>These experts</b> are …"]], "note": "Useful summary nouns: <i>these professionals, this trend, this approach, this change, this problem</i>.", "check": {"q": "Avoid the repetition: <i>Green jobs are growing. Green jobs need new skills.</i>", "a": "<i>Green jobs are growing. <b>These roles</b> need new skills.</i>"}},
+            {"type": "rule", "n": 3, "title": "Link ideas with formal linking words", "explain": "Do not start a sentence with <i>And</i>, <i>But</i> or <i>So</i>. Use a formal linking word, or join the two ideas in one sentence.", "form": "And → <b>In addition, / Furthermore,</b> · But → <b>However,</b> · So → <b>Therefore, / As a result,</b>", "examples": [["no", "(4) <b>And</b> they teach them how to …", "Sam, sentence 4"], ["no", "(11) <b>So</b>, moving forward, …", "Sam, sentence 11"], ["ok", "<b>In addition</b>, they show businesses how to …"], ["ok", "<b>Therefore</b>, sustainability is likely to remain a priority."]], "check": {"q": "Which one is academic? <i>But the cost is high.</i> or <i>However, the cost is high.</i>", "a": "<i>However, the cost is high.</i>"}},
+            {"type": "rule", "n": 4, "title": "Write words in full: no contractions", "explain": "Contractions belong in speech and informal writing.", "examples": [["no", "This <b>isn't</b> just about avoiding fines. <b>It's</b> about …", "Sam, sentences 7–8"], ["ok", "This <b>is not</b> only about avoiding fines. <b>It is</b> also about …"]], "check": {"q": "Write in full: <i>it’s, don’t, can’t, won’t</i>", "a": "<i>it is, do not, cannot, will not</i>"}},
+            {"type": "rule", "n": 5, "title": "Make statements, not direct questions", "explain": "A direct question speaks to the reader as in a conversation. In academic writing, turn the question into a statement.", "examples": [["no", "(5) <b>Why are they becoming so popular?</b>", "Sam, sentence 5"], ["ok", "<b>The rising popularity of</b> sustainability consultants <b>can be attributed to</b> …"]], "check": {"q": "Make a statement: <i>Why do companies need green skills?</i>", "a": "<i>There are several reasons <b>why</b> companies need green skills.</i> / <i>Companies need green skills <b>because</b> …</i>"}},
+            {"type":"part","n":2,"title":"Voice and certainty","goal":"How academic writers sound: objective, careful and supported by sources"},
+            {"type": "rule", "n": 6, "title": "Be impersonal: no ‘I’, ‘we’, ‘us’, ‘our’", "explain": "Academic style keeps an <b>objective tone</b>: the evidence speaks, not the writer.", "examples": [["no", "<b>I think</b> sustainability consultants do a lot to help companies.", "Sam, sentence 6"], ["ok", "Sustainability consultants <b>appear to</b> play a key role in helping companies."]], "note": "Instead of <i>I think</i>: <i>It appears that … · Evidence suggests that … · It could be argued that …</i>", "check": {"q": "Rewrite without ‘I’: <i>I believe AI will change many jobs.</i>", "a": "<i>AI <b>is likely to</b> change many jobs.</i> / <i><b>It could be argued that</b> AI will change many jobs.</i>"}},
+            {"type": "rule", "n": 7, "title": "Hedge: show the right level of certainty", "explain": "Express ideas with <b>caution</b>. Intensifiers (<i>really</i>) and absolute words (<i>always, never, everyone, definitely</i>) claim more than the evidence can show.", "form": "<b>may · might · could · is likely to · tends to · it is possible that · many / most</b>", "examples": [["no", "companies <b>will definitely</b> continue …", "Sam, sentence 11"], ["no", "<b>As we all know, everyone</b> … can see the value …", "Sam, sentence 9"], ["ok", "<b>It is likely that</b> sustainability will remain a priority."], ["ok", "<b>Many</b> industries <b>are beginning to</b> recognise its value."]], "check": {"q": "Which one is more academic? <i>Green jobs always pay well.</i> or <i>Green jobs tend to pay well.</i>", "a": "<i>Green jobs <b>tend to</b> pay well.</i>"}},
             {
               type: "figure",
               src: "dec10/assets/week3/d3-certainty.svg",
@@ -461,21 +462,23 @@ window.DEC15_LESSON = {
               alt: "A certainty meter from 100% to about 30%. At the top, too certain for academic writing: will definitely, always, everyone, really. Below, hedged academic language: is likely to, tends to, may, might, could, it is possible that.",
               caption: "Hedging: move down the meter. Academic writers show caution."
             },
-            {
-              type: "talk",
-              prompts: ["Which point is the hardest for you in your own writing? Why?"]
-            }
+            {"type": "rule", "n": 8, "title": "Reference every idea from a source", "explain": "Show where each idea comes from. An integral citation with a <b>reporting verb</b> also shows how the author presents the idea.", "form": "Author (year) + <b>argues / claims / suggests / reports</b> that … · or … (Author, year).", "examples": [["no", "<b>As Holt says</b>, this trend … signals a shift <b>(Holt, 2023)</b>.", "Sam, sentence 10: the source twice, and ‘says’ is informal"], ["ok", "<b>Holt (2023) claims that</b> this trend signals a shift in how businesses operate."], ["ok", "This trend signals a shift in how businesses operate <b>(Holt, 2023)</b>."]], "check": {"q": "Correct it: <i>As Bawa says, demand is growing (Bawa, 2024).</i>", "a": "<i>Bawa (2024) <b>reports that</b> demand is growing.</i> or <i>Demand is growing (Bawa, 2024).</i>"}},
+            {"type":"part","n":3,"title":"Vocabulary","goal":"Which words sound academic"},
+            {"type": "rule", "n": 9, "title": "Choose precise words, not vague ones", "explain": "Vague words (<i>great, put, do a lot, things</i>) do not tell the reader exactly what you mean. Choose a precise or specialised word.", "examples": [["no", "sustainability consultants <b>do a lot</b> to help companies", "Sam, sentence 6"], ["no", "continue to <b>put</b> sustainability at the top of their list", "Sam, sentence 11"], ["ok", "sustainability consultants <b>play a key role in</b> helping companies"], ["ok", "companies will <b>prioritise</b> sustainability"]], "check": {"q": "Make it precise: <i>Green jobs are a <b>big</b> part of the economy.</i>", "a": "<i>a <b>significant</b> / <b>growing</b> part of the economy</i>"}},
+            {"type": "rule", "n": 10, "title": "Avoid phrasal verbs, idioms and chatty phrases", "explain": "Phrasal verbs, idioms and spoken phrases sound like conversation. Use a one-word verb or a neutral phrase.", "form": "figure out → <b>determine</b> · take care of → <b>protect</b> · cares about → <b>values</b> · a lot of → <b>many / a significant number of</b>", "examples": [["no", "help businesses <b>figure out</b> …", "Sam, sentence 3: phrasal verb"], ["no", "consultants are <b>stepping into the spotlight</b>", "Sam, sentence 2: idiom"], ["ok", "help businesses <b>determine</b> …"], ["ok", "consultants are <b>becoming increasingly important</b>"]], "check": {"q": "Replace the phrasal verb: <i>Researchers looked into the problem.</i>", "a": "<i>Researchers <b>investigated</b> / <b>examined</b> the problem.</i>"}},
+            {"type":"do","n":3,"who":"pair","text":"<b>Test your partner.</b> Cover the ✓ sentences. Your partner reads one of Sam’s ✗ sentences; you say the academic version and name the rule. Swap after three."},
+            {"type":"talk","prompts":["Which rule is the hardest for you in your own writing? Why?"]}
           ]
         },
         {
           id: "b6",
           short: "The model",
-          minutes: 8,
+          minutes: 10,
           grouping: "Pair",
           category: "3 · Presentation",
           art: "dec10/assets/week3/v/v-d10w3d3-b6.svg",
           title: "The edited version",
-          goal: "Read Sam’s second try and see the five tips he used to make it academic.",
+          goal: "Read Sam’s second try and see which rules he used to make it academic.",
           blocks: [
             {"type":"sticky","title":"Sam’s second try","text":"Sam used the teacher’s feedback and rewrote his paragraph. This is your model: see how each informal phrase became academic.","color":"green"},
             {
@@ -503,17 +506,17 @@ window.DEC15_LESSON = {
               title: "Research Summary (Edited)",
               text: "(1) The employment landscape is undergoing significant transformation with the emergence of sustainability consultants. (2) The demand for these experts has grown substantially in the last two years as they assist corporations in adhering to environmental regulations and adopting eco-friendly practices (Bawa, 2024). (3) They guide businesses on the efficient utilization of resources and instilling practices that balance environmental conservation with profitability. (4) The rising popularity of sustainability consultants can be attributed to their pivotal role in planning for long-term environmental, legal and social responsibilities. (5) A diverse range of industries, from technology to financial services, is recognizing the importance of integrating sustainable practices into their commercial operations. (6) Holt (2023) claims that this trend towards a workforce that values both financial success and positive societal impact signals a shift in how businesses operate. (7) It is likely that sustainability will remain a priority for organisations, continuing to shape corporate strategies and operations."
             },
-            {"type":"do","n":2,"who":"pair","text":"<b>Eight key changes.</b> Which tip did Sam use for each change? Sort them, then check. These tips are what you will use in your own writing."},
+            {"type":"do","n":2,"who":"pair","text":"<b>Eight key changes.</b> Which rule did Sam use for each change? Sort them, then check."},
             {
               type: "sort",
               id: "b6-tips",
-              title: "Which tip is it?",
+              title: "Which rule did Sam use?",
               buckets: [
-                {"label":"Use a noun phrase","letter":"1"},
-                {"label":"Use a precise verb (not a phrasal verb or chatty phrase)","letter":"2"},
-                {"label":"Hedge: show the right level of certainty","letter":"3"},
-                {"label":"Use a summary noun, not repetition","letter":"4"},
-                {"label":"Use a reporting verb with the source","letter":"5"}
+                {"label":"Rule 1 · Noun phrase","letter":"1"},
+                {"label":"Rules 9–10 · Precise word, not a phrasal verb or chatty phrase","letter":"9"},
+                {"label":"Rule 7 · Hedging","letter":"7"},
+                {"label":"Rule 2 · Summary noun","letter":"2"},
+                {"label":"Rule 8 · Reporting verb","letter":"8"}
               ],
               items: [
                 {"text":"there are more sustainability consultants → <b>the emergence of sustainability consultants</b>","answer":0},
@@ -526,13 +529,13 @@ window.DEC15_LESSON = {
                 {"text":"As Holt says, … (Holt, 2023) → <b>Holt (2023) claims that …</b>","answer":4}
               ]
             },
-            {"type":"tip","text":"Sam’s vocabulary is very advanced. You do not need words like <i>utilization</i> or <i>pivotal</i>: <i>the efficient use of resources</i> is just as academic. Learn the <b>tips</b>, not every word."}
+            {"type":"tip","text":"Sam’s vocabulary is very advanced. You do not need words like <i>utilization</i> or <i>pivotal</i>: <i>the efficient use of resources</i> is just as academic. Learn the <b>rules</b>, not every word."}
           ]
         },
         {
           id: "b7",
           short: "How?",
-          minutes: 7,
+          minutes: 8,
           grouping: "Pair",
           category: "3 · Presentation",
           art: "dec10/assets/week3/v/v-d10w3d3-b7.svg",
@@ -605,163 +608,29 @@ window.DEC15_LESSON = {
           ]
         },
         {
-          id: "b4",
-          short: "Spot it",
-          minutes: 10,
-          grouping: "Pair",
-          category: "4 · Practice",
-          art: "dec10/assets/week3/v/v-d10w3d3-b4.svg",
-          title: "Find examples in the draft",
-          goal: "Find the teacher’s points in the student’s writing.",
-          blocks: [
-            {"type":"do","n":1,"who":"pair","text":"<b>Pair race.</b> Look again at the student draft of their research summary. Find examples of the teacher’s points in the student’s writing. Tap the phrases, then check. All 10 right? <b>Stand up!</b> The first three pairs standing win a team point."},
-            {
-              type: "toggle",
-              title: "The teacher’s rules",
-              hint: "Open to check what you are looking for",
-              ref: true,
-              blocks: [
-                {
-                  type: "text",
-                  title: "Teacher feedback",
-                  before: "There are a lot of good ideas, and some good grammar, in your writing. However, there are some problems with academic style. Some of the issues I found are:",
-                  list: [
-                    "a lack of nominalisations",
-                    "not all ideas from other sources are referenced properly",
-                    "use of simple linking phrases such as ‘and’, ‘but’ and ‘so’, incorrectly placed at the beginning of sentences",
-                    "contractions are not used in academic writing",
-                    "direct questions are generally not used in academic text",
-                    "avoid repetition of words between sentences. Try to use general nouns/summary phrases",
-                    "there is no hedging. Ideas should be expressed with caution, so try to use expressions for degrees of certainty such as modal verbs and adverbs of frequency and possibility. Note that intensifiers (such as <i>really</i>) or some adverbs of frequency (such as <i>always</i> and <i>never</i>) can introduce a level of exaggeration, overgeneralisation or absolute certainty that is not always supported by evidence.",
-                    "academic style is impersonal to maintain an objective tone, so avoid pronouns such as ‘I’, ‘we’, ‘us’ or ‘our’",
-                    "<b>Vocabulary is also a little informal. For example:</b>",
-                    "idiomatic language is generally not used",
-                    "there is a lack of specialized vocabulary which is common in academic writing",
-                    "there is vague or unclear language such as ‘put’ or ‘did’. In academic writing we like to be as precise as possible",
-                    "you are using vocabulary more associated with informal speech, such as phrasal verbs"
-                  ]
-                }
-              ]
-            },
-            {
-              type: "spot",
-              id: "b4-sp1",
-              label: "Spot it · grammar and structure",
-              title: "1 · Grammar, structure and certainty",
-              hint: "Find 10: a contraction, a direct question, ‘I’, ‘And’ or ‘So’ at the start of a sentence, a repeated noun, and words that are too certain (no hedging).",
-              paras: [
-                "(1) The job market is [[*really]] changing, and one of the great new trends is that there are more [[sustainability consultants]]. (2) [[*Sustainability consultants]] are stepping into the spotlight, helping companies that want to be more eco-friendly and follow the rules about the environment. (3) They help businesses figure out how to use resources wisely. (4) [[*And]] they teach them how to take care of the planet [[while still making a profit]]. (5) [[*Why are they becoming so popular?]]",
-                "(6) [[*I think]] sustainability consultants do a lot to help companies [[plan for the future]]. (7) This [[*isn't]] just about avoiding fines or negative press. (8) [[*It's]] about being responsible for their environmental and social impact. (9) As we all know, [[*everyone]] from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate [[(Holt, 2023)]]. (11) [[*So]], moving forward, companies [[*will definitely]] continue to put sustainability at the top of their list."
-              ]
-            },
-            {"type":"do","n":2,"who":"pair","text":"<b>Round 2 — same race.</b> Sit down first! Now find the informal vocabulary."},
-            {
-              type: "spot",
-              id: "b4-sp2",
-              label: "Spot it · vocabulary",
-              title: "2 · Informal vocabulary",
-              hint: "Find 10: idioms, phrasal verbs and chatty phrases from speech, and vague words (not precise).",
-              paras: [
-                "(1) The job market is really changing, and one of the [[*great]] new trends is that there are more sustainability consultants. (2) Sustainability consultants are [[*stepping into the spotlight]], helping companies that want to be more eco-friendly and follow the rules about [[the environment]]. (3) They help businesses [[*figure out]] how to use resources wisely. (4) And they teach them how to [[*take care of]] the planet while still making a profit. (5) Why are they becoming so popular?",
-                "(6) I think sustainability consultants do [[*a lot]] to help companies plan for the future. (7) This isn't just about avoiding [[fines]] or negative press. (8) It's about being responsible for their [[environmental and social impact]]. (9) [[*As we all know]], everyone from tech firms to banks, can see the value of bringing sustainability [[*into the mix]]. (10) As Holt says, this trend towards a workforce that [[*cares about]] both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to [[*put]] sustainability [[*at the top of their list]]."
-              ]
-            },
-            {
-              type: "language",
-              groups: [
-                {"label":"Point to the problem","phrases":["<b>In sentence</b> (4), the writer <b>starts with</b> ‘And’.","“Figure out” <b>is a phrasal verb, so it sounds</b> too informal.","“Will definitely” <b>is too certain — there is no hedging.</b>","<b>This is an example of</b> an idiom."]}
-              ]
-            }
-          ],
-          answers: {
-            title: "Some problematic language (Teacher’s Book)",
-            items: [
-              ["a lack of nominalisations","“The job market is really changing” rather than “Changes in the job market” · “there are more sustainability consultants” rather than “the rise of sustainability consultants” · “how to use” rather than “the efficient use”."],
-              ["simple linking phrases at the start of sentences","Sentence-initial ‘and’ in (4) & sentence-initial ‘so’ in (11)."],
-              ["contractions","‘Isn’t’ in sentence 7 & ‘It’s’ in sentence 8."],
-              ["direct questions","Use of a rhetorical question (5)."],
-              ["repetition","“these professionals” to replace “sustainability consultants” in sentence 2."],
-              ["no hedging","“will definitely” in sentence 11 / “everyone can see” in sentence 9 / “really” in sentence 1."],
-              ["impersonal style","“I think” in sentence 6."],
-              ["idiomatic language","‘stepping into the spotlight’ in sentence 2 or ‘into the mix’ in sentence 9 or ‘at the top of their list’ in sentence 11."],
-              ["lack of specialised vocabulary","Indicated by the absence of words such as “transformation”, “financial”, “adhere,” “regulation”, “reputation”."],
-              ["vague or unclear language","“great” in sentence 1, “do a lot to help” in sentence 6 and “put sustainability” in sentence 11."],
-              ["informal speech, phrasal verbs","“figure out” in sentence 3, “take care of” in sentence 4, “a lot” in sentence 6, “as we all know” in sentence 9, and “cares about” in sentence 10."]
-            ]
-          }
-        },
-        {
-          id: "b5",
-          short: "Rephrase",
-          minutes: 10,
-          grouping: "Pair",
-          category: "4 · Practice",
-          art: "dec10/assets/week3/v/v-d10w3d3-b5.svg",
-          title: "Vocabulary analysis",
-          goal: "Use the tips: rewrite eight informal phrases in academic style from memory, then check.",
-          blocks: [
-            {
-              type: "do",
-              n: 1,
-              who: "pair",
-              text: "Look at the eight informal phrases from Sam’s draft. How could you rewrite them in a more academic style? Use the tips. Write your ideas in the middle column <b>from memory</b>. Then open Sam’s edited version, check, and write his phrase in the last column."
-            },
-            {
-              type: "toggle",
-              title: "Sam’s edited version",
-              hint: "Open only after you try: check and fill in the last column",
-              ref: true,
-              blocks: [
-                {
-                  type: "text",
-                  title: "Research Summary (Edited)",
-                  text: "(1) The employment landscape is undergoing significant transformation with the emergence of sustainability consultants. (2) The demand for these experts has grown substantially in the last two years as they assist corporations in adhering to environmental regulations and adopting eco-friendly practices (Bawa, 2024). (3) They guide businesses on the efficient utilization of resources and instilling practices that balance environmental conservation with profitability. (4) The rising popularity of sustainability consultants can be attributed to their pivotal role in planning for long-term environmental, legal and social responsibilities. (5) A diverse range of industries, from technology to financial services, is recognizing the importance of integrating sustainable practices into their commercial operations. (6) Holt (2023) claims that this trend towards a workforce that values both financial success and positive societal impact signals a shift in how businesses operate. (7) It is likely that sustainability will remain a priority for organisations, continuing to shape corporate strategies and operations."
-                }
-              ]
-            },
-            {"type":"tip","text":"Your version does not need to be as advanced as Sam’s. <i>The efficient use of resources</i> or <i>companies are likely to …</i> are good academic answers."},
-            {
-              type: "table",
-              id: "b5-tab8",
-              title: "Informal language → academic language",
-              columns: ["Informal language","My academic version","Sam’s version (check after)"],
-              fixed: [
-                "1. there are more sustainability consultants",
-                "2. how to use resources wisely",
-                "3. follow the rules about the environment",
-                "4. help businesses figure out",
-                "5. cares about",
-                "6. companies will definitely continue to …",
-                "7. Sustainability consultants … Sustainability consultants …",
-                "8. As Holt says, … (Holt, 2023)"
-              ]
-            }
-          ]
-        },
-        {
           id: "b9",
           short: "Practise",
-          minutes: 15,
+          minutes: 17,
           grouping: "Alone → Pair",
           category: "4 · Practice",
           art: "dec10/assets/lab/s-practise.svg",
           title: "Practise: choose, complete, correct",
-          goal: "Use the academic words from the edited version in new sentences about green jobs. First recognise them, then use them, then find the mistakes.",
+          goal: "Use the rules and eight useful academic words in new sentences about green jobs: first choose, then complete, then correct.",
           blocks: [
             {
               type: "key",
               title: "Words that make it academic",
               points: [
-                "Many words in the edited version are on the <b>Academic Word List</b>: they appear in university texts in every subject. Learn each one with its <b>family</b> (verb → noun) and its <b>collocations</b>."
+                "These words are on the <b>Academic Word List</b>: they appear in university texts in every subject, and you can use them in your own writing now. Learn each one with its <b>family</b> (verb → noun) and its <b>collocations</b>."
               ]
             },
             {
               type: "language",
               title: "Eight words to keep",
               groups: [
-                {"label":"Verb → noun","phrases":["transform → <b>transformation</b>","emerge → <b>emergence</b>","regulate → <b>regulation</b>","utilise → <b>utilisation</b>","conserve → <b>conservation</b>","integrate → <b>integration</b>","prioritise → <b>priority</b>","finance → <b>financial</b> (adjective)"]},
-                {"label":"Collocations from the edited version","phrases":["<b>undergo</b> (a) significant <b>transformation</b>","<b>adhere to / comply with</b> environmental <b>regulations</b>","the efficient <b>utilisation of</b> resources","the <b>integration of</b> X <b>into</b> Y","<b>remain a priority</b> for organisations"]},
-                {"label":"Cause and certainty (Essay Activator)","phrases":["X <b>can be attributed to</b> Y · X <b>is largely due to</b> Y","<b>It is likely that</b> … · X <b>is likely to</b> …","Holt (2023) <b>argues / suggests that</b> …"]}
+                {"label":"Verb → noun","phrases":["grow → <b>growth</b>","increase → <b>an increase in</b>","use → <b>the use of</b>","regulate → <b>regulation</b>","prioritise → <b>priority</b>","finance → <b>financial</b> (adjective)"]},
+                {"label":"Collocations","phrases":["<b>comply with</b> environmental <b>regulations</b>","the efficient <b>use of</b> resources","<b>become a priority</b> for companies","<b>for financial reasons</b>"]},
+                {"label":"Cause and certainty (Essay Activator)","phrases":["X <b>is largely due to</b> Y · X <b>can be attributed to</b> Y","<b>It is likely that</b> … · X <b>is likely to</b> …","Holt (2023) <b>argues / suggests that</b> …"]}
               ]
             },
             {"type":"part","n":1,"title":"Choose","goal":"Can you recognise the academic option?"},
@@ -771,25 +640,25 @@ window.DEC15_LESSON = {
               id: "b9-quiz",
               items: [
                 {"q":"1. The number of green jobs ___ over the last five years.","options":["has really gone up","has increased substantially","has grown a lot"],"answer":"has increased substantially","why":"A precise verb with a formal adverb. ‘Really’ and ‘a lot’ are informal, and ‘go up’ is a phrasal verb."},
-                {"q":"2. Many companies now employ consultants to help them ___ environmental regulations.","options":["stick to","follow the rules about","adhere to"],"answer":"adhere to","why":"‘Adhere to’ (or ‘comply with’) is the formal verb. ‘Stick to’ is a phrasal verb, and ‘follow the rules about’ is vague."},
-                {"q":"3. The ___ of renewable energy has created new roles in engineering.","options":["emergence","emerge","emerging"],"answer":"emergence","why":"After ‘The … of’ you need a noun. This is nominalisation."},
-                {"q":"4. Consultants advise firms on the efficient ___ of water and energy.","options":["utilise","utilisation","utilised"],"answer":"utilisation","why":"A noun is needed after ‘the efficient … of’."},
-                {"q":"5. The growth in sustainability roles ___ stricter environmental laws.","options":["can be attributed to","is because of","happens because"],"answer":"can be attributed to","why":"Essay Activator, Causes: ‘can be attributed to’ connects a result to its cause in a formal way."},
+                {"q":"2. Many companies now employ consultants to help them ___ environmental regulations.","options":["stick to","follow the rules about","comply with"],"answer":"comply with","why":"‘Comply with’ is the formal verb. ‘Stick to’ is a phrasal verb, and ‘follow the rules about’ is vague (Rules 9–10)."},
+                {"q":"3. The ___ of renewable energy has created new roles in engineering.","options":["growth","grow","growing"],"answer":"growth","why":"After ‘The … of’ you need a noun. This is a noun phrase (Rule 1)."},
+                {"q":"4. Consultants advise firms on the efficient ___ of water and energy.","options":["use","using","used"],"answer":"use","why":"A noun is needed after ‘the efficient … of’ (Rule 1)."},
+                {"q":"5. The growth in sustainability roles ___ stricter environmental laws.","options":["is largely due to","is because of","happens because"],"answer":"is largely due to","why":"Essay Activator, Causes: ‘is largely due to’ connects a result to its cause in a formal way."},
                 {"q":"6. ___ industries, from technology to finance, now employ sustainability specialists.","options":["Loads of","A diverse range of","A lot of"],"answer":"A diverse range of","why":"‘Loads of’ and ‘a lot of’ belong in speech. ‘A diverse range of’ is precise and academic."},
                 {"q":"7. ___ demand for these professionals will continue to grow.","options":["It is likely that","Everyone knows that","It is definitely true that"],"answer":"It is likely that","why":"Hedging: academic writers show caution. ‘Everyone knows’ and ‘definitely’ are too certain."},
                 {"q":"8. Holt (2023) ___ that businesses are changing how they operate.","options":["thinks","argues","says"],"answer":"argues","why":"A reporting verb that shows the writer’s position. ‘Thinks’ and ‘says’ are too general for academic writing."}
               ]
             },
             {"type":"part","n":2,"title":"Complete","goal":"Can you use the words in a new text?"},
-            {"type":"do","n":2,"who":"alone","text":"Read about another green job. Complete each gap with a word from the box. There are <b>two extra words</b> you do not need."},
+            {"type":"do","n":2,"who":"alone","text":"Read about another green job. Complete each gap with a word from the box. There are <b>two extra words</b>: they are not academic."},
             {
               type: "cloze",
               id: "b9-gap",
               title: "Renewable energy technicians",
-              options: ["transformation","emergence","regulations","attributed","integration","priority","financial","likely","conservation","utilise"],
-              text: "The energy sector is undergoing a significant {{1}}. One clear sign of this is the {{2}} of new roles such as solar and wind technicians. Governments have introduced stricter environmental {{3}}, so companies now need staff who understand them. The growth in these jobs can be {{4}} to the falling cost of renewable technology. In addition, the {{5}} of clean energy into existing power networks requires specialist skills. For many firms, reducing emissions has become a {{6}}, not only for environmental reasons but also for {{7}} ones. It is {{8}} that demand for these workers will continue to rise.",
-              answers: ["transformation","emergence","regulations","attributed","integration","priority","financial","likely"],
-              why: ["undergo a significant <b>transformation</b>: a noun after ‘a significant’.","the <b>emergence</b> of new roles: something new appears.","environmental <b>regulations</b>: official rules (plural noun).","can be <b>attributed</b> to: cause and effect.","the <b>integration</b> of X into Y: a noun after ‘the’.","become a <b>priority</b>: something very important.","<b>financial</b> reasons: an adjective before the noun ‘ones’ (reasons).","It is <b>likely</b> that …: hedging."]
+              options: ["growth","regulations","comply","due","use","priority","financial","likely","definitely","a lot"],
+              text: "The energy sector is changing rapidly. One clear sign of this is the {{1}} in new roles such as solar and wind technicians. Governments have introduced stricter environmental {{2}}, so companies need staff who can {{3}} with them. This growth is largely {{4}} to the falling cost of renewable technology. In addition, the efficient {{5}} of energy has become a {{6}} for many firms, not only for environmental reasons but also for {{7}} ones. It is {{8}} that demand for these workers will continue to rise.",
+              answers: ["growth","regulations","comply","due","use","priority","financial","likely"],
+              why: ["the <b>growth</b> in new roles: a noun phrase.","environmental <b>regulations</b>: official rules (plural noun).","<b>comply</b> with: the formal verb.","is largely <b>due</b> to: cause and effect.","the efficient <b>use</b> of: a noun after ‘the efficient … of’.","become a <b>priority</b>: something very important.","<b>financial</b> reasons: an adjective before ‘ones’ (reasons).","It is <b>likely</b> that …: hedging."]
             },
             {"type":"part","n":3,"title":"Correct","goal":"Can you find the style problem before your reader does?"},
             {"type":"do","n":3,"who":"pair","text":"Each sentence has <b>one</b> feature that is not academic. Find it and write the sentence again in academic style. Student A does 1–3, Student B does 4–6. Then explain your corrections to each other."},
@@ -812,8 +681,8 @@ window.DEC15_LESSON = {
           answers: {
             title: "Answers",
             items: [
-              ["Part 1 · Choose","1 has increased substantially · 2 adhere to · 3 emergence · 4 utilisation · 5 can be attributed to · 6 A diverse range of · 7 It is likely that · 8 argues"],
-              ["Part 2 · Complete","1 transformation · 2 emergence · 3 regulations · 4 attributed · 5 integration · 6 priority · 7 financial · 8 likely (extra words: conservation, utilise)"],
+              ["Part 1 · Choose","1 has increased substantially · 2 comply with · 3 growth · 4 use · 5 is largely due to · 6 A diverse range of · 7 It is likely that · 8 argues"],
+              ["Part 2 · Complete","1 growth · 2 regulations · 3 comply · 4 due · 5 use · 6 priority · 7 financial · 8 likely (extra words, not academic: definitely, a lot)"],
               ["Part 3 · Correct","1 do not · 2 no ‘I think’: Green skills appear to be … · 3 a significant number of / many · 4 Therefore, · 5 are likely to grow · 6 determine"]
             ]
           }
@@ -821,18 +690,18 @@ window.DEC15_LESSON = {
         {
           id: "b8",
           short: "Rewrite",
-          minutes: 16,
+          minutes: 22,
           grouping: "Alone → Pair",
           category: "5 · Production",
           art: "dec10/assets/week3/v/v-d10w3d3-b8.svg",
           title: "Rewrite the paragraph",
-          goal: "Rewrite the draft in academic style — using your language table, not the edited version.",
+          goal: "Rewrite the draft in academic style, using the ten rules, not the edited version.",
           blocks: [
             {
               type: "key",
               title: "The rules",
               points: [
-                "Rewrite the paragraph using the <b>original draft</b> text and the <b>language table</b> in the previous section.",
+                "Rewrite the paragraph using the <b>original draft</b> text and the <b>ten rules</b>.",
                 "<b>Don’t look</b> at the edited version while you write!",
                 "Once finished, check it against the edited version."
               ]
