@@ -195,3 +195,29 @@ a.lab-row:hover .lab-row-st .icon { transform: translateX(2px); }
 .rule-card.has-pairs .rule-check { border-color: var(--line-2); background: var(--paper); }
 .rule-card.has-pairs .rule-check > summary b { background: var(--ink-2); }
 .rule-card.has-pairs .rule-check > summary::after { color: var(--ink-2); }
+
+/* ── Colour, used with purpose (v8.1) ── one colour per rule group; meaning colours in the before/after table */
+.rule-group, .rule-card.has-pairs { --rc: var(--ink); --rc-bg: var(--paper); }
+.tone-blue, .rule-card.has-pairs.tone-blue { --rc: #33569a; --rc-bg: #eef3fb; }
+.tone-plum, .rule-card.has-pairs.tone-plum { --rc: #7a4a8c; --rc-bg: #f5eff8; }
+.tone-teal, .rule-card.has-pairs.tone-teal { --rc: #23766c; --rc-bg: #eaf5f3; }
+.tone-gold, .rule-card.has-pairs.tone-gold { --rc: #9a6a12; --rc-bg: #fbf4e4; }
+.rule-group[class*="tone-"] { border-top-color: var(--rc); }
+.rule-group[class*="tone-"] .rg-label { color: var(--rc); }
+.rule-group[class*="tone-"] .rg-title { color: var(--rc); }
+.rule-card.has-pairs[class*="tone-"] { box-shadow: inset 4px 0 0 var(--rc), 0 10px 24px -22px rgba(20, 41, 58, .5); }
+.rule-card.has-pairs .rule-n { background: var(--rc); }
+.rule-card.has-pairs .rule-form { background: var(--rc-bg); }
+.rule-card.has-pairs .rule-form > span { color: var(--rc); box-shadow: 0 0 0 1px color-mix(in srgb, var(--rc) 30%, transparent); }
+.rule-card.has-pairs .rule-form p b { color: var(--rc); }
+.rule-card.has-pairs .rule-check { border-color: color-mix(in srgb, var(--rc) 40%, transparent); background: #fff; }
+.rule-card.has-pairs .rule-check > summary b { background: var(--rc); }
+.rule-card.has-pairs .rule-check > summary::after { color: var(--rc); }
+/* before / after: brick red for what goes, green for what replaces it; a light green tint on the Academic column */
+.rp-head span:first-child { color: #a8432a; }
+.rp-head span:last-child { color: #2c7a52; }
+.rp-v { margin: -6px 0 !important; padding: 6px 12px; border-radius: 10px; background: #f3faf6; }
+.rp-x i { color: #c9876f; }
+.rp-v i { color: #4ca677; }
+.rp-x b { color: #a8432a; text-decoration-color: rgba(168, 67, 42, .45); }
+.rp-v b { color: #2c7a52; }
