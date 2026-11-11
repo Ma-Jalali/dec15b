@@ -7,7 +7,7 @@
    Activity ids are the keys of saved work — never rename them.
    Round 2 (student-centred): movement games (stand up/sit down, mingles, line-ups, corners, speed-dating circles,
    snowball, gallery walks, human sentence), group roles, "Use it" steps, phrase-of-the-day stickies and exit tickets.
-   11A connected tabs (v7.5): folds bring the earlier texts into each tab — draft in b3, b6 and b7; edited version in b7 (open),
+   11A connected tabs (v7.6): reference folds (plain full-width text, no ‘Model’ box) — draft in b3 and b6; edited version in b7 (open),
    b5 and b8 (open after trying); the teacher's rules in b4 — so students compare without going back.
    10A quality pass (v7.4): TB homework question shown directly (no spinner); one check (the do/don't sort, no stand-up/sit-down);
    short phrase mingle, TB phrase sort, the comment thread as a model, one use, one takeaway; email with simple peer feedback.
@@ -407,9 +407,10 @@ window.DEC15_LESSON = {
               type: "toggle",
               title: "Sam’s first draft",
               hint: "Open to find each point in the draft",
+              ref: true,
               blocks: [
                 {
-                  type: "model",
+                  type: "text",
                   title: "Research Summary (Draft)",
                   text: "(1) The job market is really changing, and one of the great new trends is that there are more sustainability consultants. (2) Sustainability consultants are stepping into the spotlight, helping companies that want to be more eco-friendly and follow the rules about the environment. (3) They help businesses figure out how to use resources wisely. (4) And they teach them how to take care of the planet while still making a profit. (5) Why are they becoming so popular? (6) I think sustainability consultants do a lot to help companies plan for the future. (7) This isn't just about avoiding fines or negative press. (8) It's about being responsible for their environmental and social impact. (9) As we all know, everyone from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to put sustainability at the top of their list."
                 }
@@ -487,9 +488,10 @@ window.DEC15_LESSON = {
               type: "toggle",
               title: "Sam’s first draft",
               hint: "Open to compare it with the edited version below",
+              ref: true,
               blocks: [
                 {
-                  type: "model",
+                  type: "text",
                   title: "Research Summary (Draft)",
                   text: "(1) The job market is really changing, and one of the great new trends is that there are more sustainability consultants. (2) Sustainability consultants are stepping into the spotlight, helping companies that want to be more eco-friendly and follow the rules about the environment. (3) They help businesses figure out how to use resources wisely. (4) And they teach them how to take care of the planet while still making a profit. (5) Why are they becoming so popular? (6) I think sustainability consultants do a lot to help companies plan for the future. (7) This isn't just about avoiding fines or negative press. (8) It's about being responsible for their environmental and social impact. (9) As we all know, everyone from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to put sustainability at the top of their list."
                 }
@@ -557,23 +559,12 @@ window.DEC15_LESSON = {
               title: "Sam’s edited version",
               hint: "Read it while you answer the questions",
               open: true,
+              ref: true,
               blocks: [
                 {
-                  type: "model",
+                  type: "text",
                   title: "Research Summary (Edited)",
                   text: "(1) The employment landscape is undergoing significant transformation with the emergence of sustainability consultants. (2) The demand for these experts has grown substantially in the last two years as they assist corporations in adhering to environmental regulations and adopting eco-friendly practices (Bawa, 2024). (3) They guide businesses on the efficient utilization of resources and instilling practices that balance environmental conservation with profitability. (4) The rising popularity of sustainability consultants can be attributed to their pivotal role in planning for long-term environmental, legal and social responsibilities. (5) A diverse range of industries, from technology to financial services, is recognizing the importance of integrating sustainable practices into their commercial operations. (6) Holt (2023) claims that this trend towards a workforce that values both financial success and positive societal impact signals a shift in how businesses operate. (7) It is likely that sustainability will remain a priority for organisations, continuing to shape corporate strategies and operations."
-                }
-              ]
-            },
-            {
-              type: "toggle",
-              title: "Sam’s first draft",
-              hint: "Open to see sentences 5–8 before they were combined",
-              blocks: [
-                {
-                  type: "model",
-                  title: "Research Summary (Draft)",
-                  text: "(1) The job market is really changing, and one of the great new trends is that there are more sustainability consultants. (2) Sustainability consultants are stepping into the spotlight, helping companies that want to be more eco-friendly and follow the rules about the environment. (3) They help businesses figure out how to use resources wisely. (4) And they teach them how to take care of the planet while still making a profit. (5) Why are they becoming so popular? (6) I think sustainability consultants do a lot to help companies plan for the future. (7) This isn't just about avoiding fines or negative press. (8) It's about being responsible for their environmental and social impact. (9) As we all know, everyone from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to put sustainability at the top of their list."
                 }
               ]
             },
@@ -642,9 +633,10 @@ window.DEC15_LESSON = {
               type: "toggle",
               title: "The teacher’s rules",
               hint: "Open to check what you are looking for",
+              ref: true,
               blocks: [
                 {
-                  type: "model",
+                  type: "text",
                   title: "Teacher feedback",
                   before: "There are a lot of good ideas, and some good grammar, in your writing. However, there are some problems with academic style. Some of the issues I found are:",
                   list: [
@@ -732,9 +724,10 @@ window.DEC15_LESSON = {
               type: "toggle",
               title: "Sam’s edited version",
               hint: "Open only after you try: check and fill in the last column",
+              ref: true,
               blocks: [
                 {
-                  type: "model",
+                  type: "text",
                   title: "Research Summary (Edited)",
                   text: "(1) The employment landscape is undergoing significant transformation with the emergence of sustainability consultants. (2) The demand for these experts has grown substantially in the last two years as they assist corporations in adhering to environmental regulations and adopting eco-friendly practices (Bawa, 2024). (3) They guide businesses on the efficient utilization of resources and instilling practices that balance environmental conservation with profitability. (4) The rising popularity of sustainability consultants can be attributed to their pivotal role in planning for long-term environmental, legal and social responsibilities. (5) A diverse range of industries, from technology to financial services, is recognizing the importance of integrating sustainable practices into their commercial operations. (6) Holt (2023) claims that this trend towards a workforce that values both financial success and positive societal impact signals a shift in how businesses operate. (7) It is likely that sustainability will remain a priority for organisations, continuing to shape corporate strategies and operations."
                 }
@@ -867,9 +860,10 @@ window.DEC15_LESSON = {
               type: "toggle",
               title: "The original draft (to work from)",
               open: true,
+              ref: true,
               blocks: [
                 {
-                  type: "model",
+                  type: "text",
                   title: "Research Summary (Draft)",
                   text: "(1) The job market is really changing, and one of the great new trends is that there are more sustainability consultants. (2) Sustainability consultants are stepping into the spotlight, helping companies that want to be more eco-friendly and follow the rules about the environment. (3) They help businesses figure out how to use resources wisely. (4) And they teach them how to take care of the planet while still making a profit. (5) Why are they becoming so popular? (6) I think sustainability consultants do a lot to help companies plan for the future. (7) This isn't just about avoiding fines or negative press. (8) It's about being responsible for their environmental and social impact. (9) As we all know, everyone from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to put sustainability at the top of their list."
                 }
@@ -901,9 +895,10 @@ window.DEC15_LESSON = {
               type: "toggle",
               title: "Sam’s edited version",
               hint: "Open only after you write: compare with your version",
+              ref: true,
               blocks: [
                 {
-                  type: "model",
+                  type: "text",
                   title: "Research Summary (Edited)",
                   text: "(1) The employment landscape is undergoing significant transformation with the emergence of sustainability consultants. (2) The demand for these experts has grown substantially in the last two years as they assist corporations in adhering to environmental regulations and adopting eco-friendly practices (Bawa, 2024). (3) They guide businesses on the efficient utilization of resources and instilling practices that balance environmental conservation with profitability. (4) The rising popularity of sustainability consultants can be attributed to their pivotal role in planning for long-term environmental, legal and social responsibilities. (5) A diverse range of industries, from technology to financial services, is recognizing the importance of integrating sustainable practices into their commercial operations. (6) Holt (2023) claims that this trend towards a workforce that values both financial success and positive societal impact signals a shift in how businesses operate. (7) It is likely that sustainability will remain a priority for organisations, continuing to shape corporate strategies and operations."
                 }

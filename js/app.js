@@ -234,6 +234,14 @@ B.language = b => { const tabs = b.groups.length >= 4 && b.tabs !== false, uid =
   ${tabs ? `<div class="lang-tabs" role="tablist" aria-label="${esc(strip(b.title || 'Language bank'))}">${b.groups.map((g, i) => `<button type="button" role="tab" id="${uid}-t${i}" aria-controls="${uid}-p${i}" aria-selected="${!i}" tabindex="${i ? -1 : 0}" data-lang-tab="${uid}" data-i="${i}">${strip(g.label)}</button>`).join('')}</div>` : ''}
   <div class="lang-grid">${b.groups.map((g, i) => `<div class="lang-group"${tabs ? ` role="tabpanel" id="${uid}-p${i}" aria-labelledby="${uid}-t${i}"${i ? ' hidden' : ''}` : ''}>${tabs ? '' : `<h4>${g.label}</h4>`}<ul>${g.phrases.map(p => `<li>${escFmt(p)}</li>`).join('')}</ul></div>`).join('')}</div>
 </section>`; };
+/* text: a plain document (no label, no colour) — e.g. an earlier draft brought into a later tab inside a fold.
+   { type: 'text', title?, before?, text?, list?: [..] }  Uses the full width of the page. A list item that is all bold is a subheading (not numbered). */
+B.text = b => `<section class="block doc-text" data-help>
+  ${b.title ? `<h4 class="doc-title">${b.title}</h4>` : ''}
+  ${b.before ? `<p class="doc-before">${b.before}</p>` : ''}
+  ${b.text ? `<p class="doc-p">${b.text}</p>` : ''}
+  ${b.list ? (n => `<ol class="doc-list">${b.list.map(x => /^<b>.*<\/b>$/.test(x) ? `<li class="doc-sub">${x}</li>` : `<li value="${++n}">${x}</li>`).join('')}</ol>`)(0) : ''}
+</section>`;
 B.model = b => `<section class="block model" data-help>
   <div class="block-label">${icon('model')}Model</div>
   <h3>${b.title || 'Example'}</h3>
@@ -330,7 +338,7 @@ B.tabs = (b, a) => { const uid = 'tb' + (++lgSeq);
   return `<section class="block lg-tabs-block">${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}
     <div class="lg-seg" role="tablist" style="--n:${b.tabs.length}"><i class="lg-lens" aria-hidden="true"></i>${b.tabs.map((t, i) => `<button type="button" role="tab" id="${uid}-t${i}" aria-controls="${uid}-p${i}" aria-selected="${!i}" tabindex="${i ? -1 : 0}" data-lg-tab="${i}">${t.label}</button>`).join('')}</div>
     ${b.tabs.map((t, i) => `<div class="lg-tabpanel" role="tabpanel" id="${uid}-p${i}" aria-labelledby="${uid}-t${i}"${i ? ' hidden' : ''}>${inner(t.blocks, a)}</div>`).join('')}</section>`; };
-B.toggle = (b, a) => `<details class="block lg-fold"${b.open ? ' open' : ''}><summary><span class="lg-fold-t"><b>${b.title}</b>${b.hint ? `<small>${b.hint}</small>` : ''}</span><i class="lg-fold-chev" aria-hidden="true"></i></summary><div class="lg-fold-body">${inner(b.blocks, a)}</div></details>`;
+B.toggle = (b, a) => `<details class="block lg-fold${b.ref ? ' ref' : ''}"${b.open ? ' open' : ''}><summary>${b.ref ? `<span class="lg-fold-ico">${icon('model')}</span>` : ''}<span class="lg-fold-t"><b>${b.title}</b>${b.hint ? `<small>${b.hint}</small>` : ''}</span><i class="lg-fold-chev" aria-hidden="true"></i></summary><div class="lg-fold-body">${inner(b.blocks, a)}</div></details>`;
 B.carousel = (b, a) => `<section class="block lg-carousel-block${b.single ? ' lg-single' : ''}">${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}<div class="lg-carousel" data-carousel>
     <div class="lg-track lg-slides">${b.slides.map((sl, i) => `<article class="lg-slide" aria-roledescription="slide" aria-label="${i + 1} of ${b.slides.length}">${sl.image ? (b.single ? `<a href="${esc(sl.image)}" target="_blank" rel="noopener" aria-label="Open the picture full size"><img src="${esc(sl.image)}" alt="${esc(sl.alt || '')}" loading="lazy"></a>` : `<img src="${esc(sl.image)}" alt="${esc(sl.alt || '')}" loading="lazy">`) : ''}<div class="lg-slide-tx">${sl.title ? `<h4>${sl.title}</h4>` : ''}${sl.text ? `<p>${sl.text}</p>` : ''}${sl.blocks ? inner(sl.blocks, a) : ''}</div></article>`).join('')}</div>
     <div class="lg-car-nav"><button type="button" class="lg-car-btn" data-car="-1" aria-label="Previous slide">${icon('left')}</button><span class="lg-dots" aria-hidden="true">${b.slides.map((_, i) => `<i${i ? '' : ' class="on"'}></i>`).join('')}</span><button type="button" class="lg-car-btn" data-car="1" aria-label="Next slide">${icon('arrow')}</button></div></div></section>`;
