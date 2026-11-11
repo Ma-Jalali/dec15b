@@ -28,7 +28,7 @@ window.DEC10_PLAYBOOK['d10w3d3'] = {
       planB: 'No wall or no printer: groups write their two phrases on the whiteboard and the class ticks favourites, as the activity says. Or skip it and run the Phrase mingle and the on-screen sort as written.'
     },
     {
-      n: 2, section: 'style', activity: 'b4', title: 'Style detectives: board race', kind: 'Board race', minutes: 15,
+      n: 2, section: 'style', activity: 'b4', title: 'Style detectives: board race', kind: 'Board race', minutes: 10,
       why: 'Teams must name the problem AND find the exact words in the draft, and the class challenges wrong labels. This is the same job as the Spot it task, but faster, louder and with a reason given every time.',
       setup: [
         'Before class: divide the whiteboard into two halves (Round 1 / Round 2). Round 1 labels across the top: <b>Contraction · Question · I / we · And / So first · Repetition · Too certain</b>. Round 2 labels: <b>Idiom · Phrasal verb · Vague word · Chatty phrase</b>.',
@@ -40,8 +40,7 @@ window.DEC10_PLAYBOOK['d10w3d3'] = {
         '<b>Round 1 (4 min):</b> teams read the draft at their desks and agree on one example. One runner goes to the board and writes the sentence number + exact words under a label, e.g. <i>(7) isn’t</i> under Contraction, then runs back. The next runner goes. 1 point per correct new item; a repeat = 0.',
         'Stop. Check Round 1 together (1 min). Any team can <b>challenge</b> a wrong item: <i>“That’s not too certain — it’s chatty.”</i> A correct challenge steals the point.',
         '<b>Round 2 (3 min):</b> same race with the vocabulary labels.',
-        '<b>Fix it at the board (3 min):</b> point at three items. The team that wrote it says a more academic version: <i>“figure out → determine”</i>. Write the best version next to it in green.',
-        'Pairs sit and tap the on-screen <b>Spot it</b> tasks to check what the board missed (2 min). Leave the board up — it helps in the Rewrite relay (b5).'
+        'Pairs sit and tap the on-screen <b>Spot it</b> tasks to check what the board missed (1 min). Leave the board up: it helps in b5.'
       ],
       say: [
         '“In sentence 3, ‘figure out’ is a phrasal verb, so it sounds too informal.”',
@@ -111,7 +110,7 @@ window.DEC10_PLAYBOOK['d10w3d3'] = {
         'The email (a3) is optional. If time is short, do the role play “Be the lecturer” with the sample email in the fold instead of new writing.',
         'Collect the a3 exit tickets (rule + phrase) — they show you who still writes “Hi teacher”.'
       ],
-      creative: 'Turn the stage into a “day in an online group project”: the stand up/sit down cards are the group chat rules, the comment wall is the group’s shared document, and the email is the message the group sends to the lecturer at the end. Tell the story as you move from activity to activity (“Now your group has a draft … now you need help from your lecturer …”), so the three activities feel like one task.',
+      creative: 'Run the stage as a “makeover” with Sam as the guest: Sam’s draft (b2) is the “before” photo, the teacher’s feedback (b3) is the diagnosis, the edited version (b6–b7) is the makeover, and the students’ own rewrite (b8) is the “after” photo. Put a big BEFORE / AFTER box on the board and fill AFTER bit by bit.',
       watch: [
         'Students mix up “polite” and “formal”: a comment in a shared document can be short and friendly (“Spot on!”), an email to a lecturer cannot. Ask: “Who is reading it?”',
         'The phrase mingle can become silent swapping. Insist that students read the phrase aloud and that the partner guesses the job before swapping.',
@@ -121,11 +120,11 @@ window.DEC10_PLAYBOOK['d10w3d3'] = {
     style: {
       tips: [
         'The stage now runs in five clear steps: Lead-in (b1) → Context (b2, Sam’s draft) → Presentation (b3 rules, b6 model, b7 how) → Practice (b4 spot, b5 rephrase, b9 choose/complete/correct) → Production (b8 rewrite). Write the five steps on the board and tick them off, so students always know where they are.',
-        'Keep the draft (b2) in view for the whole stage: students return to it in b4, b5 and b8. Ask them to copy it into their digital notebook at the start.',
-        'Use the b1 board list as your “checklist board” all stage: tick each feature when it comes up again in b3 and b4.',
-        'Students have already seen the edited version (b6) as the model. In the Rewrite relay (b5), ask them to close it and work from memory, then check. Walk round and praise brave attempts, not only correct ones.',
-        'The Human sentence (b7) is the clearest moment for nominalisation — slow down and let the class give the instructions.',
-        'Give real writing time in b8 (at least 8 minutes of silence). The gallery walk only works if everyone has a sentence.'
+        'Keep the draft (b2) in view for the whole stage: students return to it in b4, b5 and b8.',
+        'Use the b1 class list on the board as your checklist all stage: in b3, tick each feature the teacher’s feedback confirms and add the missing ones.',
+        'b3 is the real presentation: check the four “before → after” rules with concept questions (“Is ‘will definitely’ certain or careful? Which word makes it careful?”) before moving on.',
+        'In b5, students have already seen the edited version (b6): they close it, work from memory, then check.',
+                'Give real writing time in b8 (at least 10 minutes of silence), then 4 minutes for the peer check.'
       ],
       creative: 'Run the stage as a “makeover show” with Sam as the guest: the three voices in b1 are the warm-up, Sam’s draft (b2) is the “before” photo, the teacher’s feedback (b3) is the diagnosis, the edited version (b6–b7) is the makeover, b4–b9 are the students’ own training, and b8 is their “after” photo. Put a big BEFORE / AFTER box on the board, write one draft sentence in BEFORE and fill AFTER bit by bit.',
       watch: [

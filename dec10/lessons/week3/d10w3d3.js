@@ -7,10 +7,12 @@
    Activity ids are the keys of saved work — never rename them.
    Round 2 (student-centred): movement games (stand up/sit down, mingles, line-ups, corners, speed-dating circles,
    snowball, gallery walks, human sentence), group roles, "Use it" steps, phrase-of-the-day stickies and exit tickets.
-   11A (v7.1, dec10/design/LESSON-DESIGN.md): five clear stages, shown as a chip on each activity —
-   1 Lead-in b1 (same news, three voices → register → goal → TB brainstorm) · 2 Context b2 (Sam’s draft) ·
-   3 Presentation b3 rules, b6 model (no gate now), b7 how · 4 Practice b4 spot, b5 rephrase, b9 choose/complete/correct ·
-   5 Production b8 (TB rewrite; own topic as extension). Activity ids unchanged; TB texts, questions and tasks unchanged. */
+   11A (v7.2, dec10/design/LESSON-DESIGN.md): five clear stages, shown as a chip on each activity —
+   1 Lead-in b1 (three voices → register → goal → TB brainstorm) · 2 Context b2 (Sam’s draft + a reply to Sam) ·
+   3 Presentation b3 rules (+ four rules before → after, certainty meter), b6 model, b7 how · 4 Practice b4 spot,
+   b5 rephrase from memory, b9 choose/complete/correct (style errors only) · 5 Production b8 (TB rewrite + peer check;
+   own topic as extension). Quality pass: repeated drills, duplicate line-ups, mingles, relay, gallery walk and exit
+   ticket removed. Activity ids unchanged; TB texts, questions and tasks unchanged. */
 window.DEC15_LESSON = {
   id: "d10w3d3",
   week: 3,
@@ -378,14 +380,14 @@ window.DEC15_LESSON = {
         {
           id: "b1",
           short: "Lead-in",
-          minutes: 10,
+          minutes: 8,
           grouping: "Pair → Class",
           category: "1 · Lead-in",
           art: "dec10/assets/week3/v/v-d10w3d3-b1.svg",
           title: "Features of academic writing",
           goal: "Notice how the same idea can sound chatty or academic, then list what makes a text academic.",
           blocks: [
-            {"type":"do","n":1,"who":"pair","text":"<b>Same news, three voices.</b> These three texts say the same thing. Who wrote each one? Match them, then compare with your partner."},
+            {"type":"do","n":1,"who":"pair","text":"<b>Same news, three voices.</b> These three texts say the same thing. Who wrote each one? Match them (1 minute)."},
             {
               type: "match",
               id: "b1-who",
@@ -397,21 +399,13 @@ window.DEC15_LESSON = {
               ],
               right: ["a friend’s text message","a news headline","a university research paper"]
             },
-            {"type":"do","n":2,"who":"class","text":"<b>Stand on the line.</b> One wall is <i>chatty</i>, the other wall is <i>academic</i>. Your teacher reads A, B and C in a mixed order. Walk to where each one belongs on the line below. Then tell a partner: <i>“C sounds academic because …”</i>"},
+            {"type":"do","n":2,"who":"pair","text":"Only C could go in your research summary. <b>Find two differences</b> between A and C: which words make A chatty, and which words make C academic?"},
             {
               type: "key",
               title: "Register",
               points: [
                 "Academic writing requires a certain level of <b>formality</b> and <b>style of language</b> (which we call ‘<b>register</b>’) to make it appropriate for academic contexts.",
                 "In this lesson we will be looking at what makes a text academic."
-              ]
-            },
-            {
-              type: "key",
-              title: "Today’s goal",
-              points: [
-                "You will learn what makes writing academic, then use it to <b>rewrite a student’s paragraph</b>. You need this skill for your <b>research summary</b>, the <b>Integrated Writing</b> task and every university assignment.",
-                "Today’s journey: <b>Lead-in</b> → <b>Context</b> (Sam’s draft) → <b>Presentation</b> (the rules and a model) → <b>Practice</b> → <b>Production</b> (your rewrite)."
               ]
             },
             {
@@ -422,38 +416,28 @@ window.DEC15_LESSON = {
               caption: "Register is a slider: the same idea can sound chatty or academic."
             },
             {
+              type: "key",
+              title: "Today’s goal",
+              points: [
+                "You will learn what makes writing academic, then use it to <b>rewrite a student’s paragraph</b>. You need this skill for your <b>research summary</b>, the <b>Integrated Writing</b> task and every university assignment.",
+                "Today’s steps: <b>Lead-in</b> → <b>Context</b> (Sam’s draft) → <b>Presentation</b> (the rules and a model) → <b>Practice</b> → <b>Production</b> (your rewrite)."
+              ]
+            },
+            {
               type: "do",
               n: 3,
               who: "pair",
               text: "<b>Brainstorm (2 minutes).</b> What are some features of academic style in writing? Some of them you have already learnt about in DEC 10 and previous courses. <b>Work together and make a list.</b>"
             },
-            {"type":"tip","text":"<b>Start with text C.</b> What do you notice? A noun phrase (<i>the emergence of</i>), a cause phrase (<i>can be attributed to</i>), a reference (<i>Bawa, 2024</i>) … Add more features you know."},
-            {"type":"sticky","title":"For example …","text":"use of noun phrases or nominalisations","color":"yellow"},
+            {"type":"tip","text":"<b>Start with text C.</b> It has a noun phrase (<i>the emergence of</i>), a cause phrase (<i>can be attributed to</i>) and a reference (<i>Bawa, 2024</i>). What else do you know from DEC10?"},
             {"type":"fields","fields":[{"id":"b1-list","label":"Our list of features of academic style","rows":6,"placeholder":"1. noun phrases / nominalisations\n2. …\n3. …"}]},
-            {
-              type: "steps",
-              title: "Board relay race (4 minutes)",
-              items: [
-                {"who":"class","text":"Your teacher draws two big columns on the board: <b>Team A</b> and <b>Team B</b> (half the class each)."},
-                {"who":"alone","text":"One person from each pair <b>runs</b> to the board, writes <b>one</b> feature in the team column and runs back. The next pair goes."},
-                {"who":"class","text":"No repeats! A feature that is already on the board = no point. Each new feature = <b>1 point</b>. Most points wins."}
-              ]
-            },
-            {
-              type: "language",
-              title: "Useful language: talking about style",
-              groups: [
-                {"label":"Describe a feature","phrases":["<b>One feature of</b> academic style <b>is</b> …","Academic writing <b>tends to</b> use …","<b>It is more common to</b> use … <b>than</b> …"]},
-                {"label":"Say what to avoid","phrases":["Academic writers <b>usually avoid</b> …","… <b>is generally not used in</b> academic writing.","<b>Instead of</b> “…”, <b>it is better to</b> write “…”."]}
-              ]
-            },
-            {"type":"do","n":4,"who":"alone","text":"Keep your list. You will check it against the teacher’s rules in the Presentation stage."}
+            {"type":"do","n":4,"who":"class","text":"Share one feature each. Your teacher writes the class list on the board. Keep your own list: you will check it against the teacher’s rules soon."}
           ]
         },
         {
           id: "b2",
           short: "Context",
-          minutes: 7,
+          minutes: 6,
           grouping: "Alone → Pair",
           category: "2 · Context",
           art: "dec10/assets/week3/v/v-d10w3d3-b2.svg",
@@ -462,59 +446,33 @@ window.DEC15_LESSON = {
           blocks: [
             {"type":"sticky","title":"Meet Sam","text":"Sam is a DEC student. Tomorrow he must submit his research summary. Tonight he sends you his draft: “Can you read it? Is it academic enough?”","color":"yellow"},
             {"type":"do","n":1,"who":"alone","text":"<b>Read (3 minutes).</b> Read this research summary draft written by a DEC student. <b>Is it written in appropriate academic register? Why/why not?</b>"},
-            {"type":"tip","text":"<b>First read for the general picture only.</b> You will look at the details later. <b>Two words you may need:</b> <b>sustainability consultant</b>: an expert who advises companies on how to reduce their impact on the environment and society · <b>fines</b>: money you must pay as a punishment for breaking a rule or law."},
+            {"type":"tip","text":"<b>Two words you may need:</b> <b>sustainability consultant</b>: an expert who advises companies on how to reduce their impact on the environment and society · <b>fines</b>: money you must pay as a punishment for breaking a rule or law."},
             {
               type: "passage",
               id: "b2-draft",
               title: "Research Summary (Draft)",
               text: "(1) The job market is really changing, and one of the great new trends is that there are more sustainability consultants. (2) Sustainability consultants are stepping into the spotlight, helping companies that want to be more eco-friendly and follow the rules about the environment. (3) They help businesses figure out how to use resources wisely. (4) And they teach them how to take care of the planet while still making a profit. (5) Why are they becoming so popular? (6) I think sustainability consultants do a lot to help companies plan for the future. (7) This isn't just about avoiding fines or negative press. (8) It's about being responsible for their environmental and social impact. (9) As we all know, everyone from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to put sustainability at the top of their list."
             },
-            {"type":"tip","text":"Copy the paragraph into your digital notebook (or use the highlighter above). You will mark it up later in this lesson."},
-            {
-              type: "steps",
-              title: "Opinion line-up (4 minutes)",
-              items: [
-                {"who":"class","text":"<b>Stand up.</b> One wall is “Not academic at all”. The other wall is “Very academic”. Stand on the line where <b>you</b> agree."},
-                {"who":"pair","text":"Explain your place to the person next to you. Give <b>two reasons</b> from the text (use the language bank below)."},
-                {"who":"class","text":"Your teacher asks one person from each end. Changed your mind? Move!"}
-              ]
-            },
-            {
-              type: "figure",
-              src: "dec10/assets/week3/d3-move-lineup.svg",
-              size: "wide",
-              alt: "Opinion line-up: an arrow on the floor runs from “Not academic at all” to “Very academic”. Students stand on the line where they agree and explain to the person next to them, for example “It uses contractions, so it’s not academic.”",
-              caption: "Stand where you agree. Give two reasons."
-            },
-            {"type":"do","n":2,"who":"alone","text":"Back at your desk: record your final verdict."},
-            {
-              type: "scale",
-              id: "b2-scale",
-              title: "Your verdict",
-              statement: "This draft is written in an appropriate academic register.",
-              ends: ["Strongly disagree","Strongly agree"],
-              mid: "Not sure",
-              answer: 10,
-              why: "No, it isn’t. It has good ideas, but it sounds like spoken English: contractions, a question, “I think”, idioms and phrasal verbs."
-            },
+            {"type":"do","n":2,"who":"pair","text":"Compare your answers. Then write a short reply to Sam: one thing that is good and <b>two problems</b>, each with a sentence number."},
             {
               type: "language",
-              title: "Say it in the line-up",
+              title: "Reply to Sam",
               groups: [
-                {"label":"Judge a text","phrases":["<b>I don’t think</b> this is academic <b>because</b> …","Sentence (5) <b>sounds too</b> informal <b>because</b> …","<b>It reads more like</b> a blog post / spoken English.","<b>On the positive side</b>, the ideas are …"]}
+                {"label":"Be kind, then be specific","phrases":["<b>On the positive side</b>, your ideas are …","<b>However</b>, sentence (5) <b>sounds too</b> informal <b>because</b> …","<b>It reads more like</b> spoken English / a blog post."]}
               ]
-            }
+            },
+            {"type":"fields","fields":[{"id":"b2-reply","label":"My reply to Sam","rows":3,"placeholder":"On the positive side, your ideas are clear. However, sentence (5) is a question, and …"}]}
           ]
         },
         {
           id: "b3",
           short: "The rules",
-          minutes: 8,
+          minutes: 10,
           grouping: "Pair → Class",
           category: "3 · Presentation",
           art: "dec10/assets/week3/v/v-d10w3d3-b3.svg",
           title: "Teacher feedback on the draft",
-          goal: "How many of the teacher’s points did you find? Which ones are new to you?",
+          goal: "Learn the teacher’s rules of academic style, and understand the four that need a closer look.",
           blocks: [
             {"type":"sticky","title":"Sam’s teacher replies …","text":"Sam also sent his draft to his teacher. Here is the feedback. These points are today’s rules of academic style.","color":"yellow"},
             {
@@ -523,16 +481,7 @@ window.DEC15_LESSON = {
               who: "pair",
               text: "Look at the feedback that the student received from their teacher on their draft. How many of the feedback points did you identify earlier? Which ones have you not heard before?"
             },
-            {
-              type: "steps",
-              title: "Expert pairs · teach-back in 60 seconds",
-              items: [
-                {"who":"class","text":"Your teacher gives each pair <b>two or three numbers</b> from the feedback list (e.g. 3 + 4 + 5)."},
-                {"who":"pair","text":"Read <b>only your points</b>. Find one example in the draft for each. (2 minutes)"},
-                {"who":"group","text":"Turn to the pair behind you. Teach your points in <b>60 seconds</b>: <i>“Our point is … For example, in sentence … the writer …”</i>. Then listen to theirs."},
-                {"who":"class","text":"<b>Stand up if you had it.</b> Your teacher reads each point. Stand if it was on your list from the last activity. Then mark the grid below."}
-              ]
-            },
+            {"type":"tip","text":"Tick the points on your list from the Lead-in and in your reply to Sam. Circle the ones that are new for you."},
             {
               type: "model",
               title: "Teacher feedback",
@@ -560,26 +509,23 @@ window.DEC15_LESSON = {
               alt: "Twelve features of academic style in two groups. Grammar and structure: nominalisations, referencing, no sentence-initial and, but, so, no contractions, no direct questions, no repetition (use summary nouns), hedging, impersonal style. Vocabulary: no idioms, specialised words, precise words, no phrasal verbs or chatty words.",
               caption: "The teacher’s feedback as a checklist: 8 grammar and structure points, 4 vocabulary points."
             },
+            {"type":"do","n":2,"who":"pair","text":"<b>Four rules need a closer look.</b> Read each <i>before → after</i> example and tap it to see the rule. Then cover the <i>after</i> sentence and say it from memory."},
             {
-              type: "grid",
-              id: "b3-grid",
-              title: "Compare with your list",
-              columns: ["Was it on our list?"],
-              options: ["Yes, we had it","New for us"],
-              rows: [
-                "Nominalisations",
-                "Referencing ideas from sources",
-                "No ‘and’, ‘but’, ‘so’ at the start of sentences",
-                "No contractions",
-                "No direct questions",
-                "No repetition — use general nouns / summary phrases",
-                "Hedging (degrees of certainty)",
-                "Impersonal style — no ‘I’, ‘we’, ‘us’, ‘our’",
-                "No idiomatic language",
-                "Specialised vocabulary",
-                "Precise words, not vague ones (‘put’, ‘did’)",
-                "No phrasal verbs / informal speech"
+              type: "pairs",
+              title: "Four rules, before and after",
+              items: [
+                {"from":"Companies are using resources more efficiently, and this saves them money.","to":"[[The more efficient use of resources]] saves companies money.","tag":"Nominalisation: turn a verb or a clause into a noun phrase.","note":"Noun phrases carry more information in fewer words and sound more objective."},
+                {"from":"Green jobs will definitely grow in the next ten years.","to":"Green jobs [[are likely to]] grow in the next ten years.","tag":"Hedging: show the right level of certainty.","note":"Use <i>may, might, is likely to, tends to, it is possible that</i>. Avoid <i>definitely, always, never, everyone</i>."},
+                {"from":"Sustainability consultants are in demand. Sustainability consultants help companies follow environmental laws.","to":"Sustainability consultants are in demand. [[These experts]] help companies comply with environmental laws.","tag":"A summary noun (general noun) avoids repetition.","note":"Other examples: <i>these professionals, this trend, this approach</i>."},
+                {"from":"I think green skills are becoming more important.","to":"[[Green skills appear to be]] becoming increasingly important.","tag":"Impersonal style: no ‘I’ or ‘we’. Let the evidence speak.","note":"Other options: <i>Evidence suggests that …, It could be argued that …</i>"}
               ]
+            },
+            {
+              type: "figure",
+              src: "dec10/assets/week3/d3-certainty.svg",
+              size: "wide",
+              alt: "A certainty meter from 100% to about 30%. At the top, too certain for academic writing: will definitely, always, everyone, really. Below, hedged academic language: is likely to, tends to, may, might, could, it is possible that.",
+              caption: "Hedging: move down the meter. Academic writers show caution."
             },
             {
               type: "talk",
@@ -590,8 +536,8 @@ window.DEC15_LESSON = {
         {
           id: "b6",
           short: "The model",
-          minutes: 7,
-          grouping: "Pair → Class mingle",
+          minutes: 8,
+          grouping: "Pair",
           category: "3 · Presentation",
           art: "dec10/assets/week3/v/v-d10w3d3-b6.svg",
           title: "The edited version",
@@ -602,7 +548,7 @@ window.DEC15_LESSON = {
               type: "do",
               n: 1,
               who: "pair",
-              text: "Sit down with your partner. Read the student’s rewrite of the paragraph in a more academic style. Identify the phrases the student has used to replace the informal language. You will use them again in the Practice stage."
+              text: "Read the student’s rewrite of the paragraph in a more academic style. Identify the phrases the student has used to replace the informal language. You will use them again in the Practice stage."
             },
             {
               type: "passage",
@@ -647,25 +593,7 @@ window.DEC15_LESSON = {
                 "it is likely",
                 "sustainability will remain a priority"
               ]
-            },
-            {
-              type: "steps",
-              title: "Find your partner (4 minutes)",
-              items: [
-                {"who":"class","text":"<b>Now stand up!</b> Your teacher gives everyone one card. Half the cards are <b>informal</b> (a–n in the match below), half are <b>formal</b>."},
-                {"who":"class","text":"<b>Stand up.</b> Read your card aloud to classmates: <i>“I have ‘cares about’. Are you my formal partner?”</i>"},
-                {"who":"pair","text":"Found your partner? Stand together. Make one academic sentence about green jobs with the formal phrase. Say it to another pair."}
-              ]
-            },
-            {"type":"tip","text":"<b>Paper cards?</b> Your teacher may give you one informal or formal card to find your partner. No cards? Your teacher says one informal phrase from the match below — the first person to say the formal partner wins a point."},
-            {
-              type: "figure",
-              src: "dec10/assets/week3/d3-move-mingle.svg",
-              size: "wide",
-              alt: "Find your partner: half the class has an informal card, half has a formal card. Stand up, read your card aloud and find your partner, for example “cares about” and “values”, “will definitely” and “it is likely”, “there are more” and “the emergence of”. Stand together and read the academic sentence.",
-              caption: "Informal card + formal card = partners."
-            },
-            {"type":"do","n":2,"who":"pair","text":"<b>Read-aloud swap.</b> Student A reads an informal phrase. Student B closes the table and says the formal one from memory. Then swap."}
+            }
           ]
         },
         {
@@ -710,23 +638,6 @@ window.DEC15_LESSON = {
               ]
             },
             {
-              type: "steps",
-              title: "Human sentence (3 minutes)",
-              items: [
-                {"who":"class","text":"Four volunteers stand at the front. Each holds one draft sentence on paper: <b>(5)</b>, <b>(6)</b>, <b>(7)</b>, <b>(8)</b>."},
-                {"who":"class","text":"Three more volunteers hold the new parts: <i>The rising popularity of sustainability consultants</i> · <i>can be attributed to</i> · <i>their pivotal role in planning for long-term environmental, legal and social responsibilities</i>."},
-                {"who":"class","text":"The class gives instructions: <i>“Sentence 5, please sit down — it’s a question.”</i> · <i>“Noun phrase, stand on the left.”</i> Build revised sentence (4) with people!"}
-              ]
-            },
-            {"type":"tip","text":"<b>Big paper signs?</b> Your teacher may give the volunteers signs to hold. No signs? Volunteers read their part aloud from the pairs below (or write it on a sheet of paper)."},
-            {
-              type: "figure",
-              src: "dec10/assets/week3/d3-combine.svg",
-              size: "wide",
-              alt: "Eleven short draft sentences flow into seven revised sentences. Draft sentences 3 and 4 join into revised sentence 3 with ‘and’ and noun phrases. Draft sentences 5, 6, 7 and 8 join into revised sentence 4 with one long noun phrase as the subject.",
-              caption: "11 sentences → 7 sentences: combining + noun phrases."
-            },
-            {
               type: "pairs",
               title: "Which sentences have been combined? How has the writer done this?",
               items: [
@@ -743,18 +654,13 @@ window.DEC15_LESSON = {
                   note: "Longer noun phrases. More concise language — e.g. This isn’t just about avoiding fines or negative press → legal responsibilities."
                 }
               ]
-            },
-            {
-              type: "talk",
-              title: "Use it",
-              prompts: ["Explain to your partner, in your own words, how draft sentences 5–8 became one sentence.","Make your own sentence with <b>can be attributed to</b> about green jobs: <i>The growth in … can be attributed to …</i>"]
             }
           ]
         },
         {
           id: "b4",
           short: "Spot it",
-          minutes: 15,
+          minutes: 10,
           grouping: "Pair",
           category: "4 · Practice",
           art: "dec10/assets/week3/v/v-d10w3d3-b4.svg",
@@ -773,13 +679,6 @@ window.DEC15_LESSON = {
                 "(6) [[*I think]] sustainability consultants do a lot to help companies [[plan for the future]]. (7) This [[*isn't]] just about avoiding fines or negative press. (8) [[*It's]] about being responsible for their environmental and social impact. (9) As we all know, [[*everyone]] from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate [[(Holt, 2023)]]. (11) [[*So]], moving forward, companies [[*will definitely]] continue to put sustainability at the top of their list."
               ]
             },
-            {
-              type: "figure",
-              src: "dec10/assets/week3/d3-certainty.svg",
-              size: "wide",
-              alt: "A certainty meter from 100% to about 30%. At the top, too certain for academic writing: will definitely, always, everyone, really. Below, hedged academic language: is likely to, tends to, may, might, could, it is possible that.",
-              caption: "Hedging: move down the meter. Academic writers show caution."
-            },
             {"type":"do","n":2,"who":"pair","text":"<b>Round 2 — same race.</b> Sit down first! Now find the informal vocabulary."},
             {
               type: "spot",
@@ -790,15 +689,6 @@ window.DEC15_LESSON = {
               paras: [
                 "(1) The job market is really changing, and one of the [[*great]] new trends is that there are more sustainability consultants. (2) Sustainability consultants are [[*stepping into the spotlight]], helping companies that want to be more eco-friendly and follow the rules about [[the environment]]. (3) They help businesses [[*figure out]] how to use resources wisely. (4) And they teach them how to [[*take care of]] the planet while still making a profit. (5) Why are they becoming so popular?",
                 "(6) I think sustainability consultants do [[*a lot]] to help companies plan for the future. (7) This isn't just about avoiding [[fines]] or negative press. (8) It's about being responsible for their [[environmental and social impact]]. (9) [[*As we all know]], everyone from tech firms to banks, can see the value of bringing sustainability [[*into the mix]]. (10) As Holt says, this trend towards a workforce that [[*cares about]] both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to [[*put]] sustainability [[*at the top of their list]]."
-              ]
-            },
-            {
-              type: "steps",
-              title: "Use it · Fix it aloud",
-              items: [
-                {"who":"pair","text":"Student A points to one phrase you found and says the teacher’s point: <i>“‘Figure out’ is a phrasal verb, so it sounds too informal.”</i>"},
-                {"who":"pair","text":"Student B says the sentence again in a more academic way (try — it doesn’t need to be perfect). Swap roles."},
-                {"who":"pair","text":"Bonus: the draft has no nominalisations and one idea is not referenced properly. Can you find where?"}
               ]
             },
             {
@@ -828,36 +718,18 @@ window.DEC15_LESSON = {
         {
           id: "b5",
           short: "Rephrase",
-          minutes: 9,
-          grouping: "Groups of 4",
+          minutes: 10,
+          grouping: "Pair",
           category: "4 · Practice",
           art: "dec10/assets/week3/v/v-d10w3d3-b5.svg",
           title: "Vocabulary analysis",
-          goal: "Try to rewrite informal expressions in a more academic style — your own ideas first, as a team relay.",
+          goal: "Rewrite the informal expressions in academic style from memory, then check with the edited version.",
           blocks: [
             {
               type: "do",
               n: 1,
               who: "pair",
               text: "Look at the table with the informal language taken from the text. How could you rewrite these expressions in a more academic style? Write your ideas in the middle column. <b>Close the edited version</b> and work from memory. At the end, check it and write the formal phrase in the last column."
-            },
-            {
-              type: "steps",
-              title: "Rewrite relay (groups of 4)",
-              items: [
-                {"who":"group","text":"Share the lines: Student 1 = a–d · Student 2 = e–h · Student 3 = i–k · Student 4 = l–n. You have <b>4 minutes</b> for your lines."},
-                {"who":"group","text":"<b>Stand up and move one seat to the left.</b> Read the next person’s ideas. Improve <b>one</b> of them (2 minutes)."},
-                {"who":"group","text":"Move back. Read the improvements aloud. Copy the best ideas into your table."}
-              ]
-            },
-            {
-              type: "language",
-              title: "Tools for a more academic version",
-              groups: [
-                {"label":"Use a noun phrase","phrases":["<b>the rise of</b> … · <b>the emergence of</b> … · <b>the growth in</b> …","<b>the efficient use of</b> … · <b>changes in</b> …"]},
-                {"label":"Choose a precise verb","phrases":["follow → <b>comply with / adhere to</b>","help → <b>assist / guide / support</b>","see the value → <b>recognise the importance</b>"]},
-                {"label":"Hedge","phrases":["<b>It is likely that</b> …","companies <b>may / are likely to</b> …","… <b>tends to</b> …"]}
-              ]
             },
             {
               type: "table",
@@ -880,18 +752,13 @@ window.DEC15_LESSON = {
                 "m. will definitely",
                 "n. continue to put sustainability at the top of their list"
               ]
-            },
-            {
-              type: "talk",
-              title: "Class vote",
-              prompts: ["Your teacher reads lines a, c and m. Each group shouts out its best idea. The class votes with hands up — and one person says why the winner is better.","Which line was the hardest to rewrite? Why?"]
             }
           ]
         },
         {
           id: "b9",
           short: "Practise",
-          minutes: 13,
+          minutes: 15,
           grouping: "Alone → Pair",
           category: "4 · Practice",
           art: "dec10/assets/lab/s-practise.svg",
@@ -902,8 +769,7 @@ window.DEC15_LESSON = {
               type: "key",
               title: "Words that make it academic",
               points: [
-                "Many of the words in the edited version are on the <b>Academic Word List</b>, the words that appear in university texts in every subject.",
-                "Learn each word with its <b>family</b> (verb → noun) and the words it <b>goes with</b> (collocations). The noun often makes the sentence more academic: <i>how to use resources</i> → <i>the efficient <b>utilisation</b> of resources</i>."
+                "Many words in the edited version are on the <b>Academic Word List</b>: they appear in university texts in every subject. Learn each one with its <b>family</b> (verb → noun) and its <b>collocations</b>."
               ]
             },
             {
@@ -942,20 +808,18 @@ window.DEC15_LESSON = {
               answers: ["transformation","emergence","regulations","attributed","integration","priority","financial","likely"],
               why: ["undergo a significant <b>transformation</b>: a noun after ‘a significant’.","the <b>emergence</b> of new roles: something new appears.","environmental <b>regulations</b>: official rules (plural noun).","can be <b>attributed</b> to: cause and effect.","the <b>integration</b> of X into Y: a noun after ‘the’.","become a <b>priority</b>: something very important.","<b>financial</b> reasons: an adjective before the noun ‘ones’ (reasons).","It is <b>likely</b> that …: hedging."]
             },
-            {"type":"part","n":3,"title":"Correct","goal":"Can you find the mistake before your reader does?"},
-            {"type":"do","n":3,"who":"pair","text":"Each sentence has <b>one</b> mistake that a university reader would notice. Find it and write the correct sentence. Student A does 1–4, Student B does 5–8. Then explain your corrections to each other."},
+            {"type":"part","n":3,"title":"Correct","goal":"Can you find the style problem before your reader does?"},
+            {"type":"do","n":3,"who":"pair","text":"Each sentence has <b>one</b> feature that is not academic. Find it and write the sentence again in academic style. Student A does 1–3, Student B does 4–6. Then explain your corrections to each other."},
             {"type":"tip","text":"<b>Short on time?</b> Do Parts 1 and 2 in class and finish Part 3 for homework."},
             {
               type: "rewrite",
               id: "b9-fix",
-              title: "Find the mistake and correct it",
-              hint: "Change only the mistake. The rest of the sentence stays the same.",
+              title: "Find the problem and correct it",
+              hint: "Change only the part that is not academic. The rest of the sentence stays the same.",
               items: [
                 {"q":"Companies don’t always comply with environmental regulations.","accept":["Companies do not always comply with environmental regulations."],"model":"Companies do not always comply with environmental regulations.","why":"No contractions in academic writing."},
-                {"q":"Stricter laws have effected the way companies operate.","accept":["Stricter laws have affected the way companies operate."],"model":"Stricter laws have affected the way companies operate.","why":"<i>Affect</i> is the verb, and <i>effect</i> is the noun (Essay Activator, Effects)."},
-                {"q":"Researches show that green skills are in high demand.","accept":["Research shows that green skills are in high demand.","Studies show that green skills are in high demand."],"model":"Research shows that green skills are in high demand.","why":"<i>Research</i> is uncountable, so never write ‘researches’ (Essay Activator, Study & Research). Use <i>studies</i> for a plural."},
-                {"q":"There has been an increase of the number of sustainability consultants.","accept":["There has been an increase in the number of sustainability consultants."],"model":"There has been an increase in the number of sustainability consultants.","why":"An increase <b>in</b> something, but an increase <b>of</b> 15% (Essay Activator, Increasing)."},
-                {"q":"Many industries, such as, energy and transport need sustainability experts.","accept":["Many industries, such as energy and transport, need sustainability experts.","Many industries such as energy and transport need sustainability experts."],"model":"Many industries, such as energy and transport, need sustainability experts.","why":"No comma straight after <i>such as</i>. Put the commas around the whole example group (Essay Activator, Giving Examples)."},
+                {"q":"I think green skills are becoming more important.","accept":["Green skills are becoming more important.","Green skills appear to be becoming more important.","Green skills seem to be becoming more important.","It appears that green skills are becoming more important.","Evidence suggests that green skills are becoming more important."],"model":"Green skills appear to be becoming more important.","why":"Impersonal style: no ‘I think’. Use a hedge such as <i>appear to</i> or <i>Evidence suggests that</i>."},
+                {"q":"There are a lot of new jobs in renewable energy.","accept":["There are many new jobs in renewable energy.","There are numerous new jobs in renewable energy.","There are a large number of new jobs in renewable energy.","There are a significant number of new jobs in renewable energy."],"model":"There are a significant number of new jobs in renewable energy.","why":"<i>A lot of</i> belongs in speech. Use <i>many, numerous</i> or <i>a significant number of</i>."},
                 {"q":"So, the role of sustainability consultants is likely to grow.","accept":["Therefore, the role of sustainability consultants is likely to grow.","As a result, the role of sustainability consultants is likely to grow.","Consequently, the role of sustainability consultants is likely to grow."],"model":"Therefore, the role of sustainability consultants is likely to grow.","why":"Do not start a sentence with <i>So</i>, <i>And</i> or <i>But</i>. Use <i>Therefore</i>, <i>As a result</i> or <i>Consequently</i>."},
                 {"q":"Green jobs will definitely grow in the next decade.","accept":["Green jobs are likely to grow in the next decade.","It is likely that green jobs will grow in the next decade.","Green jobs may grow in the next decade.","Green jobs will likely grow in the next decade."],"model":"Green jobs are likely to grow in the next decade.","why":"<i>Definitely</i> is too certain. Hedge with <i>are likely to</i>, <i>may</i> or <i>It is likely that</i>."},
                 {"q":"Holt (2023) argues that businesses must figure out how to reduce waste.","accept":["Holt (2023) argues that businesses must determine how to reduce waste.","Holt (2023) argues that businesses must identify how to reduce waste.","Holt (2023) argues that businesses must establish how to reduce waste."],"model":"Holt (2023) argues that businesses must determine how to reduce waste.","why":"<i>Figure out</i> is a phrasal verb from speech. Use a precise verb: <i>determine</i>, <i>identify</i> or <i>establish</i>."}
@@ -967,21 +831,20 @@ window.DEC15_LESSON = {
             items: [
               ["Part 1 · Choose","1 has increased substantially · 2 adhere to · 3 emergence · 4 utilisation · 5 can be attributed to · 6 A diverse range of · 7 It is likely that · 8 argues"],
               ["Part 2 · Complete","1 transformation · 2 emergence · 3 regulations · 4 attributed · 5 integration · 6 priority · 7 financial · 8 likely (extra words: conservation, utilise)"],
-              ["Part 3 · Correct","1 do not · 2 affected · 3 Research shows · 4 an increase in · 5 such as energy and transport, · 6 Therefore, · 7 are likely to grow · 8 determine"]
+              ["Part 3 · Correct","1 do not · 2 no ‘I think’: Green skills appear to be … · 3 a significant number of / many · 4 Therefore, · 5 are likely to grow · 6 determine"]
             ]
           }
         },
         {
           id: "b8",
           short: "Rewrite",
-          minutes: 14,
+          minutes: 16,
           grouping: "Alone → Pair",
           category: "5 · Production",
           art: "dec10/assets/week3/v/v-d10w3d3-b8.svg",
           title: "Rewrite the paragraph",
           goal: "Rewrite the draft in academic style — using your language table, not the edited version.",
           blocks: [
-            {"type":"sticky","title":"Your turn: be Sam’s editor","text":"Close the edited version. Using the rules and your table, write your own academic version of Sam’s draft. Then compare.","color":"green"},
             {
               type: "key",
               title: "The rules",
@@ -1046,33 +909,14 @@ window.DEC15_LESSON = {
               ]
             },
             {
-              type: "steps",
-              title: "Gallery walk (3 minutes)",
-              items: [
-                {"who":"alone","text":"Write your <b>best academic sentence</b> on a sticky note. Stick it on the wall."},
-                {"who":"class","text":"<b>Walk and read.</b> Put a star on the two sentences that sound the most academic."},
-                {"who":"class","text":"The writers of the top sentences read them aloud. The class says which feature makes them strong."}
-              ]
-            },
-            {
               type: "language",
-              title: "Talk about your rewrite",
+              title: "Peer check: give feedback",
               groups: [
                 {"label":"Explain your changes","phrases":["<b>I replaced</b> “…” <b>with</b> “…” <b>because</b> …","<b>I combined</b> sentences … and … <b>by</b> using …","<b>I added hedging</b>: “it is likely that …”."]},
                 {"label":"Respond to a partner","phrases":["<b>That sounds much more academic.</b>","<b>Could you make</b> this part <b>more precise</b>?","<b>Maybe</b> use a noun phrase <b>here</b>?"]}
               ]
             },
-            {"type":"sticky","title":"Say it like an academic","text":"“It is likely that …” — confident, but careful.","color":"green"},
-            {"type":"do","n":1,"who":"alone","text":"<b>Extension: fast finishers, or homework.</b> Now use the same language for <b>your own</b> writing. Write 5–6 sentences about your group’s research summary topic."},
-            {
-              type: "key",
-              title: "Extension: your own research summary",
-              points: [
-                "Write <b>5–6 sentences</b> in academic style about the green job or trend in <b>your group’s research summary</b>. If you are not sure, choose a job you would like to do after university.",
-                "Say what is changing, <b>why</b> it is happening, and what is <b>likely</b> to happen next. Use one source with a reporting verb if you have one.",
-                "This can become the opening of your research summary presentation or your seminar slides."
-              ]
-            },
+            {"type":"do","n":1,"who":"alone","text":"<b>Extension (fast finishers or homework).</b> Use the same language in <b>your own</b> writing: 5–6 sentences about your group’s research summary topic. Say what is changing, <b>why</b>, and what is <b>likely</b> to happen next. It can become the opening of your presentation."},
             {
               type: "language",
               title: "Frames for your paragraph",
@@ -1105,8 +949,7 @@ window.DEC15_LESSON = {
                 {"label":"‘researches’","any":["researches"]}
               ],
               items: [{"task":"Write 5–6 sentences about your group’s research summary topic.","rows":10,"placeholder":"The emergence of … is transforming … This growth can be attributed to … It is likely that …"}]
-            },
-            {"type":"fields","fields":[{"id":"b8-exit","label":"Exit ticket · one sentence for my own research summary or seminar slides, in academic style","rows":2,"placeholder":"The growth in green jobs can be attributed to …"}]}
+            }
           ]
         }
       ]
