@@ -28,31 +28,7 @@ window.DEC10_PLAYBOOK['d10w3d3'] = {
       planB: 'No wall or no printer: groups write their two phrases on the whiteboard and the class ticks favourites. Or skip it and run the Phrase mingle and the on-screen sort as written.'
     },
     {
-      n: 2, section: 'style', activity: 'b4', title: 'Style detectives: board race', kind: 'Board race', minutes: 10,
-      why: 'Teams must name the problem AND find the exact words in the draft, and the class challenges wrong labels. This is the same job as the Spot it task, but faster, louder and with a reason given every time.',
-      setup: [
-        'Before class: divide the whiteboard into two halves (Round 1 / Round 2). Round 1 labels across the top: <b>Contraction · Question · I / we · And / So first · Repetition · Too certain</b>. Round 2 labels: <b>Idiom · Phrasal verb · Vague word · Chatty phrase</b>.',
-        'Two or three board markers in different colours (one per team). Make teams of 3–4 (4–6 teams); each team gets a colour.',
-        'Keep the draft (b2) open on the students’ laptops — they find the words there.'
-      ],
-      steps: [
-        'Show the labels and check them fast: <i>“Give me an example of a phrasal verb. A hedge?”</i> (1 min).',
-        '<b>Round 1 (4 min):</b> teams read the draft at their desks and agree on one example. One runner goes to the board and writes the sentence number + exact words under a label, e.g. <i>(7) isn’t</i> under Contraction, then runs back. The next runner goes. 1 point per correct new item; a repeat = 0.',
-        'Stop. Check Round 1 together (1 min). Any team can <b>challenge</b> a wrong item: <i>“That’s not too certain — it’s chatty.”</i> A correct challenge steals the point.',
-        '<b>Round 2 (3 min):</b> same race with the vocabulary labels.',
-        'Pairs sit and tap the on-screen <b>Spot it</b> tasks to check what the board missed (1 min). Leave the board up: it helps in b5.'
-      ],
-      say: [
-        '“In sentence 3, ‘figure out’ is a phrasal verb, so it sounds too informal.”',
-        '“I’d like to challenge that. ‘Into the mix’ is an idiom, not a phrasal verb.”',
-        '“‘Will definitely’ is too certain — there is no hedging. A better choice is ‘it is likely that’.”'
-      ],
-      materials: [],
-      stretch: 'Fast teams can add a third label, <b>Missing nominalisation</b>, and write the draft words that could become a noun phrase (“how to use resources” → “the efficient use of resources”).',
-      planB: 'No space or low energy: run the two Spot it tasks on screen as a pair race, as written (“All 10 right? Stand up!”), then do Fix it aloud in pairs.'
-    },
-    {
-      n: 3, section: 'seminar', activity: 'c3', title: 'Discussion map poster', kind: 'Mini-poster (group)', minutes: 10,
+      n: 2, section: 'seminar', activity: 'c3', title: 'Discussion map poster', kind: 'Mini-poster (group)', minutes: 10,
       why: 'Each group builds a one-page map of its discussion while it talks, so the Group 1 presenter (and the class) can SEE agreement, disagreement and the best idea — and the summary in Part 3 becomes easier and more accurate.',
       setup: [
         'Before class: print one Discussion map per seminar group (on A3 if you can) and the Discussion roles cards. Bring 2–3 markers per group and blu-tack.',
@@ -77,7 +53,7 @@ window.DEC10_PLAYBOOK['d10w3d3'] = {
       planB: 'No printer: one sheet of any paper, folded in half (Q1 | Q2), is enough. No energy or no wall: groups discuss as written with the role wheel and the language monitor checklist, and take notes in the on-screen fields.'
     },
     {
-      n: 4, section: 'seminar', activity: 'c7', title: 'The Seminar relay: human timeline', kind: 'Human timeline', minutes: 7,
+      n: 3, section: 'seminar', activity: 'c7', title: 'The Seminar relay: human timeline', kind: 'Human timeline', minutes: 7,
       why: 'Students stand in the order of the Seminar process and explain their step with sequencing language, so everyone (and especially Group 2) knows what happens before Week 4 — the same job as the order task, done with bodies first.',
       setup: [
         'Before class: write 10 steps in big letters on A4 sheets (one per sheet), in this order but do not number them: 1 <b>Group 1 presents the Seminar</b> · 2 <b>Class uploads peer feedback to Group 1’s Portfolio</b> · 3 <b>Group 2 gives the Opening Remarks</b> · 4 <b>Each group posts reactions + questions on the Discussion Board</b> · 5 <b>Group 2 reads the posts and finds common themes</b> · 6 <b>Group 2 selects a focus</b> · 7 <b>Group 2 writes two thought-provoking questions</b> · 8 <b>Group 2 submits Portfolio Submission 1</b> · 9 <b>Group 2 prepares the slides (10–12 min)</b> · 10 <b>Week 4: Group 2 Seminar + Group 3 Opening Remarks</b>.',
@@ -118,14 +94,13 @@ window.DEC10_PLAYBOOK['d10w3d3'] = {
     },
     style: {
       tips: [
-        'The stage now runs in five clear steps: Lead-in (b1) → Context (b2, Sam’s draft) → Presentation (b3 rules, b6 model, b7 how) → Practice (b4 spot, b5 rephrase, b9 choose/complete/correct) → Production (b8 rewrite). Write the five steps on the board and tick them off, so students always know where they are.',
-        'Keep the draft (b2) in view for the whole stage: students return to it in b4, b5 and b8.',
-        'Use the b1 class list on the board as your checklist all stage: in b3, tick each feature the teacher’s feedback confirms and add the missing ones.',
-        'b3 is the real presentation: check the four “before → after” rules with concept questions (“Is ‘will definitely’ certain or careful? Which word makes it careful?”) before moving on.',
-        'In b5, students have already seen the edited version (b6): they close it, work from memory, then check.',
-                'Give real writing time in b8 (at least 10 minutes of silence), then 4 minutes for the peer check.'
+        'The stage runs in five steps: Lead-in (b1) → Context (b2, Sam’s draft) → Presentation (b3 ten rules, b6 the model, b7 how) → Practice (b9 choose / complete / correct) → Production (b8 rewrite). Write the five steps on the board and tick them off.',
+        'b3 is the heart of the lesson. Present the ten rules group by group (structure → voice → vocabulary). For each rule, read Sam’s ✗ sentence, elicit the ✓ version before students read it, then ask the Check-yourself question as a concept check.',
+        'Use the b1 class list on the board as your checklist: in b3, tick each feature the teacher’s feedback confirms and add the missing ones.',
+        'In b6, the sort “Which rule did Sam use?” links the model back to the rules: ask pairs to justify one answer aloud with the rule number.',
+        'Give real writing time in b8 (at least 12 minutes of silence), then 5 minutes for the peer check.'
       ],
-      creative: 'Run the stage as a “makeover show” with Sam as the guest: the three voices in b1 are the warm-up, Sam’s draft (b2) is the “before” photo, the teacher’s feedback (b3) is the diagnosis, the edited version (b6–b7) is the makeover, b4–b9 are the students’ own training, and b8 is their “after” photo. Put a big BEFORE / AFTER box on the board, write one draft sentence in BEFORE and fill AFTER bit by bit.',
+      creative: 'Run the stage as a “makeover show” with Sam as the guest: the three voices in b1 are the warm-up, Sam’s draft (b2) is the “before” photo, the teacher’s feedback (b3) is the diagnosis, the edited version (b6–b7) is the makeover, b9 is the students’ own training, and b8 is their “after” photo. Put a big BEFORE / AFTER box on the board, write one draft sentence in BEFORE and fill AFTER bit by bit.',
       watch: [
         'Over-correction: students make every sentence long and full of big words. Remind them: academic = precise and careful, not difficult. One clear noun phrase is better than three.',
         'Students change the meaning when they rewrite (e.g. “will definitely” → “will never”). Ask: “Does it still say the same thing, only more carefully?”',
