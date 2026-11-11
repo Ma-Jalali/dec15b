@@ -27,6 +27,11 @@ For **every** exercise and block, ask: *Is it useful for the lesson aim? Is ther
 - Practice items must target the lesson aim (e.g. a style lesson practises style, not unrelated accuracy points).
 - Check meaning, not just recognition: if students need a term (e.g. *hedging*), show it before → after and check it.
 
+### Connected tabs: bring the text with you
+When an activity needs a text, model or list from an earlier tab (e.g. a weak draft and its academic version, the rules to look for, a model to check against), put a copy of it **in that activity as a fold (toggle)**, so students can open it and compare without going back to the earlier tab.
+- Put the fold **before** the task that needs it. If students must read it during the task, set it to open; if they should try first (e.g. a model answer), label it “Open only after you try”.
+- Typical folds: *the first draft*, *the edited version*, *the rules/checklist*, *the model answer*.
+
 ### What we must NOT change
 - **Reading and listening texts** (the protected sources in `sources.js`).
 - **The reading and listening questions** (gist, detail, note-taking tables), their answers and their order.
@@ -117,6 +122,7 @@ Every controlled task needs **suggested answers**. Teacher notes say which steps
 - [ ] No reading or listening text, question or exam task was changed. Teacher's Book tasks are still the main tasks.
 - [ ] Every stage helps students get ready for the exam or for university.
 - [ ] Quality pass done: every block is useful, nothing is drilled three times, and movement does a real job.
+- [ ] Connected tabs: every text an activity needs from an earlier tab is there as a fold (toggle).
 - [ ] Blocking words: only a few, presented in a context, guessed, then checked with one simple activity.
 - [ ] A clear real-life or university context, introduced in the lead-in.
 - [ ] Reading/listening: only blocking words pre-taught, then gist → detail → a few useful expressions.

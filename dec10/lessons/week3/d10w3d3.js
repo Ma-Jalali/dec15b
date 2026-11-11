@@ -7,6 +7,10 @@
    Activity ids are the keys of saved work — never rename them.
    Round 2 (student-centred): movement games (stand up/sit down, mingles, line-ups, corners, speed-dating circles,
    snowball, gallery walks, human sentence), group roles, "Use it" steps, phrase-of-the-day stickies and exit tickets.
+   11A connected tabs (v7.5): folds bring the earlier texts into each tab — draft in b3, b6 and b7; edited version in b7 (open),
+   b5 and b8 (open after trying); the teacher's rules in b4 — so students compare without going back.
+   10A quality pass (v7.4): TB homework question shown directly (no spinner); one check (the do/don't sort, no stand-up/sit-down);
+   short phrase mingle, TB phrase sort, the comment thread as a model, one use, one takeaway; email with simple peer feedback.
    11A (v7.2, dec10/design/LESSON-DESIGN.md): five clear stages, shown as a chip on each activity —
    1 Lead-in b1 (three voices → register → goal → TB brainstorm) · 2 Context b2 (Sam’s draft + a reply to Sam) ·
    3 Presentation b3 rules (+ four rules before → after, certainty meter), b6 model, b7 how · 4 Practice b4 spot,
@@ -42,11 +46,11 @@ window.DEC15_LESSON = {
         {
           id: "a1",
           short: "Online rules",
-          minutes: 10,
+          minutes: 9,
           grouping: "Groups of 3–4",
           art: "dec10/assets/week3/v/v-d10w3d3-a1.svg",
           title: "Activity 1 · Online collaboration",
-          goal: "Remember the key rules for three online situations at university — with your body first, then with your voice.",
+          goal: "Review the key rules for three online situations at university, then check them and use them in a reply.",
           blocks: [
             {
               type: "figure",
@@ -55,48 +59,8 @@ window.DEC15_LESSON = {
               alt: "Online communication has two sides: effective and appropriate conversation and discussion, and effective and appropriate collaboration. Three situations: a discussion board, an email to a lecturer, and a shared group document.",
               caption: "Three online situations you meet every week at university."
             },
-            {
-              type: "steps",
-              title: "Game 1 · Stand up, sit down (3 minutes)",
-              items: [
-                {"who":"class","text":"<b>Everyone stand up.</b> Your teacher reads a card from the “Do or don’t?” box below."},
-                {"who":"class","text":"Good netiquette (<b>Do</b>)? Stay standing. Bad netiquette (<b>Don’t</b>)? Sit down — fast!"},
-                {"who":"alone","text":"Your teacher points at one person: say <b>why</b> in one sentence. <i>“It’s a Don’t, because it’s messaging speak.”</i>"}
-              ]
-            },
-            {
-              type: "figure",
-              src: "dec10/assets/week3/d3-move-standsit.svg",
-              size: "wide",
-              alt: "Stand up, sit down: your teacher reads a netiquette card. Good netiquette (Do)? Stand up. Bad netiquette (Don’t)? Sit down. Then one student says why.",
-              caption: "Move your body to answer. Wrong move? Sit out one round, then come back in."
-            },
-            {
-              type: "do",
-              n: 1,
-              who: "group",
-              text: "<b>Game 2 · Spin and tell.</b> In groups, spin the wheel. Answer for the situation you get. Then the next person spins. Try to give a <b>real example</b> from your homework."
-            },
-            {
-              type: "spinner",
-              id: "a1-spin",
-              title: "What are some key things to remember when …",
-              text: "Everyone talks about all three situations by the end.",
-              reels: [
-                {
-                  label: "Situation",
-                  items: [
-                    "participating in a discussion board?",
-                    "writing an email to a lecturer?",
-                    "collaborating online with your group about a task?"
-                  ]
-                },
-                {
-                  label: "Tell us",
-                  items: ["one thing to DO","one thing to AVOID","one useful phrase","one mistake you have seen","why it matters"]
-                }
-              ]
-            },
+            {"type":"do","n":1,"who":"group","text":"<b>Homework review.</b> What are some key things to remember when you take part in these three situations? Each person takes one situation and talks for one minute. Give one thing to <b>do</b>, one thing to <b>avoid</b> and a <b>real example</b> from your homework or your studies."},
+            {"type":"model","title":"Three situations","list":["participating in a discussion board","writing an email to a lecturer","collaborating online with your group about a task"]},
             {
               type: "language",
               title: "Useful language: giving advice and disagreeing politely",
@@ -119,7 +83,7 @@ window.DEC15_LESSON = {
                 }
               ]
             },
-            {"type":"do","n":2,"who":"pair","text":"<b>Record the game.</b> These are the cards from Game 1. Sort them in 1 minute, then check. Any surprises?"},
+            {"type":"do","n":2,"who":"pair","text":"<b>Check.</b> Sort the cards in 1 minute, then check. Any surprises?"},
             {"type":"tip","text":"<b>Paper cards?</b> Your teacher may give each pair a set of Do / Don’t cards. Sort them on the desk first, then check here. No cards? Use the sort on this page."},
             {
               type: "sort",
@@ -139,8 +103,7 @@ window.DEC15_LESSON = {
                 {"text":"Start an email to a lecturer with “Hi teacher,”.","answer":1,"why":"Use “Dear Dr X,” or “Dear Ms Smith,”."}
               ]
             },
-            {"type":"do","n":3,"who":"pair","text":"<b>Use it.</b> Student A writes a short post: <i>“Green jobs are only for engineers.”</i> Student B replies in ONE polite sentence with a <b>Disagree politely</b> phrase. Swap."},
-            {"type":"sticky","title":"Say it like an academic","text":"“I see your point, but I have a different perspective.”","color":"blue"}
+            {"type":"do","n":3,"who":"pair","text":"<b>Use it.</b> Student A writes a short post: <i>“Green jobs are only for engineers.”</i> Student B replies in ONE polite sentence with a <b>Disagree politely</b> phrase. Swap."}
           ],
           answers: {
             title: "Suggested answers",
@@ -154,11 +117,11 @@ window.DEC15_LESSON = {
         {
           id: "a2",
           short: "Team phrases",
-          minutes: 12,
-          grouping: "Class mingle → Group",
+          minutes: 11,
+          grouping: "Class mingle → Pair",
           art: "dec10/assets/week3/v/v-d10w3d3-a2.svg",
           title: "Activity 2 · Appropriate language for online collaboration",
-          goal: "Mingle with your homework phrases, find your team and choose the class favourites.",
+          goal: "Review your homework phrases, check more phrases from the Teacher’s Book, and use them in a comment thread.",
           blocks: [
             {
               type: "key",
@@ -180,28 +143,11 @@ window.DEC15_LESSON = {
             },
             {
               type: "steps",
-              title: "Phrase mingle (6 minutes)",
+              title: "Phrase mingle (3 minutes)",
               items: [
-                {"who":"alone","text":"Write your <b>best</b> homework phrase on a sticky note. Big letters. One phrase only."},
-                {"who":"class","text":"<b>Stand up and mingle.</b> Read your phrase to a classmate. They guess its job: <b>suggest</b>, <b>disagree</b>, <b>clarify</b> or <b>praise</b>? Swap notes. Find a new partner. (3 minutes)"},
-                {"who":"class","text":"Teacher says “Stop!” Find the people whose note does the <b>same job</b> as the note in your hand. That is your new group."},
-                {"who":"group","text":"Choose your two best phrases. One person writes them on the whiteboard. Everyone says them aloud — with a friendly voice!"},
-                {"who":"class","text":"<b>Gallery vote:</b> walk past the board. Put a tick next to your favourite phrase for each job."}
+                {"who":"alone","text":"Choose your <b>best</b> homework phrase."},
+                {"who":"class","text":"<b>Stand up and mingle.</b> Say your phrase to a classmate. They guess its job: <b>suggest</b>, <b>disagree</b>, <b>clarify</b> or <b>praise</b>? Then swap roles. Find a new partner."}
               ]
-            },
-            {
-              type: "figure",
-              src: "dec10/assets/week3/d3-move-gallery.svg",
-              size: "wide",
-              alt: "Gallery walk: students stick their best sentence or phrase on the wall on a sticky note, walk along the wall, read the notes and add a star or a tick to their favourites.",
-              caption: "Stick it up, walk and read, tick your favourites."
-            },
-            {
-              type: "table",
-              id: "a2-tab", live: true,
-              title: "Our group’s examples",
-              columns: ["Function","Our examples","Best one (say it aloud!)"],
-              fixed: ["Suggesting edits","Disagreeing with someone’s edits","Asking questions to clarify something","Giving positive feedback"]
             },
             {"type":"do","n":1,"who":"pair","text":"<b>Beat the clock (2 minutes).</b> Here are more phrases from the Teacher’s Book. Which job does each one do? Sort them, then check. 12+ correct = gold!"},
             {
@@ -232,39 +178,23 @@ window.DEC15_LESSON = {
               ]
             },
             {
-              type: "toggle",
-              title: "Want more? See the phrases in a real comment thread",
-              hint: "Optional",
-              blocks: [
-                {
-                  type: "chat",
-                  title: "Comments on a shared group document",
-                  right: "You",
-                  lines: [
-                    ["Mei","<mark>Maybe rephrase to</mark> ‘renewable energy jobs’? It’s more precise."],
-                    ["Omar","<mark>Not sure about this change. Discuss?</mark> The source says ‘green jobs’."],
-                    ["You","<mark>Can you clarify</mark> what the source means by ‘green’?"],
-                    ["Omar","Sure — jobs that help to reduce emissions or protect the environment (Bowen et al., 2018)."],
-                    ["You","<mark>Spot on with this explanation.</mark> Let’s keep ‘green jobs’ and add the definition."],
-                    ["Mei","<mark>Great idea!</mark> I’ll add it now."]
-                  ]
-                }
+              type: "chat",
+              title: "The phrases in a real comment thread",
+              right: "You",
+              lines: [
+                ["Mei","<mark>Maybe rephrase to</mark> ‘renewable energy jobs’? It’s more precise."],
+                ["Omar","<mark>Not sure about this change. Discuss?</mark> The source says ‘green jobs’."],
+                ["You","<mark>Can you clarify</mark> what the source means by ‘green’?"],
+                ["Omar","Sure — jobs that help to reduce emissions or protect the environment (Bowen et al., 2018)."],
+                ["You","<mark>Spot on with this explanation.</mark> Let’s keep ‘green jobs’ and add the definition."],
+                ["Mei","<mark>Great idea!</mark> I’ll add it now."]
               ]
             },
             {"type":"do","n":2,"who":"pair","text":"<b>Use it — comment ping-pong.</b> Student A says a sentence from their seminar notes. Student B answers with a comment phrase (suggest / clarify / praise). A answers back. Keep going for 1 minute!"},
             {
-              type: "talk",
-              title: "Your favourites",
-              prompts: [
-                "Which three phrases are your favourites — the ones you really want to use? Why?",
-                "How will you remember them? (a phrase dictionary, a note on your phone, a sticky note on your laptop …)"
-              ]
-            },
-            {
               type: "fields",
               fields: [
-                {"id":"a2-fav","label":"My three favourite phrases (my phrase dictionary)","rows":3,"placeholder":"1. Could you expand on this point?\n2. …\n3. …"},
-                {"id":"a2-goal","label":"My goal: when and how I will use them","rows":2,"placeholder":"In our seminar group’s shared document this week, I will …"}
+                {"id":"a2-fav","label":"My three favourite phrases: I will use them in my seminar group’s shared document this week","rows":3,"placeholder":"1. Could you expand on this point?\n2. …\n3. …"}
               ]
             }
           ],
@@ -281,7 +211,7 @@ window.DEC15_LESSON = {
         {
           id: "a3",
           short: "Email",
-          minutes: 8,
+          minutes: 10,
           grouping: "Alone → Pair",
           art: "dec10/assets/week3/v/v-d10w3d3-a3.svg",
           title: "Optional writing task",
@@ -340,15 +270,7 @@ window.DEC15_LESSON = {
               ],
               items: [{"task":"Write the subject line first. Then write the email.","rows":12,"placeholder":"Subject line: Student # … : …\n\nDear Dr …,\n\nMy name is …"}]
             },
-            {
-              type: "steps",
-              title: "Be the lecturer (role play)",
-              items: [
-                {"who":"class","text":"<b>Stand up.</b> Give your email (laptop or notebook) to someone from <b>another table</b>. You are now their lecturer!"},
-                {"who":"pair","text":"Read the email aloud in a serious ‘lecturer’ voice. Then show your thumb: <b>thumb up</b> = “I would reply.” · <b>thumb sideways</b> = “Almost — change one thing.”"},
-                {"who":"pair","text":"Tell the writer <b>one strength</b> and <b>one change</b>. Use: <i>“Your request is very clear.” · “It would be more formal if …”</i>"}
-              ]
-            },
+            {"type":"do","n":1,"who":"pair","text":"<b>Be the lecturer.</b> Swap emails with your partner. Would you reply to this email? Tell the writer <b>one strength</b> and <b>one change</b>: <i>“Your request is very clear.” · “It would be more formal if …”</i>"},
             {
               type: "toggle",
               title: "Sample email text",
@@ -360,8 +282,7 @@ window.DEC15_LESSON = {
                   text: "Dear Dr. X,<br><br>My name is Samuel Blank and I am a student in your course on Green Jobs.<br><br>Thank you for recommending Bowen et al. (2016) on the impact of “greening” on the workforce. I was interested in this reading because it discusses the difficulty of defining “green” jobs. The reading suggests that jobs may be more green or less green on a continuum.<br><br>I’m emailing to ask if you could possibly recommend further reading on the topic of defining “green” jobs. I’ve looked at the key references cited in the reference list of Bowen et al. (2016) and I’ve read some of them, but I would be interested to have your further recommendations on the topic.<br><br>Thank you very much.<br><br>Kind regards,<br><br>Samuel Blank<br><br>#12345678"
                 }
               ]
-            },
-            {"type":"fields","fields":[{"id":"a3-exit","label":"Exit ticket · one netiquette rule + one phrase I will use this week","rows":2,"placeholder":"Rule: read the whole thread before I reply.\nPhrase: “Building on Sienna’s point, …”"}]}
+            }
           ]
         }
       ]
@@ -483,6 +404,18 @@ window.DEC15_LESSON = {
             },
             {"type":"tip","text":"Tick the points on your list from the Lead-in and in your reply to Sam. Circle the ones that are new for you."},
             {
+              type: "toggle",
+              title: "Sam’s first draft",
+              hint: "Open to find each point in the draft",
+              blocks: [
+                {
+                  type: "model",
+                  title: "Research Summary (Draft)",
+                  text: "(1) The job market is really changing, and one of the great new trends is that there are more sustainability consultants. (2) Sustainability consultants are stepping into the spotlight, helping companies that want to be more eco-friendly and follow the rules about the environment. (3) They help businesses figure out how to use resources wisely. (4) And they teach them how to take care of the planet while still making a profit. (5) Why are they becoming so popular? (6) I think sustainability consultants do a lot to help companies plan for the future. (7) This isn't just about avoiding fines or negative press. (8) It's about being responsible for their environmental and social impact. (9) As we all know, everyone from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to put sustainability at the top of their list."
+                }
+              ]
+            },
+            {
               type: "model",
               title: "Teacher feedback",
               before: "There are a lot of good ideas, and some good grammar, in your writing. However, there are some problems with academic style. Some of the issues I found are:",
@@ -551,6 +484,18 @@ window.DEC15_LESSON = {
               text: "Read the student’s rewrite of the paragraph in a more academic style. Identify the phrases the student has used to replace the informal language. You will use them again in the Practice stage."
             },
             {
+              type: "toggle",
+              title: "Sam’s first draft",
+              hint: "Open to compare it with the edited version below",
+              blocks: [
+                {
+                  type: "model",
+                  title: "Research Summary (Draft)",
+                  text: "(1) The job market is really changing, and one of the great new trends is that there are more sustainability consultants. (2) Sustainability consultants are stepping into the spotlight, helping companies that want to be more eco-friendly and follow the rules about the environment. (3) They help businesses figure out how to use resources wisely. (4) And they teach them how to take care of the planet while still making a profit. (5) Why are they becoming so popular? (6) I think sustainability consultants do a lot to help companies plan for the future. (7) This isn't just about avoiding fines or negative press. (8) It's about being responsible for their environmental and social impact. (9) As we all know, everyone from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to put sustainability at the top of their list."
+                }
+              ]
+            },
+            {
               type: "passage",
               id: "b6-edit",
               title: "Research Summary (Edited)",
@@ -607,6 +552,31 @@ window.DEC15_LESSON = {
           goal: "See HOW the writer made the paragraph academic.",
           blocks: [
             {"type":"do","n":1,"who":"pair","text":"Answer these questions about the edited version of the Research Summary."},
+            {
+              type: "toggle",
+              title: "Sam’s edited version",
+              hint: "Read it while you answer the questions",
+              open: true,
+              blocks: [
+                {
+                  type: "model",
+                  title: "Research Summary (Edited)",
+                  text: "(1) The employment landscape is undergoing significant transformation with the emergence of sustainability consultants. (2) The demand for these experts has grown substantially in the last two years as they assist corporations in adhering to environmental regulations and adopting eco-friendly practices (Bawa, 2024). (3) They guide businesses on the efficient utilization of resources and instilling practices that balance environmental conservation with profitability. (4) The rising popularity of sustainability consultants can be attributed to their pivotal role in planning for long-term environmental, legal and social responsibilities. (5) A diverse range of industries, from technology to financial services, is recognizing the importance of integrating sustainable practices into their commercial operations. (6) Holt (2023) claims that this trend towards a workforce that values both financial success and positive societal impact signals a shift in how businesses operate. (7) It is likely that sustainability will remain a priority for organisations, continuing to shape corporate strategies and operations."
+                }
+              ]
+            },
+            {
+              type: "toggle",
+              title: "Sam’s first draft",
+              hint: "Open to see sentences 5–8 before they were combined",
+              blocks: [
+                {
+                  type: "model",
+                  title: "Research Summary (Draft)",
+                  text: "(1) The job market is really changing, and one of the great new trends is that there are more sustainability consultants. (2) Sustainability consultants are stepping into the spotlight, helping companies that want to be more eco-friendly and follow the rules about the environment. (3) They help businesses figure out how to use resources wisely. (4) And they teach them how to take care of the planet while still making a profit. (5) Why are they becoming so popular? (6) I think sustainability consultants do a lot to help companies plan for the future. (7) This isn't just about avoiding fines or negative press. (8) It's about being responsible for their environmental and social impact. (9) As we all know, everyone from tech firms to banks, can see the value of bringing sustainability into the mix. (10) As Holt says, this trend towards a workforce that cares about both making money and making a difference is signalling a shift in how businesses operate (Holt, 2023). (11) So, moving forward, companies will definitely continue to put sustainability at the top of their list."
+                }
+              ]
+            },
             {
               type: "quiz",
               id: "b7-quiz",
@@ -669,6 +639,33 @@ window.DEC15_LESSON = {
           blocks: [
             {"type":"do","n":1,"who":"pair","text":"<b>Pair race.</b> Look again at the student draft of their research summary. Find examples of the teacher’s points in the student’s writing. Tap the phrases, then check. All 10 right? <b>Stand up!</b> The first three pairs standing win a team point."},
             {
+              type: "toggle",
+              title: "The teacher’s rules",
+              hint: "Open to check what you are looking for",
+              blocks: [
+                {
+                  type: "model",
+                  title: "Teacher feedback",
+                  before: "There are a lot of good ideas, and some good grammar, in your writing. However, there are some problems with academic style. Some of the issues I found are:",
+                  list: [
+                    "a lack of nominalisations",
+                    "not all ideas from other sources are referenced properly",
+                    "use of simple linking phrases such as ‘and’, ‘but’ and ‘so’, incorrectly placed at the beginning of sentences",
+                    "contractions are not used in academic writing",
+                    "direct questions are generally not used in academic text",
+                    "avoid repetition of words between sentences. Try to use general nouns/summary phrases",
+                    "there is no hedging. Ideas should be expressed with caution, so try to use expressions for degrees of certainty such as modal verbs and adverbs of frequency and possibility. Note that intensifiers (such as <i>really</i>) or some adverbs of frequency (such as <i>always</i> and <i>never</i>) can introduce a level of exaggeration, overgeneralisation or absolute certainty that is not always supported by evidence.",
+                    "academic style is impersonal to maintain an objective tone, so avoid pronouns such as ‘I’, ‘we’, ‘us’ or ‘our’",
+                    "<b>Vocabulary is also a little informal. For example:</b>",
+                    "idiomatic language is generally not used",
+                    "there is a lack of specialized vocabulary which is common in academic writing",
+                    "there is vague or unclear language such as ‘put’ or ‘did’. In academic writing we like to be as precise as possible",
+                    "you are using vocabulary more associated with informal speech, such as phrasal verbs"
+                  ]
+                }
+              ]
+            },
+            {
               type: "spot",
               id: "b4-sp1",
               label: "Spot it · grammar and structure",
@@ -730,6 +727,18 @@ window.DEC15_LESSON = {
               n: 1,
               who: "pair",
               text: "Look at the table with the informal language taken from the text. How could you rewrite these expressions in a more academic style? Write your ideas in the middle column. <b>Close the edited version</b> and work from memory. At the end, check it and write the formal phrase in the last column."
+            },
+            {
+              type: "toggle",
+              title: "Sam’s edited version",
+              hint: "Open only after you try: check and fill in the last column",
+              blocks: [
+                {
+                  type: "model",
+                  title: "Research Summary (Edited)",
+                  text: "(1) The employment landscape is undergoing significant transformation with the emergence of sustainability consultants. (2) The demand for these experts has grown substantially in the last two years as they assist corporations in adhering to environmental regulations and adopting eco-friendly practices (Bawa, 2024). (3) They guide businesses on the efficient utilization of resources and instilling practices that balance environmental conservation with profitability. (4) The rising popularity of sustainability consultants can be attributed to their pivotal role in planning for long-term environmental, legal and social responsibilities. (5) A diverse range of industries, from technology to financial services, is recognizing the importance of integrating sustainable practices into their commercial operations. (6) Holt (2023) claims that this trend towards a workforce that values both financial success and positive societal impact signals a shift in how businesses operate. (7) It is likely that sustainability will remain a priority for organisations, continuing to shape corporate strategies and operations."
+                }
+              ]
             },
             {
               type: "table",
@@ -889,9 +898,21 @@ window.DEC15_LESSON = {
               items: [{"task":"Rewrite the whole paragraph in an academic style.","rows":12,"placeholder":"The employment landscape …"}]
             },
             {
+              type: "toggle",
+              title: "Sam’s edited version",
+              hint: "Open only after you write: compare with your version",
+              blocks: [
+                {
+                  type: "model",
+                  title: "Research Summary (Edited)",
+                  text: "(1) The employment landscape is undergoing significant transformation with the emergence of sustainability consultants. (2) The demand for these experts has grown substantially in the last two years as they assist corporations in adhering to environmental regulations and adopting eco-friendly practices (Bawa, 2024). (3) They guide businesses on the efficient utilization of resources and instilling practices that balance environmental conservation with profitability. (4) The rising popularity of sustainability consultants can be attributed to their pivotal role in planning for long-term environmental, legal and social responsibilities. (5) A diverse range of industries, from technology to financial services, is recognizing the importance of integrating sustainable practices into their commercial operations. (6) Holt (2023) claims that this trend towards a workforce that values both financial success and positive societal impact signals a shift in how businesses operate. (7) It is likely that sustainability will remain a priority for organisations, continuing to shape corporate strategies and operations."
+                }
+              ]
+            },
+            {
               type: "steps",
               items: [
-                {"who":"alone","text":"When you finish, scroll up to the <b>edited version</b> and compare. Underline one thing you did well."},
+                {"who":"alone","text":"When you finish, open <b>Sam’s edited version</b> above and compare. Underline one thing you did well."},
                 {"who":"pair","text":"<b>Peer check.</b> Swap with a partner. You are the <b>language monitor</b>: tick the checklist for <b>their</b> paragraph."}
               ]
             },
