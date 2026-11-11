@@ -31,6 +31,8 @@ For **every** exercise and block, ask: *Is it useful for the lesson aim? Is ther
 When an activity needs a text, model or list from an earlier tab (e.g. a weak draft and its academic version, the rules to look for, a model to check against), put a copy of it **in that activity as a fold (toggle)**, so students can open it and compare without going back to the earlier tab.
 - Put the fold **before** the task that needs it. If students must read it during the task, set it to open; if they should try first (e.g. a model answer), label it “Open only after you try”.
 - Typical folds: *the first draft*, *the edited version*, *the rules/checklist*, *the model answer*.
+- Bring **only what the task needs** (e.g. questions about the edited version need the edited version, not the first draft).
+- Build it as a reference fold: `{ type: 'toggle', ref: true, title: 'Sam’s first draft', blocks: [{ type: 'text', title: 'Research Summary (Draft)', text: '…' }] }`. The `text` block is plain and full-width. Do **not** use a green “Model” box for a reference text: green reads as “answers”.
 
 ### What we must NOT change
 - **Reading and listening texts** (the protected sources in `sources.js`).

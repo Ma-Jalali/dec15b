@@ -44,6 +44,8 @@
      figure     { type: 'figure', src, alt, caption?, credit?, size?: 'small' | 'wide' }   a picture or diagram
      tabs       { type: 'tabs', title?, tabs: [{ label, blocks: [...] }] }   one panel at a time under a sliding tab bar
      toggle     { type: 'toggle', title, hint?, open?: true, blocks: [...] }   a fold that opens (hints, extra help, model answers)
+                ref: true makes it a reference fold (document icon, neutral colours): use it to bring an earlier text into a later tab.
+     text       { type: 'text', title?, before?, text?, list?: [..] }   a plain, full-width document (no label, no colour) — e.g. inside a reference fold
      carousel   { type: 'carousel', title?, slides: [{ title?, text?, image?, alt?, blocks? }] }   slides in one row (arrows, dots, swipe)
                 (flip cards with 6 or more cards become a carousel by themselves; table columns can be widened by dragging)
      tip        { type: 'tip', text }
