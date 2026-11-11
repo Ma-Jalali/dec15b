@@ -14,6 +14,7 @@ Folders:
   dec10/lessons/          DEC10 lessons and course map (dec10/lessons/course.js) — 10 weeks
   dec10/assets/           DEC10 pictures (write paths from the top: 'dec10/assets/week1/….svg')
   dec10.html              DEC10's page. Made from index.html by  node tools/build-sw.js  — never edit it by hand.
+DEC10 LESSON DESIGN (TBL + PPP, Focus on Vocabulary 2 word lists, Essay Activator phrases): read dec10/design/LESSON-DESIGN.md first.
 Adding a DEC10 lesson: copy lessons/_template.js to dec10/lessons/weekN/d10wNdM.js, then follow the steps at the top of
 dec10/lessons/course.js. DEC10 lesson ids ALWAYS start with "d10" (d10w3d1) so they never clash with DEC15 ids (w3d1).
 On each release: raise the version in js/config.js and index.html (?v=), then run  node tools/build-sw.js .
