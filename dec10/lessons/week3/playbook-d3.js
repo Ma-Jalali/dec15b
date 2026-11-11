@@ -25,7 +25,7 @@ window.DEC10_PLAYBOOK['d10w3d3'] = {
       ],
       materials: ['w3d3-comment-wall'],
       stretch: 'Groups answer one comment from another group with a second sticky note under it (a reply), as in the comment thread in the “Want more?” fold.',
-      planB: 'No wall or no printer: groups write their two phrases on the whiteboard and the class ticks favourites, as the activity says. Or skip it and run the Phrase mingle and the on-screen sort as written.'
+      planB: 'No wall or no printer: groups write their two phrases on the whiteboard and the class ticks favourites. Or skip it and run the Phrase mingle and the on-screen sort as written.'
     },
     {
       n: 2, section: 'style', activity: 'b4', title: 'Style detectives: board race', kind: 'Board race', minutes: 10,
@@ -105,12 +105,11 @@ window.DEC10_PLAYBOOK['d10w3d3'] = {
     online: {
       tips: [
         'This is a homework review: start by asking 3–4 students to read one phrase they wrote in the AST homework. Then you know who did it before the games start.',
-        'Stand up, sit down works best if you read the cards fast and point at a different student each time for the “why”.',
-        'In Spin and tell, push for a <b>real example</b> (“In my last group project, someone …”) — this is where the speaking happens.',
-        'The email (a3) is optional. If time is short, do the role play “Be the lecturer” with the sample email in the fold instead of new writing.',
-        'Collect the a3 exit tickets (rule + phrase) — they show you who still writes “Hi teacher”.'
+        'In the homework review (a1), push for a <b>real example</b> (“In my last group project, someone …”): this is where the speaking happens.',
+        'The email (a3) is optional. If time is short, pairs read the sample email in the fold as “the lecturer” and say one strength and one change instead of writing.',
+        'Read a few a3 emails over students’ shoulders: they show you who still writes “Hi teacher”.'
       ],
-      creative: 'Run the stage as a “makeover” with Sam as the guest: Sam’s draft (b2) is the “before” photo, the teacher’s feedback (b3) is the diagnosis, the edited version (b6–b7) is the makeover, and the students’ own rewrite (b8) is the “after” photo. Put a big BEFORE / AFTER box on the board and fill AFTER bit by bit.',
+      creative: 'Turn the stage into a “day in an online group project”: the do/don’t cards are the group chat rules, the comment thread is the group’s shared document, and the email is the message the group sends to the lecturer at the end. Tell the story as you move from activity to activity (“Now your group has a draft … now you need help from your lecturer …”), so the three activities feel like one task.',
       watch: [
         'Students mix up “polite” and “formal”: a comment in a shared document can be short and friendly (“Spot on!”), an email to a lecturer cannot. Ask: “Who is reading it?”',
         'The phrase mingle can become silent swapping. Insist that students read the phrase aloud and that the partner guesses the job before swapping.',
