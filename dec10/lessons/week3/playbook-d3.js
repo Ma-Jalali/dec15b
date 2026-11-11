@@ -98,6 +98,7 @@ window.DEC10_PLAYBOOK['d10w3d3'] = {
         'b3 is the heart of the lesson. Present the ten rules group by group (structure → voice → vocabulary). For each rule, read Sam’s ✗ sentence, elicit the ✓ version before students read it, then ask the Check-yourself question as a concept check.',
         'Use the b1 class list on the board as your checklist: in b3, tick each feature the teacher’s feedback confirms and add the missing ones.',
         'In b6, the sort “Which rule did Sam use?” links the model back to the rules: ask pairs to justify one answer aloud with the rule number.',
+        'In b3, for each rule read the first ✗ example aloud and let the class produce the ✓ before they read it. In b9, check answers after each Part (1–4), not at the end, so mistakes do not carry over to the next group of rules.',
         'Give real writing time in b8 (at least 12 minutes of silence), then 5 minutes for the peer check.'
       ],
       creative: 'Run the stage as a “makeover show” with Sam as the guest: the three voices in b1 are the warm-up, Sam’s draft (b2) is the “before” photo, the teacher’s feedback (b3) is the diagnosis, the edited version (b6–b7) is the makeover, b9 is the students’ own training, and b8 is their “after” photo. Put a big BEFORE / AFTER box on the board, write one draft sentence in BEFORE and fill AFTER bit by bit.',
