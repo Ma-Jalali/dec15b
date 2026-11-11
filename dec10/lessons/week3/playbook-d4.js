@@ -85,7 +85,7 @@ window.DEC10_PLAYBOOK['d10w3d4'] = {
         'Clear a path along the room for the line.'
       ],
       steps: [
-        'Mingle (3 min): everyone stands. Show the spinner questions. Find a partner from another group and tell your story: something you were persuaded to try. Swap. On your signal, find a second partner.',
+        'Mingle (3 min): everyone stands. Show the three questions. Find a partner from another group and tell your story: something you were persuaded to try. Swap. On your signal, find a second partner.',
         'Line-up (1 min): read the statement “It is OK to change your mind after making a decision.” Students stand on the line. Ask the two ends: “How sure are you? 1 to 10?”',
         'Fold the line (2 min): the person at the strongly-agree end walks towards the strongly-disagree end; the whole line follows, so everyone faces a partner from the other half. Each gives one reason in 30 seconds with a stance phrase.',
         'Unfold: everyone goes back to their own place — and moves along the line if they were persuaded. (30 sec)',
@@ -153,16 +153,16 @@ window.DEC10_PLAYBOOK['d10w3d4'] = {
     flex: {
       tips: [
         'Model the language of changing your position yourself: state a stance about laptops or phones, then let a student persuade you and say “That’s a fair point. I hadn’t considered …”.',
-        'Keep d2–d6 quick (they are input and short practice); protect the 20 minutes of Discussion 1 in d8.',
+        'Keep d2–d6 quick (they are input and short practice); protect the 18 minutes of Discussion 1 in d8.',
         'Prepare the laptop cards and corner signs before the stage; deal the cards face down so that each laptop has a defender in every group.',
-        'In d8, the devil’s advocate is key: give the role to a confident student in each group, and ask them to use the four question types from d5.',
+        'In d8, everyone asks two questions after each pitch: before it starts, ask each group to choose one question type from d5 per person, so all four types are used.',
         'In d9, ask the students who walked to a new corner to say who persuaded them and with which information.'
       ],
       creative: 'Run Discussion 1 as a TV shopping panel: each group is a panel of four “sellers”, the timekeeper is the host, and at the end each panel member must say on camera (phone video, 20 seconds) whether their position did not change, almost changed or changed — with the phrase from the flip cards. Play the best two clips in the d9 debrief.',
       watch: [
         'Students defend their laptop at all costs → remind them the goal is to listen with an open mind; points for a well-explained change, not for “winning”.',
         'Pitches read from the screen → after writing in d7, they say it with the screen closed.',
-        'Comparing only price → the scenario needs battery, weight and security; the chair checks all three are discussed.'
+        'Comparing only price → the scenario needs battery, weight and security; the timekeeper checks all three are discussed before the next pitch.'
       ]
     },
     citing: {

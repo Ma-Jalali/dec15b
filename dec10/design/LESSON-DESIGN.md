@@ -19,6 +19,14 @@ Reference books in this folder (word lists and headings only; we do not copy rea
 
 Every activity must help students get **ready for the exam and for university**. Cut or shorten anything that does not (often extras around the AST topics) before cutting exam skills.
 
+### Quality first: check every part
+For **every** exercise and block, ask: *Is it useful for the lesson aim? Is there a better way to do the same thing? Should it be removed?*
+- Prefer **removing or replacing** to adding. A lesson with fewer, well-chosen tasks is better than a full one.
+- Do not drill the same items more than once or twice. Do not repeat the same task in a new format (a line-up, then a mingle, then a relay).
+- Use movement (line-ups, mingles, corners) only when it does a real job, and usually only once or twice per hour.
+- Practice items must target the lesson aim (e.g. a style lesson practises style, not unrelated accuracy points).
+- Check meaning, not just recognition: if students need a term (e.g. *hedging*), show it before → after and check it.
+
 ### What we must NOT change
 - **Reading and listening texts** (the protected sources in `sources.js`).
 - **The reading and listening questions** (gist, detail, note-taking tables), their answers and their order.
@@ -108,6 +116,7 @@ Every controlled task needs **suggested answers**. Teacher notes say which steps
 ## 4. Checklist for every DEC10 lesson
 - [ ] No reading or listening text, question or exam task was changed. Teacher's Book tasks are still the main tasks.
 - [ ] Every stage helps students get ready for the exam or for university.
+- [ ] Quality pass done: every block is useful, nothing is drilled three times, and movement does a real job.
 - [ ] Blocking words: only a few, presented in a context, guessed, then checked with one simple activity.
 - [ ] A clear real-life or university context, introduced in the lead-in.
 - [ ] Reading/listening: only blocking words pre-taught, then gist → detail → a few useful expressions.
