@@ -475,14 +475,14 @@ window.DEC15_LESSON = {
           category: "3 · Presentation",
           art: "dec10/assets/week3/v/v-d10w3d3-b6.svg",
           title: "The edited version",
-          goal: "Read Sam’s second try and find the formal phrases that replaced the informal language.",
+          goal: "Read Sam’s second try and see the five tips he used to make it academic.",
           blocks: [
             {"type":"sticky","title":"Sam’s second try","text":"Sam used the teacher’s feedback and rewrote his paragraph. This is your model: see how each informal phrase became academic.","color":"green"},
             {
               type: "do",
               n: 1,
               who: "pair",
-              text: "Read the student’s rewrite of the paragraph in a more academic style. Identify the phrases the student has used to replace the informal language. You will use them again in the Practice stage."
+              text: "Read the student’s rewrite of the paragraph in a more academic style. Identify the phrases the student has used to replace the informal language."
             },
             {
               type: "toggle",
@@ -503,44 +503,30 @@ window.DEC15_LESSON = {
               title: "Research Summary (Edited)",
               text: "(1) The employment landscape is undergoing significant transformation with the emergence of sustainability consultants. (2) The demand for these experts has grown substantially in the last two years as they assist corporations in adhering to environmental regulations and adopting eco-friendly practices (Bawa, 2024). (3) They guide businesses on the efficient utilization of resources and instilling practices that balance environmental conservation with profitability. (4) The rising popularity of sustainability consultants can be attributed to their pivotal role in planning for long-term environmental, legal and social responsibilities. (5) A diverse range of industries, from technology to financial services, is recognizing the importance of integrating sustainable practices into their commercial operations. (6) Holt (2023) claims that this trend towards a workforce that values both financial success and positive societal impact signals a shift in how businesses operate. (7) It is likely that sustainability will remain a priority for organisations, continuing to shape corporate strategies and operations."
             },
+            {"type":"do","n":2,"who":"pair","text":"<b>Eight key changes.</b> Which tip did Sam use for each change? Sort them, then check. These tips are what you will use in your own writing."},
             {
-              type: "match",
-              id: "b6-match",
-              title: "Check: match the informal phrase to the formal phrase",
-              hint: "Tap a phrase on the left, then its formal partner on the right.",
-              left: [
-                "a. the job market is really changing",
-                "b. there are more",
-                "c. stepping into the spotlight",
-                "d. follow the rules about the environment",
-                "e. take care of the planet (sentence 2: a verb + -ing)",
-                "f. help businesses figure out",
-                "g. how to use resources wisely",
-                "h. take care of the planet (sentence 3: a noun phrase)",
-                "i. everyone from tech firms to banks",
-                "j. start to see the value of",
-                "k. bringing sustainability into the mix",
-                "l. cares about",
-                "m. will definitely",
-                "n. continue to put sustainability at the top of their list"
+              type: "sort",
+              id: "b6-tips",
+              title: "Which tip is it?",
+              buckets: [
+                {"label":"Use a noun phrase","letter":"1"},
+                {"label":"Use a precise verb (not a phrasal verb or chatty phrase)","letter":"2"},
+                {"label":"Hedge: show the right level of certainty","letter":"3"},
+                {"label":"Use a summary noun, not repetition","letter":"4"},
+                {"label":"Use a reporting verb with the source","letter":"5"}
               ],
-              right: [
-                "the employment landscape is undergoing significant transformation",
-                "the emergence of",
-                "the demand has grown substantially",
-                "adhere to environmental regulations",
-                "adopting eco-friendly practices",
-                "guide businesses on",
-                "the efficient utilisation of resources",
-                "environmental conservation",
-                "a diverse range of industries, from technology to financial services",
-                "recognise the importance of",
-                "integrating sustainable practices into their commercial operations",
-                "values",
-                "it is likely",
-                "sustainability will remain a priority"
+              items: [
+                {"text":"there are more sustainability consultants → <b>the emergence of sustainability consultants</b>","answer":0},
+                {"text":"how to use resources wisely → <b>the efficient utilization of resources</b>","answer":0},
+                {"text":"follow the rules about the environment → <b>adhere to environmental regulations</b>","answer":1},
+                {"text":"help businesses figure out → <b>guide businesses on</b>","answer":1},
+                {"text":"cares about → <b>values</b>","answer":1},
+                {"text":"companies will definitely continue to … → <b>It is likely that sustainability will remain …</b>","answer":2},
+                {"text":"Sustainability consultants … Sustainability consultants … → <b>Sustainability consultants … these experts …</b>","answer":3},
+                {"text":"As Holt says, … (Holt, 2023) → <b>Holt (2023) claims that …</b>","answer":4}
               ]
-            }
+            },
+            {"type":"tip","text":"Sam’s vocabulary is very advanced. You do not need words like <i>utilization</i> or <i>pivotal</i>: <i>the efficient use of resources</i> is just as academic. Learn the <b>tips</b>, not every word."}
           ]
         },
         {
@@ -712,13 +698,13 @@ window.DEC15_LESSON = {
           category: "4 · Practice",
           art: "dec10/assets/week3/v/v-d10w3d3-b5.svg",
           title: "Vocabulary analysis",
-          goal: "Rewrite the informal expressions in academic style from memory, then check with the edited version.",
+          goal: "Use the tips: rewrite eight informal phrases in academic style from memory, then check.",
           blocks: [
             {
               type: "do",
               n: 1,
               who: "pair",
-              text: "Look at the table with the informal language taken from the text. How could you rewrite these expressions in a more academic style? Write your ideas in the middle column. <b>Close the edited version</b> and work from memory. At the end, check it and write the formal phrase in the last column."
+              text: "Look at the eight informal phrases from Sam’s draft. How could you rewrite them in a more academic style? Use the tips. Write your ideas in the middle column <b>from memory</b>. Then open Sam’s edited version, check, and write his phrase in the last column."
             },
             {
               type: "toggle",
@@ -733,26 +719,21 @@ window.DEC15_LESSON = {
                 }
               ]
             },
+            {"type":"tip","text":"Your version does not need to be as advanced as Sam’s. <i>The efficient use of resources</i> or <i>companies are likely to …</i> are good academic answers."},
             {
               type: "table",
-              id: "b5-tab",
-              title: "Informal language → formal language",
-              columns: ["Informal language","My more academic idea","Formal language (from the edited version)"],
+              id: "b5-tab8",
+              title: "Informal language → academic language",
+              columns: ["Informal language","My academic version","Sam’s version (check after)"],
               fixed: [
-                "a. the job market is really changing",
-                "b. there are more",
-                "c. stepping into the spotlight",
-                "d. follow the rules about the environment",
-                "e. take care of the planet",
-                "f. help businesses figure out",
-                "g. how to use resources wisely",
-                "h. take care of the planet",
-                "i. everyone from tech firms to banks",
-                "j. start to see the value of",
-                "k. bringing sustainability into the mix",
-                "l. cares about",
-                "m. will definitely",
-                "n. continue to put sustainability at the top of their list"
+                "1. there are more sustainability consultants",
+                "2. how to use resources wisely",
+                "3. follow the rules about the environment",
+                "4. help businesses figure out",
+                "5. cares about",
+                "6. companies will definitely continue to …",
+                "7. Sustainability consultants … Sustainability consultants …",
+                "8. As Holt says, … (Holt, 2023)"
               ]
             }
           ]
