@@ -45,6 +45,9 @@
      tabs       { type: 'tabs', title?, tabs: [{ label, blocks: [...] }] }   one panel at a time under a sliding tab bar
      toggle     { type: 'toggle', title, hint?, open?: true, blocks: [...] }   a fold that opens (hints, extra help, model answers)
                 ref: true makes it a reference fold (document icon, neutral colours): use it to bring an earlier text into a later tab.
+     group      { type: 'group', title, label?: 'Rules 1–5', goal? }   a large, unnumbered section heading (e.g. above a set of rule cards)
+     rule       { type: 'rule', n, title, explain, form?, pairs?: [['not academic', 'academic', 'note?']], note?, check?: { q, a } }
+                with pairs: a calm two-column Not academic | Academic table (4 pairs is a good number)
      text       { type: 'text', title?, before?, text?, list?: [..] }   a plain, full-width document (no label, no colour) — e.g. inside a reference fold
      carousel   { type: 'carousel', title?, slides: [{ title?, text?, image?, alt?, blocks? }] }   slides in one row (arrows, dots, swipe)
                 (flip cards with 6 or more cards become a carousel by themselves; table columns can be widened by dragging)
