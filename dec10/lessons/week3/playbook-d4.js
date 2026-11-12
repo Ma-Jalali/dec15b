@@ -122,6 +122,7 @@ window.DEC10_PLAYBOOK['d10w3d4'] = {
     },
     star: {
       tips: [
+        'Three things in common (b0): make groups of students who did not present together today, and answer the “Guess your teacher” cards honestly with one short story — trust first, then needs in b2.',
         'Students have been concentrating for two hours: keep the stand up, sit down in b1 quick and light — it is also your first data on their needs.',
         'Read the b2 grids over shoulders while pairs talk; note the top two needs you see most.',
         'In b3, cluster the sticky notes on the board under the four topics as they arrive, so you can start answering after 3 minutes.',
@@ -152,8 +153,10 @@ window.DEC10_PLAYBOOK['d10w3d4'] = {
     },
     flex: {
       tips: [
+        'The stage runs in five steps: Lead-in (d1) → Review (d2–d3) → Presentation A stance (d4), B challenge (d5), C flexibility (d6) → Practice (dp) → Production: the laptop discussion (d7–d9). Write the five steps on the board.',
+        'In d4–d6, read each left-hand example aloud and let the class produce the right-hand version before they read it. Check answers in dp after each Part (1–3).',
         'Model the language of changing your position yourself: state a stance about laptops or phones, then let a student persuade you and say “That’s a fair point. I hadn’t considered …”.',
-        'Keep d2–d6 quick (they are input and short practice); protect the 18 minutes of Discussion 1 in d8.',
+        'Keep d2–d3 quick; give d4–d6 time to teach the language properly, then protect the 14 minutes of Discussion 1 in d8.',
         'Prepare the laptop cards and corner signs before the stage; deal the cards face down so that each laptop has a defender in every group.',
         'In d8, everyone asks two questions after each pitch: before it starts, ask each group to choose one question type from d5 per person, so all four types are used.',
         'In d9, ask the students who walked to a new corner to say who persuaded them and with which information.'

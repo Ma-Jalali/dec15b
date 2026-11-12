@@ -2,7 +2,8 @@
    Revised weekly map: W5 D5. 14 Listening and Reading to Write Assessment. Teacher's Book: 14A LRW Assessment — "Follow instructions from the DEC team." (no lesson content in the TB).
    This page has NO test content. It only explains the assessment (from what the Week 3–5 TB say about the LRW and the
    Integrated Writing Assessment), helps students get ready and calm, reviews strategies, and gives a reflection after the test.
-   Practice items reuse Week 5 course texts and Week 5 TB questions only. Activity ids are the keys of saved work — never rename them. */
+   Practice items reuse Week 5 course texts and Week 5 TB questions only. Activity ids are the keys of saved work — never rename them.
+   a9 (after the test): a class thank-you round for rapport before the mid-course break (8 min; a1, a2, a3 and a7 shortened to keep 60). */
 window.DEC15_LESSON = {
   id: "d10w5d5",
   week: 5,
@@ -12,7 +13,7 @@ window.DEC15_LESSON = {
   question: "How can I show what I really know — calmly, clearly and on time?",
   questionKind: "Focus question",
   questionLabel: "Today’s focus · Listening and Reading to Write (LRW) Assessment 1",
-  journey: "Today is your first Listening and Reading to Write (LRW) Assessment: you listen, you read, and then you write using ideas from both. Find out what it checks, tick your checklist, warm up your voice with a partner, and refresh your best listening, reading and writing strategies. Learn the words in exam instructions. Then do the test — and afterwards, reflect on how you worked.",
+  journey: "Today is your first Listening and Reading to Write (LRW) Assessment: you listen, you read, and then you write using ideas from both. Find out what it checks, tick your checklist, warm up your voice with a partner, and refresh your best listening, reading and writing strategies. Learn the words in exam instructions. Then do the test — and afterwards, reflect on how you worked and thank a classmate before the break.",
   image: "dec10/assets/week5/hero-d10w5d5.svg",
   imageAlt: "Illustration: a calm, sunny study room. A student sits at a desk with her eyes closed, breathing slowly inside a soft glowing circle. On the desk are a speaker with sound waves, an open book with a magnifying glass, an essay page with a pen and a green tick, and a glass of water. Floating labels say: Listen · predict, Read · skim & scan, Write · plan, cite, check, and breathe 4 · 4 · 4 · 4.",
   finish: {"title":"Week 6","text":"Green chemistry — and the final Seminar presentations"},
@@ -32,7 +33,7 @@ window.DEC15_LESSON = {
         {
           id: "a1",
           short: "What is it?",
-          minutes: 8,
+          minutes: 6,
           grouping: "Alone → pair",
           art: "dec10/assets/week5/v/v-d10w5d5-a1.svg",
           title: "What is the Listening and Reading to Write (LRW) Assessment?",
@@ -139,7 +140,7 @@ window.DEC15_LESSON = {
         {
           id: "a2",
           short: "Checklist",
-          minutes: 5,
+          minutes: 4,
           grouping: "Alone",
           art: "dec10/assets/week5/v/v-d10w5d5-a2.svg",
           title: "Before the test: my checklist",
@@ -185,7 +186,7 @@ window.DEC15_LESSON = {
         {
           id: "a3",
           short: "Warm up",
-          minutes: 8,
+          minutes: 4,
           grouping: "Pairs",
           art: "dec10/assets/week5/v/v-d10w5d5-a3.svg",
           title: "Speaking warm-up: calm your nerves",
@@ -438,7 +439,7 @@ window.DEC15_LESSON = {
         {
           id: "a7",
           short: "Instructions",
-          minutes: 5,
+          minutes: 4,
           grouping: "Alone → pair",
           art: "dec10/assets/week5/v/v-d10w5d5-a7.svg",
           title: "Useful expressions for exam instructions",
@@ -538,6 +539,48 @@ window.DEC15_LESSON = {
                 {"label":"Respond to a classmate","phrases":["That happened to me too.","Have you tried …?","That sounds like a really good plan."]}
               ]
             }
+          ]
+        },
+        {
+          id: "a9",
+          short: "Thank you",
+          minutes: 8,
+          grouping: "Alone → Class",
+          art: "dec10/assets/week5/v/v-d10w5d3-c8.svg",
+          title: "Our class: a thank-you round",
+          goal: "Thank a classmate for something specific — and think about how our class works together.",
+          blocks: [
+            {"type":"tip","text":"Do this <b>after</b> the test and your reflection. Half of the course is done — and next week is the mid-course break. Time to say thank you!"},
+            {
+              type: "steps",
+              title: "How it works (8 minutes)",
+              items: [
+                {"who":"alone","text":"Your teacher gives you the name of <b>one classmate</b>. Think of one <b>specific</b> thing they did in Weeks 1–5 that helped you or the class."},
+                {"who":"alone","text":"Write <b>one sentence</b> for them on a sticky note (or in the box below). Make it specific: not “You are nice”, but “Thank you for explaining the word limit to me on Tuesday.”"},
+                {"who":"class","text":"Walk to your classmate, read your sentence and give them the note. When you get yours, say “Thank you!” Don’t want to read it aloud? Just give the note — that’s fine."},
+                {"who":"class","text":"Sit down. Talk about the two questions below with the people near you. Then share one idea with the class."}
+              ]
+            },
+            {
+              type: "language",
+              title: "Language bank",
+              groups: [
+                {"label":"Say thank you","phrases":["<b>Thank you for</b> help<b>ing</b> me with …","<b>I really appreciated it when</b> you …","You helped me to …"]},
+                {"label":"Say what you like","phrases":["<b>I like the way</b> you …","You’re really good at …","Our group works better because you …"]},
+                {"label":"Answer","phrases":["Thank you — that’s really kind.","That means a lot to me.","Thanks! You helped me too."]}
+              ]
+            },
+            {"type":"fields","fields":[{"id":"a9-note","label":"My thank-you sentence for a classmate","placeholder":"Thank you for … / I like the way you …","rows":2,"share":false}]},
+            {
+              type: "talk",
+              title: "How does our class work together?",
+              prompts: [
+                "What does our class do <b>well</b> when we work together?",
+                "What is <b>one thing</b> we can do better after the break? (e.g. mix groups more, give quieter classmates time to speak)"
+              ]
+            },
+            {"type":"fields","fields":[{"id":"a9-class","label":"One thing our class does well + one thing we can do better after the break","placeholder":"We are good at … · After the break, we can …","rows":2}]},
+            {"type":"tip","text":"<b>Keep it about class work:</b> what your classmate <b>did</b> — their ideas, help, questions or effort. Not how they look."}
           ]
         }
       ]
