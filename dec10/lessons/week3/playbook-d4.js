@@ -58,15 +58,15 @@ window.DEC10_PLAYBOOK['d10w3d4'] = {
       setup: [
         'Before class: print one “Our road to Week 7” poster per Seminar group (A3 if you can).',
         'Markers in two colours per group, sticky notes, blu-tack.',
-        'Keep the group jobs on screen (Chair, Timekeeper, Language monitor, Note-taker).'
+        'Keep the group jobs on screen (Chair, Timekeeper, Language monitor, Note-taker, Question writer): groups have five members.'
       ],
       steps: [
-        'Seminar groups stand around a table with the poster. Give out the four jobs from the screen. Each student quickly does the “My research so far” grid on screen alone. (2 min)',
+        'Seminar groups stand around a table with the poster. Give out the five jobs from the screen. Each student quickly does the “My research so far” grid on screen alone. (2 min)',
         'One minute each: the speaker stands at the poster and gives a progress update with the phrases (“So far, I have … I’m stuck on … By next week, I will …”). The note-taker writes it in that member’s lane; the group writes one idea in the + column. The language monitor ticks the phrases on screen. (4–5 min)',
         'Together: choose the group’s biggest ROADBLOCK and write it with your solution. Write one specific question for the teacher. (2 min)',
         'Stick the posters on the wall. One-stop gallery: each group moves one poster clockwise, reads the roadblock and sticks ONE idea on a sticky note (“Why don’t you try …?”). (2–3 min)',
         'While groups move, walk past every poster and answer the teacher questions in 20 seconds each, or note them for the STAR follow-up.',
-        'Back at their own poster: groups read the visitors’ idea, then copy their next steps into the c4 group agreement on screen and sign. Photograph the poster for the group chat.'
+        'Back at their own poster: groups read the visitors’ idea, then copy their next steps into the shared c4 group agreement on screen (one person starts each shared table and invites the other four). Photograph the poster for the group chat.'
       ],
       say: [
         '“Stand at the poster when you speak — one minute, then hand over.”',
@@ -142,7 +142,7 @@ window.DEC10_PLAYBOOK['d10w3d4'] = {
         'c1: the key confusion is “group or individual?”. Make the false sentence the last one in “stand up for true” and ask a student to correct it aloud.',
         'c2: in the human timeline, ask two or three students at the ends why they are there; it shows you who is behind.',
         'c3: walk between groups with the question “What are you stuck on?” and write the common problems on the board for the whole class.',
-        'c4: make sure every group agreement has a name, a task and a day — not “we will do research”.'
+        'c4: make sure each group starts ONE shared agreement (one person presses Start a shared table and invites the other four), and that every row has a name, a task and a day — not “we will do research”.'
       ],
       creative: 'Turn the check-in into a pit stop: each Seminar group is a racing team, the road to Week 7 is the race track on the wall, and each group moves its team marker (a sticky note with the group name) to where they really are. Groups behind the Week 3 line get a 2-minute “pit stop” with you; groups ahead act as mechanics for another team with a problem.',
       watch: [
