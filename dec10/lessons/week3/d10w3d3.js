@@ -1420,9 +1420,47 @@ window.DEC15_LESSON = {
       outcome: "You have actively participated with your teacher in addressing your learning needs.",
       activities: [
         {
+          id: "s0",
+          short: "Get to know",
+          minutes: 8,
+          grouping: "Class → Groups of 3–4",
+          art: "dec10/assets/week3/v/v-d10w3d1-c2.svg",
+          title: "Two truths and a lie",
+          goal: "Learn something new about your classmates — and your teacher — outside the classroom.",
+          blocks: [
+            {
+              type: "steps",
+              title: "How to play (8 minutes)",
+              items: [
+                {"who":"class","text":"<b>Your teacher goes first.</b> Listen to three sentences about your teacher’s life: <b>two are true</b> and <b>one is a lie</b>. With a partner, guess the lie. Your teacher tells you the answer — and a short story about one true sentence."},
+                {"who":"alone","text":"Now you. Write <b>three short sentences</b>: one about your <b>studies</b>, one about <b>home</b>, one about a <b>hobby</b>. Make two true and one a lie. (1 minute)"},
+                {"who":"group","text":"In groups of 3–4, read your sentences. Each person asks you <b>one follow-up question</b>. Then the group guesses your lie. Next person!"},
+                {"who":"class","text":"Each group tells the class <b>one surprising true fact</b> about a group member (ask them first!)."}
+              ]
+            },
+            {
+              type: "fields",
+              fields: [
+                {"id":"s0-teacher","label":"My guess: my teacher’s lie is number … · One true thing I learned about my teacher","placeholder":"I think number 2 is the lie. I learned that my teacher …","rows":2,"share":false},
+                {"id":"s0-mine","label":"My two truths and a lie","placeholder":"1. (studies) I … · 2. (home) In my home town, … · 3. (hobby) In my free time, I …","rows":3,"share":false}
+              ]
+            },
+            {
+              type: "language",
+              title: "Language bank",
+              groups: [
+                {"label":"Guess","phrases":["I think number … is the lie, because …","Number … sounds true to me.","No way! That can’t be true!"]},
+                {"label":"Ask a follow-up question","phrases":["Really? <b>Tell me more about</b> …","<b>What do you like most about</b> …?","<b>How long have you</b> …?"]},
+                {"label":"React","phrases":["I didn’t know that!","Me too! / Same here!","That’s amazing!"]}
+              ]
+            },
+            {"type":"tip","text":"<b>Keep it light.</b> Choose facts you are happy to share: your studies, your home town, food, sport, music, travel. Not happy to answer a question? Just say <b>“Pass”</b> — that’s OK."}
+          ]
+        },
+        {
           id: "s1",
           short: "What is it?",
-          minutes: 4,
+          minutes: 3,
           grouping: "Class",
           art: "dec10/assets/week3/v/v-d10w3d3-s1.svg",
           title: "What are Teachable STAR Moments?",
@@ -1513,7 +1551,7 @@ window.DEC15_LESSON = {
         {
           id: "s3",
           short: "Ask",
-          minutes: 10,
+          minutes: 7,
           grouping: "Pair → Class",
           art: "dec10/assets/week3/v/v-d10w3d3-s3.svg",
           title: "Talk to your teacher",
@@ -1559,7 +1597,7 @@ window.DEC15_LESSON = {
         {
           id: "s4",
           short: "Quick check",
-          minutes: 8,
+          minutes: 4,
           grouping: "Speed-dating circles",
           art: "dec10/assets/week3/v/v-d10w3d3-s4.svg",
           title: "Spin and explain",
@@ -1570,8 +1608,8 @@ window.DEC15_LESSON = {
               title: "Speed-dating circles",
               items: [
                 {"who":"class","text":"Make two circles: the <b>inner circle</b> faces out, the <b>outer circle</b> faces in. Everyone has a partner."},
-                {"who":"pair","text":"Spin both reels on one phone. Do the task in <b>30 seconds</b>. Your partner spins and does a new task. (2 minutes)"},
-                {"who":"class","text":"Teacher says “Move!” — the <b>outer circle</b> moves one person to the right. New partner, new spin. Three rounds."},
+                {"who":"pair","text":"Spin both reels on one phone. Do the task in <b>30 seconds</b>. Your partner spins and does a new task. (1 minute)"},
+                {"who":"class","text":"Teacher says “Move!” — the <b>outer circle</b> moves one person to the right. New partner, new spin. Two rounds."},
                 {"who":"alone","text":"Couldn’t do a task? That’s useful! Add it to your learning needs."}
               ]
             },

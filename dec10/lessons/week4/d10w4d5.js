@@ -1297,6 +1297,50 @@ window.DEC15_LESSON = {
       outcome: "You have actively participated with your teacher in addressing your learning needs.",
       activities: [
         {
+          id: "d0",
+          short: "Spin & share",
+          minutes: 8,
+          grouping: "Pairs → Class",
+          art: "dec10/assets/week4/v/v-d10w4d1-b1.svg",
+          title: "Spin and share · Ask the teacher",
+          goal: "Get to know your partner a little better — then ask your teacher a question about life outside class.",
+          blocks: [
+            {"type":"do","n":1,"who":"pair","text":"<b>Spin and share (5 minutes).</b> Work with someone you don’t usually sit with. Spin the reels and talk about the topic for <b>30 seconds</b>. Start with the phrase on the second reel. Your partner asks <b>one follow-up question</b>. Then swap. Two or three spins each."},
+            {
+              type: "spinner",
+              id: "d0-spin",
+              title: "Spin and share",
+              text: "No right or wrong answers. Don’t like your topic? Spin again — that’s OK.",
+              note: "Spin, talk for 30 seconds, then your partner asks one question.",
+              reels: [
+                {"label":"Talk about","items":["A food from home that you miss","A place you want to visit one day","A skill you are proud of","The best moment of your week so far","Something that always makes you laugh","A hobby you want to try in Australia","A song or film you love right now","A small thing that makes a good day"]},
+                {"label":"Start with","items":["One thing I love is …","I’ve always wanted to …","I’m quite proud that …","To be honest, …"]}
+              ]
+            },
+            {"type":"do","n":2,"who":"class","text":"<b>Ask the teacher (3 minutes).</b> With your partner, write <b>one question</b> for your teacher about life outside class (not about the course!). Your teacher chooses 3–4 questions and answers them. Your teacher can say “Pass” too!"},
+            {
+              type: "cards",
+              title: "Need an idea? Ask your teacher about …",
+              items: [
+                {"label":"Studies","text":"What was your favourite subject at school?","icon":"book"},
+                {"label":"Travel","text":"What is the best place you have ever visited?","icon":"map"},
+                {"label":"Food","text":"What is your favourite dish to cook?","icon":"sprout"},
+                {"label":"Free time","text":"What do you like doing at the weekend?","icon":"smile"}
+              ]
+            },
+            {"type":"fields","fields":[{"id":"d0-q","label":"Our question for the teacher","placeholder":"What is the best place you have ever visited?","rows":1}]},
+            {
+              type: "language",
+              title: "Language bank",
+              groups: [
+                {"label":"Ask a follow-up question","phrases":["Really? <b>Tell me more about</b> …","<b>What do you like most about</b> …?","How did you learn to …?"]},
+                {"label":"Show interest","phrases":["That sounds amazing!","I didn’t know that!","Really? Me too!"]}
+              ]
+            },
+            {"type":"tip","text":"<b>Keep it light:</b> food, places, hobbies, music, films, sport. Not happy to answer? Just say <b>“Pass”</b> — that’s fine for students and for the teacher."}
+          ]
+        },
+        {
           id: "d1",
           short: "What is it?",
           minutes: 3,
@@ -1402,13 +1446,13 @@ window.DEC15_LESSON = {
         {
           id: "d4",
           short: "Review game",
-          minutes: 10,
+          minutes: 3,
           grouping: "Teams",
           art: "dec10/assets/week4/v/v-d10w4d5-d4.svg",
           title: "Week 4 review game",
           goal: "Play in teams. What do you remember from this week?",
           blocks: [
-            {"type":"do","n":1,"who":"class","text":"Play in teams. Choose a box, read the clue and answer <b>as a question</b> (“What is …?”). The teacher gives the points."},
+            {"type":"do","n":1,"who":"class","text":"Play in teams. Choose a box, read the clue and answer <b>as a question</b> (“What is …?”). The teacher gives the points. <b>Quick round:</b> each team chooses <b>one</b> box."},
             {
               type: "jeopardy",
               id: "d4-jp",
@@ -1455,7 +1499,7 @@ window.DEC15_LESSON = {
         {
           id: "d5",
           short: "Wrap-up",
-          minutes: 3,
+          minutes: 2,
           grouping: "Alone",
           art: "dec10/assets/week4/v/v-d10w4d5-d5.svg",
           title: "Week 4 check: 3-2-1",
