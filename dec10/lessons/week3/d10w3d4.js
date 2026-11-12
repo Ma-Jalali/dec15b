@@ -848,7 +848,7 @@
            "text": "Have you ever been persuaded to try something new? e.g. go to the theatre to see a live performance instead of seeing a movie at a cinema? Tell your group. Everyone speaks once."
           },
           {
-           "type": "model",
+           "type": "text",
            "title": "Questions to answer",
            "list": [
             "What was it? (food, a sport or hobby, an app, a place to study, a habit …)",
@@ -950,46 +950,45 @@
            "type": "hotspot",
            "src": "dec10/assets/week3/d4-ct-steps.svg",
            "alt": "Five stepping stones across a river to a flag. 1 Focus your thoughts. 2 Question what is being read or said. 3 Analyse the different perspectives. 4 Evaluate the information. 5 Reach your own position.",
-           "title": "Questions to stimulate critical thinking",
            "hint": "Tap each stone.",
            "size": "wide",
            "spots": [
             {
              "x": 12,
-             "y": 58,
-             "label": "1",
+           "y": 44,
+           "label": "1",
              "title": "Focus your thoughts",
              "text": "What is the topic? What am I trying to find out? What are the possible viewpoints for this topic? What research still needs to be done so I can make an informed decision?",
              "color": "#3a58a0"
             },
             {
              "x": 31,
-             "y": 44,
-             "label": "2",
+           "y": 30,
+           "label": "2",
              "title": "Question what is being read/said",
              "text": "Distinguish between fact and opinion. Identify any bias.",
              "color": "#2b776e"
             },
             {
              "x": 50,
-             "y": 58,
-             "label": "3",
+           "y": 44,
+           "label": "3",
              "title": "Analyse the different perspectives",
              "text": "What other points were not presented that were identified in Focus? What evidence has been omitted?",
              "color": "#7a4a8c"
             },
             {
              "x": 69,
-             "y": 44,
-             "label": "4",
+           "y": 30,
+           "label": "4",
              "title": "Evaluate the information",
              "text": "What are the pros and cons for each perspective?",
              "color": "#b0512a"
             },
             {
              "x": 88,
-             "y": 50,
-             "label": "5",
+           "y": 36,
+           "label": "5",
              "title": "Reach your own position",
              "text": "Which point of view do you agree with? Why? How did it persuade you to change your position?",
              "color": "#985c0e"

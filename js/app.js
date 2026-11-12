@@ -1088,6 +1088,9 @@ const DLX_IC = {
 const PR_KEY = CLS.id + '-print', prGet = () => { try { return JSON.parse(localStorage.getItem(PR_KEY) || '{}') || {}; } catch (e) { return {}; } };
 const prSet = m => { try { localStorage.setItem(PR_KEY, JSON.stringify(m)); } catch (e) { /* storage blocked */ } };
 const prSize = () => { const n = Number(prGet().size); return n > 0 && n < 200 ? n : 18; };
+const PR_OPEN = new Set();
+const prOpenAttr = id => PR_OPEN.has(id) ? ' open' : '';
+const prSummary = (p, c, ready, small) => `<summary class="pr-row"><img class="pr-mini" src="${esc(p.thumb)}" alt="" width="34" height="48" loading="lazy"><span class="pr-row-main">${small ? `<span class="pr-row-k">${PR_IC}Photocopiable · teacher only</span>` : ''}<b>${esc(p.title)}</b><span class="pr-row-meta">${p.code ? `<span class="pr-code">${esc(p.code)}</span>` : ''}<span>${esc(p.kind || '')}</span>${p.minutes ? `<span>${p.minutes} min</span>` : ''}<span><b>${c}</b> cop${c === 1 ? 'y' : 'ies'}</span></span></span>${ready ? '<span class="pr-row-ok">✓ Ready</span>' : ''}<i class="pr-row-chev" aria-hidden="true"></i></summary>`;
 const PR_PER = { student: 'per student', pair: 'per pair', group: 'per group', class: 'for the class', teacher: 'for you' };
 function prCopies(p, n = prSize()) {
   const g = p.groupSize || 4, base = p.per === 'student' ? n : p.per === 'pair' ? Math.ceil(n / 2) : p.per === 'group' ? Math.ceil(n / g) : 1;
@@ -1102,7 +1105,7 @@ function printCards(a) {
   if (!PR || !state.teacher) return '';
   const list = PR.filter(p => p.lesson === lesson.id && (p.activity === a.id || (p.also || []).includes(a.id)));   // also: more activities that use the same sheet if (!list.length) return '';
   return list.map(p => { const c = prCopies(p), ready = !!prGet()['r-' + p.id];
-    return `<aside class="pr-card${ready ? ' is-ready' : ''}" aria-label="Photocopiable for this activity (teacher only)">
+    return `<details class="pr-card${ready ? ' is-ready' : ''}" data-pr-id="${esc(p.id)}"${prOpenAttr(p.id)} aria-label="Photocopiable for this activity (teacher only)">${prSummary(p, c, ready, true)}<div class="pr-open">
     <a class="pr-thumb" href="${esc(p.file)}" target="_blank" rel="noopener" aria-label="Open the PDF"><img src="${esc(p.thumb)}" alt="" width="105" height="148" loading="lazy">${p.pages > 1 ? `<span>${p.pages} pages</span>` : ''}</a>
     <div class="pr-body">
       <div class="pr-label">${PR_IC}Photocopiable<span>Teacher only · students don’t see this</span></div>
@@ -1111,7 +1114,7 @@ function printCards(a) {
       ${p.prep?.length ? `<ul class="pr-prep">${p.prep.map(x => `<li>${/cut/i.test(x) ? PR_CUT : icon('check')}<span>${x}</span></li>`).join('')}</ul>` : ''}
       <div class="pr-actions">${prButtons(p)}<label class="pr-ready"><input type="checkbox" data-pr-ready="${esc(p.id)}"${ready ? ' checked' : ''}><span>Printed and ready</span></label></div>
       <p class="pr-noprint">${icon('bulb')}<span><b>No printer today?</b> ${p.noPrinter}</span></p>
-    </div></aside>`; }).join('');
+    </div></div></details>`; }).join('');
 }
 function printPage() {
   if (!isTeacher() && !state.teacher) return `<div class="pr-page"><section class="pr-locked">${PR_IC}<h1>Photocopiables</h1><p>This page is for teachers. Sign in with a teacher account to see the printable class activities.</p><a class="btn" href="#/">Back to the course map</a></section></div>`;
@@ -1138,7 +1141,7 @@ function printPage() {
     return `<section class="pr-day"><header><span class="pr-day-n">Day ${d ? d.day : ''}</span><div><h2>${esc(d ? d.title : id)}</h2><small>${list.length} photocopiable${list.length === 1 ? '' : 's'}</small></div>
       ${packs[id] ? `<a class="btn-quiet pr-pack" href="${esc(packs[id])}" target="_blank" rel="noopener">${PR_IC}Day pack · one of each</a>` : ''}</header>
       <div class="pr-grid">${list.map((p, i) => { const c = prCopies(p, n), on = !!m['r-' + p.id];
-        return `<article class="pr-item${on ? ' is-ready' : ''}" style="--i:${i}">
+        return `<details class="pr-item${on ? ' is-ready' : ''}" style="--i:${i}" data-pr-id="${esc(p.id)}"${prOpenAttr(p.id)}>${prSummary(p, c, on, false)}<div class="pr-open">
         <a class="pr-thumb" href="${esc(p.file)}" target="_blank" rel="noopener" aria-label="Open ${esc(p.title)}"><img src="${esc(p.thumb)}" alt="" width="140" height="198" loading="lazy">${p.pages > 1 ? `<span>${p.pages} pages</span>` : ''}</a>
         <div class="pr-info"><div class="pr-chips"><span class="pr-code">${esc(p.code || '')}</span><span>${esc(p.kind)}</span>${p.minutes ? `<span>${icon('clock')}${p.minutes} min</span>` : ''}</div>
           <h3>${esc(p.title)}</h3><p class="pr-use">${esc(p.use)}</p>
@@ -1146,10 +1149,11 @@ function printPage() {
           ${p.prep?.length ? `<ul class="pr-prep">${p.prep.map(x => `<li>${/cut/i.test(x) ? PR_CUT : icon('check')}<span>${x}</span></li>`).join('')}</ul>` : ''}
           <div class="pr-actions">${prButtons(p)}<a class="pr-link" href="#/${esc(p.lesson)}/${esc(p.section)}">Go to the activity ${icon('arrow')}</a></div>
           <label class="pr-ready"><input type="checkbox" data-pr-ready="${esc(p.id)}"${on ? ' checked' : ''}><span>Printed and ready</span></label>
-          <p class="pr-noprint">${icon('bulb')}<span><b>No printer?</b> ${p.noPrinter}</span></p></div></article>`; }).join('')}</div></section>`; }).join('')}
+          <p class="pr-noprint">${icon('bulb')}<span><b>No printer?</b> ${p.noPrinter}</span></p></div></div></details>`; }).join('')}</div></section>`; }).join('')}
   </div>`;
 }
 if (PR) {
+  document.addEventListener('toggle', e => { const d = e.target; if (d?.matches?.('details[data-pr-id]')) { if (d.open) PR_OPEN.add(d.dataset.prId); else PR_OPEN.delete(d.dataset.prId); } }, true);
   document.addEventListener('change', e => {
     const r = e.target.closest?.('[data-pr-ready]'); if (r) { const m = prGet(); if (r.checked) m['r-' + r.dataset.prReady] = Date.now(); else delete m['r-' + r.dataset.prReady]; prSet(m); rerender(); return; }
     const s = e.target.closest?.('[data-pr-size-input]'); if (s) { const m = prGet(), v = Math.round(Number(s.value)); if (v > 0 && v < 100) { m.size = v; prSet(m); rerender(); } }

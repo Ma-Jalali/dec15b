@@ -818,3 +818,6 @@ body.present .block.key .key-title { font-size: 2.1rem; }
 .doc-list li { padding-left: 4px; }
 @media (max-width: 700px) { .doc-text { padding: 14px 16px; } }
 .doc-list .doc-sub { list-style: none; margin: 8px 0 0 -1.4em; }
+/* a plain text block used directly in an activity (not in a fold): questions to discuss */
+.act-body > .doc-text { background: #fff; }
+.act-body > .doc-text .doc-list { gap: 10px; font-size: 1.04rem; }
