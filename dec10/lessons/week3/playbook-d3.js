@@ -127,6 +127,7 @@ window.DEC10_PLAYBOOK['d10w3d3'] = {
     },
     star: {
       tips: [
+        'Two truths and a lie (s0): go first with your own three sentences (studies · home · a hobby) — it shows how much to share and lets students learn about you. Keep it light and let anyone say “Pass”.',
         'This is the students’ time: talk less. Use the s2 slips (or the on-screen grid) to choose what to practise, not your own plan.',
         'Note which topics put most students in the “I need help” corner — that is your 5–10 minutes of teaching in s3.',
         'Keep a short list of 2–3 mini-explanations ready (hedging, nominalisation, an email opening) so you can teach the winner of the vote straight away.',

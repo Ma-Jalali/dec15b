@@ -122,6 +122,7 @@ window.DEC10_PLAYBOOK['d10w3d4'] = {
     },
     star: {
       tips: [
+        'Three things in common (b0): make groups of students who did not present together today, and answer the “Guess your teacher” cards honestly with one short story — trust first, then needs in b2.',
         'Students have been concentrating for two hours: keep the stand up, sit down in b1 quick and light — it is also your first data on their needs.',
         'Read the b2 grids over shoulders while pairs talk; note the top two needs you see most.',
         'In b3, cluster the sticky notes on the board under the four topics as they arrive, so you can start answering after 3 minutes.',

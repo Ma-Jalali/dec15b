@@ -454,9 +454,59 @@
         outcome: 'You have reflected on your learning needs this week and talked to your teacher about them.',
         activities: [
           {
+            id: 'b0',
+            short: 'Get to know',
+            minutes: 8,
+            grouping: 'Groups of 3 → Class',
+            art: 'dec10/assets/week3/v/v-d10w3d3-c8.svg',
+            title: 'Three things in common',
+            goal: 'Find out what you share with your classmates — and guess some facts about your teacher.',
+            blocks: [
+              {
+                type: 'steps',
+                title: 'Part 1 · Three things in common (5 minutes)',
+                items: [
+                  { who: 'group', text: 'Stay in your seat. Make a group of three with classmates you don’t know well. Find <b>three things</b> you all have in common. Not easy ones (“We are all students”) — find <b>surprising</b> ones!' },
+                  { who: 'group', text: 'Ask about life outside class: food, music, sport, places, weekends, games, films. Ask a follow-up question each time.' },
+                  { who: 'class', text: 'Each group reads its <b>best one</b> to the class: “All three of us …”. Which group found the most surprising one?' }
+                ]
+              },
+              {
+                type: 'fields',
+                fields: [{ id: 'b0-common', label: 'Our three things in common', placeholder: 'All three of us … · None of us … · We all …', rows: 3 }]
+              },
+              {
+                type: 'cards',
+                title: 'Part 2 · Guess your teacher (3 minutes)',
+                numbered: true,
+                items: [
+                  { label: 'Languages', text: 'In how many languages can your teacher say “hello”?' },
+                  { label: 'Food', text: 'What is your teacher’s favourite food?' },
+                  { label: 'Travel', text: 'Which country would your teacher most like to visit next?' },
+                  { label: 'Childhood', text: 'What did your teacher want to be at the age of 10?' }
+                ]
+              },
+              { type: 'do', n: 1, who: 'group', text: 'Guess the four answers with your group and write them down. Then your teacher tells you the real answers. One point for each right guess — close is OK!' },
+              {
+                type: 'fields',
+                fields: [{ id: 'b0-guess', label: 'Our guesses about our teacher', placeholder: '1. … 2. … 3. … 4. …', rows: 2, share: false }]
+              },
+              {
+                type: 'language',
+                title: 'Language bank',
+                groups: [
+                  { label: 'Find things in common', phrases: ['Do you like …? / Have you ever …?', 'Me too! / Same here!', 'So do I. / Neither do I.', '<b>All three of us</b> … / <b>None of us</b> …'] },
+                  { label: 'Ask a follow-up question', phrases: ['Really? <b>Tell me more about</b> …', '<b>What do you like most about</b> …?', 'Why did you choose …?'] },
+                  { label: 'Guess', phrases: ['I bet our teacher …', 'Maybe … — or perhaps …', 'My guess is …'] }
+                ]
+              },
+              { type: 'tip', text: '<b>Keep it light:</b> food, music, sport, places, hobbies. Not happy to answer a question? Just say <b>“Pass”</b> or “Let’s try another one” — that’s fine.' }
+            ]
+          },
+          {
             id: 'b1',
             short: 'What is it?',
-            minutes: 5,
+            minutes: 3,
             grouping: 'Class',
             art: V('b1'),
             title: 'What are Teachable STAR Moments?',
@@ -491,7 +541,7 @@
           {
             id: 'b2',
             short: 'My needs',
-            minutes: 10,
+            minutes: 8,
             grouping: 'Alone → Pair',
             art: V('b2'),
             title: 'Reflect on your learning needs',
@@ -528,7 +578,7 @@
           {
             id: 'b3',
             short: 'Ask',
-            minutes: 15,
+            minutes: 11,
             grouping: 'Pair → Class',
             art: V('b3'),
             title: 'Talk to your teacher',
