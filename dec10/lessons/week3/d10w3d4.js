@@ -726,12 +726,13 @@
             blocks: [
               {
                 type: 'cards',
-                title: 'Group jobs for this check-in (one each)',
+                title: 'Group jobs for this check-in (five people, one job each)',
                 items: [
                   { label: 'Chair', text: 'Calls each speaker. Keeps the talk on progress, problems and next steps.', icon: 'users' },
                   { label: 'Timekeeper', text: 'One minute per person. Says “30 seconds left”.', icon: 'clock' },
                   { label: 'Language monitor', text: 'Ticks the progress-update phrases you hear.', icon: 'pen' },
-                  { label: 'Note-taker', text: 'Writes everyone’s next step for the group agreement.', icon: 'list' }
+                  { label: 'Note-taker', text: 'Writes everyone’s next step for the group agreement.', icon: 'list' },
+                  { label: 'Question writer', text: 'Writes the group’s question for the teacher.', icon: 'ask' }
                 ]
               },
               { type: 'do', n: 1, who: 'alone', text: 'Rate your progress honestly.' },
@@ -793,20 +794,12 @@
             grouping: 'Seminar group',
             art: V('c4'),
             title: 'Our group plan for next week',
-            goal: 'Agree on who does what — and sign it.',
+            goal: 'Agree on who does what, in one shared agreement for your group of five.',
             blocks: [
-              {
-                type: 'contract',
-                id: 'c4-plan',
-                title: 'Interactive Presentation · group agreement (Week 3)',
-                intro: 'Fill this in together. Each member signs.',
-                fields: [
-                  { id: 'c4-who', label: 'Who researches what next week', placeholder: 'Mina: data on AI in hospitals · Leo: …', rows: 2 },
-                  { id: 'c4-when', label: 'When and how we will meet or share', placeholder: 'Tuesday 4 pm on Teams · shared folder', rows: 2 },
-                  { id: 'c4-if', label: 'If someone is stuck, we will …', placeholder: 'message the group by Wednesday', rows: 1 }
-                ],
-                signers: 4
-              },
+              { type: 'key', title: 'One agreement for the whole group', points: ['Your group has <b>five</b> members. Fill in <b>one shared agreement</b> together: everyone types in the same tables at the same time.', 'One person presses <b>Start a shared table</b> on each table below and invites the other four. They find it in <b>Shared with me</b> and on this page.'] },
+              { type: 'table', id: 'c4-team', live: 'names', title: 'Who does what next week', columns: ['Name', 'My part: what I will research or prepare', 'By when', 'I agree (type your initials)'], rows: 5 },
+              { type: 'table', id: 'c4-how', live: true, title: 'How we work together', columns: ['', 'Our group decision'], fixed: ['When and how we will meet or share', 'If someone is stuck, we will …'] },
+              { type: 'tip', text: 'Be specific: a name, a task and a day for everyone, e.g. <i>Mina · data on AI in hospitals · Monday</i>. Not “we will do research”.' },
               { type: 'do', n: 1, who: 'group', text: '<b>Stand up and say it.</b> Each person stands and says their promise in one sentence: “<b>By next week, I will</b> … .” The group says “Deal!”' }
             ]
           }
