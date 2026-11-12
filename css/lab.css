@@ -221,3 +221,9 @@ a.lab-row:hover .lab-row-st .icon { transform: translateX(2px); }
 .rp-v i { color: #4ca677; }
 .rp-x b { color: #a8432a; text-decoration-color: rgba(168, 67, 42, .45); }
 .rp-v b { color: #2c7a52; }
+
+/* compare pairs (rule.compare): two good versions side by side, coloured by the group tone */
+.rule-pairs.is-compare .rp-head span { color: var(--rc); }
+.rule-pairs.is-compare .rp-x b, .rule-pairs.is-compare .rp-v b { color: var(--rc); text-decoration: none; }
+.rule-pairs.is-compare .rp-x span { color: var(--ink); }
+.rule-pairs.is-compare .rp-v { background: var(--rc-bg); }

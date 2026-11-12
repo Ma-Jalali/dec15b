@@ -4,6 +4,8 @@
    19A Interactive Presentation Assessment: Check in (30, moved from Day 5) · 22A AST: Criticality: Showing flexibility (60, moved from Day 5) ·
    17A Citing sources Homework. Day 5 continues 15A with presentations #4–5.
    Activity ids are the keys of saved work — never rename them.
+   22A redesign (v8.2): Lead-in → Review → Presentation A stance (rules 1–5, spoken | written), B challenge (6–9, someone says | you ask),
+   C flexibility (10–12, someone says | you answer) → Practice dp (parts 1–3) → Production d7–d9 with reference folds. TB texts and tasks kept.
    22A quality pass (v7.3, dec10/design/LESSON-DESIGN.md): TB questions shown directly (no spinners); one opinion line-up
    (lead-in) and one four corners (final position); stance language practised once, in the pitch; no expert huddle,
    duplicate scenario picture, devil's advocate, self-rating scale or extra writing box. TB texts, questions and tasks unchanged. */
@@ -763,390 +765,1595 @@
 
       /* ─────────────────────────── 22A ─────────────────────────── */
       {
-        id: 'flex',
-        number: '04',
-        code: '22A',
-        minutes: 60,
-        tone: 'blue',
-        art: A + 's-d4-flex.svg',
-        title: 'AST: Criticality: Showing flexibility',
-        subtitle: 'State your position — and be open to changing it',
-        outcome: 'You can use language for presenting your original position, question your position by exploring a topic with an open mind, and use language for changing your position.',
-        activities: [
+       "id": "flex",
+       "number": "04",
+       "code": "22A",
+       "minutes": 60,
+       "tone": "blue",
+       "art": "dec10/assets/week3/s-d4-flex.svg",
+       "title": "AST: Criticality: Showing flexibility",
+       "subtitle": "Lead-in → Review → Presentation (stance · challenge · flexibility) → Practice → Production",
+       "outcome": "You can use language for presenting your original position, question your position by exploring a topic with an open mind, and use language for changing your position.",
+       "activities": [
+        {
+         "id": "d1",
+         "short": "Lead-in",
+         "minutes": 5,
+         "grouping": "Group → Class",
+         "art": "dec10/assets/week3/v/v-d10w3d4-d1.svg",
+         "title": "Lead-in",
+         "goal": "Talk about a time someone persuaded you to try something new.",
+         "blocks": [
           {
-            id: 'd1',
-            short: 'Lead-in',
-            minutes: 7,
-            grouping: 'Groups',
-            art: V('d1'),
-            title: 'Lead-in',
-            goal: 'Talk about a time someone persuaded you to try something new.',
-            blocks: [
-              { type: 'key', title: 'Why this matters', points: ['Showing flexibility is part of <b>criticality</b>. You will be expected to show it in your <b>Interactive Discussion</b> assessment.'] },
-              { type: 'do', n: 1, who: 'group', text: 'Have you ever been persuaded to try something new? e.g. go to the theatre to see a live performance instead of seeing a movie at a cinema? Tell your group. Everyone speaks once.' },
-              { type: 'model', title: 'Questions to answer', list: ['What was it? (food, a sport or hobby, an app, a place to study, a habit …)', 'How were you persuaded?', 'How did you make the decision whether you would or wouldn’t try it?'] },
-              {
-                type: 'language',
-                title: 'Tell your story',
-                tabs: false,
-                groups: [
-                  { label: 'Before', phrases: ['<b>At first, I wasn’t keen on</b> … because …', '<b>I was convinced that</b> …'] },
-                  { label: 'Persuaded', phrases: ['<b>My friend kept telling me</b> …', '<b>What really convinced me was</b> …', '<b>In the end, I decided to give it a try.</b>'] },
-                  { label: 'Opinion', phrases: ['<b>I think it’s fine to change your mind if</b> you get new information.', '<b>Changing your mind isn’t a weakness — it shows</b> …'] }
-                ]
-              },
-              {
-                type: 'figure',
-                src: A + 'd4-opinion-line.svg',
-                size: 'wide',
-                alt: 'An opinion line across the classroom from Strongly disagree to Strongly agree. Students stand at different points on the line. Above them the statement: It is OK to change your mind after making a decision. One student walks from the disagree side towards the middle, with a speech bubble: That’s a fair point.',
-                caption: 'Opinion line-up: stand where you stand — and move if you are persuaded.'
-              },
-              {
-                type: 'steps',
-                title: 'Opinion line-up (3 minutes)',
-                items: [
-                  { who: 'class', text: '<b>Last question: do you think it is okay to change your mind after making a decision?</b> Stand up. One end of the room = <b>strongly disagree</b>, the other end = <b>strongly agree</b>. Stand on the line.' },
-                  { who: 'pair', text: 'Talk to the person next to you, then to someone from the <b>other end</b>. Give one reason each.' },
-                  { who: 'class', text: 'Persuaded? <b>Move</b> along the line. Anyone who moved says why: “<b>That’s a fair point.</b> I hadn’t considered … .” This is today’s skill: showing flexibility.' }
-                ]
-              }
-            ]
+           "type": "key",
+           "title": "Why this matters",
+           "points": [
+            "Showing flexibility is part of <b>criticality</b>. You will be expected to show it in your <b>Interactive Discussion</b> assessment."
+           ]
           },
           {
-            id: 'd2',
-            short: 'Review',
-            minutes: 4,
-            grouping: 'Pair',
-            art: V('d2'),
-            title: 'Review critical thinking skills',
-            goal: 'Remember the definition and five questions from Week 2.',
-            blocks: [
-              { type: 'do', n: 1, who: 'pair', text: 'Remember Week 2? One word in this definition is a trap. Tap it.' },
-              {
-                type: 'spot',
-                id: 'd2-spot',
-                label: 'Find the trap',
-                title: 'Critical thinking is …',
-                hint: 'Tap one word.',
-                paras: ['Critical thinking is the process of carefully [[analysing]] information to make [[judgments]] and solve problems. This involves: [[*accepting]] information provided; [[separating]] facts from opinions and relevant information from irrelevant information; [[noticing]] errors in arguments; using logic and evidence to make decisions; being [[flexible]] in our thinking; reaching conclusions by using arguments from sources; identifying and explaining limitations and bias in arguments.']
-              },
-              {
-                type: 'hotspot',
-                src: A + 'd4-ct-steps.svg',
-                alt: 'Five stepping stones across a river to a flag. 1 Focus your thoughts. 2 Question what is being read or said. 3 Analyse the different perspectives. 4 Evaluate the information. 5 Reach your own position.',
-                title: 'Questions to stimulate critical thinking',
-                hint: 'Tap each stone.',
-                size: 'wide',
-                spots: [
-                  { x: 12, y: 58, label: '1', title: 'Focus your thoughts', text: 'What is the topic? What am I trying to find out? What are the possible viewpoints for this topic? What research still needs to be done so I can make an informed decision?', color: '#3a58a0' },
-                  { x: 31, y: 44, label: '2', title: 'Question what is being read/said', text: 'Distinguish between fact and opinion. Identify any bias.', color: '#2b776e' },
-                  { x: 50, y: 58, label: '3', title: 'Analyse the different perspectives', text: 'What other points were not presented that were identified in Focus? What evidence has been omitted?', color: '#7a4a8c' },
-                  { x: 69, y: 44, label: '4', title: 'Evaluate the information', text: 'What are the pros and cons for each perspective?', color: '#b0512a' },
-                  { x: 88, y: 50, label: '5', title: 'Reach your own position', text: 'Which point of view do you agree with? Why? How did it persuade you to change your position?', color: '#985c0e' }
-                ]
-              }
-            ],
-            answers: { items: [['The trap', '“accepting” — a critical thinker <b>questions</b> information provided, they do not just accept it.']] }
+           "type": "do",
+           "n": 1,
+           "who": "group",
+           "text": "Have you ever been persuaded to try something new? e.g. go to the theatre to see a live performance instead of seeing a movie at a cinema? Tell your group. Everyone speaks once."
           },
           {
-            id: 'd3',
-            short: 'Critical thinker?',
-            minutes: 3,
-            grouping: 'Pair',
-            art: V('d3'),
-            title: 'Activity A critical thinker',
-            goal: 'Which quotes come from a critical thinker?',
-            blocks: [
-              { type: 'do', n: 1, who: 'pair', text: 'Which quotes come from a critical thinker? Sort the cards with your partner, then check.' },
-              {
-                type: 'sort',
-                id: 'd3-sort',
-                title: 'Who is speaking?',
-                hint: 'Source: Exercise 1, Developing critical thinking skills — The University of Sydney.',
-                buckets: [
-                  { label: 'A critical thinker', letter: '✓' },
-                  { label: 'Not a critical thinker', letter: '✗' }
-                ],
-                items: [
-                  { text: '“I hate talk shows where people just state their opinions but never give any reasons at all”', answer: 0, why: 'They want reasons, not only opinions.' },
-                  { text: '“No matter how complex a problem, you can bet there will be a simple solution”', answer: 1, why: 'Complex problems rarely have simple solutions.' },
-                  { text: '“Just because information is in a textbook, doesn’t necessarily mean it can be trusted”', answer: 0 },
-                  { text: '“My views are probably shaped by the social and economic groups I belong to”', answer: 0, why: 'They notice their own possible bias.' },
-                  { text: '“I hate it when teachers discuss problems instead of just giving the information”', answer: 1, why: 'They want to be told, not to think.' },
-                  { text: '“Selling an idea is like selling cars, you say whatever works”', answer: 1, why: 'Truth and evidence don’t matter to this speaker.' },
-                  { text: '“I like to think about whether someone’s views reflect the experience of all groups of people”', answer: 0 },
-                  { text: '“I question the authority of evidence before I accept it”', answer: 0 }
-                ]
-              }
-            ]
+           "type": "model",
+           "title": "Questions to answer",
+           "list": [
+            "What was it? (food, a sport or hobby, an app, a place to study, a habit …)",
+            "How were you persuaded?",
+            "How did you make the decision whether you would or wouldn’t try it?"
+           ]
           },
           {
-            id: 'd4',
-            short: 'Keep your stance',
-            minutes: 6,
-            grouping: 'Pair',
-            art: V('d4'),
-            title: 'Language for presenting / keeping your original stance',
-            goal: 'Notice how a clear position is stated in speaking and in writing. You will use this language in your pitch.',
-            blocks: [
-              {
-                type: 'language',
-                title: 'Language for presenting / keeping your original stance',
-                groups: [
-                  { label: 'Introduction of your stance', phrases: ['<b>Verbal:</b> “In my opinion, …”', '“I believe that …”', '“From my perspective, …”', '<b>Written:</b> [no opinion marker – straight statement]'] },
-                  { label: 'Presenting arguments', phrases: ['One key reason is that …', 'Firstly, it is important to note that …', 'Another significant factor is …', 'Additionally, …'] },
-                  { label: 'Providing evidence', phrases: ['According to (source), …', 'Research indicates that …', 'Studies have shown that …', 'Data from [source] suggests …'] },
-                  { label: 'Counterarguments', phrases: ['It may be argued that …, however, …', 'While it is true that …, it is also important to consider …', '... might ..., ... but ...'] },
-                  { label: 'Conclusion', phrases: ['In conclusion, …', 'To summarize, …', 'Therefore, it can be concluded that …', 'So, ... (verbal)'] }
-                ]
-              },
-              {
-                type: 'tabs',
-                title: 'Two samples — same idea',
-                tabs: [
-                  { label: 'Sample 1: Spoken', blocks: [{ type: 'model', title: 'Sample 1: Spoken', text: '<b>In my opinion</b>, developing green skills is essential for the workforce of the future. <b>One key reason is</b> that these skills help employees to implement sustainable practices, which are increasingly demanded by industries worldwide. <b>According to</b> a report by Surname in YEAR, green jobs are expected to grow significantly. This highlights the importance of this skill set. The transition to green skills <b>might</b> require substantial investment, <b>but</b> the long-term benefits far outweigh the initial costs. <b>So</b> fostering green skills not only supports environmental sustainability, but also drives economic growth and innovation.' }] },
-                  { label: 'Sample 2: Written', blocks: [{ type: 'model', title: 'Sample 2: Written', text: 'The development of green skills is <b>imperative</b> for the future workforce. <b>A key reason</b> is that these skills enable employees to implement sustainable practices, which are increasingly demanded by industries globally. <b>According to</b> (source), the growth of green jobs is projected to be significant, underscoring the importance of this skill set. While <b>it may be argued that</b> the transition to green skills is a costly move, the long-term benefits far outweigh the initial costs. <b>Therefore, it can be concluded that</b> fostering green skills not only supports environmental sustainability but also drives economic growth and innovation.' }] }
-                ]
-              },
-              { type: 'do', n: 1, who: 'pair', text: 'Compare the samples. Where does each one put its stance, and how? Then sort the phrases.' },
-              {
-                type: 'sort',
-                id: 'd4-sort',
-                title: 'Spoken or written?',
-                buckets: [{ label: 'Spoken (Sample 1)', letter: 'S' }, { label: 'Written (Sample 2)', letter: 'W' }],
-                items: [
-                  { text: 'In my opinion, …', answer: 0 },
-                  { text: 'The development of green skills is imperative …', answer: 1, why: 'A straight statement — no opinion marker.' },
-                  { text: '… might …, but …', answer: 0 },
-                  { text: 'While it may be argued that …', answer: 1 },
-                  { text: 'So …', answer: 0 },
-                  { text: 'Therefore, it can be concluded that …', answer: 1 }
-                ]
-              }
-            ]
+           "type": "language",
+           "title": "Tell your story",
+           "tabs": false,
+           "groups": [
+            {
+             "label": "Before",
+             "phrases": [
+              "<b>At first, I wasn’t keen on</b> … because …",
+              "<b>I was convinced that</b> …"
+             ]
+            },
+            {
+             "label": "Persuaded",
+             "phrases": [
+              "<b>My friend kept telling me</b> …",
+              "<b>What really convinced me was</b> …",
+              "<b>In the end, I decided to give it a try.</b>"
+             ]
+            },
+            {
+             "label": "Opinion",
+             "phrases": [
+              "<b>I think it’s fine to change your mind if</b> you get new information.",
+              "<b>Changing your mind isn’t a weakness — it shows</b> …"
+             ]
+            }
+           ]
           },
           {
-            id: 'd5',
-            short: 'Challenge it',
-            minutes: 5,
-            grouping: 'Groups',
-            art: V('d5'),
-            title: 'Activity 1 Challenging your viewpoint',
-            goal: 'Learn four kinds of question that test your own position.',
-            blocks: [
-              { type: 'sticky', title: 'A good critical thinker …', text: '… questions their position by critically exploring the topic with an open mind to the possibility of their position changing.' },
-              { type: 'do', n: 1, who: 'group', text: '<b>Beat the clock (4 minutes).</b> Each question belongs under one heading. Take turns: one person places a card and says <b>why</b>. Keep the questions: you will ask them in the discussion.' },
-              { type: 'tip', text: 'Your teacher may give your group <b>paper cards</b> to sort on the table (4 headings + 13 questions). No cards? Sort the cards on this page together.' },
-              {
-                type: 'sort',
-                id: 'd5-sort',
-                title: 'Four ways to challenge your viewpoint',
-                buckets: [
-                  { label: 'Asking open-ended questions that encourage deeper reflection', letter: '1' },
-                  { label: 'Challenging assumptions and preconceived notions', letter: '2' },
-                  { label: 'Exploring the implications and consequences of ideas', letter: '3' },
-                  { label: 'Fostering intellectual curiosity and continuous inquiry', letter: '4' }
-                ],
-                items: [
-                  { text: 'What are the underlying reasons the author researched this topic?', answer: 0 },
-                  { text: 'Is there a situation where this idea might not apply?', answer: 0 },
-                  { text: 'What are the potential benefits and drawbacks of this approach?', answer: 0 },
-                  { text: 'What assumptions are being made about this topic? Are they justified?', answer: 1 },
-                  { text: 'How might someone with a different perspective view this situation?', answer: 1 },
-                  { text: 'Are there any alternative viewpoints that haven’t been considered?', answer: 1 },
-                  { text: 'What are the short-term and long-term consequences of this decision?', answer: 2 },
-                  { text: 'How might this idea impact different groups of people?', answer: 2 },
-                  { text: 'What are the ethical implications of this action?', answer: 2 },
-                  { text: 'If this idea were implemented, what changes might we expect to see in society?', answer: 2 },
-                  { text: 'What questions remain unanswered about this topic?', answer: 3 },
-                  { text: 'How can we further investigate this issue to gain a deeper understanding?', answer: 3 },
-                  { text: 'What new information or research could change my perspective on this matter?', answer: 3 }
-                ]
-              }
-            ]
+           "type": "figure",
+           "src": "dec10/assets/week3/d4-opinion-line.svg",
+           "size": "wide",
+           "alt": "An opinion line across the classroom from Strongly disagree to Strongly agree. Students stand at different points on the line. Above them the statement: It is OK to change your mind after making a decision. One student walks from the disagree side towards the middle, with a speech bubble: That’s a fair point.",
+           "caption": "Opinion line-up: stand where you stand — and move if you are persuaded."
           },
           {
-            id: 'd6',
-            short: 'Change it',
-            minutes: 6,
-            grouping: 'Pair',
-            art: V('d6'),
-            title: 'Language for changing your position',
-            goal: 'Say politely and clearly that your view has changed.',
-            blocks: [
-              {
-                type: 'figure',
-                src: A + 'd4-flex-loop.svg',
-                size: 'wide',
-                alt: 'Three steps of showing flexibility. 1 Present your stance. 2 Challenge it: listen and ask open questions. 3 Final position: it did not change, it almost changed, or it changed — and say why.',
-                caption: 'Flexibility = state it, test it, then say where you stand now — and why.'
-              },
-              {
-                type: 'language',
-                title: 'Language for changing your position',
-                tabs: false,
-                groups: [
-                  {
-                    label: 'From the booklet',
-                    phrases: [
-                      'After reading (source), the topic of (topic) is not as clear as originally thought.',
-                      'The strength of (author) argument on (topic) has challenged my position by…',
-                      'Although the perspectives presented differ, the underlying them is the same, which is…. Because of this, further consideration should be explored before making a final decision.',
-                      'My earlier position was based on …. but after further research, I can see that it is possible…'
-                    ]
-                  },
-                  { label: 'Spoken extras', phrases: ['<b>You’ve made me think again about</b> …', '<b>That’s a fair point. I hadn’t considered</b> …', '<b>I’m still not fully convinced, but</b> …', '<b>I take your point, and I’d now say</b> …'] }
-                ]
-              },
-              {
-                type: 'model',
-                title: 'Examples',
-                list: [
-                  'Despite differing perspectives in the readings and the listening, all sources agree that companies are rapidly adopting green practices. Therefore, it’s important to carefully consider the implications before deciding to upskill with green skills.',
-                  'The strength of Smith’s (2024) argument on why company’s need to go “green” has challenged my thinking on whether I should include subjects at university that include green skills.'
-                ]
-              },
-              {
-                type: 'flip',
-                title: 'Which one fits? Say a sentence for each card.',
-                items: [
-                  { front: 'My position did not change', tag: 'keep', back: '“I take your point about …, <b>but I still believe</b> … <b>because</b> …”' },
-                  { front: 'My position almost changed', tag: 'almost', back: '“<b>I’m still not fully convinced, but</b> …’s point about … <b>made me think again</b>.”' },
-                  { front: 'My position changed', tag: 'change', back: '“<b>My earlier position was based on</b> …, <b>but after</b> hearing …, <b>I can see that</b> …”' }
-                ]
-              },
-              { type: 'do', n: 1, who: 'pair', text: '<b>Quick practice.</b> A says a stance (“Online classes are better than face-to-face.”). B gives one counter-point. A answers with <b>one</b> card: did not change, almost changed or changed. Swap with a new stance (“Every student needs a laptop.”).' }
-            ]
+           "type": "steps",
+           "title": "Opinion line-up (3 minutes)",
+           "items": [
+            {
+             "who": "class",
+             "text": "<b>Last question: do you think it is okay to change your mind after making a decision?</b> Stand up. One end of the room = <b>strongly disagree</b>, the other end = <b>strongly agree</b>. Stand on the line."
+            },
+            {
+             "who": "pair",
+             "text": "Talk to the person next to you, then to someone from the <b>other end</b>. Give one reason each."
+            },
+            {
+             "who": "class",
+             "text": "Persuaded? <b>Move</b> along the line. Anyone who moved says why: “<b>That’s a fair point.</b> I hadn’t considered … .” This is today’s skill: showing flexibility."
+            }
+           ]
           },
           {
-            id: 'd7',
-            short: 'Prepare',
-            minutes: 6,
-            grouping: 'Alone',
-            art: V('d7'),
-            title: 'Activity 2 Putting it into practice: Prepare',
-            goal: 'Read the specs for YOUR laptop and prepare to persuade your group.',
-            blocks: [
-              {
-                type: 'key',
-                title: 'Look at the following scenario',
-                points: [
-                  'Your laptop broke. It is important that you have one for university studies. For the last 10 years, you have bought the same brand, but your university friends say there are better options available.',
-                  'The key features you are looking for are: <b>long battery life</b> as not all lecture rooms have power points for students to charge their devices · <b>lightweight</b> as it needs to be carried from class to class · <b>security</b> as you also use the laptop for personal use.',
-                  'Other features will be taken into consideration.'
-                ]
-              },
-              { type: 'do', n: 1, who: 'group', text: 'Groups of up to four. Each person takes a <b>different</b> laptop. Open <b>only your tab</b> — the others are your group’s secret!' },
-              { type: 'tip', text: 'Your teacher may give you a <b>paper laptop card</b> (A–D). No cards? Open only your tab below.' },
-              {
-                type: 'tabs',
-                title: 'Activity specs — open your allocated laptop only',
-                tabs: [
-                  { label: 'MacBook Pro', blocks: [{ type: 'model', title: 'MacBook Pro', rows: [['Price', '$2,699'], ['Battery life', '22hrs'], ['Size', '14”'], ['Ports', '2x Thunderbolt/USB 4 or 3x Thunderbolt 4, HDMI, SDXC, headphone jack, MagSafe'], ['Security', 'Touch ID'], ['Camera', '1080p'], ['Audio', 'Studio-quality three-mic array · 6 speaker sound system'], ['Weight', '1.55kg'], ['Special feature', 'Most advanced computer chip for personal computer']] }] },
-                  { label: 'Microsoft Surface', blocks: [{ type: 'model', title: 'Microsoft Surface Laptop', rows: [['Price', '$2799'], ['Battery life', '20hrs'], ['Size', '13.8”'], ['Ports', '2 x USB-C · 1 x USB-A'], ['Security', 'Facial Recognition'], ['Camera', '1080p'], ['Audio', 'Dolby Digital'], ['Weight', '1.34kg'], ['Special feature', 'Includes Co-pilot AI']] }] },
-                  { label: 'Dell XPS 14', blocks: [{ type: 'model', title: 'Dell XPS 14 Laptop', rows: [['Price', '$2497'], ['Battery life', '19hrs'], ['Size', '14.5”'], ['Ports', '3 Thunderbolt™ 4 (USB Type-C™) with Power Delivery and DisplayPort · 1 headset (headphone and microphone combo) port'], ['Security', 'Self-locking'], ['Camera', '1080p'], ['Audio', 'Stereo speakers with Waves MaxxAudio Quad-speaker design'], ['Weight', '1.68kg'], ['Special feature', '–']] }] },
-                  { label: 'HP Pavilion Plus', blocks: [{ type: 'model', title: 'HP Pavilion Plus', rows: [['Price', '$1199'], ['Battery life', '11hrs'], ['Size', '14”'], ['Ports', '1x HDMI 2.1, 2x USB 3.0 ports, 1x USB 3.1 port, 1x Thunderbolt 4, 1 x 3.5mm combo headphone/microphone'], ['Security', '–'], ['Camera', '5MP IR Camera'], ['Audio', 'Audio by B&O, Dual speakers, HP Audio Boost'], ['Weight', '1.4kg'], ['Special feature', 'Good for media consumption']] }] }
-                ]
-              },
-              { type: 'do', n: 2, who: 'alone', text: '<b>Prepare for a discussion.</b> This is the laptop you are trying to persuade your group members to buy. Write your pitch with the sentence starters from <b>Language for presenting / keeping your original stance</b>. Link each point to the scenario: battery life, weight and security. Notes are fine: you will <b>say</b> it, not read it.' },
-              {
-                type: 'detect',
-                id: 'd7-pitch',
-                title: 'My pitch',
-                label: 'Function lights',
-                checks: [
-                  { label: 'Stance', color: '#3a58a0', any: ['in my opinion', 'i believe', 'from my perspective'] },
-                  { label: 'Argument', color: '#2b776e', any: ['one key reason', 'firstly', 'another significant factor', 'additionally'] },
-                  { label: 'Evidence', color: '#7a4a8c', any: ['according to', 'research indicates', 'studies have shown', 'data from'] },
-                  { label: 'Counterargument', color: '#b0512a', any: ['may be argued', 'while it is true', '/might .* but/'] },
-                  { label: 'Conclusion', color: '#985c0e', any: ['in conclusion', 'to summarize', 'to summarise', 'therefore', '/(^|[.!?] )So, /u'] }
-                ],
-                items: [{ task: 'Persuade your group to buy your laptop (about 60 seconds when you say it).', placeholder: 'In my opinion, the … is the best choice for students. One key reason is that …', rows: 6 }]
-              }
-            ]
-          },
-          {
-            id: 'd8',
-            short: 'Discussion 1',
-            minutes: 18,
-            grouping: 'Groups of 4',
-            art: V('d8'),
-            title: 'Activity 2 Putting it into practice: Discussion 1',
-            goal: 'Present your laptop, listen actively and be open to changing your opinion.',
-            blocks: [
-              {
-                type: 'cards',
-                title: 'Group jobs (everyone still presents a laptop)',
-                items: [
-                  { label: 'Timekeeper', text: 'One minute per pitch. Holds up a hand at 10 seconds.', icon: 'clock' },
-                  { label: 'Language monitor', text: 'Ticks the moves below and reports at the end: which moves did the group use, and which were missing?', icon: 'pen' }
-                ]
-              },
-              {
-                type: 'steps',
-                items: [
-                  { who: 'group', text: 'Take turns. Each person presents their laptop in about one minute.' },
-                  { who: 'group', text: 'Actively listen to your group members present their device. Be open to changing your opinion on what is the best laptop for students.' },
-                  { who: 'group', text: 'After each pitch, ask at least <b>two questions</b>. Use the questions from <b>Activity 1 Challenging your viewpoint</b> as a guide. Make sure battery life, weight and security are discussed for every laptop.' },
-                  { who: 'alone', text: 'Take notes on the other laptops in the table.' }
-                ]
-              },
-              {
-                type: 'table',
-                id: 'd8-notes', live: true,
-                title: 'Notes on my group’s laptops',
-                columns: ['Laptop', 'Battery life', 'Weight', 'Security', 'Other features', 'Strong point?'],
-                fixed: ['MacBook Pro', 'Microsoft Surface', 'Dell XPS 14', 'HP Pavilion Plus']
-              },
-              {
-                type: 'language',
-                title: 'Ask, challenge and respond',
-                groups: [
-                  { label: 'Ask for information', phrases: ['<b>How does</b> its battery life <b>compare with</b> …?', '<b>What exactly do you mean by</b> “self-locking”?', '<b>Is there a situation where</b> this laptop <b>might not</b> work well?'] },
-                  { label: 'Challenge politely', phrases: ['<b>I see your point, but</b> isn’t it quite expensive?', '<b>What are the potential drawbacks</b> of …?', '<b>Are you assuming that</b> all students need …?', '<b>How might</b> a student on a small budget <b>view</b> this?'] },
-                  { label: 'Defend your stance', phrases: ['<b>That’s true, however</b> …', '<b>While it is true that</b> it costs more, <b>it is also important to consider</b> …', '<b>Let me put it another way</b> …'] },
-                  { label: 'Concede', phrases: ['<b>That’s a fair point.</b>', '<b>I hadn’t thought of that.</b>', '<b>You’re right that</b> … , <b>but</b> …'] }
-                ]
-              },
-              {
-                type: 'checklist',
-                id: 'd8-monitor',
-                title: 'Language monitor: tick each move you hear (one team point each)',
-                meter: ['moves', 'Full score!'],
-                items: ['A stance phrase (In my opinion … / I believe …)', 'Evidence (According to … / Data from …)', 'A counterargument (While it is true that …)', 'An open-ended question (Is there a situation where …?)', 'An assumption question (Are you assuming that …?)', 'A consequence question (What happens in the long term if …?)', 'A polite challenge (I see your point, but …)', 'A concession (That’s a fair point. / I hadn’t thought of that.)']
-              }
-            ]
-          },
-          {
-            id: 'd9',
-            short: 'Discussion 2',
-            minutes: 5,
-            grouping: 'Groups of 4',
-            art: V('d9'),
-            title: 'Activity 2 Putting it into practice: Discussion 2',
-            goal: 'Conclude with your final position — and say who or what persuaded you.',
-            blocks: [
-              {
-                type: 'figure',
-                src: A + 'd4-four-corners.svg',
-                size: 'wide',
-                alt: 'A classroom seen from above with four corners, one for each laptop: MacBook Pro, Microsoft Surface, Dell XPS 14 and HP Pavilion Plus. Students walk from their seats to the corner of the laptop they would buy now. Footprints show one student who moved from the HP corner to the Surface corner, with a bubble: My position changed.',
-                caption: 'Four corners: walk to the laptop you would buy now.'
-              },
-              { type: 'do', n: 1, who: 'class', text: '<b>Four corners.</b> Each corner of the room is one laptop. Stand up and walk to the corner of the laptop you would buy <b>now</b>. Did you leave your own laptop? Say who persuaded you, and why.' },
-              { type: 'do', n: 2, who: 'group', text: 'At the end of the discussion, conclude with your final position. Let your group know if:' },
-              { type: 'choose', id: 'd9-pos', title: 'My final position', options: ['My position did not change.', 'My position almost changed.', 'My position changed.'] },
-              { type: 'talk', title: 'Say it to your group', prompts: ['Use one phrase from <b>Language for changing your position</b>.', 'Name the person and the information that persuaded you.'] },
-              { type: 'tip', text: 'In the <b>Interactive Discussion</b> assessment, showing flexibility — and saying clearly why your view changed — is a sign of criticality.' },
-              {
-                type: 'fields',
-                title: 'Exit ticket',
-                fields: [{ id: 'd9-exit', label: 'Write one sentence you could say in the Interactive Discussion to show flexibility', rows: 2, placeholder: 'That’s a fair point. I hadn’t considered … , so I would now say …' }]
-              }
-            ]
+           "type": "key",
+           "title": "Today’s goal",
+           "points": [
+            "In the <b>Interactive Discussion</b> you need three skills: <b>state your position</b>, <b>challenge</b> other positions with good questions, and <b>show flexibility</b>: keep, almost change or change your position, and say why.",
+            "Today’s steps: <b>Lead-in</b> → <b>Review</b> → <b>Presentation</b> (A stance · B challenge · C flexibility) → <b>Practice</b> → <b>Production</b> (a real discussion: which laptop should a student buy?)"
+           ]
           }
-        ]
+         ],
+         "category": "1 · Lead-in"
+        },
+        {
+         "id": "d2",
+         "short": "Review",
+         "minutes": 3,
+         "grouping": "Pair",
+         "art": "dec10/assets/week3/v/v-d10w3d4-d2.svg",
+         "title": "Review critical thinking skills",
+         "goal": "Remember the definition and five questions from Week 2.",
+         "blocks": [
+          {
+           "type": "do",
+           "n": 1,
+           "who": "pair",
+           "text": "Remember Week 2? One word in this definition is a trap. Tap it."
+          },
+          {
+           "type": "spot",
+           "id": "d2-spot",
+           "label": "Find the trap",
+           "title": "Critical thinking is …",
+           "hint": "Tap one word.",
+           "paras": [
+            "Critical thinking is the process of carefully [[analysing]] information to make [[judgments]] and solve problems. This involves: [[*accepting]] information provided; [[separating]] facts from opinions and relevant information from irrelevant information; [[noticing]] errors in arguments; using logic and evidence to make decisions; being [[flexible]] in our thinking; reaching conclusions by using arguments from sources; identifying and explaining limitations and bias in arguments."
+           ]
+          },
+          {
+           "type": "hotspot",
+           "src": "dec10/assets/week3/d4-ct-steps.svg",
+           "alt": "Five stepping stones across a river to a flag. 1 Focus your thoughts. 2 Question what is being read or said. 3 Analyse the different perspectives. 4 Evaluate the information. 5 Reach your own position.",
+           "title": "Questions to stimulate critical thinking",
+           "hint": "Tap each stone.",
+           "size": "wide",
+           "spots": [
+            {
+             "x": 12,
+             "y": 58,
+             "label": "1",
+             "title": "Focus your thoughts",
+             "text": "What is the topic? What am I trying to find out? What are the possible viewpoints for this topic? What research still needs to be done so I can make an informed decision?",
+             "color": "#3a58a0"
+            },
+            {
+             "x": 31,
+             "y": 44,
+             "label": "2",
+             "title": "Question what is being read/said",
+             "text": "Distinguish between fact and opinion. Identify any bias.",
+             "color": "#2b776e"
+            },
+            {
+             "x": 50,
+             "y": 58,
+             "label": "3",
+             "title": "Analyse the different perspectives",
+             "text": "What other points were not presented that were identified in Focus? What evidence has been omitted?",
+             "color": "#7a4a8c"
+            },
+            {
+             "x": 69,
+             "y": 44,
+             "label": "4",
+             "title": "Evaluate the information",
+             "text": "What are the pros and cons for each perspective?",
+             "color": "#b0512a"
+            },
+            {
+             "x": 88,
+             "y": 50,
+             "label": "5",
+             "title": "Reach your own position",
+             "text": "Which point of view do you agree with? Why? How did it persuade you to change your position?",
+             "color": "#985c0e"
+            }
+           ]
+          }
+         ],
+         "answers": {
+          "items": [
+           [
+            "The trap",
+            "“accepting” — a critical thinker <b>questions</b> information provided, they do not just accept it."
+           ]
+          ]
+         },
+         "category": "2 · Review"
+        },
+        {
+         "id": "d3",
+         "short": "Critical thinker?",
+         "minutes": 3,
+         "grouping": "Pair",
+         "art": "dec10/assets/week3/v/v-d10w3d4-d3.svg",
+         "title": "Activity A critical thinker",
+         "goal": "Which quotes come from a critical thinker?",
+         "blocks": [
+          {
+           "type": "do",
+           "n": 1,
+           "who": "pair",
+           "text": "Which quotes come from a critical thinker? Sort the cards with your partner, then check."
+          },
+          {
+           "type": "sort",
+           "id": "d3-sort",
+           "title": "Who is speaking?",
+           "hint": "Source: Exercise 1, Developing critical thinking skills — The University of Sydney.",
+           "buckets": [
+            {
+             "label": "A critical thinker",
+             "letter": "✓"
+            },
+            {
+             "label": "Not a critical thinker",
+             "letter": "✗"
+            }
+           ],
+           "items": [
+            {
+             "text": "“I hate talk shows where people just state their opinions but never give any reasons at all”",
+             "answer": 0,
+             "why": "They want reasons, not only opinions."
+            },
+            {
+             "text": "“No matter how complex a problem, you can bet there will be a simple solution”",
+             "answer": 1,
+             "why": "Complex problems rarely have simple solutions."
+            },
+            {
+             "text": "“Just because information is in a textbook, doesn’t necessarily mean it can be trusted”",
+             "answer": 0
+            },
+            {
+             "text": "“My views are probably shaped by the social and economic groups I belong to”",
+             "answer": 0,
+             "why": "They notice their own possible bias."
+            },
+            {
+             "text": "“I hate it when teachers discuss problems instead of just giving the information”",
+             "answer": 1,
+             "why": "They want to be told, not to think."
+            },
+            {
+             "text": "“Selling an idea is like selling cars, you say whatever works”",
+             "answer": 1,
+             "why": "Truth and evidence don’t matter to this speaker."
+            },
+            {
+             "text": "“I like to think about whether someone’s views reflect the experience of all groups of people”",
+             "answer": 0
+            },
+            {
+             "text": "“I question the authority of evidence before I accept it”",
+             "answer": 0
+            }
+           ]
+          }
+         ],
+         "category": "2 · Review"
+        },
+        {
+         "id": "d4",
+         "short": "A · Stance",
+         "minutes": 7,
+         "grouping": "Alone → Pair",
+         "art": "dec10/assets/week3/v/v-d10w3d4-d4.svg",
+         "title": "A · State your position",
+         "goal": "Learn the five parts of a clear position, in speaking and in writing.",
+         "blocks": [
+          {
+           "type": "group",
+           "tone": "blue",
+           "label": "Part A · Rules 1–5",
+           "title": "State your position",
+           "goal": "Five parts, each shown in speaking and in writing"
+          },
+          {
+           "type": "do",
+           "n": 1,
+           "who": "alone",
+           "text": "Read each part. Compare the <b>spoken</b> version (for a discussion) with the <b>written</b> version (for an essay). What changes?"
+          },
+          {
+           "type": "rule",
+           "n": 1,
+           "tone": "blue",
+           "title": "Introduce your stance",
+           "explain": "Say your position at the start. In speaking, use an opinion phrase. In writing, state it directly, without <i>I</i>.",
+           "cols": [
+            "Spoken (discussion)",
+            "Written (essay)"
+           ],
+           "compare": true,
+           "pairs": [
+            [
+             "<b>In my opinion,</b> green skills are essential for future workers.",
+             "Green skills <b>are essential</b> for the future workforce."
+            ],
+            [
+             "<b>I believe that</b> universities should teach green skills.",
+             "Universities <b>should</b> teach green skills."
+            ],
+            [
+             "<b>From my perspective,</b> online classes are useful.",
+             "Online classes <b>are</b> a useful option for many students."
+            ]
+           ]
+          },
+          {
+           "type": "rule",
+           "n": 2,
+           "tone": "blue",
+           "title": "Give your reasons",
+           "explain": "Give one or two clear reasons. Introduce each one with a signal phrase.",
+           "cols": [
+            "Spoken (discussion)",
+            "Written (essay)"
+           ],
+           "compare": true,
+           "pairs": [
+            [
+             "<b>One key reason is that</b> these skills are in demand.",
+             "<b>A key reason is that</b> these skills are increasingly in demand."
+            ],
+            [
+             "<b>Another thing is</b> that they help the planet.",
+             "<b>Another significant factor is</b> their positive impact on the environment."
+            ],
+            [
+             "<b>Also,</b> they create new jobs.",
+             "<b>Additionally,</b> they create new employment opportunities."
+            ]
+           ]
+          },
+          {
+           "type": "rule",
+           "n": 3,
+           "tone": "blue",
+           "title": "Support it with evidence",
+           "explain": "Show where your idea comes from. In writing, always give the author and year.",
+           "cols": [
+            "Spoken (discussion)",
+            "Written (essay)"
+           ],
+           "compare": true,
+           "pairs": [
+            [
+             "<b>According to</b> a report I read, green jobs are growing.",
+             "<b>According to</b> Bowen et al. (2018), green jobs are growing."
+            ],
+            [
+             "<b>Research shows that</b> students need these skills.",
+             "<b>Research indicates that</b> students need these skills."
+            ],
+            [
+             "<b>Data from</b> the ILO <b>suggests</b> that …",
+             "<b>Data from</b> the ILO (2023) <b>suggests</b> that …"
+            ]
+           ]
+          },
+          {
+           "type": "rule",
+           "n": 4,
+           "tone": "blue",
+           "title": "Deal with a counterargument",
+           "explain": "Show that you know the other side, then explain why your position is still stronger.",
+           "cols": [
+            "Spoken (discussion)",
+            "Written (essay)"
+           ],
+           "compare": true,
+           "pairs": [
+            [
+             "The training <b>might</b> be expensive, <b>but</b> it pays off later.",
+             "<b>While it is true that</b> the training is expensive, the long-term benefits are greater."
+            ],
+            [
+             "Some people <b>might</b> say it is too hard, <b>but</b> …",
+             "<b>It may be argued that</b> it is too difficult; <b>however,</b> …"
+            ]
+           ]
+          },
+          {
+           "type": "rule",
+           "n": 5,
+           "tone": "blue",
+           "title": "Conclude",
+           "explain": "Finish by repeating your position in one sentence.",
+           "cols": [
+            "Spoken (discussion)",
+            "Written (essay)"
+           ],
+           "compare": true,
+           "pairs": [
+            [
+             "<b>So,</b> green skills are worth learning.",
+             "<b>Therefore, it can be concluded that</b> green skills are worth developing."
+            ],
+            [
+             "<b>So</b> I think it is a good idea.",
+             "<b>In conclusion,</b> it is a beneficial approach."
+            ]
+           ]
+          },
+          {
+           "type": "toggle",
+           "title": "The two samples (from the booklet)",
+           "hint": "The same idea, spoken and written",
+           "ref": true,
+           "blocks": [
+            {
+             "type": "text",
+             "title": "Sample 1: Spoken",
+             "text": "<b>In my opinion</b>, developing green skills is essential for the workforce of the future. <b>One key reason is</b> that these skills help employees to implement sustainable practices, which are increasingly demanded by industries worldwide. <b>According to</b> a report by Surname in YEAR, green jobs are expected to grow significantly. This highlights the importance of this skill set. The transition to green skills <b>might</b> require substantial investment, <b>but</b> the long-term benefits far outweigh the initial costs. <b>So</b> fostering green skills not only supports environmental sustainability, but also drives economic growth and innovation."
+            },
+            {
+             "type": "text",
+             "title": "Sample 2: Written",
+             "text": "The development of green skills is <b>imperative</b> for the future workforce. <b>A key reason</b> is that these skills enable employees to implement sustainable practices, which are increasingly demanded by industries globally. <b>According to</b> (source), the growth of green jobs is projected to be significant, underscoring the importance of this skill set. While <b>it may be argued that</b> the transition to green skills is a costly move, the long-term benefits far outweigh the initial costs. <b>Therefore, it can be concluded that</b> fostering green skills not only supports environmental sustainability but also drives economic growth and innovation."
+            }
+           ]
+          },
+          {
+           "type": "toggle",
+           "title": "The full language bank (from the booklet)",
+           "hint": "Language for presenting / keeping your original stance",
+           "ref": true,
+           "blocks": [
+            {
+             "type": "language",
+             "title": "Language for presenting / keeping your original stance",
+             "groups": [
+              {
+               "label": "Introduction of your stance",
+               "phrases": [
+                "<b>Verbal:</b> “In my opinion, …”",
+                "“I believe that …”",
+                "“From my perspective, …”",
+                "<b>Written:</b> [no opinion marker – straight statement]"
+               ]
+              },
+              {
+               "label": "Presenting arguments",
+               "phrases": [
+                "One key reason is that …",
+                "Firstly, it is important to note that …",
+                "Another significant factor is …",
+                "Additionally, …"
+               ]
+              },
+              {
+               "label": "Providing evidence",
+               "phrases": [
+                "According to (source), …",
+                "Research indicates that …",
+                "Studies have shown that …",
+                "Data from [source] suggests …"
+               ]
+              },
+              {
+               "label": "Counterarguments",
+               "phrases": [
+                "It may be argued that …, however, …",
+                "While it is true that …, it is also important to consider …",
+                "... might ..., ... but ..."
+               ]
+              },
+              {
+               "label": "Conclusion",
+               "phrases": [
+                "In conclusion, …",
+                "To summarize, …",
+                "Therefore, it can be concluded that …",
+                "So, ... (verbal)"
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ],
+         "category": "3 · Presentation"
+        },
+        {
+         "id": "d5",
+         "short": "B · Challenge",
+         "minutes": 5,
+         "grouping": "Alone → Pair",
+         "art": "dec10/assets/week3/v/v-d10w3d4-d5.svg",
+         "title": "B · Challenge a position",
+         "goal": "Learn four kinds of question that test a position: someone else’s, or your own.",
+         "blocks": [
+          {
+           "type": "sticky",
+           "title": "A good critical thinker …",
+           "text": "… questions their position by critically exploring the topic with an open mind to the possibility of their position changing."
+          },
+          {
+           "type": "group",
+           "tone": "plum",
+           "label": "Part B · Rules 6–9",
+           "title": "Challenge a position",
+           "goal": "Four kinds of question, each with an example"
+          },
+          {
+           "type": "rule",
+           "n": 6,
+           "tone": "plum",
+           "title": "Ask open-ended questions",
+           "explain": "Open questions make the speaker think more deeply. Use them when an idea sounds too simple.",
+           "cols": [
+            "Someone says …",
+            "You ask …"
+           ],
+           "compare": true,
+           "pairs": [
+            [
+             "Online classes are better than face-to-face classes.",
+             "<b>Is there a situation where</b> this might not apply?"
+            ],
+            [
+             "Electric cars solve the pollution problem.",
+             "<b>What are the potential benefits and drawbacks</b> of this approach?"
+            ]
+           ]
+          },
+          {
+           "type": "rule",
+           "n": 7,
+           "tone": "plum",
+           "title": "Challenge assumptions",
+           "explain": "Find the idea that the speaker takes for granted, and ask about it.",
+           "cols": [
+            "Someone says …",
+            "You ask …"
+           ],
+           "compare": true,
+           "pairs": [
+            [
+             "Everyone wants to work from home.",
+             "<b>What assumptions are being made</b> here? Are they justified?"
+            ],
+            [
+             "Young people do not care about the environment.",
+             "<b>How might someone with a different perspective</b> view this?"
+            ]
+           ]
+          },
+          {
+           "type": "rule",
+           "n": 8,
+           "tone": "plum",
+           "title": "Explore consequences",
+           "explain": "Ask what will happen, to whom, and in the short and long term.",
+           "cols": [
+            "Someone says …",
+            "You ask …"
+           ],
+           "compare": true,
+           "pairs": [
+            [
+             "The city should ban all cars from the centre.",
+             "<b>How might this idea impact different groups</b> of people?"
+            ],
+            [
+             "Companies should replace staff with AI.",
+             "<b>What are the ethical implications</b> of this action?"
+            ]
+           ]
+          },
+          {
+           "type": "rule",
+           "n": 9,
+           "tone": "plum",
+           "title": "Stay curious",
+           "explain": "Ask what we still do not know, and what could change the answer.",
+           "cols": [
+            "Someone says …",
+            "You ask …"
+           ],
+           "compare": true,
+           "pairs": [
+            [
+             "Green jobs will grow quickly.",
+             "<b>What new information could change</b> this view?"
+            ],
+            [
+             "Plastic bags should be banned.",
+             "<b>How can we further investigate</b> this issue?"
+            ]
+           ]
+          }
+         ],
+         "category": "3 · Presentation"
+        },
+        {
+         "id": "d6",
+         "short": "C · Flexibility",
+         "minutes": 6,
+         "grouping": "Alone → Pair",
+         "art": "dec10/assets/week3/v/v-d10w3d4-d6.svg",
+         "title": "C · Show flexibility",
+         "goal": "Say clearly and politely where you stand after hearing new information.",
+         "blocks": [
+          {
+           "type": "figure",
+           "src": "dec10/assets/week3/d4-flex-loop.svg",
+           "size": "wide",
+           "alt": "Three steps of showing flexibility. 1 Present your stance. 2 Challenge it: listen and ask open questions. 3 Final position: it did not change, it almost changed, or it changed — and say why.",
+           "caption": "Flexibility = state it, test it, then say where you stand now — and why."
+          },
+          {
+           "type": "group",
+           "tone": "teal",
+           "label": "Part C · Rules 10–12",
+           "title": "Show flexibility",
+           "goal": "Three possible outcomes, each with a model answer"
+          },
+          {
+           "type": "rule",
+           "n": 10,
+           "tone": "teal",
+           "title": "My position did not change",
+           "explain": "Thank the speaker for the point, then explain why your view is still the same.",
+           "cols": [
+            "Someone says …",
+            "You answer …"
+           ],
+           "compare": true,
+           "pairs": [
+            [
+             "Laptops with a long battery life are expensive.",
+             "<b>I take your point about</b> the price, <b>but I still believe</b> battery life matters most <b>because</b> many rooms have no power points."
+            ],
+            [
+             "Online classes save time.",
+             "<b>I see what you mean, but I still think</b> face-to-face classes are better <b>because</b> we can ask questions easily."
+            ]
+           ]
+          },
+          {
+           "type": "rule",
+           "n": 11,
+           "tone": "teal",
+           "title": "My position almost changed",
+           "explain": "Show that the point made you think, even if you have not changed your mind yet.",
+           "cols": [
+            "Someone says …",
+            "You answer …"
+           ],
+           "compare": true,
+           "pairs": [
+            [
+             "The Surface has better security.",
+             "<b>I’m still not fully convinced, but</b> your point about security <b>made me think again</b>."
+            ]
+           ]
+          },
+          {
+           "type": "rule",
+           "n": 12,
+           "tone": "teal",
+           "title": "My position changed",
+           "explain": "Accept the point, then say what you think now and why.",
+           "cols": [
+            "Someone says …",
+            "You answer …"
+           ],
+           "compare": true,
+           "pairs": [
+            [
+             "The HP is half the price and still light.",
+             "<b>That’s a fair point. I hadn’t considered</b> the price, <b>so I would now say</b> the HP is the better choice."
+            ],
+            [
+             "Research shows students learn more face-to-face.",
+             "<b>My earlier position was based on</b> convenience, <b>but after</b> hearing this, <b>I can see that</b> face-to-face classes have real benefits."
+            ]
+           ],
+           "note": "In the Interactive Discussion, changing your mind is not a weakness: saying clearly <b>why</b> your view changed shows criticality."
+          },
+          {
+           "type": "toggle",
+           "title": "Language for changing your position (from the booklet)",
+           "hint": "With the booklet examples",
+           "ref": true,
+           "blocks": [
+            {
+             "type": "language",
+             "title": "Language for changing your position",
+             "tabs": false,
+             "groups": [
+              {
+               "label": "From the booklet",
+               "phrases": [
+                "After reading (source), the topic of (topic) is not as clear as originally thought.",
+                "The strength of (author) argument on (topic) has challenged my position by…",
+                "Although the perspectives presented differ, the underlying them is the same, which is…. Because of this, further consideration should be explored before making a final decision.",
+                "My earlier position was based on …. but after further research, I can see that it is possible…"
+               ]
+              },
+              {
+               "label": "Spoken extras",
+               "phrases": [
+                "<b>You’ve made me think again about</b> …",
+                "<b>That’s a fair point. I hadn’t considered</b> …",
+                "<b>I’m still not fully convinced, but</b> …",
+                "<b>I take your point, and I’d now say</b> …"
+               ]
+              }
+             ]
+            },
+            {
+             "type": "model",
+             "title": "Examples",
+             "list": [
+              "Despite differing perspectives in the readings and the listening, all sources agree that companies are rapidly adopting green practices. Therefore, it’s important to carefully consider the implications before deciding to upskill with green skills.",
+              "The strength of Smith’s (2024) argument on why company’s need to go “green” has challenged my thinking on whether I should include subjects at university that include green skills."
+             ]
+            }
+           ]
+          }
+         ],
+         "category": "3 · Presentation"
+        },
+        {
+         "id": "dp",
+         "art": "dec10/assets/week3/v/v-d10w3d4-d5.svg",
+         "short": "Practise",
+         "minutes": 8,
+         "grouping": "Alone → Group",
+         "category": "4 · Practice",
+         "title": "Controlled practice: stance, challenge, flexibility",
+         "goal": "Practise the three parts in order: first recognise, then use.",
+         "blocks": [
+          {
+           "type": "group",
+           "tone": "blue",
+           "label": "Part 1 · Rules 1–5",
+           "title": "State your position",
+           "goal": "Spoken or written? Then correct."
+          },
+          {
+           "type": "toggle",
+           "title": "The two samples (spoken and written)",
+           "hint": "The spoken and the written sample",
+           "ref": true,
+           "blocks": [
+            {
+             "type": "text",
+             "title": "Sample 1: Spoken",
+             "text": "<b>In my opinion</b>, developing green skills is essential for the workforce of the future. <b>One key reason is</b> that these skills help employees to implement sustainable practices, which are increasingly demanded by industries worldwide. <b>According to</b> a report by Surname in YEAR, green jobs are expected to grow significantly. This highlights the importance of this skill set. The transition to green skills <b>might</b> require substantial investment, <b>but</b> the long-term benefits far outweigh the initial costs. <b>So</b> fostering green skills not only supports environmental sustainability, but also drives economic growth and innovation."
+            },
+            {
+             "type": "text",
+             "title": "Sample 2: Written",
+             "text": "The development of green skills is <b>imperative</b> for the future workforce. <b>A key reason</b> is that these skills enable employees to implement sustainable practices, which are increasingly demanded by industries globally. <b>According to</b> (source), the growth of green jobs is projected to be significant, underscoring the importance of this skill set. While <b>it may be argued that</b> the transition to green skills is a costly move, the long-term benefits far outweigh the initial costs. <b>Therefore, it can be concluded that</b> fostering green skills not only supports environmental sustainability but also drives economic growth and innovation."
+            }
+           ]
+          },
+          {
+           "type": "do",
+           "n": 1,
+           "who": "pair",
+           "text": "Compare the samples. Where does each one put its stance, and how? Then sort the phrases."
+          },
+          {
+           "type": "sort",
+           "id": "d4-sort",
+           "title": "Spoken or written?",
+           "buckets": [
+            {
+             "label": "Spoken (Sample 1)",
+             "letter": "S"
+            },
+            {
+             "label": "Written (Sample 2)",
+             "letter": "W"
+            }
+           ],
+           "items": [
+            {
+             "text": "In my opinion, …",
+             "answer": 0
+            },
+            {
+             "text": "The development of green skills is imperative …",
+             "answer": 1,
+             "why": "A straight statement — no opinion marker."
+            },
+            {
+             "text": "… might …, but …",
+             "answer": 0
+            },
+            {
+             "text": "While it may be argued that …",
+             "answer": 1
+            },
+            {
+             "text": "So …",
+             "answer": 0
+            },
+            {
+             "text": "Therefore, it can be concluded that …",
+             "answer": 1
+            }
+           ]
+          },
+          {
+           "type": "rewrite",
+           "id": "dp-r1",
+           "title": "Make it written style",
+           "hint": "Change only the spoken part.",
+           "items": [
+            {
+             "q": "In my opinion, universities should teach green skills.",
+             "accept": [
+              "Universities should teach green skills."
+             ],
+             "model": "Universities should teach green skills.",
+             "why": "Rule 1: in writing, state the position directly."
+            },
+            {
+             "q": "So, green skills are worth learning.",
+             "accept": [
+              "Therefore, green skills are worth learning.",
+              "In conclusion, green skills are worth learning.",
+              "Therefore, it can be concluded that green skills are worth learning."
+             ],
+             "model": "Therefore, green skills are worth learning.",
+             "why": "Rule 5: <i>So</i> is spoken; use <i>Therefore</i> or <i>In conclusion</i>."
+            }
+           ]
+          },
+          {
+           "type": "group",
+           "tone": "plum",
+           "label": "Part 2 · Rules 6–9",
+           "title": "Challenge a position",
+           "goal": "Sort the question cards."
+          },
+          {
+           "type": "do",
+           "n": 1,
+           "who": "group",
+           "text": "<b>Beat the clock (4 minutes).</b> Each question belongs under one heading. Take turns: one person places a card and says <b>why</b>. Keep the questions: you will ask them in the discussion."
+          },
+          {
+           "type": "tip",
+           "text": "Your teacher may give your group <b>paper cards</b> to sort on the table (4 headings + 13 questions). No cards? Sort the cards on this page together."
+          },
+          {
+           "type": "sort",
+           "id": "d5-sort",
+           "title": "Four ways to challenge your viewpoint",
+           "buckets": [
+            {
+             "label": "Asking open-ended questions that encourage deeper reflection",
+             "letter": "1"
+            },
+            {
+             "label": "Challenging assumptions and preconceived notions",
+             "letter": "2"
+            },
+            {
+             "label": "Exploring the implications and consequences of ideas",
+             "letter": "3"
+            },
+            {
+             "label": "Fostering intellectual curiosity and continuous inquiry",
+             "letter": "4"
+            }
+           ],
+           "items": [
+            {
+             "text": "What are the underlying reasons the author researched this topic?",
+             "answer": 0
+            },
+            {
+             "text": "Is there a situation where this idea might not apply?",
+             "answer": 0
+            },
+            {
+             "text": "What are the potential benefits and drawbacks of this approach?",
+             "answer": 0
+            },
+            {
+             "text": "What assumptions are being made about this topic? Are they justified?",
+             "answer": 1
+            },
+            {
+             "text": "How might someone with a different perspective view this situation?",
+             "answer": 1
+            },
+            {
+             "text": "Are there any alternative viewpoints that haven’t been considered?",
+             "answer": 1
+            },
+            {
+             "text": "What are the short-term and long-term consequences of this decision?",
+             "answer": 2
+            },
+            {
+             "text": "How might this idea impact different groups of people?",
+             "answer": 2
+            },
+            {
+             "text": "What are the ethical implications of this action?",
+             "answer": 2
+            },
+            {
+             "text": "If this idea were implemented, what changes might we expect to see in society?",
+             "answer": 2
+            },
+            {
+             "text": "What questions remain unanswered about this topic?",
+             "answer": 3
+            },
+            {
+             "text": "How can we further investigate this issue to gain a deeper understanding?",
+             "answer": 3
+            },
+            {
+             "text": "What new information or research could change my perspective on this matter?",
+             "answer": 3
+            }
+           ]
+          },
+          {
+           "type": "group",
+           "tone": "teal",
+           "label": "Part 3 · Rules 10–12",
+           "title": "Show flexibility",
+           "goal": "Recognise the outcome, then complete a dialogue."
+          },
+          {
+           "type": "quiz",
+           "id": "dp-q3",
+           "shared": [
+            "My position did not change",
+            "My position almost changed",
+            "My position changed"
+           ],
+           "items": [
+            {
+             "q": "1. “I take your point, but I still believe battery life matters most.”",
+             "answer": "My position did not change",
+             "why": "<i>but I still believe</i> keeps the position."
+            },
+            {
+             "q": "2. “That’s a fair point. I hadn’t considered the weight, so I would now choose the Surface.”",
+             "answer": "My position changed",
+             "why": "<i>I would now choose</i> shows a new position."
+            },
+            {
+             "q": "3. “I’m still not fully convinced, but your point about the price made me think again.”",
+             "answer": "My position almost changed",
+             "why": "<i>made me think again</i>: the view is moving, but not yet changed."
+            }
+           ]
+          },
+          {
+           "type": "cloze",
+           "id": "dp-gap",
+           "title": "Complete the discussion",
+           "options": [
+            "take your point",
+            "fair point",
+            "earlier position",
+            "I can see that",
+            "you are wrong",
+            "totally agree"
+           ],
+           "text": "A: The MacBook has the longest battery life. B: I {{1}} about the battery, but I still believe the price matters more. A: True, but you will use it for many years. B: That’s a {{2}}. I hadn’t considered that. My {{3}} was based on price, but now {{4}} battery life is more important.",
+           "answers": [
+            "take your point",
+            "fair point",
+            "earlier position",
+            "I can see that"
+           ],
+           "why": [
+            "<i>I take your point about …, but …</i> (Rule 10)",
+            "<i>That’s a fair point.</i> (Rule 12)",
+            "<i>My earlier position was based on …</i> (Rule 12)",
+            "<i>… I can see that …</i> (Rule 12)"
+           ]
+          }
+         ],
+         "answers": {
+          "title": "Answers",
+          "items": [
+           [
+            "Part 1 · Correct",
+            "1 Universities should teach green skills. · 2 Therefore, green skills are worth learning."
+           ],
+           [
+            "Part 3 · Choose",
+            "1 did not change · 2 changed · 3 almost changed"
+           ],
+           [
+            "Part 3 · Complete",
+            "1 take your point · 2 fair point · 3 earlier position · 4 I can see that (not polite: you are wrong; too strong: totally agree)"
+           ]
+          ]
+         }
+        },
+        {
+         "id": "d7",
+         "short": "Prepare",
+         "minutes": 5,
+         "grouping": "Alone",
+         "art": "dec10/assets/week3/v/v-d10w3d4-d7.svg",
+         "title": "Activity 2 Putting it into practice: Prepare",
+         "goal": "Read the specs for YOUR laptop and prepare to persuade your group.",
+         "blocks": [
+          {
+           "type": "toggle",
+           "title": "Language for presenting your stance",
+           "hint": "Open to check the five parts",
+           "ref": true,
+           "blocks": [
+            {
+             "type": "text",
+             "title": "Present your stance in five parts",
+             "list": [
+              "<b>Stance</b> · Spoken: <i>In my opinion, … / I believe that …</i> · Written: a straight statement (<i>Green skills are essential …</i>)",
+              "<b>Reason</b> · <i>One key reason is that … · Another significant factor is … · Additionally, …</i>",
+              "<b>Evidence</b> · <i>According to (source), … · Research indicates that … · Data from … suggests …</i>",
+              "<b>Counterargument</b> · Spoken: <i>… might …, but …</i> · Written: <i>While it is true that …, … / It may be argued that …; however, …</i>",
+              "<b>Conclusion</b> · Spoken: <i>So, …</i> · Written: <i>Therefore, it can be concluded that … / In conclusion, …</i>"
+             ]
+            }
+           ]
+          },
+          {
+           "type": "key",
+           "title": "Look at the following scenario",
+           "points": [
+            "Your laptop broke. It is important that you have one for university studies. For the last 10 years, you have bought the same brand, but your university friends say there are better options available.",
+            "The key features you are looking for are: <b>long battery life</b> as not all lecture rooms have power points for students to charge their devices · <b>lightweight</b> as it needs to be carried from class to class · <b>security</b> as you also use the laptop for personal use.",
+            "Other features will be taken into consideration."
+           ]
+          },
+          {
+           "type": "do",
+           "n": 1,
+           "who": "group",
+           "text": "Groups of up to four. Each person takes a <b>different</b> laptop. Open <b>only your tab</b> — the others are your group’s secret!"
+          },
+          {
+           "type": "tip",
+           "text": "Your teacher may give you a <b>paper laptop card</b> (A–D). No cards? Open only your tab below."
+          },
+          {
+           "type": "tabs",
+           "title": "Activity specs — open your allocated laptop only",
+           "tabs": [
+            {
+             "label": "MacBook Pro",
+             "blocks": [
+              {
+               "type": "model",
+               "title": "MacBook Pro",
+               "rows": [
+                [
+                 "Price",
+                 "$2,699"
+                ],
+                [
+                 "Battery life",
+                 "22hrs"
+                ],
+                [
+                 "Size",
+                 "14”"
+                ],
+                [
+                 "Ports",
+                 "2x Thunderbolt/USB 4 or 3x Thunderbolt 4, HDMI, SDXC, headphone jack, MagSafe"
+                ],
+                [
+                 "Security",
+                 "Touch ID"
+                ],
+                [
+                 "Camera",
+                 "1080p"
+                ],
+                [
+                 "Audio",
+                 "Studio-quality three-mic array · 6 speaker sound system"
+                ],
+                [
+                 "Weight",
+                 "1.55kg"
+                ],
+                [
+                 "Special feature",
+                 "Most advanced computer chip for personal computer"
+                ]
+               ]
+              }
+             ]
+            },
+            {
+             "label": "Microsoft Surface",
+             "blocks": [
+              {
+               "type": "model",
+               "title": "Microsoft Surface Laptop",
+               "rows": [
+                [
+                 "Price",
+                 "$2799"
+                ],
+                [
+                 "Battery life",
+                 "20hrs"
+                ],
+                [
+                 "Size",
+                 "13.8”"
+                ],
+                [
+                 "Ports",
+                 "2 x USB-C · 1 x USB-A"
+                ],
+                [
+                 "Security",
+                 "Facial Recognition"
+                ],
+                [
+                 "Camera",
+                 "1080p"
+                ],
+                [
+                 "Audio",
+                 "Dolby Digital"
+                ],
+                [
+                 "Weight",
+                 "1.34kg"
+                ],
+                [
+                 "Special feature",
+                 "Includes Co-pilot AI"
+                ]
+               ]
+              }
+             ]
+            },
+            {
+             "label": "Dell XPS 14",
+             "blocks": [
+              {
+               "type": "model",
+               "title": "Dell XPS 14 Laptop",
+               "rows": [
+                [
+                 "Price",
+                 "$2497"
+                ],
+                [
+                 "Battery life",
+                 "19hrs"
+                ],
+                [
+                 "Size",
+                 "14.5”"
+                ],
+                [
+                 "Ports",
+                 "3 Thunderbolt™ 4 (USB Type-C™) with Power Delivery and DisplayPort · 1 headset (headphone and microphone combo) port"
+                ],
+                [
+                 "Security",
+                 "Self-locking"
+                ],
+                [
+                 "Camera",
+                 "1080p"
+                ],
+                [
+                 "Audio",
+                 "Stereo speakers with Waves MaxxAudio Quad-speaker design"
+                ],
+                [
+                 "Weight",
+                 "1.68kg"
+                ],
+                [
+                 "Special feature",
+                 "–"
+                ]
+               ]
+              }
+             ]
+            },
+            {
+             "label": "HP Pavilion Plus",
+             "blocks": [
+              {
+               "type": "model",
+               "title": "HP Pavilion Plus",
+               "rows": [
+                [
+                 "Price",
+                 "$1199"
+                ],
+                [
+                 "Battery life",
+                 "11hrs"
+                ],
+                [
+                 "Size",
+                 "14”"
+                ],
+                [
+                 "Ports",
+                 "1x HDMI 2.1, 2x USB 3.0 ports, 1x USB 3.1 port, 1x Thunderbolt 4, 1 x 3.5mm combo headphone/microphone"
+                ],
+                [
+                 "Security",
+                 "–"
+                ],
+                [
+                 "Camera",
+                 "5MP IR Camera"
+                ],
+                [
+                 "Audio",
+                 "Audio by B&O, Dual speakers, HP Audio Boost"
+                ],
+                [
+                 "Weight",
+                 "1.4kg"
+                ],
+                [
+                 "Special feature",
+                 "Good for media consumption"
+                ]
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "type": "do",
+           "n": 2,
+           "who": "alone",
+           "text": "<b>Prepare for a discussion.</b> This is the laptop you are trying to persuade your group members to buy. Write your pitch with the sentence starters from <b>Language for presenting / keeping your original stance</b>. Link each point to the scenario: battery life, weight and security. Notes are fine: you will <b>say</b> it, not read it."
+          },
+          {
+           "type": "detect",
+           "id": "d7-pitch",
+           "title": "My pitch",
+           "label": "Function lights",
+           "checks": [
+            {
+             "label": "Stance",
+             "color": "#3a58a0",
+             "any": [
+              "in my opinion",
+              "i believe",
+              "from my perspective"
+             ]
+            },
+            {
+             "label": "Argument",
+             "color": "#2b776e",
+             "any": [
+              "one key reason",
+              "firstly",
+              "another significant factor",
+              "additionally"
+             ]
+            },
+            {
+             "label": "Evidence",
+             "color": "#7a4a8c",
+             "any": [
+              "according to",
+              "research indicates",
+              "studies have shown",
+              "data from"
+             ]
+            },
+            {
+             "label": "Counterargument",
+             "color": "#b0512a",
+             "any": [
+              "may be argued",
+              "while it is true",
+              "/might .* but/"
+             ]
+            },
+            {
+             "label": "Conclusion",
+             "color": "#985c0e",
+             "any": [
+              "in conclusion",
+              "to summarize",
+              "to summarise",
+              "therefore",
+              "/(^|[.!?] )So, /u"
+             ]
+            }
+           ],
+           "items": [
+            {
+             "task": "Persuade your group to buy your laptop (about 60 seconds when you say it).",
+             "placeholder": "In my opinion, the … is the best choice for students. One key reason is that …",
+             "rows": 6
+            }
+           ]
+          }
+         ],
+         "category": "5 · Production"
+        },
+        {
+         "id": "d8",
+         "short": "Discussion 1",
+         "minutes": 14,
+         "grouping": "Groups of 4",
+         "art": "dec10/assets/week3/v/v-d10w3d4-d8.svg",
+         "title": "Activity 2 Putting it into practice: Discussion 1",
+         "goal": "Present your laptop, listen actively and be open to changing your opinion.",
+         "blocks": [
+          {
+           "type": "toggle",
+           "title": "Four ways to challenge a position",
+           "hint": "Open to choose your questions",
+           "ref": true,
+           "blocks": [
+            {
+             "type": "text",
+             "title": "Question types",
+             "list": [
+              "<b>1 · Open-ended questions</b> (deeper reflection): <i>Is there a situation where this might not apply? · What are the potential benefits and drawbacks?</i>",
+              "<b>2 · Challenging assumptions</b>: <i>What assumptions are being made? · How might someone with a different perspective view this?</i>",
+              "<b>3 · Implications and consequences</b>: <i>What are the short- and long-term consequences? · How might this impact different groups of people?</i>",
+              "<b>4 · Curiosity and further inquiry</b>: <i>What questions remain unanswered? · What new information could change my perspective?</i>"
+             ]
+            }
+           ]
+          },
+          {
+           "type": "toggle",
+           "title": "Keep, almost change or change your position",
+           "hint": "Open to choose your phrase",
+           "ref": true,
+           "blocks": [
+            {
+             "type": "text",
+             "title": "Say where you stand now",
+             "list": [
+              "<b>Did not change</b>: <i>I take your point about …, but I still believe … because …</i>",
+              "<b>Almost changed</b>: <i>I’m still not fully convinced, but …’s point about … made me think again.</i>",
+              "<b>Changed</b>: <i>That’s a fair point. I hadn’t considered … · My earlier position was based on …, but after hearing …, I can see that …</i>"
+             ]
+            }
+           ]
+          },
+          {
+           "type": "toggle",
+           "title": "Language for presenting your stance",
+           "hint": "Open to check the five parts",
+           "ref": true,
+           "blocks": [
+            {
+             "type": "text",
+             "title": "Present your stance in five parts",
+             "list": [
+              "<b>Stance</b> · Spoken: <i>In my opinion, … / I believe that …</i> · Written: a straight statement (<i>Green skills are essential …</i>)",
+              "<b>Reason</b> · <i>One key reason is that … · Another significant factor is … · Additionally, …</i>",
+              "<b>Evidence</b> · <i>According to (source), … · Research indicates that … · Data from … suggests …</i>",
+              "<b>Counterargument</b> · Spoken: <i>… might …, but …</i> · Written: <i>While it is true that …, … / It may be argued that …; however, …</i>",
+              "<b>Conclusion</b> · Spoken: <i>So, …</i> · Written: <i>Therefore, it can be concluded that … / In conclusion, …</i>"
+             ]
+            }
+           ]
+          },
+          {
+           "type": "cards",
+           "title": "Group jobs (everyone still presents a laptop)",
+           "items": [
+            {
+             "label": "Timekeeper",
+             "text": "One minute per pitch. Holds up a hand at 10 seconds.",
+             "icon": "clock"
+            },
+            {
+             "label": "Language monitor",
+             "text": "Ticks the moves below and reports at the end: which moves did the group use, and which were missing?",
+             "icon": "pen"
+            }
+           ]
+          },
+          {
+           "type": "steps",
+           "items": [
+            {
+             "who": "group",
+             "text": "Take turns. Each person presents their laptop in about one minute."
+            },
+            {
+             "who": "group",
+             "text": "Actively listen to your group members present their device. Be open to changing your opinion on what is the best laptop for students."
+            },
+            {
+             "who": "group",
+             "text": "After each pitch, ask at least <b>two questions</b>. Use the questions from <b>Activity 1 Challenging your viewpoint</b> as a guide. Make sure battery life, weight and security are discussed for every laptop."
+            },
+            {
+             "who": "alone",
+             "text": "Take notes on the other laptops in the table."
+            }
+           ]
+          },
+          {
+           "type": "table",
+           "id": "d8-notes",
+           "live": true,
+           "title": "Notes on my group’s laptops",
+           "columns": [
+            "Laptop",
+            "Battery life",
+            "Weight",
+            "Security",
+            "Other features",
+            "Strong point?"
+           ],
+           "fixed": [
+            "MacBook Pro",
+            "Microsoft Surface",
+            "Dell XPS 14",
+            "HP Pavilion Plus"
+           ]
+          },
+          {
+           "type": "language",
+           "title": "Ask, challenge and respond",
+           "groups": [
+            {
+             "label": "Ask for information",
+             "phrases": [
+              "<b>How does</b> its battery life <b>compare with</b> …?",
+              "<b>What exactly do you mean by</b> “self-locking”?",
+              "<b>Is there a situation where</b> this laptop <b>might not</b> work well?"
+             ]
+            },
+            {
+             "label": "Challenge politely",
+             "phrases": [
+              "<b>I see your point, but</b> isn’t it quite expensive?",
+              "<b>What are the potential drawbacks</b> of …?",
+              "<b>Are you assuming that</b> all students need …?",
+              "<b>How might</b> a student on a small budget <b>view</b> this?"
+             ]
+            },
+            {
+             "label": "Defend your stance",
+             "phrases": [
+              "<b>That’s true, however</b> …",
+              "<b>While it is true that</b> it costs more, <b>it is also important to consider</b> …",
+              "<b>Let me put it another way</b> …"
+             ]
+            },
+            {
+             "label": "Concede",
+             "phrases": [
+              "<b>That’s a fair point.</b>",
+              "<b>I hadn’t thought of that.</b>",
+              "<b>You’re right that</b> … , <b>but</b> …"
+             ]
+            }
+           ]
+          },
+          {
+           "type": "checklist",
+           "id": "d8-monitor",
+           "title": "Language monitor: tick each move you hear (one team point each)",
+           "meter": [
+            "moves",
+            "Full score!"
+           ],
+           "items": [
+            "A stance phrase (In my opinion … / I believe …)",
+            "Evidence (According to … / Data from …)",
+            "A counterargument (While it is true that …)",
+            "An open-ended question (Is there a situation where …?)",
+            "An assumption question (Are you assuming that …?)",
+            "A consequence question (What happens in the long term if …?)",
+            "A polite challenge (I see your point, but …)",
+            "A concession (That’s a fair point. / I hadn’t thought of that.)"
+           ]
+          }
+         ],
+         "category": "5 · Production"
+        },
+        {
+         "id": "d9",
+         "short": "Discussion 2",
+         "minutes": 4,
+         "grouping": "Groups of 4",
+         "art": "dec10/assets/week3/v/v-d10w3d4-d9.svg",
+         "title": "Activity 2 Putting it into practice: Discussion 2",
+         "goal": "Conclude with your final position — and say who or what persuaded you.",
+         "blocks": [
+          {
+           "type": "toggle",
+           "title": "Keep, almost change or change your position",
+           "hint": "Open to choose your phrase",
+           "ref": true,
+           "blocks": [
+            {
+             "type": "text",
+             "title": "Say where you stand now",
+             "list": [
+              "<b>Did not change</b>: <i>I take your point about …, but I still believe … because …</i>",
+              "<b>Almost changed</b>: <i>I’m still not fully convinced, but …’s point about … made me think again.</i>",
+              "<b>Changed</b>: <i>That’s a fair point. I hadn’t considered … · My earlier position was based on …, but after hearing …, I can see that …</i>"
+             ]
+            }
+           ]
+          },
+          {
+           "type": "figure",
+           "src": "dec10/assets/week3/d4-four-corners.svg",
+           "size": "wide",
+           "alt": "A classroom seen from above with four corners, one for each laptop: MacBook Pro, Microsoft Surface, Dell XPS 14 and HP Pavilion Plus. Students walk from their seats to the corner of the laptop they would buy now. Footprints show one student who moved from the HP corner to the Surface corner, with a bubble: My position changed.",
+           "caption": "Four corners: walk to the laptop you would buy now."
+          },
+          {
+           "type": "do",
+           "n": 1,
+           "who": "class",
+           "text": "<b>Four corners.</b> Each corner of the room is one laptop. Stand up and walk to the corner of the laptop you would buy <b>now</b>. Did you leave your own laptop? Say who persuaded you, and why."
+          },
+          {
+           "type": "do",
+           "n": 2,
+           "who": "group",
+           "text": "At the end of the discussion, conclude with your final position. Let your group know if:"
+          },
+          {
+           "type": "choose",
+           "id": "d9-pos",
+           "title": "My final position",
+           "options": [
+            "My position did not change.",
+            "My position almost changed.",
+            "My position changed."
+           ]
+          },
+          {
+           "type": "talk",
+           "title": "Say it to your group",
+           "prompts": [
+            "Use one phrase from <b>Language for changing your position</b>.",
+            "Name the person and the information that persuaded you."
+           ]
+          },
+          {
+           "type": "tip",
+           "text": "In the <b>Interactive Discussion</b> assessment, showing flexibility — and saying clearly why your view changed — is a sign of criticality."
+          },
+          {
+           "type": "fields",
+           "title": "Exit ticket",
+           "fields": [
+            {
+             "id": "d9-exit",
+             "label": "Write one sentence you could say in the Interactive Discussion to show flexibility",
+             "rows": 2,
+             "placeholder": "That’s a fair point. I hadn’t considered … , so I would now say …"
+            }
+           ]
+          }
+         ],
+         "category": "5 · Production"
+        }
+       ]
       },
 
       /* ─────────────────────────── 17A HW ─────────────────────────── */

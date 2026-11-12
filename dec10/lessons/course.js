@@ -199,7 +199,7 @@ window.DEC15_COURSE = {
       use: 'While Group 1 presents, students write the speaker’s name or initial in each of the 16 squares they hear or see, then write their own C/P/AST question at the bottom.',
       prep: ['Print 1 per student (plus a few spares).', 'Hand out before Presentation 1 starts.'],
       noPrinter: 'Students play the on-screen bingo in a4 (“Live task · Presentation bingo”) and type their question in the box below it.' },
-    { id: 'w3d4-challenge', week: 3, lesson: 'd10w3d4', section: 'flex', activity: 'd5', code: '22A',
+    { id: 'w3d4-challenge', week: 3, lesson: 'd10w3d4', section: 'flex', activity: 'dp', code: '22A',
       kind: 'Card sort', minutes: 5, title: 'Challenging your viewpoint: sort cards', per: 'group', groupSize: 4, pages: 2, duplex: false,
       file: 'dec10/print/week3/w3d4-challenge.pdf', thumb: 'dec10/print/week3/w3d4-challenge.jpg',
       use: 'In a 4-minute race, groups take turns placing the 13 question cards under the 4 heading cards and saying why, then keep the cards as a question guide for Discussion 1.',

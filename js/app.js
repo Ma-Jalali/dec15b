@@ -265,7 +265,8 @@ if (kit) Object.assign(B, kit.B);
 B.tip = b => `<p class="block tip" data-help>${icon('bulb')}<span>${b.text}</span></p>`;
 /* rule: one grammar or referencing rule, explained the way a teacher presents it (Language Lab "Learn" tab)
    { type: 'rule', n, title, explain, form?: 'pattern (HTML)', examples?: [['ok' | 'no', 'sentence (HTML)', 'why / fix (HTML)?']], note?, check?: { q, a } }
-   pairs?: [['not academic (HTML)', 'academic (HTML)', 'source note?']] shows a calm two-column table (Not academic | Academic) instead of examples. */
+   pairs?: [['not academic (HTML)', 'academic (HTML)', 'source note?']] shows a calm two-column table (Not academic | Academic) instead of examples.
+   cols?: ['Spoken', 'Written'] renames the two columns; compare: true shows two good versions side by side (no ✗/✓, no red/green). */
 /* group: a section heading for a group of rule cards, bigger than a rule title and not numbered — { type: 'group', title, label?: 'Rules 1–5', goal?, tone?: 'blue' | 'plum' | 'teal' }
    rule and group share tone: each group of rules gets one colour (heading, rule chip, card stripe, pattern and check boxes). */
 B.group = b => `<div class="block rule-group${b.tone ? ' tone-' + b.tone : ''}">${b.label ? `<span class="rg-label">${esc(b.label)}</span>` : ''}<h3 class="rg-title">${esc(b.title)}</h3>${b.goal ? `<p class="rg-goal">${esc(b.goal)}</p>` : ''}</div>`;
@@ -273,7 +274,7 @@ B.rule = b => `<section class="block rule-card${b.pairs ? ' has-pairs' : ''}${b.
   <header class="rule-head">${b.n != null ? `<span class="rule-n">Rule ${esc(String(b.n))}</span>` : ''}<h3>${b.title}</h3></header>
   ${b.explain ? `<p class="rule-explain">${b.explain}</p>` : ''}
   ${b.form ? `<div class="rule-form"><span>Form</span><p>${b.form}</p></div>` : ''}
-  ${b.pairs?.length ? `<div class="rule-pairs" role="table" aria-label="Examples: not academic and academic"><div class="rp-head" role="row"><span role="columnheader">Not academic</span><span role="columnheader">Academic</span></div>${b.pairs.map(([x, v, n]) => `<div class="rp-row" role="row"><p class="rp-x" role="cell"><i aria-label="not academic">✗</i><span>${x}${n ? `<small>${n}</small>` : ''}</span></p><p class="rp-v" role="cell"><i aria-label="academic">✓</i><span>${v}</span></p></div>`).join('')}</div>` : ''}
+  ${b.pairs?.length ? `<div class="rule-pairs${b.compare ? ' is-compare' : ''}" role="table" aria-label="Examples: ${esc((b.cols || ['Not academic', 'Academic']).join(' and '))}"><div class="rp-head" role="row"><span role="columnheader">${(b.cols || ['Not academic'])[0]}</span><span role="columnheader">${(b.cols || [0, 'Academic'])[1]}</span></div>${b.pairs.map(([x, v, n]) => `<div class="rp-row" role="row"><p class="rp-x" role="cell">${b.compare ? '' : '<i aria-label="not academic">✗</i>'}<span>${x}${n ? `<small>${n}</small>` : ''}</span></p><p class="rp-v" role="cell">${b.compare ? '' : '<i aria-label="academic">✓</i>'}<span>${v}</span></p></div>`).join('')}</div>` : ''}
   ${b.examples?.length ? `<ul class="rule-eg">${b.examples.map(([k, t, w]) => `<li class="is-${k}"><i aria-label="${k === 'ok' ? 'correct' : 'wrong'}">${k === 'ok' ? '✓' : '✗'}</i><span>${t}${w ? `<small>${w}</small>` : ''}</span></li>`).join('')}</ul>` : ''}
   ${b.note ? `<p class="rule-note">${icon('bulb')}<span>${b.note}</span></p>` : ''}
   ${b.check ? `<details class="rule-check"><summary><b>Check yourself</b><span>${b.check.q}</span></summary><p>${b.check.a}</p></details>` : ''}
