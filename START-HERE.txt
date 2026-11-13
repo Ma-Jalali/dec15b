@@ -916,3 +916,19 @@ v9.1 (DEC10 precision pass, part 2 — lesson activity blocks and My workspace; 
   the shared shadow; the four tabs are one segmented control; calendar and to-do buttons and inputs are 34–40px with
   9–10px corners; every number in the calendars is tabular. Outfit stays the workspace font (v2.31).
 - No content, ids or saved work changed. DEC15 unchanged.
+
+v9.2 (DEC10 precision pass, part 3 — interactive game blocks and the dark side panels; css/precision.css sections 12 and 13)
+- Game blocks (bingo, match, sort, cloze, flip cards, bet, spot, detect, squeeze, paraphrase, outline, pairs, rewrite, order,
+  choose, chat, prompt builder, spinner, hotspot): only measure changes — no colour, shadow or answer state is touched, so
+  every game checks and marks exactly as before.
+  * Corners inside a game were 12–26px; now panels 12px, things you tap 10px, chat / prompt preview / flip cards 14px.
+  * "Choose" options and "put in order" lists are as wide as the column (they stopped at 860–900px).
+  * Flip cards: five across on a laptop, so a set of five is one row (was four and one left over).
+  * Counters and scores use tabular figures, so they do not jump as they count.
+- Fix: in the prompt builder, "Open Copilot" was white text on a white button (invisible until hovered). It is now an
+  outlined button on the navy panel, next to the gold "Copy prompt".
+- Dark side panels (charcoal, black, navy, eucalypt) now share the light panel's measures: 20px sheet, 40px rows, 28px
+  icon tiles, 3px bar, group label, progress and Settings pinned at the foot. They also show the DEC10 course card
+  (it was hidden on dark panels). Fixes: the search highlight was dark text on a dark row; the progress line was cut
+  off ("15 activities finish…"); the Ochre glow at the top is gone.
+- No content, ids or saved work changed. DEC15 unchanged.

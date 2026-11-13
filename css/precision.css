@@ -325,8 +325,8 @@
 }
 [data-course="dec10"] main :is(.btn, a.btn):not(.btn-quiet)::after { content: none; }
 [data-course="dec10"] main :is(.btn, a.btn):not(.btn-quiet):hover { background: #1f3c55; box-shadow: 0 1px 2px rgba(20, 41, 58, .2), 0 10px 18px -8px rgba(20, 41, 58, .6); }
-[data-course="dec10"] main .btn-quiet { background: #fff; box-shadow: inset 0 0 0 1px var(--px-line-strong); transition: background .15s, box-shadow .15s; }
-[data-course="dec10"] main .btn-quiet:hover { background: #f7f5f1; box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .28); }
+[data-course="dec10"] main .btn-quiet:not(.pb-actions *, .gd-next *, .jp-foot *) { background: #fff; box-shadow: inset 0 0 0 1px var(--px-line-strong); transition: background .15s, box-shadow .15s; }
+[data-course="dec10"] main .btn-quiet:not(.pb-actions *, .gd-next *, .jp-foot *):hover { background: #f7f5f1; box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .28); }
 
 /* block frame */
 [data-course="dec10"] .act-body > .block:not(.sticky) { max-width: none; }
@@ -405,3 +405,87 @@
 [data-course="dec10"] .pl .pl-note-title { letter-spacing: -.022em; }
 [data-course="dec10"] .pl :is(.pl-tb, .pl-ibtn, .pl-style) { transition: background .15s, box-shadow .15s, color .15s; }
 [data-course="dec10"] .pl .nb-cover h1 { letter-spacing: -.028em; }
+
+/* ───────── 12. interactive game blocks (v9.2) ─────────
+   Only measure changes here — corners, widths, column counts and figures. Nothing touches a colour, a shadow or a
+   state (chosen / right / wrong), so every game checks and marks answers exactly as before. */
+
+/* every game is as wide as the column: option lists and ordering lists no longer stop at 860–900px */
+[data-course="dec10"] .act-body :is(.choose-options, .order-list, .order-hint) { max-width: none; }
+
+/* one corner for the pieces inside a game (they ranged from 12 to 26px): panels 12px, things you tap 10px */
+[data-course="dec10"] .act-body :is(.quiz-item, .lm-item, .pa-item, .dt-item, .sq-item, .pr-item, .rw-item, .sp-text, .pb-part, .sort-pool, .sort-bucket,
+  .cloze-text, .reel-window, .bg-sq, .table-scroll, .bt-bank, .kit.hotspot img) { border-radius: 12px; }
+[data-course="dec10"] .act-body :is(.chat-log, .pb-preview, .flip-face) { border-radius: 14px; }
+[data-course="dec10"] .act-body :is(.choose-option, .order-item, .mt-card, .ol-row, .sort-card, .sort-slot, .kit .option, .msg-body) { border-radius: 10px; }
+[data-course="dec10"] .act-body :is(.kit, .play) :is(textarea, input[type="text"], input:not([type]), select:not(.gap select)) { border-radius: 10px; }
+
+/* flip cards: five across on a laptop, so a set of five is one row — not four and one left over */
+[data-course="dec10"] .act-body .flip-grid { grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); gap: 12px; }
+
+/* counters, scores and positions: tabular figures, so they do not jump as they count */
+[data-course="dec10"] .act-body :is(.mt-meter, .lm-count, .dt-score, .sq-gauge, .bg-score, .bt-bank, .bt-chip, .order-pos, .pa-num, .pr-num, .pb-num, .gap-num, .sort-letter, .choose-letter, .mt-tag) { font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .act-body .kit-hint { max-width: 72ch; }
+
+/* prompt builder: its two buttons sit on a navy panel — "Open Copilot" was white text on a white button, and
+   "Copy prompt" navy on navy. Now a gold primary button and an outlined secondary one, both readable. */
+[data-course="dec10"] main .pb-actions .btn:not(.btn-quiet) { background: #e3a843 !important; color: #14293a; box-shadow: none; }
+[data-course="dec10"] main .pb-actions .btn:not(.btn-quiet):hover { background: #edb95a !important; box-shadow: none; }
+[data-course="dec10"] main .pb-actions .btn:not(.btn-quiet):is(:disabled, [aria-disabled="true"]) { background: rgba(255, 255, 255, .12) !important; color: rgba(255, 255, 255, .6); opacity: 1; }
+[data-course="dec10"] main .pb-actions .btn-quiet { background: transparent !important; color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .35); }
+[data-course="dec10"] main .pb-actions .btn-quiet:hover { background: rgba(255, 255, 255, .1) !important; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .55); }
+
+/* ───────── 13. dark side panels (v9.2): charcoal, black, navy, eucalypt ─────────
+   The same measures as the light panel (section 3) — 20px sheet, 40px rows, 28px icon tiles, 3px bar, the course
+   card under the logo, progress pinned at the foot — in each dark colour. Fixes: the search highlight was dark text
+   on a dark row; the progress line was cut off ("15 activities finish…"); the Ochre glow at the top is gone. */
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar {
+  background: linear-gradient(180deg, var(--side-top), var(--side-bg) 38%, var(--side-end)) !important; padding: 16px 12px 0;
+}
+@media (min-width: 901px) { [data-course="dec10"][data-side]:not([data-side="light"]) .sidebar { border-radius: 20px; box-shadow: 0 0 0 1px rgba(0, 0, 0, .28), 0 1px 2px rgba(0, 0, 0, .1), 0 16px 36px -20px rgba(0, 0, 0, .5) !important; } }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .uni { padding: 6px 12px 14px; border-bottom: 0; margin-bottom: 0; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .uni img { width: 132px; height: auto; display: block; }
+
+/* the course card, which the dark panels did not show */
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-course {
+  display: flex; align-items: center; gap: 11px; margin: 0 2px; padding: 10px 12px 10px 10px; border-radius: 12px;
+  background: rgba(255, 255, 255, .07); box-shadow: inset 0 0 0 1px var(--side-line);
+}
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .sc-code { padding: 6px 8px; border-radius: 6px; background: #e64626; color: #fff; font: 800 .7rem/1 var(--sans, Manrope, sans-serif); letter-spacing: .08em; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .sc-name { display: grid; gap: 2px; color: #fff; font: 700 .81rem/1.15 var(--sans, Manrope, sans-serif); letter-spacing: -.005em; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .sc-name small { color: var(--side-soft); font-weight: 600; font-size: .7rem; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .sc-weeks i.is-done { background: #ff8a6b; opacity: .7; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .sc-weeks i.is-now { background: #ff8a6b; box-shadow: 0 0 0 2px rgba(255, 138, 107, .25); }
+
+/* search and its results */
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-course + .side-search { margin-top: 12px; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-search { margin-left: 2px; margin-right: 2px; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-search input { height: 36px; border-radius: 10px; font-size: .84rem; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-search input:focus { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .7), 0 0 0 3px rgba(255, 255, 255, .16); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-search kbd { background: rgba(255, 255, 255, .08); font-size: .66rem; box-shadow: none; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .search-hit { border-radius: 10px; color: var(--side-text); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .search-hit small { color: var(--side-faint); }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-results mark { background: rgba(227, 168, 67, .9); color: #14293a; border-radius: 3px; padding: 0 2px; }
+
+/* rows */
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-main { gap: 1px; padding-bottom: 14px; margin-top: 10px; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-link { height: 40px; padding: 0 10px 0 6px; gap: 11px; border-radius: 10px; font-weight: 600; font-size: .86rem; letter-spacing: -.003em; transition: background .15s, color .15s; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-link.active { background: rgba(255, 255, 255, .12); box-shadow: none; font-weight: 700; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-link.active::before { left: -12px; top: 8px; bottom: 8px; height: auto; width: 3px; border-radius: 0 3px 3px 0; background: #ff8a6b; box-shadow: none; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-link.active::after { content: none; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-ic { width: 28px; height: 28px; border-radius: 8px; box-shadow: none; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-ic svg { width: 16px; height: 16px; stroke-width: 1.75; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-link:hover .side-ic { transform: none; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-ext { width: 11px; height: 11px; opacity: .6; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-group { margin: 14px 8px 6px !important; gap: 10px; font-size: .62rem; font-weight: 700; letter-spacing: .12em; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-group::before { content: none; }
+
+/* foot */
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-progress.side-foot {
+  position: sticky; bottom: 0; z-index: 2; margin: auto -12px 0; padding: 10px 14px 12px; border-radius: 0;
+  background: var(--side-end) !important; box-shadow: 0 -1px 0 var(--side-line) !important;
+}
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-prog { font-size: .78rem; }
+[data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-gear { border-radius: 9px; }
+
+@media (max-width: 900px) { [data-course="dec10"][data-side]:not([data-side="light"]) .sidebar { padding: 14px 12px 0; } }
