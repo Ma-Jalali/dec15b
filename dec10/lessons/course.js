@@ -48,7 +48,7 @@ window.DEC15_COURSE = {
       when: ['Asking effective individual questions (Week 2, 11A)', 'Research Summary group presentations: ask and answer questions', 'Preparing for the Interactive Presentation (Week 7): practise answering them'],
       how: ['Download the sheet, or print it.', 'Keep it open during presentations.', 'Listen carefully. Start with a <b>clarification</b> question, then <b>probe</b> deeper.', 'Before your own Interactive Presentation, practise answering one question from each box.'] },
     { id: 'action-plan-2', title: 'Feedback on Presentations: Action Plan (2)', sub: 'AST: Feedback literacy · Week 3',
-      kind: 'Fillable PDF', pages: 2, size: '225 KB', tone: 'teal', action: 'Download the template',
+      kind: 'Fillable PDF', pages: 2, size: '154 KB', tone: 'teal', action: 'Download the template',
       file: 'dec10/downloads/DEC10-Feedback-on-Presentations-Action-Plan-2.pdf',
       thumbs: ['dec10/assets/downloads/action-plan-2-p1.jpg', 'dec10/assets/downloads/action-plan-2-p2.jpg'],
       what: 'Record the peer and teacher feedback on your Week 3 presentation (20 statements: N/A, Yes, Mostly, Needs work), then write a specific action for each aspect that needs work.',
