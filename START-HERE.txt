@@ -958,3 +958,13 @@ v9.4 (DEC10 precision pass, part 5 — Course calendar, Class board, Chats; css/
   and the round send button keep their chat shapes. Times and counts are tabular.
   Fix: in Details, the fifth tab was cut off ("P…"); all five tabs (People, Words, Polls, Files, Pins) now fit.
 - No content, ids or saved work changed. DEC15 unchanged.
+
+v9.5 (DEC10 precision pass, part 6 — the remaining pages, dialogs and pop-ups; css/precision.css section 16)
+- Shared with me, Name wheel, Readings (course texts), Photocopiables: the page cards were 20–28px; they now use the
+  shared 18px card, 14px inner cards and tabular figures. Reading cards lift on hover like the day cards.
+- Dialogs (sign in, your account, Readings, Word meanings, Word game): one 18px sheet; the Close button is the same
+  32px / 8px control as the top bar; inputs 10px; the primary button is flat navy.
+- Pop-ups and panels: class panel 18px; timer and "Message the class" 14px with one shadow; week menu 16px.
+- Fix: the unread badge on "Your class" sat on the last letters of the label ("0 students onlin●"); it now sits clear
+  of the text.
+- No content, ids or saved work changed. DEC15 unchanged.
