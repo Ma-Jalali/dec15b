@@ -533,3 +533,57 @@
 [data-course="dec10"] .gd-fold-body :is(.gd-warn, [class*="gd-yes"], [class*="gd-no"], [class*="gd-two"] > *, [class*="gd-contact"] > *) { border-radius: 10px; }
 /* six facts: two rows of three, not five and one left over */
 @media (min-width: 901px) { [data-course="dec10"] .gd-facts:has(> :nth-child(6):last-child) { grid-template-columns: repeat(3, 1fr); } }
+
+/* ───────── 15. Course calendar, Class board, Chats (v9.4) ───────── */
+
+/* Course calendar */
+/* week rail: the twelve tiles share the row exactly, so the rail ends flush with the cards above and below
+   (fixed 86px tiles ran 10px past the right edge) */
+@media (min-width: 1100px) {
+  [data-course="dec10"] .gd-rail { gap: 6px; overflow: visible; }
+  [data-course="dec10"] .gd-rail button { flex: 1 1 0; min-width: 0; }
+  [data-course="dec10"] .gd-rail button.is-brk { flex: .7 1 0; }
+  /* agenda: every day uses the same three columns (in class · after class · also on today), so the columns line up
+     down the week — a day with two parts used two wider columns */
+  [data-course="dec10"] .gd-week .gd-dbody { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+[data-course="dec10"] .gd-week .gd-day { border-radius: 14px; border-color: var(--px-line); }
+[data-course="dec10"] .gd-week .gd-day.is-today { box-shadow: 0 0 0 2px rgba(230, 70, 38, .16); }
+[data-course="dec10"] .gd-week .gd-dtile, [data-course="dec10"] .gx-cal { font-variant-numeric: lining-nums; }
+[data-course="dec10"] .gd-week :is(a, div, span)[class*="gd-it"], [data-course="dec10"] .gd-week .gd-dbody section > :is(a, div) { border-radius: 9px; }
+/* today + next assessment: the right column is as tall as the "today" card, so their bottoms line up */
+[data-course="dec10"] .gx-focus:not(.is-assess) .gx-side { align-content: stretch; grid-template-rows: 1fr auto; }
+[data-course="dec10"] .gx-focus:not(.is-assess) .gx-side:has(.gd-terms[open]) { grid-template-rows: auto auto; }
+[data-course="dec10"] .gd-week-tools button, [data-course="dec10"] .gd-week [class*="gd-filter"] button, [data-course="dec10"] .gd-week [class*="gd-seg"] button { font-variant-numeric: lining-nums tabular-nums; }
+
+/* Class board: the frame, paper and marker tray stay; corners and controls follow the rest of the site */
+[data-course="dec10"] .bd .bd-board { border-radius: 18px; }
+[data-course="dec10"] .bd .bd-paper { border-radius: 12px; }
+[data-course="dec10"] .bd .bd-tools { border-radius: 14px; box-shadow: var(--px-e2); }
+[data-course="dec10"] .bd .bd-badge { border-radius: 14px; box-shadow: var(--px-e2); }
+[data-course="dec10"] .bd .bd-views { border-radius: 12px; padding: 4px; }
+[data-course="dec10"] .bd .bd-views button { border-radius: 9px; }
+[data-course="dec10"] .bd .bd-act { border-radius: 9px; box-shadow: inset 0 0 0 1px var(--px-line-strong); background: #fff; transition: background .15s, box-shadow .15s; }
+[data-course="dec10"] .bd .bd-act:hover { background: #f7f5f1; box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .28); }
+[data-course="dec10"] .bd :is(.bd-live, .bd-when) { border-radius: 7px; box-shadow: inset 0 0 0 1px var(--px-line); font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .bd .bd-card { border-radius: 12px; }
+[data-course="dec10"] .bd .bd-seg { border-radius: 9px; }
+[data-course="dec10"] .bd h1 { letter-spacing: -.028em; text-wrap: balance; }
+[data-course="dec10"] .bd .bd-paper :is(p, li) { max-width: 78ch; }
+
+/* Chats: bubbles, the round send button and the message field keep their chat shapes; the frame, lists and panels
+   follow the site */
+[data-course="dec10"] .ch-app { border-radius: 18px; box-shadow: var(--px-e2); }
+[data-course="dec10"] .ch-app :is(.ch-row, .ch-who) { border-radius: 12px; }
+[data-course="dec10"] .ch-app .ch-row.on { box-shadow: var(--px-e1); }
+[data-course="dec10"] .ch-app .ch-tile { border-radius: 12px; box-shadow: none; }
+[data-course="dec10"] .ch-app :is(.ch-round, .ch-ghost, .ch-search) { border-radius: 10px; }
+[data-course="dec10"] .ch-app .ch-search input { border-radius: 8px; }
+[data-course="dec10"] .ch-app .ch-acts { border-radius: 10px; }
+[data-course="dec10"] .ch-app .ch-opt { border-radius: 10px; }
+[data-course="dec10"] .ch-app :is(time, .ch-badge, .ch-opt, .ch-itabs i) { font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .ch-app h1, [data-course="dec10"] .ch-app .ch-ihead b { letter-spacing: -.02em; }
+/* details panel: all five tabs fit (the last one was cut off at "P…") */
+[data-course="dec10"] .ch-itabs { gap: 2px; padding: 10px 10px 0; }
+[data-course="dec10"] .ch-itabs button { flex: 1 1 auto; padding: 0 6px; font-size: .74rem; font-weight: 700; border-radius: 8px; white-space: nowrap; }
+[data-course="dec10"] .ch-itabs i { margin-left: 2px; padding: 1px 5px; font-size: .66rem; }
