@@ -637,7 +637,8 @@ window.DEC15_LESSON = {
               ends: ["Not at all","Completely"],
               mid: "Some of them"
             },
-            {"type":"do","n":4,"who":"alone","text":"Download the <b>Action Plan (2) template</b> from Canvas (Week 3) and save it in the same folder."},
+            {"type":"do","n":4,"who":"alone","text":"Download the <b>Action Plan (2) template</b> and save it in the same folder."},
+            {"type":"download","id":"action-plan-2","note":"You fill in page 1 in Activity 2 and page 2 in Activity 4."},
             {"type":"sticky","title":"Phrase of the day · say it like an academic","text":"<b>“I’ve made progress with …, but I still need to work on …”</b><br>Use it in your plan and in your next tutorial.","color":"green"}
           ]
         },
@@ -949,6 +950,8 @@ window.DEC15_LESSON = {
                 "<b>What am I not confident about? What do I need to work on?</b> Then decide exactly what you will do about it."
               ]
             },
+            {"type":"do","who":"alone","text":"Download the <b>student guide to the rubric</b>. Read the <b>What to do</b> box for each of the four skills: these are what your teacher marks. Keep it open while you set your goals."},
+            {"type":"download","id":"id-rubric-student","note":"Four skills, three levels each — in plain English. Save it in your DEC10 folder."},
             {"type":"do","n":1,"who":"class","text":"<b>Confidence line-up.</b> Stand up. Your teacher reads statement 1. Line up from “Not confident” to “Very confident”. Find someone at the <b>other end</b> and ask: “<b>What do you do to</b> …?” Then sit down and move the three sliders."},
             {"type":"scale","id":"i3-flu","title":"How confident am I?","statement":"I can keep speaking fluently in a group discussion.","ends":["Not confident","Very confident"]},
             {"type":"scale","id":"i3-src","statement":"I can summarise an idea from a text in my own words.","ends":["Not confident","Very confident"]},
