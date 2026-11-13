@@ -312,6 +312,7 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
         <article class="gd-card" style="--ec:#2f9a63"><span class="gd-card-k">Part 2 · 12–15 min</span><b>Group discussion</b><p>Discuss a question about a <b>quote</b> from one text, and <b>evaluate three options</b> for an issue. There is no break between the parts.</p></article>
       </div>
       <p class="gd-tip">${icon('bulb')}<span>You practise the discussion moves from Week 3 onwards (“Interactive Discussion: discussion skills”). Bring short notes of the key ideas — not a script.</span></p>
+      <p class="gd-links">${icon('flag')}<a href="#/d10w3d5/idintro">Lesson: Introduction to the Interactive Discussion (Week 3, Day 5) ${icon('arrow')}</a> <a href="#/d10w3d5/iqprac">Practise individual questions ${icon('arrow')}</a></p>
       <h3 class="gd-h3">How you are marked</h3>
       <p>Four skills each get a score: <b>Argumentation</b>, <b>Engagement &amp; Interaction</b>, <b>Pronunciation &amp; Flow</b> and <b>Language Use</b>. Your final score is the average of the four. Read the student guide first — it explains each skill in plain English. The <b>teacher’s edition</b> is the full rubric your teachers mark with, if you want every detail.</p>
       <p class="gd-links">${icon('book')}${a(L.idRubricStudent, 'Rubric · student guide')} <a class="gd-dl" href="#/downloads">${icon('download')}Student guide · Downloads</a> ${a(L.idRubricTeacher, 'Full rubric · teacher’s edition')} ${a(L.idRubric, 'Interactive Discussion rubric (Canvas)')}</p>`;
