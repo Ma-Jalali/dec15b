@@ -587,3 +587,41 @@
 [data-course="dec10"] .ch-itabs { gap: 2px; padding: 10px 10px 0; }
 [data-course="dec10"] .ch-itabs button { flex: 1 1 auto; padding: 0 6px; font-size: .74rem; font-weight: 700; border-radius: 8px; white-space: nowrap; }
 [data-course="dec10"] .ch-itabs i { margin-left: 2px; padding: 1px 5px; font-size: .66rem; }
+
+/* ───────── 16. the remaining pages, dialogs and pop-ups (v9.5) ─────────
+   Shared with me, Name wheel, Readings, Photocopiables, and every dialog and pop-up: the same card (18px), inner
+   panel (12–14px) and control corner (8–10px) as the rest of the site. */
+[data-course="dec10"] :is(.rl-top, .rl-week, .pk-stage, .pk-panel, .pr-top, .sh-pick) { border-radius: 18px !important; }
+[data-course="dec10"] :is(.rl-top, .rl-week, .pk-panel, .sh-pick, .sh-list) { box-shadow: var(--px-e2); }
+[data-course="dec10"] :is(.rl-card, .sh-list, .pr-item, .pr-class) { border-radius: 14px !important; }
+[data-course="dec10"] .rl-card { box-shadow: var(--px-e1); transition: box-shadow .2s, transform .2s; }
+[data-course="dec10"] .rl-card:hover { box-shadow: var(--px-e3); }
+[data-course="dec10"] :is(.rl-top, .pr-top, .pk-head, .sh-hero) h1 { letter-spacing: -.028em; text-wrap: balance; }
+[data-course="dec10"] :is(.rl-top, .rl-week, .rl-card, .pr-item, .pr-top, .pk-panel) { font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .pr-top ~ ol > li, [data-course="dec10"] main ol > li.is-plan-b { border-radius: 12px; }
+
+/* dialogs: one sheet, one Close button */
+[data-course="dec10"] dialog#resource-dialog { border-radius: 18px; box-shadow: 0 0 0 1px rgba(20, 41, 58, .1), 0 24px 60px -24px rgba(20, 41, 58, .5); }
+[data-course="dec10"] dialog#resource-dialog .dialog-head h2 { letter-spacing: -.02em; }
+[data-course="dec10"] dialog#resource-dialog #dialog-close { height: 32px; padding: 0 12px; border-radius: 8px; background: #fff; box-shadow: inset 0 0 0 1px var(--px-line-strong); font-size: .78rem; font-weight: 650; transition: background .15s; }
+[data-course="dec10"] dialog#resource-dialog #dialog-close:hover { background: #f7f5f1; }
+[data-course="dec10"] dialog#resource-dialog :is(.acct-card, .acct-box) { border-radius: 14px; }
+[data-course="dec10"] dialog#resource-dialog .glossary-word { border-radius: 12px; }
+[data-course="dec10"] dialog#resource-dialog :is(input[type="text"], input[type="email"], input[type="password"], input:not([type]), textarea) { border-radius: 10px; }
+[data-course="dec10"] dialog#resource-dialog .btn:not(.btn-quiet) { background: var(--px-ink); box-shadow: 0 1px 2px rgba(20, 41, 58, .2), 0 6px 14px -8px rgba(20, 41, 58, .55); }
+[data-course="dec10"] dialog#resource-dialog .btn:not(.btn-quiet)::after { content: none; }
+
+/* pop-ups and side panels: class panel, timer, announcement, week menu */
+[data-course="dec10"] .class-panel { border-radius: 18px; }
+[data-course="dec10"] .class-panel :is(.cp-hand, .cp-people) { border-radius: 12px; }
+[data-course="dec10"] :is(.ct-pop, .an-pop) { border-radius: 14px; box-shadow: 0 0 0 1px rgba(20, 41, 58, .1), 0 20px 44px -20px rgba(20, 41, 58, .45); }
+[data-course="dec10"] :is(.ct-pop, .an-pop) :is(input, textarea) { border-radius: 10px; }
+[data-course="dec10"] .ct-pop { font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .wb-panel, [data-course="dec10"] .wb-panel .wb-grid { border-radius: 16px; }
+/* the unread badge on "Your class" sat on the last letters of the label */
+[data-course="dec10"] .masthead .class-btn :is(.cb-badge, .cb-hand) { top: -7px; right: -9px; box-shadow: 0 0 0 2px #fcfbf8; font-variant-numeric: lining-nums tabular-nums; }
+
+@media (max-width: 900px) {
+  [data-course="dec10"] :is(.rl-top, .rl-week, .pk-stage, .pk-panel, .pr-top, .sh-pick, .ch-app, .bd .bd-board) { border-radius: 14px !important; }
+  [data-course="dec10"] dialog#resource-dialog { border-radius: 14px; }
+}
