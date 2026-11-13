@@ -968,3 +968,22 @@ v9.5 (DEC10 precision pass, part 6 — the remaining pages, dialogs and pop-ups;
 - Fix: the unread badge on "Your class" sat on the last letters of the label ("0 students onlin●"); it now sits clear
   of the text.
 - No content, ids or saved work changed. DEC15 unchanged.
+
+v9.6 (DEC10 phones and tablets — the week menu fixed; css/precision.css section 17, js/app.js)
+- THE WEEK MENU ON PHONES WAS BROKEN. Cause: the frosted top bar (backdrop-filter on .masthead) became the positioning box
+  of the "fixed" week panel, so the panel opened above the screen, out of sight, and the week buttons then stopped
+  answering. Now, at 900px and narrower:
+  * the top bar is plain (no backdrop filter) and the week menu is a bottom sheet: a title ("Week 3"), a Close button,
+    the page dimmed behind it (tap the dimmed page to close), rows at least 44px high. The dictionary button hides while
+    the sheet is open. js/app.js adds the sheet's title bar (.wb-sheet-bar, hidden on desktop) and the two ways to close.
+  * the ten weeks are ten equal number tiles with a small "WEEK" label — they fit the screen; nothing scrolls sideways.
+- Phone top bar: one row instead of two (Menu · saved dot · Sign in · class · three tool icons). About 40px more page.
+- Tablets held upright (601–900px): the three tools join the first row as icons.
+- Tablets held sideways / small laptops (901–1359px): the weeks are number tiles and the tools are icons. Before, the top
+  bar ran off the right edge and every page scrolled sideways at 1024px. The day timeline's "next day" note wraps
+  under the four stages instead of pushing the page wider.
+- Course map on phones and tablets: the week selector is five equal tiles (it scrolled sideways and cut titles off);
+  the week number sits beside the week title, with the description full width below.
+- Long e-mail addresses break inside narrow cards (one ran off the screen on the phone Assessments page).
+- Phones: day cards one per row; tighter side padding in activities; buttons at least 44px high.
+- Checked with touch emulation at 360, 390, 768 and 1024px on every page: no page scrolls sideways. Desktop unchanged.
