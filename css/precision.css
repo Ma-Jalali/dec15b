@@ -302,3 +302,106 @@
   [data-course="dec10"] .day-grid.many .day-title { min-height: 0; }
 }
 @media (prefers-reduced-motion: reduce) { [data-course="dec10"] .day-card:hover { transform: none; } }
+
+/* ───────── 10. lesson activity blocks (v9.1) ─────────
+   Every block type keeps its colour and its meaning (key point gold, speak purple, language bank blue, model green …).
+   What changes is the frame: one corner (14px), one inner padding (22px 24px), a tinted hairline instead of a coloured
+   drop shadow, and every block as wide as the column — the tip and the checklist no longer stop short of the others. */
+
+/* the activity card: head, body, foot */
+[data-course="dec10"] .act-head h2 { letter-spacing: -.022em; text-wrap: balance; }
+[data-course="dec10"] .act-count { font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .act-goal { border-radius: 10px; outline: 0; padding: 12px 16px 12px 18px; }
+[data-course="dec10"] .act-goal::before, [data-course="dec10"] .act-goal::after { box-shadow: none; }
+[data-course="dec10"] .act-head .timer-btn { border-radius: 9px; height: 34px; background: #fff; box-shadow: inset 0 0 0 1px var(--px-line-strong); font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .act-foot { background: #fbfaf7; box-shadow: inset 0 1px 0 var(--px-line-soft); }
+[data-course="dec10"] .done-toggle { border-radius: 10px; box-shadow: inset 0 0 0 1px var(--px-line-strong); transition: background .15s, box-shadow .15s; }
+[data-course="dec10"] .done-toggle:hover { background: #f7f5f1; }
+
+/* buttons: flat navy, no travelling shine */
+[data-course="dec10"] main :is(.btn, a.btn):not(.btn-quiet) {
+  background: var(--px-ink); box-shadow: 0 1px 2px rgba(20, 41, 58, .2), 0 6px 14px -8px rgba(20, 41, 58, .55); letter-spacing: -.003em;
+  transition: background .15s, box-shadow .15s, transform .15s;
+}
+[data-course="dec10"] main :is(.btn, a.btn):not(.btn-quiet)::after { content: none; }
+[data-course="dec10"] main :is(.btn, a.btn):not(.btn-quiet):hover { background: #1f3c55; box-shadow: 0 1px 2px rgba(20, 41, 58, .2), 0 10px 18px -8px rgba(20, 41, 58, .6); }
+[data-course="dec10"] main .btn-quiet { background: #fff; box-shadow: inset 0 0 0 1px var(--px-line-strong); transition: background .15s, box-shadow .15s; }
+[data-course="dec10"] main .btn-quiet:hover { background: #f7f5f1; box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .28); }
+
+/* block frame */
+[data-course="dec10"] .act-body > .block:not(.sticky) { max-width: none; }
+[data-course="dec10"] .act-body > :is(.block.talk, .block.language, .block.steps-block, .block.fscale, .block.kit, .block.play, .block.tip, .block.do-step, .block.checklist, .block.lg-fold, .answers) { border-radius: 14px; }
+[data-course="dec10"] .act-body > :is(.block.talk, .block.language, .block.steps-block, .block.fscale) { padding: 22px 24px; }
+[data-course="dec10"] .act-body > .block.key { border-radius: 16px; }
+[data-course="dec10"] .act-body > .block.talk { box-shadow: inset 0 0 0 1px rgba(110, 76, 170, .16); }
+[data-course="dec10"] .act-body > .block.language { box-shadow: inset 0 0 0 1px rgba(60, 110, 190, .16); }
+[data-course="dec10"] .act-body > .block.do-step { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #2b776e) 12%, transparent); }
+[data-course="dec10"] .act-body > .answers { border-radius: 14px; padding: 16px 20px; }
+
+/* block headings and labels: one size each */
+[data-course="dec10"] .act-body .block :is(h3, .block-heading) { letter-spacing: -.012em; text-wrap: balance; }
+[data-course="dec10"] .act-body .block-label { font-size: .64rem; font-weight: 750; letter-spacing: .12em; padding: 5px 10px 5px 8px; border-radius: 6px; box-shadow: none; }
+
+/* steps: the number, the "who" badge and the text sit on one grid */
+[data-course="dec10"] .act-body .steps li p { box-shadow: inset 0 0 0 1px var(--px-line-soft); border-radius: 10px; max-width: 72ch; }
+[data-course="dec10"] .act-body .who { font-size: .62rem; font-weight: 750; letter-spacing: .1em; }
+
+/* speak prompts and language-bank phrases: hairline cards, no drop shadow */
+[data-course="dec10"] .act-body .talk-prompts li { border-radius: 10px; box-shadow: inset 0 0 0 1px rgba(110, 76, 170, .14); }
+[data-course="dec10"] .act-body .block.language :is(.phrase, li) { box-shadow: inset 0 0 0 1px rgba(60, 110, 190, .18); border-radius: 8px; }
+
+/* text cards (definitions, sources): three across, set at reading size — five cards make 3 + 2, not 4 + an orphan */
+[data-course="dec10"] .act-body .cards { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+[data-course="dec10"] .act-body .cards .card { border-radius: 12px; padding: 16px 18px 18px; box-shadow: inset 0 0 0 1px var(--px-line); }
+[data-course="dec10"] .act-body .cards .card p { font-size: .93rem; line-height: 1.6; }
+[data-course="dec10"] .act-body .cards .card-label { font-size: .64rem; letter-spacing: .1em; font-variant-numeric: lining-nums; }
+
+/* writing fields, checklists, quizzes and tables */
+[data-course="dec10"] .act-body .block.fields :is(textarea, input[type="text"]) { max-width: none; width: 100%; border-radius: 10px; }
+[data-course="dec10"] .act-body .block.checklist :is(li, label) { border-radius: 10px; }
+[data-course="dec10"] .act-body .block.quiz .option { box-shadow: inset 0 0 0 1px var(--px-line-strong); background: #fff; transition: background .15s, box-shadow .15s; }
+[data-course="dec10"] .act-body .block.quiz .option:hover { background: #f7f5f1; }
+[data-course="dec10"] .act-body .table-block :is(th, td) { font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .act-body .table-block th { font-size: .64rem; letter-spacing: .1em; }
+[data-course="dec10"] .act-body .send-bar { border-radius: 14px; }
+[data-course="dec10"] .act-body .send-bar .btn { white-space: nowrap; }
+
+/* ───────── 11. My workspace (v9.1) ─────────
+   css/planner.css loads after this file (with the workspace itself), so every rule here carries the course prefix to
+   win. Same card as the rest of the site; controls are 34px high with 9px corners; figures in the calendars are tabular. */
+[data-course="dec10"] .pl :is(.pl-tree, .pl-main, .pl-rail, .pl-calside, .pl-calmain, .pl-todos, .nb-cover, .nb-empty) { border-radius: 18px; box-shadow: var(--px-e2); }
+[data-course="dec10"] .pl .pl-head { box-shadow: var(--px-e2); background: #fff; -webkit-backdrop-filter: none; backdrop-filter: none; }
+[data-course="dec10"] .pl :is(.ws-nb-bar, .pl-tsum) { border-radius: 14px; box-shadow: var(--px-e1); }
+[data-course="dec10"] .pl .pl-head h1 { letter-spacing: -.02em; }
+[data-course="dec10"] .pl .pl-private { letter-spacing: .1em; }
+
+/* tabs: one segmented control */
+[data-course="dec10"] .pl .pl-tabs { border-radius: 12px; padding: 4px; gap: 2px; background: rgba(20, 41, 58, .05); }
+[data-course="dec10"] .pl .pl-tabs button { border-radius: 9px; height: 38px; transition: background .15s, box-shadow .15s, color .15s; }
+[data-course="dec10"] .pl .pl-tabs button[aria-selected="true"], [data-course="dec10"] .pl .pl-tabs button.on, [data-course="dec10"] .pl .pl-tabs button.active { box-shadow: 0 0 0 1px var(--px-line-soft), 0 1px 2px rgba(20, 41, 58, .08), 0 4px 10px -6px rgba(20, 41, 58, .25); }
+[data-course="dec10"] .pl .pl-tabn { font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .pl .pl-status { border-radius: 8px; box-shadow: inset 0 0 0 1px var(--px-line-soft); font-weight: 600; }
+
+/* buttons and inputs */
+[data-course="dec10"] .pl .pl-btn { border-radius: 9px; height: 34px; letter-spacing: -.003em; box-shadow: none; transition: background .15s, box-shadow .15s; }
+[data-course="dec10"] .pl .pl-btn.ghost { background: #fff; box-shadow: inset 0 0 0 1px var(--px-line-strong); }
+[data-course="dec10"] .pl .pl-btn.ghost:hover { background: #f7f5f1; box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .28); }
+[data-course="dec10"] .pl .pl-btn.pl-arrow { width: 34px; padding: 0; }
+[data-course="dec10"] .pl .pl-seg { border-radius: 9px; height: 34px; }
+[data-course="dec10"] .pl .pl-seg button { border-radius: 7px; }
+[data-course="dec10"] .pl .pl-todos :is(input, select) { border-radius: 10px; }
+[data-course="dec10"] .pl .pl-todos .pl-btn { height: 40px; border-radius: 10px; padding: 0 16px; }
+[data-course="dec10"] .pl .ws-nb-bar select { border-radius: 9px; box-shadow: inset 0 0 0 1px var(--px-line-strong); }
+[data-course="dec10"] .pl .nb-export-btn { border-radius: 14px; box-shadow: var(--px-e1); transition: box-shadow .15s, transform .15s; }
+[data-course="dec10"] .pl .nb-export-btn:hover { box-shadow: var(--px-e2); }
+[data-course="dec10"] .pl .pl-calchip, [data-course="dec10"] .pl .pl-calchip-t { font-variant-numeric: lining-nums tabular-nums; }
+
+/* calendars: every number is tabular, so days and hours sit in true columns */
+[data-course="dec10"] .pl :is(.pl-calmain, .pl-calside, .pl-rail, .pl-todos) { font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .pl .pl-calhead h2 { letter-spacing: -.022em; font-variant-numeric: lining-nums; }
+[data-course="dec10"] .pl .pl-wk-day { letter-spacing: .01em; }
+
+/* notes: the reading column and its tools */
+[data-course="dec10"] .pl .pl-note-title { letter-spacing: -.022em; }
+[data-course="dec10"] .pl :is(.pl-tb, .pl-ibtn, .pl-style) { transition: background .15s, box-shadow .15s, color .15s; }
+[data-course="dec10"] .pl .nb-cover h1 { letter-spacing: -.028em; }

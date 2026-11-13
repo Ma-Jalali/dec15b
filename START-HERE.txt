@@ -903,3 +903,16 @@ v9.0 (DEC10 precision pass — one last style layer, css/precision.css)
 - Every large card on every DEC10 page: 18px corners, a hairline and one soft shadow (section 8 of the file lists them).
 - Dictionary and back-to-top buttons dock to the window edge below 1600px, so they never cover a button or a number.
 - Calmer page background (three faint washes instead of four coloured clouds).
+
+v9.1 (DEC10 precision pass, part 2 — lesson activity blocks and My workspace; css/precision.css sections 10 and 11)
+- Activity blocks keep their colours and meanings; the frame is now the same for every type: 14px corners (key point 16px),
+  22px 24px inner padding, a tinted hairline instead of a coloured drop shadow. The tip and the checklist are as wide as
+  the other blocks (they stopped at 820 / 900px); writing fields fill the column.
+- Text cards (e.g. W3D1 "Figure 1: Common definitions of green jobs"): three across at reading size — five cards make
+  3 + 2 instead of four very tall cards and an orphan.
+- Buttons in lessons: flat navy, no travelling shine; quiet buttons and "I have finished this activity" get a hairline.
+- Block labels (SPEAK, LANGUAGE BANK …), "who" badges and table headings share one small-capital size and spacing.
+- My workspace (css/planner.css loads after precision.css, so these rules carry the course prefix): all panels 18px with
+  the shared shadow; the four tabs are one segmented control; calendar and to-do buttons and inputs are 34–40px with
+  9–10px corners; every number in the calendars is tabular. Outfit stays the workspace font (v2.31).
+- No content, ids or saved work changed. DEC15 unchanged.
