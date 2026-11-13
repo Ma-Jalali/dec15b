@@ -489,3 +489,47 @@
 [data-course="dec10"][data-side]:not([data-side="light"]) .sidebar .side-gear { border-radius: 9px; }
 
 @media (max-width: 900px) { [data-course="dec10"][data-side]:not([data-side="light"]) .sidebar { padding: 14px 12px 0; } }
+
+/* ───────── 14. Language Lab, Downloads, Assessments (v9.3) ───────── */
+
+/* Language Lab: the time and level chips have fixed widths, so "55 min" and "B1+" sit in true columns down a topic */
+[data-course="dec10"] .lab-row { border-radius: 12px; transition: background .15s; }
+[data-course="dec10"] .lab-row-chips { gap: 6px; }
+[data-course="dec10"] .lab-chip { justify-content: center; min-width: 76px; border-radius: 7px; font-weight: 650; font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .lab-chip.is-lv { min-width: 44px; }
+[data-course="dec10"] .lab-row-st { border-radius: 9px; }
+[data-course="dec10"] .lab-row-t b, [data-course="dec10"] .lab-acc-t b { letter-spacing: -.012em; }
+[data-course="dec10"] .lab-acc-n { font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .lab-acc-p b { font-variant-numeric: lining-nums; }
+[data-course="dec10"] .lab-top .eyebrow, [data-course="dec10"] .dlx-top .eyebrow { letter-spacing: .12em; }
+
+/* Downloads: inner panels follow the 12px inner corner; the two info panels start level and take only the height they need */
+[data-course="dec10"] .dlx-item :is(.dlx-desk, .dlx-when, .dlx-how, [class*="dlx-box"], [class*="dlx-col"]) { border-radius: 12px; }
+[data-course="dec10"] .dlx-item h2 { letter-spacing: -.022em; text-wrap: balance; }
+[data-course="dec10"] .dlx-what { max-width: 68ch; }
+[data-course="dec10"] .dlx-file-badge { font-variant-numeric: lining-nums tabular-nums; }
+
+/* Assessments */
+/* week strip: every week is the same neutral tile; the Ochre bar alone marks the weeks a long task runs across
+   (weeks 2–6 were tinted pink, which read as a different kind of week) */
+[data-course="dec10"] .gd-strip { border-radius: 14px; }
+[data-course="dec10"] .gd-strip li { border-radius: 10px; background: #f3efe7; }
+[data-course="dec10"] .gd-strip li.in-range { background: #f3efe7; }
+[data-course="dec10"] .gd-strip li.is-now { background: #14293a; box-shadow: none; }
+[data-course="dec10"] .gd-strip li b { font-variant-numeric: lining-nums; }
+[data-course="dec10"] .gd-strip li .gd-sc-bar { height: 3px; opacity: .7; }
+/* facts: five facts make one row of five, not four and one left over */
+[data-course="dec10"] .gd-facts { grid-template-columns: repeat(auto-fit, minmax(176px, 1fr)); gap: 10px; }
+[data-course="dec10"] .gd-facts > div { border-radius: 10px; }
+[data-course="dec10"] .gd-cards3 { gap: 10px; }
+[data-course="dec10"] .gd-cards3 .gd-card { border-radius: 12px; }
+[data-course="dec10"] .gd-lead { max-width: 68ch; }
+/* timeline and score: figures in columns */
+[data-course="dec10"] :is(.gx-tl, .gx-score, .gx-card) { font-variant-numeric: lining-nums tabular-nums; }
+/* rules and help: reading width for the prose (it ran the full 1,000px), same card as the page */
+[data-course="dec10"] .gd-fold { border-radius: 14px !important; box-shadow: var(--px-e1); }
+[data-course="dec10"] .gd-fold[open] { box-shadow: var(--px-e2); }
+[data-course="dec10"] .gd-fold-body > p:not(.gd-warn):not(.gd-links), [data-course="dec10"] .gd-fold-body > :is(ol, ul) > li { max-width: 82ch; }
+[data-course="dec10"] .gd-fold-body :is(.gd-warn, [class*="gd-yes"], [class*="gd-no"], [class*="gd-two"] > *, [class*="gd-contact"] > *) { border-radius: 10px; }
+/* six facts: two rows of three, not five and one left over */
+@media (min-width: 901px) { [data-course="dec10"] .gd-facts:has(> :nth-child(6):last-child) { grid-template-columns: repeat(3, 1fr); } }

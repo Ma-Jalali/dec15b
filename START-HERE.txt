@@ -932,3 +932,16 @@ v9.2 (DEC10 precision pass, part 3 — interactive game blocks and the dark side
   (it was hidden on dark panels). Fixes: the search highlight was dark text on a dark row; the progress line was cut
   off ("15 activities finish…"); the Ochre glow at the top is gone.
 - No content, ids or saved work changed. DEC15 unchanged.
+
+v9.3 (DEC10 precision pass, part 4 — Language Lab, Downloads, Assessments; css/precision.css section 14)
+- Language Lab: the time and level chips have fixed widths, so "55 min" / "B1+" sit in true columns down each topic
+  (they were ragged: "55 min · All" was narrower than "60 min · B1+"). Lesson rows and Start buttons use the shared corners.
+- Downloads: inner panels use the 12px inner corner; the description keeps a reading width; file sizes are tabular.
+- Assessments:
+  * Week strip: every week is the same neutral tile. Weeks 2–6 were tinted pink (the Seminar + Portfolio range), which
+    read as a different kind of week; the Ochre bar under them still shows the range.
+  * Facts under each assessment: five facts are one row of five and six facts are two rows of three (they were 4 + 1
+    and 4 + 2).
+  * Rules and help: the prose keeps a reading width (it ran the full 1,000px); folds use the shared card and corners.
+  * Timeline and score figures are tabular.
+- No content, ids or saved work changed. DEC15 unchanged.
