@@ -586,138 +586,560 @@ window.DEC15_LESSON = {
       ]
     },
     {
-      id: "action2",
-      number: "02",
-      code: "18A",
-      minutes: 30,
-      tone: "teal",
-      art: "dec10/assets/week3/s-d5-action2.svg",
-      title: "AST: Feedback literacy - Action plan (2)",
-      subtitle: "Did my plan work? What comes next?",
-      outcome: "You reflect on feedback to show how it will help your next presentation, and describe the actions you will take to develop your speaking and presentation skills.",
-      activities: [
+      "id": "action2",
+      "number": "02",
+      "code": "18A",
+      "minutes": 30,
+      "tone": "teal",
+      "art": "dec10/assets/week3/s-d5-action2.svg",
+      "title": "AST: Feedback literacy - Action plan (2)",
+      "subtitle": "What feedback literacy is — and a plan that works",
+      "outcome": "You understand what feedback literacy is, judge which feedback matters most, and turn it into a specific action plan that you explain to a classmate.",
+      "activities": [
         {
-          id: "a1",
-          short: "Look back",
-          minutes: 8,
-          grouping: "Research Summary groups",
-          art: "dec10/assets/week3/v/v-d10w3d5-a1.svg",
-          title: "Reflect on Action Plan (1)",
-          goal: "Check what happened to the goals you set in Week 2.",
-          blocks: [
+          "id": "f1",
+          "short": "Lead-in",
+          "minutes": 3,
+          "grouping": "Pair",
+          "art": "dec10/assets/week3/v/v-d10w3d5-f1.svg",
+          "title": "Feedback that changed something",
+          "goal": "Remember feedback that really helped you — and work out why it worked.",
+          "blocks": [
             {
-              type: "figure",
-              src: "dec10/assets/week3/d5-plan-path.svg",
-              size: "wide",
-              alt: "A path with four stops: Week 2 presentation and feedback, Action Plan 1, Week 3 presentation and feedback, Action Plan 2 (today). Arrows show that each plan is used in the next presentation.",
-              caption: "Each plan feeds the next presentation. Today you close the loop for Week 3."
-            },
-            {"type":"do","n":1,"who":"alone","text":"On your computer, open your <b>Research & Seminar Presentations – Feedback & Action Plans</b> folder. Open your <b>Action Plan (1)</b>."},
-            {"type":"do","n":2,"who":"group","text":"Discuss the three questions in your Research Summary Presentation group. Each person speaks for about one minute."},
-            {
-              type: "talk",
-              title: "Talk about Action Plan (1)",
-              prompts: ["Did you achieve your goals?","Are there any goals that you still want to work on?","What do you need to do to achieve these goals next time?"]
+              "type": "do",
+              "n": 1,
+              "who": "pair",
+              "text": "Think of feedback that <b>really changed</b> how you did something — in sport, music, driving, cooking, a job or at school. Tell your partner the story in <b>one minute</b>. Then swap."
             },
             {
-              type: "language",
-              title: "Talk about your progress",
-              groups: [
-                {"label":"Success","phrases":["<b>I managed to</b> … <b>this time</b>.","<b>I’ve made progress with</b> …","<b>This time I remembered to</b> …"]},
-                {"label":"Still working on it","phrases":["<b>I still need to work on</b> …","<b>I didn’t quite manage to</b> … <b>because</b> …","<b>It’s getting better, but</b> …"]},
-                {"label":"Next time","phrases":["<b>Next time, I’m going to</b> …","<b>To achieve this, I need to</b> …"]}
+              "type": "talk",
+              "title": "Tell the story",
+              "prompts": [
+                "Who gave you the feedback, and what exactly did they say?",
+                "What did you <b>do</b> after you heard it?",
+                "Why did it work? Was it the feedback itself — or what <b>you</b> did with it?"
               ]
             },
-            {"type":"do","n":3,"who":"class","text":"<b>Opinion line.</b> Stand up. One wall is “Not at all”, the other wall is “Completely”. Stand where you are for the statement below. Tell your neighbour why in 30 seconds. Then sit down and move the slider."},
             {
-              type: "scale",
-              id: "a1-scale",
-              title: "Be honest",
-              statement: "I achieved the goals in my Action Plan (1).",
-              ends: ["Not at all","Completely"],
-              mid: "Some of them"
-            },
-            {"type":"do","n":4,"who":"alone","text":"Download the <b>Action Plan (2) template</b> and save it in the same folder."},
-            {"type":"download","id":"action-plan-2","note":"You fill in page 1 in Activity 2 and page 2 in Activity 4."},
-            {"type":"sticky","title":"Phrase of the day · say it like an academic","text":"<b>“I’ve made progress with …, but I still need to work on …”</b><br>Use it in your plan and in your next tutorial.","color":"green"}
-          ]
-        },
-        {
-          id: "a2",
-          short: "Needs work",
-          minutes: 8,
-          grouping: "Alone → Pair",
-          art: "dec10/assets/week3/v/v-d10w3d5-a2.svg",
-          title: "Action Plan (2) · Steps 1–3: What needs work?",
-          goal: "Find the aspects with the most “Needs work” — and compare them with Week 2.",
-          blocks: [
-            {
-              type: "do",
-              n: 1,
-              who: "alone",
-              text: "Look back at the feedback you received on your <b>Week 3</b> presentation (or Seminar, if you did one) on the Peer and Teacher Feedback Tool. Which aspects received the most <b>Needs work</b>? Mark them on the Action Plan (2) template."
-            },
-            {"type":"download","id":"feedback-tool","note":"Use the forms your classmates and your teacher sent you. A spare form is here if you need one."},
-            {
-              type: "toggle",
-              title: "Want more? See an example",
-              hint: "Two forms side by side",
-              blocks: [
+              "type": "language",
+              "title": "Tell your feedback story",
+              "tabs": false,
+              "groups": [
                 {
-                  type: "figure",
-                  src: "dec10/assets/week3/d5-progress.svg",
-                  size: "wide",
-                  alt: "Two small copies of the Content Delivery part of the feedback tool side by side, Week 2 and Week 3. In Week 2, Evidence for the cause/s and Evidence for the effect/s are marked Needs work. In Week 3, Evidence for the cause/s has moved to Mostly, and Evidence for the effect/s is still Needs work. An arrow says: progress, keep working on effects.",
-                  caption: "Example: compare your two forms. What moved? What did not?"
+                  "label": "The feedback",
+                  "phrases": [
+                    "<b>The most useful feedback I ever got was from</b> my …",
+                    "<b>They told me to</b> … / <b>They pointed out that</b> …"
+                  ]
+                },
+                {
+                  "label": "What you did",
+                  "phrases": [
+                    "<b>After that, I started</b> + -ing …",
+                    "<b>At first I felt</b> …, <b>but then I</b> …"
+                  ]
+                },
+                {
+                  "label": "Why it worked",
+                  "phrases": [
+                    "<b>It worked because</b> it was specific / I practised it every day."
+                  ]
                 }
               ]
             },
-            {"type":"do","n":2,"who":"alone","text":"Fill in the progress tracker. Then read the <b>Action plan for further improvement</b> section of your forms."},
             {
-              type: "table",
-              id: "a2-track",
-              title: "My progress tracker",
-              columns: ["Aspect","Week 2 feedback","Week 3 feedback","Better, the same or worse?"],
-              rows: 3
+              "type": "do",
+              "n": 2,
+              "who": "class",
+              "text": "<b>Hands up.</b> Your teacher asks: “What made the difference — the <b>feedback</b> or the <b>action</b>?” Vote, then two volunteers explain their story."
             },
             {
-              type: "fields",
-              fields: [{"id":"a2-said","label":"What did people write in “Action plan for further improvement”?","placeholder":"My teacher suggested… My classmates said…","rows":3}]
-            },
-            {"type":"do","n":3,"who":"pair","text":"<b>Stand up</b> and find a partner from another group. Tell them <b>one aspect that improved</b> and <b>one that still needs work</b>. Your partner asks one follow-up question. Swap."},
+              "type": "sticky",
+              "title": "The point of today",
+              "text": "Feedback does not improve anything by itself. <b>What you do with it</b> does. The skill of using feedback well has a name: <b>feedback literacy</b>.",
+              "color": "green"
+            }
+          ]
+        },
+        {
+          "id": "f2",
+          "short": "Feedback literacy",
+          "minutes": 6,
+          "grouping": "Class → Pair",
+          "art": "dec10/assets/week3/v/v-d10w3d5-f2.svg",
+          "title": "What is feedback literacy?",
+          "goal": "Learn the four things that students with strong feedback literacy do — and find your strongest and weakest.",
+          "blocks": [
             {
-              type: "language",
-              title: "Compare your feedback",
-              tabs: false,
-              groups: [
-                {"label":"Improved","phrases":["<b>Compared with Week 2</b>, my … <b>has improved</b>.","<b>I got fewer</b> “Needs work” <b>for</b> …"]},
-                {"label":"Still needs work","phrases":["<b>I’m still getting</b> “Needs work” <b>on</b> …","<b>Both times, people said</b> …"]},
-                {"label":"Partner’s question","phrases":["<b>Why do you think</b> that improved?","<b>What will you do differently</b> this time?"]}
+              "type": "key",
+              "title": "Feedback literacy",
+              "points": [
+                "<b>Feedback literacy</b> is the understanding, skills and attitudes you need to <b>make sense of feedback</b> and <b>use it</b> to improve your work (Carless &amp; Boud, 2018).",
+                "At university you get feedback from lecturers, tutors and classmates on essays, presentations and tutorials. It only helps if you know what to do with it.",
+                "It is one of the skills in your <b>Academic Success Toolkit (AST)</b>. You use it again in your Portfolio video and in the Week 7 Interactive Presentation."
+              ]
+            },
+            {
+              "type": "do",
+              "n": 1,
+              "who": "class",
+              "text": "Your teacher presents the four features. Tap each number and read the <b>✗ weak</b> and <b>✓ strong</b> examples."
+            },
+            {
+              "type": "hotspot",
+              "src": "dec10/assets/week3/d5-feedback-literacy.svg",
+              "size": "wide",
+              "alt": "Feedback literacy as a cycle of four steps around a speech bubble labelled Feedback: 1 Appreciate feedback, 2 Make judgements, 3 Manage emotions, 4 Take action. An arrow from step 4 leads to the next task.",
+              "title": "Four features of feedback literacy",
+              "hint": "Tap 1–4. Based on Carless & Boud (2018).",
+              "spots": [
+                {
+                  "x": 11,
+                  "y": 18.7,
+                  "label": "1",
+                  "title": "1 · Appreciate feedback",
+                  "color": "#2f7d6b",
+                  "text": "You see feedback as <b>help</b>, not as a mark. You read all of it — the comments too, not only the ticks.<br>✗ “It’s only practice, so it doesn’t matter.”<br>✓ “This shows me what the audience really noticed.”"
+                },
+                {
+                  "x": 67.3,
+                  "y": 18.7,
+                  "label": "2",
+                  "title": "2 · Make judgements",
+                  "color": "#3a58a0",
+                  "text": "You compare the feedback with your own view of your work, and you look for <b>patterns</b>.<br>✗ “One person said Needs work, so I’m bad at it.”<br>✓ “Four out of five people said Needs work on evidence — that’s a pattern.”"
+                },
+                {
+                  "x": 67.3,
+                  "y": 73,
+                  "label": "3",
+                  "title": "3 · Manage emotions",
+                  "color": "#b07d12",
+                  "text": "Feedback can hurt. You stay <b>calm and open</b>: you don’t argue and you don’t give up.<br>✗ “They’re wrong. My slides were fine.”<br>✓ “That’s disappointing — but maybe they couldn’t see the numbers from the back.”"
+                },
+                {
+                  "x": 11,
+                  "y": 73,
+                  "label": "4",
+                  "title": "4 · Take action",
+                  "color": "#c4562f",
+                  "text": "You turn feedback into <b>specific steps</b> — and you do them before the next task.<br>✗ “I’ll practise more.”<br>✓ “I’ll rehearse with a stopwatch three times on Sunday.”"
+                }
+              ]
+            },
+            {
+              "type": "do",
+              "n": 2,
+              "who": "pair",
+              "text": "<b>Check.</b> Which feature does each student show? Sort the comments with your partner."
+            },
+            {
+              "type": "sort",
+              "id": "f2-sort",
+              "title": "Which feature is it?",
+              "buckets": [
+                {
+                  "label": "Appreciate feedback",
+                  "letter": "1"
+                },
+                {
+                  "label": "Make judgements",
+                  "letter": "2"
+                },
+                {
+                  "label": "Manage emotions",
+                  "letter": "3"
+                },
+                {
+                  "label": "Take action",
+                  "letter": "4"
+                }
+              ],
+              "items": [
+                {
+                  "text": "“I read every comment, not just the ticks. The comments tell me <i>why</i>.”",
+                  "answer": 0
+                },
+                {
+                  "text": "“My teacher’s comment is like free advice from an expert.”",
+                  "answer": 0
+                },
+                {
+                  "text": "“Three people mentioned my speed, so that is my main problem. One comment about slides is less important.”",
+                  "answer": 1
+                },
+                {
+                  "text": "“I agree with most of it, but my timing was fine — the timer started late.”",
+                  "answer": 1
+                },
+                {
+                  "text": "“I felt annoyed at first, so I read it again the next day.”",
+                  "answer": 2
+                },
+                {
+                  "text": "“I didn’t argue. I said ‘Thanks, that’s useful’ and asked one question.”",
+                  "answer": 2
+                },
+                {
+                  "text": "“Before Week 6, I will record my talk twice and check my pauses.”",
+                  "answer": 3
+                },
+                {
+                  "text": "“I’ve already changed my first slide because of what my group said.”",
+                  "answer": 3
+                }
+              ]
+            },
+            {
+              "type": "do",
+              "n": 3,
+              "who": "pair",
+              "text": "<b>Be honest.</b> Which feature is your <b>strongest</b>? Which is your <b>weakest</b>? Tell your partner, with an example from your Week 2 or Week 3 feedback."
+            },
+            {
+              "type": "language",
+              "title": "Talk about your feedback habits",
+              "tabs": false,
+              "groups": [
+                {
+                  "label": "Strongest",
+                  "phrases": [
+                    "<b>I’m quite good at</b> + -ing …, <b>because</b> I always …"
+                  ]
+                },
+                {
+                  "label": "Weakest",
+                  "phrases": [
+                    "<b>I find it hard to</b> …, <b>especially when</b> …",
+                    "<b>I tend to</b> … <b>instead of</b> + -ing …"
+                  ]
+                }
               ]
             }
           ]
         },
         {
-          id: "a3",
-          short: "Make it specific",
-          minutes: 6,
-          grouping: "Pair",
-          art: "dec10/assets/week3/v/v-d10w3d5-a3.svg",
-          title: "From feedback to action",
-          goal: "A good action says what, how and when. Race to make vague actions specific.",
-          blocks: [
+          "id": "a1",
+          "short": "Look back",
+          "minutes": 5,
+          "grouping": "Research Summary groups",
+          "art": "dec10/assets/week3/v/v-d10w3d5-a1.svg",
+          "title": "Reflect on Action Plan (1)",
+          "goal": "Check what happened to the goals you set in Week 2.",
+          "blocks": [
             {
-              type: "key",
-              title: "A good action is specific",
-              points: ["<b>What</b> exactly will you do? (start with a verb)","<b>How</b> will you do it?","<b>When</b> will you do it — before the next presentation?"]
+              "type": "figure",
+              "src": "dec10/assets/week3/d5-plan-path.svg",
+              "size": "wide",
+              "alt": "A path with four stops: Week 2 presentation and feedback, Action Plan 1, Week 3 presentation and feedback, Action Plan 2 (today). Arrows show that each plan is used in the next presentation.",
+              "caption": "Each plan feeds the next presentation. Today you close the loop for Week 3."
             },
-            {"type":"do","n":1,"who":"pair","text":"Match each aspect to a specific action."},
             {
-              type: "match",
-              id: "a3-match",
-              title: "Aspect → specific action",
-              left: ["Providing evidence","Intonation","Equal contribution","Answering questions","Visuals"],
-              right: [
+              "type": "do",
+              "n": 1,
+              "who": "alone",
+              "text": "On your computer, open your <b>Research & Seminar Presentations – Feedback & Action Plans</b> folder. Open your <b>Action Plan (1)</b>."
+            },
+            {
+              "type": "do",
+              "n": 2,
+              "who": "group",
+              "text": "Discuss the three questions in your Research Summary Presentation group. Each person speaks for about one minute. Think of <b>feature 4</b>: did you really <b>take action</b> on your plan?"
+            },
+            {
+              "type": "talk",
+              "title": "Talk about Action Plan (1)",
+              "prompts": [
+                "Did you achieve your goals?",
+                "Are there any goals that you still want to work on?",
+                "What do you need to do to achieve these goals next time?"
+              ]
+            },
+            {
+              "type": "language",
+              "title": "Talk about your progress",
+              "groups": [
+                {
+                  "label": "Success",
+                  "phrases": [
+                    "<b>I managed to</b> … <b>this time</b>.",
+                    "<b>I’ve made progress with</b> …",
+                    "<b>This time I remembered to</b> …"
+                  ]
+                },
+                {
+                  "label": "Still working on it",
+                  "phrases": [
+                    "<b>I still need to work on</b> …",
+                    "<b>I didn’t quite manage to</b> … <b>because</b> …",
+                    "<b>It’s getting better, but</b> …"
+                  ]
+                },
+                {
+                  "label": "Next time",
+                  "phrases": [
+                    "<b>Next time, I’m going to</b> …",
+                    "<b>To achieve this, I need to</b> …"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "do",
+              "n": 3,
+              "who": "class",
+              "text": "<b>Opinion line.</b> Stand up. One wall is “Not at all”, the other wall is “Completely”. Stand where you are for the statement below. Tell your neighbour why in 30 seconds. Then sit down and move the slider."
+            },
+            {
+              "type": "scale",
+              "id": "a1-scale",
+              "title": "Be honest",
+              "statement": "I achieved the goals in my Action Plan (1).",
+              "ends": [
+                "Not at all",
+                "Completely"
+              ],
+              "mid": "Some of them"
+            },
+            {
+              "type": "do",
+              "n": 4,
+              "who": "alone",
+              "text": "Download the <b>Action Plan (2) template</b> and save it in the same folder."
+            },
+            {
+              "type": "download",
+              "id": "action-plan-2",
+              "note": "You fill in page 1 in Activity 2 and page 2 in Activity 4."
+            },
+            {
+              "type": "sticky",
+              "title": "Phrase of the day · say it like an academic",
+              "text": "<b>“I’ve made progress with …, but I still need to work on …”</b><br>Use it in your plan and in your next tutorial.",
+              "color": "green"
+            }
+          ]
+        },
+        {
+          "id": "a2",
+          "short": "Needs work",
+          "minutes": 7,
+          "grouping": "Alone → Pair",
+          "art": "dec10/assets/week3/v/v-d10w3d5-a2.svg",
+          "title": "Action Plan (2) · Steps 1–3: What needs work?",
+          "goal": "Learn to read feedback like an expert with an example — then find your own patterns and compare them with Week 2.",
+          "blocks": [
+            {
+              "type": "group",
+              "title": "First, an example: Mina’s feedback",
+              "label": "Worked example",
+              "goal": "How do you decide what matters most?"
+            },
+            {
+              "type": "text",
+              "title": "Mina’s Week 3 Feedback Tools (5 forms) · a summary",
+              "list": [
+                "<b>#3 Evidence for the cause/s was given:</b> Needs work × 4 · Mostly × 1",
+                "<b>#10 The presenter referred to sources:</b> Needs work × 3 · Mostly × 2",
+                "<b>#14 The speech flowed well:</b> Mostly × 3 · Yes × 2",
+                "<b>#12 Within the time limit:</b> Needs work × 1 · Yes × 4",
+                "<b>Comments:</b> “Great slides!” · “Where is the number from?” · “Say the author’s name.” · “A bit fast.” · “Nice eye contact.”"
+              ]
+            },
+            {
+              "type": "do",
+              "n": 1,
+              "who": "pair",
+              "text": "You are Mina’s feedback coach. Answer the four questions with your partner."
+            },
+            {
+              "type": "quiz",
+              "id": "a2-mina",
+              "title": "Help Mina choose her priorities",
+              "items": [
+                {
+                  "q": "What is Mina’s clearest pattern?",
+                  "options": [
+                    "Evidence for the causes (#3)",
+                    "Speech flow (#14)",
+                    "The time limit (#12)"
+                  ],
+                  "answer": "Evidence for the causes (#3)",
+                  "why": "Four of five forms say Needs work, and a comment asks “Where is the number from?”"
+                },
+                {
+                  "q": "Should the time limit (#12) be a top priority?",
+                  "options": [
+                    "Yes — someone said Needs work",
+                    "No — one person out of five is not a pattern"
+                  ],
+                  "answer": "No — one person out of five is not a pattern",
+                  "why": "One comment is an opinion; four comments are a pattern. Mina can check her timing, but she shouldn’t build her plan around it."
+                },
+                {
+                  "q": "Which two problems have the same cause?",
+                  "options": [
+                    "#3 evidence and #10 sources",
+                    "#14 flow and #12 time",
+                    "#10 sources and #14 flow"
+                  ],
+                  "answer": "#3 evidence and #10 sources",
+                  "why": "Both are about showing where the information comes from. One action — saying the source aloud with each number — can fix both."
+                },
+                {
+                  "q": "Which comment does <b>not</b> help Mina plan?",
+                  "options": [
+                    "“Great slides!”",
+                    "“Where is the number from?”",
+                    "“Say the author’s name.”"
+                  ],
+                  "answer": "“Great slides!”",
+                  "why": "It is nice to hear, but it doesn’t tell her what to do next. Specific comments are easier to act on."
+                }
+              ]
+            },
+            {
+              "type": "key",
+              "title": "Read your feedback like an expert: the 4 Cs",
+              "numbered": true,
+              "points": [
+                "<b>Count</b> — what do <b>most</b> people say? That’s a pattern.",
+                "<b>Connect</b> — do two problems have one cause? One action can fix both.",
+                "<b>Compare</b> — did you get the same feedback in Week 2? Then it is a priority.",
+                "<b>Choose</b> — two or three priorities. Not everything at once."
+              ]
+            },
+            {
+              "type": "group",
+              "title": "Now your own feedback",
+              "label": "Your turn"
+            },
+            {
+              "type": "do",
+              "n": 2,
+              "who": "alone",
+              "text": "Look back at the feedback you received on your <b>Week 3</b> presentation (or Seminar, if you did one) on the Peer and Teacher Feedback Tool. Use the 4 Cs: which aspects received the most <b>Needs work</b>? Mark them on page 1 of the Action Plan (2) template."
+            },
+            {
+              "type": "download",
+              "id": "feedback-tool",
+              "note": "Use the forms your classmates and your teacher sent you. A spare form is here if you need one."
+            },
+            {
+              "type": "toggle",
+              "title": "Want more? See an example",
+              "hint": "Two forms side by side",
+              "blocks": [
+                {
+                  "type": "figure",
+                  "src": "dec10/assets/week3/d5-progress.svg",
+                  "size": "wide",
+                  "alt": "Two small copies of the Content Delivery part of the feedback tool side by side, Week 2 and Week 3. In Week 2, Evidence for the cause/s and Evidence for the effect/s are marked Needs work. In Week 3, Evidence for the cause/s has moved to Mostly, and Evidence for the effect/s is still Needs work. An arrow says: progress, keep working on effects.",
+                  "caption": "Example: compare your two forms. What moved? What did not?"
+                }
+              ]
+            },
+            {
+              "type": "do",
+              "n": 3,
+              "who": "alone",
+              "text": "Fill in the progress tracker. Then read the <b>Action plan for further improvement</b> section of your forms."
+            },
+            {
+              "type": "table",
+              "id": "a2-track",
+              "title": "My progress tracker",
+              "columns": [
+                "Aspect",
+                "Week 2 feedback",
+                "Week 3 feedback",
+                "Better, the same or worse?"
+              ],
+              "rows": 3
+            },
+            {
+              "type": "fields",
+              "fields": [
+                {
+                  "id": "a2-said",
+                  "label": "What did people write in “Action plan for further improvement”?",
+                  "placeholder": "My teacher suggested… My classmates said…",
+                  "rows": 3
+                }
+              ]
+            },
+            {
+              "type": "do",
+              "n": 4,
+              "who": "pair",
+              "text": "<b>Stand up</b> and find a partner from another group. Tell them <b>one aspect that improved</b> and <b>one that still needs work</b>. Your partner asks one follow-up question. Swap."
+            },
+            {
+              "type": "language",
+              "title": "Compare your feedback",
+              "tabs": false,
+              "groups": [
+                {
+                  "label": "Improved",
+                  "phrases": [
+                    "<b>Compared with Week 2</b>, my … <b>has improved</b>.",
+                    "<b>I got fewer</b> “Needs work” <b>for</b> …"
+                  ]
+                },
+                {
+                  "label": "Still needs work",
+                  "phrases": [
+                    "<b>I’m still getting</b> “Needs work” <b>on</b> …",
+                    "<b>Both times, people said</b> …"
+                  ]
+                },
+                {
+                  "label": "Partner’s question",
+                  "phrases": [
+                    "<b>Why do you think</b> that improved?",
+                    "<b>What will you do differently</b> this time?"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "a3",
+          "short": "Make it specific",
+          "minutes": 4,
+          "grouping": "Pair",
+          "art": "dec10/assets/week3/v/v-d10w3d5-a3.svg",
+          "title": "From feedback to action",
+          "goal": "A good action says what, how and when. Race to make vague actions specific.",
+          "blocks": [
+            {
+              "type": "key",
+              "title": "A good action is specific",
+              "points": [
+                "<b>What</b> exactly will you do? (start with a verb)",
+                "<b>How</b> will you do it?",
+                "<b>When</b> will you do it — before the next presentation?"
+              ]
+            },
+            {
+              "type": "do",
+              "n": 1,
+              "who": "pair",
+              "text": "Match each aspect to a specific action."
+            },
+            {
+              "type": "match",
+              "id": "a3-match",
+              "title": "Aspect → specific action",
+              "left": [
+                "Providing evidence",
+                "Intonation",
+                "Equal contribution",
+                "Answering questions",
+                "Visuals"
+              ],
+              "right": [
                 "Write down any sources I get my information from, add the source to the ppt and practise referring to the source.",
                 "Mark the stressed words in my script and record myself twice to check my voice goes up and down.",
                 "Agree on a timer: each member speaks for two minutes, and we rehearse once with a stopwatch.",
@@ -725,67 +1147,139 @@ window.DEC15_LESSON = {
                 "Put one number and its source on each slide, with no more than 20 words of text."
               ]
             },
-            {"type":"do","n":2,"who":"pair","text":"<b>Beat the clock (2 minutes).</b> Make the vague actions specific. When all three lights are on, <b>stand up</b>! The first three pairs standing read their action to the class — the class says “specific” or “still vague”."},
             {
-              type: "detect",
-              id: "a3-fix",
-              title: "Fix the vague action",
-              checks: [
-                {"label":"Starts with an action verb","color":"#2f7d6b","any":["/^\\s*(record|write|practise|practice|time|ask|watch|read|mark|learn|check|use|add|prepare|rehearse|put|say|look|listen|plan|film|cut|repeat)\\b/i"]},
-                {"label":"Says when","color":"#3a58a0","any":["before","by ","every","tonight","tomorrow","week","/\\b(mon|tues|wednes|thurs|fri|satur|sun)day\\b/i","times"]},
-                {"label":"A number or amount","color":"#b07d12","any":["/\\d/","/\\b(one|two|three|four|five|twice|once)\\b/i"]}
+              "type": "do",
+              "n": 2,
+              "who": "pair",
+              "text": "<b>Beat the clock (2 minutes).</b> Make the vague actions specific. When all three lights are on, <b>stand up</b>! The first three pairs standing read their action to the class — the class says “specific” or “still vague”."
+            },
+            {
+              "type": "detect",
+              "id": "a3-fix",
+              "title": "Fix the vague action",
+              "checks": [
+                {
+                  "label": "Starts with an action verb",
+                  "color": "#2f7d6b",
+                  "any": [
+                    "/^\\s*(record|write|practise|practice|time|ask|watch|read|mark|learn|check|use|add|prepare|rehearse|put|say|look|listen|plan|film|cut|repeat)\\b/i"
+                  ]
+                },
+                {
+                  "label": "Says when",
+                  "color": "#3a58a0",
+                  "any": [
+                    "before",
+                    "by ",
+                    "every",
+                    "tonight",
+                    "tomorrow",
+                    "week",
+                    "/\\b(mon|tues|wednes|thurs|fri|satur|sun)day\\b/i",
+                    "times"
+                  ]
+                },
+                {
+                  "label": "A number or amount",
+                  "color": "#b07d12",
+                  "any": [
+                    "/\\d/",
+                    "/\\b(one|two|three|four|five|twice|once)\\b/i"
+                  ]
+                }
               ],
-              items: [
-                {"task":"“Practise more.”","placeholder":"Rehearse my part three times with a stopwatch before …","rows":2,"model":"Rehearse my part three times with a stopwatch on Sunday and cut anything over two minutes."},
-                {"task":"“Be more confident.”","placeholder":"Learn my first and last sentences …","rows":2,"model":"Learn my first and last sentences by heart before Week 6 and look at three different people while I say them."}
+              "items": [
+                {
+                  "task": "“Practise more.”",
+                  "placeholder": "Rehearse my part three times with a stopwatch before …",
+                  "rows": 2,
+                  "model": "Rehearse my part three times with a stopwatch on Sunday and cut anything over two minutes."
+                },
+                {
+                  "task": "“Be more confident.”",
+                  "placeholder": "Learn my first and last sentences …",
+                  "rows": 2,
+                  "model": "Learn my first and last sentences by heart before Week 6 and look at three different people while I say them."
+                }
               ]
             }
           ]
         },
         {
-          id: "a4",
-          short: "My plan",
-          minutes: 8,
-          grouping: "Alone → Pair",
-          art: "dec10/assets/week3/v/v-d10w3d5-a4.svg",
-          title: "Action Plan (2) · Step 4: Write your action plan",
-          goal: "Use all your feedback and reflections to write your plan.",
-          blocks: [
+          "id": "a4",
+          "short": "My plan",
+          "minutes": 5,
+          "grouping": "Alone → Pair",
+          "art": "dec10/assets/week3/v/v-d10w3d5-a4.svg",
+          "title": "Action Plan (2) · Step 4: Write your action plan",
+          "goal": "Use all your feedback and reflections to write your plan.",
+          "blocks": [
             {
-              type: "do",
-              n: 1,
-              who: "alone",
-              text: "Use all the feedback in <b>Needs work</b> and <b>Action plan for further improvement</b>, and <b>your reflections on your Week 2 and 3 presentations</b>. Write your action plan. Then copy it into the last section of your Action Plan (2) template."
+              "type": "do",
+              "n": 1,
+              "who": "alone",
+              "text": "Use all the feedback in <b>Needs work</b> and <b>Action plan for further improvement</b>, and <b>your reflections on your Week 2 and 3 presentations</b>. Write your action plan. Then copy it into the last section of your Action Plan (2) template."
             },
             {
-              type: "model",
-              title: "Example from the template",
-              rows: [
-                ["Aspect","EG providing evidence"],
-                ["Specific action/s I will take to improve","EG write down any sources I get my information from, add the source to the ppt and practise referring to the source"]
-              ]
-            },
-            {"type":"table","id":"a4-plan","title":"Action plan for further improvement","columns":["Aspect","Specific action/s I will take to improve"],"rows":4},
-            {
-              type: "language",
-              title: "Action plan frames",
-              groups: [
-                {"label":"Actions","phrases":["<b>I will</b> + verb … (I will record …)","<b>Before my next presentation, I am going to</b> …","<b>To improve my</b> intonation, <b>I will</b> …"]},
-                {"label":"Check","phrases":["<b>I will know it worked if</b> …","<b>By</b> Week 6, <b>I will have</b> …"]}
+              "type": "model",
+              "title": "Example from the template",
+              "rows": [
+                [
+                  "Aspect",
+                  "EG providing evidence"
+                ],
+                [
+                  "Specific action/s I will take to improve",
+                  "EG write down any sources I get my information from, add the source to the ppt and practise referring to the source"
+                ]
               ]
             },
             {
-              type: "do",
-              n: 2,
-              who: "class",
-              text: "<b>Plan swap — two rounds.</b> Stand up and find a partner. Read your plan. Your partner asks <b>“How exactly?”</b> and <b>“When?”</b> After 1 minute, swap; then find a new partner. Make your plan more specific if needed."
+              "type": "table",
+              "id": "a4-plan",
+              "title": "Action plan for further improvement",
+              "columns": [
+                "Aspect",
+                "Specific action/s I will take to improve"
+              ],
+              "rows": 4
             },
             {
-              type: "checklist",
-              id: "a4-check",
-              title: "Is my plan ready?",
-              meter: ["ticked","Plan ready — save it!"],
-              items: [
+              "type": "language",
+              "title": "Action plan frames",
+              "groups": [
+                {
+                  "label": "Actions",
+                  "phrases": [
+                    "<b>I will</b> + verb … (I will record …)",
+                    "<b>Before my next presentation, I am going to</b> …",
+                    "<b>To improve my</b> intonation, <b>I will</b> …"
+                  ]
+                },
+                {
+                  "label": "Check",
+                  "phrases": [
+                    "<b>I will know it worked if</b> …",
+                    "<b>By</b> Week 6, <b>I will have</b> …"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "do",
+              "n": 2,
+              "who": "class",
+              "text": "<b>Plan swap — two rounds.</b> Stand up and find a partner. Read your plan. Your partner asks <b>“How exactly?”</b>, <b>“When?”</b> and <b>“How will you know it worked?”</b> After 1 minute, swap; then find a new partner. Make your plan more specific if needed."
+            },
+            {
+              "type": "checklist",
+              "id": "a4-check",
+              "title": "Is my plan ready?",
+              "meter": [
+                "ticked",
+                "Plan ready — save it!"
+              ],
+              "items": [
                 "Each action starts with a verb (record, write, practise…).",
                 "Each action says how and when.",
                 "My actions match the aspects with the most “Needs work”.",
@@ -793,383 +1287,1136 @@ window.DEC15_LESSON = {
                 "I saved my Action Plan (2) in my folder."
               ]
             },
-            {"type":"do","n":3,"who":"alone","text":"<b>Use it — exit ticket.</b> Write a short message to your teacher about your top action. This is how you write to a lecturer: polite, short and specific."},
             {
-              type: "fields",
-              fields: [{"id":"a4-email","label":"My message to my teacher","rows":4,"placeholder":"Dear …,\nAfter the Week 3 feedback, my main goal is to … . To do this, I will … before Week 6.\nCould you let me know if …?\nBest regards,\n…"}]
+              "type": "do",
+              "n": 3,
+              "who": "pair",
+              "text": "<b>Feedback buddy.</b> Your last partner is your feedback buddy. Write their name below. Before the next presentation, ask each other: “<b>Did you do it? What happened?</b>”"
+            },
+            {
+              "type": "fields",
+              "fields": [
+                {
+                  "id": "a4-buddy",
+                  "label": "My feedback buddy — and when we check",
+                  "rows": 1,
+                  "placeholder": "Name · e.g. Monday of Week 6, before class"
+                }
+              ]
+            },
+            {
+              "type": "do",
+              "n": 4,
+              "who": "alone",
+              "text": "<b>Use it — exit ticket.</b> Write a short message to your teacher about your top action. This is how you write to a lecturer: polite, short and specific."
+            },
+            {
+              "type": "fields",
+              "fields": [
+                {
+                  "id": "a4-email",
+                  "label": "My message to my teacher",
+                  "rows": 4,
+                  "placeholder": "Dear …,\nAfter the Week 3 feedback, my main goal is to … . To do this, I will … before Week 6.\nCould you let me know if …?\nBest regards,\n…"
+                }
+              ]
             }
           ]
         }
       ]
     },
     {
-      id: "idintro",
-      number: "03",
-      code: "20A",
-      minutes: 20,
-      tone: "blue",
-      art: "dec10/assets/week3/s-d5-idintro.svg",
-      title: "Introduction to Interactive Discussion Assessment",
-      subtitle: "What is the task — and what are my goals?",
-      outcome: "You understand the requirements of the Interactive Discussion Assessment and can set your learning goals.",
-      activities: [
+      "id": "idintro",
+      "number": "03",
+      "code": "20A",
+      "minutes": 20,
+      "tone": "blue",
+      "art": "dec10/assets/week3/s-d5-idintro.svg",
+      "title": "Introduction to Interactive Discussion Assessment",
+      "subtitle": "What happens, why — and what the teachers listen for",
+      "outcome": "You know every step of the Interactive Discussion Assessment, why you do it and how it is marked, and you set your first goal for Week 10.",
+      "activities": [
         {
-          id: "i1",
-          short: "Jigsaw",
-          minutes: 10,
-          grouping: "Groups of three",
-          art: "dec10/assets/week3/v/v-d10w3d5-i1.svg",
-          title: "Getting to know the Interactive Discussion Assessment · Activity 1",
-          goal: "Each person becomes the expert on one part of the information.",
-          blocks: [
+          "id": "j1",
+          "short": "Lead-in",
+          "minutes": 3,
+          "grouping": "Groups of three",
+          "art": "dec10/assets/week3/v/v-d10w3d5-j1.svg",
+          "title": "A good discussion — and how to mark one",
+          "goal": "Talk about what makes a discussion good, then guess what the teachers will listen for.",
+          "blocks": [
             {
-              type: "steps",
-              items: [
-                {"who":"group","text":"In your home group of three, choose: <b>Student A</b>, <b>B</b> or <b>C</b>."},
-                {"who":"class","text":"<b>Stand up — expert corners.</b> All As go to one corner, all Bs to another, all Cs to a third. Bring your laptop."},
-                {"who":"group","text":"In your expert corner, go to the <b>Assessments Overview</b> on Canvas. Open your tab below and answer your questions <b>together</b> (6 min)."},
-                {"who":"group","text":"Go back to your home group. Now you are the expert."}
+              "type": "do",
+              "n": 1,
+              "who": "group",
+              "text": "Think of a really <b>good discussion</b> you have had — in a class, at work or at a family dinner. Tell your group in one minute."
+            },
+            {
+              "type": "talk",
+              "title": "Discuss",
+              "prompts": [
+                "What made it good? Think about the <b>people</b>, not the topic.",
+                "Was there someone who made it <b>worse</b>? What did they do?"
               ]
             },
-            {"type":"tip","text":"Your teacher may give you a <b>paper expert strip</b> (A, B or C) to write on. No paper? Open your tab below and type your answers there."},
             {
-              type: "tabs",
-              title: "Your role",
-              tabs: [
+              "type": "do",
+              "n": 2,
+              "who": "group",
+              "text": "Now <b>you</b> are the teacher. You must give each student a score for a <b>15-minute group discussion</b>. What <b>four things</b> would you listen for? Write them below."
+            },
+            {
+              "type": "fields",
+              "fields": [
                 {
-                  label: "Student A",
-                  blocks: [
-                    {"type":"do","who":"alone","text":"Read the <b>Description</b> section and answer these questions."},
-                    {
-                      type: "fields",
-                      fields: [
-                        {"id":"i1-a1","label":"1. What are the two parts of the assessment, and what happens in each one?","rows":2},
-                        {"id":"i1-a2","label":"2. Who will you complete the task with?","rows":1},
-                        {"id":"i1-a3","label":"3. When does the assessment take place?","rows":1}
-                      ]
-                    }
-                  ]
-                },
-                {
-                  label: "Student B",
-                  blocks: [
-                    {"type":"do","who":"alone","text":"Look at the <b>Interactive Discussion Assessment</b> diagram and answer these questions."},
-                    {
-                      type: "fields",
-                      fields: [
-                        {"id":"i1-b1","label":"1. What will you do at home the day before the assessment?","rows":2},
-                        {"id":"i1-b2","label":"2. What will happen in the Individual Questions section?","rows":2}
-                      ]
-                    }
-                  ]
-                },
-                {
-                  label: "Student C",
-                  blocks: [
-                    {"type":"do","who":"alone","text":"Look at the <b>Learning Outcomes</b> table. Go to Canvas and the <b>Intended Learning Outcomes</b> menu. Match the numbers in the table to the full descriptions in the Canvas menu."},
-                    {
-                      type: "fields",
-                      fields: [{"id":"i1-c1","label":"Which Learning Outcome/s is/are about … ? Write the numbers here first.","rows":3,"placeholder":"overall speaking skills: …\nvocabulary & grammar: …\nmanaging communication breakdowns: …\nfluency: …\nsummarising information from texts: …"}]
-                    }
-                  ]
+                  "id": "j1-guess",
+                  "label": "Four things we would listen for",
+                  "rows": 4,
+                  "placeholder": "1 Do they give reasons for their ideas?\n2 …\n3 …\n4 …"
                 }
               ]
             },
-            {"type":"do","n":1,"who":"alone","text":"<b>Student C:</b> check your numbers by matching them here. Students A and B: watch and help."},
             {
-              type: "match",
-              id: "i1-lo",
-              title: "Which Learning Outcome is about … ?",
-              left: ["overall speaking skills","vocabulary & grammar","managing communication breakdowns","fluency","summarising information from texts"],
-              right: ["S1.10 Overall production","S5.10 Vocabulary range and accuracy & S6.10 Grammatical accuracy","S10.10 Can address communication breakdowns","S12.10 Can communicate spontaneously and express themselves fluently","S17.10 Mediation – Text processing and manipulation"]
+              "type": "do",
+              "n": 3,
+              "who": "class",
+              "text": "Each group reads out <b>one</b> idea. Keep your list: in Activity 3 you check it against the real marking rubric."
+            }
+          ]
+        },
+        {
+          "id": "j2",
+          "short": "The task",
+          "minutes": 6,
+          "grouping": "Class → Pair",
+          "art": "dec10/assets/week3/v/v-d10w3d5-j2.svg",
+          "title": "The Interactive Discussion from start to finish",
+          "goal": "See every step of the assessment — and why it is just like a university tutorial.",
+          "blocks": [
+            {
+              "type": "do",
+              "n": 1,
+              "who": "class",
+              "text": "Your teacher walks you through the assessment, step by step. Tap each number as they talk."
+            },
+            {
+              "type": "hotspot",
+              "src": "dec10/assets/week3/d5-id-journey.svg",
+              "size": "wide",
+              "alt": "The Interactive Discussion Assessment as a path with six stops: 1 Week 10, a group of 3 or 4 students from different classes; 2 the day before, read two texts at home; 3 Part 1, two individual questions each; 4 Part 2, a 12 to 15 minute group discussion about a quote and three options; 5 two teachers mark each student; 6 worth 15 per cent.",
+              "title": "Your Interactive Discussion, step by step",
+              "hint": "Tap 1–6.",
+              "spots": [
+                {
+                  "x": 10.4,
+                  "y": 42.5,
+                  "label": "1",
+                  "title": "1 · Week 10 · your group",
+                  "color": "#3a58a0",
+                  "text": "Thursday or Friday of <b>Week 10</b> (with a practice discussion on the Tuesday). You sit with <b>3–4 students</b>, usually from <b>different DEC10 classes</b> — so practise with many different people before then."
+                },
+                {
+                  "x": 26,
+                  "y": 42.5,
+                  "label": "2",
+                  "title": "2 · The day before · two texts",
+                  "color": "#b07d12",
+                  "text": "You get <b>two reading texts</b> before the assessment. Read them carefully at home and find the key ideas. Bring them <b>printed</b>, with short notes (not a script) and a pen. <b>No phone or tablet.</b>"
+                },
+                {
+                  "x": 41.7,
+                  "y": 42.5,
+                  "label": "3",
+                  "title": "3 · Part 1 · Individual questions",
+                  "color": "#c4562f",
+                  "text": "Each student answers <b>two questions</b>: one about the <b>ideas in a section of a text</b>, and one asking for your <b>personal response</b>. Listen to the others — you can link your answer to theirs. You practise this next, in 21A."
+                },
+                {
+                  "x": 58.3,
+                  "y": 42.5,
+                  "label": "4",
+                  "title": "4 · Part 2 · Group discussion · 12–15 min",
+                  "color": "#2f7d6b",
+                  "text": "The group discusses a question about a <b>quote</b> from one of the texts, and <b>evaluates three options</b> for an issue. There is <b>no break</b> between Part 1 and Part 2. This is where the discussion skills from 23A matter."
+                },
+                {
+                  "x": 74,
+                  "y": 42.5,
+                  "label": "5",
+                  "title": "5 · Two teachers mark you",
+                  "color": "#7a4a8c",
+                  "text": "Two teachers listen and give <b>each student</b> a score with the same rubric (four skills — Activity 3). Your score is <b>yours</b>, not the group’s."
+                },
+                {
+                  "x": 89.6,
+                  "y": 42.5,
+                  "label": "6",
+                  "title": "6 · 15% of your result",
+                  "color": "#e64626",
+                  "text": "Worth <b>15%</b> of your DEC10 result — half of your speaking score. It is the last assessment of the course."
+                }
+              ]
+            },
+            {
+              "type": "key",
+              "title": "Why do we have this assessment?",
+              "points": [
+                "At university, a <b>tutorial</b> works the same way: you read before class, the tutor asks you questions, and you discuss the readings with classmates you may not know well. The Interactive Discussion is a tutorial — with a score.",
+                "It checks the DEC10 speaking outcomes: overall speaking, vocabulary and grammar, fixing communication breakdowns, fluency, and using ideas from texts."
+              ]
+            },
+            {
+              "type": "do",
+              "n": 2,
+              "who": "pair",
+              "text": "<b>Quick check.</b> Don’t look at the picture. Answer with your partner, then bet on how sure you are."
+            },
+            {
+              "type": "bet",
+              "id": "j2-bet",
+              "title": "How well do you know the task?",
+              "proof": "Bet big only when you are sure.",
+              "items": [
+                {
+                  "q": "When do you first see the two texts?",
+                  "options": [
+                    "In the room, at the start",
+                    "Before the assessment — you read them at home",
+                    "You never see them; you only listen"
+                  ],
+                  "answer": "Before the assessment — you read them at home",
+                  "why": "You read them the day before and bring printed copies and notes."
+                },
+                {
+                  "q": "Who is in your group?",
+                  "options": [
+                    "Friends from your own class",
+                    "3–4 students, usually from different DEC10 classes",
+                    "Your seminar group"
+                  ],
+                  "answer": "3–4 students, usually from different DEC10 classes",
+                  "why": "That’s why it helps to discuss with many different classmates before Week 10."
+                },
+                {
+                  "q": "What happens in Part 1?",
+                  "options": [
+                    "Each student gives a 3-minute talk",
+                    "Each student answers two questions: one about the text, one personal response",
+                    "The group answers one question together"
+                  ],
+                  "answer": "Each student answers two questions: one about the text, one personal response",
+                  "why": "You practise both kinds of question in 21A today."
+                },
+                {
+                  "q": "What happens in Part 2?",
+                  "options": [
+                    "The teachers ask each student more questions",
+                    "The group discusses a quote and evaluates three options",
+                    "Each student summarises a text"
+                  ],
+                  "answer": "The group discusses a quote and evaluates three options",
+                  "why": "It is a real discussion for 12–15 minutes: you build on each other’s ideas."
+                },
+                {
+                  "q": "Does everyone in the group get the same score?",
+                  "options": [
+                    "Yes — one group score",
+                    "No — each student gets their own score"
+                  ],
+                  "answer": "No — each student gets their own score",
+                  "why": "Two teachers mark every student with the rubric."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "j3",
+          "short": "The rubric",
+          "minutes": 6,
+          "grouping": "Class → Groups of three",
+          "art": "dec10/assets/week3/v/v-d10w3d5-j3.svg",
+          "title": "What the teachers listen for",
+          "goal": "Learn the four skills on the rubric, with weak and strong examples — and check your group’s guesses.",
+          "blocks": [
+            {
+              "type": "do",
+              "n": 1,
+              "who": "class",
+              "text": "Your teacher presents the four skills. Tap each one. <b>Groups:</b> look at your four guesses from Activity 1 — how many are on the real rubric?"
+            },
+            {
+              "type": "hotspot",
+              "src": "dec10/assets/week3/d5-id-four-skills.svg",
+              "size": "wide",
+              "alt": "A scorecard with four equal parts: 1 Argumentation skills (ideas, argumentation, critical thinking); 2 Engagement and interaction (individual questions, source selection, group discussion); 3 Pronunciation and flow (sounds, stress and intonation; speech flow; cohesion); 4 Language use (range and formality, vocabulary, grammar). Below: each skill gets a score, and the final score is the average of the four.",
+              "title": "The four skills on the rubric",
+              "hint": "Tap 1–4. Each skill is a quarter of your score.",
+              "spots": [
+                {
+                  "x": 8.3,
+                  "y": 17.4,
+                  "label": "1",
+                  "title": "1 · Argumentation skills",
+                  "color": "#c4562f",
+                  "text": "<b>Ideas:</b> make your key points clear; explain them and give examples.<br><b>Argumentation:</b> restate, evaluate, probe and challenge other people’s points.<br><b>Critical thinking:</b> compare other views with yours, then state your own position clearly."
+                },
+                {
+                  "x": 55.4,
+                  "y": 17.4,
+                  "label": "2",
+                  "title": "2 · Engagement & interaction",
+                  "color": "#2f7d6b",
+                  "text": "<b>Individual questions:</b> answer clearly, relevantly and without long hesitation.<br><b>Source selection:</b> choose relevant information from the texts and use it well.<br><b>Group discussion:</b> join in, take turns and help the group do the task together."
+                },
+                {
+                  "x": 8.3,
+                  "y": 56.2,
+                  "label": "3",
+                  "title": "3 · Pronunciation & flow",
+                  "color": "#3a58a0",
+                  "text": "<b>Sounds, stress, intonation:</b> listeners understand you without effort.<br><b>Speech flow:</b> keep going — if you get stuck, say it another way.<br><b>Cohesion:</b> link your ideas with connectors (however, as a result, for example)."
+                },
+                {
+                  "x": 55.4,
+                  "y": 56.2,
+                  "label": "4",
+                  "title": "4 · Language use",
+                  "color": "#7a4a8c",
+                  "text": "<b>Range and formality:</b> polite, academic language that suits a discussion.<br><b>Vocabulary:</b> a wide range; if you don’t know a word, explain it another way.<br><b>Grammar:</b> simple and complex sentences with few mistakes."
+                }
+              ]
+            },
+            {
+              "type": "key",
+              "title": "How the score works",
+              "points": [
+                "Each skill gets a score from <b>50 or less</b> to <b>76 or more</b>. Your final score is the <b>average</b> of the four.",
+                "So a student with perfect grammar who hardly speaks can still score low: <b>engagement</b> is a quarter of the mark.",
+                "And a student who talks all the time but never listens loses marks too: good discussions are a team effort."
+              ]
+            },
+            {
+              "type": "do",
+              "n": 2,
+              "who": "group",
+              "text": "Read the four pairs. What makes the second version stronger? Open “What changed?” to check."
+            },
+            {
+              "type": "pairs",
+              "title": "From weak to strong · one example for each skill",
+              "ask": "What changed?",
+              "items": [
+                {
+                  "from": "I agree.",
+                  "to": "I agree with Lin that training matters, [[but who should pay for it?]] [[Vidican Auktor (2020) says]] policy makers need to identify training needs.",
+                  "tag": "1 · Argumentation skills",
+                  "note": "Restates, challenges with a question and supports the point with a source — not just “I agree”."
+                },
+                {
+                  "from": "(silent for five minutes) … Yes. Me too.",
+                  "to": "[[Sorry to jump in]] — could I add something? … [[Kai, what do you think?]]",
+                  "tag": "2 · Engagement & interaction",
+                  "note": "Takes the floor politely, then brings a quiet student into the discussion."
+                },
+                {
+                  "from": "The … the … um … green … how to say … the job … um …",
+                  "to": "Green jobs, [[or in other words]], jobs that protect the environment, are growing. [[As a result]], …",
+                  "tag": "3 · Pronunciation & flow",
+                  "note": "Rewords instead of stopping, and links ideas with connectors."
+                },
+                {
+                  "from": "Green job is very good thing and many people want do it.",
+                  "to": "Green jobs [[are an attractive option]] for many graduates, [[although]] the training [[can be expensive]].",
+                  "tag": "4 · Language use",
+                  "note": "Accurate grammar, more precise vocabulary and a complex sentence."
+                }
+              ]
+            },
+            {
+              "type": "do",
+              "n": 3,
+              "who": "group",
+              "text": "<b>Check.</b> Which skill does each behaviour show? Sort them."
+            },
+            {
+              "type": "sort",
+              "id": "j3-sort",
+              "title": "Which skill on the rubric?",
+              "buckets": [
+                {
+                  "label": "Argumentation skills",
+                  "letter": "1"
+                },
+                {
+                  "label": "Engagement & interaction",
+                  "letter": "2"
+                },
+                {
+                  "label": "Pronunciation & flow",
+                  "letter": "3"
+                },
+                {
+                  "label": "Language use",
+                  "letter": "4"
+                }
+              ],
+              "items": [
+                {
+                  "text": "Says “That’s a good point, but have we considered …?”",
+                  "answer": 0
+                },
+                {
+                  "text": "Compares two views, then states their own position",
+                  "answer": 0
+                },
+                {
+                  "text": "Answers the personal question with a reason and an example",
+                  "answer": 1
+                },
+                {
+                  "text": "Asks a quiet group member for their opinion",
+                  "answer": 1
+                },
+                {
+                  "text": "Links ideas with “however” and “as a result”",
+                  "answer": 2
+                },
+                {
+                  "text": "Stresses the key words so listeners can follow",
+                  "answer": 2
+                },
+                {
+                  "text": "Says “Could I add something?” instead of “Wait, me!”",
+                  "answer": 3
+                },
+                {
+                  "text": "Uses precise words such as “transition” and “workforce” correctly",
+                  "answer": 3
+                }
+              ]
+            },
+            {
+              "type": "download",
+              "id": "id-rubric-student",
+              "note": "The four skills, what to do for each, and what each level looks like — in plain English. Save it in your DEC10 folder."
+            },
+            {
+              "type": "tip",
+              "text": "Want every detail? The full rubric (teacher’s edition) is on the <a href=\"#/assessments\">Assessments page</a> → Interactive Discussion."
+            }
+          ]
+        },
+        {
+          "id": "j4",
+          "short": "Be the examiner",
+          "minutes": 5,
+          "grouping": "Pair",
+          "art": "dec10/assets/week3/v/v-d10w3d5-j4.svg",
+          "title": "Be the examiner",
+          "goal": "Judge a short discussion with the rubric — then set your first goal for Week 10.",
+          "blocks": [
+            {
+              "type": "do",
+              "n": 1,
+              "who": "class",
+              "text": "Three volunteers read this short discussion aloud (or read it in pairs). The topic is the quote from Paragraph D that you read in 21A."
+            },
+            {
+              "type": "chat",
+              "title": "Part 2 · The discussion begins",
+              "lines": [
+                [
+                  "Ana",
+                  "OK, let’s start. The writer says green skills give “a much more detailed view” than green jobs. <mark>I agree, because</mark> a job title doesn’t tell you what training people need."
+                ],
+                [
+                  "Ben",
+                  "Yes. I agree."
+                ],
+                [
+                  "Chen",
+                  "For me … um … the green skills … is more … more … important … because … um … the jobs is change."
+                ],
+                [
+                  "Ana",
+                  "<mark>So what you’re saying is</mark> that jobs are changing, so skills matter more? <mark>That’s a good point.</mark> <mark>According to</mark> Vidican Auktor, many existing jobs will get new tasks. Ben, <mark>what do you think</mark>?"
+                ],
+                [
+                  "Ben",
+                  "Green skills is good. Every people need it."
+                ],
+                [
+                  "Ana",
+                  "<mark>I see what you mean, but</mark> do <i>all</i> workers need them? An accountant, for example?"
+                ],
+                [
+                  "Chen",
+                  "Yes! Accountant now must count carbon. So also accountant needs."
+                ]
+              ]
+            },
+            {
+              "type": "do",
+              "n": 2,
+              "who": "pair",
+              "text": "You are the two teachers. Choose a level for each student on each skill. Then compare with another pair: do you agree?"
+            },
+            {
+              "type": "grid",
+              "id": "j4-grid",
+              "title": "Our marks",
+              "rows": [
+                "Argumentation skills",
+                "Engagement & interaction",
+                "Pronunciation & flow",
+                "Language use"
+              ],
+              "columns": [
+                "Ana",
+                "Ben",
+                "Chen"
+              ],
+              "options": [
+                "Developing",
+                "Good",
+                "Excellent"
+              ]
+            },
+            {
+              "type": "talk",
+              "title": "Discuss",
+              "prompts": [
+                "Who would get the highest score? Why?",
+                "Give Ben <b>one</b> tip. Give Chen <b>one</b> tip."
+              ]
+            },
+            {
+              "type": "do",
+              "n": 3,
+              "who": "alone",
+              "text": "<b>Your first goal for Week 10.</b> Which of the four skills is hardest for you now? Write <b>one specific action</b> for this week — what, how and when, like your Action Plan."
+            },
+            {
+              "type": "fields",
+              "fields": [
+                {
+                  "id": "j4-goal",
+                  "label": "My hardest skill now — and one specific action",
+                  "rows": 3,
+                  "placeholder": "My hardest skill is … because …\nThis week, I will … (when? how often?)"
+                }
+              ]
+            },
+            {
+              "type": "do",
+              "n": 4,
+              "who": "pair",
+              "text": "<b>Exit ticket.</b> Tell your partner your goal. Your partner asks: “<b>What exactly will you do?</b>”"
+            },
+            {
+              "type": "tip",
+              "text": "Forgot something later? Everything about this assessment is also on the <a href=\"#/assessments\">Assessments page</a> → Interactive Discussion, with a link back to this lesson."
             }
           ],
-          answers: {
-            items: [
-              ["A1 Two parts","Individual questions + Group discussion."],
-              ["A2 Who with","A group of 3–4, mostly from different DEC10 classes."],
-              ["A3 When","Week 10."],
-              ["B1 The day before","Read the texts carefully and identify key ideas."],
-              ["B2 Individual Questions","Each student responds to 2 individual questions. Listen to the other students’ answers too: they can give you ideas, and you can link your answer to theirs."],
-              ["C Learning Outcomes","Overall speaking skills: S1.10 · Vocabulary & grammar: S5.10 & S6.10 · Communication breakdowns: S10.10 · Fluency: S12.10 · Summarising information from texts: S17.10. The Interactive Discussion Assessment helps you reach these learning outcomes."]
+          "answers": {
+            "title": "Suggested marks",
+            "items": [
+              [
+                "Ana",
+                "Excellent or Good on all four. She explains her view with a reason, restates Chen’s idea (“So what you’re saying is …”), uses the source, brings Ben in and challenges politely."
+              ],
+              [
+                "Ben",
+                "Developing. Very short turns with no reasons or examples, he doesn’t build on others’ ideas, and “Green skills is good. Every people need it.” has grammar errors."
+              ],
+              [
+                "Chen",
+                "Good on engagement — he joins in and has a strong idea (accountants and carbon). Developing on pronunciation &amp; flow (long pauses) and on language use (“the jobs is change”)."
+              ],
+              [
+                "Tip for Ben",
+                "Give a reason and an example every time: “I agree, <b>because</b> … <b>For example</b>, …”"
+              ],
+              [
+                "Tip for Chen",
+                "Reword instead of stopping (“<b>What I mean is</b> …”) and check is/are with plural nouns."
+              ]
             ]
           }
-        },
-        {
-          id: "i2",
-          short: "Share",
-          minutes: 4,
-          grouping: "Groups of three",
-          art: "dec10/assets/week3/v/v-d10w3d5-i2.svg",
-          title: "Activity 2",
-          goal: "Teach-back in 60 seconds — then ask your teacher.",
-          blocks: [
-            {"type":"do","n":1,"who":"group","text":"<b>Teach-back in 60 seconds.</b> A, then B, then C: stand up and teach your part in one minute — no reading! Listeners: ask one clarification question each."},
-            {
-              type: "language",
-              title: "Report what you found",
-              groups: [
-                {"label":"Report","phrases":["<b>According to the Description</b>, …","<b>The diagram shows that</b> …","<b>I found out that</b> …"]},
-                {"label":"Check","phrases":["<b>So, does that mean</b> we …?","<b>Just to clarify</b>, is it …?"]},
-                {"label":"Ask the teacher","phrases":["<b>Could you clarify whether</b> …?","<b>I’m not sure I understand</b> how … works.","<b>Will we be able to</b> …?"]}
-              ]
-            },
-            {
-              type: "toggle",
-              title: "See the assessment as a picture",
-              hint: "Open after you share",
-              blocks: [
-                {
-                  type: "figure",
-                  src: "dec10/assets/week3/d5-id-overview.svg",
-                  size: "wide",
-                  alt: "The Interactive Discussion Assessment in Week 10. A group of 3–4 students, mostly from different DEC10 classes. The day before, at home: read the texts carefully and identify key ideas. Part 1, Individual questions: each student answers 2 questions and listens to the others. Part 2: Group discussion.",
-                  caption: "Interactive Discussion Assessment · Week 10"
-                }
-              ]
-            },
-            {"type":"do","n":2,"who":"group","text":"Each person writes one question for the teacher. Read them aloud. Your group votes for the <b>best one</b> — the reporter asks it."},
-            {"type":"fields","fields":[{"id":"i2-q","label":"My question for the teacher","rows":2,"placeholder":"Could you clarify whether …?"}]}
-          ]
-        },
-        {
-          id: "i3",
-          short: "My goals",
-          minutes: 6,
-          grouping: "Alone → Pair",
-          art: "dec10/assets/week3/v/v-d10w3d5-i3.svg",
-          title: "AST: Self-regulation and monitoring",
-          goal: "Set your learning goals for the Interactive Discussion.",
-          blocks: [
-            {
-              type: "key",
-              title: "Set your learning goals!",
-              points: [
-                "Now that you have analysed the assessment, what do you need to do to achieve success?",
-                "<b>What can I already do well?</b> This is great! Keep practising and developing your strengths.",
-                "<b>What am I not confident about? What do I need to work on?</b> Then decide exactly what you will do about it."
-              ]
-            },
-            {"type":"do","who":"alone","text":"Download the <b>student guide to the rubric</b>. Read the <b>What to do</b> box for each of the four skills: these are what your teacher marks. Keep it open while you set your goals."},
-            {"type":"download","id":"id-rubric-student","note":"Four skills, three levels each — in plain English. Save it in your DEC10 folder."},
-            {"type":"do","n":1,"who":"class","text":"<b>Confidence line-up.</b> Stand up. Your teacher reads statement 1. Line up from “Not confident” to “Very confident”. Find someone at the <b>other end</b> and ask: “<b>What do you do to</b> …?” Then sit down and move the three sliders."},
-            {"type":"scale","id":"i3-flu","title":"How confident am I?","statement":"I can keep speaking fluently in a group discussion.","ends":["Not confident","Very confident"]},
-            {"type":"scale","id":"i3-src","statement":"I can summarise an idea from a text in my own words.","ends":["Not confident","Very confident"]},
-            {"type":"scale","id":"i3-brk","statement":"I can fix a communication breakdown (ask, check, rephrase).","ends":["Not confident","Very confident"]},
-            {
-              type: "flip",
-              title: "From “not confident” to a specific action",
-              hint: "Turn each card to see an example action.",
-              items: [
-                {"front":"“I’m not as fluent as I’d like to be.”","back":"Every evening, talk for <b>two minutes</b> about one idea from this week’s reading and record it. Listen for long pauses."},
-                {"front":"“I forget what I read.”","back":"After each text, write <b>three key ideas</b> on one card in my own words, with the author’s name."},
-                {"front":"“I never get a turn.”","back":"Learn <b>two</b> polite ways to take the floor and use each one at least once in class this week."},
-                {"front":"“My grammar breaks down when I speak fast.”","back":"Choose <b>one</b> grammar point (e.g. is/are agreement) and check it in my recordings twice a week."}
-              ]
-            },
-            {
-              type: "fields",
-              fields: [
-                {"id":"i3-well","label":"What I can already do well","rows":2},
-                {"id":"i3-work","label":"What I need to work on — and exactly what I will do","rows":3,"placeholder":"I’m not confident about … so I will … every … until …"}
-              ]
-            },
-            {"type":"do","n":2,"who":"pair","text":"<b>Exit ticket.</b> Tell a partner your goal. Your partner asks: <b>“What exactly will you do?”</b> Start with: “<b>One thing I need to work on is</b> …, <b>so I’m going to</b> …”"}
-          ]
         }
       ]
     },
     {
-      id: "iqprac",
-      number: "04",
-      code: "21A",
-      minutes: 30,
-      tone: "clay",
-      art: "dec10/assets/week3/s-d5-iqprac.svg",
-      title: "Individual question practice",
-      subtitle: "Explain a writer’s view — then give your own",
-      outcome: "You can explain and respond to writers’ views in academic texts.",
-      activities: [
+      "id": "iqprac",
+      "number": "04",
+      "code": "21A",
+      "minutes": 30,
+      "tone": "clay",
+      "art": "dec10/assets/week3/s-d5-iqprac.svg",
+      "title": "Individual question practice",
+      "subtitle": "Explain a writer’s view — then give your own",
+      "outcome": "You can explain and respond to writers’ views in academic texts.",
+      "activities": [
         {
-          id: "q1",
-          short: "Prepare",
-          minutes: 8,
-          grouping: "Alone",
-          art: "dec10/assets/week3/v/v-d10w3d5-q1.svg",
-          title: "Activity 1 Prepare for individual questions",
-          goal: "Understand the key points in Paragraph D of Vidican Auktor (2020).",
-          blocks: [
+          "id": "q0",
+          "short": "Lead-in",
+          "minutes": 3,
+          "grouping": "Pair",
+          "art": "dec10/assets/week3/v/v-d10w3d5-q0.svg",
+          "title": "Green job or green skills?",
+          "goal": "Talk about three workers and your own future job — and get a reason to read.",
+          "blocks": [
             {
-              type: "flip",
-              title: "Six words from Paragraph D",
-              hint: "Turn each card before you read.",
-              items: [
-                {"front":"differentiate (between A and B)","back":"see or show the difference between two things","tag":"verb"},
-                {"front":"workforce","back":"all the people who work in a country, sector or company","tag":"noun"},
-                {"front":"transition (towards)","back":"a change from one state to another","tag":"noun"},
-                {"front":"policy makers","back":"people (often in government) who decide plans and rules","tag":"noun"},
-                {"front":"synthesise","back":"combine ideas from different places into one clear summary","tag":"verb"},
-                {"front":"occupation","back":"a job or type of work","tag":"noun"}
+              "type": "do",
+              "n": 1,
+              "who": "pair",
+              "text": "Read about three workers. Who has a <b>green job</b>? Who needs <b>green skills</b>? Discuss for one minute."
+            },
+            {
+              "type": "cards",
+              "title": "Three workers",
+              "items": [
+                {
+                  "label": "Sara · wind-turbine technician",
+                  "text": "She repairs wind turbines on a wind farm."
+                },
+                {
+                  "label": "Tom · accountant",
+                  "text": "His company now asks him to report its carbon emissions every year."
+                },
+                {
+                  "label": "Lin · hotel manager",
+                  "text": "She has a plan to cut the hotel’s food waste and energy use."
+                }
               ]
             },
-            {"type":"do","n":1,"who":"pair","text":"<b>Word ping-pong</b> (1 min). One person reads a meaning from the back of a card. The other says the word. Swap."},
-            {"type":"do","n":2,"who":"alone","text":"Review <b>Paragraph D</b> of <b>Vidican Auktor (2020)</b>. Focus on understanding the key points the writer is making. You have <b>5 minutes</b>."},
-            {"type":"sources","ids":["vidican"]},
             {
-              type: "passage",
-              id: "q1-d",
-              title: "Vidican Auktor (2020) · Paragraph D",
-              text: "D. Defining green skills is challenging for similar reasons to those related to green jobs. Cedefop (2012) defines green skills as “the knowledge, abilities, values and attitudes needed to live in, develop and support a sustainable and resource-efficient society.” OECD and Cedefop (2014) take a step further and define green skills as “the skills needed by the workforce, in all sectors and at all levels, in order to help the adaptation of products, services and processes to the transformations due to climate change and to environmental requirements and regulations.” Differentiating between green skills and green jobs is important, primarily because green skills offer a much more detailed view on the changes needed in the job market to transition towards the green economy. This then enables policy makers to identify and address specific training needs. Cedefop (2012) synthesizes three main ways in which the transition to a green economy affects needed skills: structural changes lead to increased demand for some occupations and decreased demand for others; new economic activity will create new occupations and there will be a need for new skills, qualifications and training; many existing occupations and industries will experience greening changes to tasks within their jobs, and this will require adjustments to the current training and qualification frameworks for these occupations."
+              "type": "talk",
+              "title": "Now you",
+              "prompts": [
+                "Think of the job you want after university. Is it a green job?",
+                "Will it need any green skills anyway? Which ones?"
+              ]
             },
             {
-              type: "fields",
-              fields: [{"id":"q1-notes","label":"Key points — in my own words (notes only)","rows":3,"placeholder":"green skills = more detail than green jobs → …\n3 ways the green economy changes skills: 1 … 2 … 3 …"}]
-            },
-            {"type":"do","n":3,"who":"pair","text":"<b>Close the text.</b> Tell your partner the three ways the green economy changes skills in 30 seconds: “<b>First</b>, … <b>Second</b>, … <b>Third</b>, …”"}
+              "type": "toggle",
+              "title": "After you discuss",
+              "hint": "The idea behind today’s text",
+              "blocks": [
+                {
+                  "type": "key",
+                  "points": [
+                    "Only Sara has a typical <b>green job</b> — but all three need <b>green skills</b>.",
+                    "That is the writer’s point in Paragraph D: looking at <b>skills</b> shows more clearly what training workers need. Read on to find out why."
+                  ]
+                }
+              ]
+            }
           ]
         },
         {
-          id: "q2",
-          short: "Two kinds",
-          minutes: 6,
-          grouping: "Pair",
-          art: "dec10/assets/week3/v/v-d10w3d5-q2.svg",
-          title: "Two kinds of individual question",
-          goal: "Know what each kind of question wants from you.",
-          blocks: [
+          "id": "qv",
+          "short": "Key words",
+          "minutes": 3,
+          "grouping": "Alone → Pair",
+          "art": "dec10/assets/week3/v/v-d10w3d5-qv.svg",
+          "title": "Six words you need for Paragraph D",
+          "goal": "Guess six key words from a short text, then check them.",
+          "blocks": [
             {
-              type: "figure",
-              src: "dec10/assets/week3/d5-iq-frames.svg",
-              size: "wide",
-              alt: "Two lanes. Question about the ideas in the text: name the writer, give the writer’s point, give the reason or detail, add an example from the text. Question about personal response: give your view, a reason, an example from your life or study, and link back to the text.",
-              caption: "Two kinds of question, two answer shapes."
+              "type": "do",
+              "n": 1,
+              "who": "alone",
+              "text": "Read the short text. Guess the meaning of the six <b>bold</b> words from the context."
             },
             {
-              type: "key",
-              title: "Ideas in the text vs. personal response",
-              points: [
+              "type": "text",
+              "title": "Closing the coal mines",
+              "text": "In many countries, <b>policy makers</b> have a difficult job. Coal mines are closing because the country wants to <b>transition towards</b> clean energy. But a large part of the <b>workforce</b> still works in coal and oil. Experts say the government must <b>differentiate between</b> two groups: workers whose <b>occupation</b> will disappear, and workers who can keep their job but need new skills. A new report tries to <b>synthesise</b> the ideas from twenty studies into one clear training plan."
+            },
+            {
+              "type": "do",
+              "n": 2,
+              "who": "alone",
+              "text": "Check your guesses: match each word to its meaning."
+            },
+            {
+              "type": "match",
+              "id": "qv-match",
+              "title": "Match the words",
+              "left": [
+                "differentiate (between A and B)",
+                "workforce",
+                "transition (towards)",
+                "policy makers",
+                "synthesise",
+                "occupation"
+              ],
+              "right": [
+                "see or show the difference between two things",
+                "all the people who work in a country, sector or company",
+                "a change from one state to another",
+                "people (often in government) who decide plans and rules",
+                "combine ideas from different places into one clear summary",
+                "a job or type of work"
+              ]
+            },
+            {
+              "type": "do",
+              "n": 3,
+              "who": "pair",
+              "text": "<b>Word ping-pong</b> (30 seconds). One person says a meaning. The other says the word. Swap."
+            }
+          ]
+        },
+        {
+          "id": "q1",
+          "short": "Read",
+          "minutes": 5,
+          "grouping": "Alone → Pair",
+          "art": "dec10/assets/week3/v/v-d10w3d5-q1.svg",
+          "title": "Activity 1 Prepare for individual questions",
+          "goal": "Understand the key points in Paragraph D of Vidican Auktor (2020).",
+          "blocks": [
+            {
+              "type": "do",
+              "n": 1,
+              "who": "alone",
+              "text": "Review <b>Paragraph D</b> of <b>Vidican Auktor (2020)</b>. Focus on understanding the key points the writer is making. You have <b>5 minutes</b>. First read quickly for the main idea; then read again for detail."
+            },
+            {
+              "type": "sources",
+              "ids": [
+                "vidican"
+              ]
+            },
+            {
+              "type": "passage",
+              "id": "q1-d",
+              "title": "Vidican Auktor (2020) · Paragraph D",
+              "text": "D. Defining green skills is challenging for similar reasons to those related to green jobs. Cedefop (2012) defines green skills as “the knowledge, abilities, values and attitudes needed to live in, develop and support a sustainable and resource-efficient society.” OECD and Cedefop (2014) take a step further and define green skills as “the skills needed by the workforce, in all sectors and at all levels, in order to help the adaptation of products, services and processes to the transformations due to climate change and to environmental requirements and regulations.” Differentiating between green skills and green jobs is important, primarily because green skills offer a much more detailed view on the changes needed in the job market to transition towards the green economy. This then enables policy makers to identify and address specific training needs. Cedefop (2012) synthesizes three main ways in which the transition to a green economy affects needed skills: structural changes lead to increased demand for some occupations and decreased demand for others; new economic activity will create new occupations and there will be a need for new skills, qualifications and training; many existing occupations and industries will experience greening changes to tasks within their jobs, and this will require adjustments to the current training and qualification frameworks for these occupations."
+            },
+            {
+              "type": "quiz",
+              "id": "q1-gist",
+              "title": "Read for the main idea",
+              "items": [
+                {
+                  "q": "What is the main point of Paragraph D?",
+                  "options": [
+                    "Green jobs are easy to define, but green skills are not.",
+                    "Looking at green skills, not only green jobs, shows more clearly what training workers need.",
+                    "Policy makers should stop training workers for old occupations."
+                  ],
+                  "answer": "Looking at green skills, not only green jobs, shows more clearly what training workers need.",
+                  "why": "“green skills offer a much more detailed view on the changes needed … This then enables policy makers to identify and address specific training needs.”"
+                }
+              ]
+            },
+            {
+              "type": "quiz",
+              "id": "q1-detail",
+              "title": "Read for detail: three ways the green economy changes skills",
+              "shared": [
+                "Structural changes",
+                "New economic activity",
+                "Greening of existing jobs"
+              ],
+              "items": [
+                {
+                  "q": "Some occupations are needed more, and others less.",
+                  "answer": "Structural changes",
+                  "why": "“structural changes lead to increased demand for some occupations and decreased demand for others”"
+                },
+                {
+                  "q": "Completely new jobs appear, with new qualifications and training.",
+                  "answer": "New economic activity",
+                  "why": "“new economic activity will create new occupations and there will be a need for new skills, qualifications and training”"
+                },
+                {
+                  "q": "People keep the same job, but some of their tasks change.",
+                  "answer": "Greening of existing jobs",
+                  "why": "“many existing occupations and industries will experience greening changes to tasks within their jobs”"
+                },
+                {
+                  "q": "Example: Tom the accountant now reports his company’s carbon emissions.",
+                  "answer": "Greening of existing jobs",
+                  "why": "His job is the same; one task is new."
+                },
+                {
+                  "q": "Example: the country needs fewer coal miners and more solar-panel installers.",
+                  "answer": "Structural changes",
+                  "why": "Demand goes up for one occupation and down for another."
+                }
+              ]
+            },
+            {
+              "type": "fields",
+              "fields": [
+                {
+                  "id": "q1-notes",
+                  "label": "Key points — in my own words (notes only)",
+                  "rows": 3,
+                  "placeholder": "green skills = more detail than green jobs → …\n3 ways the green economy changes skills: 1 … 2 … 3 …"
+                }
+              ]
+            },
+            {
+              "type": "do",
+              "n": 2,
+              "who": "pair",
+              "text": "<b>Close the text.</b> Tell your partner the three ways the green economy changes skills in 30 seconds: “<b>First</b>, … <b>Second</b>, … <b>Third</b>, …”"
+            }
+          ]
+        },
+        {
+          "id": "q2",
+          "short": "Two kinds",
+          "minutes": 6,
+          "grouping": "Class → Pair",
+          "art": "dec10/assets/week3/v/v-d10w3d5-q2.svg",
+          "title": "Two kinds of individual question",
+          "goal": "Know what each kind of question wants — see a strong answer to each — then check.",
+          "blocks": [
+            {
+              "type": "figure",
+              "src": "dec10/assets/week3/d5-iq-frames.svg",
+              "size": "wide",
+              "alt": "Two lanes. Question about the ideas in the text: name the writer, give the writer’s point, give the reason or detail, add an example from the text. Question about personal response: give your view, a reason, an example from your life or study, and link back to the text.",
+              "caption": "Two kinds of question, two answer shapes."
+            },
+            {
+              "type": "key",
+              "title": "Ideas in the text vs. personal response",
+              "points": [
                 "<b>Ideas in the text:</b> show you understand the writer. Summarise in your own words — don’t read the text aloud.",
                 "<b>Personal response:</b> your answer must be <b>relevant</b>, <b>coherent</b> and <b>extended</b> — not simply paraphrased ideas from the text."
               ]
             },
-            {"type":"do","n":1,"who":"class","text":"<b>Stand up, sit down.</b> Your teacher reads each question below. <b>Stand up</b> if it is about the text. <b>Stay seated</b> if it asks for your personal response. Then sort them here."},
             {
-              type: "sort",
-              id: "q2-sort",
-              title: "Ideas in the text or personal response?",
-              buckets: [{"label":"About the ideas in the text","letter":"T"},{"label":"About your personal response","letter":"Me"}],
-              items: [
-                {"text":"How does the writer define green skills?","answer":0},
-                {"text":"What three changes does the writer say the green economy brings?","answer":0},
-                {"text":"Why does the writer mention policy makers?","answer":0},
-                {"text":"Which green skills would be most useful in your country?","answer":1},
-                {"text":"Would you choose a course because it teaches green skills?","answer":1},
-                {"text":"Do you think schools should teach green skills? Why?","answer":1}
+              "type": "do",
+              "n": 1,
+              "who": "class",
+              "text": "Your teacher shows two strong answers. Notice the four steps in each one."
+            },
+            {
+              "type": "model",
+              "title": "Worked example 1 · A question about the ideas in the text",
+              "text": "<i>Question: How does the writer define green skills?</i><br><br><b>[1 Writer]</b> Vidican Auktor <b>[2 Point]</b> explains that green skills are the knowledge and abilities people need to support a sustainable society. <b>[3 Detail]</b> The writer also gives a wider definition from the OECD and Cedefop: the skills the whole workforce needs to adapt to climate change and new environmental rules. <b>[4 Example]</b> In other words, green skills are not only for green jobs — every sector needs them.",
+              "note": "In the speaker’s own words — nothing is read aloud. Four sentences, about 30–40 seconds."
+            },
+            {
+              "type": "pairs",
+              "title": "Worked example 2 · A personal response question: weak → strong",
+              "ask": "Why is it stronger?",
+              "items": [
+                {
+                  "from": "Q: Would you choose a course because it teaches green skills? A: “Yes, because green skills are important.”",
+                  "to": "“[[Personally, I would]], [[because]] employers in engineering are starting to ask for green skills. [[For example]], my cousin’s company now needs staff who understand energy efficiency. [[That’s why]] it could help me find a job — [[and it links to the writer’s point that]] many existing jobs are changing.”",
+                  "tag": "relevant · coherent · extended",
+                  "note": "View → reason → example → link back to the text."
+                }
               ]
             },
-            {"type":"do","n":2,"who":"pair","text":"<b>Your turn.</b> Write one question of each kind about Paragraph D. Read them to another pair. They say “text” or “me”."},
             {
-              type: "fields",
-              fields: [
-                {"id":"q2-own-t","label":"My question about the ideas in the text","rows":1,"placeholder":"According to the writer, why …?"},
-                {"id":"q2-own-me","label":"My personal response question","rows":1,"placeholder":"Would you …? / How do you think …?"}
+              "type": "do",
+              "n": 2,
+              "who": "pair",
+              "text": "What is wrong with these three answers? Choose one problem for each."
+            },
+            {
+              "type": "quiz",
+              "id": "q2-ccq",
+              "title": "What is the problem?",
+              "shared": [
+                "Not relevant",
+                "Not extended",
+                "Read from the text"
+              ],
+              "items": [
+                {
+                  "q": "Q: <i>Which green skills would be most useful in your country?</i><br>A: “My country is very big and the weather is very hot.”",
+                  "answer": "Not relevant",
+                  "why": "It is about the country, but it doesn’t name any green skills."
+                },
+                {
+                  "q": "Q: <i>Do you think schools should teach green skills?</i><br>A: “Yes, I think so.”",
+                  "answer": "Not extended",
+                  "why": "There is a view, but no reason, example or link to the text."
+                },
+                {
+                  "q": "Q: <i>Why does the writer mention policy makers?</i><br>A: “This then enables policy makers to identify and address specific training needs.”",
+                  "answer": "Read from the text",
+                  "why": "It is copied word for word. Say it in your own words: “Because with more detail, governments can plan the right training.”"
+                }
+              ]
+            },
+            {
+              "type": "do",
+              "n": 3,
+              "who": "class",
+              "text": "<b>Stand up, sit down.</b> Your teacher reads each question below. <b>Stand up</b> if it is about the text. <b>Stay seated</b> if it asks for your personal response. Then sort them here."
+            },
+            {
+              "type": "sort",
+              "id": "q2-sort",
+              "title": "Ideas in the text or personal response?",
+              "buckets": [
+                {
+                  "label": "About the ideas in the text",
+                  "letter": "T"
+                },
+                {
+                  "label": "About your personal response",
+                  "letter": "Me"
+                }
+              ],
+              "items": [
+                {
+                  "text": "How does the writer define green skills?",
+                  "answer": 0
+                },
+                {
+                  "text": "What three changes does the writer say the green economy brings?",
+                  "answer": 0
+                },
+                {
+                  "text": "Why does the writer mention policy makers?",
+                  "answer": 0
+                },
+                {
+                  "text": "Which green skills would be most useful in your country?",
+                  "answer": 1
+                },
+                {
+                  "text": "Would you choose a course because it teaches green skills?",
+                  "answer": 1
+                },
+                {
+                  "text": "Do you think schools should teach green skills? Why?",
+                  "answer": 1
+                }
+              ]
+            },
+            {
+              "type": "do",
+              "n": 4,
+              "who": "pair",
+              "text": "<b>Your turn (if you have time).</b> Write one question of each kind about Paragraph D. Read them to another pair. They say “text” or “me”."
+            },
+            {
+              "type": "fields",
+              "fields": [
+                {
+                  "id": "q2-own-t",
+                  "label": "My question about the ideas in the text",
+                  "rows": 1,
+                  "placeholder": "According to the writer, why …?"
+                },
+                {
+                  "id": "q2-own-me",
+                  "label": "My personal response question",
+                  "rows": 1,
+                  "placeholder": "Would you …? / How do you think …?"
+                }
               ]
             }
           ]
         },
         {
-          id: "q3",
-          short: "Answer",
-          minutes: 12,
-          grouping: "Pair",
-          art: "dec10/assets/week3/v/v-d10w3d5-q3.svg",
-          title: "Answer the individual questions",
-          goal: "Answer one question of each type — clearly and at length — to three different partners.",
-          blocks: [
+          "id": "q3",
+          "short": "Answer",
+          "minutes": 10,
+          "grouping": "Pair",
+          "art": "dec10/assets/week3/v/v-d10w3d5-q3.svg",
+          "title": "Answer the individual questions",
+          "goal": "Answer one question of each type — clearly and at length — to three different partners.",
+          "blocks": [
             {
-              type: "figure",
-              src: "dec10/assets/week3/d5-speed-circle.svg",
-              size: "wide",
-              alt: "Inner and outer circle. Inner circle A asks the question, outer circle B answers for one minute, A gives one tip, then B moves one seat. Then swap roles.",
-              caption: "Inner and outer circle: a new partner every round."
+              "type": "figure",
+              "src": "dec10/assets/week3/d5-speed-circle.svg",
+              "size": "wide",
+              "alt": "Inner and outer circle. Inner circle A asks the question, outer circle B answers for one minute, A gives one tip, then B moves one seat. Then swap roles.",
+              "caption": "Inner and outer circle: a new partner every round."
             },
             {
-              type: "steps",
-              items: [
-                {"who":"alone","text":"First, write <b>key words only</b> for both questions (2 min, below)."},
-                {"who":"class","text":"<b>Stand up.</b> Make two circles. <b>Inner circle (A)</b> = the <b>interlocutor</b>: ask Question 1. <b>Outer circle (B)</b>: answer for about <b>one minute</b>."},
-                {"who":"pair","text":"A gives one quick tip. Then <b>B moves one seat</b> to the right. A asks Question 2."},
-                {"who":"class","text":"After two rounds, <b>swap</b>: B asks, A answers. If you can, video one answer so you can review it later."}
-              ]
-            },
-            {"type":"tip","text":"Your teacher may give the inner circle a <b>paper question card</b> and the outer circle a <b>speaker card</b>. No cards? Read the two questions and the language on this page."},
-            {
-              type: "cards",
-              title: "The individual questions",
-              numbered: true,
-              items: [
-                {"label":"Question about the ideas in the text","text":"In Paragraph D, the writer says that “differentiating between green skills and green jobs is important.” Can you summarise the writer’s reason for saying this?"},
-                {"label":"Question about personal response","text":"How do you think needing green skills could influence your future study plans or your career?"}
-              ]
-            },
-            {
-              type: "language",
-              title: "Language for individual questions",
-              groups: [
-                {"label":"Summarise the writer","phrases":["<b>The writer states that</b> … <b>because</b> …","<b>The main reason the writer gives is that</b> …","<b>In other words</b>, …","<b>The writer also mentions</b> …"]},
-                {"label":"Give your view","phrases":["<b>Personally, I think</b> …","<b>To be honest, I haven’t thought much about</b> …, <b>but</b> …","<b>For me, the most important thing is</b> …"]},
-                {"label":"Extend it","phrases":["<b>For example, in my</b> course / country …","<b>This makes me want to</b> …","<b>That’s why</b> I might …"]},
-                {"label":"Buy time / fix it","phrases":["<b>That’s an interesting question.</b>","<b>What I mean is</b> …","<b>Let me put it another way</b> …"]}
+              "type": "steps",
+              "items": [
+                {
+                  "who": "alone",
+                  "text": "First, write <b>key words only</b> for both questions (2 min, below)."
+                },
+                {
+                  "who": "class",
+                  "text": "<b>Stand up.</b> Make two circles. <b>Inner circle (A)</b> = the <b>interlocutor</b>: ask Question 1. <b>Outer circle (B)</b>: answer for about <b>one minute</b>."
+                },
+                {
+                  "who": "pair",
+                  "text": "A gives one quick tip. Then <b>B moves one seat</b> to the right. A asks Question 2."
+                },
+                {
+                  "who": "class",
+                  "text": "After two rounds, <b>swap</b>: B asks, A answers. If you can, video one answer so you can review it later."
+                }
               ]
             },
             {
-              type: "fields",
-              fields: [
-                {"id":"q3-n1","label":"Question 1 — my notes (key words only)","rows":2},
-                {"id":"q3-n2","label":"Question 2 — my notes (key words only)","rows":2}
+              "type": "tip",
+              "text": "Your teacher may give the inner circle a <b>paper question card</b> and the outer circle a <b>speaker card</b>. No cards? Read the two questions and the language on this page."
+            },
+            {
+              "type": "cards",
+              "title": "The individual questions",
+              "numbered": true,
+              "items": [
+                {
+                  "label": "Question about the ideas in the text",
+                  "text": "In Paragraph D, the writer says that “differentiating between green skills and green jobs is important.” Can you summarise the writer’s reason for saying this?"
+                },
+                {
+                  "label": "Question about personal response",
+                  "text": "How do you think needing green skills could influence your future study plans or your career?"
+                }
               ]
             },
-            {"type":"tip","text":"Don’t write full answers. Speak from key words — in the assessment you answer on the spot."}
+            {
+              "type": "language",
+              "title": "Language for individual questions",
+              "groups": [
+                {
+                  "label": "Summarise the writer",
+                  "phrases": [
+                    "<b>The writer states that</b> … <b>because</b> …",
+                    "<b>The main reason the writer gives is that</b> …",
+                    "<b>In other words</b>, …",
+                    "<b>The writer also mentions</b> …"
+                  ]
+                },
+                {
+                  "label": "Give your view",
+                  "phrases": [
+                    "<b>Personally, I think</b> …",
+                    "<b>To be honest, I haven’t thought much about</b> …, <b>but</b> …",
+                    "<b>For me, the most important thing is</b> …"
+                  ]
+                },
+                {
+                  "label": "Extend it",
+                  "phrases": [
+                    "<b>For example, in my</b> course / country …",
+                    "<b>This makes me want to</b> …",
+                    "<b>That’s why</b> I might …"
+                  ]
+                },
+                {
+                  "label": "Buy time / fix it",
+                  "phrases": [
+                    "<b>That’s an interesting question.</b>",
+                    "<b>What I mean is</b> …",
+                    "<b>Let me put it another way</b> …"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "fields",
+              "fields": [
+                {
+                  "id": "q3-n1",
+                  "label": "Question 1 — my notes (key words only)",
+                  "rows": 2
+                },
+                {
+                  "id": "q3-n2",
+                  "label": "Question 2 — my notes (key words only)",
+                  "rows": 2
+                }
+              ]
+            },
+            {
+              "type": "tip",
+              "text": "Don’t write full answers. Speak from key words — in the assessment you answer on the spot."
+            }
           ],
-          answers: {
-            title: "Suggested responses",
-            items: [
-              ["Question 1","The writer states that differentiating between green skills and green jobs is important because green skills give more details about what changes exactly the job market needs so that it can transition to a green economy. This in turn will help policymakers come up with the training that needs to be done. The writer also gives three aspects of a green economy that affect the skills that are needed."],
-              ["Question 2","The aim is a response that is relevant, coherent and extended — not simply paraphrased ideas from the text. You might say: I haven’t thought much about green skills, but it highlights how careers might change in the future, so I need to be aware of these skills. / It will make me pay more attention to any references to green skills when I’m doing my degree. / If I can demonstrate I have green skills it might help me get better jobs. This makes me want to ask more questions about how my current courses can incorporate these skills and what additional knowledge or training I might need."]
+          "answers": {
+            "title": "Suggested responses",
+            "items": [
+              [
+                "Question 1",
+                "The writer states that differentiating between green skills and green jobs is important because green skills give more details about what changes exactly the job market needs so that it can transition to a green economy. This in turn will help policymakers come up with the training that needs to be done. The writer also gives three aspects of a green economy that affect the skills that are needed."
+              ],
+              [
+                "Question 2",
+                "The aim is a response that is relevant, coherent and extended — not simply paraphrased ideas from the text. You might say: I haven’t thought much about green skills, but it highlights how careers might change in the future, so I need to be aware of these skills. / It will make me pay more attention to any references to green skills when I’m doing my degree. / If I can demonstrate I have green skills it might help me get better jobs. This makes me want to ask more questions about how my current courses can incorporate these skills and what additional knowledge or training I might need."
+              ]
             ]
           }
         },
         {
-          id: "q4",
-          short: "Feedback",
-          minutes: 4,
-          grouping: "Pair",
-          art: "dec10/assets/week3/v/v-d10w3d5-q4.svg",
-          title: "Feedback on your answers",
-          goal: "Give your partner quick, useful feedback.",
-          blocks: [
+          "id": "q4",
+          "short": "Feedback",
+          "minutes": 3,
+          "grouping": "Pair",
+          "art": "dec10/assets/week3/v/v-d10w3d5-q4.svg",
+          "title": "Feedback on your answers",
+          "goal": "Give your partner quick, useful feedback.",
+          "blocks": [
             {
-              type: "form",
-              id: "q4-form",
-              title: "Individual questions · quick feedback",
-              observe: "Whose answers are you giving feedback on?",
-              scale: ["Yes","Mostly","Needs work"],
-              sections: [
-                {"label":"Question about the ideas in the text","items":["The answer gave the writer’s reason clearly.","The answer used their own words (not read from the text)."]},
-                {"label":"Question about personal response","items":["The answer was relevant to the question.","The answer was coherent (easy to follow).","The answer was extended (reasons and examples)."]}
+              "type": "form",
+              "id": "q4-form",
+              "title": "Individual questions · quick feedback",
+              "observe": "Whose answers are you giving feedback on?",
+              "scale": [
+                "Yes",
+                "Mostly",
+                "Needs work"
               ],
-              send: true,
-              sendLabel: "Send to my partner",
-              sendHint: "Send this quick feedback to the classmate you listened to."
+              "sections": [
+                {
+                  "label": "Question about the ideas in the text",
+                  "items": [
+                    "The answer gave the writer’s reason clearly.",
+                    "The answer used their own words (not read from the text)."
+                  ]
+                },
+                {
+                  "label": "Question about personal response",
+                  "items": [
+                    "The answer was relevant to the question.",
+                    "The answer was coherent (easy to follow).",
+                    "The answer was extended (reasons and examples)."
+                  ]
+                }
+              ],
+              "send": true,
+              "sendLabel": "Send to my partner",
+              "sendHint": "Send this quick feedback to the classmate you listened to."
             },
             {
-              type: "talk",
-              title: "Talk about it",
-              prompts: ["Which question was harder for you? Why?","What will you do differently next time you answer an individual question?"]
+              "type": "talk",
+              "title": "Talk about it",
+              "prompts": [
+                "Which question was harder for you? Why?",
+                "What will you do differently next time you answer an individual question?"
+              ]
             },
             {
-              type: "fields",
-              fields: [{"id":"q4-exit","label":"Exit ticket · say it like an academic: finish the sentence","rows":2,"placeholder":"The writer states that differentiating between green skills and green jobs is important because …"}]
+              "type": "do",
+              "n": 1,
+              "who": "pair",
+              "text": "<b>Second try (1 minute).</b> Answer Question 2 again to a new partner, using the tip you got. Was it longer and clearer this time?"
+            },
+            {
+              "type": "fields",
+              "fields": [
+                {
+                  "id": "q4-exit",
+                  "label": "Exit ticket · say it like an academic: finish the sentence",
+                  "rows": 2,
+                  "placeholder": "The writer states that differentiating between green skills and green jobs is important because …"
+                }
+              ]
             }
           ]
         }
