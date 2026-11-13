@@ -60,14 +60,7 @@ window.DEC15_COURSE = {
       thumbs: ['dec10/assets/downloads/id-rubric-student-p1.jpg'],
       what: 'The Interactive Discussion rubric in plain English: the four skills that get a score (Argumentation, Engagement & Interaction, Pronunciation & Flow, Language Use), what to do for each, and what each level looks like.',
       when: ['Introduction to the Interactive Discussion Assessment (Week 3, 20A)', 'Interactive Discussion practice in class (Weeks 3–10)', 'Setting your goals before the Week 10 assessment'],
-      how: ['Download the guide and save it in your DEC10 folder.', 'Read the <b>What to do</b> box for each of the four skills.', 'After each practice discussion, decide which level you reached for each skill.', 'Write your scores from your teacher in the <b>My scores</b> row and <b>save</b> the file.'] },
-    { id: 'id-rubric-teacher', title: 'Interactive Discussion Rubric: Teacher Version', sub: 'The full marking rubric · Week 10 assessment',
-      kind: 'Fillable PDF', pages: 2, size: '220 KB', tone: 'plum', action: 'Download the rubric', howTitle: 'How to use it',
-      file: 'dec10/downloads/DEC10-Interactive-Discussion-Rubric-Teacher.pdf',
-      thumbs: ['dec10/assets/downloads/id-rubric-teacher-p1.jpg', 'dec10/assets/downloads/id-rubric-teacher-p2.jpg'],
-      what: 'The full rubric teachers use to mark the Interactive Discussion: every criterion in the four skills, with a description for each score band from 50 or less to 76 or more.',
-      when: ['Marking practice discussions and the Week 10 assessment (teachers)', 'Checking the exact wording of a score band (students)'],
-      how: ['Download the rubric and open it in <b>Adobe Acrobat Reader</b> (free) or <b>Preview</b> on a Mac.', 'Fill in the teacher, class and student at the top.', 'For each skill, find the band that best describes the performance.', '<b>Save</b> a copy for each student.'] }
+      how: ['Download the guide and save it in your DEC10 folder.', 'Read the <b>What to do</b> box for each of the four skills.', 'After each practice discussion, decide which level you reached for each skill.', 'Write your scores from your teacher in the <b>My scores</b> row and <b>save</b> the file.'] }
   ],
   /* PHOTOCOPIABLES (teacher only · side panel → Photocopiables, #/print, and a card on the activity in Teacher view).
      Paper versions of class activities so students stand up and work together away from their laptops.
