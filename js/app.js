@@ -1438,7 +1438,7 @@ function paintPanel(mode) {
       panel.querySelectorAll('.wb-day').forEach(b => { const on = b.dataset.wbDay === wbDay; b.classList.toggle('sel', on); b.setAttribute('aria-pressed', String(on)); }); return; }
   }
   const was = panel.dataset.week ? +panel.dataset.week : 0;
-  panel.innerHTML = weekPanel(wbOpen, navRoute); panel.dataset.week = wbOpen;
+  panel.innerHTML = `<div class="wb-sheet-bar"><b>Week ${wbOpen}</b><button type="button" class="wb-close" data-wb-close aria-label="Close the week menu">Close</button></div>` + weekPanel(wbOpen, navRoute); panel.dataset.week = wbOpen;   // .wb-sheet-bar shows on phones only (css/precision.css §17)
   if (panel.hidden || mode === 'open') { panel.hidden = false; panel.classList.remove('in'); void panel.offsetWidth; panel.classList.add('in'); }
   else { panel.classList.remove('in'); const g = panel.querySelector('.wb-grid'); g.style.setProperty('--dir', wbOpen > was ? '1' : '-1'); g.classList.add('swap'); }
   glideDay(panel, true); notch(panel);
@@ -1485,6 +1485,8 @@ function wbPickDay(id) { if (id === wbDay) return; wbDay = id; paintPanel('day')
 document.addEventListener('click', e => {
   const t = e.target.closest?.('[data-wb-week], [data-wb-day], .wb-panel a, #weekbar');
   if (!t) { if (wbOpen) wbSet(null); return; }
+  /* phone: the sheet's Close button, and a tap on the dimmed page behind the sheet (the week bar's own ::after) */
+  if (wbOpen && (e.target.closest?.('[data-wb-close]') || e.target.id === 'weekbar')) { const n = wbOpen; wbSet(null); $(`[data-wb-week="${n}"]`)?.focus({ preventScroll: true }); return; }
   if (t.dataset?.wbWeek) { const n = +t.dataset.wbWeek; if (wbOpen === n && Date.now() - wbHoverAt < 600) return; wbDay = null; wbSet(wbOpen === n ? null : n); $(`[data-wb-week="${n}"]`)?.focus(); return; }
   if (t.dataset?.wbDay) { wbPickDay(t.dataset.wbDay); $(`[data-wb-day="${wbDay}"]`)?.focus(); return; }
   if (t.matches('.wb-panel a, .wb-go')) wbSet(null);
