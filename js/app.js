@@ -705,8 +705,12 @@ function courseMapRich(current) {
   const rail = s => `<path d="M-18 ${s}H18" stroke="#8a6f4e" stroke-width="1.8" stroke-linecap="round"/>${[-16, -8, 0, 8, 16].map(px => `<path d="M${px} ${s}v${s < 0 ? 4 : -4}" stroke="#8a6f4e" stroke-width="1.4"/>`).join('')}`;
   /* labels alternate below / above the road so neighbours never collide; the "You are here" bubble then sits higher */
   const up = i => i % 2 === 1 && i < N - 1;   // the finish keeps its label below, clear of the flag
-  const lab = (w, i) => { const y = pts[i][1], x = pts[i][0] + (i === N - 1 && N > 1 ? 22 : 0), t = esc(w.label), wd = Math.round(w.label.length * 6.5 + 20), ty = y + (up(i) ? -33 : 42);
-    return `<g class="cm-label"><rect x="${x - wd / 2}" y="${ty - 13}" width="${wd}" height="19" rx="9.5" fill="#fffdf6" fill-opacity=".9" stroke="#14293a" stroke-opacity=".08"/><text x="${x}" y="${ty}" text-anchor="middle" font-size="11.5" font-weight="700" font-family="Manrope, sans-serif" fill="#14293a">${t}</text></g>`; };
+  /* the week you are in: its own label becomes the navy "You are here · …" pill, so no second bubble can sit on a neighbour's label */
+  const lab = (w, i) => { const y = pts[i][1], now = w.n === current, txt = now ? 'You are here · ' + w.label : w.label, t = esc(txt), wd = Math.round(txt.length * (now ? 6.3 : 6.5) + (now ? 34 : 20)), ty = y + (up(i) ? -33 : 42);
+    const x = Math.max(wd / 2 + 8, Math.min(1000 - wd / 2 - 8, pts[i][0] + (i === N - 1 && N > 1 ? 22 : 0)));
+    return now
+      ? `<g class="cm-label cm-label-now"><rect x="${x - wd / 2}" y="${ty - 14.5}" width="${wd}" height="22" rx="11" fill="#14293a"/><circle cx="${x - wd / 2 + 12}" cy="${ty - 3.5}" r="3" fill="#e3a843"/><text x="${x + 7}" y="${ty}" text-anchor="middle" font-size="11.5" font-weight="700" font-family="Manrope, sans-serif" fill="#fff">${t}</text></g>`
+      : `<g class="cm-label"><rect x="${x - wd / 2}" y="${ty - 13}" width="${wd}" height="19" rx="9.5" fill="#fffdf6" fill-opacity=".9" stroke="#14293a" stroke-opacity=".08"/><text x="${x}" y="${ty}" text-anchor="middle" font-size="11.5" font-weight="700" font-family="Manrope, sans-serif" fill="#14293a">${t}</text></g>`; };
   const walker = `<g transform="translate(-34 -2)"><g class="cm-walker"><ellipse cy="13" rx="7" ry="1.8" fill="#14293a" opacity=".14"/><path d="M-2 4-4 12M2 4l3 8" stroke="#2c3e50" stroke-width="2.4" stroke-linecap="round"/><rect x="-4.5" y="-7" width="9" height="12" rx="3.5" fill="#2f6db5"/><rect x="-8" y="-6" width="5" height="9" rx="2" fill="#e3a843"/><path d="M4-4l3 5" stroke="#f0c9a0" stroke-width="2.2" stroke-linecap="round"/><circle cy="-11" r="4.2" fill="#f0c9a0"/><path d="M-4.2-11.5a4.2 4.2 0 0 1 8.4-1c-2 .6-5 .6-8.4 1z" fill="#3b2a20"/></g></g>`;
   const peaks = [[60, 92], [150, 70], [240, 82], [360, 66], [470, 74], [585, 56], [700, 70], [820, 58], [940, 66]];
   return `<svg class="course-map-svg cm-rich" viewBox="0 0 1000 ${H}" role="group" aria-label="Course map: ${course.map.map(w => `Week ${w.n}, ${w.label}`).join('; ')}. You are in Week ${current}.">
@@ -801,7 +805,7 @@ function courseMapRich(current) {
         <circle class="cm-disc" r="18" fill="url(#cm-${st})" stroke="${st === 'next' ? '#d9cdb6' : 'none'}" stroke-width="1.2"/>
         <path d="M-12-7a14 14 0 0 1 11-10" stroke="#fff" stroke-opacity="${st === 'next' ? '.9' : '.45'}" stroke-width="2.4" fill="none" stroke-linecap="round"/>
         ${st === 'past' ? '<path d="m-7 0 5 5 9-10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>' : `<text y="5.5" text-anchor="middle" font-size="16" font-weight="800" font-family="Manrope, sans-serif" fill="${st === 'now' ? '#14293a' : '#7d8992'}">${w.n}</text>`}
-        ${st === 'now' ? `${walker}<g transform="translate(${last ? -66 : 0} ${last ? -40 : up(i) ? -76 : -54})"><rect x="-52" y="-15" width="104" height="27" rx="13.5" fill="#14293a"/>${last ? '' : '<path d="M-6 11h12l-6 8z" fill="#14293a"/>'}<circle cx="-38" cy="-1.5" r="3.2" fill="#e3a843"/><text x="6" y="3" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="Manrope, sans-serif">You are here</text></g>` : ''}
+        ${st === 'now' ? walker : ''}
       </g>`; }).join('')}
     ${course.map.map((w, i) => lab(w, i)).join('')}
     </g>

@@ -1,0 +1,407 @@
+/* DEC10 · precision (v9.0): one last pass for exactness. Loaded last; everything is scoped to [data-course="dec10"],
+   so DEC15 is untouched. Nothing here changes lesson content, ids or behaviour — only measure, type and finish.
+   1. Tokens & base type   2. Page ground   3. Side panel (light)   4. Top bar & week bar
+   5. Course map   6. Calendar & assessments   7. Lesson pages   8. Lab, downloads, workspace   9. Small screens
+   One hairline (--px-line), one shadow scale (--px-e1 … --px-e3), one focus ring, tabular figures wherever numbers
+   line up, and no decoration that does not carry meaning. */
+
+/* ───────── 1. tokens & base type ───────── */
+[data-course="dec10"] {
+  --px-line: rgba(20, 41, 58, .1);
+  --px-line-soft: rgba(20, 41, 58, .065);
+  --px-line-strong: rgba(20, 41, 58, .16);
+  --px-e1: 0 0 0 1px var(--px-line-soft), 0 1px 2px rgba(20, 41, 58, .04);
+  --px-e2: 0 0 0 1px var(--px-line-soft), 0 1px 2px rgba(20, 41, 58, .04), 0 8px 20px -12px rgba(20, 41, 58, .16);
+  --px-e3: 0 0 0 1px var(--px-line-soft), 0 2px 4px rgba(20, 41, 58, .04), 0 18px 40px -20px rgba(20, 41, 58, .24);
+  --px-ochre: #e64626;
+  --px-ink: #14293a;
+  --px-ring: 0 0 0 2px #fff, 0 0 0 4px #1d5a87;
+}
+[data-course="dec10"] body { font-kerning: normal; font-optical-sizing: auto; font-synthesis: none; }
+/* figures: lining everywhere; tabular where they are compared or counted */
+[data-course="dec10"] :is(h1, h2, h3, h4, .wb-num, .dc-num, .ws-num, .wk-num) { font-variant-numeric: lining-nums; }
+[data-course="dec10"] :is(time, .wb-tx, .side-prog, #progress-label, .dc-foot, .resume-meta, .tab-min, .act-min, [class*="min"], [class*="count"], [class*="pct"], [class*="date"], [class*="when"], [class*="time"]) { font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] :is(p, li, dd, blockquote) { text-wrap: pretty; }
+[data-course="dec10"] ::selection { background: #fde6b0; color: var(--px-ink); }
+/* one focus ring: a white gap, then blue — visible on paper, white and navy alike */
+[data-course="dec10"] :is(a, button, input, textarea, select, summary, [tabindex], [role="button"]):focus-visible { outline: 0; box-shadow: var(--px-ring); }
+[data-course="dec10"] :is(input, textarea, select):focus-visible { box-shadow: 0 0 0 1px #1d5a87, 0 0 0 4px rgba(29, 90, 135, .18); }
+[data-course="dec10"] main:focus-visible, [data-course="dec10"] .activity:focus-visible { box-shadow: none; }
+/* quiet scrollbars */
+[data-course="dec10"] * { scrollbar-width: thin; scrollbar-color: rgba(20, 41, 58, .22) transparent; }
+[data-course="dec10"] ::-webkit-scrollbar { width: 10px; height: 10px; }
+[data-course="dec10"] ::-webkit-scrollbar-thumb { background: rgba(20, 41, 58, .2); border-radius: 10px; border: 3px solid transparent; background-clip: content-box; }
+[data-course="dec10"] ::-webkit-scrollbar-thumb:hover { background-color: rgba(20, 41, 58, .36); }
+
+/* ───────── 2. page ground: warm paper with a breath of colour, not four coloured clouds ───────── */
+[data-course="dec10"] body {
+  background-color: #f4f1eb;
+  background-image:
+    radial-gradient(52% 40% at 92% 0%, rgba(173, 216, 201, .2), transparent 72%),
+    radial-gradient(44% 36% at 30% 0%, rgba(214, 208, 236, .16), transparent 72%),
+    radial-gradient(46% 40% at 8% 100%, rgba(240, 214, 170, .2), transparent 72%);
+  background-attachment: fixed;
+}
+
+/* ───────── 3. side panel (light, the default): a plain white sheet ─────────
+   No dot pattern, no glow, no second frame. One hairline, one soft shadow. Every icon tile is the same quiet tint of
+   its own colour; the open page is a flat tinted row with a 3px bar. The progress card stays in view at the foot. */
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar {
+  background: linear-gradient(180deg, #fff 0, #fff calc(100% - 140px), #fbf8f4 100%) !important;
+  outline: 0; padding: 16px 12px 0;
+}
+@media (min-width: 901px) {
+  [data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar {
+    border-radius: 20px; outline: 0;
+    box-shadow: 0 0 0 1px var(--px-line), 0 1px 2px rgba(20, 41, 58, .04), 0 16px 36px -20px rgba(20, 41, 58, .22) !important;
+  }
+  [data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar::before { content: none; }
+}
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .uni { padding: 6px 12px 14px; }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .uni img { width: 132px; height: auto; display: block; }
+
+/* the course card */
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-course {
+  margin: 0 2px; padding: 10px 12px 10px 10px; gap: 11px; border-radius: 12px; background: #fbf9f6;
+  -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: inset 0 0 0 1px var(--px-line-soft);
+}
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .sc-code {
+  padding: 6px 8px; border-radius: 6px; background: var(--px-ochre); box-shadow: none; font-weight: 800; font-size: .7rem; letter-spacing: .08em;
+}
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .sc-name { font-weight: 700; font-size: .81rem; letter-spacing: -.005em; }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .sc-name small { font-weight: 600; letter-spacing: 0; }
+
+/* search */
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-course + .side-search { margin-top: 12px; }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-course + .side-search::before { content: none; }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-search { margin-left: 2px; margin-right: 2px; }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-search input {
+  height: 36px; border-radius: 10px; background: #fff; box-shadow: inset 0 0 0 1px var(--px-line); font-size: .84rem;
+}
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-search input:hover { box-shadow: inset 0 0 0 1px var(--px-line-strong); }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-search input:focus { background: #fff; box-shadow: inset 0 0 0 1px #1d5a87, 0 0 0 3px rgba(29, 90, 135, .16); }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-search kbd { box-shadow: none; border-color: var(--px-line); background: #f7f5f1; font-size: .66rem; }
+
+/* rows */
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-main { gap: 1px; padding-bottom: 14px; margin-top: 10px; }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-link {
+  height: 40px; padding: 0 10px 0 6px; gap: 11px; border-radius: 10px; color: #2c3a47; font-weight: 600; font-size: .86rem; letter-spacing: -.003em;
+  transition: background .15s, color .15s;
+}
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-link:hover { background: rgba(20, 41, 58, .045); color: var(--px-ink); }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-link.active {
+  background: color-mix(in srgb, var(--tc) 9%, #fff); color: var(--px-ink); font-weight: 700;
+  -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none;
+}
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-link.active::before { left: -12px; top: 8px; bottom: 8px; height: auto; width: 3px; border-radius: 0 3px 3px 0; box-shadow: none; }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-link.active::after { content: none; }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-ic {
+  width: 28px; height: 28px; border-radius: 8px; background: color-mix(in srgb, var(--tc) 10%, #fff); box-shadow: none;
+  transition: background .15s, color .15s;
+}
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-ic svg { width: 16px; height: 16px; stroke-width: 1.75; }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-link:hover .side-ic { transform: none; background: color-mix(in srgb, var(--tc) 16%, #fff); }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-link.active .side-ic { background: var(--tc); color: #fff; box-shadow: none; }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-ext { width: 11px; height: 11px; opacity: .55; }
+
+/* group label: small capitals and a rule — no ornament */
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-group { margin: 14px 8px 6px !important; gap: 10px; font-size: .62rem; font-weight: 700; letter-spacing: .12em; color: #8a949d !important; }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-group::before { content: none; }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-group::after { background: var(--px-line-soft); }
+
+/* foot: progress and settings stay in view while the list scrolls */
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-progress.side-foot {
+  position: sticky; bottom: 0; z-index: 2; margin: auto -12px 0; padding: 10px 14px 12px; border-radius: 0;
+  background: #fff !important; -webkit-backdrop-filter: none; backdrop-filter: none;
+  box-shadow: 0 -1px 0 var(--px-line-soft), 0 -12px 14px -10px rgba(255, 255, 255, .9) !important;
+}
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-prog { font-size: .78rem; }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-gear { background: #fff; box-shadow: inset 0 0 0 1px var(--px-line); border-radius: 9px; }
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-gear:hover,
+[data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar .side-gear[aria-expanded="true"] { color: var(--px-ink); background: #f7f5f1; box-shadow: inset 0 0 0 1px var(--px-line-strong); }
+
+/* ───────── 4. top bar & week bar ─────────
+   Every control in the top bar is the same height (32px), the same radius (8px) and the same weight; the three tool
+   buttons are one segmented group behind a hairline. All ten weeks fit across the week bar on a laptop — none is cut off. */
+[data-course="dec10"] .masthead::before { background: rgba(252, 251, 248, .92); box-shadow: 0 1px 0 var(--px-line); }
+[data-course="dec10"] .masthead .topbar { gap: 8px; }
+[data-course="dec10"] .masthead .crumb { font-size: .8rem; letter-spacing: -.003em; gap: 8px; }
+[data-course="dec10"] .masthead .crumb b { font-weight: 700; color: var(--px-ink); }
+[data-course="dec10"] .masthead .crumb i { color: rgba(20, 41, 58, .28); }
+[data-course="dec10"] .masthead #save-status { margin-right: 0; font-size: .74rem; font-weight: 600; color: #5d6a74; }
+[data-course="dec10"] .masthead :is(.account-btn, .class-btn, .answers-pill, .timer-btn) {
+  height: 32px; border-radius: 8px; font-size: .78rem; font-weight: 650; letter-spacing: -.003em;
+}
+[data-course="dec10"] .masthead #save-status + .account-btn, [data-course="dec10"] .masthead .account-btn {
+  padding: 0 12px; color: var(--px-ink) !important; background: #fff !important; box-shadow: inset 0 0 0 1px var(--px-line-strong) !important;
+  transition: background .15s, box-shadow .15s;
+}
+[data-course="dec10"] .masthead #save-status + .account-btn:hover { background: #f7f5f1 !important; box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .28) !important; }
+[data-course="dec10"] .masthead .class-btn { padding: 0 12px 0 4px; gap: 8px; }
+[data-course="dec10"] .masthead .class-btn .cb-lock { width: 24px; height: 24px; }
+[data-course="dec10"] .masthead .class-btn .cb-lock svg { width: 14px; height: 14px; }
+[data-course="dec10"] .masthead .tools { position: relative; gap: 0; padding: 0 0 0 9px; margin-left: 1px; background: none !important; box-shadow: none !important; border: 0; border-radius: 0; }
+[data-course="dec10"] .masthead .tools::before { content: ""; position: absolute; left: 0; top: 50%; width: 1px; height: 18px; margin-top: -9px; background: var(--px-line-strong); }
+[data-course="dec10"] .masthead .tools button { height: 32px; padding: 0 10px; gap: 7px; border-radius: 8px; font-size: .78rem; font-weight: 650; color: #3d505e; transition: background .15s, color .15s; }
+[data-course="dec10"] .masthead .tools button:hover { background: rgba(20, 41, 58, .055) !important; color: var(--px-ink); }
+[data-course="dec10"] .masthead .tools button .icon { width: 15px; height: 15px; }
+
+/* week bar */
+[data-course="dec10"] .weekbar .wb-row { gap: 2px; scrollbar-width: none; }
+[data-course="dec10"] .weekbar .wb-row::-webkit-scrollbar { display: none; }
+[data-course="dec10"] .weekbar .wb-item { height: 32px; gap: 7px; padding: 0 8px 0 4px; border-radius: 8px; font-size: .8rem; font-weight: 650; letter-spacing: -.003em; transition: background .15s, color .15s; }
+[data-course="dec10"] .weekbar .wb-item:hover, [data-course="dec10"] .weekbar .wb-item.open { background: rgba(20, 41, 58, .05) !important; }
+[data-course="dec10"] .weekbar .wb-item:hover .wb-num { transform: none; }
+[data-course="dec10"] .weekbar .wb-num { width: 22px; height: 22px; border-radius: 6px; font-size: .82rem; }
+[data-course="dec10"] .weekbar .wb-item.is-current .wb-num, [data-course="dec10"] .weekbar .wb-item.open .wb-num { box-shadow: none; background: var(--wk) !important; }
+[data-course="dec10"] .weekbar .wb-item.is-current .wb-num { background: var(--px-ochre) !important; }
+[data-course="dec10"] .weekbar .wb-item.is-current .wb-tx, [data-course="dec10"] .weekbar .wb-item.open .wb-tx { font-weight: 750; }
+[data-course="dec10"] .weekbar .wb-item.is-current::after { content: ""; position: absolute; left: 4px; right: 8px; bottom: -6px; height: 2px; border-radius: 2px 2px 0 0; background: var(--px-ochre); }
+[data-course="dec10"] .weekbar .wb-item.is-soon { color: #8a949d; }
+[data-course="dec10"] .weekbar .wb-chev { display: none; }
+[data-course="dec10"] .weekbar .wb-go { height: 28px; border-radius: 8px; font-size: .76rem; font-weight: 700; letter-spacing: -.003em; white-space: nowrap; }
+@media (min-width: 1360px) { [data-course="dec10"] .weekbar .wb-row { justify-content: space-between; } }
+
+/* floating buttons: on a laptop they dock to the window edge, so they never sit on a button or a number in the page */
+[data-course="dec10"] .dx-fab { height: 44px; padding: 0 4px; gap: 8px; background: var(--px-ink); animation: none !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .9), 0 8px 20px -10px rgba(20, 41, 58, .6); }
+[data-course="dec10"] .dx-fab-ic { width: 36px; height: 36px; background: #fffaf0; box-shadow: none; }
+[data-course="dec10"] .dx-fab-ic svg { width: 24px; height: 24px; }
+[data-course="dec10"] .dx-fab-ic::after { content: none; }
+[data-course="dec10"] .dx-fab:hover, [data-course="dec10"] .dx-fab:focus-visible { transform: none; box-shadow: 0 0 0 1px rgba(255, 255, 255, .9), 0 0 0 3px rgba(227, 168, 67, .55), 0 10px 22px -10px rgba(20, 41, 58, .7); }
+[data-course="dec10"] .to-top { width: 40px; height: 40px; background: #fff; border-color: var(--px-line-strong); box-shadow: var(--px-e2); -webkit-backdrop-filter: none; backdrop-filter: none; }
+@media (min-width: 901px) and (max-width: 1599px) {
+  [data-course="dec10"] .dx-fab { right: 0; bottom: 76px; padding: 0 2px 0 4px; border-radius: 12px 0 0 12px; box-shadow: 0 0 0 1px rgba(255, 255, 255, .9), -6px 8px 18px -10px rgba(20, 41, 58, .55); }
+  [data-course="dec10"] .dx-fab-ic { border-radius: 9px; }
+  [data-course="dec10"] .to-top { right: 0; bottom: 24px; width: 42px; border-radius: 12px 0 0 12px; border-right: 0; }
+  [data-course="dec10"] body.dx-docked .to-top { border-radius: 12px; border-right: 1px solid var(--px-line-strong); }
+}
+
+/* ───────── 5. course map ───────── */
+/* headers and small capitals: one eyebrow everywhere */
+[data-course="dec10"] .eyebrow { font-size: .68rem; font-weight: 700; letter-spacing: .12em; }
+[data-course="dec10"] .home-head h1 { letter-spacing: -.028em; }
+
+/* "today in class": a plain strip */
+[data-course="dec10"] .home-today { padding: 8px 14px 8px 12px; border-radius: 10px; background: #fff; box-shadow: var(--px-e1); transition: box-shadow .15s; }
+[data-course="dec10"] .home-today:hover { box-shadow: var(--px-e2); transform: none; }
+
+/* the map and the resume card share one frame */
+[data-course="dec10"] .course-map { border-radius: 18px; box-shadow: var(--px-e2); }
+[data-course="dec10"] .resume { border-radius: 18px; padding: 22px 24px 22px 22px; background: #fff !important; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: var(--px-e2) !important; }
+[data-course="dec10"] .resume-art { border-radius: 12px; }
+
+/* week selector: the title never loses its end; the lesson count sits on the title's line */
+[data-course="dec10"] .week-tabs { gap: 4px; padding: 5px; border-radius: 16px; background: rgba(255, 255, 255, .6) !important; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: inset 0 0 0 1px var(--px-line-soft) !important; }
+[data-course="dec10"] .week-tab {
+  display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; grid-template-areas: "num title meta" "num sub sub"; align-items: start; align-content: center; column-gap: 11px; row-gap: 1px;
+  padding: 11px 12px 17px 11px !important; border-radius: 11px; transition: background .15s, box-shadow .15s;
+}
+[data-course="dec10"] .week-tab:hover:not([aria-selected="true"]) { background: rgba(255, 255, 255, .7) !important; }
+[data-course="dec10"] .week-tab[aria-selected="true"] { background: #fff !important; box-shadow: var(--px-e2) !important; }
+[data-course="dec10"] .week-tab-num { grid-area: num; align-self: center; width: 34px; height: 34px; border-radius: 9px; font-size: 1rem; box-shadow: none !important; }
+[data-course="dec10"] .week-tab[aria-selected="true"] .week-tab-num { background: linear-gradient(160deg, #e9b452, #c98a1e) !important; color: #fff; }
+[data-course="dec10"] .week-tab-text { display: contents; }
+[data-course="dec10"] .week-tab-text b { grid-area: title; font-size: .9rem; font-weight: 750; line-height: 1.3; letter-spacing: -.008em; }
+[data-course="dec10"] .week-tab-text small { grid-area: sub; font-size: .74rem; line-height: 1.35; color: #5d6a74; text-wrap: balance; }
+[data-course="dec10"] .week-tab-meta { grid-area: meta; align-self: center; font-size: .6rem; font-weight: 700; letter-spacing: .08em; color: #8a949d; white-space: nowrap; }
+[data-course="dec10"] .week-tab::after { left: 11px; right: 12px; bottom: 7px; height: 2px; top: auto; background: rgba(20, 41, 58, .07); }
+[data-course="dec10"] .week-tab::before { left: 11px; bottom: 7px; height: 2px; width: calc((100% - 23px) * var(--p, 0) / 100%); }
+
+/* week heading */
+[data-course="dec10"] .week-num { width: 56px; height: 56px; border-radius: 14px; background: linear-gradient(160deg, #e9b452, #c98a1e); box-shadow: none; }
+[data-course="dec10"] .week-head h2 { letter-spacing: -.02em; }
+[data-course="dec10"] .week-head p { max-width: 78ch; font-size: .98rem; line-height: 1.55; }
+
+/* day cards */
+[data-course="dec10"] .day-card { border-radius: 16px; background: #fff !important; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: var(--px-e2); transition: box-shadow .2s, transform .2s; }
+[data-course="dec10"] .day-card:hover { box-shadow: var(--px-e3); transform: translateY(-2px); }
+[data-course="dec10"] .day-card::before { height: 3px; }
+[data-course="dec10"] .day-title { font-size: 1.14rem; line-height: 1.24; letter-spacing: -.015em; padding: 12px 18px 0; text-wrap: balance; }
+[data-course="dec10"] .day-parts { padding-top: 12px; }
+[data-course="dec10"] .day-parts li { gap: 9px; font-size: .8rem; line-height: 1.38; color: #3d505e; }
+[data-course="dec10"] .day-parts li + li { margin-top: 6px; }
+[data-course="dec10"] .part-code { min-width: 26px; width: 26px; height: 17px; padding: 0; display: inline-grid; place-items: center; border-radius: 5px; font-size: .64rem; font-weight: 750; font-variant-numeric: lining-nums tabular-nums; margin-top: 1px; }
+[data-course="dec10"] .day-meter { height: 3px; margin: 16px 18px 0; background: rgba(20, 41, 58, .07); }
+[data-course="dec10"] .day-foot { padding: 12px 18px 16px; gap: 8px; font-size: .74rem; font-weight: 600; color: #5d6a74; white-space: nowrap; font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .day-go { padding: 0 10px 0 12px; height: 30px; display: inline-flex; align-items: center; gap: 5px; border-radius: 8px; font-size: .78rem; font-weight: 700; }
+[data-course="dec10"] .day-n-num { box-shadow: 0 0 0 3px #fff; }
+/* five narrow cards: every title keeps room for three lines, so the lists below start on one line across the week */
+[data-course="dec10"] .day-grid.many .day-title { min-height: calc(3 * 1.24em + 12px); }
+
+/* ───────── 6. calendar & assessments ─────────
+   One card: 18px corners, a hairline and a soft shadow. Equal 16px gaps between every block on the page. */
+[data-course="dec10"] :is(.gd-hero, .gd-week, .gx-today, .gx-next, .gd-sem, .gd-terms, .gx-readycard) { border-radius: 18px; }
+[data-course="dec10"] :is(.gd-hero, .gd-week, .gd-sem, .gd-terms, .gx-readycard) { box-shadow: var(--px-e2); }
+[data-course="dec10"] .gd-hero { padding: 28px 36px; }
+[data-course="dec10"] .gd-hero h1 { letter-spacing: -.028em; }
+[data-course="dec10"] .gx-focus { margin-top: 16px; gap: 16px; }
+[data-course="dec10"] .gd-sem { margin: 16px 0 4px; }
+[data-course="dec10"] .gx-today { box-shadow: var(--px-e2); border-color: rgba(230, 70, 38, .22); }
+[data-course="dec10"] .gx-next { box-shadow: 0 0 0 1px rgba(20, 41, 58, .4), 0 18px 36px -22px rgba(20, 41, 58, .6); }
+/* the countdown ring: a word ("Today") is set smaller than a number, so it stays inside the ring */
+[data-course="dec10"] .gx-ring b { font-variant-numeric: lining-nums; letter-spacing: -.02em; }
+[data-course="dec10"] .gx-ring.is-word b { font-size: 1.02rem; letter-spacing: -.01em; }
+[data-course="dec10"] .gx-kind { letter-spacing: .08em; white-space: normal; }
+/* week rail */
+[data-course="dec10"] .gd-rail button { border-radius: 12px; box-shadow: inset 0 0 0 1px var(--px-line-soft); transition: box-shadow .15s, background .15s; }
+[data-course="dec10"] .gd-rail button:hover:not(.is-now) { box-shadow: inset 0 0 0 1px var(--px-line-strong); }
+[data-course="dec10"] .gd-rail button small { font-variant-numeric: lining-nums tabular-nums; }
+
+/* ───────── 7. lesson pages ─────────
+   The same card as everywhere else (18px, hairline, soft shadow). The activity bar shows every activity of the stage
+   on a laptop — a tenth tab is no longer hidden past the edge. */
+[data-course="dec10"] :is(.hero, .essay-q-hero, .stage-head, .activity, .act-tabs, .journey a, .journey li, .how-read, .legend) { border-radius: 18px; }
+[data-course="dec10"] :is(.hero, .stage-head, .activity) { box-shadow: var(--px-e2); }
+[data-course="dec10"] .activity { background: #fff !important; -webkit-backdrop-filter: none; backdrop-filter: none; }
+[data-course="dec10"] .hero h1, [data-course="dec10"] .stage-head h1 { letter-spacing: -.028em; }
+[data-course="dec10"] .hero-lead, [data-course="dec10"] .stage-outcome { max-width: 62ch; }
+
+/* back link, stage dots and chips: 8px controls, like the top bar */
+[data-course="dec10"] .stage-back { border-radius: 9px; background: #fff; box-shadow: var(--px-e1); padding: 6px 12px 6px 8px; transition: box-shadow .15s; }
+[data-course="dec10"] .stage-back:hover { box-shadow: var(--px-e2); }
+[data-course="dec10"] .stage-meta .chip { border-radius: 8px; background: #fff; border-color: var(--px-line); font-variant-numeric: lining-nums tabular-nums; }
+
+/* activity bar */
+[data-course="dec10"] .act-tabs { grid-auto-columns: minmax(88px, 1fr); padding: 12px 8px 10px; background: rgba(255, 255, 255, .78) !important; -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: var(--px-e1) !important; scrollbar-width: none; }
+[data-course="dec10"] .act-tabs::-webkit-scrollbar { display: none; }
+[data-course="dec10"] .act-tabs button { width: auto; min-width: 0; padding: 0 4px 6px; }
+[data-course="dec10"] .act-tabs .tab-text { font-size: .8rem; font-weight: 650; letter-spacing: -.005em; line-height: 1.25; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+[data-course="dec10"] .act-tabs .tab-text small { font-size: .68rem; font-weight: 600; font-variant-numeric: lining-nums tabular-nums; color: #8a949d; }
+[data-course="dec10"] .act-tabs .tab-num { font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .act-tabs button.current .tab-num { box-shadow: 0 0 0 4px #fff, 0 0 0 5px color-mix(in srgb, var(--accent, #2b776e) 35%, transparent); }
+
+/* ───────── 8. one card radius across every page ─────────
+   Earlier layers gave large cards 20–28px corners, page by page. Every large card now has 18px; cards inside a card 12px. */
+[data-course="dec10"] :is(.hero, .essay-q-hero, .stage-head, .activity, .dayline, .journey-card, .legend-wrap,
+  .course-map, .resume, .gd-hero, .gd-week, .gx-today, .gx-next, .gd-sem, .gd-terms, .gx-readycard, .gx-card, .gd-tab, .gd-ready,
+  .lab-top, .lab-acc, .dlx-top, .dlx-item, .pl-head, .pl-calmain, .bd-empty, .ch-out-art, .page-hero, .sh-empty) { border-radius: 18px !important; }
+[data-course="dec10"] :is(.week-tabs, .act-tabs, .gd-rail) { border-radius: 16px !important; }
+[data-course="dec10"] :is(.dlx-desk, main .block) { border-radius: 14px; }
+[data-course="dec10"] :is(.lab-top, .dlx-top, .page-hero, .lab-acc, .dlx-item, .gx-card, .gd-tab, .gd-ready, .dayline, .journey-card, .legend-wrap) { box-shadow: var(--px-e2); }
+[data-course="dec10"] :is(.lab-top, .dlx-top, .page-hero) h1 { letter-spacing: -.028em; }
+[data-course="dec10"] .journey-card { transition: box-shadow .2s, transform .2s; }
+[data-course="dec10"] .journey-card:hover { box-shadow: var(--px-e3); }
+
+/* day timeline: every segment starts on the same line; the "next day" note shows two whole lines, never half a third */
+[data-course="dec10"] .dayline-seg, [data-course="dec10"] .dayline-flag { align-content: start; }
+[data-course="dec10"] .dayline-flag .dayline-num, [data-course="dec10"] .dayline-flag .dayline-title { align-self: start; }
+[data-course="dec10"] .dayline-flag .dayline-min { align-self: start; line-height: 1.45; max-height: calc(2 * 1.45em); }
+[data-course="dec10"] .dayline-min { font-variant-numeric: lining-nums tabular-nums; }
+
+/* ───────── 9. small screens ───────── */
+@media (max-width: 900px) {
+  [data-course="dec10"]:is(:not([data-side]), [data-side="light"]) .sidebar { padding: 14px 12px 0; }
+  [data-course="dec10"] .masthead .tools { padding-left: 0; margin-left: 0; }
+  [data-course="dec10"] .masthead .tools::before { content: none; }
+  [data-course="dec10"] .dx-fab { right: 0; padding: 0 2px 0 4px; border-radius: 12px 0 0 12px; height: 40px; }
+  [data-course="dec10"] .dx-fab-ic { width: 32px; height: 32px; border-radius: 9px; }
+  [data-course="dec10"] .dx-fab-ic svg { width: 22px; height: 22px; }
+  [data-course="dec10"] .week-tab { min-width: 216px; }
+  [data-course="dec10"] :is(.hero, .essay-q-hero, .stage-head, .activity, .course-map, .resume, .gd-hero, .gd-week, .gx-today, .gx-next, .gd-sem, .lab-top, .dlx-top, .dlx-item, .page-hero) { border-radius: 14px !important; }
+  [data-course="dec10"] .day-grid.many .day-title { min-height: 0; }
+}
+@media (prefers-reduced-motion: reduce) { [data-course="dec10"] .day-card:hover { transform: none; } }
+
+/* ───────── 10. lesson activity blocks (v9.1) ─────────
+   Every block type keeps its colour and its meaning (key point gold, speak purple, language bank blue, model green …).
+   What changes is the frame: one corner (14px), one inner padding (22px 24px), a tinted hairline instead of a coloured
+   drop shadow, and every block as wide as the column — the tip and the checklist no longer stop short of the others. */
+
+/* the activity card: head, body, foot */
+[data-course="dec10"] .act-head h2 { letter-spacing: -.022em; text-wrap: balance; }
+[data-course="dec10"] .act-count { font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .act-goal { border-radius: 10px; outline: 0; padding: 12px 16px 12px 18px; }
+[data-course="dec10"] .act-goal::before, [data-course="dec10"] .act-goal::after { box-shadow: none; }
+[data-course="dec10"] .act-head .timer-btn { border-radius: 9px; height: 34px; background: #fff; box-shadow: inset 0 0 0 1px var(--px-line-strong); font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .act-foot { background: #fbfaf7; box-shadow: inset 0 1px 0 var(--px-line-soft); }
+[data-course="dec10"] .done-toggle { border-radius: 10px; box-shadow: inset 0 0 0 1px var(--px-line-strong); transition: background .15s, box-shadow .15s; }
+[data-course="dec10"] .done-toggle:hover { background: #f7f5f1; }
+
+/* buttons: flat navy, no travelling shine */
+[data-course="dec10"] main :is(.btn, a.btn):not(.btn-quiet) {
+  background: var(--px-ink); box-shadow: 0 1px 2px rgba(20, 41, 58, .2), 0 6px 14px -8px rgba(20, 41, 58, .55); letter-spacing: -.003em;
+  transition: background .15s, box-shadow .15s, transform .15s;
+}
+[data-course="dec10"] main :is(.btn, a.btn):not(.btn-quiet)::after { content: none; }
+[data-course="dec10"] main :is(.btn, a.btn):not(.btn-quiet):hover { background: #1f3c55; box-shadow: 0 1px 2px rgba(20, 41, 58, .2), 0 10px 18px -8px rgba(20, 41, 58, .6); }
+[data-course="dec10"] main .btn-quiet { background: #fff; box-shadow: inset 0 0 0 1px var(--px-line-strong); transition: background .15s, box-shadow .15s; }
+[data-course="dec10"] main .btn-quiet:hover { background: #f7f5f1; box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .28); }
+
+/* block frame */
+[data-course="dec10"] .act-body > .block:not(.sticky) { max-width: none; }
+[data-course="dec10"] .act-body > :is(.block.talk, .block.language, .block.steps-block, .block.fscale, .block.kit, .block.play, .block.tip, .block.do-step, .block.checklist, .block.lg-fold, .answers) { border-radius: 14px; }
+[data-course="dec10"] .act-body > :is(.block.talk, .block.language, .block.steps-block, .block.fscale) { padding: 22px 24px; }
+[data-course="dec10"] .act-body > .block.key { border-radius: 16px; }
+[data-course="dec10"] .act-body > .block.talk { box-shadow: inset 0 0 0 1px rgba(110, 76, 170, .16); }
+[data-course="dec10"] .act-body > .block.language { box-shadow: inset 0 0 0 1px rgba(60, 110, 190, .16); }
+[data-course="dec10"] .act-body > .block.do-step { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #2b776e) 12%, transparent); }
+[data-course="dec10"] .act-body > .answers { border-radius: 14px; padding: 16px 20px; }
+
+/* block headings and labels: one size each */
+[data-course="dec10"] .act-body .block :is(h3, .block-heading) { letter-spacing: -.012em; text-wrap: balance; }
+[data-course="dec10"] .act-body .block-label { font-size: .64rem; font-weight: 750; letter-spacing: .12em; padding: 5px 10px 5px 8px; border-radius: 6px; box-shadow: none; }
+
+/* steps: the number, the "who" badge and the text sit on one grid */
+[data-course="dec10"] .act-body .steps li p { box-shadow: inset 0 0 0 1px var(--px-line-soft); border-radius: 10px; max-width: 72ch; }
+[data-course="dec10"] .act-body .who { font-size: .62rem; font-weight: 750; letter-spacing: .1em; }
+
+/* speak prompts and language-bank phrases: hairline cards, no drop shadow */
+[data-course="dec10"] .act-body .talk-prompts li { border-radius: 10px; box-shadow: inset 0 0 0 1px rgba(110, 76, 170, .14); }
+[data-course="dec10"] .act-body .block.language :is(.phrase, li) { box-shadow: inset 0 0 0 1px rgba(60, 110, 190, .18); border-radius: 8px; }
+
+/* text cards (definitions, sources): three across, set at reading size — five cards make 3 + 2, not 4 + an orphan */
+[data-course="dec10"] .act-body .cards { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+[data-course="dec10"] .act-body .cards .card { border-radius: 12px; padding: 16px 18px 18px; box-shadow: inset 0 0 0 1px var(--px-line); }
+[data-course="dec10"] .act-body .cards .card p { font-size: .93rem; line-height: 1.6; }
+[data-course="dec10"] .act-body .cards .card-label { font-size: .64rem; letter-spacing: .1em; font-variant-numeric: lining-nums; }
+
+/* writing fields, checklists, quizzes and tables */
+[data-course="dec10"] .act-body .block.fields :is(textarea, input[type="text"]) { max-width: none; width: 100%; border-radius: 10px; }
+[data-course="dec10"] .act-body .block.checklist :is(li, label) { border-radius: 10px; }
+[data-course="dec10"] .act-body .block.quiz .option { box-shadow: inset 0 0 0 1px var(--px-line-strong); background: #fff; transition: background .15s, box-shadow .15s; }
+[data-course="dec10"] .act-body .block.quiz .option:hover { background: #f7f5f1; }
+[data-course="dec10"] .act-body .table-block :is(th, td) { font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .act-body .table-block th { font-size: .64rem; letter-spacing: .1em; }
+[data-course="dec10"] .act-body .send-bar { border-radius: 14px; }
+[data-course="dec10"] .act-body .send-bar .btn { white-space: nowrap; }
+
+/* ───────── 11. My workspace (v9.1) ─────────
+   css/planner.css loads after this file (with the workspace itself), so every rule here carries the course prefix to
+   win. Same card as the rest of the site; controls are 34px high with 9px corners; figures in the calendars are tabular. */
+[data-course="dec10"] .pl :is(.pl-tree, .pl-main, .pl-rail, .pl-calside, .pl-calmain, .pl-todos, .nb-cover, .nb-empty) { border-radius: 18px; box-shadow: var(--px-e2); }
+[data-course="dec10"] .pl .pl-head { box-shadow: var(--px-e2); background: #fff; -webkit-backdrop-filter: none; backdrop-filter: none; }
+[data-course="dec10"] .pl :is(.ws-nb-bar, .pl-tsum) { border-radius: 14px; box-shadow: var(--px-e1); }
+[data-course="dec10"] .pl .pl-head h1 { letter-spacing: -.02em; }
+[data-course="dec10"] .pl .pl-private { letter-spacing: .1em; }
+
+/* tabs: one segmented control */
+[data-course="dec10"] .pl .pl-tabs { border-radius: 12px; padding: 4px; gap: 2px; background: rgba(20, 41, 58, .05); }
+[data-course="dec10"] .pl .pl-tabs button { border-radius: 9px; height: 38px; transition: background .15s, box-shadow .15s, color .15s; }
+[data-course="dec10"] .pl .pl-tabs button[aria-selected="true"], [data-course="dec10"] .pl .pl-tabs button.on, [data-course="dec10"] .pl .pl-tabs button.active { box-shadow: 0 0 0 1px var(--px-line-soft), 0 1px 2px rgba(20, 41, 58, .08), 0 4px 10px -6px rgba(20, 41, 58, .25); }
+[data-course="dec10"] .pl .pl-tabn { font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .pl .pl-status { border-radius: 8px; box-shadow: inset 0 0 0 1px var(--px-line-soft); font-weight: 600; }
+
+/* buttons and inputs */
+[data-course="dec10"] .pl .pl-btn { border-radius: 9px; height: 34px; letter-spacing: -.003em; box-shadow: none; transition: background .15s, box-shadow .15s; }
+[data-course="dec10"] .pl .pl-btn.ghost { background: #fff; box-shadow: inset 0 0 0 1px var(--px-line-strong); }
+[data-course="dec10"] .pl .pl-btn.ghost:hover { background: #f7f5f1; box-shadow: inset 0 0 0 1px rgba(20, 41, 58, .28); }
+[data-course="dec10"] .pl .pl-btn.pl-arrow { width: 34px; padding: 0; }
+[data-course="dec10"] .pl .pl-seg { border-radius: 9px; height: 34px; }
+[data-course="dec10"] .pl .pl-seg button { border-radius: 7px; }
+[data-course="dec10"] .pl .pl-todos :is(input, select) { border-radius: 10px; }
+[data-course="dec10"] .pl .pl-todos .pl-btn { height: 40px; border-radius: 10px; padding: 0 16px; }
+[data-course="dec10"] .pl .ws-nb-bar select { border-radius: 9px; box-shadow: inset 0 0 0 1px var(--px-line-strong); }
+[data-course="dec10"] .pl .nb-export-btn { border-radius: 14px; box-shadow: var(--px-e1); transition: box-shadow .15s, transform .15s; }
+[data-course="dec10"] .pl .nb-export-btn:hover { box-shadow: var(--px-e2); }
+[data-course="dec10"] .pl .pl-calchip, [data-course="dec10"] .pl .pl-calchip-t { font-variant-numeric: lining-nums tabular-nums; }
+
+/* calendars: every number is tabular, so days and hours sit in true columns */
+[data-course="dec10"] .pl :is(.pl-calmain, .pl-calside, .pl-rail, .pl-todos) { font-variant-numeric: lining-nums tabular-nums; }
+[data-course="dec10"] .pl .pl-calhead h2 { letter-spacing: -.022em; font-variant-numeric: lining-nums; }
+[data-course="dec10"] .pl .pl-wk-day { letter-spacing: .01em; }
+
+/* notes: the reading column and its tools */
+[data-course="dec10"] .pl .pl-note-title { letter-spacing: -.022em; }
+[data-course="dec10"] .pl :is(.pl-tb, .pl-ibtn, .pl-style) { transition: background .15s, box-shadow .15s, color .15s; }
+[data-course="dec10"] .pl .nb-cover h1 { letter-spacing: -.028em; }
