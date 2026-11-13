@@ -945,3 +945,16 @@ v9.3 (DEC10 precision pass, part 4 — Language Lab, Downloads, Assessments; css
   * Rules and help: the prose keeps a reading width (it ran the full 1,000px); folds use the shared card and corners.
   * Timeline and score figures are tabular.
 - No content, ids or saved work changed. DEC15 unchanged.
+
+v9.4 (DEC10 precision pass, part 5 — Course calendar, Class board, Chats; css/precision.css section 15)
+- Course calendar:
+  * Week rail: the twelve tiles share the row exactly and end flush with the cards (they ran 10px past the right edge).
+  * Agenda: every day uses the same three columns (in class · after class · also on today), so the columns line up
+    down the week (a day with two parts used two wider columns).
+  * "Today" and "Next assessment" cards end on the same line.
+- Class board: the whiteboard frame, paper and marker tray stay; corners (frame 18px, paper 12px), the Notes / Whiteboard
+  switch (one segmented control), Copy text / Print / New board buttons and the status chips follow the rest of the site.
+- Chats: the frame, conversation rows, tiles and icon buttons follow the site's corners; message bubbles, the message field
+  and the round send button keep their chat shapes. Times and counts are tabular.
+  Fix: in Details, the fifth tab was cut off ("P…"); all five tabs (People, Words, Polls, Files, Pins) now fit.
+- No content, ids or saved work changed. DEC15 unchanged.
