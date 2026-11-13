@@ -234,7 +234,7 @@ window.createDEC15Guide = function ({ esc, icon, days, toast }) {
     const nx = upcoming(); if (!nx) return '';
     const fill = nx.n === 0 ? 1 : Math.max(.06, 1 - Math.min(nx.n, 30) / 30);
     return `<section class="gx-next${nx.e.counts ? ' is-counts' : ''}">
-      <span class="gx-ring" style="--p:${fill}" aria-hidden="true"><b>${nx.n === 0 ? 'Today' : nx.n}</b>${nx.n ? `<small>day${nx.n === 1 ? '' : 's'}</small>` : ''}</span>
+      <span class="gx-ring${nx.n === 0 ? ' is-word' : ''}" style="--p:${fill}" aria-hidden="true"><b>${nx.n === 0 ? 'Today' : nx.n}</b>${nx.n ? `<small>day${nx.n === 1 ? '' : 's'}</small>` : ''}</span>
       <div class="gx-next-main"><span class="eyebrow">Next assessment</span><b class="gx-next-t">${esc(nx.e.title)}</b>
         <small>${DAYS[nx.i]} ${fmt(nx.dt)} · Week ${nx.w.n}${nx.n ? ` · in ${nx.n} day${nx.n === 1 ? '' : 's'}` : ''}</small>
         <span class="gx-kind ${nx.e.counts ? 'is-counts' : 'is-practice'}">${nx.e.counts ? 'Counts towards your score' : esc(nx.e.note || 'Practice')}</span></div>
