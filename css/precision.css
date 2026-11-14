@@ -756,3 +756,97 @@
   [data-course="dec10"] .week-tab-meta { display: none; }
   [data-course="dec10"] .week-tab-text small { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 }
+
+/* ───────── 18. the note editor's toolbar, and phones held sideways (v9.7) ───────── */
+
+/* NOTE EDITOR (My workspace → Notes). The toolbar never stuck: the note panel clipped with overflow: hidden, which stops
+   position: sticky, so the toolbar scrolled away as soon as a note was longer than the screen. overflow: clip keeps the
+   rounded corners and lets the toolbar stick — directly under the top bar, whose height js/app.js keeps in --mast-h. */
+[data-course="dec10"] .pl .pl-main { overflow: clip; }
+[data-course="dec10"] .pl .pl-toolbar { top: var(--mast-h, 98px); }
+/* the note itself is a writing surface, not a control: no focus ring around the whole page */
+[data-course="dec10"] .pl .ProseMirror:focus-visible, [data-course="dec10"] .pl .ProseMirror:focus { box-shadow: none; outline: 0; }
+
+@media (max-width: 900px) {
+  /* one row that slides sideways, with the tools used most first: Insert · bold, italic, underline, strike · lists and
+     to-do · colour and highlight · style and size · quote and link · undo and redo. A soft fade at the right edge shows
+     that there is more. */
+  [data-course="dec10"] .pl .pl-toolbar {
+    gap: 2px; padding: 6px 8px; margin: 0; scroll-snap-type: x proximity; scroll-padding: 8px; scrollbar-width: none; overscroll-behavior-x: contain;
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent);
+    background: rgba(255, 255, 255, .97); -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: 0 1px 0 var(--px-line-soft), 0 6px 12px -10px rgba(20, 41, 58, .3);
+  }
+  [data-course="dec10"] .pl .pl-toolbar::-webkit-scrollbar { display: none; }
+  [data-course="dec10"] .pl .pl-toolbar .pl-grp { flex: none; scroll-snap-align: start; padding: 0 3px; }
+  [data-course="dec10"] .pl .pl-toolbar .pl-grp + .pl-grp { box-shadow: -1px 0 0 var(--px-line-soft); padding-left: 5px; }
+  [data-course="dec10"] .pl .pl-toolbar .pl-grp:last-child { padding-right: 36px; }
+  [data-course="dec10"] .pl .pl-toolbar .pl-tb { width: 38px; height: 38px; border-radius: 9px; }
+  [data-course="dec10"] .pl .pl-toolbar .pl-insert { width: 38px; padding: 0; justify-content: center; }
+  [data-course="dec10"] .pl .pl-toolbar .pl-insert span { display: none; }
+  [data-course="dec10"] .pl .pl-toolbar .pl-style { height: 38px; width: auto; min-width: 0; max-width: 150px; }
+  [data-course="dec10"] .pl .pl-toolbar .pl-grp:has(.pl-insert) { order: 0; }
+  [data-course="dec10"] .pl .pl-toolbar .pl-tablegrp { order: 0; }
+  [data-course="dec10"] .pl .pl-toolbar .pl-grp:has([title^="Bold"]) { order: 1; }
+  [data-course="dec10"] .pl .pl-toolbar .pl-grp:has([title^="Bulleted"]) { order: 2; }
+  [data-course="dec10"] .pl .pl-toolbar .pl-grp:has([title^="Font colour"]) { order: 3; }
+  [data-course="dec10"] .pl .pl-toolbar .pl-grp:has(.pl-style) { order: 4; }
+  [data-course="dec10"] .pl .pl-toolbar .pl-grp:has([title^="Quote"]) { order: 5; }
+  [data-course="dec10"] .pl .pl-toolbar .pl-grp:has([title^="Undo"]) { order: 6; }
+  [data-course="dec10"] .pl .pl-toolbar .pl-grp:has(.pl-insert) { box-shadow: none; }
+}
+
+/* PHONES HELD SIDEWAYS (short screens). The sticky top bar and week row took a quarter of a 390px-high screen: on short
+   screens they scroll away with the page (scroll up to reach them), the note toolbar sticks to the very top, and the
+   week sheet shows lessons and the day's parts side by side. */
+@media (max-height: 500px) and (max-width: 1100px) {
+  [data-course="dec10"] .masthead { position: relative; top: auto; }
+  [data-course="dec10"] .pl .pl-toolbar { top: 0; }
+  [data-course="dec10"] html { scroll-padding-top: 12px; }
+  /* the side menu: the course card and the big logo give way, so the links show */
+  [data-course="dec10"] .sidebar .side-course { display: none !important; }
+  [data-course="dec10"] .sidebar .uni { padding: 2px 10px 8px; }
+  [data-course="dec10"] .sidebar .uni img { width: 108px; }
+  [data-course="dec10"] .sidebar .side-search { margin-top: 0 !important; }
+  [data-course="dec10"] .sidebar .side-main { margin-top: 6px; }
+  [data-course="dec10"] .sidebar .side-link { height: 36px; }
+  [data-course="dec10"] .sidebar .side-group { margin: 8px 8px 4px !important; }
+  [data-course="dec10"] .sidebar .side-progress.side-foot { padding-top: 6px; padding-bottom: 8px; }
+}
+@media (max-height: 500px) and (max-width: 900px) {
+  [data-course="dec10"] .wb-panel > .wb-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); max-height: calc(100dvh - 72px); }
+  [data-course="dec10"] .wb-panel .wb-parts-col { border-top: 0; border-left: 1px solid var(--line); }
+  [data-course="dec10"] .wb-sheet-bar { padding: 12px 12px 4px 18px; }
+  [data-course="dec10"] .wb-panel :is(.wb-day, .wb-part, .wb-col a, .wb-col button) { min-height: 40px; }
+  [data-course="dec10"] .dx-fab { bottom: 12px; }
+  [data-course="dec10"] .to-top { bottom: 62px; }
+}
+/* large phones held sideways (901–1100px wide but under 500px high) got the laptop layout, with the side panel taking a
+   third of the width and showing three links. They now get the phone layout: the Menu button and a slide-in side menu. */
+@media (min-width: 901px) and (max-width: 1100px) and (max-height: 500px) {
+  [data-course="dec10"] body { display: block; }
+  [data-course="dec10"] .sidebar {
+    position: fixed; z-index: 60; left: 0; top: 0; bottom: 0; height: 100dvh; width: min(88vw, 340px); margin: 0; border-radius: 0 18px 18px 0 !important;
+    overflow-y: auto; transform: translateX(-104%); visibility: hidden; transition: transform .28s var(--ease), visibility 0s .28s;
+  }
+  [data-course="dec10"] body.side-open .sidebar { transform: none; visibility: visible; transition: transform .28s var(--ease), visibility 0s; }
+  [data-course="dec10"] .scrim { display: block; position: fixed; inset: 0; z-index: 55; background: rgba(12, 25, 37, .45); opacity: 0; pointer-events: none; transition: opacity .25s var(--ease); }
+  [data-course="dec10"] body.side-open .scrim { opacity: 1; pointer-events: auto; }
+  [data-course="dec10"] body.side-open { overflow: hidden; }
+  [data-course="dec10"] .masthead .menu-btn { display: inline-flex; flex: none; }
+  [data-course="dec10"] .masthead::before { left: 0 !important; }
+}
+/* the open week sheet sits above the top bar, and the dimmed backdrop covers the top bar too (on a 360px-high screen the
+   bar hid the sheet's title and Close button) */
+@media (max-width: 900px) {
+  [data-course="dec10"] body.wb-is-open .weekbar { position: relative; z-index: 40; }
+  [data-course="dec10"] .wb-panel { max-height: calc(100dvh - 8px); }
+}
+@media (max-width: 900px) {
+  /* while the sheet is open the top bar rests: dimmed and not tappable, so a tap outside the sheet only closes it */
+  [data-course="dec10"] body.wb-is-open .masthead .topbar { opacity: .45; pointer-events: none; transition: opacity .2s; }
+}
+@media (max-height: 500px) and (max-width: 900px) {
+  /* phones held sideways: the sheet stops below the week row, so another week is one tap away */
+  [data-course="dec10"] .wb-panel { max-height: calc(100dvh - var(--mast-h, 100px)); }
+  [data-course="dec10"] .wb-panel > .wb-grid { max-height: calc(100dvh - var(--mast-h, 100px) - 48px); }
+}

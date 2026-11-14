@@ -987,3 +987,27 @@ v9.6 (DEC10 phones and tablets — the week menu fixed; css/precision.css sectio
 - Long e-mail addresses break inside narrow cards (one ran off the screen on the phone Assessments page).
 - Phones: day cards one per row; tighter side padding in activities; buttons at least 44px high.
 - Checked with touch emulation at 360, 390, 768 and 1024px on every page: no page scrolls sideways. Desktop unchanged.
+
+v9.7 (DEC10 — the note editor's toolbar, and phones held sideways; css/precision.css section 18, js/app.js)
+- NOTE EDITOR (My workspace → Notes):
+  * The toolbar never stayed in view: the note panel clipped with overflow: hidden, which stops position: sticky, so the
+    toolbar scrolled away once a note was longer than the screen (on every screen size). It now sticks directly under
+    the top bar; js/app.js keeps the top bar's live height in --mast-h.
+  * Phones and tablets: one sliding row with the tools used most first — Insert · bold, italic, underline, strike ·
+    lists and to-do · colour and highlight · style and size · quote and link · undo and redo — 38px buttons, a fade at
+    the right edge to show there is more. Before, only Insert, undo/redo and two dropdowns showed; bold, lists and colour
+    were off-screen with no hint.
+  * No blue focus box around the whole note while writing.
+- WEEK MENU — a bug fixed: right after a tap opened the menu, the desktop "close when the mouse leaves" rule fired (the
+  browser reports a mouse at the tapped spot) and the sheet closed itself about 0.3 s later. Hover now never opens or
+  closes the menu at 900px and narrower, and is ignored for 1.5 s after any touch. While the sheet is open the top bar
+  is dimmed and a tap there only closes the sheet (it used to open "Sign in").
+- PHONES HELD SIDEWAYS (screens under 500px high):
+  * The top bar and week row scroll away with the page instead of taking a quarter of the screen; the note toolbar then
+    sticks to the very top.
+  * The week sheet shows lessons and the day's parts side by side, stops below the week row (another week is one tap
+    away), and its title and Close button are never hidden.
+  * The side menu hides the course card and uses a smaller logo and 36px rows, so the links show.
+  * Large phones (901–1100px wide, under 500px high) used the laptop layout with the side panel taking a third of the
+    width; they now get the phone layout: Menu button and slide-in side menu.
+- Checked with touch emulation at 360×740, 390×844, 768×1024, 740×360, 844×390 and 932×430; laptop unchanged at 1280 and 1440.
