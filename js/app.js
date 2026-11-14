@@ -1359,6 +1359,10 @@ function paintNav(route = navRoute) {
    One button per week (from the course map). Clicking (or hovering with a mouse) opens a panel under the bar:
    the week's days on the left and, on the right, the parts of the day you point at, each linking to its stage. */
 const WB_TONES = ['#e9a23b', '#e0674b', '#2a8a7d', '#4a6fd0', '#8a5cb8', '#5f9356'];
+/* --mast-h: the live height of the top bar + week row, so things that stick under it (the note editor's toolbar) sit
+   exactly below it on every screen size (css/precision.css §18) */
+(function () { const m = document.querySelector('.masthead'); if (!m || !window.ResizeObserver) return;
+  new ResizeObserver(() => document.documentElement.style.setProperty('--mast-h', m.offsetHeight + 'px')).observe(m); })();
 let wbOpen = null, wbDay = null, wbT = 0, wbHoverAt = 0;
 function paintWeekbar(route = navRoute) {
   const bar = $('#weekbar'); if (!bar) return;
@@ -1498,8 +1502,13 @@ document.addEventListener('keydown', e => {
   if (it && e.key === 'ArrowDown') { e.preventDefault(); if (wbOpen !== +it.dataset.wbWeek) wbSet(+it.dataset.wbWeek); setTimeout(() => $('#wb-panel button, #wb-panel a')?.focus(), 0); }
 });
 /* with a mouse, the menu opens when you rest on a week and closes when you leave the bar and the panel */
+/* After a tap, browsers report a "mouse" pointer at the tapped spot, and when the sheet appears under it that counted as
+   leaving the bar: the sheet closed itself a third of a second after it opened. So hover is ignored for a moment after any
+   touch, and always at 900px and narrower, where the menu is a bottom sheet and not a dropdown under the bar. */
+let wbTouchAt = 0;
+document.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') wbTouchAt = Date.now(); }, true);
 document.addEventListener('pointerover', e => {
-  if (e.pointerType !== 'mouse') return;
+  if (e.pointerType !== 'mouse' || Date.now() - wbTouchAt < 1500 || matchMedia('(max-width: 900px)').matches) return;
   const it = e.target.closest?.('[data-wb-week]'), inBar = e.target.closest?.('#weekbar'), day = e.target.closest?.('[data-wb-day]');
   clearTimeout(wbT);
   if (it) { const n = +it.dataset.wbWeek; if (n === wbSkip) return; wbSkip = 0; if (wbOpen !== n) wbT = setTimeout(() => { wbDay = null; wbSet(n); wbHoverAt = Date.now(); }, wbOpen ? 60 : 180); return; }
