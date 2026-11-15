@@ -268,13 +268,6 @@ window.DEC15_LESSON = {
                 "Write your notes in the middle column of the Deconstruction table in your Student Book."
               ]
             },
-            {
-              type: "figure",
-              src: "dec10/assets/week4/d1-sentence-logic.svg",
-              size: "wide",
-              alt: "Four link cards. SO (an arrow forward): a result, e.g. resulting in, this leads to, hindering, therefore, hence. BUT (a turning arrow): contrast or concession, e.g. however, while. BECAUSE (an arrow back to a root): a reason, e.g. as, given. AND (a plus sign): more of the same, e.g. she adds, also, in fact.",
-              caption: "The four links between sentences. The words in brackets come from Sample 3.1."
-            },
             { type: "do", n: 1, who: "pair", text: "Read the <b>introduction</b>. Find the four parts and write them in the table." },
             {
               type: "table",
@@ -306,6 +299,20 @@ window.DEC15_LESSON = {
               label: "Tap the words that link a cause to its effects.",
               paras: [
                 "²[[As outlined by]] Bowen et al. (2018) and expanded upon by Vidican Auktor (2020), green jobs vary widely in their nature and scope, [[*resulting in]] difficulties developing a uniform definition. ³This [[*leads to]] classification inconsistencies and complications measuring green growth's labour market impact, [[*hindering]] effective workforce planning and policy implementation (Vidican Auktor, 2020). ⁴[[However]], focusing on specific skill requirements for green jobs may be helpful here as these skills provide more detailed insights into the necessary changes for transitioning to a green economy, [[including]] training needs (Vidican Auktor, 2020)."
+              ]
+            },
+            {
+              type: "toggle",
+              title: "Check: the four links and the words that show them",
+              hint: "Open only after you have tapped the words above.",
+              blocks: [
+  {
+                type: "figure",
+                src: "dec10/assets/week4/d1-sentence-logic.svg",
+                size: "wide",
+                alt: "Four link cards. SO (an arrow forward): a result, e.g. resulting in, this leads to, hindering, therefore, hence. BUT (a turning arrow): contrast or concession, e.g. however, while. BECAUSE (an arrow back to a root): a reason, e.g. as, given. AND (a plus sign): more of the same, e.g. she adds, also, in fact.",
+                caption: "The four links between sentences, with the words Sample 3.1 uses for each. Did you tap the same words for SO?"
+              }
               ]
             },
             {
@@ -635,10 +642,9 @@ window.DEC15_LESSON = {
           blocks: [
             { type: "do", n: 1, who: "alone", text: "Compare what you wrote about ecotourism with this definition. What is the same? What is new?" },
             {
-              type: "model",
-              title: "A definition of ecotourism",
-              text: "Ecotourism is now defined as “responsible travel to natural areas that conserves the environment, sustains the well-being of the local people, and involves interpretation and education” (TIES, 2015). Education is meant to be inclusive of both staff and guests.",
-              note: "Source: The International Ecotourism Society"
+              type: "text",
+              title: "A definition of ecotourism · The International Ecotourism Society (TIES, 2015)",
+              text: "Ecotourism is now defined as “responsible travel to natural areas that conserves the environment, sustains the well-being of the local people, and involves interpretation and education” (TIES, 2015). Education is meant to be inclusive of both staff and guests."
             },
             {
               type: "fields",
@@ -669,7 +675,7 @@ window.DEC15_LESSON = {
                 { label: "Check", phrases: ["<b>Does that make sense?</b>", "<b>Can you think of another example?</b>"] }
               ]
             },
-            { type: "do", n: 3, who: "class", text: "Check your understanding as a class: match the words to their meanings." },
+            { type: "do", n: 3, who: "class", text: "Check your understanding as a class: match the words to their meanings. Each expert says their word aloud first — where is the stress?" },
             {
               type: "match",
               id: "b3-match",
@@ -684,8 +690,64 @@ window.DEC15_LESSON = {
                 "a company’s duty to help society and the environment, not only make profit",
                 "farming that meets today’s food needs without damaging the land for the future"
               ]
-            }
-          ]
+            },
+            { type: "do", n: 4, who: "pair", text: "Words live in families and in partners (collocations). Tap each card: say the word family, then make a phrase with one of its partners." },
+            {
+              type: "flip",
+              title: "Word families and word partners",
+              hint: "Front: the word. Back: its word family and its word partners (collocations).",
+              items: [
+                { front: "conservation", back: "<strong>Family:</strong> conserve (v) · conservation (n) · conservationist (person)<br><strong>Partners:</strong> conservation <strong>efforts / projects / areas</strong> · <strong>fund</strong> conservation" },
+                { front: "biodiversity", back: "<strong>Family:</strong> bio- (life) + diversity (variety) · biodiverse (adj)<br><strong>Partners:</strong> <strong>rich / high</strong> biodiversity · <strong>protect / preserve</strong> biodiversity · <strong>loss of</strong> biodiversity" },
+                { front: "endangered species", back: "<strong>Family:</strong> danger (n) · endanger (v) · endangered (adj)<br><strong>Partners:</strong> <strong>protect</strong> endangered species · endangered <strong>marine</strong> species" },
+                { front: "deforestation", back: "<strong>Family:</strong> forest (n) · deforest (v) · deforestation (n) — opposite: <strong>reforestation</strong><br><strong>Partners:</strong> <strong>reduce / stop / cause</strong> deforestation · <strong>rates of</strong> deforestation" },
+                { front: "sustainable agriculture", back: "<strong>Family:</strong> sustain (v) · sustainable (adj) · sustainability (n) · sustainably (adv)<br><strong>Partners:</strong> <strong>promote</strong> sustainable agriculture · sustainable <strong>development / tourism</strong>" },
+                { front: "corporate social responsibility", back: "<strong>Short form:</strong> CSR<br><strong>Partners:</strong> CSR <strong>initiatives / programs / funds</strong>" },
+                { front: "agrotourism", back: "<strong>Family:</strong> agro- / agri- = farming (agriculture) · also spelled <strong>agritourism</strong><br><strong>Partners:</strong> <strong>develop / promote</strong> agrotourism · agrotourism <strong>benefits</strong> farmers" }
+              ]
+            },
+            { type: "do", n: 5, who: "alone", text: "Use the word partners. Choose the right word for each gap." },
+            {
+              type: "cloze",
+              id: "b3-cloze",
+              title: "An eco-lodge in Costa Rica",
+              text: "Our eco-lodge works hard to protect {{1}} such as the jaguar. A small part of every booking goes to local {{2}} efforts. Nearby farmers practise {{3}} agriculture and run {{4}} tours, so visitors can learn about farming and buy local products. Because the area has very {{5}} biodiversity, the lodge also plants trees to stop {{6}}. Finally, the company’s CSR {{7}} have paid for a new rural clinic.",
+              options: [
+                ["endangered species", "endanger species", "endangering species"],
+                ["conservation", "conserve", "conservationist"],
+                ["sustainable", "sustain", "sustainability"],
+                ["agrotourism", "deforestation", "biodiversity"],
+                ["rich", "strong", "big"],
+                ["deforestation", "deforest", "reforestation"],
+                ["initiatives", "responsibilities", "agricultures"]
+              ],
+              answers: ["endangered species", "conservation", "sustainable", "agrotourism", "rich", "deforestation", "initiatives"],
+              why: [
+                "<b>endangered</b> (adjective) + species.",
+                "Noun + noun: <b>conservation efforts</b>.",
+                "An adjective before the noun: <b>sustainable</b> agriculture.",
+                "Tours on farms = <b>agrotourism</b>.",
+                "The usual partner is <b>rich</b> biodiversity.",
+                "After <i>stop</i> we need a noun: <b>deforestation</b>. Planting trees is reforestation — the solution, not the problem.",
+                "<b>CSR initiatives</b> (or programs / funds)."
+              ]
+            },
+            {
+              type: "talk",
+              title: "Would you stay there?",
+              prompts: [
+                "Would you choose this eco-lodge for your next holiday? Why or why not? Use <b>three</b> of the words.",
+                "Which of these words could you use in your Integrated Writing essay this week?"
+              ]
+            },
+            { type: "teacher", text: "Short on time? Keep the TB expert-word task and the class match (Steps 2–3). The word cards and the gap fill can be homework or a 5-minute warmer on Day 2." }
+          ],
+          answers: {
+            title: "Answers (gap fill)",
+            items: [
+              ["1–7", "endangered species · conservation · sustainable · agrotourism · rich · deforestation · initiatives"]
+            ]
+          }
         },
         {
           id: "b4",
@@ -759,7 +821,41 @@ window.DEC15_LESSON = {
               alt: "A jigsaw diagram. Step 1: home groups 1, 2 and 3 read Goal 2 (yellow); groups 4, 5 and 6 read Goal 3 (green). Step 2: students pair up with someone from the other colour and swap their notes, so each pair completes the whole puzzle.",
               caption: "Now: read and take notes on <b>your</b> goal. Next: teach it to someone who read the other goal."
             },
-            { type: "do", n: 1, who: "group", text: "Read <b>your</b> section carefully. Take notes together in <b>your</b> table only. Use symbols and abbreviations. In the last column, write what <b>you</b> think: any issues? questions? will it work?" },
+            {
+              type: "steps",
+              title: "How the jigsaw works",
+              items: [
+                { who: "class", text: "Your teacher gives your group a number. <b>Groups 1, 2, 3</b> read <b>Goal 2: Zero hunger</b> (Paragraphs B–C). <b>Groups 4, 5, 6</b> read <b>Goal 3: Good health</b> (Paragraphs D–F)." },
+                { who: "alone", text: "<b>Read alone first (5 min).</b> Underline the main ideas and one example for each." },
+                { who: "group", text: "<b>Agree on group notes (12 min)</b> in <b>your</b> table only. Notes, not sentences: symbols (→ ↑ ↓ =) and short forms." },
+                { who: "group", text: "<b>Last column:</b> what do <b>you</b> think? Any problems? Questions? Will it work?" },
+                { who: "group", text: "<b>Rehearse (3 min).</b> Everyone must be able to explain every idea from the notes, without the text. In the next activity you are the <b>only expert</b> on your goal." }
+              ]
+            },
+            {
+              type: "quiz",
+              id: "b5-icq",
+              title: "Check the instructions",
+              items: [
+                { q: "Do you take notes on both goals?", options: ["Yes", "No — only on my group’s goal"], answer: "No — only on my group’s goal", why: "You learn the other goal from your partner in the next activity." },
+                { q: "Do you write full sentences from the text?", options: ["Yes", "No — short notes in my own words"], answer: "No — short notes in my own words", why: "Notes are faster, and they help you paraphrase later." },
+                { q: "In the next activity, can you look at the text?", options: ["Yes", "No — only at our notes"], answer: "No — only at our notes", why: "So your notes must be clear enough to teach from." }
+              ]
+            },
+            { type: "do", n: 1, who: "alone", text: "<b>Warm-up:</b> practise turning sentences from the text into notes. Stay under the character limit." },
+            {
+              type: "squeeze",
+              id: "b5-sq",
+              title: "Squeeze it!",
+              hint: "Keep numbers, places and key terms. Cut the rest.",
+              items: [
+                { text: "Farming and using natural resources are still the main sources of jobs in many rural areas, especially in poor communities in developing countries, where they provide 55% of the employment and are the primary source of income.", max: 60, model: "Poor rural areas: farming + nat. res. = 55% of jobs" },
+                { text: "These areas also allow for tourism activities like whale shark viewing and manta ray diving, which create jobs for local people.", max: 45, model: "Whale shark / manta ray tours → local jobs" },
+                { text: "With the COVID-19 pandemic, visiting natural areas became even more important to help ease the stress of lockdowns.", max: 40, model: "COVID: nature visits ↓ lockdown stress" }
+              ]
+            },
+            { type: "do", n: 2, who: "group", text: "Open the text. Read <b>your</b> section and take notes together in <b>your</b> table only (Steps 2–5 above)." },
+            { type: "sources", ids: ["ecosdg"] },
             {
               type: "table",
               id: "b5-g2", live: true,
@@ -774,16 +870,16 @@ window.DEC15_LESSON = {
               columns: ["Main idea", "Examples, evidence & details", "Consequence / impact", "Thoughts / challenges / effectiveness?"],
               fixed: ["1.", "2.", "3."]
             },
-            { type: "do", n: 2, who: "alone", text: "Practise squeezing sentences from the text into notes. Stay under the character limit." },
             {
-              type: "squeeze",
-              id: "b5-sq",
-              title: "Squeeze it!",
-              hint: "Keep numbers, places and key terms. Cut the rest.",
+              type: "checklist",
+              id: "b5-check",
+              title: "Before you move: are your notes ready to teach from?",
               items: [
-                { text: "Farming and using natural resources are still the main sources of jobs in many rural areas, especially in poor communities in developing countries, where they provide 55% of the employment and are the primary source of income.", max: 60, model: "Poor rural areas: farming + nat. res. = 55% of jobs" },
-                { text: "These areas also allow for tourism activities like whale shark viewing and manta ray diving, which create jobs for local people.", max: 45, model: "Whale shark / manta ray tours → local jobs" },
-                { text: "With the COVID-19 pandemic, visiting natural areas became even more important to help ease the stress of lockdowns.", max: 40, model: "COVID: nature visits ↓ lockdown stress" }
+                "Every main idea is in our table (Goal 2: two ideas · Goal 3: three ideas).",
+                "Each idea has one example or piece of evidence, with the citation (e.g. Sparkes &amp; Woods, 2009).",
+                "Each idea has its consequence or impact.",
+                "We wrote notes, not copied sentences.",
+                "Everyone in the group can explain every idea without the text."
               ]
             },
             {
@@ -928,6 +1024,49 @@ window.DEC15_LESSON = {
                 "It can <b>classify</b> the earlier idea (<i>these areas</i>) or show the writer’s <b>stance</b> (<i>this problem</i>, <i>this improvement</i>)."
               ]
             },
+            {
+              type: "rule",
+              n: 1,
+              title: "Sum it up — don’t repeat it",
+              explain: "Repeating a long idea makes writing heavy. A signalling noun picks up the whole idea in two words, and the reader knows it is the same idea.",
+              form: "<b>this / these / such</b> + a general noun (situation, change, decision, increase, practice …)",
+              cols: ["✗ Repeats the idea", "✓ Sums it up"],
+              pairs: [
+                ["Many students work 20 hours a week. Many students working 20 hours a week get less sleep.", "Many students work 20 hours a week. <b>This situation</b> means they get less sleep."],
+                ["The city built new bike lanes. The city building new bike lanes reduced traffic.", "The city built new bike lanes. <b>This decision</b> reduced traffic."],
+                ["Rents in the city centre rose by 20%. Rents rising by 20% pushed families out.", "Rents in the city centre rose by 20%. <b>This increase</b> pushed families out."]
+              ],
+              check: { q: "Does a signalling noun bring in a new idea, or sum up an idea from before?", a: "It sums up an idea from before. It points back." }
+            },
+            {
+              type: "rule",
+              n: 2,
+              title: "Not “this” alone — “this” + a noun",
+              explain: "<i>This</i> on its own can point to anything in the sentence before. Add a noun and the reader knows exactly what you mean.",
+              form: "✗ This is … / This was …  →  ✓ This <b>fee</b> is … / These <b>practices</b> …",
+              cols: ["✗ Unclear", "✓ Clear"],
+              pairs: [
+                ["Hotels buy local food and hire local guides. <b>This</b> helps the community.", "Hotels buy local food and hire local guides. <b>These practices</b> help the community."],
+                ["The park charges visitors a fee and limits numbers. <b>This</b> protects the reef.", "The park charges visitors a fee and limits numbers. <b>These measures</b> protect the reef."],
+                ["Visitor numbers doubled and the beach closed for a month. <b>This</b> angered local businesses.", "Visitor numbers doubled and the beach closed for a month. <b>This closure</b> angered local businesses."]
+              ],
+              check: { q: "In “Visitor numbers doubled and the beach closed. This angered local businesses”, what angered them?", a: "We can’t be sure: the doubling, the closure, or both. “This closure” makes it clear." }
+            },
+            {
+              type: "rule",
+              n: 3,
+              title: "Choose the noun: classify or show your view",
+              explain: "A neutral noun just names the idea. A stance noun also tells the reader what <b>you</b> think — useful in the IWA, where you must show your position.",
+              compare: true,
+              cols: ["Neutral (classify)", "Shows your stance"],
+              pairs: [
+                ["Tourists pay an eco-tax. <b>This change</b> funds conservation.", "Tourists pay an eco-tax. <b>This improvement</b> funds conservation. <small>(positive)</small>"],
+                ["Hotels were built on the beach. <b>This development</b> affected turtles.", "Hotels were built on the beach. <b>This threat</b> affected turtles. <small>(negative)</small>"],
+                ["Villages now earn money from tours. <b>This situation</b> is new.", "Villages now earn money from tours. <b>This opportunity</b> is new. <small>(positive)</small>"]
+              ],
+              note: "Stance nouns: positive — <i>improvement, benefit, opportunity, success</i> · negative — <i>problem, threat, risk, challenge, concern</i>.",
+              check: { q: "Which one shows that the writer is critical: “this policy” or “this mistake”?", a: "“This mistake”. “Policy” is neutral." }
+            },
             { type: "do", n: 1, who: "pair", text: "Read Paragraph C. Tap the signalling nouns (with their determiner)." },
             {
               type: "spot",
@@ -958,7 +1097,7 @@ window.DEC15_LESSON = {
               type: "figure",
               src: "dec10/assets/week4/d1-signal-nouns.svg",
               size: "wide",
-              alt: "Three sentences from Paragraph C. Curved arrows jump back from the signalling nouns “These areas”, “such initiatives” and “these areas” to the ideas they sum up: small community-managed marine protected areas; local fishing and tourism activities; Tanzania and Mozambique.",
+              alt: "Three sentences from Paragraph C. Curved arrows jump back from the signalling nouns “These areas”, “such initiatives” and “these areas” to the ideas they sum up: small community-managed marine protected areas; whale shark viewing, manta ray diving and local fishing; Tanzania and Mozambique.",
               caption: "<b>Check:</b> a signalling noun points <b>back</b> — <b>this / these / such</b> + a general noun. Did you find the same three?"
             },
             {
@@ -1008,7 +1147,27 @@ window.DEC15_LESSON = {
                 "F. … Many tourism businesses use [[*their]] CSR funds to help develop [[rural clinics]] … A good example is the Africa Foundation, [[*which]] directs donations … For over twenty years, [[*these contributions]] have supported health initiatives …",
                 "Sample 3.1 · ²While the creation or classification of [[*such jobs]] may be a positive step forward … ³However, … the readiness of the workforce to adapt to [[*this new market]] … ⁴However, focusing on specific skill requirements for green jobs may be helpful here as [[*these skills]] provide … ⁴She adds that [[*this skills gap]] is widening …"
               ]
-            }
+            },
+            { type: "do", n: 6, who: "alone", text: "<b>Your turn.</b> Write about tourism in a place you know. Each time, sum up the first sentence with <b>this / these / such + a noun</b>. In at least one, show your view with a stance noun." },
+            {
+              type: "detect",
+              id: "b8-dt",
+              label: "Writing studio",
+              title: "Link your ideas",
+              hint: "Green lights = signalling nouns. Red light = “this” alone (add a noun).",
+              checks: [
+                { label: "this / these / such + noun", any: ["/\\b(this|these|such)\\s+(?!is\\b|was\\b|are\\b|were\\b|has\\b|have\\b|can\\b|will\\b|means\\b|shows\\b)[a-z]{3,}/i"], color: "#2d7a9a" },
+                { label: "Stance noun", any: ["/\\b(this|these|such)\\s+(improvements?|benefits?|opportunit(y|ies)|success(es)?|problems?|threats?|risks?|challenges?|concerns?|mistakes?|issues?)\\b/i"], color: "#7a4a8c" }
+              ],
+              avoid: [
+                { label: "“this” alone", any: ["/\\bthis\\s+(is|was|has|can|will|means|shows)\\b/i"] }
+              ],
+              items: [
+                { task: "Sentence 1: What has changed in tourism in your city or country? Sentence 2: start with <b>This …</b> or <b>These …</b> + a noun.", rows: 3, placeholder: "More tourists now visit … This increase …" },
+                { task: "Sentence 1: Describe one good or bad effect of tourism there. Sentence 2: sum it up with a <b>stance noun</b> (benefit, problem, threat …).", rows: 3, placeholder: "Local families now rent rooms to visitors. This opportunity …" }
+              ]
+            },
+            { type: "teacher", text: "Short on time? Keep the TB tasks (Steps 1–4) and Rule 2. Rules 1 and 3 can be read quickly as a class; Step 6 can be homework." }
           ],
           answers: {
             title: "Answers",
@@ -1016,6 +1175,7 @@ window.DEC15_LESSON = {
               ["Purpose", "(these) areas → classify · (such) initiatives → classify (& possibly stance) · (these) areas (2nd) → classify. (The Teacher’s Book version shows “these destinations” here; the course text reads “these areas”.)"],
               ["Referents", "where → safe spaces (where fish can breed and grow) · This → safe spaces where fish can breed and grow · which → local fishing · which → tourism activities like whale shark viewing and manta ray diving · their → local communities"],
               ["Stance", "Sentences 1, 3, 4 and 5 (efforts, improvements, problem, challenge)."],
+              ["Your turn (possible answers)", "More tourists now visit Bali every year. <b>This increase</b> puts pressure on water supplies. · Local families now rent rooms to visitors. <b>This opportunity</b> gives them a second income."],
               ["More examples", "B: they (49 tropical protected areas) · D: They (Parks Victoria, Medibank Australia and the National Heart Foundation) · E: it (sports tourism), this (sports tourism shows the positive impact …), These (adventure tourism events), These sports events · F: their (tourism businesses’), which (the Africa Foundation), these contributions · Sample 3.1: such jobs, this new market, these skills, this skills gap."]
             ]
           }

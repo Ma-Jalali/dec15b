@@ -999,3 +999,23 @@ v9.7 (DEC10 Week 4 Day 1 — IWA steps and "answer first, then check"; dec10/les
 - 2A Language focus: Cohesion: the signalling-noun picture showed the three answers before the tap and match tasks.
   It now comes after the match, as a check.
 - Saved-work ids unchanged (a2-content, a2-limit, a2-task, a2-func, b8-…). DEC15 unchanged.
+
+v9.8 (DEC10 Week 4 Day 1 — Reading to write (2A) improved; table headings readable; dec10/lessons/week4/d10w4d1.js)
+- ALL DEC10 TABLES: the words already in a table (row labels such as "the local community") were 10px; now 15px, like
+  what students type. Column headings 10px → 12.5px. (css/precision.css section "writing fields … tables".)
+- 1A Intro + Body 1: the SO / BUT / BECAUSE / AND picture listed the very words students then tap. It now sits AFTER the
+  tap task, in a fold ("Open only after you have tapped the words above"). The key box still names the four links.
+- 2A Vocabulary: the TIES definition is no longer in a green "Model" box (it was not a model, and its lines stopped
+  half way). It is a plain full-width text. New after the TB task and class match: word cards (word family + word
+  partners/collocations, from the text) and a 7-gap word-partner gap fill (an eco-lodge), then a short speaking task.
+  Teacher note: what to cut if time is short.
+- 2A Jigsaw notes: "How the jigsaw works" (who reads what, read alone → group notes → thoughts → rehearse, with times),
+  three instruction-check questions, the Squeeze warm-up moved BEFORE the note tables (practise, then do), the text
+  button, and a "ready to teach?" checklist. Tables and saved ids unchanged.
+- 2A Cohesion: presentation before the TB tasks — three rule cards with ✗ → ✓ pairs on everyday topics and a check
+  question each: 1 sum it up, don't repeat · 2 not "this" alone, "this" + a noun · 3 neutral vs stance nouns.
+  The TB tasks follow unchanged. New last step: a short Writing studio (lights for this/these/such + noun and for
+  stance nouns; a red light for "this" alone). Picture: real arrowheads that follow the curves; the third highlight is
+  now "Tanzania and Mozambique" (what "these areas" refers to).
+- Saved-work ids unchanged; new ids: b3-cloze, b5-icq, b5-check, b8-dt. DEC15 unchanged except the table heading sizes
+  rule, which is DEC10-only ([data-course="dec10"]).

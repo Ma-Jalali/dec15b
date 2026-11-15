@@ -362,7 +362,11 @@
 [data-course="dec10"] .act-body .block.quiz .option { box-shadow: inset 0 0 0 1px var(--px-line-strong); background: #fff; transition: background .15s, box-shadow .15s; }
 [data-course="dec10"] .act-body .block.quiz .option:hover { background: #f7f5f1; }
 [data-course="dec10"] .act-body .table-block :is(th, td) { font-variant-numeric: lining-nums tabular-nums; }
-[data-course="dec10"] .act-body .table-block th { font-size: .64rem; letter-spacing: .1em; }
+/* v9.8: table headings were 10px — too small to read. Column headings 12.5px (still small capitals);
+   row labels (the words already in the table, e.g. "the local community") as large as what students type. */
+[data-course="dec10"] .act-body .table-block thead th { font-size: .78rem; letter-spacing: .08em; }
+[data-course="dec10"] .act-body .table-block tbody th { font-size: .95rem; letter-spacing: 0; line-height: 1.45; font-weight: 600; color: var(--ink, #14293a); }
+[data-course="dec10"] .act-body .table-block tbody th .th-title { font-weight: 750; }
 [data-course="dec10"] .act-body .send-bar { border-radius: 14px; }
 [data-course="dec10"] .act-body .send-bar .btn { white-space: nowrap; }
 
