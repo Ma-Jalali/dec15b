@@ -44,7 +44,7 @@ window.DEC15_LESSON = {
               type: "figure",
               src: "dec10/assets/week4/d1-iwa-steps.svg",
               size: "wide",
-              alt: "The Integrated Writing Assessment as a path of seven stepping stones: 1 listening test, 2 reading test, 3 receive the question, 4 listen again and take notes, 5 take a position, 6 plan, 7 write 450–600 words. Flags show Week 5 and Week 9.",
+              alt: "The Integrated Writing Assessment as a path of seven stepping stones: 1 listening test, 2 reading test, 3 receive the question and form a first view, 4 listen again and take notes, 5 confirm your position, 6 plan, 7 write 450–600 words. Flags show Week 5 and Week 9.",
               caption: "The IWA is <b>integrated</b>: you read, listen, take a position and write. It happens in <b>Week 5</b> and <b>Week 9</b>."
             },
             { type: "do", n: 1, who: "group", text: "Spin a question. Answer it together in <b>one minute</b>. Then the next person spins. Try to answer all six." },
@@ -81,8 +81,9 @@ window.DEC15_LESSON = {
                 "Write your answer"
               ],
               ends: ["First", "Last"],
-              why: "Reading and listening come first. Then you get the question, listen again with the question in mind, decide your position, plan — and write."
+              why: "Reading and listening come first. Then you get the question. The lecture is played again about <b>10 minutes</b> later: use that time to analyse the question and form a <b>first view</b>, so you listen for evidence for and against it. After the second listening, confirm (or change) your position, plan — and write."
             },
+            { type: "tip", text: "Your position starts <b>before</b> the second listening: read the question, decide what you think so far, then listen with that view in mind. Keep an open mind — the lecture may change it." },
             {
               type: "language",
               title: "Talk about the assessment",
@@ -115,7 +116,7 @@ window.DEC15_LESSON = {
           grouping: "Pair",
           art: "dec10/assets/week4/v/v-d10w4d1-a2.svg",
           title: "Analyse the Question",
-          goal: "Find the content words, the limiting words and the task before you look at the sample essay.",
+          goal: "Find the content words, the limiting words and the task yourself — then check with the picture before you look at the sample essay.",
           blocks: [
             {
               type: "key",
@@ -125,14 +126,35 @@ window.DEC15_LESSON = {
                 "<b>What is the key challenge in transitioning to a “green” job market?</b> Write 450–600 words."
               ]
             },
+            { type: "do", n: 1, who: "pair", text: "Read the question. Discuss questions 1–3 with your partner and write short notes." },
+            {
+              type: "fields",
+              fields: [
+                { id: "a2-content", label: "1. What are the key content words?", rows: 1 },
+                { id: "a2-limit", label: "2. Are there any limiting words?", rows: 1 },
+                { id: "a2-task", label: "3. What is the question asking you to do? Which words show this?", rows: 2 }
+              ]
+            },
+            {
+              type: "language",
+              title: "Talk about a question",
+              groups: [
+                { label: "Content", phrases: ["<b>The key content words are</b> … and …", "<b>This tells me to read about</b> …"] },
+                { label: "Limits", phrases: ["<b>This word narrows the focus to</b> …", "<b>We only need to discuss</b> …"] },
+                { label: "Task", phrases: ["<b>The question asks us to</b> identify … , choose … <b>and justify</b> …", "<b>We’ll need to</b> compare … <b>and explain</b> …"] }
+              ]
+            },
             {
               type: "figure",
+              id: "a2-check",
+              title: "Check with the picture",
+              gate: "Answer questions 1–3 with your partner first. Then open the picture to check your answers.",
               src: "dec10/assets/week4/d1-question-parts.svg",
               size: "wide",
               alt: "The question “What is the key challenge in transitioning to a green job market?” with colour labels. Content words (teal): challenge, transitioning, green job market. Limiting word (orange): key. Task (purple): What is. Below, four kinds of limiting words: time frames, place, people groups, extent.",
-              caption: "<b>Content words</b> show the topic. <b>Limiting words</b> narrow it. Some words do both."
+              caption: "<b>Check:</b> <b>content words</b> show the topic. <b>Limiting words</b> narrow it. Some words do both. Did you find the same?"
             },
-            { type: "do", n: 1, who: "pair", text: "Limiting words come in four kinds. Sort the examples." },
+            { type: "do", n: 2, who: "pair", text: "Limiting words come in four kinds. Sort the examples." },
             {
               type: "sort",
               id: "a2-sort",
@@ -154,23 +176,11 @@ window.DEC15_LESSON = {
                 { text: "the key challenge", answer: 3, why: "“Key” narrows the topic to ONE aspect: the most important challenge." }
               ]
             },
-            { type: "do", n: 2, who: "pair", text: "Discuss the four questions. Write short notes. Then open the answers." },
+            { type: "do", n: 3, who: "pair", text: "Now think ahead to the essay. Which rhetorical functions will the writer need?" },
             {
               type: "fields",
               fields: [
-                { id: "a2-content", label: "1. What are the key content words?", rows: 1 },
-                { id: "a2-limit", label: "2. Are there any limiting words?", rows: 1 },
-                { id: "a2-task", label: "3. What is the question asking you to do? Which words show this?", rows: 2 },
                 { id: "a2-func", label: "4. Which rhetorical functions will you need in your answer?", rows: 2 }
-              ]
-            },
-            {
-              type: "language",
-              title: "Talk about a question",
-              groups: [
-                { label: "Content", phrases: ["<b>The key content words are</b> … and …", "<b>This tells me to read about</b> …"] },
-                { label: "Limits", phrases: ["“Key” <b>narrows the focus to</b> …", "<b>We only need to discuss</b> one …"] },
-                { label: "Task", phrases: ["<b>The question asks us to</b> identify … , choose … <b>and justify</b> …", "<b>We’ll need to</b> compare … <b>and explain</b> …"] }
               ]
             },
             { type: "tip", text: "Remember the word limit: <b>450–600 words</b>." }
@@ -918,13 +928,6 @@ window.DEC15_LESSON = {
                 "It can <b>classify</b> the earlier idea (<i>these areas</i>) or show the writer’s <b>stance</b> (<i>this problem</i>, <i>this improvement</i>)."
               ]
             },
-            {
-              type: "figure",
-              src: "dec10/assets/week4/d1-signal-nouns.svg",
-              size: "wide",
-              alt: "Three sentences from Paragraph C. Curved arrows jump back from the signalling nouns “These areas”, “such initiatives” and “these areas” to the ideas they sum up: small community-managed marine protected areas; local fishing and tourism activities; Tanzania and Mozambique.",
-              caption: "A signalling noun points <b>back</b>. <b>this / these / such</b> + a general noun."
-            },
             { type: "do", n: 1, who: "pair", text: "Read Paragraph C. Tap the signalling nouns (with their determiner)." },
             {
               type: "spot",
@@ -950,6 +953,13 @@ window.DEC15_LESSON = {
               title: "Signalling noun → information",
               left: ["(these) areas", "(such) initiatives", "(these) areas — the second one"],
               right: ["small community-managed marine protected areas", "local fishing and tourism activities", "the places in Tanzania and Mozambique where andBeyond works"]
+            },
+            {
+              type: "figure",
+              src: "dec10/assets/week4/d1-signal-nouns.svg",
+              size: "wide",
+              alt: "Three sentences from Paragraph C. Curved arrows jump back from the signalling nouns “These areas”, “such initiatives” and “these areas” to the ideas they sum up: small community-managed marine protected areas; local fishing and tourism activities; Tanzania and Mozambique.",
+              caption: "<b>Check:</b> a signalling noun points <b>back</b> — <b>this / these / such</b> + a general noun. Did you find the same three?"
             },
             {
               type: "key",
