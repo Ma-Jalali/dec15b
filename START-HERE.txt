@@ -1042,3 +1042,9 @@ v9.9 (DEC10 week bar spacing; Week 4 Day 3 · 9A Integrated writing workshop (2)
 - a10: Sample 4.1 button and the five rules as a checklist for the revision.
 - Saved-work ids kept; removed: a1-q, a3-q, a4-t, a5-q1, a5-q2, a6-q2, a6-q3, a6-q4, a9-t. New: a1-c, a1-l, a1-t, a1-f,
   a1-th0, a1-th1, a1-check, a3-why, a6-restate, a7-flow, a7-dt, a8-cloze, a8-w, a9-3. Teacher notes say what to cut.
+
+v9.10 (writing-box labels: bold and italics show as formatting, not as code; js/app.js, js/notebook.js, js/forms.js)
+- A writing box's label like "1) What are the key <b>content words</b>?" showed the tags as text ("<b>"). Labels now keep
+  <b>, <i> and <u> as formatting (everything else is still escaped). Where a label is plain text (notebook, PDF,
+  "Share with class", the answers list, forms) the tags are removed. The label text sits in one <span>, so the flex label (dot + text) no longer puts gaps around
+  bold words. All courses benefit; no lesson content changed.

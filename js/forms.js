@@ -46,7 +46,7 @@ window.createDEC15Forms = function ({ getState, save, rerender, esc, strip, icon
           <div class="ff-rate" role="radiogroup" aria-label="${esc(strip(q))}">${scale.map((o, oi) => `<button type="button" role="radio" aria-checked="${cur === o}" class="ff-opt r-${RATE_TONE[oi] || 'x'}${cur === o ? ' on' : ''}" data-form-rate="${esc(k)}" data-opt="${esc(o)}">${oi === 0 ? '<i>✓</i>' : oi === 1 ? '<i>~</i>' : '<i>!</i>'}${esc(o)}</button>`).join('')}</div>
           <div class="ff-notes${cols.length > 1 ? ' two' : ''}">${cols.map((c, ci) => `<label><span>${esc(c)}</span><textarea rows="2" data-save="${esc(k)}-c${ci}" placeholder="${ci ? 'What will you do next time?' : 'Why? Give an example.'}">${esc(val(k + '-c' + ci))}</textarea></label>`).join('')}</div>
         </li>`; }).join('')}</ol></div>`).join('')}
-    ${(b.fields || []).map(f => `<div class="field ff-field"><label for="f-${esc(f.id)}">${esc(f.label)}</label><textarea id="f-${esc(f.id)}" data-save="${esc(f.id)}" rows="${f.rows || 3}" placeholder="${esc(f.placeholder || '')}">${esc(val(f.id))}</textarea></div>`).join('')}
+    ${(b.fields || []).map(f => `<div class="field ff-field"><label for="f-${esc(f.id)}"><span>${esc(f.label).replace(/&lt;(\/?)(b|i|u)&gt;/g, '<$1$2>')}</span></label><textarea id="f-${esc(f.id)}" data-save="${esc(f.id)}" rows="${f.rows || 3}" placeholder="${esc(f.placeholder || '')}">${esc(val(f.id))}</textarea></div>`).join('')}
   </section>${b.send ? sendBar(b, a) : ''}`;
   };
 
@@ -114,7 +114,7 @@ window.createDEC15Forms = function ({ getState, save, rerender, esc, strip, icon
         const rows = s.items.map((q, qi) => { const k = fkey(b, si, qi); return [strip(q), val(k) || '', ...cols.map((_, ci) => String(val(k + '-c' + ci)))]; });
         parts.push({ t: 'table', title: strip(s.label), head: ['Question', scale.join(' / '), ...cols], rows, rate: 1 });
       });
-      (b.fields || []).forEach(f => filled(val(f.id)) && parts.push({ t: 'qa', label: f.label, value: val(f.id) }));
+      (b.fields || []).forEach(f => filled(val(f.id)) && parts.push({ t: 'qa', label: String(f.label).replace(/<[^>]+>/g, ''), value: val(f.id) }));
     }
     if (b.type === 'table') {
       const n = tableRows(b), rows = [];
@@ -124,7 +124,7 @@ window.createDEC15Forms = function ({ getState, save, rerender, esc, strip, icon
       }
       parts.push({ t: 'table', title: strip(b.title || 'Table'), head: b.columns.map(strip), rows, rowHead: !!b.fixed });
     }
-    if (b.type === 'fields') b.fields.forEach(f => parts.push({ t: 'qa', label: f.label, value: String(val(f.id)) }));
+    if (b.type === 'fields') b.fields.forEach(f => parts.push({ t: 'qa', label: String(f.label).replace(/<[^>]+>/g, ''), value: String(val(f.id)) }));
     return { v: 1, title: strip(b.title || a?.title || 'Form'), activity: a?.title || '', place: a ? place(a) : '', parts };
   }
   function hasContent(snap) { return snap.parts.some(p => p.t === 'qa' ? filled(p.value) : p.rows.some(r => r.slice(p.rowHead ? 1 : 0).some(filled))); }

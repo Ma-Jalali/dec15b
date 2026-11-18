@@ -18,7 +18,7 @@ window.createDEC15Notebook = function ({ lesson, getState, planParts, tableRows,
   function activityItems(a) {
     const st = getState(), items = [];
     for (const b of a.blocks) {
-      if (b.type === 'fields') b.fields.forEach(f => filled(val(f.id)) && items.push({ t: 'qa', label: f.label, value: val(f.id) }));
+      if (b.type === 'fields') b.fields.forEach(f => filled(val(f.id)) && items.push({ t: 'qa', label: String(f.label).replace(/<[^>]+>/g, ''), value: val(f.id) }));
       if (b.type === 'choose' && filled(val(b.id))) items.push({ t: 'qa', label: b.title, value: val(b.id) });
       if (b.type === 'cards' && b.pick && filled(val(b.pick))) items.push({ t: 'qa', label: strip(b.title || 'My choice'), value: val(b.pick) });
       if (b.type === 'quiz') {
