@@ -5,7 +5,10 @@
    writer’s process 15→10, Compare the sample with your response 45→40) · 14A 90 min (TB 75 — the extra time goes to Preparation for
    Next Week (15) and group work time) · 11A homework (40). Answer keys are the TB’s; activity titles use TB headings.
    Protected texts are in sources.js (s41, s42); passages copy Sample 4.1 / 4.2 paragraphs exactly. Teacher-only notes are not included
-   (public site). Activity ids are the keys of saved work — never rename them. */
+   (public site). Activity ids are the keys of saved work — never rename them.
+   v9.9 redesign of 9A: stages Before reading → While reading → Language focus (PPP: rule cards with ✗/✓ examples and
+   check questions → choose → write) → After reading. TB guiding questions are open discussion prompts (their TB answers
+   are in each Answers panel); pictures that showed answers sit behind a lock or a fold; repeated tables were removed. */
 window.DEC15_LESSON = {
   "id": "d10w4d3",
   "week": 4,
@@ -33,7 +36,7 @@ window.DEC15_LESSON = {
       "tone": "green",
       "art": "dec10/assets/week4/s-d3-iww2.svg",
       "title": "Integrated writing workshop (2)",
-      "subtitle": "Take Sample 4.1 apart — then compare it with your own essay",
+      "subtitle": "Before reading → while reading → language focus → after reading: take Sample 4.1 apart, learn its language, then improve your own essay",
       "outcome": "You understand better how to develop an argument in an essay, how to achieve cohesion in your writing and how to express your position persuasively — and you can evaluate your writing after comparing it to a sample.",
       "activities": [
         {
@@ -57,58 +60,78 @@ window.DEC15_LESSON = {
               "type": "question"
             },
             {
+              "type": "do",
+              "n": 1,
+              "who": "pair",
+              "text": "Analyse the question with your partner <b>before</b> you look at any answers. Short notes are fine."
+            },
+            {
+              "type": "fields",
+              "fields": [
+                {
+                  "id": "a1-c",
+                  "label": "1) What are the key <b>content words</b>? (They tell you where to focus your reading.)",
+                  "rows": 1
+                },
+                {
+                  "id": "a1-l",
+                  "label": "2) Are there any <b>limiting words</b>? (They narrow the focus.)",
+                  "rows": 1
+                },
+                {
+                  "id": "a1-t",
+                  "label": "3) What is the question asking you to do? Which words show this?",
+                  "rows": 2
+                },
+                {
+                  "id": "a1-f",
+                  "label": "4) Which <b>rhetorical functions</b> are key in your answer?",
+                  "rows": 2
+                }
+              ]
+            },
+            {
               "type": "figure",
               "src": "dec10/assets/week4/d3-question-parts.svg",
               "size": "wide",
               "alt": "The question “To what extent are the goals of ecotourism likely to be achieved?” with its parts labelled: “To what extent” = the task words (evaluate the degree); “goals of ecotourism” and “achieved” = content words (where to focus your reading); “likely” = maybe a limiting word (you must speculate). Below, three possible answers: likely to be achieved; not likely to be achieved; some goals likely, some unlikely.",
-              "caption": "Content words, task words, a possible limiting word — and three possible answers."
+              "caption": "<b>Check:</b> content words, task words and a possible limiting word. Did you find the same?",
+              "id": "a1-check",
+              "title": "Check with the picture",
+              "gate": "Answer questions 1–4 with your partner first. Then open the picture to check."
             },
             {
-              "type": "quiz",
-              "id": "a1-q",
-              "title": "1. Review the question",
-              "items": [
-                {
-                  "q": "1) What are the key <b>content words</b>? (They tell you where to focus your reading.)",
-                  "options": [
-                    "goals of ecotourism; achieved",
-                    "to what extent; likely",
-                    "are; the"
-                  ],
-                  "answer": "goals of ecotourism; achieved",
-                  "why": "These words tell you what to read about in the sources."
-                },
-                {
-                  "q": "2) Are there any <b>limiting words</b>? (They narrow the focus of your response.)",
-                  "options": [
-                    "No obvious ones — but “likely” could be limiting: it asks you to speculate",
-                    "“ecotourism” — it limits the topic to one country",
-                    "“goals” — you may only write about one goal"
-                  ],
-                  "answer": "No obvious ones — but “likely” could be limiting: it asks you to speculate",
-                  "why": "“Likely” asks you to speculate about the future, so that is the scope of the essay."
-                },
-                {
-                  "q": "3) What is the question asking you to do? Which words show this?",
-                  "options": [
-                    "Evaluate the degree to which the goals are achievable — “To what extent”",
-                    "Describe ecotourism — “the goals”",
-                    "Compare two countries — “likely”"
-                  ],
-                  "answer": "Evaluate the degree to which the goals are achievable — “To what extent”",
-                  "why": "The instructions are inside “To what extent”."
-                },
-                {
-                  "q": "4) Which <b>rhetorical functions</b> are KEY in the answer?",
-                  "options": [
-                    "Evaluating, persuading and speculating",
-                    "Describing a process and giving instructions",
-                    "Narrating a story"
-                  ],
-                  "answer": "Evaluating, persuading and speculating",
-                  "why": "Evaluate how far the goals are achievable, persuade the reader of your position and speculate on how likely it is. Also: define ecotourism and its goals, and explain the effects of ecotourism."
-                }
-              ]
+              "type": "rule",
+              "n": 1,
+              "title": "Answer “To what extent …?” with a clear position",
+              "explain": "“To what extent” asks <b>how far</b>. It is not a yes/no question, and “there are good and bad sides” is not an answer. Your thesis must say <b>how far</b> — and <b>why</b>.",
+              "form": "Topic + <b>extent / likelihood</b> language + <b>because</b> reason 1 <b>and</b> reason 2",
+              "cols": [
+                "✗ No clear position",
+                "✓ Clear position"
+              ],
+              "pairs": [
+                [
+                  "Ecotourism has advantages and disadvantages.",
+                  "While ecotourism has clear benefits, its goals are <b>unlikely</b> to be achieved <b>in the near future</b>, because …",
+                  "The ✗ version only describes. It never says how far."
+                ],
+                [
+                  "Ecotourism will definitely fail.",
+                  "Ecotourism is <b>unlikely</b> to achieve its goals <b>without stronger regulation</b>.",
+                  "Too absolute: one success story (Costa Rica) proves it wrong."
+                ],
+                [
+                  "I think maybe some goals might possibly be achieved.",
+                  "Ecotourism can achieve its economic goals <b>to a large extent</b>, but its social goals <b>only to a limited extent</b>.",
+                  "Too many hedges. The ✓ version says <b>which</b> goals and <b>how far</b>."
+                ]
+              ],
+              "note": "Extent and likelihood language: <i>to a large / considerable extent · to some extent · only to a limited extent · largely · partly · (highly) likely · unlikely · at least in the foreseeable future</i>",
+              "check": {
+                "q": "Is “Ecotourism has good and bad points” an answer to “To what extent …?”",
+                "a": "No. It describes both sides but does not say how far the goals will be achieved. You need a position."
+              }
             },
             {
               "type": "cards",
@@ -141,6 +164,28 @@ window.DEC15_LESSON = {
                 "The goals of ecotourism are not likely to be achieved.",
                 "Some goals are likely to be achieved, but some are unlikely.",
                 "Other"
+              ]
+            },
+            {
+              "type": "do",
+              "n": 2,
+              "who": "alone",
+              "text": "Write your thesis from yesterday again. Then improve it with extent or likelihood language and two reasons."
+            },
+            {
+              "type": "fields",
+              "fields": [
+                {
+                  "id": "a1-th0",
+                  "label": "My thesis yesterday (as I remember it)",
+                  "rows": 2
+                },
+                {
+                  "id": "a1-th1",
+                  "label": "My thesis — improved (position + extent + two reasons)",
+                  "rows": 3,
+                  "placeholder": "While ecotourism …, its goals are … likely to be achieved …, because … and …"
+                }
               ]
             },
             {
@@ -181,10 +226,14 @@ window.DEC15_LESSON = {
                   ]
                 }
               ]
+            },
+            {
+              "type": "teacher",
+              "text": "Short on time? Do Steps 1–2 and the check picture, then read Rule 1 together (2 minutes). The thesis rewrite can move to the start of Activity 10."
             }
           ],
           "answers": {
-            "title": "Answers (Teacher’s Book)",
+            "title": "Answers (Teacher’s Book) and an example",
             "items": [
               [
                 "1) Content words",
@@ -205,9 +254,14 @@ window.DEC15_LESSON = {
               [
                 "5) Possible answers",
                 "1. likely to be achieved · 2. not likely to be achieved · 3. some likely, some unlikely"
+              ],
+              [
+                "Improved thesis (example)",
+                "While ecotourism can support local economies to some extent, its goals are unlikely to be achieved in the foreseeable future, because certification is weak and local communities often pay the social and environmental costs."
               ]
             ]
-          }
+          },
+          "category": "Before reading"
         },
         {
           "id": "a2",
@@ -283,7 +337,8 @@ window.DEC15_LESSON = {
                 }
               ]
             }
-          ]
+          ],
+          "category": "While reading · gist"
         },
         {
           "id": "a3",
@@ -295,31 +350,23 @@ window.DEC15_LESSON = {
           "goal": "See how the writer chose a position — so you can use the same process.",
           "blocks": [
             {
-              "type": "figure",
-              "src": "dec10/assets/week4/d3-weigh-position.svg",
-              "size": "wide",
-              "alt": "A balance scale. On the left pan, green notes: evidence of achievements so far (a potential positive answer). On the right pan, more red notes: evidence of problems and negative impacts (a potential negative answer). The red side is heavier, so the scale points to “unlikely to be achieved”.",
-              "caption": "Green = achievements · Red = problems. The writer weighed them up — and red was heavier."
+              "type": "key",
+              "title": "How do you choose a position?",
+              "points": [
+                "Strong writers do not start writing with a position. They <b>collect evidence</b> from the sources, <b>sort</b> it, and then <b>weigh it up</b>.",
+                "Sample 4.1’s writer used two colours: <b>green</b> = evidence that the goals can be achieved · <b>red</b> = evidence of problems and barriers."
+              ]
             },
             {
-              "type": "order",
-              "id": "a3-order",
-              "title": "What steps did the writer go through? Put them in order.",
-              "items": [
-                "Reminded themselves of the task words: <b>to what extent</b> are [the goals] <b>likely</b> to be achieved",
-                "Put any evidence of achievements so far in <b>green</b> (a potential positive response)",
-                "Put any evidence of problems and negative impacts in <b>red</b> (a potential negative response)",
-                "Weighed up the green and red points: there were more red, so they took the <b>unlikely to be achieved</b> position"
-              ],
-              "ends": [
-                "First",
-                "Last"
-              ]
+              "type": "do",
+              "n": 1,
+              "who": "pair",
+              "text": "Try the writer’s method. These notes come from this week’s sources. Colour each one."
             },
             {
               "type": "sort",
               "id": "a3-sort",
-              "title": "Green or red? Colour the notes like the writer",
+              "title": "You are the writer: colour the notes green or red",
               "hint": "These ideas come from the sources. Drag each one into the right box — or tap a card, then a box.",
               "buckets": [
                 {
@@ -365,47 +412,72 @@ window.DEC15_LESSON = {
               ]
             },
             {
-              "type": "quiz",
-              "id": "a3-q",
-              "title": "Which ideas did the writer select — and why?",
-              "items": [
+              "type": "do",
+              "n": 2,
+              "who": "pair",
+              "text": "Weigh them up. Which side is heavier? So what position does the evidence support?"
+            },
+            {
+              "type": "toggle",
+              "title": "Check: how the writer weighed it up",
+              "hint": "Open after you have decided.",
+              "blocks": [
                 {
-                  "q": "Why did the writer collect the <b>goals</b> of ecotourism?",
-                  "options": [
-                    "It is one of the topic words",
-                    "They are easy to paraphrase",
-                    "They are in every source"
-                  ],
-                  "answer": "It is one of the topic words"
-                },
-                {
-                  "q": "Why did the writer collect <b>examples of achievements</b>?",
-                  "options": [
-                    "“Achieved” is one of the topic words",
-                    "To fill the word count",
-                    "To avoid using Mielly"
-                  ],
-                  "answer": "“Achieved” is one of the topic words"
-                },
-                {
-                  "q": "Why did the writer collect <b>problems or negative impacts</b>?",
-                  "options": [
-                    "They could be evidence of barriers to the goals",
-                    "They make the essay longer",
-                    "They are the writer’s own opinions"
-                  ],
-                  "answer": "They could be evidence of barriers to the goals"
-                },
-                {
-                  "q": "Why did the writer collect <b>solutions to the problems</b>?",
-                  "options": [
-                    "They could be counterarguments for the potential barriers",
-                    "They are the thesis",
-                    "They are not needed"
-                  ],
-                  "answer": "They could be counterarguments for the potential barriers"
+                  "type": "figure",
+                  "src": "dec10/assets/week4/d3-weigh-position.svg",
+                  "size": "wide",
+                  "alt": "A balance scale. On the left pan, green notes: evidence of achievements so far (a potential positive answer). On the right pan, more red notes: evidence of problems and negative impacts (a potential negative answer). The red side is heavier, so the scale points to “unlikely to be achieved”.",
+                  "caption": "<b>Check:</b> green = achievements · red = problems. The writer weighed them up — red was heavier, so: <b>unlikely</b>."
                 }
               ]
+            },
+            {
+              "type": "do",
+              "n": 3,
+              "who": "pair",
+              "text": "Now put the writer’s steps in order."
+            },
+            {
+              "type": "order",
+              "id": "a3-order",
+              "title": "What steps did the writer go through? Put them in order.",
+              "items": [
+                "Reminded themselves of the task words: <b>to what extent</b> are [the goals] <b>likely</b> to be achieved",
+                "Put any evidence of achievements so far in <b>green</b> (a potential positive response)",
+                "Put any evidence of problems and negative impacts in <b>red</b> (a potential negative response)",
+                "Weighed up the green and red points: there were more red, so they took the <b>unlikely to be achieved</b> position"
+              ],
+              "ends": [
+                "First",
+                "Last"
+              ]
+            },
+            {
+              "type": "do",
+              "n": 4,
+              "who": "pair",
+              "text": "The writer collected four kinds of ideas. Why each one? Match."
+            },
+            {
+              "type": "match",
+              "id": "a3-why",
+              "title": "Which ideas did the writer select — and why?",
+              "left": [
+                "The goals of ecotourism",
+                "Examples of achievements",
+                "Problems or negative impacts",
+                "Solutions to the problems"
+              ],
+              "right": [
+                "“Goals of ecotourism” are topic words in the question.",
+                "“Achieved” is a topic word in the question.",
+                "They are evidence of barriers to the goals.",
+                "They can be counterarguments to the barriers."
+              ]
+            },
+            {
+              "type": "tip",
+              "text": "What if green and red are about <b>equal</b>? Then take a <b>middle position</b> — but say <b>which</b> goals are likely and which are not: “… to a large extent for the economy, but only to a limited extent for local communities.”"
             },
             {
               "type": "talk",
@@ -448,7 +520,8 @@ window.DEC15_LESSON = {
                 "The <b>goals</b> of ecotourism (a topic word) · examples of <b>achievements</b> (a topic word) · problems or negative impacts (evidence of barriers) · solutions to the problems (counterarguments for the potential barriers)"
               ]
             ]
-          }
+          },
+          "category": "While reading · the writer’s process"
         },
         {
           "id": "a4",
@@ -478,7 +551,33 @@ window.DEC15_LESSON = {
             },
             {
               "type": "tip",
-              "text": "The <b>Deconstruction table</b> (Student’s book, W4 D3. 9B): 1st column = the sample essay · 2nd column = the purpose of the <b>sentences</b> · 3rd column = the purpose of the <b>paragraphs</b>. Don’t focus on details — only the overall purpose of each paragraph."
+              "text": "After the sort, copy the purposes into the <b>3rd column</b> of your <b>Deconstruction table</b> (Student’s Book, W4 D3. 9B). Don’t focus on details — only the main purpose of each paragraph."
+            },
+            {
+              "type": "cards",
+              "title": "Two common ways to build an argument essay",
+              "items": [
+                {
+                  "label": "A · Counter-argument first (Sample 4.1)",
+                  "text": "Intro → <b>Body 1</b> the other side → <b>Body 2</b> BUT reject it + reason 1 → <b>Body 3</b> AND reason 2 → Conclusion. <i>The reader sees you have been fair — then you win the argument.</i>"
+                },
+                {
+                  "label": "B · Reasons first",
+                  "text": "Intro → <b>Body 1</b> reason 1 → <b>Body 2</b> reason 2 → <b>Body 3</b> the other side + why it is weaker → Conclusion. <i>Your strongest ideas come first.</i>"
+                }
+              ]
+            },
+            {
+              "type": "do",
+              "n": 1,
+              "who": "pair",
+              "text": "Read the <b>first and last sentence</b> of each paragraph of Sample 4.1. Which shape (A or B) is it? Then match each paragraph to its purpose."
+            },
+            {
+              "type": "sources",
+              "ids": [
+                "s41"
+              ]
             },
             {
               "type": "sort",
@@ -527,26 +626,25 @@ window.DEC15_LESSON = {
               ]
             },
             {
-              "type": "figure",
-              "src": "dec10/assets/week4/d3-41-textmap.svg",
-              "size": "wide",
-              "alt": "The building blocks of Sample 4.1. Introduction: context and the writer’s position (unlikely, because of 2 reasons). Body 1: counter-argument — ecotourism is realistic (SDGs, Costa Rica). Body 2: BUT reject the counter-argument + reason 1 — lack of clear definition and regulation, bluewashing. Body 3: AND reason 2 — deep impact on local people (displacement). Conclusion: re-state the position, summarise the reasons, emphasise the importance.",
-              "caption": "The paragraphs build the overall logical structure: <b>counter-argument → BUT reason 1 → AND reason 2</b>."
+              "type": "toggle",
+              "title": "Check: the building blocks of Sample 4.1",
+              "hint": "Open after the sort.",
+              "blocks": [
+                {
+                  "type": "figure",
+                  "src": "dec10/assets/week4/d3-41-textmap.svg",
+                  "size": "wide",
+                  "alt": "The building blocks of Sample 4.1. Introduction: context and the writer’s position (unlikely, because of 2 reasons). Body 1: counter-argument — ecotourism is realistic (SDGs, Costa Rica). Body 2: BUT reject the counter-argument + reason 1 — lack of clear definition and regulation, bluewashing. Body 3: AND reason 2 — deep impact on local people (displacement). Conclusion: re-state the position, summarise the reasons, emphasise the importance.",
+                  "caption": "The paragraphs build the overall logical structure: <b>counter-argument → BUT reason 1 → AND reason 2</b>."
+                }
+              ]
             },
             {
-              "type": "table",
-              "id": "a4-t",
-              "title": "Deconstruction table · By paragraph (purpose of each paragraph)",
-              "columns": [
-                "Paragraph",
-                "Purpose of the paragraph"
-              ],
-              "fixed": [
-                "[Introduction]",
-                "[Body 1]",
-                "[Body 2]",
-                "[Body 3]",
-                "[Conclusion]"
+              "type": "talk",
+              "title": "Discuss",
+              "prompts": [
+                "Why does the writer put the counter-argument <b>first</b>? How does it make the reader feel about the writer?",
+                "Which shape did your practice essay have? Which one will you use in the Practice Assessment — and why?"
               ]
             }
           ],
@@ -574,7 +672,8 @@ window.DEC15_LESSON = {
                 "Re-state position and summarise supporting reasons · Emphasise the importance of thesis/position"
               ]
             ]
-          }
+          },
+          "category": "While reading · structure"
         },
         {
           "id": "a5",
@@ -594,11 +693,48 @@ window.DEC15_LESSON = {
               ]
             },
             {
-              "type": "figure",
-              "src": "dec10/assets/week4/d3-intro-shape.svg",
-              "size": "wide",
-              "alt": "The introduction of Sample 4.1 as four steps narrowing down: S1 Topic: historical development (tourism has grown into a vast global industry). S2 Topic: present response (In response to …, ecotourism has emerged). S3 BUT issue (However, … complexities and challenges). S4 SO writer’s position (This essay argues, therefore, …) + counterargument (while …) BECAUSE 2 reasons (preview points).",
-              "caption": "Introduction: <b>historical development → present response → BUT issue → SO position + BECAUSE 2 reasons</b>."
+              "type": "cards",
+              "title": "Toolbox · the words that show a sentence’s job",
+              "items": [
+                {
+                  "label": "Topic / background",
+                  "text": "<i>… has grown into … · In response to …, … has emerged</i>"
+                },
+                {
+                  "label": "BUT · issue or contrast",
+                  "text": "<i>However, … · Despite …, however, … · While …, …</i>"
+                },
+                {
+                  "label": "SO · position",
+                  "text": "<i>This essay argues, therefore, that …</i>"
+                },
+                {
+                  "label": "BECAUSE · reasons",
+                  "text": "<i>because … · due to …</i>"
+                },
+                {
+                  "label": "Evidence from a source",
+                  "text": "<i>Indeed, … (Author, year) · As Mielly (2023) points out, …</i>"
+                },
+                {
+                  "label": "AND · more evidence",
+                  "text": "<i>Similarly, … · … are further compounded by …</i>"
+                },
+                {
+                  "label": "SO · consequence",
+                  "text": "<i>These activities … · As a result, …</i>"
+                },
+                {
+                  "label": "SO · mini-conclusion",
+                  "text": "<i>… is therefore evident · Such practices clearly …</i>"
+                }
+              ]
+            },
+            {
+              "type": "do",
+              "n": 1,
+              "who": "class",
+              "text": "<b>Worked example.</b> Read the introduction with your teacher. For each sentence ask: <i>What is its job? Which words show it?</i>"
             },
             {
               "type": "passage",
@@ -607,47 +743,43 @@ window.DEC15_LESSON = {
               "text": "¹International tourism has grown into a vast global industry, bringing with it an intense focus on its environmental and social impacts. ²In response to the negative impacts, ecotourism has emerged as a potential form of responsible tourism (Alom, 2023; Mielly, 2023; Spenceley & Rylance, 2021). ³However, as the concept of ecotourism has evolved, so have the complexities and challenges associated with the implementation of its goals. ⁴This essay argues, therefore, that while ecotourism harbors the potential for positive impact, its goals are unlikely to be achieved, at least in the foreseeable future, because they are undermined by inadequate regulation, and ongoing localised social and environmental costs."
             },
             {
-              "type": "quiz",
-              "id": "a5-q1",
+              "type": "talk",
               "title": "Guiding questions · the introduction",
-              "items": [
+              "prompts": [
+                "What is the purpose of the first two sentences (S1 and S2)?",
+                "What is the difference between S1 and S2?",
+                "What is the purpose of S3? Which word tells us?",
+                "S4 has two purposes. What are they?"
+              ]
+            },
+            {
+              "type": "toggle",
+              "title": "The introduction, sentence by sentence",
+              "hint": "Open after you have discussed the questions.",
+              "blocks": [
                 {
-                  "q": "1. What is the purpose of the first two sentences (S1 and S2)?",
-                  "options": [
-                    "To introduce the topic of tourism/ecotourism",
-                    "To state the writer’s position",
-                    "To give a counterargument"
-                  ],
-                  "answer": "To introduce the topic of tourism/ecotourism"
+                  "type": "figure",
+                  "src": "dec10/assets/week4/d3-intro-shape.svg",
+                  "size": "wide",
+                  "alt": "The introduction of Sample 4.1 as four steps narrowing down: S1 Topic: historical development (tourism has grown into a vast global industry). S2 Topic: present response (In response to …, ecotourism has emerged). S3 BUT issue (However, … complexities and challenges). S4 SO writer’s position (This essay argues, therefore, …) + counterargument (while …) BECAUSE 2 reasons (preview points).",
+                  "caption": "Introduction: <b>historical development → present response → BUT issue → SO position + BECAUSE 2 reasons</b>."
                 },
                 {
-                  "q": "2. What is the difference between S1 and S2?",
-                  "options": [
-                    "S1 = the historical development of tourism; S2 = the present response to it (“In response to …”)",
-                    "S1 = a definition; S2 = an example",
-                    "S1 = the issue; S2 = the position"
-                  ],
-                  "answer": "S1 = the historical development of tourism; S2 = the present response to it (“In response to …”)"
-                },
-                {
-                  "q": "3. What is the purpose of S3? Which word tells us?",
-                  "options": [
-                    "To introduce the issue related to the topic — “However”",
-                    "To give a reason — “as”",
-                    "To conclude — “so”"
-                  ],
-                  "answer": "To introduce the issue related to the topic — “However”"
-                },
-                {
-                  "q": "4. S4 has two purposes. What are they?",
-                  "options": [
-                    "To state the writer’s position (“This essay argues”), including a counterargument (“while …”), AND to give the two reasons / preview points (“because … and …”)",
-                    "To define ecotourism and give an example",
-                    "To summarise the sources and end the paragraph"
-                  ],
-                  "answer": "To state the writer’s position (“This essay argues”), including a counterargument (“while …”), AND to give the two reasons / preview points (“because … and …”)"
+                  "type": "text",
+                  "list": [
+                    "<b>S1 Topic: historical development</b> — “International tourism <u>has grown into</u> a vast global industry …”",
+                    "<b>S2 Topic: present response</b> — “<u>In response to</u> the negative impacts, ecotourism has emerged …”",
+                    "<b>S3 BUT issue</b> — “<u>However</u>, … so have the complexities and challenges …”",
+                    "<b>S4 SO position + BECAUSE two reasons</b> — “<u>This essay argues, therefore,</u> that <u>while</u> … , its goals are unlikely … <u>because</u> … and …”"
+                  ]
                 }
               ]
+            },
+            {
+              "type": "do",
+              "n": 2,
+              "who": "pair",
+              "text": "<b>Your turn with a partner.</b> Read body paragraph 1. Discuss the guiding questions. Then write the job of each sentence in the table — use the toolbox words and BUT / SO / AND / BECAUSE."
             },
             {
               "type": "passage",
@@ -656,55 +788,14 @@ window.DEC15_LESSON = {
               "text": "¹Proponents of ecotourism argue that it provides a realistic sustainable alternative to conventional tourism. ²Indeed, ecotourism aligns with a number of Sustainable Development Goals, which can be achieved, for example, through agrotourism projects and the establishment of marine-protected areas (Spenceley & Rylance, 2021). ³These activities not only support local communities, but also ensure the preservation of ecosystems. ⁴Similarly, the positive depiction of Costa Rica as a model of sustainable tourism (Alom, 2023) illustrates how tourism can be integrated successfully to support the local economy. ⁵The potential for ecotourism to protect and improve the lives and environment of local communities is therefore evident."
             },
             {
-              "type": "quiz",
-              "id": "a5-q2",
+              "type": "talk",
               "title": "Guiding questions · body paragraph 1",
-              "items": [
-                {
-                  "q": "1. What is the purpose of the topic sentence?",
-                  "options": [
-                    "To introduce the counterargument mentioned in the thesis (“a realistic sustainable alternative …”)",
-                    "To give the first reason for the writer’s position",
-                    "To restate the thesis"
-                  ],
-                  "answer": "To introduce the counterargument mentioned in the thesis (“a realistic sustainable alternative …”)"
-                },
-                {
-                  "q": "2. Why does the writer include a reference in S2?",
-                  "options": [
-                    "To give evidence (“Indeed …”) for the counterargument (goals … can be achieved … through …)",
-                    "To show the writer disagrees with the source",
-                    "To define the SDGs"
-                  ],
-                  "answer": "To give evidence (“Indeed …”) for the counterargument (goals … can be achieved … through …)"
-                },
-                {
-                  "q": "3. How is S3 connected to S2? Which words show it?",
-                  "options": [
-                    "It gives the consequences of the activities in S2 — “These activities not only support … but also ensure …”",
-                    "It contrasts with S2 — “but”",
-                    "It gives a new example — “for example”"
-                  ],
-                  "answer": "It gives the consequences of the activities in S2 — “These activities not only support … but also ensure …”"
-                },
-                {
-                  "q": "4. Why does S4 start with “Similarly”?",
-                  "options": [
-                    "It adds more supporting evidence (Costa Rica) for the counterargument",
-                    "It rejects the counterargument",
-                    "It introduces reason 1"
-                  ],
-                  "answer": "It adds more supporting evidence (Costa Rica) for the counterargument"
-                },
-                {
-                  "q": "5. What is the purpose of the final sentence?",
-                  "options": [
-                    "To conclude (“therefore”) by re-stating the counterargument: the potential of ecotourism to achieve its goals",
-                    "To give the writer’s final position",
-                    "To introduce Body 2"
-                  ],
-                  "answer": "To conclude (“therefore”) by re-stating the counterargument: the potential of ecotourism to achieve its goals"
-                }
+              "prompts": [
+                "What is the purpose of the topic sentence?",
+                "Why does the writer include a reference in S2?",
+                "How is S3 connected to S2? Which words show it?",
+                "Why does S4 start with “Similarly”?",
+                "What is the purpose of the final sentence?"
               ]
             },
             {
@@ -782,9 +873,46 @@ window.DEC15_LESSON = {
               [
                 "Body 1 S5",
                 "SO re-state counterargument: potential of ecotourism to achieve these goals"
+              ],
+              [
+                "Intro Q1",
+                "What is the purpose of the first two sentences (S1 and S2)? → <b>To introduce the topic of tourism/ecotourism</b>"
+              ],
+              [
+                "Intro Q2",
+                "What is the difference between S1 and S2? → <b>S1 = the historical development of tourism; S2 = the present response to it (“In response to …”)</b>"
+              ],
+              [
+                "Intro Q3",
+                "What is the purpose of S3? Which word tells us? → <b>To introduce the issue related to the topic — “However”</b>"
+              ],
+              [
+                "Intro Q4",
+                "S4 has two purposes. What are they? → <b>To state the writer’s position (“This essay argues”), including a counterargument (“while …”), AND to give the two reasons / preview points (“because … and …”)</b>"
+              ],
+              [
+                "Body 1 Q1",
+                "What is the purpose of the topic sentence? → <b>To introduce the counterargument mentioned in the thesis (“a realistic sustainable alternative …”)</b>"
+              ],
+              [
+                "Body 1 Q2",
+                "Why does the writer include a reference in S2? → <b>To give evidence (“Indeed …”) for the counterargument (goals … can be achieved … through …)</b>"
+              ],
+              [
+                "Body 1 Q3",
+                "How is S3 connected to S2? Which words show it? → <b>It gives the consequences of the activities in S2 — “These activities not only support … but also ensure …”</b>"
+              ],
+              [
+                "Body 1 Q4",
+                "Why does S4 start with “Similarly”? → <b>It adds more supporting evidence (Costa Rica) for the counterargument</b>"
+              ],
+              [
+                "Body 1 Q5",
+                "What is the purpose of the final sentence? → <b>To conclude (“therefore”) by re-stating the counterargument: the potential of ecotourism to achieve its goals</b>"
               ]
             ]
-          }
+          },
+          "category": "While reading · structure"
         },
         {
           "id": "a6",
@@ -796,182 +924,115 @@ window.DEC15_LESSON = {
           "goal": "With your partner, find the purpose of each sentence — then see how the conclusion links back to the introduction.",
           "blocks": [
             {
-              "type": "do",
-              "n": 1,
-              "who": "pair",
-              "text": "Work with your partner. Identify the purpose of each sentence and the rhetorical (logical) structure. Make notes in the table, as you did for body paragraph 1."
-            },
-            {
-              "type": "passage",
-              "id": "a6-b2",
-              "title": "Sample 4.1 · Body paragraph 2",
-              "text": "¹Despite the potential benefits, however, ecotourism frequently falls short of its ideals due to a lack of stringent regulations. ²As Mielly (2023) points out, terms such as sustainable and regenerative tourism lack clear definitions and regulatory enforcement, which means that tour operators can use the terms freely and falsely, without being subject to penalties. ³The writer acknowledges that regulations to enforce sustainable practices have met with success, such as in the case of Bahia. ⁴However, government regulations or market-based certification can also be insufficiently strict or contain loopholes (Alom, 2023). ⁵These regulatory challenges are further compounded by 'bluewashing', whereby ecotourism is used more to promote the interests of corporations than to promote genuine conservation efforts (Mielly, 2023). ⁶Such practices clearly undermine the goals of ecotourism."
-            },
-            {
-              "type": "quiz",
-              "id": "a6-q2",
-              "title": "Guiding questions · body paragraph 2",
+              "type": "steps",
+              "title": "Share the work",
               "items": [
                 {
-                  "q": "1. What is the purpose of the topic sentence?",
-                  "options": [
-                    "To reject the counterargument (“Despite …, however, …”) AND introduce the first reason (“due to a lack of stringent regulations”)",
-                    "To add more evidence for the counterargument",
-                    "To restate the thesis"
-                  ],
-                  "answer": "To reject the counterargument (“Despite …, however, …”) AND introduce the first reason (“due to a lack of stringent regulations”)"
+                  "who": "pair",
+                  "text": "<b>Pair A</b> takes body paragraph 2. <b>Pair B</b> takes body paragraph 3. Use the guiding questions and the toolbox. Write your rows of the table (8 min)."
                 },
                 {
-                  "q": "2. How is S2 connected to the topic sentence?",
-                  "options": [
-                    "It provides evidence for the reason — “As Mielly (2023) points out …”",
-                    "It gives a counterargument — “The writer acknowledges …”",
-                    "It concludes — “Such practices …”"
-                  ],
-                  "answer": "It provides evidence for the reason — “As Mielly (2023) points out …”"
+                  "who": "group",
+                  "text": "Join the other pair. Explain your paragraph using only BUT / SO / AND / BECAUSE. They copy your notes (4 min)."
                 },
                 {
-                  "q": "3. What is the purpose of S3 and S4?",
-                  "options": [
-                    "S3 presents a counterargument (“The writer acknowledges …”); S4 rejects it (“However …”) + evidence",
-                    "S3 and S4 give two new reasons",
-                    "S3 gives a solution; S4 gives an example"
-                  ],
-                  "answer": "S3 presents a counterargument (“The writer acknowledges …”); S4 rejects it (“However …”) + evidence"
-                },
-                {
-                  "q": "4. How is S5 connected to S4?",
-                  "options": [
-                    "It adds further evidence for rejecting the counterargument — “are further compounded by …”",
-                    "It contrasts with S4 — “whereby”",
-                    "It concludes the essay"
-                  ],
-                  "answer": "It adds further evidence for rejecting the counterargument — “are further compounded by …”"
-                },
-                {
-                  "q": "5. What is the purpose of the final sentence?",
-                  "options": [
-                    "To conclude by summarising the evidence (“Such practices …”) to support the position (“… undermine the goals of ecotourism”)",
-                    "To introduce the second reason",
-                    "To give a recommendation"
-                  ],
-                  "answer": "To conclude by summarising the evidence (“Such practices …”) to support the position (“… undermine the goals of ecotourism”)"
+                  "who": "group",
+                  "text": "All together: the conclusion (3 min)."
                 }
               ]
             },
             {
-              "type": "passage",
-              "id": "a6-b3",
-              "title": "Sample 4.1 · Body paragraph 3",
-              "text": "¹The challenges for ecotourism in achieving its goals extend beyond regulatory inadequacies to often deeply affecting local and indigenous populations. ²This occurs when ecotourism projects lead to the displacement of communities and the destruction of their environment, often under the guise of development and conservation (Mielly, 2023). ³These projects, while beneficial for both tourists and some local activities and businesses (Alom, 2023; Spenceley & Rylance, 2021), can also be manipulated to justify the displacement of local indigenous people, for example, in the cases of communities in Indonesia and Brazil, as Mielly (2023) points out. ⁴As a result, the writer adds, local populations lose their habitat, which is the source of their cultural and social life, and the habitat loss also means environmental destruction (Mielly, 2023). ⁵This ongoing kind of ‘bluewashing’ remains a significant barrier to ecotourism achieving its goals."
-            },
-            {
-              "type": "quiz",
-              "id": "a6-q3",
-              "title": "Guiding questions · body paragraph 3",
-              "items": [
+              "type": "toggle",
+              "ref": true,
+              "title": "Toolbox · the words that show a sentence’s job",
+              "blocks": [
                 {
-                  "q": "1. What is the purpose of the topic sentence?",
-                  "options": [
-                    "To introduce the second reason (deep impact on people) — “extend beyond …, to …”",
-                    "To reject a counterargument",
-                    "To repeat reason 1"
-                  ],
-                  "answer": "To introduce the second reason (deep impact on people) — “extend beyond …, to …”"
-                },
-                {
-                  "q": "2. How is S2 connected to the topic sentence?",
-                  "options": [
-                    "It gives an example (“This occurs when …”) + reasons (displacement and destruction; “under the guise of”) for the impact",
-                    "It contrasts with the topic sentence",
-                    "It gives the conclusion"
-                  ],
-                  "answer": "It gives an example (“This occurs when …”) + reasons (displacement and destruction; “under the guise of”) for the impact"
-                },
-                {
-                  "q": "3. How is S3 connected to S2?",
-                  "options": [
-                    "It provides evidence for the “dishonesty” (“under the guise of”) in S2",
-                    "It rejects S2",
-                    "It gives a solution"
-                  ],
-                  "answer": "It provides evidence for the “dishonesty” (“under the guise of”) in S2"
-                },
-                {
-                  "q": "4. How is S4 connected to S3?",
-                  "options": [
-                    "It gives the consequence (“As a result, …”) of the displacement in S3",
-                    "It gives a counterargument",
-                    "It defines bluewashing"
-                  ],
-                  "answer": "It gives the consequence (“As a result, …”) of the displacement in S3"
-                },
-                {
-                  "q": "5. What is the purpose of the final sentence?",
-                  "options": [
-                    "To conclude by summarising the evidence (“This ongoing kind of ‘bluewashing’ …”) to support the position (“… barrier to ecotourism … goals”)",
-                    "To start the conclusion of the essay",
-                    "To present the counterargument again"
-                  ],
-                  "answer": "To conclude by summarising the evidence (“This ongoing kind of ‘bluewashing’ …”) to support the position (“… barrier to ecotourism … goals”)"
+                  "type": "cards",
+                  "title": "Toolbox · the words that show a sentence’s job",
+                  "items": [
+                    {
+                      "label": "Topic / background",
+                      "text": "<i>… has grown into … · In response to …, … has emerged</i>"
+                    },
+                    {
+                      "label": "BUT · issue or contrast",
+                      "text": "<i>However, … · Despite …, however, … · While …, …</i>"
+                    },
+                    {
+                      "label": "SO · position",
+                      "text": "<i>This essay argues, therefore, that …</i>"
+                    },
+                    {
+                      "label": "BECAUSE · reasons",
+                      "text": "<i>because … · due to …</i>"
+                    },
+                    {
+                      "label": "Evidence from a source",
+                      "text": "<i>Indeed, … (Author, year) · As Mielly (2023) points out, …</i>"
+                    },
+                    {
+                      "label": "AND · more evidence",
+                      "text": "<i>Similarly, … · … are further compounded by …</i>"
+                    },
+                    {
+                      "label": "SO · consequence",
+                      "text": "<i>These activities … · As a result, …</i>"
+                    },
+                    {
+                      "label": "SO · mini-conclusion",
+                      "text": "<i>… is therefore evident · Such practices clearly …</i>"
+                    }
+                  ]
                 }
               ]
             },
             {
-              "type": "passage",
-              "id": "a6-conc",
-              "title": "Sample 4.1 · Conclusion",
-              "text": "¹Ecotourism, while based on important goals, faces challenges that may prevent their realization. ²For ecotourism to truly achieve its goals as a sustainable development tool, it is essential to have robust regulatory frameworks to reduce undesirable practices such as bluewashing, together with significant reductions in social and environmental impacts. ³Only through such comprehensive and enforced measures can ecotourism reconcile its ideals with its goals."
-            },
-            {
-              "type": "quiz",
-              "id": "a6-q4",
-              "title": "Read the introduction again, together with the conclusion",
-              "items": [
+              "type": "tabs",
+              "title": "Body paragraphs",
+              "tabs": [
                 {
-                  "q": "1. Which sentence in the introduction contains the writer’s position?",
-                  "options": [
-                    "S2",
-                    "S3",
-                    "S4"
-                  ],
-                  "answer": "S4"
+                  "label": "Pair A · Body 2",
+                  "blocks": [
+                    {
+                      "type": "passage",
+                      "id": "a6-b2",
+                      "title": "Sample 4.1 · Body paragraph 2",
+                      "text": "¹Despite the potential benefits, however, ecotourism frequently falls short of its ideals due to a lack of stringent regulations. ²As Mielly (2023) points out, terms such as sustainable and regenerative tourism lack clear definitions and regulatory enforcement, which means that tour operators can use the terms freely and falsely, without being subject to penalties. ³The writer acknowledges that regulations to enforce sustainable practices have met with success, such as in the case of Bahia. ⁴However, government regulations or market-based certification can also be insufficiently strict or contain loopholes (Alom, 2023). ⁵These regulatory challenges are further compounded by 'bluewashing', whereby ecotourism is used more to promote the interests of corporations than to promote genuine conservation efforts (Mielly, 2023). ⁶Such practices clearly undermine the goals of ecotourism."
+                    },
+                    {
+                      "type": "talk",
+                      "title": "Guiding questions · body paragraph 2",
+                      "prompts": [
+                        "What is the purpose of the topic sentence?",
+                        "How is S2 connected to the topic sentence?",
+                        "What is the purpose of S3 and S4?",
+                        "How is S5 connected to S4?",
+                        "What is the purpose of the final sentence?"
+                      ]
+                    }
+                  ]
                 },
                 {
-                  "q": "2. Which sentence in the conclusion restates the position?",
-                  "options": [
-                    "S1",
-                    "S2",
-                    "S3"
-                  ],
-                  "answer": "S1"
-                },
-                {
-                  "q": "3. How does the writer paraphrase the position in the conclusion?",
-                  "options": [
-                    "Changed order of information + synonyms (“harbors the potential for positive impact” → “based on important goals”) + a pronoun for a noun",
-                    "By copying S4 word for word",
-                    "By adding a new source"
-                  ],
-                  "answer": "Changed order of information + synonyms (“harbors the potential for positive impact” → “based on important goals”) + a pronoun for a noun"
-                },
-                {
-                  "q": "4. How does S2 of the conclusion link back to the introduction?",
-                  "options": [
-                    "It re-states the two supporting reasons (regulation; social and environmental costs) as things that need to be addressed",
-                    "It gives a third reason",
-                    "It repeats the background"
-                  ],
-                  "answer": "It re-states the two supporting reasons (regulation; social and environmental costs) as things that need to be addressed"
-                },
-                {
-                  "q": "5. What is the purpose of S3 of the conclusion?",
-                  "options": [
-                    "A final message and a potential solution: (only) if these measures are carried out can the goals be achieved",
-                    "A new counterargument",
-                    "A summary of the sources"
-                  ],
-                  "answer": "A final message and a potential solution: (only) if these measures are carried out can the goals be achieved"
+                  "label": "Pair B · Body 3",
+                  "blocks": [
+                    {
+                      "type": "passage",
+                      "id": "a6-b3",
+                      "title": "Sample 4.1 · Body paragraph 3",
+                      "text": "¹The challenges for ecotourism in achieving its goals extend beyond regulatory inadequacies to often deeply affecting local and indigenous populations. ²This occurs when ecotourism projects lead to the displacement of communities and the destruction of their environment, often under the guise of development and conservation (Mielly, 2023). ³These projects, while beneficial for both tourists and some local activities and businesses (Alom, 2023; Spenceley & Rylance, 2021), can also be manipulated to justify the displacement of local indigenous people, for example, in the cases of communities in Indonesia and Brazil, as Mielly (2023) points out. ⁴As a result, the writer adds, local populations lose their habitat, which is the source of their cultural and social life, and the habitat loss also means environmental destruction (Mielly, 2023). ⁵This ongoing kind of ‘bluewashing’ remains a significant barrier to ecotourism achieving its goals."
+                    },
+                    {
+                      "type": "talk",
+                      "title": "Guiding questions · body paragraph 3",
+                      "prompts": [
+                        "What is the purpose of the topic sentence?",
+                        "How is S2 connected to the topic sentence?",
+                        "How is S3 connected to S2?",
+                        "How is S4 connected to S3?",
+                        "What is the purpose of the final sentence?"
+                      ]
+                    }
+                  ]
                 }
               ]
             },
@@ -1001,12 +1062,89 @@ window.DEC15_LESSON = {
               ]
             },
             {
+              "type": "do",
+              "n": 1,
+              "who": "group",
+              "text": "Read the conclusion. Then read the introduction’s S4 again. How does the writer say the same position <b>again</b> without copying it?"
+            },
+            {
+              "type": "passage",
+              "id": "a6-conc",
+              "title": "Sample 4.1 · Conclusion",
+              "text": "¹Ecotourism, while based on important goals, faces challenges that may prevent their realization. ²For ecotourism to truly achieve its goals as a sustainable development tool, it is essential to have robust regulatory frameworks to reduce undesirable practices such as bluewashing, together with significant reductions in social and environmental impacts. ³Only through such comprehensive and enforced measures can ecotourism reconcile its ideals with its goals."
+            },
+            {
+              "type": "talk",
+              "title": "The introduction and the conclusion",
+              "prompts": [
+                "Which sentence in the introduction contains the writer’s position?",
+                "Which sentence in the conclusion restates the position?",
+                "How does the writer paraphrase the position in the conclusion?",
+                "How does S2 of the conclusion link back to the introduction?",
+                "What is the purpose of S3 of the conclusion?"
+              ]
+            },
+            {
+              "type": "rule",
+              "n": 2,
+              "title": "Restate your position in the conclusion — don’t copy it",
+              "compare": true,
+              "explain": "The conclusion repeats your <b>position</b> and your <b>two reasons</b>, but in new words. Copying the introduction word for word looks lazy and wastes words.",
+              "form": "Change the <b>order</b> · use <b>synonyms</b> · change a <b>verb into a noun</b> · use a <b>pronoun</b> · turn the reasons into <b>solutions</b>",
+              "cols": [
+                "Introduction (S4)",
+                "Conclusion"
+              ],
+              "pairs": [
+                [
+                  "while ecotourism <b>harbors the potential for positive impact</b>",
+                  "Ecotourism, while <b>based on important goals</b>, …",
+                  "order changed + synonym"
+                ],
+                [
+                  "its goals <b>are unlikely to be achieved</b>",
+                  "… faces challenges that may prevent <b>their realization</b>",
+                  "verb → noun (achieved → realization) + pronoun (their)"
+                ],
+                [
+                  "undermined by <b>inadequate regulation</b> and <b>ongoing … social and environmental costs</b>",
+                  "it is essential to have <b>robust regulatory frameworks</b> … together with <b>significant reductions in social and environmental impacts</b>",
+                  "the two reasons become two solutions"
+                ]
+              ],
+              "check": {
+                "q": "Why does the conclusion say “may prevent” and not “will prevent”?",
+                "a": "It keeps the position careful, like “unlikely” in the introduction — strong, but not absolute."
+              }
+            },
+            {
+              "type": "do",
+              "n": 2,
+              "who": "alone",
+              "text": "Use the rule. Restate <b>your</b> improved thesis (Activity 1) as the first sentence of a conclusion."
+            },
+            {
+              "type": "fields",
+              "fields": [
+                {
+                  "id": "a6-restate",
+                  "label": "My conclusion, sentence 1",
+                  "rows": 3,
+                  "placeholder": "Although …, ecotourism … because …"
+                }
+              ]
+            },
+            {
               "type": "talk",
               "title": "Explain it to another pair",
               "prompts": [
                 "Choose one body paragraph. Explain its logic using only BUT / SO / AND / BECAUSE.",
                 "Which sentence would you remove if you had to? What would the paragraph lose?"
               ]
+            },
+            {
+              "type": "teacher",
+              "text": "Short on time? Each pair does only its paragraph and the conclusion; the restating rule and the conclusion sentence can be homework."
             }
           ],
           "answers": {
@@ -1071,9 +1209,74 @@ window.DEC15_LESSON = {
               [
                 "Paraphrase of the position",
                 "<i>while ecotourism harbors the potential for positive impact</i> → <i>Ecotourism, while based on important goals</i> (changed order of information; synonyms) · <i>its goals are unlikely to be achieved</i> → <i>faces challenges that may prevent their realization</i> (synonyms; pronoun vs noun)"
+              ],
+              [
+                "Body 2 Q1",
+                "What is the purpose of the topic sentence? → <b>To reject the counterargument (“Despite …, however, …”) AND introduce the first reason (“due to a lack of stringent regulations”)</b>"
+              ],
+              [
+                "Body 2 Q2",
+                "How is S2 connected to the topic sentence? → <b>It provides evidence for the reason — “As Mielly (2023) points out …”</b>"
+              ],
+              [
+                "Body 2 Q3",
+                "What is the purpose of S3 and S4? → <b>S3 presents a counterargument (“The writer acknowledges …”); S4 rejects it (“However …”) + evidence</b>"
+              ],
+              [
+                "Body 2 Q4",
+                "How is S5 connected to S4? → <b>It adds further evidence for rejecting the counterargument — “are further compounded by …”</b>"
+              ],
+              [
+                "Body 2 Q5",
+                "What is the purpose of the final sentence? → <b>To conclude by summarising the evidence (“Such practices …”) to support the position (“… undermine the goals of ecotourism”)</b>"
+              ],
+              [
+                "Body 3 Q1",
+                "What is the purpose of the topic sentence? → <b>To introduce the second reason (deep impact on people) — “extend beyond …, to …”</b>"
+              ],
+              [
+                "Body 3 Q2",
+                "How is S2 connected to the topic sentence? → <b>It gives an example (“This occurs when …”) + reasons (displacement and destruction; “under the guise of”) for the impact</b>"
+              ],
+              [
+                "Body 3 Q3",
+                "How is S3 connected to S2? → <b>It provides evidence for the “dishonesty” (“under the guise of”) in S2</b>"
+              ],
+              [
+                "Body 3 Q4",
+                "How is S4 connected to S3? → <b>It gives the consequence (“As a result, …”) of the displacement in S3</b>"
+              ],
+              [
+                "Body 3 Q5",
+                "What is the purpose of the final sentence? → <b>To conclude by summarising the evidence (“This ongoing kind of ‘bluewashing’ …”) to support the position (“… barrier to ecotourism … goals”)</b>"
+              ],
+              [
+                "Intro vs conclusion Q1",
+                "Which sentence in the introduction contains the writer’s position? → <b>S4</b>"
+              ],
+              [
+                "Intro vs conclusion Q2",
+                "Which sentence in the conclusion restates the position? → <b>S1</b>"
+              ],
+              [
+                "Intro vs conclusion Q3",
+                "How does the writer paraphrase the position in the conclusion? → <b>Changed order of information + synonyms (“harbors the potential for positive impact” → “based on important goals”) + a pronoun for a noun</b>"
+              ],
+              [
+                "Intro vs conclusion Q4",
+                "How does S2 of the conclusion link back to the introduction? → <b>It re-states the two supporting reasons (regulation; social and environmental costs) as things that need to be addressed</b>"
+              ],
+              [
+                "Intro vs conclusion Q5",
+                "What is the purpose of S3 of the conclusion? → <b>A final message and a potential solution: (only) if these measures are carried out can the goals be achieved</b>"
+              ],
+              [
+                "Conclusion sentence (example)",
+                "Although ecotourism is built on valuable goals, it is unlikely to fulfil them until certification is strengthened and local communities stop paying its costs."
               ]
             ]
-          }
+          },
+          "category": "While reading · structure"
         },
         {
           "id": "a7",
@@ -1127,11 +1330,74 @@ window.DEC15_LESSON = {
               ]
             },
             {
+              "type": "rule",
+              "n": 3,
+              "title": "Old information first, new information last",
+              "explain": "Readers follow a text easily when each sentence <b>starts</b> with something they already know and <b>ends</b> with something new. The new idea at the end of one sentence becomes the old idea at the start of the next.",
+              "form": "Sentence 1: … <b>NEW</b>.  →  Sentence 2: <b>OLD</b> (this / these + noun, a pronoun, a key word again) + verb + <b>NEW</b>.",
+              "cols": [
+                "✗ New information first",
+                "✓ Old information first"
+              ],
+              "pairs": [
+                [
+                  "Tourists visit the island every summer. Pressure on the water supply comes from these visitors.",
+                  "Tourists visit the island every summer. <b>These visitors</b> put pressure on the water supply."
+                ],
+                [
+                  "The council banned cars in the old town. A quieter, cleaner centre is the result of this ban.",
+                  "The council banned cars in the old town. <b>This ban</b> has made the centre quieter and cleaner."
+                ],
+                [
+                  "Many hotels now buy food from local farms. Farmers’ incomes have risen because of this practice.",
+                  "Many hotels now buy food from local farms. <b>This practice</b> has raised farmers’ incomes."
+                ]
+              ],
+              "check": {
+                "q": "In “These visitors put pressure on the water supply”, which part is old information?",
+                "a": "“These visitors” — the reader met them in the sentence before. “Pressure on the water supply” is new."
+              }
+            },
+            {
               "type": "figure",
               "src": "dec10/assets/week4/d3-old-new.svg",
               "size": "wide",
               "alt": "Old–new information flow in three sentences from body paragraph 2. Sentence 1 ends with new information: regulations or certification can be insufficiently strict or contain loopholes. Sentence 2 begins with old information “These regulatory challenges”, then the main verb “are further compounded by”, then new information: bluewashing. Sentence 3 begins with old information “Such practices”, then the main verb “clearly undermine”, then new information: the goals of ecotourism. Arrows link each new idea to the old information at the start of the next sentence.",
               "caption": "The <b>new</b> information at the end of one sentence becomes the <b>old</b> information at the start of the next."
+            },
+            {
+              "type": "quiz",
+              "id": "a7-flow",
+              "title": "Which sentence comes next? Choose the one that flows better.",
+              "items": [
+                {
+                  "q": "“Many ecotourism lodges are built inside national parks.” Next:",
+                  "options": [
+                    "These lodges bring visitors into fragile areas.",
+                    "Visitors are brought into fragile areas by these lodges."
+                  ],
+                  "answer": "These lodges bring visitors into fragile areas.",
+                  "why": "“These lodges” (old) starts the sentence; “fragile areas” (new) ends it."
+                },
+                {
+                  "q": "“Some tour companies call themselves ‘green’ without any evidence.” Next:",
+                  "options": [
+                    "Customers are misled, and this practice is called greenwashing.",
+                    "This practice, known as greenwashing, misleads customers."
+                  ],
+                  "answer": "This practice, known as greenwashing, misleads customers.",
+                  "why": "“This practice” picks up the whole first sentence."
+                },
+                {
+                  "q": "“Costa Rica protects about a quarter of its land.” Next:",
+                  "options": [
+                    "Millions of tourists a year are attracted by these protected areas.",
+                    "These protected areas attract millions of tourists a year."
+                  ],
+                  "answer": "These protected areas attract millions of tourists a year.",
+                  "why": "Old (“these protected areas”) → new (“millions of tourists”)."
+                }
+              ]
             },
             {
               "type": "do",
@@ -1196,6 +1462,46 @@ window.DEC15_LESSON = {
                   ]
                 }
               ]
+            },
+            {
+              "type": "do",
+              "n": 2,
+              "who": "alone",
+              "text": "<b>Your turn.</b> Write three sentences about a tourist place you know. Start sentences 2 and 3 with <b>old information</b> (this / these + a noun, or a pronoun)."
+            },
+            {
+              "type": "detect",
+              "id": "a7-dt",
+              "label": "Writing studio",
+              "title": "Old → new",
+              "hint": "The lights turn on when a sentence starts with old information.",
+              "checks": [
+                {
+                  "label": "Starts with this / these / such + noun",
+                  "color": "#2d7a9a",
+                  "any": [
+                    "/(^|[.!?]\\s+)(this|these|such)\\s+(?!is\\b|was\\b|are\\b|were\\b)[a-z]{3,}/i"
+                  ]
+                },
+                {
+                  "label": "Starts with a pronoun (it / they)",
+                  "color": "#7a4a8c",
+                  "any": [
+                    "/(^|[.!?]\\s+)(it|they)\\b/i"
+                  ]
+                }
+              ],
+              "items": [
+                {
+                  "task": "Three linked sentences",
+                  "rows": 4,
+                  "placeholder": "Every summer, thousands of tourists visit Hội An. These visitors … This … "
+                }
+              ]
+            },
+            {
+              "type": "teacher",
+              "text": "Short on time? Keep the TB tasks (summary phrases and the Body 3 table) and Rule 3; the “which comes next” quiz takes 2 minutes; the writing can be homework."
             }
           ],
           "answers": {
@@ -1212,9 +1518,18 @@ window.DEC15_LESSON = {
               [
                 "Body 3 old information",
                 "S2 <b>This</b> → deeply affecting local and indigenous populations (S1) · S3 <b>These projects</b> → ecotourism projects (S2) · S4 <b>local populations</b> → local indigenous people … Indonesia and Brazil (S3) · S5 <b>This ongoing kind of ‘bluewashing’</b> → refers back to S3 & S4"
+              ],
+              [
+                "Which comes next",
+                "1 These lodges … · 2 This practice … · 3 These protected areas …"
+              ],
+              [
+                "Your turn (example)",
+                "Every summer, thousands of tourists visit Hội An. These visitors fill the old town’s narrow streets. This crowding has pushed many local families to move out."
               ]
             ]
-          }
+          },
+          "category": "Language focus"
         },
         {
           "id": "a8",
@@ -1239,6 +1554,46 @@ window.DEC15_LESSON = {
                 "We use evaluative language to <b>evaluate ideas and arguments in sources</b> and to <b>express our position persuasively</b>.",
                 "You judge ideas (positively or negatively) in terms of their <b>quality</b>, <b>value</b>, <b>significance</b>, or their <b>strengths and limitations</b>."
               ]
+            },
+            {
+              "type": "rule",
+              "n": 4,
+              "title": "Evaluate — don’t just report",
+              "compare": true,
+              "explain": "Reporting tells the reader <b>what</b> a source says. Evaluating also tells them <b>what you think of it</b>: is the idea strong, valuable, significant — or limited? This is how your <b>voice</b> enters an essay full of sources.",
+              "form": "Source + <b>evaluative verb / adverb</b> + idea · or idea + <b>evaluative adjective / noun</b>",
+              "cols": [
+                "Just reports",
+                "Reports and evaluates"
+              ],
+              "pairs": [
+                [
+                  "Alom (2023) <b>says</b> Costa Rica uses tourism to support its economy.",
+                  "Alom (2023) <b>convincingly shows</b> how Costa Rica has <b>successfully</b> used tourism to support its economy.",
+                  "positive · value"
+                ],
+                [
+                  "Mielly (2023) <b>says</b> some projects displace local people.",
+                  "Mielly (2023) <b>rightly points out</b> that some projects displace local people — a <b>significant</b> social cost.",
+                  "positive about the source · negative about ecotourism"
+                ],
+                [
+                  "Some writers <b>say</b> certification protects the environment.",
+                  "Some writers <b>claim</b> that certification protects the environment; <b>however</b>, this view <b>overlooks</b> its many loopholes.",
+                  "negative · limitations"
+                ]
+              ],
+              "note": "<b>Positive:</b> convincingly, rightly, clearly, successfully, valuable, significant, robust · <b>Negative:</b> claims (= perhaps not true), overlooks, fails to consider, limited, questionable, inadequate",
+              "check": {
+                "q": "What is the difference between “Alom shows that …” and “Alom claims that …”?",
+                "a": "“Shows” accepts the idea as true. “Claims” tells the reader the writer is not sure it is true."
+              }
+            },
+            {
+              "type": "do",
+              "n": 1,
+              "who": "pair",
+              "text": "Now find the evaluative language in Sample 4.1."
             },
             {
               "type": "spot",
@@ -1280,6 +1635,90 @@ window.DEC15_LESSON = {
                 "Strengths / limitations",
                 "Positive",
                 "Negative"
+              ],
+              "answers": [
+                [
+                  "Value",
+                  "Positive"
+                ],
+                [
+                  "Value",
+                  "Positive"
+                ],
+                [
+                  "Significance",
+                  "Negative"
+                ]
+              ]
+            },
+            {
+              "type": "do",
+              "n": 2,
+              "who": "alone",
+              "text": "Choose the evaluative word that fits."
+            },
+            {
+              "type": "cloze",
+              "id": "a8-cloze",
+              "title": "Report and evaluate",
+              "text": "Spenceley and Rylance (2021) {{1}} that agrotourism gives farmers a second income. For poor rural areas, this is a {{2}} benefit. However, Alom (2023) {{3}} that certification schemes are often weak, and this weakness remains a {{4}} barrier. Some companies {{5}} to be “green”, but their labels are often false.",
+              "options": [
+                [
+                  "convincingly show",
+                  "claim",
+                  "fail to consider"
+                ],
+                [
+                  "significant",
+                  "questionable",
+                  "limited"
+                ],
+                [
+                  "rightly points out",
+                  "fails to consider",
+                  "overlooks"
+                ],
+                [
+                  "significant",
+                  "minor",
+                  "positive"
+                ],
+                [
+                  "claim",
+                  "show",
+                  "prove"
+                ]
+              ],
+              "answers": [
+                "convincingly show",
+                "significant",
+                "rightly points out",
+                "significant",
+                "claim"
+              ],
+              "why": [
+                "The writer accepts the evidence: positive.",
+                "Extra income matters a lot for the poor: significance.",
+                "The writer agrees with Alom.",
+                "A barrier that matters: significance (negative for ecotourism).",
+                "“Claim” = the writer doubts it — the labels are false."
+              ]
+            },
+            {
+              "type": "do",
+              "n": 3,
+              "who": "alone",
+              "text": "<b>Your turn.</b> Take one idea from a source you used yesterday. Present it, then evaluate it (positive or negative)."
+            },
+            {
+              "type": "fields",
+              "fields": [
+                {
+                  "id": "a8-w",
+                  "label": "One idea from a source — reported and evaluated",
+                  "rows": 3,
+                  "placeholder": "As Mielly (2023) rightly points out, … This is a significant …"
+                }
               ]
             },
             {
@@ -1301,9 +1740,18 @@ window.DEC15_LESSON = {
               [
                 "Body 3",
                 "<i>ongoing</i>, <i>significant</i> – strong language to express the <b>significance</b> and strength of the source’s point. Judgement: negative (a barrier to the goals)."
+              ],
+              [
+                "Focus / judgement (grid)",
+                "1 Value · positive · 2 Value · positive · 3 Significance · negative"
+              ],
+              [
+                "Report and evaluate",
+                "1 convincingly show · 2 significant · 3 rightly points out · 4 significant · 5 claim"
               ]
             ]
-          }
+          },
+          "category": "Language focus"
         },
         {
           "id": "a9",
@@ -1324,6 +1772,82 @@ window.DEC15_LESSON = {
               ]
             },
             {
+              "type": "do",
+              "n": 1,
+              "who": "pair",
+              "text": "Compare each plain sentence with the version from Sample 4.1. What makes the second one persuasive?"
+            },
+            {
+              "type": "pairs",
+              "title": "Neutral → persuasive: see the difference",
+              "hint": "Read the plain version, then the version from Sample 4.1. Open “What changed?”.",
+              "items": [
+                {
+                  "from": "Ecotourism [[does not always meet]] its goals because there are [[not many rules]].",
+                  "to": "Ecotourism [[frequently falls short of]] its ideals [[due to a lack of]] stringent regulations.",
+                  "tag": "adverb + verb phrase + phrase",
+                  "note": "The meaning is similar — the writer’s attitude is much clearer."
+                },
+                {
+                  "from": "Bluewashing [[is bad for]] ecotourism.",
+                  "to": "Such practices [[clearly undermine]] the goals of ecotourism.",
+                  "tag": "adverb + evaluative verb",
+                  "note": "“Such practices” also links back (cohesion)."
+                },
+                {
+                  "from": "We [[need]] better rules.",
+                  "to": "[[It is essential]] to have [[robust]] regulatory frameworks.",
+                  "tag": "phrase + adjective"
+                },
+                {
+                  "from": "Ecotourism [[has some problems]].",
+                  "to": "Ecotourism [[faces significant challenges]].",
+                  "tag": "evaluative verb + adjective",
+                  "note": "“faces … challenges” is a strong academic collocation."
+                },
+                {
+                  "from": "Companies [[say they are green when they are not]].",
+                  "to": "Some companies [[falsely]] promote themselves as sustainable.",
+                  "tag": "adverb",
+                  "note": "One adverb carries the whole judgement."
+                }
+              ]
+            },
+            {
+              "type": "rule",
+              "n": 5,
+              "title": "Persuasive — but not exaggerated",
+              "explain": "Strong language persuades. Absolute language (<i>always, never, useless, completely</i>) is easy to attack: one counter-example proves it wrong. Good writers are <b>strong and careful</b> at the same time.",
+              "cols": [
+                "✗ Exaggerated",
+                "✓ Strong and careful"
+              ],
+              "pairs": [
+                [
+                  "Ecotourism <b>always</b> destroys local communities.",
+                  "Ecotourism projects <b>can</b> displace local communities, as cases in Indonesia and Brazil show (Mielly, 2023)."
+                ],
+                [
+                  "Certification is <b>useless</b>.",
+                  "Certification is <b>frequently</b> insufficiently strict (Alom, 2023)."
+                ],
+                [
+                  "Ecotourism will <b>never</b> work.",
+                  "Ecotourism is <b>unlikely</b> to achieve its goals, <b>at least in the foreseeable future</b>."
+                ]
+              ],
+              "check": {
+                "q": "Why is “never” risky in an argument essay?",
+                "a": "One counter-example (e.g. Costa Rica) makes the whole claim false. “Unlikely … at least in the foreseeable future” is strong but hard to attack."
+              }
+            },
+            {
+              "type": "do",
+              "n": 2,
+              "who": "pair",
+              "text": "Notice it in the sample: tap the words in the introduction that express the writer’s position."
+            },
+            {
               "type": "spot",
               "id": "a9-spot",
               "title": "1. The introduction · language that expresses the writer’s position",
@@ -1334,16 +1858,15 @@ window.DEC15_LESSON = {
               ]
             },
             {
-              "type": "figure",
-              "src": "dec10/assets/week4/d3-persuasive-toolkit.svg",
-              "size": "wide",
-              "alt": "An open toolbox with six drawers, the headings of the Language Reference table: adjectives (inadequate, ongoing, significant, robust, undesirable), adverbs (frequently, falsely, clearly), verbs (are undermined by, fall short of, extend beyond, be manipulated to justify, remain), nouns, contrasting links (However; While …; Despite …, however; can also …) and phrases (unlikely to be achieved; due to a lack of; As … points out; The writer acknowledges; It is essential to; Only through … can …).",
-              "caption": "Language Reference table: <b>W4 D3. 9 Integrated writing workshop: Expressing your position persuasively</b>."
+              "type": "do",
+              "n": 3,
+              "who": "pair",
+              "text": "Sort the language from Sample 4.1 into the Language Reference table."
             },
             {
               "type": "sort",
               "id": "a9-sort",
-              "title": "2–3. Fill the Language Reference table",
+              "title": "Fill the Language Reference table (Student’s Book, W4 D3. 9)",
               "hint": "All of these come from Sample 4.1. Drag each one into the right column — or tap a card, then a column.",
               "buckets": [
                 {
@@ -1459,46 +1982,28 @@ window.DEC15_LESSON = {
               ]
             },
             {
-              "type": "table",
-              "id": "a9-t",
-              "title": "Language Reference · Expressing your position persuasively (your copy)",
-              "columns": [
-                "Adjectives",
-                "Adverbs",
-                "Verbs",
-                "Nouns",
-                "Contrasting links",
-                "Phrases"
-              ],
-              "rows": 3
-            },
-            {
-              "type": "pairs",
-              "title": "Neutral → persuasive",
-              "hint": "Read the plain version, then the version from Sample 4.1. Open “What changed?”.",
-              "items": [
+              "type": "toggle",
+              "title": "Check: the persuasive toolkit",
+              "hint": "Open after the sort.",
+              "blocks": [
                 {
-                  "from": "Ecotourism [[does not always meet]] its goals because there are [[not many rules]].",
-                  "to": "Ecotourism [[frequently falls short of]] its ideals [[due to a lack of]] stringent regulations.",
-                  "tag": "adverb + verb phrase + phrase",
-                  "note": "The meaning is similar — the writer’s attitude is much clearer."
-                },
-                {
-                  "from": "Bluewashing [[is bad for]] ecotourism.",
-                  "to": "Such practices [[clearly undermine]] the goals of ecotourism.",
-                  "tag": "adverb + evaluative verb",
-                  "note": "“Such practices” also links back (cohesion)."
-                },
-                {
-                  "from": "We [[need]] better rules.",
-                  "to": "[[It is essential]] to have [[robust]] regulatory frameworks.",
-                  "tag": "phrase + adjective"
+                  "type": "figure",
+                  "src": "dec10/assets/week4/d3-persuasive-toolkit.svg",
+                  "size": "wide",
+                  "alt": "An open toolbox with six drawers, the headings of the Language Reference table: adjectives (inadequate, ongoing, significant, robust, undesirable), adverbs (frequently, falsely, clearly), verbs (are undermined by, fall short of, extend beyond, be manipulated to justify, remain), nouns, contrasting links (However; While …; Despite …, however; can also …) and phrases (unlikely to be achieved; due to a lack of; As … points out; The writer acknowledges; It is essential to; Only through … can …).",
+                  "caption": "<b>Check:</b> the Language Reference table — Language Reference table: <b>W4 D3. 9 Integrated writing workshop: Expressing your position persuasively</b>."
                 }
               ]
             },
             {
+              "type": "do",
+              "n": 4,
+              "who": "alone",
+              "text": "Use it. Rewrite each sentence so it is persuasive — strong, but not exaggerated."
+            },
+            {
               "type": "fields",
-              "title": "Your turn: make it persuasive",
+              "title": "Make it persuasive",
               "fields": [
                 {
                   "id": "a9-1",
@@ -1511,8 +2016,20 @@ window.DEC15_LESSON = {
                   "label": "Rewrite: “Costa Rica is a good example of ecotourism.”",
                   "rows": 2,
                   "placeholder": "Costa Rica is a … model of …"
+                },
+                {
+                  "id": "a9-3",
+                  "label": "Rewrite: “Ecotourism helps local people a bit.”",
+                  "rows": 2,
+                  "placeholder": "Ecotourism can … , but only to a limited extent …"
                 }
               ]
+            },
+            {
+              "type": "do",
+              "n": 5,
+              "who": "pair",
+              "text": "Speak it. Spin, then persuade your partner in 30 seconds."
             },
             {
               "type": "spinner",
@@ -1612,9 +2129,14 @@ window.DEC15_LESSON = {
               [
                 "Your turn (possible answers)",
                 "1) Despite claims of sustainability, many tour operators use green labels freely and falsely. · 2) Costa Rica is a successful model of how ecotourism can support the local economy (Alom, 2023)."
+              ],
+              [
+                "3 (possible answer)",
+                "Ecotourism can benefit local people, but only to a limited extent, as much of the income goes to foreign-owned companies."
               ]
             ]
-          }
+          },
+          "category": "Language focus"
         },
         {
           "id": "a10",
@@ -1648,6 +2170,16 @@ window.DEC15_LESSON = {
                   "text": "Ask your teacher your questions <b>as soon as you have them</b> — don’t wait until the end."
                 }
               ]
+            },
+            {
+              "type": "sources",
+              "ids": [
+                "s41"
+              ]
+            },
+            {
+              "type": "tip",
+              "text": "Use today’s rules as your checklist: <b>Rule 1</b> a clear “to what extent” position · <b>Rule 2</b> a restated (not copied) conclusion · <b>Rule 3</b> old → new · <b>Rule 4</b> evaluate sources · <b>Rule 5</b> strong but careful."
             },
             {
               "type": "grid",
@@ -1803,7 +2335,8 @@ window.DEC15_LESSON = {
                 "Use summary phrases and old–new information"
               ]
             }
-          ]
+          ],
+          "category": "After reading · your essay"
         }
       ]
     },

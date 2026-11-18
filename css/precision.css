@@ -160,7 +160,9 @@
 [data-course="dec10"] .weekbar .wb-item.is-soon { color: #8a949d; }
 [data-course="dec10"] .weekbar .wb-chev { display: none; }
 [data-course="dec10"] .weekbar .wb-go { height: 28px; border-radius: 8px; font-size: .76rem; font-weight: 700; letter-spacing: -.003em; white-space: nowrap; }
-@media (min-width: 1360px) { [data-course="dec10"] .weekbar .wb-row { justify-content: space-between; } }
+/* v9.9: on lesson pages the "Week 4 · Day 3" link had margin-left: auto, which took all the spare space, so the weeks
+   bunched to the left (on the course map they spread). Now the link joins the even spacing, so both pages match. */
+@media (min-width: 1360px) { [data-course="dec10"] .weekbar .wb-row { justify-content: space-between; } [data-course="dec10"] .weekbar .wb-go { margin-left: 12px; } }
 
 /* floating buttons: on a laptop they dock to the window edge, so they never sit on a button or a number in the page */
 [data-course="dec10"] .dx-fab { height: 44px; padding: 0 4px; gap: 8px; background: var(--px-ink); animation: none !important;
