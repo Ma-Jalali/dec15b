@@ -1019,3 +1019,26 @@ v9.8 (DEC10 Week 4 Day 1 — Reading to write (2A) improved; table headings read
   now "Tanzania and Mozambique" (what "these areas" refers to).
 - Saved-work ids unchanged; new ids: b3-cloze, b5-icq, b5-check, b8-dt. DEC15 unchanged except the table heading sizes
   rule, which is DEC10-only ([data-course="dec10"]).
+
+v9.9 (DEC10 week bar spacing; Week 4 Day 3 · 9A Integrated writing workshop (2) redesigned; dec10/lessons/week4/d10w4d3.js)
+- WEEK BAR: on lesson pages the "Week 4 · Day 3" link took all the spare space (margin-left: auto), so the weeks bunched
+  to the left; on the course map they spread. On wide screens the link now joins the even spacing (css/precision.css).
+- 9A now has four clear stages, shown as a chip on each activity: Before reading (a1) → While reading (a2 gist, a3 the
+  writer's process, a4–a6 structure) → Language focus (a7–a9, PPP) → After reading (a10 your essay). Same 150 minutes.
+- Less mechanical: the TB guiding questions are open pair-discussion prompts (they were multiple choice with one
+  sensible option); their TB answers are in each Answers panel. Pictures that showed the answers now come after the
+  task (a lock in a1, folds in a3, a4, a5, a9). Repeated tables were removed (a4 paragraph table, a9 reference table:
+  the sort already does that job; students still copy into the Student's Book).
+- Richer teaching — five rule cards with ✗ → ✓ examples and a check question:
+  1 answer "To what extent" with a clear position (a1, then students improve their own thesis) ·
+  2 restate your position in the conclusion without copying (a6, then students write their conclusion sentence) ·
+  3 old information first, new information last (a7, then a "which sentence comes next?" quiz and a short writing
+    studio) · 4 evaluate, don't just report (a8, then a gap fill and one evaluated source idea) ·
+  5 persuasive but not exaggerated (a9, plus two more neutral → persuasive pairs and a third rewrite).
+- a3: students colour the notes first, then weigh them, then check with the balance picture; a match replaces the quiz.
+- a4: "Two ways to build an argument essay" (counter-argument first vs reasons first) before the paragraph sort.
+- a5: the introduction is a worked example (class), body 1 is guided practice (pairs), with a signal-word toolbox.
+- a6: a pair jigsaw (Pair A body 2, Pair B body 3, in tabs), the toolbox as a fold, then the conclusion.
+- a10: Sample 4.1 button and the five rules as a checklist for the revision.
+- Saved-work ids kept; removed: a1-q, a3-q, a4-t, a5-q1, a5-q2, a6-q2, a6-q3, a6-q4, a9-t. New: a1-c, a1-l, a1-t, a1-f,
+  a1-th0, a1-th1, a1-check, a3-why, a6-restate, a7-flow, a7-dt, a8-cloze, a8-w, a9-3. Teacher notes say what to cut.
