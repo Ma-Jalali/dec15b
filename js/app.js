@@ -179,7 +179,7 @@ function register(a) {
     play?.register(b, reg);
     kit?.register(b, reg);
     forms?.register(b, reg);
-    if (b.type === 'fields') b.fields.forEach(f => reg(f.id, f.label));
+    if (b.type === 'fields') b.fields.forEach(f => reg(f.id, strip(f.label)));
     if (b.type === 'quiz') b.items.forEach((q, i) => reg(b.id + '-' + i, strip(q.q)));
     if (b.type === 'choose') reg(b.id, b.title);
     if (b.type === 'cards' && b.pick) reg(b.pick, strip(b.title || 'My choice'));
@@ -298,7 +298,7 @@ B.passage = b => `<section class="block passage">
 </section>`;
 /* One "Share with class" button per writing block: it shares every box the student has filled in, with its label. */
 B.fields = (b, a) => { const sharable = b.fields.filter(f => f.share !== false);
-  return `<section class="block fields">${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}${b.fields.map(f => `<div class="field"><label for="f-${f.id}">${esc(f.label)}</label><textarea id="f-${f.id}" data-save="${f.id}" rows="${f.rows || 3}" placeholder="${esc(f.placeholder || '')}">${esc(val(f.id))}</textarea></div>`).join('')}${wallOn(a) && b.share !== false && sharable.length ? `<button type="button" class="share-btn" data-wall-share="${sharable.map(f => f.id).join(',')}" data-thread="${a.id}" data-label="${esc(b.title ? String(b.title).replace(/<[^>]+>/g, '') : sharable.length === 1 ? sharable[0].label : '')}">${icon('share')}Share ${sharable.length > 1 ? 'my answers' : 'with class'}</button>` : ''}</section>`; };
+  return `<section class="block fields">${b.title ? `<h3 class="block-heading">${b.title}</h3>` : ''}${b.fields.map(f => `<div class="field"><label for="f-${f.id}"><span>${escFmt(f.label)}</span></label><textarea id="f-${f.id}" data-save="${f.id}" rows="${f.rows || 3}" placeholder="${esc(f.placeholder || '')}">${esc(val(f.id))}</textarea></div>`).join('')}${wallOn(a) && b.share !== false && sharable.length ? `<button type="button" class="share-btn" data-wall-share="${sharable.map(f => f.id).join(',')}" data-thread="${a.id}" data-label="${esc(b.title ? String(b.title).replace(/<[^>]+>/g, '') : sharable.length === 1 ? strip(sharable[0].label) : '')}">${icon('share')}Share ${sharable.length > 1 ? 'my answers' : 'with class'}</button>` : ''}</section>`; };
 B.quiz = b => {
   const checked = state.checked[b.id];
   return `<section class="block quiz" id="quiz-${b.id}">
