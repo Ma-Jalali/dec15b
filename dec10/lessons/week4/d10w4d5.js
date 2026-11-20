@@ -1,7 +1,7 @@
 /* DEC10 · Week 4 · Day 5 (Friday) — Plan, prompt, negotiate.
    Built from the Week 4 Teacher's Book (W4 D5. 15A, 16A, 17A, 18A) and the Week 4 student booklet (15D role cards, used exactly),
    ordered and timed by the revised weekly map. Taught on FRIDAY: 15A AST: Group work skills (60) · 16A AST: Digital literacy
-   and AI: Using & refining prompts (90) · 17A Interactive Discussion: Discussion and negotiation (60) · 18A STAR© moment (30).
+   and AI: Using & refining prompts (90 — redesigned for 2026: RTRI + Context and Check, any AI tool, verification, university uses and risks) · 17A Interactive Discussion: Discussion and negotiation (60) · 18A STAR© moment (30).
    The two group-work recordings have no audio file in the course: the TB transcripts are shown in folds after listening.
    Protected texts are in sources.js and are never changed here. Activity ids are the keys of saved work — never rename them. */
 window.DEC15_LESSON = {
@@ -13,7 +13,7 @@ window.DEC15_LESSON = {
   question: "Which strategy would be best to improve the balance between tourism and sustainability?",
   questionKind: "Negotiation question",
   questionLabel: "Today’s negotiation task · 17A Interactive Discussion",
-  journey: "Check in with your feelings and needs, listen to a group plan its project and check its progress, then run your own group check-in. Next, play a prompt game and use iterative interaction with Cogniti to research ecotourism. After lunch, look back at your views on ecotourism and negotiate the best way to balance tourism and sustainability. A STAR moment closes the week.",
+  journey: "Check in with your feelings and needs, listen to a group plan its project and check its progress, then run your own group check-in. Next, find out how prompting has changed by 2026: add context and a check to your prompts, run them in Cogniti, ChatGPT, Claude or Copilot, check the answers against real sources, and decide where AI helps or harms your university work. After lunch, look back at your views on ecotourism and negotiate the best way to balance tourism and sustainability. A STAR moment closes the week.",
   image: "dec10/assets/week4/hero-d10w4d5.svg",
   imageAlt: "Illustration: an eco-lodge on a green rainforest coast with a turtle in the bay. In front, four students sit at a round table with a planning board marked Goals, Plan, Progress and Challenges. A laptop shows an AI chat where a prompt grows from version 1 to version 3. Two speech bubbles meet over three option cards, and a gold STAR shines above.",
   finish: {"title":"Week 5","text":"Globalisation and culture: a new reading, a new listening and the three H scenarios"},
@@ -585,184 +585,290 @@ window.DEC15_LESSON = {
       tone: "blue",
       art: "dec10/assets/week4/s-d5-aiprompts.svg",
       title: "AST: Digital literacy and AI: Using & refining prompts",
-      subtitle: "Prompt, analyse, follow up: iterative interaction with Cogniti",
-      outcome: "You use Cogniti to practise your prompting skills on a specific topic, apply the ‘iterative interaction’ prompting process in a task, and compare it with writing one single prompt.",
+      subtitle: "Prompting in 2026: give context, keep talking, check everything — with Cogniti, ChatGPT, Claude or Copilot",
+      outcome: "You write a 2026-style prompt (RTRI + the 2 Cs: Context and Check), run it in the AI tool your class uses, check the answer against real sources, improve it through conversation, and decide where AI helps — and where it harms — your university work.",
       activities: [
         {
-          id: "b1",
-          short: "Game",
-          minutes: 20,
-          grouping: "Teams",
-          art: "dec10/assets/week4/v/v-d10w4d5-b1.svg",
-          title: "Homework follow-up discussion",
-          goal: "Play a team game to check what you remember from the Week 3 homework module on using prompts.",
-          blocks: [
-            {"type":"do","n":1,"who":"class","text":"Make teams. Teams take turns to choose a question from the board. Answer correctly to win the points. The team with the most points wins!"},
-            {
-              type: "jeopardy",
-              id: "b1-jp",
-              title: "Using prompts: the Week 3 homework game",
-              teams: 3,
-              seconds: 30,
-              cols: [
-                {
-                  title: "Prompts",
-                  clues: [
-                    {"pts":100,"clue":"What is a prompt and why is it important?","answer":"A word, phrase, question, or keyword entered into AI tools to generate results. It is the instruction that users provide for the AI model to respond to."},
-                    {"pts":200,"clue":"What makes a good prompt?","answer":"It sets the topic and provides clear instructions on the task. It is clear and specific, so the AI understands the user’s requirements and can generate accurate and relevant results."},
-                    {"pts":300,"clue":"Why is it important to write specific prompts?","answer":"Vague or ambiguous prompts can lead to incorrect or irrelevant outputs, as the AI makes assumptions. The quality of the output relies on the specificity and clarity of the prompt."},
-                    {"pts":400,"clue":"What steps are suggested in refining prompts?","answer":"Trial and error: formulate a relevant prompt, consider when completions don’t meet expectations, enhance the clarity of the prompt, and repeat the process."}
-                  ]
-                },
-                {
-                  title: "Prompt elements",
-                  clues: [
-                    {"pts":100,"clue":"Setting a specific ______ in a prompt is crucial as it guides the AI to respond within a certain framework or expertise.","answer":"Role"},
-                    {"pts":200,"clue":"The ______ in a prompt summarizes what the AI is expected to do.","answer":"Task"},
-                    {"pts":300,"clue":"Clear ______ in a prompt are crucial to provide detailed information to the AI, limiting the need for it to make assumptions.","answer":"Requirements"},
-                    {"pts":400,"clue":"______ in a prompt inform the AI on how to complete the task.","answer":"Instructions"}
-                  ]
-                },
-                {
-                  title: "Cogniti",
-                  clues: [
-                    {"pts":100,"clue":"What is Cogniti?","answer":"A special AI tool designed by the University of Sydney for teachers to help their students in specific ways."},
-                    {"pts":200,"clue":"Do you need your Unikey and password to access Cogniti?","answer":"YES!"},
-                    {"pts":300,"clue":"What are some benefits of Cogniti?","answer":"Personalised help, extra resources, 24/7 support, fair access, safe and private."},
-                    {"pts":400,"clue":"Name a Cogniti agent that can be used for your DEC studies.","answer":"Study Skills Tutor · Exam Preparation Agent · Writing Coach (also Vanilla GPT-4)."}
-                  ]
-                },
-                {
-                  title: "Copilot & more",
-                  clues: [
-                    {"pts":100,"clue":"What does the Vanilla GPT-4 agent do?","answer":"It is ChatGPT-4, offered for free to university students, providing general help across various subjects."},
-                    {"pts":200,"clue":"How can you log into Microsoft Copilot?","answer":"By logging into your university email."},
-                    {"pts":300,"clue":"Name one benefit of Copilot with data protection.","answer":"Searches are not linked to individual user accounts · prompts and responses are not saved · no one at Microsoft can view your data."},
-                    {"pts":400,"clue":"Which Cogniti agent helps with an essay introduction and gives examples?","answer":"Writing Coach."}
-                  ]
-                }
-              ]
-            },
-            {
-              type: "language",
-              title: "Useful language: playing as a team",
-              groups: [
-                {"label":"Choose","phrases":["We’ll take Prompt elements for 300, please.","Let’s go for Cogniti for 200."]},
-                {"label":"Agree on an answer","phrases":["I’m fairly sure it’s …","What do you think — should we say …?","Let’s go with …, then."]},
-                {"label":"Explain","phrases":["It’s important because …","In other words, …"]}
-              ]
-            }
-          ]
-        },
-        {
-          id: "b2",
-          short: "Prompting",
-          minutes: 12,
+          id: "p1",
+          short: "Still true?",
+          minutes: 8,
           grouping: "Pairs → Class",
-          art: "dec10/assets/week4/v/v-d10w4d5-b2.svg",
-          title: "Activity 1: Prompting",
-          goal: "Draft a prompt with a partner to get initial ideas for a research task on ecotourism.",
+          art: "dec10/assets/week4/v/v-d10w4d5-p1.svg",
+          title: "Lead-in: Prompting tips — still true in 2026?",
+          goal: "Check what you remember from the Week 3 homework, and find out which prompting tips are now out of date.",
           blocks: [
+            {"type":"do","n":1,"who":"pair","text":"In Week 3 you learned the basics of prompting. AI tools have changed a lot since many prompting tips were first written (2023). With a partner, sort each tip: is it <b>still true</b>, <b>out of date</b>, or a <b>myth</b>? Then check."},
             {
-              type: "key",
-              title: "Your research task",
-              points: [
-                "This week you have been learning about ecotourism. Imagine that your teacher sets you this research task:",
-                "<b>What is the role of sustainability certifications in eco-tourism. Are they effective?</b>",
-                "You will use <b>Cogniti Vanilla</b> to get started (same capabilities as Chat GPT-4)."
-              ]
-            },
-            {
-              type: "hotspot",
-              src: "dec10/assets/week4/d5-prompt-anatomy.svg",
-              alt: "A prompt card cut into four coloured strips: Role, Task, Requirements and Instructions, each with an example about sustainability certifications in ecotourism. On the side, two tags: Context and Format.",
-              hint: "Tap each part of the prompt for an example idea.",
-              spots: [
-                {"x":12,"y":22,"label":"R","title":"Role","text":"e.g. “Act as a university researcher in sustainable tourism.” The role guides the AI to answer within a certain expertise.","color":"#2f7d6b"},
-                {"x":12,"y":42,"label":"T","title":"Task","text":"e.g. “Help me brainstorm initial ideas about the role of sustainability certifications in eco-tourism.”","color":"#3a58a0"},
-                {"x":12,"y":62,"label":"Q","title":"Requirements","text":"e.g. “I am a pre-university student. Use clear English. Include ideas for and against their effectiveness.”","color":"#8a4f9e"},
-                {"x":12,"y":82,"label":"I","title":"Instructions","text":"e.g. “Give the ideas as a mind map in bullet points, then suggest three questions I could research next.”","color":"#c4562f"},
-                {"x":88,"y":35,"label":"+","title":"Context","text":"Who you are and why you need it: “I am preparing for a research task in my academic English course.”","color":"#b07d12"},
-                {"x":88,"y":65,"label":"+","title":"Format","text":"How it should look: bullet points, a table, a mind map, a list of questions.","color":"#2d7a9a"}
-              ]
-            },
-            {
-              type: "steps",
+              type: "sort",
+              id: "p1-sort",
+              title: "Prompting tips: still true, out of date, or a myth?",
+              hint: "Drag (or tap) each card into a box, then check.",
+              buckets: [{"label":"Still true","letter":"✓"},{"label":"Out of date","letter":"↻"},{"label":"Myth","letter":"✗"}],
               items: [
-                {"who":"pair","text":"In pairs, spend <b>five minutes</b> drafting a prompt to start you on this topic. You want to get <b>initial ideas</b> (like a brainstorm)."},
-                {"who":"pair","text":"Remember to include <b>Role, Task, Requirements, and Instruction</b> in your prompt."},
-                {"who":"pair","text":"Once your prompt is ready, share it in the collaborative document (or on the class wall)."},
-                {"who":"class","text":"As a class, choose one prompt (the one that addresses Role, Task, Requirements, and Instruction best) for your teacher to use."},
-                {"who":"class","text":"Read the output given by the AI."}
-              ]
-            },
-            {
-              type: "promptbuilder",
-              id: "b2-pb",
-              title: "Draft your brainstorm prompt",
-              tryUrl: "https://app.cogniti.ai/",
-              tryLabel: "Open Cogniti",
-              parts: [
-                {"key":"role","label":"Role","lead":"Act as","placeholder":"a university researcher in sustainable tourism","chips":["a university researcher in sustainable tourism","an expert in ecotourism certification","a friendly academic tutor"]},
-                {"key":"task","label":"Task","lead":"Your task is to","placeholder":"help me brainstorm initial ideas on the role of sustainability certifications in eco-tourism and whether they are effective","chips":["help me brainstorm initial ideas on the role of sustainability certifications in eco-tourism","list arguments for and against the effectiveness of eco-certifications","explain what a sustainability certification is"]},
-                {"key":"req","label":"Requirements","lead":"Requirements:","placeholder":"I am a pre-university student. Use clear academic English. Include both sides.","chips":["I am a pre-university student in an academic English course","use clear, simple academic English","include ideas for and against","no more than 250 words"]},
-                {"key":"instr","label":"Instructions","lead":"Instructions:","placeholder":"Give the ideas in bullet points under headings, then suggest three research questions.","chips":["organise the ideas in bullet points under 3–4 headings","give one real example for each heading","finish with three questions I could research next"]}
-              ]
-            },
-            {
-              type: "language",
-              title: "Useful language: choosing the best prompt as a class",
-              groups: [
-                {"label":"Evaluate","phrases":["This prompt has a clear role, but the task is quite vague.","I like this one because the instructions are very specific.","This one is missing the requirements."]},
-                {"label":"Choose","phrases":["I’d vote for number … because …","If we combine … with …, it would be even better."]}
-              ]
-            }
-          ]
-        },
-        {
-          id: "b3",
-          short: "Analyse",
-          minutes: 10,
-          grouping: "Class",
-          art: "dec10/assets/week4/v/v-d10w4d5-b3.svg",
-          title: "Activity 2: Analysing response",
-          goal: "Read the AI’s first response critically. Is it good? How could the prompt be better?",
-          blocks: [
-            {
-              type: "figure",
-              src: "dec10/assets/week4/d5-output-check.svg",
-              alt: "A magnifying glass over an AI answer. Around it are six check tags: Accurate? Relevant? Specific? Real sources? Right level? Fair and balanced?",
-              caption: "Six questions to ask about every AI answer."
-            },
-            {"type":"do","n":1,"who":"alone","text":"Spend a few minutes reading the initial response you got. Rate it with the six checks."},
-            {
-              type: "form",
-              id: "b3-form",
-              title: "Is it a good response?",
-              intro: "Rate the AI’s first response to the class prompt.",
-              scale: ["Yes","Partly","No"],
-              cols: ["Example from the response"],
-              sections: [
-                {
-                  label: "The six checks",
-                  items: [
-                    "Accurate — is the information correct?",
-                    "Relevant — does it answer OUR question about certifications?",
-                    "Specific — does it give examples, not just general ideas?",
-                    "Real sources — can you check where the ideas come from?",
-                    "Right level — is it easy enough to understand?",
-                    "Fair and balanced — does it show both sides (effective / not effective)?"
-                  ]
-                }
+                {"text":"Be clear and specific about what you want.","answer":0,"why":"Still the most important rule. The AI cannot read your mind."},
+                {"text":"Give the AI your material: the assignment brief, the rubric, your notes or your draft.","answer":0,"why":"More important than ever. Today’s tools can read PDFs, images and long documents, and they give much better help when they can see what your teacher wants."},
+                {"text":"Ask the AI to ask YOU some questions before it answers.","answer":0,"why":"A strong habit today: “Before you answer, ask me 3 questions about what I need.” The answer then fits your task."},
+                {"text":"Start every prompt with “Act as a world-class expert” — that is the secret.","answer":1,"why":"A role can still help a little, but modern AI gains much more from <b>context</b>: who you are, what the task is and what it is for."},
+                {"text":"Write one perfect prompt, then accept the answer.","answer":1,"why":"Good results come from a <b>conversation</b>: prompt, read, follow up, push back."},
+                {"text":"AI can only use what it learned in training. It cannot look at today’s websites.","answer":1,"why":"Many tools can now search the web and show links. But a link is not proof: open it and read it."},
+                {"text":"Use magic words like “take a deep breath” or offer the AI a tip to get better answers.","answer":2,"why":"These tricks were popular in 2023. Modern AI responds to plain, clear language. You do not need magic words."},
+                {"text":"AI is so smart now that you don’t need to check its answers.","answer":2,"why":"AI makes fewer mistakes than before, but its mistakes sound just as confident as its correct answers. You are responsible for what you submit."},
+                {"text":"If AI gives a reference with authors, a year and a journal, the article must be real.","answer":2,"why":"AI can still mix up or invent details of references, or say a source claims something it does not. Open the source and check."}
               ]
             },
             {
               type: "talk",
               title: "Discuss as a class",
-              prompts: [
-                "Is it a good response? Why / why not?",
-                "What changes would the prompt need to generate a more effective response?",
-                "What did the AI have to <b>guess</b> because the prompt did not say it?"
+              prompts: ["Which answer surprised you most?","Which of these tips did you believe before today?","Which AI tools do you already use? What for?"]
+            }
+          ]
+        },
+        {
+          id: "p2",
+          short: "2026 prompt",
+          minutes: 15,
+          grouping: "Class → Pairs",
+          art: "dec10/assets/week4/v/v-d10w4d5-b2.svg",
+          title: "The 2026 prompt: RTRI + the 2 Cs",
+          goal: "Learn the two upgrades that make the biggest difference today: Context and Check.",
+          blocks: [
+            {
+              type: "key",
+              title: "What changed since RTRI?",
+              points: [
+                "Today’s AI understands plain English very well. You don’t need tricks. You need to give it the right <b>information</b>.",
+                "<b>Role, Task, Requirements and Instructions</b> (RTRI, Week 3) are still useful. Think of them as the skeleton of your prompt.",
+                "Upgrade 1 · <b>Context</b>: who you are, what the work is for, and the material it should use (the brief, the rubric, an article, your draft).",
+                "Upgrade 2 · <b>Check</b>: tell the AI to ask you questions first, to say when it is not sure, to show where its information comes from, and to be honest rather than just agree with you."
+              ]
+            },
+            {
+              type: "hotspot",
+              src: "dec10/assets/week4/d5-prompt-2026.svg",
+              alt: "A prompt card in six coloured strips: Role, Task, Context, Requirements, Instructions and Check. The first, second, fourth and fifth strips are marked RTRI. Context and Check are marked as the 2 Cs, with a small gold star.",
+              hint: "Tap each part of the prompt for an example about sustainability certifications in eco-tourism.",
+              spots: [
+                {"x":10,"y":17,"label":"R","title":"Role","text":"e.g. “Act as a university tutor in sustainable tourism.” A role sets the style and the level of expertise. Useful, but on its own it does little.","color":"#ad6a12"},
+                {"x":10,"y":31,"label":"T","title":"Task","text":"e.g. “Help me brainstorm initial ideas on the role of sustainability certifications in eco-tourism.” Say exactly what you want: brainstorm, explain, give feedback, quiz me …","color":"#2b776e"},
+                {"x":10,"y":45,"label":"C","title":"Context ★","text":"e.g. “I’m a pre-university student. This is for a research task in my academic English course. I already know what eco-tourism is.” Attach the brief, the rubric or an article if you have one.","color":"#b0512a"},
+                {"x":10,"y":59,"label":"R","title":"Requirements","text":"e.g. “Use clear B1–B2 English. Include ideas for and against. No more than 250 words. Do not write paragraphs for my essay.”","color":"#3a58a0"},
+                {"x":10,"y":73,"label":"I","title":"Instructions","text":"e.g. “Put the ideas in bullet points under 3–4 headings, then suggest three research questions.” This tells the AI how the answer should look.","color":"#7a4a8c"},
+                {"x":10,"y":87,"label":"C","title":"Check ★","text":"e.g. “Before you answer, ask me 2 questions about what I need. Tell me which points I should check in academic sources.”","color":"#2d7a9a"}
+              ]
+            },
+            {
+              type: "pairs",
+              title: "Upgrade 1 · Add Context (✗ → ✓)",
+              items: [
+                {"from":"Explain sustainability certifications.","to":"Explain sustainability certifications. [[I’m a pre-university student writing a 600-word essay for my academic English course.]]","tag":"Who you are + what it’s for"},
+                {"from":"Give me feedback on my paragraph.","to":"Give me feedback on my paragraph. [[The rubric is attached. Focus only on the criterion ‘Use of evidence’.]]","tag":"The rubric"},
+                {"from":"Summarise this topic.","to":"Summarise [[the attached article]]. [[Use only the article — no outside information.]]","tag":"The material"},
+                {"from":"Help me with my presentation.","to":"Help me with my presentation. [[It is a 3-minute group talk for classmates about eco-tourism in Australia. I am presenting the challenges part.]]","tag":"The situation"}
+              ]
+            },
+            {
+              type: "pairs",
+              title: "Upgrade 2 · Add a Check (✗ → ✓)",
+              items: [
+                {"from":"What are the problems with eco-certifications?","to":"What are the problems with eco-certifications? [[Before you answer, ask me 3 questions about what I need.]]","tag":"Ask me first"},
+                {"from":"Give me some statistics about eco-tourism in Australia.","to":"Give me some statistics about eco-tourism in Australia. [[For each number, give the source and a link so I can check it. If you are not sure, say so.]]","tag":"Sources + uncertainty"},
+                {"from":"Is my argument good?","to":"Is my argument good? [[Be honest and critical: tell me the two weakest points, not only what is good.]]","tag":"Don’t just agree with me"},
+                {"from":"Explain the carbon footprint of flying.","to":"Explain the carbon footprint of flying. [[Then ask me two questions to check that I understood.]]","tag":"Check my understanding"}
+              ]
+            },
+            {"type":"do","n":1,"who":"pair","text":"Concept check. Answer alone, then compare with your partner."},
+            {
+              type: "quiz",
+              id: "p2-quiz",
+              title: "Do you know the 2 Cs?",
+              items: [
+                {"q":"A student writes: “Act as a professor. Write about eco-tourism.” What is the BIGGEST problem?","options":["There is no role","There is no context: the AI doesn’t know who it is for, how long it should be or why","It is not polite enough","It needs a magic word"],"answer":"There is no context: the AI doesn’t know who it is for, how long it should be or why","why":"The role is there. What is missing is the information the AI needs to fit the answer to <b>you</b>."},
+                {"q":"Which line is a <b>Check</b>?","options":["Use clear B1 English.","Act as a tutor.","If you are not sure about a fact, tell me.","Give the answer in a table."],"answer":"If you are not sure about a fact, tell me.","why":"A Check asks the AI to show its uncertainty, sources or questions. The others are a requirement, a role and an instruction."},
+                {"q":"Why attach the assignment rubric?","options":["So the AI can write the essay for you","So the feedback matches what your teacher will mark","Because AI can’t work without files","To make the answer longer"],"answer":"So the feedback matches what your teacher will mark","why":"Context makes the help fit your real task. It does not mean the AI does the task for you."},
+                {"q":"The AI agrees with everything you say. What should you add to your prompt?","options":["“Be honest and critical — tell me where I’m wrong.”","“Act as an expert.”","“Use bullet points.”","“Write more.”"],"answer":"“Be honest and critical — tell me where I’m wrong.”","why":"AI tends to agree with the user. Asking for honest criticism is a Check."}
+              ]
+            },
+            {
+              type: "tip",
+              text: "<b>Context, but not personal data.</b> Never paste personal details (yours or anyone else’s), a classmate’s work or private information into an AI tool. In Cogniti, your teacher can see the conversation."
+            }
+          ]
+        },
+        {
+          id: "p3",
+          short: "Build & run",
+          minutes: 20,
+          grouping: "Pairs → Class",
+          art: "dec10/assets/week4/v/v-d10w4d5-p3.svg",
+          title: "Activity 1: Build it, run it — in your AI tool",
+          goal: "Write a full prompt for a research task, run it in the AI tool your class uses and compare the answers from different tools.",
+          blocks: [
+            {
+              type: "key",
+              title: "Your research task",
+              points: [
+                "This week you have been learning about eco-tourism. Imagine that your teacher sets you this research task:",
+                "<b>What is the role of sustainability certifications in eco-tourism? Are they effective?</b>",
+                "You want <b>initial ideas</b> to get started (a brainstorm). You do <b>not</b> want a finished answer."
+              ]
+            },
+            {
+              type: "tabs",
+              title: "Choose your AI tool (your teacher will tell you which ones are allowed today)",
+              tabs: [
+                {"label":"Cogniti","blocks":[
+                  {"type":"key","title":"Cogniti — the University of Sydney’s own AI","points":[
+                    "Made by the University of Sydney. Teachers build <b>agents</b>: an AI with instructions, resources and limits that the teacher wrote. In other words, an agent is <b>a prompt someone wrote for you</b>.",
+                    "Log in with your university account (Unikey) at <b>app.cogniti.ai</b>, or open the agent from Canvas. Your teacher gives you the agent link. Agent names and AI models change, so use the agent your teacher recommends today.",
+                    "<b>Good for:</b> course-specific help. An agent can know your unit’s materials and is often designed to guide you, not do the work for you.",
+                    "<b>Remember:</b> academic integrity rules apply in Cogniti too, and teachers can see conversation logs. Check every answer critically."
+                  ]}
+                ]},
+                {"label":"ChatGPT","blocks":[
+                  {"type":"key","title":"ChatGPT (OpenAI)","points":[
+                    "At <b>chatgpt.com</b>. There is a free plan. Users must be 13 or older, and under-18s need a parent’s permission.",
+                    "<b>Good for:</b> brainstorming, explaining ideas, voice conversation practice, and web search with links. <b>Study mode</b> makes it teach you with questions instead of giving you the answer.",
+                    "<b>Watch out:</b> on personal accounts your chats may be used to train the AI unless you turn this off in the settings. Do not paste personal or private information."
+                  ]}
+                ]},
+                {"label":"Claude","blocks":[
+                  {"type":"key","title":"Claude (Anthropic)","points":[
+                    "At <b>claude.ai</b>. There is a free plan. You must be <b>18 or older</b>. If you are under 18, use Cogniti or Copilot.",
+                    "<b>Good for:</b> reading long documents and PDFs carefully, detailed feedback on your writing, and step-by-step explanations. Ask it to teach rather than tell: “Guide me with questions. Don’t give me the answer.”",
+                    "<b>Watch out:</b> check your privacy settings to decide whether your chats can be used to improve the AI. Do not paste personal or private information."
+                  ]}
+                ]},
+                {"label":"Copilot","blocks":[
+                  {"type":"key","title":"Microsoft 365 Copilot Chat","points":[
+                    "Sign in with your <b>university email</b> (copilot.microsoft.com or the Microsoft 365 app).",
+                    "With your university account, your chats have <b>data protection</b>: they are not used to train the AI. Look for the shield icon.",
+                    "<b>Good for:</b> everyday questions with web links, and help inside Word and PowerPoint.",
+                    "<b>Watch out:</b> the shield only works when you are signed in with your university account, not a personal one."
+                  ]}
+                ]}
+              ]
+            },
+            {
+              type: "steps",
+              items: [
+                {"who":"pair","text":"In <b>5 minutes</b>, build your prompt below with <b>RTRI + the 2 Cs</b>. Remember: you want initial ideas, not an essay."},
+                {"who":"pair","text":"Copy your prompt and run it in your tool. If the AI asks you questions first (your Check), answer them."},
+                {"who":"pair","text":"Share your prompt on the class wall."},
+                {"who":"class","text":"As a class, choose the best prompt. Your teacher runs it in <b>two different tools</b> on the screen (e.g. Cogniti and ChatGPT or Claude). Compare the two answers: what is the same, and what is different?"}
+              ]
+            },
+            {
+              type: "promptbuilder",
+              id: "p3-pb",
+              title: "Build your research prompt",
+              parts: [
+                {"key":"role","label":"Role","lead":"Act as","placeholder":"a university tutor in sustainable tourism","chips":["a university tutor in sustainable tourism","a friendly academic writing tutor","a researcher who studies eco-certification"]},
+                {"key":"task","label":"Task","lead":"Your task is to","placeholder":"help me brainstorm initial ideas on the role of sustainability certifications in eco-tourism and whether they are effective","chips":["help me brainstorm initial ideas on the role of sustainability certifications in eco-tourism and whether they are effective","give me a map of the main debates about eco-certifications"]},
+                {"key":"context","label":"Context","lead":"Context:","placeholder":"I am a pre-university student in an academic English course. This is for a research task.","chips":["I am a pre-university student in an academic English course","this is for a research task, and I will find academic sources myself later","I already know what eco-tourism is"]},
+                {"key":"requirements","label":"Requirements","lead":"Requirements:","placeholder":"Use clear B1–B2 English. Include ideas for and against. No more than 250 words.","chips":["use clear B1–B2 English","include ideas for and against their effectiveness","no more than 250 words","do not write paragraphs for my essay"]},
+                {"key":"instructions","label":"Instructions","lead":"Instructions:","placeholder":"Put the ideas in bullet points under 3–4 headings, then suggest three research questions.","chips":["put the ideas in bullet points under 3–4 headings","give one real example of a certification for each heading","finish with three research questions I could investigate"]},
+                {"key":"check","label":"Check","lead":"Check:","placeholder":"Before you answer, ask me 2 questions about what I need. If you are not sure about a fact, say so.","chips":["before you answer, ask me 2 questions about what I need","tell me which points I should check in academic sources","if you are not sure about a fact, say so"]}
+              ]
+            },
+            {
+              type: "fields",
+              fields: [
+                {"id":"p3-new","label":"One idea from the AI’s answer that we did not expect","rows":2},
+                {"id":"p3-cmp","label":"Same prompt, two tools: one difference we noticed","placeholder":"Tool A gave …, but Tool B …","rows":2}
+              ]
+            },
+            {
+              type: "language",
+              title: "Useful language: choosing the best prompt",
+              groups: [
+                {"label":"Evaluate","phrases":["This prompt has a clear task, but there is no context.","I like this one because the Check makes the AI ask us questions first.","This one is missing the requirements."]},
+                {"label":"Choose","phrases":["I’d vote for number … because …","If we add … to this prompt, it would be even better."]},
+                {"label":"Compare tools","phrases":["Both tools mentioned …","Tool A was more …, whereas Tool B …","Only one tool gave sources we could check."]}
+              ]
+            }
+          ]
+        },
+        {
+          id: "p4",
+          short: "Check it",
+          minutes: 12,
+          grouping: "Alone → Pairs",
+          art: "dec10/assets/week4/v/v-d10w4d5-b3.svg",
+          title: "Activity 2: Check before you trust",
+          goal: "Read the AI’s answer critically and check one claim against a real source.",
+          blocks: [
+            {
+              type: "key",
+              tone: "warn",
+              title: "Why check, if AI is so smart now?",
+              points: [
+                "AI makes fewer mistakes than in 2023, but its mistakes sound <b>just as confident</b> as its correct answers.",
+                "Links and references can be real but <b>not say what the AI claims</b>. Sometimes details (authors, year, journal) are mixed up or invented.",
+                "AI tends to <b>agree with you</b>. If you write “I think certifications don’t work”, it may lean your way.",
+                "<b>You</b> are responsible for everything you submit, not the AI."
+              ]
+            },
+            {
+              type: "figure",
+              src: "dec10/assets/week4/d5-output-check.svg",
+              alt: "A magnifying glass over an AI answer. Around it are six check tags: Accurate? Relevant? Specific? Real sources? Right level? Fair and balanced?",
+              caption: "Six questions to ask about every AI answer. In 2026, add a seventh: <b>Is it just agreeing with me?</b>"
+            },
+            {
+              type: "form",
+              id: "p4-form",
+              title: "Is it a good answer?",
+              intro: "Rate the AI’s answer to your research prompt.",
+              scale: ["Yes","Partly","No"],
+              cols: ["Example from the answer"],
+              sections: [
+                {
+                  label: "The seven checks",
+                  items: [
+                    "Accurate — is the information correct?",
+                    "Relevant — does it answer OUR question about certifications?",
+                    "Specific — does it give examples, not just general ideas?",
+                    "Real sources — can you open them, and do they say what the AI claims?",
+                    "Right level — is it easy enough to understand?",
+                    "Fair and balanced — does it show both sides?",
+                    "Not just agreeing — does it challenge any idea in our prompt?"
+                  ]
+                }
+              ]
+            },
+            {"type":"do","n":1,"who":"pair","text":"<b>Source hunt.</b> Choose <b>one</b> fact or claim from the AI’s answer. Try to find it in a real source: open the AI’s link, or search Google Scholar or the library website. Fill in the table."},
+            {
+              type: "table",
+              id: "p4-tab",
+              title: "Our source hunt",
+              columns: ["The claim","Where the AI said it came from","Found it? (Yes / No / Different)","What the real source says"],
+              fixed: ["Claim 1","Claim 2 (if you have time)"]
+            },
+            {"type":"do","n":2,"who":"pair","text":"What would you do? Bet 1–3 coins on each answer."},
+            {
+              type: "bet",
+              id: "p4-bet",
+              title: "Trust it or check it?",
+              coins: 10,
+              items: [
+                {
+                  q: "The AI gives a reference: Green & Hall (2019), <i>Journal of Eco-Certification Studies</i>, 14(2). You can’t find the journal anywhere.",
+                  options: ["A · Use it. The AI wouldn’t invent a journal.","B · Don’t use it. Find a real source for the same point, or drop the point.","C · Change the year and use it.","D · Ask the AI “Are you sure?” and use it if it says yes."],
+                  answer: "B · Don’t use it. Find a real source for the same point, or drop the point.",
+                  why: "If you can’t find a source, you can’t cite it. Asking the AI “Are you sure?” is not checking: it may simply repeat itself or change its mind."
+                },
+                {
+                  q: "The AI links to a real government website, but the page doesn’t mention certifications.",
+                  options: ["A · It’s a real website, so the claim is fine.","B · The link is real but doesn’t support the claim. Find better evidence.","C · Cite the website anyway.","D · Use the claim without a citation."],
+                  answer: "B · The link is real but doesn’t support the claim. Find better evidence.",
+                  why: "A real link is not proof. The source must say what you claim it says."
+                },
+                {
+                  q: "You write: “Eco-certifications are useless, right?” The AI agrees and gives five reasons.",
+                  options: ["A · Great. The AI confirms your opinion.","B · Ask: “Now give me the strongest arguments that certifications DO work.”","C · Ask the same question again.","D · Copy the five reasons into your essay."],
+                  answer: "B · Ask: “Now give me the strongest arguments that certifications DO work.”",
+                  why: "A leading question gets a one-sided answer. Ask for the other side, then decide for yourself."
+                }
               ]
             },
             {
@@ -770,209 +876,201 @@ window.DEC15_LESSON = {
               title: "Useful language: talking about AI output",
               groups: [
                 {"label":"It works","phrases":["The output is relevant to our task.","It gives a clear, specific example of …","It covers both sides of the question."]},
-                {"label":"It doesn’t work","phrases":["This is too general to be useful.","This claim is not supported by any source.","It overgeneralises — “always” is too strong."]},
-                {"label":"Change the prompt","phrases":["The prompt needs a clearer task: …","We should add a requirement: …","We could ask it to focus only on …"]}
+                {"label":"It doesn’t work","phrases":["This is too general to be useful.","We couldn’t find the source for this claim.","The link is real, but it doesn’t say that."]},
+                {"label":"Change the prompt","phrases":["We should add some context: …","We need a Check: ask it to …","We could ask it to focus only on …"]}
               ]
             }
           ]
         },
         {
-          id: "b4",
-          short: "Iterate",
-          minutes: 13,
-          grouping: "Pairs",
+          id: "p5",
+          short: "Keep talking",
+          minutes: 20,
+          grouping: "Pairs → Class",
           art: "dec10/assets/week4/v/v-d10w4d5-b4.svg",
-          title: "Activity 3: Iterative interaction",
-          goal: "Learn the iterative process: use the AI’s answer to refine your next question.",
+          title: "Activity 3: Iterative interaction — keep the conversation going",
+          goal: "Use six conversation moves to dig deeper, then present what you found in 3 minutes.",
           blocks: [
             {
               type: "figure",
               src: "dec10/assets/week4/d5-refine-loop.svg",
               size: "wide",
               alt: "The iterative process of prompting: Craft prompt, then Analyse response and review prompt, then Use output. A big arrow loops back from Analyse response to Craft prompt.",
-              caption: "Based on the output you get from AI, you <b>refine your prompt</b> to improve the output."
+              caption: "Prompt → read and check → follow up. One prompt is rarely enough."
             },
             {
               type: "key",
-              title: "What is iterative interaction?",
+              title: "Iterative interaction today",
               points: [
-                "A process of communication with a series of <b>back-and-forth exchanges</b>, rather than asking all your questions at once or expecting a complete answer in a single response.",
-                "<b>It’s similar to having a conversation</b>: you ask a question, listen to the answer, and then <b>ask a follow-up question based on the response you received</b>.",
-                "This helps you dig deeper into a topic and clarify any doubts step by step."
+                "Treat the AI like a tutor in a conversation: ask, read the answer, then ask a follow-up <b>based on what it just said</b>. Each round takes you one layer deeper, like peeling an onion.",
+                "AI tools remember the whole conversation, so you don’t need to repeat everything. But start a <b>new chat</b> for a new topic, so old ideas don’t mix in.",
+                "Use different <b>moves</b>, not only “Tell me more.”"
               ]
             },
             {
               type: "flip",
-              title: "Why use iterative interaction?",
-              hint: "Turn each card over.",
+              title: "Six conversation moves",
+              hint: "Turn each card over to see an example.",
               items: [
-                {"front":"Complex topics","back":"Some topics have many layers. You explore them one at a time, so you understand each part before moving on."},
-                {"front":"Clarification","back":"If something isn’t clear, a follow-up question clears up the misunderstanding — very helpful when you learn in a new language."},
-                {"front":"Depth of understanding","back":"Each round gives you more detail — like peeling an onion: each layer gives you more insight."}
+                {"front":"1 · Ask me first","back":"“Before you answer, ask me 3 questions about what I need.”"},
+                {"front":"2 · Zoom in","back":"“You mentioned … Tell me more about that, with one example.”"},
+                {"front":"3 · Simplify","back":"“Explain that in simpler English, with an everyday example.”"},
+                {"front":"4 · Push back","back":"“What would a critic say about this?” · “Give me the strongest argument against.”"},
+                {"front":"5 · Verify","back":"“Where does this come from? Give me a source I can check.” · “How sure are you about this number?”"},
+                {"front":"6 · Teach me","back":"“Don’t give me the answer. Ask me questions one at a time to help me work it out.” · “Quiz me on this.”"}
               ]
-            },
-            {
-              type: "figure",
-              src: "dec10/assets/week4/d5-onion.svg",
-              alt: "An onion cut in half with four layers. Outer layer: What is eco-tourism? Next: How is sustainability in eco-tourism evaluated? Next: Are certifications effective? Core: My own informed view.",
-              caption: "Each follow-up question takes you one layer deeper."
-            },
-            {"type":"do","n":1,"who":"pair","text":"How do you implement iterative interaction? Put the four steps in order. Then explain them to your partner without looking."},
-            {
-              type: "order",
-              id: "b4-order",
-              title: "How to implement iterative interaction",
-              items: [
-                "Start simple: begin with a basic question, e.g. “What is eco-tourism?”",
-                "Evaluate the response: what is clear, and what needs more explanation?",
-                "Ask follow-up questions: e.g. “Can you explain how sustainability in eco-tourism is evaluated?”",
-                "Repeat as needed: keep asking until you have a strong understanding of the topic."
-              ],
-              ends: ["First","Last"],
-              why: "Start simple → evaluate → ask a follow-up → repeat. This breaks learning into manageable parts and checks understanding at each step."
             },
             {
               type: "chat",
               ai: true,
-              title: "Iterative interaction in action",
+              title: "The moves in action",
               right: "You",
               lines: [
-                ["You","What is eco-tourism?"],
-                ["AI","Eco-tourism is responsible travel to natural areas that conserves the environment and supports the well-being of local people …"],
-                ["You","<mark>Can you explain how sustainability in eco-tourism is evaluated?</mark>"],
-                ["AI","It is often evaluated through sustainability certifications, environmental impact assessments and indicators such as … "],
-                ["You","<mark>You mentioned certifications. Can you give me two examples and explain one criticism of them?</mark>"]
+                ["You","What are the 3 major challenges to developing eco-tourism in Australia?"],
+                ["AI","1) Large distances, so travel creates high emissions. 2) Climate impacts such as bushfires and coral bleaching. 3) Balancing visitor numbers with protecting fragile places …"],
+                ["You","<mark>You mentioned coral bleaching. How does it affect eco-tourism on the Great Barrier Reef? Give one example and a source I can check.</mark>"],
+                ["AI","Bleaching can make reef tours less attractive and puts pressure on operators … (source and link)"],
+                ["You","<mark>What would a critic say? Is tourism also part of the problem?</mark>"],
+                ["AI","Critics argue that boats, flights and visitor numbers add to the pressure on the reef …"],
+                ["You","<mark>Don’t tell me the answer yet. Ask me two questions to help me decide which challenge is the most serious.</mark>"]
               ]
             },
-            {
-              type: "language",
-              title: "Follow-up questions that dig deeper",
-              groups: [
-                {"label":"Clarify","phrases":["Can you explain that in simpler terms?","What do you mean by …?","Can you give me an example of …?"]},
-                {"label":"Go deeper","phrases":["You mentioned … Can you tell me more about …?","What is the evidence for …?","What are the main criticisms of …?"]},
-                {"label":"Check & focus","phrases":["Where does this information come from?","Can you focus only on Australia?","Can you put this in a table: challenge / cause / possible solution?"]}
-              ]
-            }
-          ]
-        },
-        {
-          id: "b5",
-          short: "Try it",
-          minutes: 25,
-          grouping: "Pairs → Class",
-          art: "dec10/assets/week4/v/v-d10w4d5-b5.svg",
-          title: "Activity 4: Trying iterative interaction",
-          goal: "Spend 10 minutes ‘in conversation’ with Vanilla GPT-4, then present your AI findings in 3 minutes.",
-          blocks: [
             {
               type: "key",
               title: "Your new task",
               points: [
                 "Imagine your teacher has set you this task: <b>Identify the major challenges and barriers to developing and expanding eco-tourism in Australia.</b>",
                 "Start with this question: <b>What are the 3 major challenges to developing eco-tourism in Australia?</b>",
-                "Ask follow-up questions based on the AI’s answers. Aim to explore <b>different parts</b> of the topic."
+                "Then follow up. Use at least <b>three different moves</b>."
               ]
             },
             {
               type: "steps",
               items: [
-                {"who":"pair","text":"Open <b>Cogniti</b> (app.cogniti.ai → Log in with your university account → Chat with agents → <b>Vanilla GPT-4</b>)."},
-                {"who":"pair","text":"Spend <b>10 minutes</b> in conversation. Ask the first question, then at least <b>four follow-up questions</b>. Write each round in the log."},
-                {"who":"pair","text":"Prepare a <b>3-minute presentation</b> summarising your AI findings."},
-                {"who":"class","text":"2–3 pairs present their AI findings to the class."}
+                {"who":"pair","text":"Open your AI tool and start a <b>new chat</b>."},
+                {"who":"pair","text":"Spend <b>10 minutes</b> in conversation: the first question, then at least <b>four follow-ups</b>. Write each round in the log."},
+                {"who":"pair","text":"Prepare a <b>3-minute presentation</b> of your AI findings. Say which move gave the most useful answer."},
+                {"who":"class","text":"2–3 pairs present to the class."}
               ]
             },
             {
               type: "table",
-              id: "b5-tab", live: true,
+              id: "p5-tab", live: true,
               title: "Our conversation log",
-              columns: ["Round","Our question","Main points in the AI’s answer","Why we asked the next question"],
+              columns: ["Round","Our question","Move we used","Main points in the AI’s answer"],
               fixed: ["1 · Start","2 · Follow-up","3 · Follow-up","4 · Follow-up","5 · Follow-up"]
-            },
-            {"type":"do","n":1,"who":"pair","text":"Before you present: which follow-up question is the most useful? Bet 1–3 coins on each answer."},
-            {
-              type: "bet",
-              id: "b5-bet",
-              title: "Choose the best follow-up",
-              coins: 10,
-              items: [
-                {
-                  q: "The AI says one challenge is “the large distances between destinations”, but gives no detail.",
-                  options: ["A · Tell me more.","B · You mentioned large distances. How do they make eco-tourism in Australia harder? Give one example.","C · Is that true?","D · Next challenge."],
-                  answer: "B · You mentioned large distances. How do they make eco-tourism in Australia harder? Give one example.",
-                  why: "It refers back to the answer, asks a specific question and asks for an example."
-                },
-                {
-                  q: "The answer uses many difficult words.",
-                  options: ["A · Make it better.","B · That’s too hard.","C · Can you explain that in simpler terms, in clear B1 English?","D · Write it again."],
-                  answer: "C · Can you explain that in simpler terms, in clear B1 English?",
-                  why: "It says exactly what to change."
-                },
-                {
-                  q: "The AI gives a number but no source.",
-                  options: ["A · OK, thanks.","B · Where does this number come from? Can you name the source so I can check it?","C · Give me more numbers.","D · Are you sure?"],
-                  answer: "B · Where does this number come from? Can you name the source so I can check it?",
-                  why: "AI can invent numbers and sources. Ask for the source — and then check it yourself."
-                }
-              ]
             },
             {
               type: "language",
               title: "Useful language: a 3-minute presentation of AI findings",
               groups: [
-                {"label":"Open","phrases":["We asked Vanilla GPT-4 about the major challenges to developing eco-tourism in Australia.","We started with … and then followed up on …"]},
-                {"label":"Report findings","phrases":["According to the AI, the first major challenge is …","When we asked about …, it explained that …","This links to … in Spenceley and Rylance (2021)."]},
-                {"label":"Be critical","phrases":["However, the AI did not give a source for …, so we would need to check it.","The answer was quite general about …"]},
-                {"label":"Close","phrases":["Overall, the most useful follow-up question was …","Next, we would like to research …"]}
+                {"label":"Open","phrases":["We asked [tool] about the major challenges to developing eco-tourism in Australia.","We started with … and then followed up on …"]},
+                {"label":"Report findings","phrases":["According to the AI, the first major challenge is …","When we pushed back, it admitted that …","This links to … in Spenceley and Rylance (2021)."]},
+                {"label":"Be critical","phrases":["However, the AI did not give a source for …, so we would need to check it.","When we checked the link, we found that …"]},
+                {"label":"Close","phrases":["The most useful move was … because …","Next, we would like to research …"]}
               ]
             },
             {
               type: "tip",
-              text: "<b>Integrity:</b> AI findings are a starting point, not a source. Check them against real academic sources, and acknowledge any tool that contributed to your work."
+              text: "<b>Integrity:</b> AI findings are a starting point, not a source. Check them against real academic sources, and acknowledge any AI tool that contributed to your work (Week 1)."
             }
           ]
         },
         {
-          id: "b6",
-          short: "Evaluate",
-          minutes: 10,
-          grouping: "Groups of 4–5",
-          art: "dec10/assets/week4/v/v-d10w4d5-b6.svg",
-          title: "Activity 5: Evaluating the effectiveness of iterative interaction",
-          goal: "Discuss how well iterative interaction worked — compared with one single prompt.",
+          id: "p6",
+          short: "At uni",
+          minutes: 15,
+          grouping: "Groups → Class",
+          art: "dec10/assets/week4/v/v-d10w4d5-p6.svg",
+          title: "Activity 4: AI at university — help or harm?",
+          goal: "Evaluate today’s conversations, decide where AI helps or harms university work, and write your own AI rules.",
           blocks: [
-            {"type":"do","n":1,"who":"group","text":"Each group gets a different set of questions. Spin to get your set (or your teacher gives you one). Discuss for <b>5 minutes</b>. Then one student summarises the main points for the class."},
             {
-              type: "spinner",
-              id: "b6-spin",
-              title: "Which question set?",
-              reels: [{"label":"Question set","items":["Effectiveness","Improvement strategies","Critical thinking","Transferable skills"]}],
-              note: "Spin once per group. Then open your tab below."
+              type: "talk",
+              title: "Evaluate today (groups, 3 minutes)",
+              prompts: [
+                "Did talking with AI help you understand the topic better than a Google search might have? Why or why not?",
+                "Did you find any mistakes, gaps or one-sided ideas? How did you deal with them?",
+                "Which conversation move gave the best answers? Which prompt part made the biggest difference?"
+              ]
             },
+            {"type":"do","n":1,"who":"group","text":"Sort these university tasks. Be ready to explain your choices."},
             {
-              type: "tabs",
-              title: "The question sets",
-              tabs: [
-                {"label":"Effectiveness","blocks":[{"type":"talk","title":"Effectiveness","prompts":["Did the iterative interaction help you understand the topic better than a traditional Google search might have?","Can you think of an example of a follow-up question greatly improving or deepening your understanding of the topic?","Were there any moments during the iterative interactions where you felt confused or lost? What caused this?"]}]},
-                {"label":"Improvement","blocks":[{"type":"talk","title":"Improvement strategies","prompts":["What types of questions led to the most insightful answers?","How can you formulate better follow-up questions in the future?"]}]},
-                {"label":"Critical thinking","blocks":[{"type":"talk","title":"Critical thinking","prompts":["Can you identify any biases or gaps in the information provided during the interactions? How did you handle these issues?","Did this process influence your independent opinions or conclusions about eco-tourism?"]}]},
-                {"label":"Transferable skills","blocks":[{"type":"talk","title":"Transferable skills","prompts":["Can iterative interaction be applied to other topics in your studies?","Find examples of other uses of this process in DEC.","What did you find most challenging about the iterative interaction, and what did you enjoy the most?"]}]}
+              type: "sort",
+              id: "p6-sort",
+              title: "Using AI at university: help or harm?",
+              hint: "Drag (or tap) each card into a box, then check.",
+              buckets: [{"label":"Good use: AI as a tutor or coach","letter":"✓"},{"label":"Use with care: check the rules, check the output, acknowledge it","letter":"!"},{"label":"Not OK: an integrity or privacy problem","letter":"✗"}],
+              items: [
+                {"text":"Ask AI to explain a difficult journal article abstract in simpler English, then read the article to check you understood.","answer":0,"why":"AI helps you get into the text, and you still read the real article."},
+                {"text":"Ask AI to quiz you on your lecture notes before an exam.","answer":0,"why":"AI as a tutor: you do the thinking and the remembering."},
+                {"text":"Practise for a tutorial discussion by talking to AI in voice mode.","answer":0,"why":"Safe practice for speaking and thinking on your feet."},
+                {"text":"Ask AI to suggest journal articles for your literature review.","answer":1,"why":"It can suggest search terms and real articles, but check that each one exists and says what the AI claims. Library databases and Google Scholar are still your main tools."},
+                {"text":"Ask AI to check the grammar of a paragraph you wrote.","answer":1,"why":"Often allowed in open tasks. Check the unit rules, keep your own voice and acknowledge the AI use."},
+                {"text":"Ask AI for an outline of your essay.","answer":1,"why":"Allowed in some tasks but not in others. If it is allowed, change the outline with your own ideas and acknowledge it."},
+                {"text":"Ask AI to write your essay, then change some words and submit it as your own work.","answer":2,"why":"This is not your work. It breaks academic integrity rules, and you learn nothing."},
+                {"text":"Paste a classmate’s draft into AI to get feedback, without asking them.","answer":2,"why":"It is their work and their data. Always ask first."},
+                {"text":"Use AI during a secure, in-class test.","answer":2,"why":"Secure assessments (Lane 1) check what you can do without AI."},
+                {"text":"Paste survey answers with participants’ names and emails into a free AI tool.","answer":2,"why":"This is a privacy problem. Personal data must stay protected."}
               ]
             },
             {
-              type: "language",
-              title: "Useful language: summarising your group’s discussion",
-              groups: [
-                {"label":"Summarise","phrases":["Our group discussed …","Most of us felt that …","The main point we agreed on was …"]},
-                {"label":"Compare","phrases":["Compared with a single prompt, iterative interaction was more …","Unlike a Google search, it …","It was less useful when …"]},
-                {"label":"Hedge","phrases":["It seems that …","In some cases, …","It may depend on …"]}
+              type: "key",
+              title: "Six risks to know, and what to do",
+              points: [
+                "<b>Confident mistakes</b> and wrong references → check facts and sources yourself.",
+                "<b>Agreeing with you</b> → ask for the other side and for honest criticism.",
+                "<b>Bias</b> → AI can repeat stereotypes or show only one culture’s view. Ask: whose voices are missing?",
+                "<b>Privacy</b> → no personal or private information, and no one else’s work, in AI tools. Prefer university tools (Cogniti, Copilot with your university account).",
+                "<b>Academic integrity</b> → at the University of Sydney, <b>secure (Lane 1)</b> assessments are done in person and AI use is controlled; in <b>open (Lane 2)</b> assessments you may use AI as the unit outline describes. Always check the rules, and acknowledge AI use.",
+                "<b>Over-reliance</b> → if AI does the thinking, you don’t learn, and many assessments test you in person. Use AI to think <b>more</b>, not less."
+              ]
+            },
+            {
+              type: "tabs",
+              title: "Prompts you can use at university (keep these)",
+              tabs: [
+                {"label":"Journal articles","blocks":[{"type":"cards","items":[
+                  {"label":"Understand it","text":"“I’m a pre-university student. Here is the abstract of a journal article. Explain the research question, the method and the main finding in simple English. Then ask me 3 questions to check I understood.”"},
+                  {"label":"Key words","text":"“Make a glossary of the key terms in this article, with a simple meaning and one example each.”"},
+                  {"label":"Risk","text":"AI can misread tables and numbers. Check the key numbers in the article yourself."}
+                ]}]},
+                {"label":"Writing","blocks":[{"type":"cards","items":[
+                  {"label":"Feedback, not rewriting","text":"“Here is my paragraph and the rubric. Don’t rewrite it. Tell me the two weakest points against the rubric, and ask me questions to help me fix them.”"},
+                  {"label":"Language options","text":"“Show me three ways to introduce evidence from a source. I will choose one and write my own sentence.”"},
+                  {"label":"Risk","text":"If AI writes it, it is not your voice. Check the unit rules and acknowledge AI use."}
+                ]}]},
+                {"label":"Research","blocks":[{"type":"cards","items":[
+                  {"label":"Focus a topic","text":"“Help me turn this topic into 3 focused research questions. Ask me what interests me first.”"},
+                  {"label":"Search better","text":"“Suggest search terms and synonyms I can use in the library database for this question.”"},
+                  {"label":"Risk","text":"Invented or misreported sources. Find and read every source yourself."}
+                ]}]},
+                {"label":"Exams","blocks":[{"type":"cards","items":[
+                  {"label":"Retrieval practice","text":"“Quiz me on these lecture notes, one question at a time. Wait for my answer, then give feedback.”"},
+                  {"label":"Plan","text":"“Make me a 7-day revision plan for these topics. I have 2 hours a day.”"},
+                  {"label":"Risk","text":"You can’t use AI in a secure exam, so practise without it too."}
+                ]}]},
+                {"label":"Group work","blocks":[{"type":"cards","items":[
+                  {"label":"Plan for problems","text":"“Here is our group’s plan. What could go wrong? Put the risks in a table: likely or not likely, big or small effect.”"},
+                  {"label":"Prepare for questions","text":"“Ask me 5 tough questions an audience might ask about our presentation topic.”"},
+                  {"label":"Risk","text":"Don’t share group members’ personal details or their work without asking."}
+                ]}]}
               ]
             },
             {
               type: "fields",
               fields: [
-                {"id":"b6-sum","label":"Our group’s main points (for the class summary)","rows":3},
-                {"id":"b6-me","label":"One prompting tip I will use again","placeholder":"Next time, I will start simple and then …","rows":2}
+                {"id":"p6-rules","label":"My three AI rules for university","placeholder":"1. I always …  2. I never …  3. Before I submit, I …","rows":3},
+                {"id":"p6-me","label":"One prompt I will use this week (copy it here)","rows":2}
+              ]
+            },
+            {
+              type: "language",
+              title: "Useful language: explaining your choices",
+              groups: [
+                {"label":"Good use","phrases":["This is a good use because the AI helps me think, but I still …","It’s like having a tutor who …"]},
+                {"label":"With care","phrases":["It depends on the unit rules.","It’s fine as long as we check … and acknowledge …"]},
+                {"label":"Not OK","phrases":["This crosses the line because …","The problem here is privacy / integrity: …"]}
               ]
             }
           ]
