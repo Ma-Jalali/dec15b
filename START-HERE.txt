@@ -1020,6 +1020,21 @@ v9.8 (DEC10 Week 4 Day 1 — Reading to write (2A) improved; table headings read
 - Saved-work ids unchanged; new ids: b3-cloze, b5-icq, b5-check, b8-dt. DEC15 unchanged except the table heading sizes
   rule, which is DEC10-only ([data-course="dec10"]).
 
+v9.13 (DEC10 Week 5 Day 3 · 7A and 8A made simpler to follow; five rubric criteria in W5 D4 and W5 D5)
+- 7A in three steps (chips): Step 1 Read → Step 2 Match → Step 3 Act. Feedback words come before students open their
+  feedback; every comment is marked ✓ / → / ?; a worked example decodes one comment (criterion → plain words → exact
+  action); traffic lights (a2-light) before the TB table, so students fill their 🟢 and 🔴 rows first; "Exact, not
+  general" and "what + where + how I will check" are rule cards with ✗ → ✓ pairs; a one-line plan card (a3-card) ends 7A.
+- 8A: the five steps of the workshop at the start; a quick position choice (b1-side) that points to a structure; the
+  two structures as text in a fold (no repeat of the picture); a word budget; in Joint writing each student reads only
+  the toolkit for their part (introduction, body paragraph, conclusion); Activity 4 shows the student's 7A plan card
+  (new block type: recall) for a "plan card check" of the whole essay.
+- Teacher notes in every activity: run sheet, what to model, what to watch for, what to cut when short of time.
+- TB tasks, the essay question, the two structures, Samples 5.1/5.2 and the text maps are unchanged. Saved ids kept;
+  new: a2-light, a3-card, b1-side; removed: a3-spin.
+- W5 D4 and W5 D5: the rubric pictures, captions, spinner and quiz now show five criteria (Vocabulary and Grammar
+  are scored separately), matching the Integrated Writing Rubric PDF.
+
 v9.9 (DEC10 week bar spacing; Week 4 Day 3 · 9A Integrated writing workshop (2) redesigned; dec10/lessons/week4/d10w4d3.js)
 - WEEK BAR: on lesson pages the "Week 4 · Day 3" link took all the spare space (margin-left: auto), so the weeks bunched
   to the left; on the course map they spread. On wide screens the link now joins the even spacing (css/precision.css).
