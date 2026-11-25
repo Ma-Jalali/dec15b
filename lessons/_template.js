@@ -49,6 +49,7 @@
      rule       { type: 'rule', n, title, explain, form?, pairs?: [['not academic', 'academic', 'note?']], note?, check?: { q, a } }
                 with pairs: a calm two-column Not academic | Academic table (4 pairs is a good number)
      text       { type: 'text', title?, before?, text?, list?: [..] }   a plain, full-width document (no label, no colour) — e.g. inside a reference fold
+     recall     { type: 'recall', title?, ids: ['field-id', …], empty? }   shows what the student wrote earlier in this lesson (read-only)
      carousel   { type: 'carousel', title?, slides: [{ title?, text?, image?, alt?, blocks? }] }   slides in one row (arrows, dots, swipe)
                 (flip cards with 6 or more cards become a carousel by themselves; table columns can be widened by dragging)
      tip        { type: 'tip', text }

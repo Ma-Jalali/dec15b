@@ -5,7 +5,9 @@
    10A AST: Digital literacy and AI: Using AI for feedback homework.
    Protected texts (Hassi & Storti 2012, Van Krieken 2016, Crysell et al. 2023, Samples 5.1 and 5.2) are in sources.js and are never changed here.
    The essay question, the two possible structures and the seminar questions are copied exactly from the Teacher's Book.
-   Activity ids are the keys of saved work — never rename them. */
+   Activity ids are the keys of saved work — never rename them.
+   v9.13 redesign of 7A and 8A (same TB tasks, simpler path): see the notes above each section. New saved ids: a2-light,
+   a3-card, b1-side. Removed: a3-spin (the plan-card pair check replaces it). */
 window.DEC15_LESSON = {
   id: 'd10w5d3',
   week: 5,
@@ -22,7 +24,10 @@ window.DEC15_LESSON = {
   finish: { title: 'Day 4', text: 'Interactive Discussion: discussion and negotiation · Using AI for feedback · Integrated writing workshop (3)' },
   goalShort: 'the Integrated Writing Assessment, your Seminar and the Interactive Presentation',
   sections: [
-    /* ───────────────────────── 7A ───────────────────────── */
+    /* ───────────────────────── 7A ─────────────────────────
+       v9.13: three clear steps (Read → Match → Act). The feedback words come BEFORE students open their feedback;
+       a worked example shows how to decode one comment; a traffic-light check comes before the TB table, so students
+       start with the rows that matter; the action plan ends with a one-line plan card that students take into 8A. */
     {
       id: 'iwafb',
       number: '01',
@@ -31,7 +36,7 @@ window.DEC15_LESSON = {
       tone: 'green',
       art: 'dec10/assets/week5/s-d3-iwafb.svg',
       title: 'Integrated Writing Practice Assessment feedback',
-      subtitle: 'Read it, understand it, use it',
+      subtitle: 'Read it → match it to the rubric → use it',
       outcome: 'You can interpret the feedback you received on your Integrated Writing Practice Assessment and make an action plan to improve your writing next time.',
       activities: [
         {
@@ -39,16 +44,18 @@ window.DEC15_LESSON = {
           short: 'View feedback',
           minutes: 7,
           grouping: 'Alone → Pair',
+          category: 'Step 1 · Read',
           art: 'dec10/assets/week5/v/v-d10w5d3-a1.svg',
           title: 'Activity 1 View your feedback',
-          goal: 'Find your feedback and read it carefully — every word.',
+          goal: 'Learn the words teachers use, then read your feedback and mark every comment ✓, → or ?.',
           blocks: [
             {
               type: 'key',
-              title: 'Feedback is useful only when you use it',
+              title: 'Feedback is a map, not a mark',
               points: [
+                'Your practice score does <b>not</b> count. Your feedback is <b>free advice</b> for the real assessment on Friday (Week 5) and in Week 9.',
                 'Today you <b>appreciate</b> your feedback (understand what it means) and <b>take action</b> (decide what to do next).',
-                'In your next lesson you write an essay with your group. That is your chance to <b>use</b> today’s action plan.'
+                'In the next lesson (8A) you write an essay with your group. That is your chance to <b>use</b> today’s action plan.'
               ]
             },
             {
@@ -58,12 +65,11 @@ window.DEC15_LESSON = {
               alt: 'The route from feedback to action in four stops: 1 read the feedback, 2 match each comment to a rubric criterion, 3 decide exactly what you did well and what you could do better, 4 write an action plan for the group essay.',
               caption: 'Today’s route: <b>read → match → decide → act</b>.'
             },
-            { type: 'do', n: 1, who: 'alone', text: 'Access the feedback on your <b>Week 4 Integrated Writing Practice Assessment</b> in the Student Portal (your teacher shows you where).' },
-            { type: 'do', n: 2, who: 'alone', text: 'Read the feedback carefully. Read it twice. Underline any word you do not understand.' },
+            { type: 'do', n: 1, who: 'alone', text: '<b>Before you open your feedback:</b> learn eight words teachers often write. Guess the meaning, then turn the card.' },
             {
               type: 'flip',
               title: 'Feedback words — what do they mean?',
-              hint: 'Teachers often use these words. Guess the meaning, then turn the card.',
+              hint: 'Guess first, then turn the card. You will see some of these words in your own feedback.',
               items: [
                 { front: 'Vague', back: 'Not clear or exact enough. The reader is not sure what you mean.', tag: 'Ideas' },
                 { front: 'Unsupported claim', back: 'You say something is true, but you give no evidence or source.', tag: 'Argument' },
@@ -73,6 +79,17 @@ window.DEC15_LESSON = {
                 { front: 'Register', back: 'How formal your language is. “Big” and “a lot of” are too informal for an essay.', tag: 'Vocabulary' },
                 { front: 'Run-on sentence', back: 'Two sentences joined with no full stop or linking word.', tag: 'Grammar' },
                 { front: 'Awkward', back: 'Correct words, but they sound unnatural together. Try a common collocation.', tag: 'Language' }
+              ]
+            },
+            { type: 'do', n: 2, who: 'alone', text: 'Access the feedback on your <b>Week 4 Integrated Writing Practice Assessment</b> in the Student Portal (your teacher shows you where).' },
+            { type: 'do', n: 3, who: 'alone', text: 'Read the feedback carefully — <b>twice</b>. The second time, mark every comment with one of these three symbols (on paper, or with a highlighter in the PDF).' },
+            {
+              type: 'cards',
+              title: 'Three symbols for every comment',
+              items: [
+                { label: 'Tick ✓', text: '<b>I did this well.</b> Keep doing it.' },
+                { label: 'Arrow →', text: '<b>I need to change this.</b> It goes into my action plan.' },
+                { label: 'Question mark ?', text: '<b>I don’t understand this.</b> Ask a partner or your teacher.' }
               ]
             },
             {
@@ -87,8 +104,8 @@ window.DEC15_LESSON = {
               type: 'talk',
               title: 'Stand up and tell a partner (2 minutes)',
               prompts: [
-                '<b>Stand up</b> and find a partner from another table. What is <b>one thing</b> your teacher liked?',
-                'Is there a comment you do not understand? Ask your partner what it might mean.',
+                '<b>Stand up</b> and find a partner from another table. Tell them one <b>✓</b>: one thing your teacher liked.',
+                'Read one <b>?</b> comment aloud. Together, guess what it means.',
                 'Were you surprised? Why or why not?'
               ]
             },
@@ -96,10 +113,14 @@ window.DEC15_LESSON = {
               type: 'language',
               title: 'Talk about your feedback',
               groups: [
-                { label: 'Positive comments', phrases: ['My teacher said my … was clear / well organised.', 'One strength was …', 'I was pleased that …'] },
-                { label: 'Things to improve', phrases: ['The main thing I need to work on is …', 'According to my feedback, I should …', 'I lost marks for …'] },
-                { label: 'Not sure what it means', phrases: ['I’m not sure what “…” means here.', 'Do you think this comment is about … or …?', 'Could it mean that I need to …?'] }
+                { label: 'Positive comments', phrases: ['My teacher said my … was clear / well organised.', 'One strength was …'] },
+                { label: 'Things to improve', phrases: ['The main thing I need to work on is …', 'According to my feedback, I should …'] },
+                { label: 'Not sure what it means', phrases: ['I’m not sure what “…” means here.', 'Could it mean that I need to …?'] }
               ]
+            },
+            {
+              type: 'teacher',
+              text: '<b>Run sheet for 7A (45 min):</b> Activity 1 · 7 min (flip cards 2, read and mark 3, stand-up talk 2) → Activity 2 · 22 min (pair sort 4, worked example on the board 3, traffic lights 2, own table 9, walk and talk 4) → Activity 3 · 16 min (rule and sort 5, own plan 7, plan card and pair check 4).<br><b>Before class:</b> check that every student can open their feedback in the Student Portal, and open the rubric PDF on the board.<br><b>Say it before they open it:</b> “A practice score is information, not a judgement.” Some students will be disappointed — the ✓ step makes everyone find something positive first.<br><b>Short on time?</b> Students can turn the flip cards at home; skip the stand-up talk and go straight to Activity 2.'
             }
           ]
         },
@@ -107,27 +128,36 @@ window.DEC15_LESSON = {
           id: 'a2',
           short: 'Match to rubric',
           minutes: 22,
-          grouping: 'Alone → Pair',
+          grouping: 'Pair → Alone → Pair',
+          category: 'Step 2 · Match',
           art: 'dec10/assets/week5/v/v-d10w5d3-a2.svg',
           title: 'Activity 2 Apply the feedback to the rubric',
           goal: 'Link each comment to a criterion, then say exactly what you did well and what you could do better.',
           blocks: [
+            {
+              type: 'key',
+              title: 'Every comment belongs to one criterion',
+              points: [
+                'The rubric has <b>five criteria</b>. Every comment in your feedback is about <b>one</b> of them.',
+                'When you know which criterion a comment is about, you know <b>where to look</b> in the rubric — and what the next level up looks like.'
+              ]
+            },
             { type: 'do', n: 1, who: 'alone', text: 'Go to the <b>Assessment Overview</b> on Canvas and review the rubric for the <b>Integrated Writing Assessment (IWA)</b>.' },
-            { type: 'download', id: 'iw-rubric', note: 'The IWA rubric is here too — the same rubric as on Canvas. Open it next to your feedback and click the level for each sub-criterion.' },
+            { type: 'download', id: 'iw-rubric', note: 'The IWA rubric is here too — the same rubric as on Canvas. You don’t need to read all three pages now: read only the <b>top row</b> of each criterion (one sentence for each level).' },
             {
               type: 'hotspot',
               src: 'dec10/assets/week5/d3-rubric-map.svg',
               size: 'wide',
               title: 'What does the teacher look at?',
-              hint: 'Tap a number: what each area of the writing rubric looks for. Always check the exact words of the rubric on Canvas.',
+              hint: 'Tap a number: what each criterion looks for, and the comments teachers often write about it.',
               alt: 'Five areas of an essay under a magnifying glass: argumentation, use of sources, connection of ideas, vocabulary and grammar.',
-              caption: 'Five areas your feedback usually talks about.',
+              caption: 'The five criteria your feedback talks about.',
               spots: [
-                { x: 12, y: 46, label: '1', color: '#3f7a3a', title: 'Argumentation', text: 'Is your position clear from the introduction? Is it developed with good reasons and evidence? Do you consider the other side (counterargument) and answer it (refutation)?' },
-                { x: 31, y: 46, label: '2', color: '#3a58a0', title: 'Use of sources', text: 'Do you use information from several sources to support your ideas? Is it paraphrased well, with the author and year? Do you add your own analysis?' },
-                { x: 50, y: 46, label: '3', color: '#b07d12', title: 'Connection of ideas', text: 'Does each paragraph have one main idea and a topic sentence? Do linking phrases and old–new information make the writing flow?' },
-                { x: 69, y: 46, label: '4', color: '#8a4f9e', title: 'Vocabulary', text: 'Are your words precise and academic? Do you use topic words (e.g. homogenisation, hybridisation) and good collocations?' },
-                { x: 88, y: 46, label: '5', color: '#c4562f', title: 'Grammar', text: 'Do you use a range of sentence types? Are they accurate and clear, with only a few small errors?' }
+                { x: 12, y: 46, label: '1', color: '#3f7a3a', title: 'Argumentation', text: 'Is your position clear from the introduction? Is it developed with good reasons and evidence? Do you consider the other side (counterargument) and answer it (refutation)?<br><b>Comments like:</b> “unclear position”, “vague”, “unsupported claim”, “only one side”.' },
+                { x: 31, y: 46, label: '2', color: '#3a58a0', title: 'Use of sources', text: 'Do you use information from several sources to support your ideas? Is it paraphrased well, with the author and year? Do you add your own analysis?<br><b>Comments like:</b> “too close to the source”, “whose idea is this?”, “add the year”, “patchwriting”.' },
+                { x: 50, y: 46, label: '3', color: '#b07d12', title: 'Connection of ideas', text: 'Does each paragraph have one main idea and a topic sentence? Do linking phrases and old–new information make the writing flow?<br><b>Comments like:</b> “cohesion”, “no topic sentence”, “two ideas in one paragraph”, “hard to follow”.' },
+                { x: 69, y: 46, label: '4', color: '#8a4f9e', title: 'Vocabulary', text: 'Are your words precise and academic? Do you use topic words (e.g. homogenisation, hybridisation) and good collocations?<br><b>Comments like:</b> “register”, “informal”, “awkward”, “wrong word”, “repetition”.' },
+                { x: 88, y: 46, label: '5', color: '#c4562f', title: 'Grammar', text: 'Do you use a range of sentence types? Are they accurate and clear, with only a few small errors?<br><b>Comments like:</b> “run-on sentence”, “subject–verb agreement”, “no main verb”, “word form”.' }
               ]
             },
             { type: 'do', n: 2, who: 'pair', text: 'Match each piece of feedback to the corresponding criterion. <b>Beat the clock:</b> practise first with a partner — 3 minutes for the 10 comments below.' },
@@ -156,7 +186,40 @@ window.DEC15_LESSON = {
                 { text: 'Some of your sentences have no main verb.', answer: 4 }
               ]
             },
-            { type: 'do', n: 3, who: 'alone', text: 'Now use <b>your own</b> feedback. For each criterion, decide what <b>exactly</b> you did well and what <b>exactly</b> you could do better. Copy a short quote from the feedback.' },
+            {
+              type: 'model',
+              title: 'Worked example: decode one comment in three steps',
+              rows: [
+                ['The comment', 'Mai’s teacher wrote: “Your argument is hard to follow — your position only becomes clear in the conclusion.”'],
+                ['1 · Which criterion?', '<b>Argumentation</b> — it is about her position.'],
+                ['2 · In plain words', 'The reader doesn’t know what Mai thinks until the end of the essay.'],
+                ['3 · Exactly what to do', 'Write the position in the <b>last sentence of the introduction</b>, and link every topic sentence back to it.']
+              ],
+              note: 'Do the same with your own <b>→</b> and <b>?</b> comments: criterion → plain words → exactly what to do.'
+            },
+            { type: 'do', n: 3, who: 'alone', text: '<b>Your feedback at a glance.</b> For each criterion, choose a colour from your feedback (and the rubric level, if your teacher gave one).' },
+            {
+              type: 'grid',
+              id: 'a2-light',
+              title: 'My traffic lights',
+              rows: ['Argumentation', 'Use of sources', 'Connection of ideas', 'Vocabulary', 'Grammar'],
+              columns: ['From my feedback'],
+              options: ['🟢 A strength', '🟡 OK', '🔴 Work on this']
+            },
+            {
+              type: 'rule',
+              title: 'Exact, not general',
+              explain: 'A general sentence (“I did well in sources”) does not help you next time. An exact sentence says <b>what</b> you did and <b>where</b> — so you can do it again, or fix it.',
+              cols: ['Too general', 'Exact'],
+              pairs: [
+                ['I did well in sources.', 'I used <b>three sources</b> and always gave <b>the author and the year</b>, e.g. “Hassi and Storti (2012) argue that …”.'],
+                ['My grammar could be better.', 'In paragraph 2, <b>four sentences</b> had subject–verb agreement errors (“globalisation have”).'],
+                ['My structure was good.', 'Each body paragraph started with a <b>topic sentence</b> that named one main idea.'],
+                ['I need better vocabulary.', 'I used “big” and “a lot of” <b>five times</b> — they are too informal.']
+              ],
+              check: { q: 'Is “My paragraphs need more linking” exact?', a: 'No — which paragraphs, and which links? Exact: “Paragraph 3 has no linking phrases between the example and the result; add “As a result”.”' }
+            },
+            { type: 'do', n: 4, who: 'alone', text: 'Now use <b>your own</b> feedback. For each criterion, decide what <b>exactly</b> you did well and what <b>exactly</b> you could do better. Copy a short quote from the feedback. <b>Start with your 🟢 and 🔴 rows</b> — fill the 🟡 rows if you have time. No comment for a criterion? Read its top row in the rubric and choose the level you think you reached.' },
             {
               type: 'table',
               id: 'a2-t',
@@ -164,28 +227,21 @@ window.DEC15_LESSON = {
               columns: ['Criterion', 'What the feedback says (short quote)', 'What exactly I did well', 'What exactly I could do better'],
               fixed: ['Argumentation', 'Use of sources', 'Connection of ideas', 'Vocabulary', 'Grammar']
             },
-            {
-              type: 'model',
-              title: 'Example: exact, not general',
-              rows: [
-                ['Too general', 'I did well in sources.'],
-                ['Exact', 'I used <b>three sources</b> and always gave <b>the author and the year</b>, e.g. “Hassi and Storti (2012) argue that …”.'],
-                ['Too general', 'My grammar could be better.'],
-                ['Exact', 'In paragraph 2, <b>four sentences</b> had subject–verb agreement errors (“globalisation have”).']
-              ]
-            },
-            { type: 'do', n: 4, who: 'pair', text: '<b>Walk and talk (4 minutes).</b> Explain your table to a partner. Your partner asks “What exactly do you mean?” for every general answer.' },
+            { type: 'do', n: 5, who: 'pair', text: '<b>Walk and talk (4 minutes).</b> Explain your table to a partner. Your partner asks “What exactly do you mean?” for every general answer.' },
             {
               type: 'language',
               title: 'Explain your feedback to a classmate',
               groups: [
-                { label: 'Strengths', phrases: ['For <b>argumentation</b>, I did well because …', 'My teacher noticed that I …', 'What worked well was the way I …'] },
-                { label: 'Weaknesses', phrases: ['Where I lost marks was …', 'The comment on … shows that I need to …', 'I tend to … , so next time I will …'] },
-                { label: 'Asking for detail', phrases: ['What exactly do you mean by “better”?', 'Can you give me an example from your essay?', 'Which paragraph was that in?'] },
-                { label: 'Academic collocations', phrases: ['meet the criteria', 'address a weakness', 'develop an argument', 'support a claim with evidence', 'make a clear link'] }
+                { label: 'Strengths', phrases: ['For <b>argumentation</b>, I did well because …', 'What worked well was the way I …'] },
+                { label: 'Weaknesses', phrases: ['Where I lost marks was …', 'The comment on … shows that I need to …'] },
+                { label: 'Asking for detail', phrases: ['What exactly do you mean by “better”?', 'Can you give me an example from your essay?', 'Which paragraph was that in?'] }
               ]
             },
-            { type: 'tip', text: 'Still not sure what a comment means? Ask your teacher now — they are available to help during this activity.' }
+            { type: 'tip', text: 'Still not sure what a comment means? Ask your teacher now — they are available to help during this activity.' },
+            {
+              type: 'teacher',
+              text: '<b>Model the worked example on the board</b> before students start the table: take one real (anonymous) comment from this class and decode it together in the three steps. This is the step that helps students <i>appreciate</i> their feedback, so don’t skip it.<br><b>Traffic lights:</b> if a student marks everything 🔴, ask “Which <b>one</b> would raise your score the most?” If everything is 🟢, ask them to read the next level up in the rubric.<br><b>Monitor the table:</b> look for general answers and ask the partner question yourself: “What exactly? Where?”<br><b>Short on time?</b> Students fill only their 🟢 row and their two 🔴 rows; the rest can be homework.'
+            }
           ],
           answers: {
             title: 'Suggested answers',
@@ -203,6 +259,7 @@ window.DEC15_LESSON = {
           short: 'Action plan',
           minutes: 16,
           grouping: 'Alone → Pair',
+          category: 'Step 3 · Act',
           art: 'dec10/assets/week5/v/v-d10w5d3-a3.svg',
           title: 'Activity 3 Make an action plan',
           goal: 'Write exactly what you will do again — and exactly what you will do differently — in the group essay.',
@@ -223,6 +280,19 @@ window.DEC15_LESSON = {
               caption: 'Climb the ladder: the higher the step, the easier it is to act.'
             },
             {
+              type: 'rule',
+              title: 'An action = what + where + how I will check',
+              form: 'I will <b>[what]</b> in <b>[where]</b>, and I will check it by <b>[how]</b>.',
+              cols: ['General — nobody knows what to do', 'Specific — I can do it today'],
+              pairs: [
+                ['Improve my grammar.', 'I will <b>check that every sentence has a subject and a main verb</b> in my paragraph, and I will read it aloud before I share it.'],
+                ['Use more sources.', 'I will <b>use at least two sources</b> in my body paragraph, with the author and year, and I will tick each citation.'],
+                ['Make my essay flow.', 'I will <b>start each new sentence with old information</b> in my paragraph, and I will highlight one linking phrase between each two ideas.'],
+                ['Better vocabulary.', 'I will <b>replace “big”, “thing” and “a lot of”</b> with words from my Week 5 vocabulary list, and I will search my paragraph for them before I finish.']
+              ],
+              check: { q: 'Which part is missing: “I will put my position in the introduction.”?', a: '<b>Where exactly</b> (the last sentence of the introduction) and <b>how I will check</b> (e.g. my partner reads only the introduction and tells me my position).' }
+            },
+            {
               type: 'sort',
               id: 'a3-sort',
               title: 'Too general or specific?',
@@ -241,31 +311,13 @@ window.DEC15_LESSON = {
                 { text: 'Check every “-s” on verbs after he / she / it / globalisation.', answer: 1 }
               ]
             },
-            {
-              type: 'toggle',
-              title: 'Want more? From general to specific',
-              hint: 'Four examples of how to make an action specific.',
-              blocks: [
-                {
-                  type: 'pairs',
-                  title: 'From general to specific',
-                  hint: 'The highlighted words make each action specific.',
-                  items: [
-                    { from: 'Improve my grammar.', to: '[[Check that every sentence has a subject and a main verb]] before I share my paragraph.', tag: 'Grammar' },
-                    { from: 'Use more sources.', to: '[[Use at least two sources in each body paragraph]], with the author and year.', tag: 'Sources' },
-                    { from: 'Make my essay flow.', to: '[[Start each new sentence with old information]] and use one linking phrase between ideas.', tag: 'Connection' },
-                    { from: 'Better vocabulary.', to: '[[Replace “big”, “thing” and “a lot of”]] with words from my Week 5 vocabulary list.', tag: 'Vocabulary' }
-                  ]
-                }
-              ]
-            },
-            { type: 'do', n: 1, who: 'alone', text: 'Based on your answers to Questions 3 and 4 in Activity 2, write down:' },
+            { type: 'do', n: 1, who: 'alone', text: 'Based on your answers in Activity 2 (your table, and your 🟢 and 🔴 criteria), write down:' },
             {
               type: 'fields',
               title: 'My action plan for the group essay',
               fields: [
-                { id: 'a3-keep', label: 'Exactly what I am going to do again that I did well in my Week 4 Integrated Writing Practice Assessment', placeholder: 'I will again … (where? how?)', rows: 3 },
-                { id: 'a3-change', label: 'Exactly what I am going to do that I did not do well in my Week 4 Integrated Writing Practice Assessment', placeholder: 'This time I will … (what exactly? where? how will I check?)', rows: 4 }
+                { id: 'a3-keep', label: 'Exactly what I am going to do again that I did well in my Week 4 Integrated Writing Practice Assessment', placeholder: 'From my 🟢 row: I will again … (where? how?)', rows: 3 },
+                { id: 'a3-change', label: 'Exactly what I am going to do that I did not do well in my Week 4 Integrated Writing Practice Assessment', placeholder: 'From my 🔴 row: I will … in … , and I will check it by …', rows: 4 }
               ]
             },
             {
@@ -280,24 +332,26 @@ window.DEC15_LESSON = {
                 'I can do it in the next lesson (the group essay).'
               ]
             },
-            { type: 'do', n: 2, who: 'pair', text: 'Spin the wheel. Explain one part of your action plan to your partner in 30 seconds. Your partner says if it is specific enough.' },
+            { type: 'do', n: 2, who: 'alone', text: 'Make your <b>plan card</b>: your most important “change” action in one line. You show it to your group in the next lesson, and you check the group essay for it.' },
             {
-              type: 'spinner',
-              id: 'a3-spin',
-              title: 'Explain your plan',
-              text: 'Spin both reels. Use the criterion and the sentence starter.',
-              reels: [
-                { label: 'Criterion', items: ['Argumentation', 'Use of sources', 'Connection of ideas', 'Vocabulary', 'Grammar'] },
-                { label: 'Start with', items: ['One thing I will keep doing is …', 'This time, I am going to …', 'To check this, I will …', 'I lost marks because …, so …'] }
-              ]
+              type: 'fields',
+              fields: [{ id: 'a3-card', label: 'My plan card (one line)', placeholder: 'e.g. Every idea from a source has the author and year — I tick each one.', rows: 2 }]
             },
-            { type: 'tip', text: 'Keep your action plan open in the next lesson. When you write with your group, look at it after every paragraph.' }
+            { type: 'do', n: 3, who: 'pair', text: 'Read your plan card to a partner (30 seconds each). Your partner asks the three questions: <b>What exactly? Where? How will you check?</b> If you can’t answer one, improve your card.' },
+            { type: 'tip', text: 'Keep your plan card open in the next lesson. When you write with your group, look at it after every paragraph — in Activity 4 you check the whole essay for it.' },
+            {
+              type: 'teacher',
+              text: '<b>Present the rule on the board</b> (what + where + how I will check) with one ✗ → ✓ pair, then let pairs do the sort (2 minutes).<br><b>Plan cards:</b> cold-call 3–4 students to read theirs aloud. Write the best one on the board as a model. Check that each card names a place in the essay and a way to check it.<br><b>Short on time?</b> Skip the sort (the rule already shows the difference) and give students 5 minutes for the plan and the plan card.'
+            }
           ]
         }
       ]
     },
 
-    /* ───────────────────────── 8A ───────────────────────── */
+    /* ───────────────────────── 8A ─────────────────────────
+       v9.13: a plan of the workshop at the start; a quick position choice that leads to a structure; in Joint writing
+       each student reads only the toolkit for the part they write (introduction, body paragraph or conclusion) instead of
+       every support block at once; a word budget; the 7A plan cards come back in Activity 4 (guardian check). */
     {
       id: 'workshop',
       number: '02',
@@ -314,10 +368,23 @@ window.DEC15_LESSON = {
           short: 'Discuss',
           minutes: 8,
           grouping: 'Groups of 3–4',
+          category: 'Plan',
           art: 'dec10/assets/week5/v/v-d10w5d3-b1.svg',
           title: 'Answering the question · Activity 1 Discussion',
           goal: 'Agree on your group’s position — before anyone writes.',
           blocks: [
+            {
+              type: 'cards',
+              title: 'Today’s workshop in five steps',
+              numbered: true,
+              items: [
+                { label: 'Agree · 8 min', text: 'Share your notes. Agree on <b>one position</b>.' },
+                { label: 'Plan · 7 min', text: 'Choose a structure. Add notes and sources for each paragraph.' },
+                { label: 'Write · 60 min', text: 'Write the essay in pairs, one part each, in one shared document.' },
+                { label: 'Check · 10 min', text: 'Check your groupmates’ parts — and your 7A plan card.' },
+                { label: 'Compare · 20 min', text: 'Compare your essay with two sample essays.' }
+              ]
+            },
             { type: 'do', n: 1, who: 'group', text: 'You are going to work with a group (3 or 4 people) to write an essay (Integrated Writing) in response to this question:' },
             { type: 'question' },
             {
@@ -352,18 +419,28 @@ window.DEC15_LESSON = {
               ]
             },
             {
+              type: 'choose',
+              id: 'b1-side',
+              title: 'Which answer is closest to your group’s view?',
+              options: ['Yes — it is mainly negative', 'Not only negative — the impacts are mixed', 'Our own answer']
+            },
+            {
               type: 'language',
               title: 'Agree on a position as a group',
               groups: [
-                { label: 'Suggest', phrases: ['How about we argue that …?', 'What if our position is that globalisation is <b>mainly</b> / <b>not only</b> negative?', 'I’d suggest we focus on …'] },
+                { label: 'Suggest', phrases: ['How about we argue that …?', 'What if our position is that globalisation is <b>mainly</b> / <b>not only</b> negative?'] },
                 { label: 'Support with sources', phrases: ['Hassi and Storti (2012) talk about … , so …', 'The listening gave a good example of …', 'Crysell et al. (2023) would disagree, because …'] },
-                { label: 'Disagree politely', phrases: ['I see your point, but …', 'I’m not sure the sources support that.', 'That’s true for food and fashion, but what about values?'] },
-                { label: 'Reach agreement', phrases: ['So, are we all happy with …?', 'Can we agree on …?', 'Let’s go with … — it has the most evidence.', 'OK, our position is …'] }
+                { label: 'Disagree politely', phrases: ['I see your point, but …', 'I’m not sure the sources support that.'] },
+                { label: 'Reach agreement', phrases: ['Can we agree on …?', 'Let’s go with … — it has the most evidence.', 'OK, our position is …'] }
               ]
             },
             {
               type: 'fields',
               fields: [{ id: 'b1-pos', label: 'Our group’s position (one sentence)', placeholder: 'We think cultural globalisation is … because …', rows: 2 }]
+            },
+            {
+              type: 'teacher',
+              text: '<b>Run sheet for 8A (105 min):</b> Discuss 8 → Structure 7 → Write 60 (plan who writes what 5, write 45, join the parts 10) → Check 10 → Samples 10 → Summary 10. Keep the five steps on the board and point to the step you are on.<br><b>Activity 1:</b> 1 minute silent think (the scale), 5 minutes talk, 1 minute to write the position. Visit each group and ask the Chair to read the position aloud.<br><b>A group that can’t agree:</b> choose the side with the most evidence in their notes. The other side becomes the counterargument paragraph, so nobody’s ideas are lost.'
             }
           ]
         },
@@ -372,6 +449,7 @@ window.DEC15_LESSON = {
           short: 'Structure',
           minutes: 7,
           grouping: 'Groups of 3–4',
+          category: 'Plan',
           art: 'dec10/assets/week5/v/v-d10w5d3-b2.svg',
           title: 'Activity 2 Possible structures/planning',
           goal: 'Choose a structure and add notes for each main idea to a shared document.',
@@ -385,35 +463,41 @@ window.DEC15_LESSON = {
               caption: 'Structure 1 (disagree) and Structure 2 (agree).'
             },
             {
-              type: 'tabs',
-              title: 'The two structures',
-              tabs: [
-                {
-                  label: 'Structure 1 · Disagree',
-                  blocks: [{
-                    type: 'model',
-                    title: 'DISAGREE: Cultural globalisation <u>is not only having a negative</u> impact on culture (it’s not completely negative)',
-                    rows: [
-                      ['Paragraph 1', '(Counterargument- Negative Impact): Loss of unique culture'],
-                      ['Paragraph 2', '(Positive Impact): Blend of cultures=> innovation & new cult. IDs'],
-                      ['Paragraph 3', '(Not Negative Impacts): globalisation’s impacts are diverse & under-researched']
-                    ]
-                  }]
-                },
-                {
-                  label: 'Structure 2 · Agree',
-                  blocks: [{
-                    type: 'model',
-                    title: 'AGREE: Cultural globalisation <u>is having a negative</u> impact on culture',
-                    rows: [
-                      ['Paragraph 1', '(Negative Impact 1): One-sided influence /‘Americanisation’'],
-                      ['Paragraph 2', '(Negative Impact 2): loss of traditional culture/ “homogenisation”'],
-                      ['Paragraph 3', '(Counterargument- Positive Impact): blending different cultures=> innovation']
-                    ]
-                  }]
-                }
-              ]
+              type: 'toggle',
+              ref: true,
+              title: 'The two structures as text',
+              hint: 'The same two structures, easy to copy into your shared document.',
+              blocks: [{
+                type: 'tabs',
+                tabs: [
+                  {
+                    label: 'Structure 1 · Disagree',
+                    blocks: [{
+                      type: 'text',
+                      title: 'DISAGREE: Cultural globalisation <u>is not only having a negative</u> impact on culture (it’s not completely negative)',
+                      list: [
+                        '<b>Paragraph 1</b> (Counterargument- Negative Impact): Loss of unique culture',
+                        '<b>Paragraph 2</b> (Positive Impact): Blend of cultures=> innovation & new cult. IDs',
+                        '<b>Paragraph 3</b> (Not Negative Impacts): globalisation’s impacts are diverse & under-researched'
+                      ]
+                    }]
+                  },
+                  {
+                    label: 'Structure 2 · Agree',
+                    blocks: [{
+                      type: 'text',
+                      title: 'AGREE: Cultural globalisation <u>is having a negative</u> impact on culture',
+                      list: [
+                        '<b>Paragraph 1</b> (Negative Impact 1): One-sided influence /‘Americanisation’',
+                        '<b>Paragraph 2</b> (Negative Impact 2): loss of traditional culture/ “homogenisation”',
+                        '<b>Paragraph 3</b> (Counterargument- Positive Impact): blending different cultures=> innovation'
+                      ]
+                    }]
+                  }
+                ]
+              }]
             },
+            { type: 'tip', text: '<b>Quick choice:</b> your group said <b>mainly negative</b>? Start from <b>Structure 2</b>. <b>Not only negative</b>? Start from <b>Structure 1</b>. Both structures give the other side one paragraph (the counterargument) — that is where your devil’s advocate’s ideas go.' },
             { type: 'do', n: 2, who: 'group', text: 'With your group, choose a structure that best suits your own ideas. You can change the order of the ideas OR come up with your own structure using different main ideas if you like.' },
             { type: 'choose', id: 'b2-pick', title: 'Our structure', options: ['Structure 1 (Disagree)', 'Structure 2 (Agree)', 'Our own structure'] },
             { type: 'do', n: 3, who: 'group', text: 'Work together to add some notes for your group’s main ideas to a shared document.' },
@@ -432,7 +516,11 @@ window.DEC15_LESSON = {
                 { label: 'Answer it (refutation)', phrases: ['However, this view overlooks …', 'Although this may be true for …, …', 'This argument is weakened by the fact that …', 'Nevertheless, the evidence suggests that …'] }
               ]
             },
-            { type: 'tip', text: 'No shared document yet? One person makes a Google Doc, clicks <b>Share</b>, sets it to <b>Editor</b> for everyone in the group, and sends the link to the group and to your teacher. Help: <a href="https://support.google.com/a/users/answer/9300311?hl=en" target="_blank" rel="noopener">set up a Google Doc</a> · <a href="https://support.google.com/docs/thread/11414824/how-do-i-make-a-doc-editable?hl=en" target="_blank" rel="noopener">make a Doc editable</a>.' }
+            { type: 'tip', text: 'No shared document yet? One person makes a Google Doc, clicks <b>Share</b>, sets it to <b>Editor</b> for everyone in the group, and sends the link to the group and to your teacher. Help: <a href="https://support.google.com/a/users/answer/9300311?hl=en" target="_blank" rel="noopener">set up a Google Doc</a> · <a href="https://support.google.com/docs/thread/11414824/how-do-i-make-a-doc-editable?hl=en" target="_blank" rel="noopener">make a Doc editable</a>.' },
+            {
+              type: 'teacher',
+              text: 'Make the shared document <b>before</b> the planning starts (step 3) — groups lose minutes here. Ask each group to put the link in the class chat. A good plan has <b>one source or more in every row</b>; send a group with empty source cells back to their homework notes.'
+            }
           ]
         },
         {
@@ -440,6 +528,7 @@ window.DEC15_LESSON = {
           short: 'Write together',
           minutes: 60,
           grouping: 'Groups of 3–4',
+          category: 'Write',
           art: 'dec10/assets/week5/v/v-d10w5d3-b3.svg',
           title: 'Joint writing',
           goal: 'Write the whole essay together: 450–600 words, one clear idea per paragraph, with in-text references.',
@@ -449,7 +538,7 @@ window.DEC15_LESSON = {
               src: 'dec10/assets/week5/d3-joint-flow.svg',
               size: 'wide',
               alt: 'How to write one essay as a group in 70 minutes: plan who writes what (5 minutes), write paragraphs in pairs (45 minutes), read the whole essay and join the paragraphs (10 minutes), check and comment on groupmates’ sections (10 minutes).',
-              caption: 'One essay, one shared document, 70 minutes.'
+              caption: 'One essay, one shared document: writing (60 minutes) + checking (Activity 4, 10 minutes).'
             },
             {
               type: 'contract',
@@ -466,6 +555,16 @@ window.DEC15_LESSON = {
               ],
               signers: 4
             },
+            {
+              type: 'model',
+              title: 'Word budget: about 540 words',
+              rows: [
+                ['Introduction', 'about <b>80 words</b> · 3–4 sentences'],
+                ['Each body paragraph', 'about <b>130 words</b> · 6–8 sentences (× 3 = 390)'],
+                ['Conclusion', 'about <b>70 words</b> · 3 sentences']
+              ],
+              note: 'The task asks for 450–600 words. If every part keeps to its budget, the essay fits.'
+            },
             { type: 'do', n: 1, who: 'group', text: 'Now work together to write the essay.' },
             {
               type: 'checklist',
@@ -481,6 +580,50 @@ window.DEC15_LESSON = {
                 'Use your notes and think about how you will include the paraphrased information in your paragraph.',
                 'If you have time, look back at the sources to find the original information and check that you have represented the true meaning of the author.'
               ]
+            },
+            { type: 'tip', text: '<b>Read only the toolkit for your part</b> below — introduction, body paragraph or conclusion. You don’t need the others.' },
+            {
+              type: 'group',
+              label: 'Toolkit 1',
+              title: 'Writing the introduction?',
+              goal: 'Three moves: background → the issue → your position (the thesis). Then test your thesis.'
+            },
+            {
+              type: 'model',
+              title: 'The three moves of the introduction',
+              rows: [
+                ['1 · Background', 'What is cultural globalisation? One or two general sentences, with a source. <i>In today’s interconnected world, …</i>'],
+                ['2 · The issue', 'Why do people disagree about it? <i>While … , it also raises concerns about …</i>'],
+                ['3 · Position (thesis)', 'Your answer to the question, with your main reasons. <i>This essay argues that … because …</i>']
+              ]
+            },
+            {
+              type: 'detect',
+              id: 'b3-thesis',
+              title: 'Test your thesis statement',
+              hint: 'Paste or type your group’s thesis. The lights turn on when it has each part.',
+              checks: [
+                { label: 'Essay stance phrase', color: '#7a4a8c', any: ['this essay', 'essay argues', 'essay asserts', 'essay will', 'contend', 'challenge'] },
+                { label: 'Answers the question', color: '#3a58a0', any: ['negative', 'positive', 'impact', 'influence'] },
+                { label: 'Gives reasons', color: '#2f9a63', any: ['because', 'since', 'due to', 'which', 'as it', 'as they', 'as the'] }
+              ],
+              avoid: [{ label: 'Avoid “I think” in an essay', any: ['i think', 'i believe', 'in my opinion'] }],
+              items: [{ task: 'Our thesis statement (the last sentence(s) of the introduction)', rows: 3, placeholder: 'This essay argues that cultural globalisation … because …', model: 'This essay argues that cultural globalisation is mainly having a negative impact on culture, because it spreads one dominant culture and weakens local traditions.' }]
+            },
+            {
+              type: 'language',
+              title: 'Phrases for the introduction',
+              groups: [
+                { label: 'Background', phrases: ['In today’s interconnected world, …', '… refers to …'] },
+                { label: 'The issue', phrases: ['While … , it also raises concerns about …', 'However, many critics argue that …'] },
+                { label: 'Position', phrases: ['This essay argues / asserts that …', 'This essay will challenge the view that …'] }
+              ]
+            },
+            {
+              type: 'group',
+              label: 'Toolkit 2',
+              title: 'Writing a body paragraph?',
+              goal: 'One main idea, built in five parts. Tap each number in the picture.'
             },
             {
               type: 'hotspot',
@@ -500,6 +643,47 @@ window.DEC15_LESSON = {
               ]
             },
             {
+              type: 'language',
+              title: 'Phrases for a body paragraph',
+              groups: [
+                { label: 'Topic sentence', phrases: ['One major negative impact of … is …', 'Another reason why … is that …', 'One positive impact of … is that …'] },
+                { label: 'Reporting sources', phrases: ['Hassi and Storti (2012) argue that …', 'According to Van Krieken (2016), …', 'As Crysell et al. (2023) point out, …'] },
+                { label: 'Cause and effect', phrases: ['As a result, …', 'Consequently, …', '… which contributes to …', '… can lead to …'] },
+                { label: 'Careful claims (hedging)', phrases: ['… can / may lead to …', '… tends to …', 'It could be argued that …'] },
+                { label: 'The counterargument paragraph', phrases: ['On the other hand, many argue that …', 'However, this view overlooks …'] }
+              ]
+            },
+            {
+              type: 'group',
+              label: 'Toolkit 3',
+              title: 'Writing the conclusion?',
+              goal: 'Three moves: restate your position (new words) → sum up the main reasons → what should happen next.'
+            },
+            {
+              type: 'model',
+              title: 'The three moves of the conclusion',
+              rows: [
+                ['1 · Restate the position', 'Say your thesis again in <b>new words</b> — don’t copy the introduction. <i>In conclusion, this essay has argued that …</i>'],
+                ['2 · Sum up the reasons', 'One sentence that names the main ideas of the body paragraphs. No new evidence.'],
+                ['3 · Look forward', 'An implication or recommendation. <i>Rather than …, … is needed.</i> · <i>It is essential that …</i>']
+              ]
+            },
+            {
+              type: 'group',
+              label: 'Everyone',
+              title: 'Writing together',
+              goal: 'Negotiate your words with your writing partner, then keep a copy of the whole essay.'
+            },
+            {
+              type: 'language',
+              title: 'Write together — negotiate your words',
+              groups: [
+                { label: 'Suggest a change', phrases: ['What if we say “…” instead?', 'Shall we start this sentence with …?', 'I think “predominantly” sounds more academic than “mostly”.'] },
+                { label: 'Explain your choice', phrases: ['I chose this word because …', 'This link shows the reader that …', 'We need a source here — who said this?'] },
+                { label: 'Agree / move on', phrases: ['Good idea, let’s change it.', 'Let’s keep both and decide at the end.', 'OK, that paragraph is done. Next!'] }
+              ]
+            },
+            {
               type: 'fields',
               id: 'b3-essay',
               send: true,
@@ -515,41 +699,11 @@ window.DEC15_LESSON = {
                 { id: 'b3-concl', label: 'Conclusion', rows: 5, placeholder: 'Write here' }
               ]
             },
+            { type: 'tip', text: 'Write in English from the start — no translating and no AI. This is practice for the real Integrated Writing Assessment, where you write on your own.' },
             {
-              type: 'detect',
-              id: 'b3-thesis',
-              title: 'Test your thesis statement',
-              hint: 'Paste or type your group’s thesis. The lights turn on when it has each part.',
-              checks: [
-                { label: 'Essay stance phrase', color: '#7a4a8c', any: ['this essay', 'essay argues', 'essay asserts', 'essay will', 'contend', 'challenge'] },
-                { label: 'Answers the question', color: '#3a58a0', any: ['negative', 'positive', 'impact', 'influence'] },
-                { label: 'Gives reasons', color: '#2f9a63', any: ['because', 'since', 'due to', 'which', 'as it', 'as they', 'as the'] }
-              ],
-              avoid: [{ label: 'Avoid “I think” in an essay', any: ['i think', 'i believe', 'in my opinion'] }],
-              items: [{ task: 'Our thesis statement (the last sentence(s) of the introduction)', rows: 3, placeholder: 'This essay argues that cultural globalisation … because …', model: 'This essay argues that cultural globalisation is mainly having a negative impact on culture, because it spreads one dominant culture and weakens local traditions.' }]
-            },
-            {
-              type: 'language',
-              title: 'Academic language for your joint essay',
-              groups: [
-                { label: 'Introduction', phrases: ['In today’s interconnected world, …', '… refers to …', 'While … , it also raises concerns about …', 'This essay argues / asserts that …', 'This essay will challenge the view that …'] },
-                { label: 'Topic sentences', phrases: ['One major negative impact of … is …', 'Another reason why … is that …', 'A common criticism of globalisation is that …', 'One positive impact of … is that …'] },
-                { label: 'Reporting sources', phrases: ['Hassi and Storti (2012) argue that …', 'According to Van Krieken (2016), …', 'As Crysell et al. (2023) point out, …', '… (Hassi & Storti, 2012; Van Krieken, 2016).'] },
-                { label: 'Cause and effect', phrases: ['As a result, …', 'Consequently, …', '… which contributes to …', '… thus undermining …', '… can lead to …'] },
-                { label: 'Hedging (careful claims)', phrases: ['… can / may lead to …', '… tends to …', 'It could be argued that …', '… is likely to …', 'some / many (not all)'] },
-                { label: 'Conclusion', phrases: ['In conclusion, this essay has argued that …', 'In summary, …', 'Rather than …, … is needed.', 'It is essential that …'] }
-              ]
-            },
-            {
-              type: 'language',
-              title: 'Write together — negotiate your words',
-              groups: [
-                { label: 'Suggest a change', phrases: ['What if we say “…” instead?', 'Shall we start this sentence with …?', 'I think “predominantly” sounds more academic than “mostly”.'] },
-                { label: 'Explain your choice', phrases: ['I chose this word because …', 'This link shows the reader that …', 'We need a source here — who said this?'] },
-                { label: 'Agree / move on', phrases: ['Good idea, let’s change it.', 'Let’s keep both and decide at the end.', 'OK, that paragraph is done. Next!'] }
-              ]
-            },
-            { type: 'tip', text: 'Write in English from the start — no translating and no AI. This is practice for the real Integrated Writing Assessment, where you write on your own.' }
+              type: 'teacher',
+              text: '<b>Timing (60 min):</b> 5 min plan who writes what (the contract) → 45 min write → 10 min read the whole essay and join the parts. Call the time at <b>minute 20</b> (“Topic sentence and first source written?”), <b>minute 35</b> (“Example and so-what written?”) and <b>minute 50</b> (“Stop writing — read the whole essay together”).<br><b>The toolkits:</b> tell students to scroll only to their own toolkit. Pairs writing a body paragraph get the most support (Toolkit 2).<br><b>Monitor</b> in the shared documents: one comment per group on a source citation or a topic sentence is enough. Look for groups with an empty conclusion at minute 40 and move one fast writer onto it.'
+            }
           ]
         },
         {
@@ -557,11 +711,14 @@ window.DEC15_LESSON = {
           short: 'Check & comment',
           minutes: 10,
           grouping: 'Groups of 3–4',
+          category: 'Check',
           art: 'dec10/assets/week5/v/v-d10w5d3-b4.svg',
           title: 'Joint writing · Check your groupmates’ sections',
           goal: 'If you finish before your groupmates, check their sections and comment on possible improvements.',
           blocks: [
-            { type: 'do', n: 2, who: 'alone', text: 'If you finish before your groupmates, check their sections and comment on possible improvements. Use the comment tool in your shared document.' },
+            { type: 'do', n: 1, who: 'alone', text: 'If you finish before your groupmates, check their sections and comment on possible improvements. Use the comment tool in your shared document.' },
+            { type: 'do', n: 2, who: 'alone', text: '<b>Plan card check:</b> open your plan card from 7A. Read the <b>whole essay</b> for that one thing only, and add a comment wherever it is missing.' },
+            { type: 'recall', title: 'My plan card from 7A', ids: ['a3-card', 'a3-change'], empty: 'Empty — go back to 7A, Activity 3 and write your plan card first (one line).' },
             { type: 'do', n: 3, who: 'alone', text: 'Warm up your eyes: in this practice paragraph, tap the words that <b>link</b> the ideas (linking phrases and old–new links).' },
             {
               type: 'spot',
@@ -591,7 +748,7 @@ window.DEC15_LESSON = {
               title: 'Polite comments in a shared document',
               groups: [
                 { label: 'Praise first', phrases: ['Nice topic sentence — very clear!', 'Great use of Van Krieken here.', 'This example really supports the point.'] },
-                { label: 'Suggest', phrases: ['Maybe add a linking word here, e.g. “Consequently”?', 'Could we add the year after Hassi and Storti?', 'Does this sentence belong in paragraph 2?', 'Suggestion: “has led to” instead of “led to”?'] },
+                { label: 'Suggest', phrases: ['Maybe add a linking word here, e.g. “Consequently”?', 'Could we add the year after Hassi and Storti?', 'Does this sentence belong in paragraph 2?'] },
                 { label: 'Ask', phrases: ['Which source is this from?', 'What do you mean by “…”?', 'Is this too close to the original text?'] },
                 { label: 'Reply to a comment', phrases: ['Good catch, fixed!', 'Thanks — I changed it to …', 'I’m not sure — let’s ask the group.'] }
               ]
@@ -599,7 +756,11 @@ window.DEC15_LESSON = {
             {
               type: 'talk',
               title: 'Quick group check (2 minutes)',
-              prompts: ['Which paragraph is the strongest? Why?', 'Did you all use your action plans from 7A? Show one example.']
+              prompts: ['Which paragraph is the strongest? Why?', 'Did you all use your action plans from 7A? Each person shows one example from the essay.']
+            },
+            {
+              type: 'teacher',
+              text: 'The plan card check is where 7A pays off: students see their feedback <b>working</b> in a real essay. In the group check, ask 2–3 students to show the class one sentence they improved because of their plan card.<br><b>Short on time?</b> Skip the “Find the links” warm-up; keep the plan card check and the 2-minute group talk.'
             }
           ],
           answers: { title: 'Answers: the five links', items: [['Linking phrases', 'As a result · However · For example · Therefore'], ['Old–new link', 'This process (it points back to “hybridisation”)']] }
@@ -609,6 +770,7 @@ window.DEC15_LESSON = {
           short: 'Sample essays',
           minutes: 10,
           grouping: 'Pair (A + B)',
+          category: 'Compare',
           art: 'dec10/assets/week5/v/v-d10w5d3-b5.svg',
           title: 'Sample Essay Structure',
           goal: 'Skim a sample essay and match it to its structure.',
@@ -634,7 +796,11 @@ window.DEC15_LESSON = {
                 { q: 'Where does each writer put the counterargument?', options: ['Sample 5.1: last body paragraph · Sample 5.2: first body paragraph', 'Both put it in the introduction'], answer: 'Sample 5.1: last body paragraph · Sample 5.2: first body paragraph' }
               ]
             },
-            { type: 'talk', title: 'Tell your partner', prompts: ['Which words in the introduction told you the writer’s position?'] }
+            { type: 'talk', title: 'Tell your partner', prompts: ['Which words in the introduction told you the writer’s position?'] },
+            {
+              type: 'teacher',
+              text: '<b>Skim, don’t read:</b> give students 4 minutes and tell them to read only the introduction and the first sentence of each paragraph. That is enough to match the structure.'
+            }
           ],
           answers: { title: 'Answers', items: [['Sample 5.1', 'Structure 2'], ['Sample 5.2', 'Structure 1']] }
         },
@@ -643,6 +809,7 @@ window.DEC15_LESSON = {
           short: 'Summarise & compare',
           minutes: 10,
           grouping: 'Pair (A + B)',
+          category: 'Compare',
           art: 'dec10/assets/week5/v/v-d10w5d3-b6.svg',
           title: 'Summary/Comparison',
           goal: 'Summarise your sample without looking — then compare it with your group essay.',
@@ -1509,7 +1676,7 @@ window.DEC15_LESSON = {
               title: 'Sample prompts',
               tabs: [
                 { label: 'Role', blocks: [{ type: 'model', title: 'Role', text: 'Act as a friendly and helpful English tutor who explains things simply and clearly for someone learning academic writing at a B2 level.' }] },
-                { label: 'Task', blocks: [{ type: 'model', title: 'Task', text: 'Help me understand what my writing rubric means. Focus on four areas: Argumentation, Use of Sources, Connection of Ideas, Vocabulary and Grammar. Explain what I need to do to improve my writing and get a higher score.' }] },
+                { label: 'Task', blocks: [{ type: 'model', title: 'Task', text: 'Help me understand what my writing rubric means. Focus on the five criteria: Argumentation, Use of Sources, Connection of Ideas, Vocabulary, and Grammar. Explain what I need to do to improve my writing and get a higher score.' }] },
                 { label: 'Requirements', blocks: [{ type: 'model', title: 'Requirements', list: ['Use simple and clear language that is easy for a B2 student to understand.', 'Give examples to show what a good and not-so-good answer looks like for each area.', 'Share tips or advice to help me improve in these areas.', 'Explain any difficult words so I can learn as I go.'] }] },
                 { label: 'Instructions', blocks: [{ type: 'model', title: 'Instructions', list: ['Start by telling me what each part (like Argumentation) means and why it’s important in my writing.', 'Explain the difference between a strong answer and a weak one in that area.', 'Give me an example to show what a good answer looks like.', 'Share one or two tips to help me get better at that part.', 'End with one simple thing I can remember or practice.'] }] }
               ]

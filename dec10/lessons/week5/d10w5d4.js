@@ -408,8 +408,8 @@ window.DEC15_LESSON = {
               type: 'figure',
               src: 'dec10/assets/week5/d4-rubric.svg',
               size: 'wide',
-              alt: 'Four rubric cards: Argumentation (a target), Use of Sources (a book with quotation marks), Connection of Ideas (linked chain), and Vocabulary and Grammar (letters Aa with a tick). Each card has a strong side and a weak side.',
-              caption: 'The four areas of the Integrated Writing rubric.'
+              alt: 'Five rubric cards, each with an icon and a question: Argumentation (a target) — is my position clear, with strong reasons? Use of Sources (an open book) — do I use evidence from the sources, cited correctly? Connection of Ideas (linked chain) — do my sentences and paragraphs link clearly? Vocabulary (Aa) — are my words precise and academic? Grammar (lines with a tick) — are my sentences accurate and varied?',
+              caption: 'The five criteria of the Integrated Writing rubric.'
             },
             { type: 'do', n: 1, who: 'group', text: 'Take turns. Spin to choose <b>one criterion</b>. Explain it to your group in <b>2 minutes</b>. If you can, give an example of what meeting or <b>not</b> meeting it looks like in the integrated writing task.' },
             {
@@ -417,7 +417,7 @@ window.DEC15_LESSON = {
               id: 'b1-spin',
               title: 'Explain a criterion',
               reels: [
-                { label: 'Criterion', items: ['Argumentation', 'Use of Sources', 'Connection of Ideas', 'Vocabulary and Grammar'] },
+                { label: 'Criterion', items: ['Argumentation', 'Use of Sources', 'Connection of Ideas', 'Vocabulary', 'Grammar'] },
                 { label: 'Also give …', items: ['an example of meeting it', 'an example of failing to meet it', 'one tip for the next essay', 'one word from the rubric you had to check'] }
               ]
             },

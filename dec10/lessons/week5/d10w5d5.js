@@ -77,8 +77,8 @@ window.DEC15_LESSON = {
               type: "figure",
               src: "dec10/assets/week5/d5-rubric.svg",
               size: "wide",
-              alt: "Four rubric criteria for the Integrated Writing Assessment as four tiles: Argumentation (a target), Use of Sources (two books with a link), Connection of Ideas (chain links), Vocabulary and Grammar (an Aa letter tile).",
-              caption: "The four criteria of the Integrated Writing Assessment rubric (Week 5, AI for feedback lesson)."
+              alt: "Five rubric criteria for the Integrated Writing Assessment as five tiles: Argumentation (a target), Use of Sources (two books with a link), Connection of Ideas (chain links), Vocabulary (an Aa letter tile), Grammar (lines with a tick).",
+              caption: "The five criteria of the Integrated Writing Assessment rubric."
             },
             { type: "download", id: "iw-rubric", note: "The full rubric for Friday’s writing. Read the <b>76 or more</b> column for each criterion before the assessment, and note the two warnings about lifted text." },
             {
@@ -103,7 +103,7 @@ window.DEC15_LESSON = {
                   q: "In your essay, the ideas from the listening and the readings must be…",
                   options: ["copied exactly, without names","paraphrased and cited with author and year","left out — only your opinion counts"],
                   answer: "paraphrased and cited with author and year",
-                  why: "<b>Use of Sources</b> is one of the four criteria: e.g. <i>Van Krieken (2016) argues that …</i> or <i>(Hassi &amp; Storti, 2012)</i>."
+                  why: "<b>Use of Sources</b> is one of the five criteria: e.g. <i>Van Krieken (2016) argues that …</i> or <i>(Hassi &amp; Storti, 2012)</i>."
                 },
                 {
                   q: "How many times do you hear the listening, and how?",
@@ -118,10 +118,10 @@ window.DEC15_LESSON = {
                   why: "Cite <b>all</b> sources in APA 7 (in-text only) and show how they connect."
                 },
                 {
-                  q: "Which of these is NOT one of the four rubric criteria?",
+                  q: "Which of these is NOT one of the five rubric criteria?",
                   options: ["Argumentation","Use of Sources","Handwriting","Connection of Ideas"],
                   answer: "Handwriting",
-                  why: "The four criteria are Argumentation, Use of Sources, Connection of Ideas, and Vocabulary and Grammar."
+                  why: "The five criteria are Argumentation, Use of Sources, Connection of Ideas, Vocabulary and Grammar."
                 }
               ]
             },

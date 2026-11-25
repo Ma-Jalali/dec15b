@@ -242,6 +242,10 @@ B.text = b => `<section class="block doc-text" data-help>
   ${b.text ? `<p class="doc-p">${b.text}</p>` : ''}
   ${b.list ? (n => `<ol class="doc-list">${b.list.map(x => /^<b>.*<\/b>$/.test(x) ? `<li class="doc-sub">${x}</li>` : `<li value="${++n}">${x}</li>`).join('')}</ol>`)(0) : ''}
 </section>`;
+/* recall: show what the student already wrote in this lesson (read-only), e.g. a plan card from an earlier activity.
+   { type: 'recall', title?, ids: ['field-id', …], empty? } — the first id that has an answer is shown. */
+B.recall = b => { const v = (b.ids || []).map(id => String(val(id) || '').trim()).find(Boolean);
+  return `<section class="block doc-text recall">${b.title ? `<h4 class="doc-title">${esc(b.title)}</h4>` : ''}<p class="doc-p">${v ? esc(v).replace(/\n/g, '<br>') : `<i>${esc(b.empty || 'Nothing written yet.')}</i>`}</p></section>`; };
 B.model = b => `<section class="block model" data-help>
   <div class="block-label">${icon('model')}Model</div>
   <h3>${b.title || 'Example'}</h3>
