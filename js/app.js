@@ -1048,7 +1048,7 @@ const wsNotebookCount = () => coreActivities.filter(a => state.done[a.id]).lengt
 let navWeekOpen = (() => { try { const v = JSON.parse(localStorage.getItem(CLS.id + '-nav-week')); return typeof v === 'number' ? v : null; } catch (e) { return null; } })();
 let navRoute = 'home';
 /* ───────── Downloads (#/downloads) and the 'download' lesson block ─────────
-   course.downloads: [{ id, title, sub, kind, pages, size, tone, file, mirror?, thumbs: [page images], what, when: [..], how: [..], action?, howTitle? }]
+   course.downloads: [{ id, title, sub, kind, pages, size, tone, file, mirror?, thumbs: [page images], wide? (landscape pages), what, when: [..], how: [..], action?, howTitle? }]
    In a lesson: { type: 'download', id: 'feedback-tool', note? } — a card with the page previews and a Download button. */
 const dlFind = id => (DL || []).find(d => d.id === id);
 const dlName = d => d.file.split('/').pop();
@@ -1240,7 +1240,7 @@ function downloadsPage() {
   </header>
   <div class="dlx-list">${DL.map((d, n) => { const [c, bg] = DLX_TONE[d.tone] || DLX_TONE.blue, th = d.thumbs || [];
     return `<article class="dlx-item tone-${esc(d.tone || 'blue')}" id="dl-${esc(d.id)}" style="--dc:${c};--dbg:${bg};--i:${n}">
-    <div class="dlx-desk${th.length === 1 ? ' is-one' : ''}">
+    <div class="dlx-desk${th.length === 1 ? ' is-one' : ''}${d.wide ? ' is-wide' : ''}">
       ${th.map((t, i) => `<a class="dlx-thumb" href="${esc(d.file)}" target="_blank" rel="noopener" aria-label="Open page ${i + 1} of the ${esc(d.title)}" style="--k:${i};--n:${th.length}">${i === 0 ? '<svg class="dlx-clip" viewBox="0 0 20 52" aria-hidden="true"><path d="M6 46V10a6 6 0 0 1 12 0v32a9 9 0 0 1-18 0V14" fill="none" stroke="#8a97a2" stroke-width="2.4" stroke-linecap="round"/></svg>' : ''}<img src="${esc(t)}" alt="" loading="lazy" width="210" height="297"><span aria-hidden="true">Page ${i + 1}</span></a>`).join('')}
       <svg class="dlx-pen" viewBox="0 0 120 20" aria-hidden="true"><rect x="16" y="4" width="96" height="12" rx="6" fill="${c}"/><rect x="16" y="4" width="96" height="4" rx="2" fill="#fff" opacity=".3"/><rect x="88" y="3" width="8" height="14" rx="2" fill="#e3a843"/><path d="M16 4 2 10l14 6z" fill="#e8d9bd"/><path d="M6 8.3 2 10l4 1.7z" fill="#14293a"/></svg>
       <span class="dlx-file-badge"><b>PDF</b>${d.pages} page${d.pages === 1 ? '' : 's'} · ${esc(d.size)}</span>

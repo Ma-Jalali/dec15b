@@ -2172,6 +2172,11 @@ window.DEC15_LESSON = {
               ]
             },
             {
+              "type": "download",
+              "id": "iw-rubric",
+              "note": "Making judgements: read your essay with the rubric open. For each criterion, click the level that matches your essay best. Your weakest criterion goes first in your action plan below."
+            },
+            {
               "type": "sources",
               "ids": [
                 "s41"

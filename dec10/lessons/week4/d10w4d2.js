@@ -935,6 +935,7 @@ window.DEC15_LESSON = {
               ],
               note: "The criteria names from your writing rubric, in plain words. You get feedback on this practice assessment in Week 5."
             },
+            { type: "download", id: "iw-rubric", note: "The full rubric behind these five criteria. Read the <b>76 or more</b> column before you start writing." },
             {
               type: "toggle",
               title: "After you submit",

@@ -113,6 +113,7 @@ window.DEC15_LESSON = {
           goal: 'Link each comment to a criterion, then say exactly what you did well and what you could do better.',
           blocks: [
             { type: 'do', n: 1, who: 'alone', text: 'Go to the <b>Assessment Overview</b> on Canvas and review the rubric for the <b>Integrated Writing Assessment (IWA)</b>.' },
+            { type: 'download', id: 'iw-rubric', note: 'The IWA rubric is here too — the same rubric as on Canvas. Open it next to your feedback and click the level for each sub-criterion.' },
             {
               type: 'hotspot',
               src: 'dec10/assets/week5/d3-rubric-map.svg',
@@ -1495,6 +1496,7 @@ window.DEC15_LESSON = {
                 { who: 'alone', text: 'Write a prompt with the four key elements: Role, Task, Requirements, Instructions.' }
               ]
             },
+            { type: 'download', id: 'iw-rubric', note: 'This is the rubric file to give the AI. Copilot: attach the PDF. Cogniti: open the PDF, copy the text of one criterion and paste it into the chat.' },
             {
               type: 'figure',
               src: 'dec10/assets/week5/d3-prompt-parts.svg',

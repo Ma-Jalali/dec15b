@@ -178,6 +178,7 @@ window.DEC15_GUIDE = {
     ipRubric: 'https://canvas.sydney.edu.au/courses/76269/files/53414645?wrap=1',
     ipSlides: 'https://canvas.sydney.edu.au/courses/76269/assignments/715003',
     idRubric: 'https://canvas.sydney.edu.au/courses/76269/files/51675517?wrap=1',
+    iwRubric: 'dec10/downloads/DEC10-Integrated-Writing-Rubric.pdf',
     idRubricStudent: 'dec10/downloads/DEC10-Interactive-Discussion-Rubric-Student-Guide.pdf',
     idRubricTeacher: 'dec10/downloads/DEC10-Interactive-Discussion-Rubric-Teacher.pdf',
     assurance: 'https://canvas.sydney.edu.au/courses/76269/files/51675386?wrap=1',

@@ -80,6 +80,7 @@ window.DEC15_LESSON = {
               alt: "Four rubric criteria for the Integrated Writing Assessment as four tiles: Argumentation (a target), Use of Sources (two books with a link), Connection of Ideas (chain links), Vocabulary and Grammar (an Aa letter tile).",
               caption: "The four criteria of the Integrated Writing Assessment rubric (Week 5, AI for feedback lesson)."
             },
+            { type: "download", id: "iw-rubric", note: "The full rubric for Friday’s writing. Read the <b>76 or more</b> column for each criterion before the assessment, and note the two warnings about lifted text." },
             {
               type: "bet",
               id: "a1-bet",

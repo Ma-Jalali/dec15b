@@ -93,6 +93,7 @@ window.DEC15_LESSON = {
                 { label: "Concerns", phrases: ["<b>What I’m worried about is</b> …", "<b>I’m not sure how</b> … <b>Does anyone know?</b>", "<b>Could we ask the teacher whether</b> …?"] }
               ]
             },
+            { type: "download", id: "iw-rubric", note: "What skills do you need? The rubric tells you: <b>Argumentation</b>, <b>Use of Sources</b>, <b>Connection of Ideas</b>, <b>Vocabulary</b> and <b>Grammar</b>. Read the top row of each criterion before Tuesday’s practice assessment." },
             {
               type: "fields",
               fields: [{ id: "a1-q", label: "My question or concern about the IWA (ask your teacher)", rows: 2, placeholder: "I’m not sure how many sources I need to use …" }]
