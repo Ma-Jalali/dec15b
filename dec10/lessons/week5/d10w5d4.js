@@ -403,6 +403,7 @@ window.DEC15_LESSON = {
           goal: 'Explain one criterion of the Integrated Writing Assessment rubric to your group in 2 minutes.',
           blocks: [
             { type: 'tip', text: 'For this lesson you need the <b>Integrated Writing Assessment rubric</b> and your <b>Week 4 writing practice script</b>. Open them now.' },
+            { type: 'download', id: 'iw-rubric', note: 'Open the rubric now. Explain your criterion using its words — the top row of each criterion is the best place to start.' },
             {
               type: 'figure',
               src: 'dec10/assets/week5/d4-rubric.svg',

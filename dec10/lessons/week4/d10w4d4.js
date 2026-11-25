@@ -42,6 +42,7 @@ window.DEC15_LESSON = {
           goal: "Find nominalisation in the rubric and say what you already know about it.",
           blocks: [
             {"type":"do","n":1,"who":"alone","text":"Open the <b>IWA writing rubric</b>. Find the <b>Grammar</b> criterion. Find the word <b>nominalisation</b>."},
+            {"type":"download","id":"iw-rubric","note":"Page 3 · <b>Grammar</b> → <b>Grammar Range</b>. Read the row from left to right: what happens to nominalisation as the level goes up?"},
             {"type":"do","n":2,"who":"pair","text":"Tell your partner everything you know about nominalisation in <b>one minute</b>. Then swap."},
             {
               type: "flip",

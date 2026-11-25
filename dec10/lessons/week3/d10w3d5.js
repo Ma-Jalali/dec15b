@@ -2957,6 +2957,7 @@ window.DEC15_LESSON = {
           goal: "Find out what the IWA asks you to do.",
           blocks: [
             {"type":"do","n":1,"who":"alone","text":"Go to the <b>Assessment Overview</b> page on Canvas and find the <b>Integrated Writing Task</b> description. Read through the information."},
+            {"type":"download","id":"iw-rubric","note":"This is the rubric your teachers use to mark the IWA: five criteria, seven levels each. Download it now and keep it in your DEC10 folder — you use it in Weeks 4 and 5."},
             {
               type: "fields",
               fields: [

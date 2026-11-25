@@ -1481,6 +1481,7 @@ window.DEC15_LESSON = {
                 "Write <b>450–600 words</b>."
               ]
             },
+            { type: "download", id: "iw-rubric", note: "Keep the rubric open while you plan. <b>Argumentation</b> and <b>Use of Sources</b> (page 1) tell you what a strong plan needs: a clear position and ideas synthesised from all your sources." },
             { type: "question" },
             {
               type: "figure",
